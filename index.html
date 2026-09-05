@@ -37,6 +37,10 @@
 .face b{display:block;font-size:.95rem}
 .face span{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;color:var(--dim)}
 .take{font-family:"Fraunces",serif;font-size:1.15rem;line-height:1.45}
+.take.small{font-size:1rem}
+.edition.mini{justify-content:center}
+.mascot{margin-top:16px;font-size:.66rem;letter-spacing:.1em;color:var(--dim)}
+.mascot b{color:var(--ink)}
 .take a{color:var(--teal);border-bottom:1px solid rgba(55,211,192,.4)}
 .filter-row{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
 .fbtn{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);background:transparent;color:var(--dim);border-radius:999px;padding:8px 16px;cursor:pointer}
@@ -120,20 +124,19 @@
 
 <div class="masthead">
   <div>
-    <p class="dateline">A FRIENDLY FIELD GUIDE TO ONE-SIDED RELATIONSHIPS — DOWNERS GROVE → AUSTRALIA</p>
+    <p class="dateline">ONE-SIDED RELATIONSHIPS, NOTED KINDLY — REFRESHED EVERY 4 HOURS</p>
     <h1>One-way connection, <em>fully human.</em></h1>
-    <p class="dek">I keep track of the <strong>parasocial stuff we all feel</strong> — idol news, AI companions, characters you live with, creators who feel like friends — fiction <strong>and</strong> real life. Refreshed through the week by <strong>Enan Joe Heneghan</strong>, novelist, teacher, and longtime student of how we attach.</p>
+    <p class="dek">Fresh parasocial stories from across the net — idols, AI companions, characters, creators — each paired with a short take.</p>
     <div class="hero-ctas" style="margin-top:22px">
-      <a class="btn btn-solid" href="#signal">Get the Friday Signal — free</a>
-      <a class="btn btn-ghost" href="#radar">Browse this week's Radar ↓</a>
+      <a class="btn btn-solid" href="#radar">Fresh stories ↓</a>
+      <a class="btn btn-ghost" href="#signal">Free Friday email</a>
     </div>
-    <p class="mono" style="margin-top:14px;font-size:.62rem;letter-spacing:.16em;color:var(--dim)">START WITH THE RADAR · STAY FOR THE FRIDAY SIGNAL · GO DEEPER IN CASE FILES</p>
+    <p class="mono mascot">🎈 Kept by <b>Enan Joe Heneghan</b> — video-store clerk turned teacher · <a href="#studio" style="color:var(--teal)">my shelf →</a></p>
   </div>
-  <aside class="edition">
-    <p class="mono" style="font-size:.62rem;letter-spacing:.2em;color:var(--accent)">FROM ENAN · YOUR HOST</p>
-    <div class="face"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize show art"><div><b>Enan Joe Heneghan</b><span>VIDEO STORES → M.A. → CLASSROOM · NOW IN AUSTRALIA</span></div></div>
-    <p class="take">“I spent years handing you VHS tapes and learning your taste. That was parasocial before the feed — and I loved it. Now I write about it — <a href="#cases">starting with Pennywise.</a>”</p>
-    <a class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--teal)" href="#studio">WHY I LOVE THIS BEAT →</a>
+  <aside class="edition mini">
+    <p class="mono" style="font-size:.62rem;letter-spacing:.2em;color:var(--accent)">WHY TRUST THIS?</p>
+    <p class="take small">“I spent years recommending tapes to strangers and remembering what they loved. Now I track the same feeling everywhere it shows up.”</p>
+    <a class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--teal)" href="#cases">HOW I READ THESE →</a>
   </aside>
 </div>
 
@@ -141,8 +144,8 @@
 
 <main>
 <section id="radar" class="section">
-  <p class="mono kicker">01 · FRESH THIS WEEK — THE RADAR</p>
-  <div class="sec-head"><h2 class="serif">New stories, gentle lens.</h2><p class="sec-lede">Each card pairs an <strong>outside story worth reading</strong> with my short take. Refreshed every 4 hours; resonant stories linger. Some links help support the site, and I'll always mark them.</p></div>
+  <p class="mono kicker">01 · FRESH <span id="freshPill" class="mono" style="color:var(--gold)">· CHECKING…</span></p>
+  <div class="sec-head"><h2 class="serif">Fresh stories, short takes.</h2><p class="sec-lede">An outside story worth reading, paired with my take. Strong stories linger.</p></div>
   <div class="filter-row" role="group" aria-label="Filter Radar">
     <button class="fbtn active" data-f="all" aria-pressed="true">All</button><button class="fbtn" data-f="nonfic" aria-pressed="false">Non-fiction</button><button class="fbtn" data-f="fic" aria-pressed="false">Fiction</button><button class="fbtn" data-f="ai" aria-pressed="false">AI Companions</button><button class="fbtn" data-f="creator" aria-pressed="false">Creators</button>
   </div>
@@ -150,18 +153,22 @@
   <p class="mono" style="font-size:.6rem;letter-spacing:.16em;color:var(--dim)">NEW HERE? START WITH ALL, THEN TRY A FILTER · <a href="radar.xml" style="color:var(--gold)">RSS →</a></p>
   <!-- Builder note: /radar/*.md → radar.json → this grid. Add a .md, run tools/build_radar.py, upload. -->
   <div class="radar-grid" id="radarGrid">
-    <article class="story" data-cat="nonfic character creator"><div class="art"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="Living with Pennywise video thumbnail" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">CHARACTER</span></div><h3>Living with Pennywise: when horror feels like a roommate</h3><p>Why horror icons move in and stay a while — my video plus some gentle context on fandom and attachment.</p><div class="meta src"><span>SOURCE</span><a href="https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/" target="_blank" rel="noopener">Vice — when fandom becomes fixation ↗</a></div><div class="meter"><i style="width:92%"></i></div><div class="meta"><span>INTENSITY 9.2 · 6 MIN</span><a href="#cases">MY TAKE →</a></div></div></article>
-    <article class="story" data-cat="nonfic idol"><div class="art"><img src="img/videos/insight-co.jpg" alt="The Insight Company series artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">IDOL</span></div><h3>The idol economy: when closeness is the product</h3><p>From arena tours to paid message apps — what it feels like when closeness itself is for sale, and how to enjoy it kindly.</p><div class="meta src"><span>SOURCE</span><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave — The Friend You Pay For ↗</a></div><div class="meta src"><span>ALSO</span><a href="https://www.nngroup.com/articles/kpop-private-messaging" target="_blank" rel="noopener">NNGroup — illusion of private messaging ↗</a></div><div class="meter"><i style="width:88%"></i></div><div class="meta"><span>INTENSITY 8.8 · 4 MIN</span><a href="#signal">MY TAKE →</a></div></div></article>
-    <article class="story" data-cat="fic ai companion"><div class="art"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens ai">AI</span><span class="lens fic">FICTION + REAL LIFE</span></div><h3>When your AI companion changes overnight</h3><p>Product updates, lost memories, real grief. A fictional lens on a very real feeling — with some grounding context.</p><div class="meta src"><span>SOURCE</span><a href="https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026" target="_blank" rel="noopener">ExplainX — Replika, Character.AI and AI grief ↗</a></div><div class="meta src"><span>ALSO</span><a href="https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection" target="_blank" rel="noopener">APA 2026 Trends ↗</a></div><div class="meter"><i style="width:95%"></i></div><div class="meta"><span>INTENSITY 9.5 · 8 MIN</span><a href="#cases">MY TAKE →</a></div></div></article>
-    <article class="story" data-cat="fic universe"><div class="art"><img src="img/books/company-dreamer.jpg" alt="Company Dreamer book cover" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens fic">FICTION</span><span class="lens">UNIVERSE</span></div><h3>Company Dreamer: the dream-recording industry</h3><p>My novel as a friendly parable — who holds the dream you end up living in? <em>Browse + review.</em></p><div class="meta src"><span>SHELF-MATE</span><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever — Understanding Parasocial Relationships (2026) ↗</a></div><div class="meter"><i style="width:78%"></i></div><div class="meta"><span>FROM MY SHELF · AMAZON ↗</span><a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener">BROWSE →</a></div></div></article>
-    <article class="story" data-cat="nonfic creator"><div class="art"><img src="img/videos/old-school.jpg" alt="Old School playlist artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">CREATOR</span></div><h3>Streamers who feel like they know you</h3><p>Shout-outs, raids, kind mods — the video-store-regular feeling, scaled up to thousands. I find this one sweet and strange.</p><div class="meta src"><span>SOURCE</span><a href="https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/" target="_blank" rel="noopener">NetPsychology — why we feel close to streamers ↗</a></div><div class="meter"><i style="width:82%"></i></div><div class="meta"><span>INTENSITY 8.2 · 5 MIN</span><a href="#index">MY TAKE →</a></div></div></article>
-    <article class="story" data-cat="fic nonfic universe"><div class="art"><img src="img/books/dreamarched.jpg" alt="Dreamarched book cover" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens fic">FICTION</span><span class="lens">UNIVERSE</span></div><h3>Dreamarched + Regulated Brightness: the sleep shelf</h3><p>More from the sleep canon — poems as small manuals for big attachments.</p><div class="meta src"><span>SHELF-MATE</span><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Professor — 15 examples ↗</a></div><div class="meter"><i style="width:71%"></i></div><div class="meta"><span>FROM MY SHELF · LULU + AMAZON</span><a href="#studio">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="nonfic character creator"><div class="art"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="Living with Pennywise video thumbnail" loading="lazy"></div><div class="body"><h3>Living with Pennywise: when horror feels like a roommate</h3><p>Why horror icons move in — my video plus context on fandom and attachment.</p><div class="meta src"><a href="https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/" target="_blank" rel="noopener">Vice ↗</a><a href="#cases">My take →</a></div></div></article>
+    <article class="story" data-cat="nonfic idol"><div class="art"><img src="img/videos/insight-co.jpg" alt="The Insight Company series artwork" loading="lazy"></div><div class="body"><h3>The idol economy: when closeness is the product</h3><p>Paid message apps and what closeness-for-sale feels like.</p><div class="meta src"><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave ↗</a><a href="#signal">My take →</a></div></div></article>
+    <article class="story" data-cat="fic ai companion"><div class="art"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast artwork" loading="lazy"></div><div class="body"><h3>When your AI companion changes overnight</h3><p>Updates, lost memories, real grief — with grounding context.</p><div class="meta src"><a href="https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026" target="_blank" rel="noopener">ExplainX ↗</a><a href="#cases">My take →</a></div></div></article>
+    <article class="story" data-cat="fic universe"><div class="art"><img src="img/books/company-dreamer.jpg" alt="Company Dreamer book cover" loading="lazy"></div><div class="body"><h3>Company Dreamer: the dream-recording industry</h3><p>My novel as a friendly parable about who holds shared dreams.</p><div class="meta src"><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever (2026) ↗</a><a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener">Book ↗</a></div></div></article>
+    <article class="story" data-cat="nonfic creator"><div class="art"><img src="img/videos/old-school.jpg" alt="Old School playlist artwork" loading="lazy"></div><div class="body"><h3>Streamers who feel like they know you</h3><p>The video-store-regular feeling, scaled to thousands.</p><div class="meta src"><a href="https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/" target="_blank" rel="noopener">NetPsychology ↗</a><a href="#index">My take →</a></div></div></article>
+    <article class="story" data-cat="fic nonfic universe"><div class="art"><img src="img/books/dreamarched.jpg" alt="Dreamarched book cover" loading="lazy"></div><div class="body"><h3>Dreamarched + Regulated Brightness</h3><p>More sleep canon — poems as manuals for big attachments.</p><div class="meta src"><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Prof ↗</a><a href="#studio">My take →</a></div></div></article>
+  </div>
+  <div id="incoming" style="margin-top:34px">
+    <p class="mono kicker">INCOMING · FOUND BY THE SWEEPER · TAKES PENDING</p>
+    <div class="radar-grid" id="incomingGrid"><p class="mono" style="font-size:.66rem;color:var(--dim)">Checking the net…</p></div>
   </div>
 </section>
 
 <section id="index" class="section" style="padding-top:0">
   <p class="mono kicker">02 · THE WEEK'S RANKING — INDEX TOP 5</p>
-  <div class="sec-head"><h2 class="serif">What we're attached to this week.</h2><p class="sec-lede">Five things people felt strongly about — handy for screenshots and friendly debates. Refreshed Fridays. <span id="indexWeek" class="mono" style="font-size:.62rem;color:var(--gold)">WEEK 2026-W37</span> · <button id="indexCopy" class="fbtn" style="margin-left:8px">Copy Top 5 as text</button></p></div>
+  <div class="sec-head"><h2 class="serif">What we're attached to this week.</h2><p class="sec-lede">Five strong feelings, ranked Fridays. <span id="indexWeek" class="mono" style="font-size:.62rem;color:var(--gold)">WEEK 2026-W37</span> · <button id="indexCopy" class="fbtn" style="margin-left:8px">Copy as text</button></p></div>
   <div class="index-wrap">
     <div class="index-table" id="indexTable">
       <div class="index-row"><span class="rank top">01</span><span><b>AI companions changing fast</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI · LOTS OF CHATTER · BIG FEELINGS, KINDLY UNPACKED</span></span><span class="move up">▲2</span></div>
@@ -176,7 +183,7 @@
 
 <section id="cases" class="section" style="padding-top:0">
   <p class="mono kicker">03 · GO DEEPER — CASE FILES</p>
-  <div class="sec-head"><h2 class="serif">Longer notes from someone who loves this stuff.</h2><p class="sec-lede">Monthly essays mixing video-store memories, classroom notes, old books I love, and my own fiction. A short teaser is always free — members get the full piece plus audio.</p></div>
+  <div class="sec-head"><h2 class="serif">Longer notes from someone who loves this stuff.</h2><p class="sec-lede">Monthly essays. Teasers free — essentials in the <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12)</a>.</p></div>
   <div class="case-grid" id="caseGrid">
     <article class="card case"><h3 class="serif">File 001: The Binding of Margery Kempe → Binding of Stans</h3><p style="color:var(--dim);font-size:.88rem">An old essay I love, reread through today's fandom rituals.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">The essentials live in the <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12)</a></div></article>
     <article class="card case"><h3 class="serif">File 002: Blockbuster Knew Your Name</h3><p style="color:var(--dim);font-size:.88rem">What video-store regulars taught me about recommendations with a human touch.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">The essentials live in the <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12)</a></div></article>
@@ -232,6 +239,7 @@
 <script src="js/main.js"></script>
 <script src="js/radar.js" defer></script>
 <script src="js/ticker.js" defer></script>
+<script src="js/incoming.js" defer></script>
 <script src="js/cases.js" defer></script>
 <script src="js/index.js" defer></script>
 <script>
