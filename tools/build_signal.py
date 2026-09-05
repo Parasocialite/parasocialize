@@ -17,11 +17,11 @@ top = sorted(radar, key=lambda d: float(d.get("intensity",0)), reverse=True)[:4]
 studio = next((d for d in radar if d.get("affiliate")), radar[-1])
 picks = top[:3] + [studio] + top[3:4]
 rows = "\n".join(
-  f'''<tr><td style="padding:14px 0;border-bottom:1px solid #222020;">
-  <p style="margin:0;font-family:monospace;font-size:11px;letter-spacing:2px;color:#b71c1c;">{d.get("type","").upper()} · INTENSITY {d.get("intensity")} · {d.get("read_minutes")} MIN</p>
-  <h3 style="margin:6px 0;font-family:Georgia,serif;font-size:20px;color:#111;">{d.get("emoji","")} {d.get("title","")}</h3>
+  ((lambda u: f'''<tr><td style="padding:14px 0;border-bottom:1px solid #222020;">
+  <p style="margin:0;font-family:monospace;font-size:11px;letter-spacing:2px;color:#b71c1c;">{d.get("type","").upper()} · {d.get("read_minutes")} MIN</p>
+  <h3 style="margin:6px 0;font-family:Georgia,serif;font-size:20px;color:#111;">{d.get("title","")}</h3>
   <p style="margin:0;color:#444;font-size:14px;">{d.get("dek","")}</p>
-  <p style="margin:8px 0 0;"><a href="{d.get("link","#")}" style="color:#b71c1c;font-size:13px;">{d.get("link_label","READ →")}</a></p></td></tr>'''
+  <p style="margin:8px 0 0;"><a href="{u}" style="color:#b71c1c;font-size:13px;">{d.get("link_label","READ →")}</a></p></td></tr>''')("https://www.parasocialize.com/" + str(d.get("link","#")).lstrip("#") if str(d.get("link","#")).startswith("radar/") else d.get("link","#")))
   for d in picks)
 case = cases[0]
 index_rows = ""

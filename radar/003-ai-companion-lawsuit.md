@@ -14,8 +14,8 @@ source_name: "ExplainX — Replika, Character.AI and AI grief"
 source_url: "https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026"
 source2_name: "APA 2026 Trends — AI reshaping connection"
 source2_url: "https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection"
-link: "#cases"
-link_label: "MY TAKE →"
+link: "radar/ai-companion-lawsuit.html"
+link_label: "Story →"
 ---
 
 Fastest-growing lens. Track Replika/Character.AI updates, memory-wipe backlashes, lawsuits.

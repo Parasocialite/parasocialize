@@ -11,8 +11,8 @@ image_alt: "Abstract mask motif for character attachment"
 dek: "Shipping, kinning, comfort watches — a clear tour of how fictional bonds work."
 source_name: "Helpful Professor — 15 examples"
 source_url: "https://helpfulprofessor.com/parasocial-relationships-examples/"
-link: "#signal"
-link_label: "My take →"
+link: "radar/characters-we-keep.html"
+link_label: "Story →"
 ---
 
 Bookmark-grade explainer. Pair with the Pennywise card for horror-specific attachment.

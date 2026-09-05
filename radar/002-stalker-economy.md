@@ -13,8 +13,8 @@ source_name: "KpopWave — The Friend You Pay For"
 source_url: "https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/"
 source2_name: "NNGroup — the illusion of private messaging"
 source2_url: "https://www.nngroup.com/articles/kpop-private-messaging"
-link: "#signal"
-link_label: "MY TAKE →"
+link: "radar/stalker-economy-idols.html"
+link_label: "Story →"
 ---
 
 Pay-per-intimacy, paid DMs, lottery handshakes. Non-fiction beat with revenue angle.

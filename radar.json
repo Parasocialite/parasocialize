@@ -17,9 +17,9 @@
     "dek": "Shout-outs, raids, kind mods \u2014 the video-store-regular feeling, scaled up to thousands.",
     "source_name": "NetPsychology \u2014 why we feel close to streamers",
     "source_url": "https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/",
-    "link": "#index",
-    "link_label": "MY TAKE \u2192",
-    "resonance": 84.0,
+    "link": "radar/streamers-know-your-name.html",
+    "link_label": "Story \u2192",
+    "resonance": 81.0,
     "state": "FLASHING",
     "last_seen": "2026-09-05"
   },
@@ -43,9 +43,9 @@
     "source_url": "https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026",
     "source2_name": "APA 2026 Trends \u2014 AI reshaping connection",
     "source2_url": "https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection",
-    "link": "#cases",
-    "link_label": "MY TAKE \u2192",
-    "resonance": 97.0,
+    "link": "radar/ai-companion-lawsuit.html",
+    "link_label": "Story \u2192",
+    "resonance": 94.0,
     "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
@@ -65,9 +65,9 @@
     "dek": "Why horror icons move in and stay a while \u2014 my video plus some gentle context on fandom and attachment.",
     "source_name": "Vice \u2014 when fandom becomes fixation",
     "source_url": "https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/",
-    "link": "#cases",
-    "link_label": "MY TAKE \u2192",
-    "resonance": 94.0,
+    "link": "radar/living-with-pennywise.html",
+    "link_label": "Story \u2192",
+    "resonance": 91.0,
     "state": "LINGERING",
     "last_seen": "2026-09-05"
   },
@@ -88,9 +88,9 @@
     "source_url": "https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/",
     "source2_name": "NNGroup \u2014 the illusion of private messaging",
     "source2_url": "https://www.nngroup.com/articles/kpop-private-messaging",
-    "link": "#signal",
-    "link_label": "MY TAKE \u2192",
-    "resonance": 94.0,
+    "link": "radar/stalker-economy-idols.html",
+    "link_label": "Story \u2192",
+    "resonance": 91.0,
     "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
@@ -109,8 +109,8 @@
     "dek": "Shipping, kinning, comfort watches \u2014 a clear tour of how fictional bonds work.",
     "source_name": "Helpful Professor \u2014 15 examples",
     "source_url": "https://helpfulprofessor.com/parasocial-relationships-examples/",
-    "link": "#signal",
-    "link_label": "My take \u2192"
+    "link": "radar/characters-we-keep.html",
+    "link_label": "Story \u2192"
   },
   {
     "slug": "research-shelf",
@@ -129,7 +129,7 @@
     "source_url": "https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/",
     "source2_name": "APA 2026 Trends \u2014 AI reshaping connection",
     "source2_url": "https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection",
-    "link": "#signal",
-    "link_label": "My take \u2192"
+    "link": "radar/research-shelf.html",
+    "link_label": "Story \u2192"
   }
 ]

@@ -12,8 +12,8 @@ image_alt: "Play-in-chat motif for streamer closeness"
 dek: "Shout-outs, raids, kind mods — the video-store-regular feeling, scaled up to thousands."
 source_name: "NetPsychology — why we feel close to streamers"
 source_url: "https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/"
-link: "#index"
-link_label: "MY TAKE →"
+link: "radar/streamers-know-your-name.html"
+link_label: "Story →"
 ---
 
 Enan memoir hook: 3 states of Blockbuster vs modern mod culture. Strong newsletter driver.

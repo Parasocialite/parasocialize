@@ -143,7 +143,7 @@ def main():
                 "type":"non-fiction","lenses":[lens],"tags":["ai"] if lens=="companion" else [],
                 "intensity":base,"read_minutes":3,"image":ART.get(lens,"img/art/universe.svg"),
                 "image_alt":f"{lens} motif",
-                "link":"#signal","link_label":"Take pending",
+                "link":f"radar/{slug}.html","link_label":"Story →",
                 "source_url":outlet,"source_name":src_name or "Source"}
             by_slug[slug] = entry
             known_titles.append(t)

@@ -12,7 +12,7 @@
         <h3 class="serif">${esc(c.title)}</h3>
         <p style="color:var(--dim);font-size:.88rem">${esc(c.teaser)}</p>
         <span class="mono buy">READ FREE TEASER →</span>
-        <div class="lock">${esc(c.unlock)} — <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12) →</a></div>
+        <div class="lock"><a href="cases/${esc(c.slug)}.html" style="color:var(--gold)">Read file →</a> · ${esc(c.unlock)} — <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12) →</a></div>
       </article>`).join('');
   }).catch(()=>{});
 })();

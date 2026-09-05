@@ -13,8 +13,8 @@ source_name: "Stever — Understanding Parasocial Relationships (2026)"
 source_url: "https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/"
 source2_name: "APA 2026 Trends — AI reshaping connection"
 source2_url: "https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection"
-link: "#signal"
-link_label: "My take →"
+link: "radar/research-shelf.html"
+link_label: "Story →"
 ---
 
 Associative shelf, not news. Keeps the hub credible without pretending to be a journal.

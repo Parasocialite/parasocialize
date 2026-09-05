@@ -11,8 +11,8 @@ image_alt: "Living with Pennywise video thumbnail"
 dek: "Why horror icons move in and stay a while — my video plus some gentle context on fandom and attachment."
 source_name: "Vice — when fandom becomes fixation"
 source_url: "https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/"
-link: "#cases"
-link_label: "MY TAKE →"
+link: "radar/living-with-pennywise.html"
+link_label: "Story →"
 ---
 
 Enan's video + clinical take. Horror cohabitation TikToks as parasocial case study.
