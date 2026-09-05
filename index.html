@@ -56,6 +56,14 @@
 .story .meta a{color:#b71c1c;font-weight:500}
 .story .meta.src{border-top:1px dashed rgba(0,0,0,.15);padding-top:8px}
 .story .meta.src a{color:#1a5c4d}
+.lead{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:var(--paper);color:var(--paperink);border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.2);margin-bottom:22px}
+.lead .art{min-height:300px}
+.lead .art img{width:100%;height:100%;object-fit:cover;display:block}
+.lead .body{padding:30px;display:flex;flex-direction:column;gap:12px}
+.lead .kicker-lead{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.22em;color:#b71c1c}
+.lead h2{font-family:"Fraunces",serif;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.08}
+.lead p{font-size:.98rem;color:#4a4450}
+.sec-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px}
 .index-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
 .index-table{background:var(--bg2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .index-row{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:background .2s}
@@ -83,7 +91,7 @@ a.index-row:hover b{color:var(--accent)}
 .fbtn:focus-visible,.btn:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .countline{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;color:var(--dim);margin-top:10px}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
-@media(max-width:1000px){.masthead,.index-wrap{grid-template-columns:1fr}.radar-grid,.case-grid,.money{grid-template-columns:1fr 1fr}}
+@media(max-width:1000px){.masthead,.index-wrap{grid-template-columns:1fr}.radar-grid,.case-grid,.money{grid-template-columns:1fr 1fr}.lead,.sec-grid{grid-template-columns:1fr}.lead .art{min-height:220px}}
 @media(max-width:640px){.radar-grid,.case-grid,.money{grid-template-columns:1fr}.masthead{padding-top:48px}
 .topbar{padding:12px 16px;gap:12px}.masthead{padding:48px 20px 14px}.section{padding-left:20px;padding-right:20px}
 .filter-row{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}.fbtn{flex:none}
@@ -135,13 +143,18 @@ a.index-row:hover b{color:var(--accent)}
   <p class="countline" id="radarCount" aria-live="polite"></p>
   <p class="mono" style="font-size:.6rem;letter-spacing:.16em;color:var(--dim)">NEW HERE? START WITH ALL, THEN TRY A FILTER · <a href="radar.xml" style="color:var(--gold)">RSS →</a></p>
   <!-- Builder note: /radar/*.md → radar.json → this grid. Add a .md, run tools/build_radar.py, upload. -->
+  <div id="leadWrap">
+  <article class="lead" data-cat="nonfic idol"><div class="art"><img src="img/art/idol.svg" alt="Spotlight and microphone motif for Swiftie record sales" loading="lazy"></div><div class="body"><p class="kicker-lead">LEAD STORY · IDOLS <span id="freshPill" class="mono" style="color:var(--gold)">· CHECKING…</span></p><h2>Swifties just powered record album sales — the data</h2><p>Luminate numbers show loyalty moving units. Plus: 20 years of Swift, a dictionary entry, and a NYT wedding-day dispatch.</p><div class="meta src"><a href="https://www.usatoday.com/story/entertainment/music/2026/09/04/luminate-report-taylor-swifts-fans-power-record-album-sales/91601521007/" target="_blank" rel="noopener">USA Today ↗</a><a href="radar/swifties-record-sales.html">Full story →</a></div></div></article>
+  </div>
+  <div class="sec-grid" id="secGrid">
+    <article class="story" data-cat="nonfic companion ai"><div class="art"><img src="img/art/ai.svg" alt="Heart-circuit motif for the Character.AI settlement" loading="lazy"></div><div class="body"><h3>Character.AI and Google settle the teen-safety suits</h3><p>Four states, landmark terms, under-18s phased off open chat.</p><div class="meta src"><a href="https://www.cnn.com/2026/01/07/business/character-ai-google-settle-teen-suicide-lawsuit" target="_blank" rel="noopener">CNN ↗</a><a href="radar/cai-settlement.html">Story →</a></div></div></article>
+    <article class="story" data-cat="nonfic companion creator ai"><div class="art"><img src="img/art/ai.svg" alt="Heart-circuit motif for AI VTuber Neuro-sama" loading="lazy"></div><div class="body"><h3>An AI is Twitch's most-subscribed channel</h3><p>Neuro-sama's 296k subs top Twitch. The Swarm shows up.</p><div class="meta src"><a href="https://dotesports.com/streaming/news/neuro-most-subscribed-twitch" target="_blank" rel="noopener">Dot Esports ↗</a><a href="radar/neuro-sama-number-one.html">Story →</a></div></div></article>
+  </div>
   <div class="radar-grid" id="radarGrid">
-    <article class="story" data-cat="nonfic character creator"><div class="art"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="Living with Pennywise video thumbnail" loading="lazy"></div><div class="body"><h3>Living with Pennywise: when horror feels like a roommate</h3><p>Why horror icons move in — my video plus context on fandom and attachment.</p><div class="meta src"><a href="https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/" target="_blank" rel="noopener">Vice ↗</a><a href="radar/living-with-pennywise.html">Story →</a></div></div></article>
+    <article class="story" data-cat="nonfic character"><div class="art"><img src="img/art/tv.svg" alt="Retro television motif for the Derry prequel series" loading="lazy"></div><div class="body"><h3>Welcome to Derry gets season 2</h3><p>HBO renews the IT prequel; Pennywise expands.</p><div class="meta src"><a href="https://people.com/all-about-it-welcome-to-derry-season-2-12063817" target="_blank" rel="noopener">People ↗</a><a href="radar/derry-season-two.html">Story →</a></div></div></article>
     <article class="story" data-cat="nonfic idol"><div class="art"><img src="img/art/idol.svg" alt="Spotlight and microphone motif for idol closeness" loading="lazy"></div><div class="body"><h3>The idol economy: when closeness is the product</h3><p>Paid message apps and what closeness-for-sale feels like.</p><div class="meta src"><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave ↗</a><a href="radar/stalker-economy-idols.html">Story →</a></div></div></article>
-    <article class="story" data-cat="fic ai companion"><div class="art"><img src="img/art/ai.svg" alt="Heart-circuit motif for AI attachment" loading="lazy"></div><div class="body"><h3>When your AI companion changes overnight</h3><p>Updates, lost memories, real grief — with grounding context.</p><div class="meta src"><a href="https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026" target="_blank" rel="noopener">ExplainX ↗</a><a href="radar/ai-companion-lawsuit.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic creator"><div class="art"><img src="img/art/creator.svg" alt="Play-in-chat motif for streamer closeness" loading="lazy"></div><div class="body"><h3>Streamers who feel like they know you</h3><p>The video-store-regular feeling, scaled to thousands.</p><div class="meta src"><a href="https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/" target="_blank" rel="noopener">NetPsychology ↗</a><a href="radar/streamers-know-your-name.html">Story →</a></div></div></article>
+    <article class="story" data-cat="nonfic creator"><div class="art"><img src="img/art/creator.svg" alt="Play-in-chat motif for Kai Cenat's return" loading="lazy"></div><div class="body"><h3>Kai Cenat ends 9 months quiet with 1M watching</h3><p>Streamer University reveal + the 'I Quit' pivot before it.</p><div class="meta src"><a href="https://www.tubefilter.com/2026/06/09/kai-cenat-return-2026-streamer-university-2-trailer/" target="_blank" rel="noopener">Tubefilter ↗</a><a href="radar/kai-cenat-return.html">Story →</a></div></div></article>
     <article class="story" data-cat="nonfic character"><div class="art"><img src="img/art/character.svg" alt="Abstract mask motif for character attachment" loading="lazy"></div><div class="body"><h3>Characters we keep: why fiction sticks</h3><p>Shipping, kinning, comfort watches — how fictional bonds work.</p><div class="meta src"><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Prof ↗</a><a href="radar/characters-we-keep.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic universe"><div class="art"><img src="img/art/universe.svg" alt="Arches motif for the research shelf" loading="lazy"></div><div class="body"><h3>The research shelf: two places to go deeper</h3><p>Stever's 2026 book for scholars, the APA trends report for everyone.</p><div class="meta src"><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever ↗</a><a href="radar/research-shelf.html">Story →</a></div></div></article>
   </div>
   <div id="incoming" style="margin-top:34px">
     <p class="mono kicker">INCOMING · FOUND BY THE SWEEPER · TAKES PENDING</p>
@@ -154,11 +167,11 @@ a.index-row:hover b{color:var(--accent)}
   <div class="sec-head"><h2 class="serif">What we're attached to this week.</h2><p class="sec-lede">Five strong feelings, ranked Fridays. <span id="indexWeek" class="mono" style="font-size:.62rem;color:var(--gold)">WEEK 2026-W37</span> · <button id="indexCopy" class="fbtn" style="margin-left:8px">Copy as text</button></p></div>
   <div class="index-wrap">
     <div class="index-table" id="indexTable">
-      <a class="index-row" href="#radar/ai"><span class="rank top">01</span><span><b>AI companions changing fast</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI · BIG FEELINGS, KINDLY UNPACKED</span></span><span class="move up">▲2</span></a>
-      <a class="index-row" href="#cases"><span class="rank top">02</span><span><b>Pennywise roommate stories</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CHARACTER · HORROR FANS SHARING NOTES</span></span><span class="move new">NEW</span></a>
-      <a class="index-row" href="#radar/idol"><span class="rank top">03</span><span><b>Paid message apps</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">IDOL · WHAT CLOSENESS COSTS</span></span><span class="move down">▼1</span></a>
-      <a class="index-row" href="#radar/character"><span class="rank">04</span><span><b>Game characters we love</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">FICTION · LORE + ATTACHMENT</span></span><span class="move up">▲4</span></a>
-      <a class="index-row" href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener"><span class="rank">05</span><span><b>Company Dreamer finds readers</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">FROM MY SHELF · DREAM INDUSTRY</span></span><span class="move new">★ MINE</span></a>
+      <a class="index-row" href="radar/swifties-record-sales.html"><span class="rank top">01</span><span><b>Swifties power record album sales</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">IDOL · LUMINATE DATA · SEPT 2026</span></span><span class="move new">NEW</span></a>
+      <a class="index-row" href="radar/derry-season-two.html"><span class="rank top">02</span><span><b>Welcome to Derry gets season 2</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CHARACTER · HBO · PENNYWISE EXPANDS</span></span><span class="move new">NEW</span></a>
+      <a class="index-row" href="radar/cai-settlement.html"><span class="rank top">03</span><span><b>Character.AI settles teen-safety suits</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI · FOUR STATES · LANDMARK TERMS</span></span><span class="move new">NEW</span></a>
+      <a class="index-row" href="radar/kai-cenat-return.html"><span class="rank">04</span><span><b>Kai Cenat ends 9 months quiet</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CREATOR · 1M WATCHING</span></span><span class="move new">NEW</span></a>
+      <a class="index-row" href="radar/neuro-sama-number-one.html"><span class="rank">05</span><span><b>An AI tops Twitch subs</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI + CREATOR · NEURO-SAMA · 296K</span></span><span class="move new">NEW</span></a>
     </div>
     <div class="sponsor-box"><small>KINDLY SUPPORTED</small><h3 class="serif" style="font-size:1.5rem">One friendly sponsor a week.</h3><p style="color:var(--dim);font-size:.9rem">If you'd like to support the Friday Signal and the Index, I'd love to hear from you — logo, a short note, and a link. No noisy ad tech, ever.</p><a class="btn btn-solid" href="mailto:iNNERdreamers@gmail.com?subject=Supporting%20the%20Signal">Say hello →</a></div>
   </div>
@@ -218,9 +231,10 @@ a.index-row:hover b{color:var(--accent)}
     if(!valid.includes(f))f='all';
     btns.forEach(x=>{const on=x.dataset.f===f;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});
     let n=0,total=0;
-    document.querySelectorAll('#radarGrid .story').forEach(s=>{total++;const show=(f==='all'||s.dataset.cat.includes(f));s.style.display=show?'flex':'none';if(show)n++;});
+    document.querySelectorAll('#leadWrap .story, #leadWrap .lead, #secGrid .story, #radarGrid .story').forEach(s=>{total++;const show=(f==='all'||(s.dataset.cat||'').includes(f));s.style.display=show?'':'none';if(show)n++;});
+    ['leadWrap','secGrid','radarGrid'].forEach(id=>{const w=document.getElementById(id);if(!w)return;const any=[...w.querySelectorAll('.story,.lead')].some(s=>s.style.display!=='none');w.style.display=any?'':'none';});
     if(count)count.textContent = n ? `SHOWING ${n} / ${total} — ${f.toUpperCase()}` : `NOTHING UNDER ${f.toUpperCase()} YET — SHOWING ALL`;
-    if(!n)document.querySelectorAll('#radarGrid .story').forEach(s=>{s.style.display='flex';});
+    if(!n)document.querySelectorAll('#leadWrap .story, #leadWrap .lead, #secGrid .story, #radarGrid .story').forEach(s=>{s.style.display='';});
     if(location.hash.startsWith('#radar'))history.replaceState(null,'','#radar/'+f);
   }
   btns.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.f)));

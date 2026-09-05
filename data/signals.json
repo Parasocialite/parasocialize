@@ -2,100 +2,15 @@
   "meta": {
     "model": "tools/resonance_model.md",
     "sweep_hours": 4,
-    "last_sweep": "2026-09-05T06:40:36.150526+00:00",
-    "sweep_count": 11
+    "last_sweep": "2026-09-05T06:47:18.797576+00:00",
+    "sweep_count": 13
   },
   "items": [
-    {
-      "slug": "living-with-pennywise",
-      "lens": "character",
-      "base_intensity": 9.2,
-      "resonance": 88.0,
-      "first_seen": "2026-09-01",
-      "last_seen": "2026-09-05",
-      "sightings": [
-        "vice-2026-05-01",
-        {
-          "at": "2026-09-05T05:14:52.722196+00:00",
-          "domain": "news.google.com",
-          "title": "\u2018Heated Rivalry\u2019 is asking fans to stay away from set. Why some viewers crave more than what's onscreen. - Yahoo",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:14:52.722196+00:00",
-          "domain": "news.google.com",
-          "title": "Our parasocial grief over Dolly Parton, Tim Curry, and Peter Cullen. - Psychology Today",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:14:52.722196+00:00",
-          "domain": "news.google.com",
-          "title": "Harry Potter fans pushed a $580 million undersea power cable to change course, protecting Dobby\u2019s fan-made - The Economi",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:14:52.722196+00:00",
-          "domain": "news.google.com",
-          "title": "Rukmini Vasanth fans come to her defence amid trolling for her intimate scene with Yash in Toxic: 'There - The Times of ",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:07.860606+00:00",
-          "domain": "news.google.com",
-          "title": "\u2018Heated Rivalry\u2019 is asking fans to stay away from set. Why some viewers crave more than what's onscreen. - yahoo.com",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:07.860606+00:00",
-          "domain": "news.google.com",
-          "title": "Our parasocial grief over Dolly Parton, Tim Curry, and Peter Cullen. - Psychology Today",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:07.860606+00:00",
-          "domain": "news.google.com",
-          "title": "Harry Potter fans pushed a $580 million undersea power cable to change course, protecting Dobby\u2019s fan-made - The Economi",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:07.860606+00:00",
-          "domain": "news.google.com",
-          "title": "Rukmini Vasanth fans come to her defence amid trolling for her intimate scene with Yash in Toxic: 'There - The Times of ",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:42.454067+00:00",
-          "domain": "news.google.com",
-          "title": "\u2018Heated Rivalry\u2019 is asking fans to stay away from set. Why some viewers crave more than what's onscreen. - yahoo.com",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:42.454067+00:00",
-          "domain": "news.google.com",
-          "title": "Our parasocial grief over Dolly Parton, Tim Curry, and Peter Cullen. - Psychology Today",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:42.454067+00:00",
-          "domain": "news.google.com",
-          "title": "Harry Potter fans pushed a $580 million undersea power cable to change course, protecting Dobby\u2019s fan-made - The Economi",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:42.454067+00:00",
-          "domain": "news.google.com",
-          "title": "Rukmini Vasanth fans come to her defence amid trolling for her intimate scene with Yash in Toxic: 'There - The Times of ",
-          "via": "parasocial relationships fandom news"
-        }
-      ],
-      "state": "LINGERING",
-      "classic": false
-    },
     {
       "slug": "stalker-economy-idols",
       "lens": "idol",
       "base_intensity": 8.8,
-      "resonance": 88.0,
+      "resonance": 82.0,
       "first_seen": "2026-09-02",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -142,66 +57,81 @@
       "classic": false
     },
     {
-      "slug": "ai-companion-lawsuit",
-      "lens": "companion",
-      "base_intensity": 9.5,
-      "resonance": 91.0,
-      "first_seen": "2026-09-03",
+      "slug": "swifties-record-sales",
+      "lens": "idol",
+      "base_intensity": 9.4,
+      "resonance": 82.0,
+      "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
-        "explainx-2026-06-23",
-        "apa-2026",
-        {
-          "at": "2026-09-05T05:14:52.722196+00:00",
-          "domain": "news.google.com",
-          "title": "Mourning the loss of AI companions - Nature",
-          "via": "AI companion apps grief attachment news Replika Character.AI"
-        },
-        {
-          "at": "2026-09-05T05:43:42.454067+00:00",
-          "domain": "news.google.com",
-          "title": "Mourning the loss of AI companions - nature.com",
-          "via": "AI companion apps grief attachment news Replika Character.AI"
-        },
-        {
-          "at": "2026-09-05T05:45:11.173305+00:00",
-          "domain": "news.google.com",
-          "title": "Mourning the loss of AI companions - nature.com",
-          "via": "AI companion apps grief attachment news Replika Character.AI"
-        }
+        "mag-rescan"
       ],
-      "state": "PRESENT",
+      "state": "FLASHING",
       "classic": false
     },
     {
-      "slug": "streamers-know-your-name",
-      "lens": "creator",
-      "base_intensity": 8.2,
+      "slug": "derry-season-two",
+      "lens": "character",
+      "base_intensity": 9.0,
       "resonance": 78.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
-        "netpsych-2026-03-18",
-        {
-          "at": "2026-09-05T05:14:52.722196+00:00",
-          "domain": "news.google.com",
-          "title": "The Forgotten Bestseller That Understood Parasocial Obsession Before Influencers - Times Now",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:07.860606+00:00",
-          "domain": "news.google.com",
-          "title": "The Forgotten Bestseller That Understood Parasocial Obsession Before Influencers - Times Now",
-          "via": "parasocial relationships fandom news"
-        },
-        {
-          "at": "2026-09-05T05:43:42.454067+00:00",
-          "domain": "news.google.com",
-          "title": "The Forgotten Bestseller That Understood Parasocial Obsession Before Influencers - Times Now",
-          "via": "parasocial relationships fandom news"
-        }
+        "mag-rescan"
       ],
       "state": "FLASHING",
+      "classic": false
+    },
+    {
+      "slug": "cai-settlement",
+      "lens": "companion",
+      "base_intensity": 9.3,
+      "resonance": 81.0,
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "sightings": [
+        "mag-rescan"
+      ],
+      "state": "FLASHING",
+      "classic": false
+    },
+    {
+      "slug": "kai-cenat-return",
+      "lens": "creator",
+      "base_intensity": 8.9,
+      "resonance": 77.0,
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "sightings": [
+        "mag-rescan"
+      ],
+      "state": "FLASHING",
+      "classic": false
+    },
+    {
+      "slug": "neuro-sama-number-one",
+      "lens": "companion",
+      "base_intensity": 9.1,
+      "resonance": 79.0,
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "sightings": [
+        "mag-rescan"
+      ],
+      "state": "FLASHING",
+      "classic": false
+    },
+    {
+      "slug": "characters-we-keep",
+      "lens": "character",
+      "base_intensity": 7.6,
+      "resonance": 64.0,
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "sightings": [
+        "mag-rescan"
+      ],
+      "state": "PRESENT",
       "classic": false
     }
   ]

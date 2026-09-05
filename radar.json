@@ -1,75 +1,126 @@
 [
   {
-    "slug": "streamers-know-your-name",
-    "title": "Streamers who feel like they know you",
-    "date": "2026-09-05",
+    "slug": "swifties-record-sales",
+    "title": "Swifties just powered record album sales \u2014 the data",
+    "date": "2026-09-04",
     "type": "non-fiction",
     "lenses": [
-      "creator"
+      "idol"
     ],
-    "tags": [
-      "creator"
-    ],
-    "intensity": 8.2,
+    "intensity": 9.4,
     "read_minutes": 5,
-    "image": "img/art/creator.svg",
-    "image_alt": "Play-in-chat motif for streamer closeness",
-    "dek": "Shout-outs, raids, kind mods \u2014 the video-store-regular feeling, scaled up to thousands.",
-    "source_name": "NetPsychology \u2014 why we feel close to streamers",
-    "source_url": "https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/",
-    "link": "radar/streamers-know-your-name.html",
+    "image": "img/art/idol.svg",
+    "image_alt": "Spotlight and microphone motif for Swiftie record sales",
+    "dek": "Luminate numbers show loyalty moving units. Plus: 20 years of Swift, a dictionary entry, and a NYT wedding-day dispatch.",
+    "source_name": "USA Today \u2014 Luminate report (Sept 2026)",
+    "source_url": "https://www.usatoday.com/story/entertainment/music/2026/09/04/luminate-report-taylor-swifts-fans-power-record-album-sales/91601521007/",
+    "source2_name": "NYT \u2014 Swifties on the wedding day",
+    "source2_url": "https://www.nytimes.com/2026/07/02/arts/music/taylor-swift-wedding-fans-swifties.html",
+    "link": "radar/swifties-record-sales.html",
     "link_label": "Story \u2192",
-    "resonance": 78.0,
+    "resonance": 82.0,
     "state": "FLASHING",
     "last_seen": "2026-09-05"
   },
   {
-    "slug": "ai-companion-lawsuit",
-    "title": "When your AI companion changes overnight",
-    "date": "2026-09-03",
-    "type": "fiction",
+    "slug": "cai-settlement",
+    "title": "Character.AI and Google settle the teen-safety suits",
+    "date": "2026-01-07",
+    "type": "non-fiction",
     "lenses": [
       "companion"
     ],
     "tags": [
       "ai"
     ],
-    "intensity": 9.5,
-    "read_minutes": 8,
+    "intensity": 9.3,
+    "read_minutes": 6,
     "image": "img/art/ai.svg",
-    "image_alt": "Heart-circuit motif for AI attachment",
-    "dek": "Product updates, lost memories, real grief. A fictional lens on a very real feeling \u2014 with some grounding context.",
-    "source_name": "ExplainX \u2014 Replika, Character.AI and AI grief",
-    "source_url": "https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026",
-    "source2_name": "APA 2026 Trends \u2014 AI reshaping connection",
-    "source2_url": "https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection",
-    "link": "radar/ai-companion-lawsuit.html",
+    "image_alt": "Heart-circuit motif for the Character.AI settlement",
+    "dek": "Four states, landmark terms, under-18s phased off open chat. The case that drew the industry's boundary line.",
+    "source_name": "CNN \u2014 settlement (Jan 2026)",
+    "source_url": "https://www.cnn.com/2026/01/07/business/character-ai-google-settle-teen-suicide-lawsuit",
+    "source2_name": "LawsuitWatch \u2014 cases and signals explainer",
+    "source2_url": "https://lawsuitwatch.org/data-privacy-tech/character-ai-lawsuit",
+    "link": "radar/cai-settlement.html",
     "link_label": "Story \u2192",
-    "resonance": 91.0,
-    "state": "PRESENT",
+    "resonance": 81.0,
+    "state": "FLASHING",
     "last_seen": "2026-09-05"
   },
   {
-    "slug": "living-with-pennywise",
-    "title": "Living with Pennywise: when horror feels like a roommate",
-    "date": "2026-09-01",
+    "slug": "neuro-sama-number-one",
+    "title": "An AI is Twitch's most-subscribed channel",
+    "date": "2026-01-05",
     "type": "non-fiction",
     "lenses": [
-      "character",
+      "companion",
       "creator"
     ],
-    "intensity": 9.2,
-    "read_minutes": 6,
-    "image": "https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg",
-    "image_alt": "Living with Pennywise video thumbnail",
-    "dek": "Why horror icons move in and stay a while \u2014 my video plus some gentle context on fandom and attachment.",
-    "source_name": "Vice \u2014 when fandom becomes fixation",
-    "source_url": "https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/",
-    "link": "radar/living-with-pennywise.html",
+    "tags": [
+      "ai",
+      "creator"
+    ],
+    "intensity": 9.1,
+    "read_minutes": 4,
+    "image": "img/art/ai.svg",
+    "image_alt": "Heart-circuit motif for AI VTuber Neuro-sama",
+    "dek": "Neuro-sama's 296k subs top Twitch. A bot that plays osu!, sings, and thanks her creator on record night.",
+    "source_name": "Dot Esports \u2014 most-subscribed (Jan 2026)",
+    "source_url": "https://dotesports.com/streaming/news/neuro-most-subscribed-twitch",
+    "source2_name": "ExplainX \u2014 Replika, Character.AI and AI grief",
+    "source2_url": "https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026",
+    "link": "radar/neuro-sama-number-one.html",
     "link_label": "Story \u2192",
-    "resonance": 88.0,
-    "state": "LINGERING",
+    "resonance": 79.0,
+    "state": "FLASHING",
     "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "derry-season-two",
+    "title": "Welcome to Derry gets season 2 \u2014 Pennywise expands",
+    "date": "2026-08-22",
+    "type": "non-fiction",
+    "lenses": [
+      "character"
+    ],
+    "intensity": 9.0,
+    "read_minutes": 5,
+    "image": "img/art/tv.svg",
+    "image_alt": "Retro television motif for the Derry prequel series",
+    "dek": "HBO renews the IT prequel. Skarsg\u00e5rd returns, the town's history deepens \u2014 and my Living With Pennywise video watches back.",
+    "source_name": "People \u2014 Season 2 renewal (Aug 2026)",
+    "source_url": "https://people.com/all-about-it-welcome-to-derry-season-2-12063817",
+    "source2_name": "EW \u2014 on the set tracing Pennywise's origins",
+    "source2_url": "https://ew.com/welcome-to-derry-on-set-it-prequel-tracing-pennywise-origins-exclusive-11830263",
+    "link": "radar/derry-season-two.html",
+    "link_label": "Story \u2192",
+    "resonance": 78.0,
+    "state": "FLASHING",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "kai-cenat-return",
+    "title": "Kai Cenat ends 9 months quiet with 1M watching",
+    "date": "2026-07-07",
+    "type": "non-fiction",
+    "lenses": [
+      "creator"
+    ],
+    "tags": [
+      "creator"
+    ],
+    "intensity": 8.9,
+    "read_minutes": 4,
+    "image": "img/art/creator.svg",
+    "image_alt": "Play-in-chat motif for Kai Cenat's return",
+    "dek": "Streamer University 2026 reveal, dual-platform, 120 creators. Plus the 'I Quit' pivot that preceded it.",
+    "source_name": "Tubefilter \u2014 the return (June 2026)",
+    "source_url": "https://www.tubefilter.com/2026/06/09/kai-cenat-return-2026-streamer-university-2-trailer/",
+    "source2_name": "NetPsychology \u2014 why streamers feel close",
+    "source2_url": "https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/",
+    "link": "radar/kai-cenat-return.html",
+    "link_label": "Story \u2192"
   },
   {
     "slug": "stalker-economy-idols",
@@ -89,10 +140,7 @@
     "source2_name": "NNGroup \u2014 the illusion of private messaging",
     "source2_url": "https://www.nngroup.com/articles/kpop-private-messaging",
     "link": "radar/stalker-economy-idols.html",
-    "link_label": "Story \u2192",
-    "resonance": 88.0,
-    "state": "PRESENT",
-    "last_seen": "2026-09-05"
+    "link_label": "Story \u2192"
   },
   {
     "slug": "characters-we-keep",
@@ -110,26 +158,6 @@
     "source_name": "Helpful Professor \u2014 15 examples",
     "source_url": "https://helpfulprofessor.com/parasocial-relationships-examples/",
     "link": "radar/characters-we-keep.html",
-    "link_label": "Story \u2192"
-  },
-  {
-    "slug": "research-shelf",
-    "title": "The research shelf: two places to go deeper",
-    "date": "2026-09-08",
-    "type": "non-fiction",
-    "lenses": [
-      "universe"
-    ],
-    "intensity": 7.0,
-    "read_minutes": 6,
-    "image": "img/art/universe.svg",
-    "image_alt": "Arches motif for the research shelf",
-    "dek": "Stever's 2026 book for scholars, the APA trends report for everyone.",
-    "source_name": "Stever \u2014 Understanding Parasocial Relationships (2026)",
-    "source_url": "https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/",
-    "source2_name": "APA 2026 Trends \u2014 AI reshaping connection",
-    "source2_url": "https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection",
-    "link": "radar/research-shelf.html",
     "link_label": "Story \u2192"
   }
 ]
