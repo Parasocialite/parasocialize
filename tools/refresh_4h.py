@@ -47,8 +47,7 @@ def guess_lens(text):
         if s > score: best, score = lens, s
     return best
 
-GRAD = {"idol":"linear-gradient(135deg,#101a3a,#0a0714)","character":"linear-gradient(135deg,#4a1420,#160409)","creator":"linear-gradient(135deg,#30103a,#120414)","companion":"linear-gradient(135deg,#0e3038,#041214)","universe":"linear-gradient(135deg,#22242a,#0c0d10)","brand":"linear-gradient(135deg,#3a2410,#140a04)"}
-EMOJI = {"idol":"♆","character":"🎈","creator":"▶","companion":"♥","universe":"∞","brand":"⬣"}
+ART = {"idol":"img/art/idol.svg","character":"img/art/character.svg","creator":"img/art/creator.svg","companion":"img/art/ai.svg","universe":"img/art/universe.svg","brand":"img/art/universe.svg"}
 
 def clean_title(t):
     t = (t or "").strip()
@@ -142,7 +141,8 @@ def main():
                 "state":"FLASHING","classic":False,"auto":True,
                 "title":t,"dek":f"Fresh via {src_name} - take lands Friday.",
                 "type":"non-fiction","lenses":[lens],"tags":["ai"] if lens=="companion" else [],
-                "intensity":base,"read_minutes":3,"emoji":EMOJI.get(lens,"●"),"gradient":GRAD.get(lens,"#222"),
+                "intensity":base,"read_minutes":3,"image":ART.get(lens,"img/art/universe.svg"),
+                "image_alt":f"{lens} motif",
                 "link":"#signal","link_label":"Take pending",
                 "source_url":outlet,"source_name":src_name or "Source"}
             by_slug[slug] = entry
@@ -185,7 +185,7 @@ def main():
             base = {"slug":slug,"title":sig.get("title",slug),"dek":sig.get("dek",""),
                 "type":sig.get("type","non-fiction"),"lenses":sig.get("lenses",[sig.get("lens","universe")] if sig.get("lens") else []),
                 "tags":sig.get("tags",[]),"intensity":sig.get("intensity",7.0),"read_minutes":sig.get("read_minutes",3),
-                "emoji":sig.get("emoji","●"),"gradient":sig.get("gradient","#222"),
+                "image":sig.get("image","img/art/universe.svg"),"image_alt":sig.get("image_alt",""),
                 "link":sig.get("link","#signal"),"link_label":sig.get("link_label","Take pending"),
                 "source_url":sig.get("source_url",""),"source_name":sig.get("source_name","Source")}
         base["resonance"] = round(float(sig.get("resonance", base.get("intensity",7)*10)),1)

@@ -7,8 +7,8 @@ lenses: [creator]
 tags: [creator]
 intensity: 8.2
 read_minutes: 5
-image: "img/videos/old-school.jpg"
-image_alt: "Old School playlist artwork"
+image: "img/art/creator.svg"
+image_alt: "Play-in-chat motif for streamer closeness"
 dek: "Shout-outs, raids, kind mods — the video-store-regular feeling, scaled up to thousands."
 source_name: "NetPsychology — why we feel close to streamers"
 source_url: "https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/"

@@ -7,8 +7,8 @@ lenses: [companion]
 tags: [ai]
 intensity: 9.5
 read_minutes: 8
-image: "img/podcasts/parasocialize.jpg"
-image_alt: "Parasocialize podcast artwork"
+image: "img/art/ai.svg"
+image_alt: "Heart-circuit motif for AI attachment"
 dek: "Product updates, lost memories, real grief. A fictional lens on a very real feeling — with some grounding context."
 source_name: "ExplainX — Replika, Character.AI and AI grief"
 source_url: "https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026"

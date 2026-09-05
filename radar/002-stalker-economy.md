@@ -6,8 +6,8 @@ type: non-fiction
 lenses: [idol]
 intensity: 8.8
 read_minutes: 4
-image: "img/videos/insight-co.jpg"
-image_alt: "The Insight Company series artwork"
+image: "img/art/idol.svg"
+image_alt: "Spotlight and microphone motif for idol closeness"
 dek: "From arena tours to paid message apps — what it feels like when closeness is for sale, and how to enjoy it kindly."
 source_name: "KpopWave — The Friend You Pay For"
 source_url: "https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/"

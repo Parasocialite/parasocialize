@@ -149,18 +149,18 @@ a.index-row:hover b{color:var(--accent)}
   <p class="mono kicker">01 · FRESH <span id="freshPill" class="mono" style="color:var(--gold)">· CHECKING…</span></p>
   <div class="sec-head"><h2 class="serif">Fresh stories, short takes.</h2><p class="sec-lede">An outside story worth reading, paired with my take. Strong stories linger.</p></div>
   <div class="filter-row" role="group" aria-label="Filter Radar">
-    <button class="fbtn active" data-f="all" aria-pressed="true">All</button><button class="fbtn" data-f="nonfic" aria-pressed="false">Non-fiction</button><button class="fbtn" data-f="fic" aria-pressed="false">Fiction</button><button class="fbtn" data-f="ai" aria-pressed="false">AI Companions</button><button class="fbtn" data-f="creator" aria-pressed="false">Creators</button>
+    <button class="fbtn active" data-f="all" aria-pressed="true">All</button><button class="fbtn" data-f="idol" aria-pressed="false">Idols</button><button class="fbtn" data-f="character" aria-pressed="false">Characters</button><button class="fbtn" data-f="creator" aria-pressed="false">Creators</button><button class="fbtn" data-f="ai" aria-pressed="false">AI</button><button class="fbtn" data-f="universe" aria-pressed="false">Universes</button>
   </div>
   <p class="countline" id="radarCount" aria-live="polite"></p>
   <p class="mono" style="font-size:.6rem;letter-spacing:.16em;color:var(--dim)">NEW HERE? START WITH ALL, THEN TRY A FILTER · <a href="radar.xml" style="color:var(--gold)">RSS →</a></p>
   <!-- Builder note: /radar/*.md → radar.json → this grid. Add a .md, run tools/build_radar.py, upload. -->
   <div class="radar-grid" id="radarGrid">
     <article class="story" data-cat="nonfic character creator"><div class="art"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="Living with Pennywise video thumbnail" loading="lazy"></div><div class="body"><h3>Living with Pennywise: when horror feels like a roommate</h3><p>Why horror icons move in — my video plus context on fandom and attachment.</p><div class="meta src"><a href="https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/" target="_blank" rel="noopener">Vice ↗</a><a href="#cases">My take →</a></div></div></article>
-    <article class="story" data-cat="nonfic idol"><div class="art"><img src="img/videos/insight-co.jpg" alt="The Insight Company series artwork" loading="lazy"></div><div class="body"><h3>The idol economy: when closeness is the product</h3><p>Paid message apps and what closeness-for-sale feels like.</p><div class="meta src"><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave ↗</a><a href="#signal">My take →</a></div></div></article>
-    <article class="story" data-cat="fic ai companion"><div class="art"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast artwork" loading="lazy"></div><div class="body"><h3>When your AI companion changes overnight</h3><p>Updates, lost memories, real grief — with grounding context.</p><div class="meta src"><a href="https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026" target="_blank" rel="noopener">ExplainX ↗</a><a href="#cases">My take →</a></div></div></article>
-    <article class="story" data-cat="fic universe"><div class="art"><img src="img/books/company-dreamer.jpg" alt="Company Dreamer book cover" loading="lazy"></div><div class="body"><h3>Company Dreamer: the dream-recording industry</h3><p>My novel as a friendly parable about who holds shared dreams.</p><div class="meta src"><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever (2026) ↗</a><a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener">Book ↗</a></div></div></article>
-    <article class="story" data-cat="nonfic creator"><div class="art"><img src="img/videos/old-school.jpg" alt="Old School playlist artwork" loading="lazy"></div><div class="body"><h3>Streamers who feel like they know you</h3><p>The video-store-regular feeling, scaled to thousands.</p><div class="meta src"><a href="https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/" target="_blank" rel="noopener">NetPsychology ↗</a><a href="#index">My take →</a></div></div></article>
-    <article class="story" data-cat="fic nonfic universe"><div class="art"><img src="img/books/dreamarched.jpg" alt="Dreamarched book cover" loading="lazy"></div><div class="body"><h3>Dreamarched + Regulated Brightness</h3><p>More sleep canon — poems as manuals for big attachments.</p><div class="meta src"><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Prof ↗</a><a href="#studio">My take →</a></div></div></article>
+    <article class="story" data-cat="nonfic idol"><div class="art"><img src="img/art/idol.svg" alt="Spotlight and microphone motif for idol closeness" loading="lazy"></div><div class="body"><h3>The idol economy: when closeness is the product</h3><p>Paid message apps and what closeness-for-sale feels like.</p><div class="meta src"><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave ↗</a><a href="#signal">My take →</a></div></div></article>
+    <article class="story" data-cat="fic ai companion"><div class="art"><img src="img/art/ai.svg" alt="Heart-circuit motif for AI attachment" loading="lazy"></div><div class="body"><h3>When your AI companion changes overnight</h3><p>Updates, lost memories, real grief — with grounding context.</p><div class="meta src"><a href="https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026" target="_blank" rel="noopener">ExplainX ↗</a><a href="#cases">My take →</a></div></div></article>
+    <article class="story" data-cat="nonfic creator"><div class="art"><img src="img/art/creator.svg" alt="Play-in-chat motif for streamer closeness" loading="lazy"></div><div class="body"><h3>Streamers who feel like they know you</h3><p>The video-store-regular feeling, scaled to thousands.</p><div class="meta src"><a href="https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/" target="_blank" rel="noopener">NetPsychology ↗</a><a href="#index">My take →</a></div></div></article>
+    <article class="story" data-cat="nonfic character"><div class="art"><img src="img/art/character.svg" alt="Abstract mask motif for character attachment" loading="lazy"></div><div class="body"><h3>Characters we keep: why fiction sticks</h3><p>Shipping, kinning, comfort watches — how fictional bonds work.</p><div class="meta src"><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Prof ↗</a><a href="#signal">My take →</a></div></div></article>
+    <article class="story" data-cat="nonfic universe"><div class="art"><img src="img/art/universe.svg" alt="Arches motif for the research shelf" loading="lazy"></div><div class="body"><h3>The research shelf: two places to go deeper</h3><p>Stever's 2026 book for scholars, the APA trends report for everyone.</p><div class="meta src"><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever ↗</a><a href="#signal">My take →</a></div></div></article>
   </div>
   <div id="incoming" style="margin-top:34px">
     <p class="mono kicker">INCOMING · FOUND BY THE SWEEPER · TAKES PENDING</p>
@@ -184,41 +184,23 @@ a.index-row:hover b{color:var(--accent)}
 </section>
 
 <section id="cases" class="section" style="padding-top:0">
-  <p class="mono kicker">03 · GO DEEPER — CASE FILES</p>
-  <div class="sec-head"><h2 class="serif">Longer notes from someone who loves this stuff.</h2><p class="sec-lede">Monthly essays. Teasers free — essentials in the <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12)</a>.</p></div>
+  <p class="mono kicker">03 · GO DEEPER</p>
+  <div class="sec-head"><h2 class="serif">Slow reads.</h2></div>
   <div class="case-grid" id="caseGrid">
-    <article class="card case"><h3 class="serif">File 001: The Binding of Margery Kempe → Binding of Stans</h3><p style="color:var(--dim);font-size:.88rem">An old essay I love, reread through today's fandom rituals.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">The essentials live in the <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12)</a></div></article>
-    <article class="card case"><h3 class="serif">File 002: Blockbuster Knew Your Name</h3><p style="color:var(--dim);font-size:.88rem">What video-store regulars taught me about recommendations with a human touch.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">The essentials live in the <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12)</a></div></article>
-    <article class="card case"><h3 class="serif">File 003: Dream Recording as a Friendly Metaphor</h3><p style="color:var(--dim);font-size:.88rem">What my novel helped me understand about who holds our shared dreams.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">The essentials live in the <a href="guide/index.html" style="color:var(--gold)">Field Guide ($12)</a></div></article>
-  </div>
-</section>
-
-<section id="lenses" class="section" style="padding-top:0">
-  <p class="mono kicker">04 · BROWSE BY LENS</p>
-  <div class="sec-head"><h2 class="serif">Who are we attached to here?</h2><p class="sec-lede">Tap a lens to filter the Radar above.</p></div>
-  <div class="lens-grid">
-    <button class="lens-card" data-lens="idol"><div class="n">◎</div><b>Idols</b><span>SINGERS · ACTORS · ATHLETES</span></button>
-    <button class="lens-card" data-lens="character"><div class="n">◍</div><b>Characters</b><span>HORROR · GAMES · LORE</span></button>
-    <button class="lens-card" data-lens="creator"><div class="n">▣</div><b>Creators</b><span>STREAMERS · YOUTUBE · PODS</span></button>
-    <button class="lens-card" data-lens="ai"><div class="n">♥</div><b>AI Companions</b><span>REPLIKA · CHARACTER.AI</span></button>
-    <button class="lens-card" data-lens="brand" data-lens-note="No brand stories yet — showing all"><div class="n">⬣</div><b>Brands</b><span>MORE SOON</span></button>
-    <button class="lens-card" data-lens="universe"><div class="n">∞</div><b>Universes</b><span>DREAMS · CANON · SERIES</span></button>
+    <article class="card case"><h3 class="serif">File 001: Kempe → Stans</h3><p style="color:var(--dim);font-size:.88rem">An old essay reread through today's rituals. <a href="guide/index.html" style="color:var(--gold)">Guide $12 →</a></p></article>
+    <article class="card case"><h3 class="serif">File 002: Blockbuster Knew Your Name</h3><p style="color:var(--dim);font-size:.88rem">What regulars taught me about human recommendations. <a href="guide/index.html" style="color:var(--gold)">Guide $12 →</a></p></article>
+    <article class="card case"><h3 class="serif">File 003: Dream Recording</h3><p style="color:var(--dim);font-size:.88rem">Who holds our shared dreams. <a href="guide/index.html" style="color:var(--gold)">Guide $12 →</a></p></article>
   </div>
 </section>
 
 <section id="studio" class="section" style="padding-top:0">
-  <p class="mono kicker">05 · FROM MY SHELF — MY WORK</p>
-  <div class="sec-head"><h2 class="serif">Things I've made.</h2><p class="sec-lede">Books, podcasts, videos, albums — if the Radar resonates, here's more of my own corner.</p></div>
-  <div class="studio-strip">
-    <a class="card studio-card" href="https://www.youtube.com/playlist?list=PLlKXzJojs1fX0YDsXgx1zVcxGcaxMs90W" target="_blank" rel="noopener"><img src="img/videos/insight-co.jpg" alt="The Insight Company series" loading="lazy"><span class="pad"><b>WATCH</b><span>Living with Pennywise + Michael · series playlists</span></span></a>
-    <a class="card studio-card" href="https://open.spotify.com/show/1gkpaC8cMvu026VVhXNz2n" target="_blank" rel="noopener"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast cover" loading="lazy"><span class="pad"><b>LISTEN</b><span>Parasocialize + All The Horrible Things</span></span></a>
-    <a class="card studio-card" href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener"><img src="img/books/company-dreamer.jpg" alt="Company Dreamer book cover" loading="lazy"><span class="pad"><b>READ</b><span>Company Dreamer · Dreamarched · poems</span></span></a>
-    <a class="card studio-card" href="https://www.compudactyl.com/" target="_blank" rel="noopener"><img src="img/covers/fallgate.jpg" alt="Fallgate album cover" loading="lazy"><span class="pad"><b>MUSIC</b><span>compuDACTYL — 5 albums from inside dead machines</span></span></a>
-  </div>
+  <p class="mono kicker">04 · MY SHELF</p>
+  <div class="sec-head"><h2 class="serif">Made by the mascot.</h2></div>
+  <p class="mono" style="font-size:.72rem;letter-spacing:.06em;color:var(--dim);line-height:2.4"><a href="https://www.youtube.com/playlist?list=PLlKXzJojs1fX0YDsXgx1zVcxGcaxMs90W" target="_blank" rel="noopener" style="color:var(--teal)">WATCH →</a> · <a href="https://open.spotify.com/show/1gkpaC8cMvu026VVhXNz2n" target="_blank" rel="noopener" style="color:var(--teal)">LISTEN →</a> · <a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener" style="color:var(--teal)">READ →</a> · <a href="https://www.compudactyl.com/" target="_blank" rel="noopener" style="color:var(--teal)">MUSIC →</a> · <a href="guide/index.html" style="color:var(--gold)">GUIDE $12 →</a></p>
 </section>
 
 <section id="circle" class="section" style="padding-top:0">
-  <p class="mono kicker">06 · KEEP IT GOING — SUPPORT</p>
+  <p class="mono kicker">05 · KEEP IT GOING</p>
   <div class="sec-head"><h2 class="serif">Free forever. One thing to buy.</h2><p class="sec-lede">The Radar, Signal, and Index are free and always will be. If they help you, there's exactly one paid thing — everything else can wait.</p></div>
   <div class="money">
     <div class="price"><h3>Signal</h3><div class="amt">Free</div><ul><li>Friday note: 5 signals + 1 take</li><li>Index Top 5</li><li>Unsubscribe anytime, no hard feelings</li></ul><a class="btn btn-ghost" href="#signal">Subscribe free</a></div>
