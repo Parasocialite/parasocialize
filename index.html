@@ -72,10 +72,11 @@
 .sponsor-box{border:1px dashed rgba(255,207,92,.5);border-radius:14px;padding:24px;background:rgba(255,207,92,.06);display:flex;flex-direction:column;gap:12px}
 .sponsor-box small{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.22em;color:var(--gold)}
 .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.case{position:relative}
-.lock{position:absolute;inset:auto 12px 12px 12px;background:rgba(7,7,12,.88);backdrop-filter:blur(8px);border:1px solid var(--gold);border-radius:10px;padding:12px 14px;font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.1em;color:var(--gold);text-align:center}
+.case{position:relative;display:flex;flex-direction:column}
+.lock{margin-top:12px;background:rgba(7,7,12,.88);backdrop-filter:blur(8px);border:1px solid var(--gold);border-radius:10px;padding:12px 14px;font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.1em;color:var(--gold);text-align:center}
 .lens-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.lens-card{border:1px solid var(--line);border-radius:12px;padding:18px 14px;background:var(--bg2);text-align:center}
+.lens-card{border:1px solid var(--line);border-radius:12px;padding:18px 14px;background:var(--bg2);text-align:center;color:var(--ink);cursor:pointer;font:inherit;transition:.25s}
+.lens-card:hover{border-color:var(--accent);transform:translateY(-3px)}
 .lens-card b{font-family:"Fraunces",serif;font-size:1.05rem;display:block;margin:8px 0 4px}
 .lens-card span{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.14em;color:var(--dim)}
 .lens-card .n{font-family:"Fraunces",serif;font-size:2rem;color:var(--accent)}
@@ -94,7 +95,15 @@
 .countline{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;color:var(--dim);margin-top:10px}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
 @media(max-width:1000px){.masthead,.index-wrap{grid-template-columns:1fr}.radar-grid,.case-grid,.money{grid-template-columns:1fr 1fr}.lens-grid{grid-template-columns:repeat(3,1fr)}.studio-strip{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.radar-grid,.case-grid,.money,.studio-strip{grid-template-columns:1fr}.lens-grid{grid-template-columns:1fr 1fr}.masthead{padding-top:48px}}
+@media(max-width:640px){.radar-grid,.case-grid,.money,.studio-strip{grid-template-columns:1fr}.lens-grid{grid-template-columns:1fr 1fr}.masthead{padding-top:48px}
+.topbar{padding:12px 16px;gap:12px}.masthead{padding:48px 20px 14px}.section{padding-left:20px;padding-right:20px}
+.filter-row{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}.fbtn{flex:none}
+.story .meta.src{flex-wrap:wrap;gap:4px}.story .meta.src span{flex:none}
+.index-row{grid-template-columns:38px 1fr auto;gap:10px;padding:12px 14px}.rank{font-size:1.3rem}
+.ticker-track span{font-size:.6rem}
+.studio-card img{aspect-ratio:16/9}
+.face img{width:52px;height:52px}
+.hero-ctas .btn{width:100%;text-align:center}}
 </style>
 </head>
 <body id="top">
@@ -104,16 +113,16 @@
   <a class="wordmark" href="#top"><img class="logo-img" src="img/logo.svg" alt="Parasocialize logo">PARA<span>SOCIALIZE</span></a>
   <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   <nav id="nav" class="nav" aria-label="Main">
-    <a href="#radar">Radar</a><a href="#index">Index</a><a href="#cases">Case Files</a><a href="#studio">Studio</a><a href="#circle" class="cta-link">Inner Circle</a>
+    <a href="#radar">Radar</a><a href="#index">Index</a><a href="#cases">Case Files</a><a href="#studio">My Work</a><a href="#circle" class="cta-link">Inner Circle</a>
   </nav>
-  <div class="onair"><i class="dot"></i>ISSUE #001 · LIVE</div>
+  <div class="onair"><i class="dot"></i>LIVE · REFRESHED EVERY 4 HOURS</div>
 </header>
 
 <div class="masthead">
   <div>
     <p class="dateline">A FRIENDLY FIELD GUIDE TO ONE-SIDED RELATIONSHIPS — DOWNERS GROVE → AUSTRALIA</p>
     <h1>One-way connection, <em>fully human.</em></h1>
-    <p class="dek">I keep track of the <strong>parasocial stuff we all feel</strong> — idol news, AI companions, characters you live with, creators who feel like friends — fiction <strong>and</strong> real life. Noted weekly by <strong>Enan Joe Heneghan</strong>, novelist, teacher, and longtime student of how we attach.</p>
+    <p class="dek">I keep track of the <strong>parasocial stuff we all feel</strong> — idol news, AI companions, characters you live with, creators who feel like friends — fiction <strong>and</strong> real life. Refreshed through the week by <strong>Enan Joe Heneghan</strong>, novelist, teacher, and longtime student of how we attach.</p>
     <div class="hero-ctas" style="margin-top:22px">
       <a class="btn btn-solid" href="#signal">Get the Friday Signal — free</a>
       <a class="btn btn-ghost" href="#radar">Browse this week's Radar ↓</a>
@@ -132,8 +141,8 @@
 
 <main>
 <section id="radar" class="section">
-  <p class="mono kicker">01 / THE RADAR — THIS WEEK IN ONE-SIDED RELATIONSHIPS</p>
-  <div class="sec-head"><h2 class="serif">Outside stories, gentle lens.</h2><p class="sec-lede">Not just my stuff — small fiction + real-life notes from anywhere, each with a simple intensity score so you know what you're getting into. Some links help support the site, and I'll always mark them.</p></div>
+  <p class="mono kicker">01 · FRESH THIS WEEK — THE RADAR</p>
+  <div class="sec-head"><h2 class="serif">New stories, gentle lens.</h2><p class="sec-lede">Each card pairs an <strong>outside story worth reading</strong> with my short take. Refreshed every 4 hours; resonant stories linger. Some links help support the site, and I'll always mark them.</p></div>
   <div class="filter-row" role="group" aria-label="Filter Radar">
     <button class="fbtn active" data-f="all" aria-pressed="true">All</button><button class="fbtn" data-f="nonfic" aria-pressed="false">Non-fiction</button><button class="fbtn" data-f="fic" aria-pressed="false">Fiction</button><button class="fbtn" data-f="ai" aria-pressed="false">AI Companions</button><button class="fbtn" data-f="creator" aria-pressed="false">Creators</button>
   </div>
@@ -141,18 +150,18 @@
   <p class="mono" style="font-size:.6rem;letter-spacing:.16em;color:var(--dim)">NEW HERE? START WITH ALL, THEN TRY A FILTER · <a href="radar.xml" style="color:var(--gold)">RSS →</a></p>
   <!-- Builder note: /radar/*.md → radar.json → this grid. Add a .md, run tools/build_radar.py, upload. -->
   <div class="radar-grid" id="radarGrid">
-    <article class="story" data-cat="nonfic creator"><div class="art"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="Living with Pennywise video thumbnail" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">CHARACTER</span></div><h3>Living with Pennywise: when horror feels like a roommate</h3><p>Why horror icons move in and stay a while — my video plus some gentle context on fandom and attachment.</p><div class="meta src"><span>SOURCE</span><a href="https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/" target="_blank" rel="noopener">Vice — when fandom becomes fixation ↗</a></div><div class="meter"><i style="width:92%"></i></div><div class="meta"><span>INTENSITY 9.2 · 6 MIN</span><a href="#cases">MY TAKE →</a></div></div></article>
-    <article class="story" data-cat="nonfic"><div class="art"><img src="img/videos/insight-co.jpg" alt="The Insight Company series artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">IDOL</span></div><h3>The idol economy: when closeness is the product</h3><p>From arena tours to paid message apps — what it feels like when closeness itself is for sale, and how to enjoy it kindly.</p><div class="meta src"><span>SOURCE</span><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave — The Friend You Pay For ↗</a></div><div class="meta src"><span>ALSO</span><a href="https://www.nngroup.com/articles/kpop-private-messaging" target="_blank" rel="noopener">NNGroup — illusion of private messaging ↗</a></div><div class="meter"><i style="width:88%"></i></div><div class="meta"><span>INTENSITY 8.8 · 4 MIN</span><a href="#signal">MY TAKE →</a></div></div></article>
-    <article class="story" data-cat="fic ai"><div class="art"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens ai">AI</span><span class="lens fic">FICTION + REAL LIFE</span></div><h3>When your AI companion changes overnight</h3><p>Product updates, lost memories, real grief. A fictional lens on a very real feeling — with some grounding context.</p><div class="meta src"><span>SOURCE</span><a href="https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026" target="_blank" rel="noopener">ExplainX — Replika, Character.AI and AI grief ↗</a></div><div class="meta src"><span>ALSO</span><a href="https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection" target="_blank" rel="noopener">APA 2026 Trends ↗</a></div><div class="meter"><i style="width:95%"></i></div><div class="meta"><span>INTENSITY 9.5 · 8 MIN</span><a href="#cases">MY TAKE →</a></div></div></article>
-    <article class="story" data-cat="fic"><div class="art"><img src="img/books/company-dreamer.jpg" alt="Company Dreamer book cover" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens fic">FICTION</span><span class="lens">UNIVERSE</span></div><h3>Company Dreamer: the dream-recording industry</h3><p>My novel as a friendly parable — who holds the dream you end up living in? <em>Browse + review.</em></p><div class="meta src"><span>SHELF-MATE</span><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever — Understanding Parasocial Relationships (2026) ↗</a></div><div class="meter"><i style="width:78%"></i></div><div class="meta"><span>FROM MY SHELF · AMAZON ↗</span><a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener">BROWSE →</a></div></div></article>
+    <article class="story" data-cat="nonfic character creator"><div class="art"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="Living with Pennywise video thumbnail" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">CHARACTER</span></div><h3>Living with Pennywise: when horror feels like a roommate</h3><p>Why horror icons move in and stay a while — my video plus some gentle context on fandom and attachment.</p><div class="meta src"><span>SOURCE</span><a href="https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/" target="_blank" rel="noopener">Vice — when fandom becomes fixation ↗</a></div><div class="meter"><i style="width:92%"></i></div><div class="meta"><span>INTENSITY 9.2 · 6 MIN</span><a href="#cases">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="nonfic idol"><div class="art"><img src="img/videos/insight-co.jpg" alt="The Insight Company series artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">IDOL</span></div><h3>The idol economy: when closeness is the product</h3><p>From arena tours to paid message apps — what it feels like when closeness itself is for sale, and how to enjoy it kindly.</p><div class="meta src"><span>SOURCE</span><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave — The Friend You Pay For ↗</a></div><div class="meta src"><span>ALSO</span><a href="https://www.nngroup.com/articles/kpop-private-messaging" target="_blank" rel="noopener">NNGroup — illusion of private messaging ↗</a></div><div class="meter"><i style="width:88%"></i></div><div class="meta"><span>INTENSITY 8.8 · 4 MIN</span><a href="#signal">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="fic ai companion"><div class="art"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens ai">AI</span><span class="lens fic">FICTION + REAL LIFE</span></div><h3>When your AI companion changes overnight</h3><p>Product updates, lost memories, real grief. A fictional lens on a very real feeling — with some grounding context.</p><div class="meta src"><span>SOURCE</span><a href="https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026" target="_blank" rel="noopener">ExplainX — Replika, Character.AI and AI grief ↗</a></div><div class="meta src"><span>ALSO</span><a href="https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection" target="_blank" rel="noopener">APA 2026 Trends ↗</a></div><div class="meter"><i style="width:95%"></i></div><div class="meta"><span>INTENSITY 9.5 · 8 MIN</span><a href="#cases">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="fic universe"><div class="art"><img src="img/books/company-dreamer.jpg" alt="Company Dreamer book cover" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens fic">FICTION</span><span class="lens">UNIVERSE</span></div><h3>Company Dreamer: the dream-recording industry</h3><p>My novel as a friendly parable — who holds the dream you end up living in? <em>Browse + review.</em></p><div class="meta src"><span>SHELF-MATE</span><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever — Understanding Parasocial Relationships (2026) ↗</a></div><div class="meter"><i style="width:78%"></i></div><div class="meta"><span>FROM MY SHELF · AMAZON ↗</span><a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener">BROWSE →</a></div></div></article>
     <article class="story" data-cat="nonfic creator"><div class="art"><img src="img/videos/old-school.jpg" alt="Old School playlist artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">CREATOR</span></div><h3>Streamers who feel like they know you</h3><p>Shout-outs, raids, kind mods — the video-store-regular feeling, scaled up to thousands. I find this one sweet and strange.</p><div class="meta src"><span>SOURCE</span><a href="https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/" target="_blank" rel="noopener">NetPsychology — why we feel close to streamers ↗</a></div><div class="meter"><i style="width:82%"></i></div><div class="meta"><span>INTENSITY 8.2 · 5 MIN</span><a href="#index">MY TAKE →</a></div></div></article>
-    <article class="story" data-cat="fic nonfic"><div class="art"><img src="img/books/dreamarched.jpg" alt="Dreamarched book cover" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens fic">FICTION</span><span class="lens">UNIVERSE</span></div><h3>Dreamarched + Regulated Brightness: the sleep shelf</h3><p>More from the sleep canon — poems as small manuals for big attachments.</p><div class="meta src"><span>SHELF-MATE</span><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Professor — 15 examples ↗</a></div><div class="meter"><i style="width:71%"></i></div><div class="meta"><span>FROM MY SHELF · LULU + AMAZON</span><a href="#studio">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="fic nonfic universe"><div class="art"><img src="img/books/dreamarched.jpg" alt="Dreamarched book cover" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens fic">FICTION</span><span class="lens">UNIVERSE</span></div><h3>Dreamarched + Regulated Brightness: the sleep shelf</h3><p>More from the sleep canon — poems as small manuals for big attachments.</p><div class="meta src"><span>SHELF-MATE</span><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Professor — 15 examples ↗</a></div><div class="meter"><i style="width:71%"></i></div><div class="meta"><span>FROM MY SHELF · LULU + AMAZON</span><a href="#studio">MY TAKE →</a></div></div></article>
   </div>
 </section>
 
 <section id="index" class="section" style="padding-top:0">
-  <p class="mono kicker">02 / THE PARASOCIAL INDEX — A GENTLE WEEKLY RANKING</p>
-  <div class="sec-head"><h2 class="serif">What we're attached to this week.</h2><p class="sec-lede">Five things people felt strongly about — handy for screenshots and friendly debates. <span id="indexWeek" class="mono" style="font-size:.62rem;color:var(--gold)">WEEK 2026-W37</span> · <button id="indexCopy" class="fbtn" style="margin-left:8px">Copy Top 5 as text</button></p></div>
+  <p class="mono kicker">02 · THE WEEK'S RANKING — INDEX TOP 5</p>
+  <div class="sec-head"><h2 class="serif">What we're attached to this week.</h2><p class="sec-lede">Five things people felt strongly about — handy for screenshots and friendly debates. Refreshed Fridays. <span id="indexWeek" class="mono" style="font-size:.62rem;color:var(--gold)">WEEK 2026-W37</span> · <button id="indexCopy" class="fbtn" style="margin-left:8px">Copy Top 5 as text</button></p></div>
   <div class="index-wrap">
     <div class="index-table" id="indexTable">
       <div class="index-row"><span class="rank top">01</span><span><b>AI companions changing fast</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI · LOTS OF CHATTER · BIG FEELINGS, KINDLY UNPACKED</span></span><span class="move up">▲2</span></div>
@@ -166,7 +175,7 @@
 </section>
 
 <section id="cases" class="section" style="padding-top:0">
-  <p class="mono kicker">03 / CASE FILES — SLOW READS</p>
+  <p class="mono kicker">03 · GO DEEPER — CASE FILES</p>
   <div class="sec-head"><h2 class="serif">Longer notes from someone who loves this stuff.</h2><p class="sec-lede">Monthly essays mixing video-store memories, classroom notes, old books I love, and my own fiction. A short teaser is always free — members get the full piece plus audio.</p></div>
   <div class="case-grid" id="caseGrid">
     <article class="card case"><h3 class="serif">File 001: The Binding of Margery Kempe → Binding of Stans</h3><p style="color:var(--dim);font-size:.88rem">An old essay I love, reread through today's fandom rituals.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">Members get the full file + audio · $7/mo</div></article>
@@ -176,21 +185,21 @@
 </section>
 
 <section id="lenses" class="section" style="padding-top:0">
-  <p class="mono kicker">04 / SIX LENSES</p>
-  <div class="sec-head"><h2 class="serif">Every story gets a lens.</h2><p class="sec-lede">A simple way to browse: who (or what) are we attached to here?</p></div>
+  <p class="mono kicker">04 · BROWSE BY LENS</p>
+  <div class="sec-head"><h2 class="serif">Who are we attached to here?</h2><p class="sec-lede">Tap a lens to filter the Radar above.</p></div>
   <div class="lens-grid">
-    <div class="lens-card"><div class="n">◎</div><b>Idols</b><span>128 SIGNALS</span></div>
-    <div class="lens-card"><div class="n">◍</div><b>Characters</b><span>96 SIGNALS</span></div>
-    <div class="lens-card"><div class="n">▣</div><b>Creators</b><span>142 SIGNALS</span></div>
-    <div class="lens-card"><div class="n">♥</div><b>Companions</b><span>61 SIGNALS · FASTEST ↑</span></div>
-    <div class="lens-card"><div class="n">⬣</div><b>Brands</b><span>44 SIGNALS</span></div>
-    <div class="lens-card"><div class="n">∞</div><b>Universes</b><span>87 SIGNALS</span></div>
+    <button class="lens-card" data-lens="idol"><div class="n">◎</div><b>Idols</b><span>SINGERS · ACTORS · ATHLETES</span></button>
+    <button class="lens-card" data-lens="character"><div class="n">◍</div><b>Characters</b><span>HORROR · GAMES · LORE</span></button>
+    <button class="lens-card" data-lens="creator"><div class="n">▣</div><b>Creators</b><span>STREAMERS · YOUTUBE · PODS</span></button>
+    <button class="lens-card" data-lens="ai"><div class="n">♥</div><b>AI Companions</b><span>REPLIKA · CHARACTER.AI</span></button>
+    <button class="lens-card" data-lens="brand" data-lens-note="No brand stories yet — showing all"><div class="n">⬣</div><b>Brands</b><span>MORE SOON</span></button>
+    <button class="lens-card" data-lens="universe"><div class="n">∞</div><b>Universes</b><span>DREAMS · CANON · SERIES</span></button>
   </div>
 </section>
 
 <section id="studio" class="section" style="padding-top:0">
-  <p class="mono kicker">05 / FROM THE STUDIO</p>
-  <div class="sec-head"><h2 class="serif">Things I've made.</h2><p class="sec-lede">Books, podcasts, videos, albums — made by one person, shared with you. Browse whatever sounds fun.</p></div>
+  <p class="mono kicker">05 · FROM MY SHELF — MY WORK</p>
+  <div class="sec-head"><h2 class="serif">Things I've made.</h2><p class="sec-lede">Books, podcasts, videos, albums — if the Radar resonates, here's more of my own corner.</p></div>
   <div class="studio-strip">
     <a class="card studio-card" href="https://www.youtube.com/playlist?list=PLlKXzJojs1fX0YDsXgx1zVcxGcaxMs90W" target="_blank" rel="noopener"><img src="img/videos/insight-co.jpg" alt="The Insight Company series" loading="lazy"><span class="pad"><b>WATCH</b><span>Living with Pennywise + Michael · series playlists</span></span></a>
     <a class="card studio-card" href="https://open.spotify.com/show/1gkpaC8cMvu026VVhXNz2n" target="_blank" rel="noopener"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast cover" loading="lazy"><span class="pad"><b>LISTEN</b><span>Parasocialize + All The Horrible Things</span></span></a>
@@ -200,7 +209,7 @@
 </section>
 
 <section id="circle" class="section" style="padding-top:0">
-  <p class="mono kicker">06 / SUPPORT THE SIGNAL</p>
+  <p class="mono kicker">06 · KEEP IT GOING — SUPPORT</p>
   <div class="sec-head"><h2 class="serif">Free is great. Members keep it going.</h2></div>
   <div class="money">
     <div class="price"><h3>Signal</h3><div class="amt">Free</div><ul><li>Friday note: 5 signals + 1 take</li><li>Index Top 5</li><li>Unsubscribe anytime, no hard feelings</li></ul><a class="btn btn-ghost" href="#signal">Subscribe free</a></div>
@@ -217,7 +226,7 @@
   <p class="mono fineprint">+ TIP LINE: <a href="tip/index.html" style="color:var(--gold)">SPOT SOMETHING? 60-SEC FORM →</a> · TEACHERS: <a href="classroom/index.html" style="color:var(--teal)">$49 PACK →</a> · <a href="signal/latest.html" style="color:var(--gold)">PREVIEW EMAIL →</a></p>
 </section>
 </main>
-<footer class="footer"><div class="foot-grid"><div><p class="wordmark foot-mark"><img class="logo-img lg" src="img/logo.svg" alt="">PARA<span>SOCIALIZE</span></p><p class="mono foot-note">© <span id="year">2026</span> PARASOCIAL PRODUCTIONS · THE ENTERTAINMENT WEEKLY OF ONE-SIDED RELATIONSHIPS<br><a href="v1-oxalpha-backup.html" style="color:var(--teal)">← V1 ARCHIVE</a></p></div><nav class="foot-nav mono"><a href="#radar">RADAR</a><a href="#index">INDEX</a><a href="#cases">CASES</a><a href="#circle">CIRCLE</a></nav><p class="mono foot-tag">SOME LINKS SUPPORT THE SITE.<br>THANKS FOR KEEPING IT HUMAN.</p></div></footer>
+<footer class="footer"><div class="foot-grid"><div><p class="wordmark foot-mark"><img class="logo-img lg" src="img/logo.svg" alt="">PARA<span>SOCIALIZE</span></p><p class="mono foot-note">© <span id="year">2026</span> PARASOCIAL PRODUCTIONS · A FRIENDLY FIELD GUIDE TO ONE-SIDED RELATIONSHIPS<br><a href="v1-oxalpha-backup.html" style="color:var(--teal)">← V1 ARCHIVE</a></p></div><nav class="foot-nav mono"><a href="#radar">RADAR</a><a href="#index">INDEX</a><a href="#cases">CASES</a><a href="#circle">CIRCLE</a></nav><p class="mono foot-tag">SOME LINKS SUPPORT THE SITE.<br>THANKS FOR KEEPING IT HUMAN.</p></div></footer>
 <script src="js/main.js"></script>
 <script src="js/radar.js" defer></script>
 <script src="js/ticker.js" defer></script>
@@ -228,16 +237,24 @@
 (function(){
   const btns=[...document.querySelectorAll('.fbtn')];
   const count=document.getElementById('radarCount');
+  const valid=['all','nonfic','fic','ai','creator','idol','character','companion','universe'];
   function apply(f){
+    if(f==='brand')f='all';
+    if(!valid.includes(f))f='all';
     btns.forEach(x=>{const on=x.dataset.f===f;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});
     let n=0,total=0;
     document.querySelectorAll('#radarGrid .story').forEach(s=>{total++;const show=(f==='all'||s.dataset.cat.includes(f));s.style.display=show?'flex':'none';if(show)n++;});
-    if(count)count.textContent=`SHOWING ${n} / ${total} SIGNALS — ${f.toUpperCase()}`;
+    if(count)count.textContent = n ? `SHOWING ${n} / ${total} — ${f.toUpperCase()}` : `NOTHING UNDER ${f.toUpperCase()} YET — SHOWING ALL`;
+    if(!n)document.querySelectorAll('#radarGrid .story').forEach(s=>{s.style.display='flex';});
     if(location.hash.startsWith('#radar'))history.replaceState(null,'','#radar/'+f);
   }
   btns.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.f)));
+  document.querySelectorAll('.lens-card').forEach(b=>b.addEventListener('click',()=>{
+    document.getElementById('radar').scrollIntoView({behavior:'smooth'});
+    apply(b.dataset.lens||'all');
+  }));
   const h=(location.hash.split('/')[1]||'all');
-  apply(['all','nonfic','fic','ai','creator'].includes(h)?h:'all');
+  apply(h);
 })();
 </script>
 </body>
