@@ -67,7 +67,9 @@
 .story .meta.src a{color:#1a5c4d}
 .index-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
 .index-table{background:var(--bg2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.index-row{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+.index-row{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:background .2s}
+a.index-row:hover{background:rgba(255,255,255,.04)}
+a.index-row:hover b{color:var(--accent)}
 .index-row:last-child{border-bottom:0}
 .rank{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:900;color:var(--dim)}
 .rank.top{color:var(--accent)}
@@ -171,11 +173,11 @@
   <div class="sec-head"><h2 class="serif">What we're attached to this week.</h2><p class="sec-lede">Five strong feelings, ranked Fridays. <span id="indexWeek" class="mono" style="font-size:.62rem;color:var(--gold)">WEEK 2026-W37</span> · <button id="indexCopy" class="fbtn" style="margin-left:8px">Copy as text</button></p></div>
   <div class="index-wrap">
     <div class="index-table" id="indexTable">
-      <div class="index-row"><span class="rank top">01</span><span><b>AI companions changing fast</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI · LOTS OF CHATTER · BIG FEELINGS, KINDLY UNPACKED</span></span><span class="move up">▲2</span></div>
-      <div class="index-row"><span class="rank top">02</span><span><b>Pennywise roommate stories</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CHARACTER · HORROR FANS SHARING NOTES</span></span><span class="move new">NEW</span></div>
-      <div class="index-row"><span class="rank top">03</span><span><b>Paid message apps</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">IDOL · WHAT CLOSENESS COSTS</span></span><span class="move down">▼1</span></div>
-      <div class="index-row"><span class="rank">04</span><span><b>Game characters we love</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">FICTION · LORE + ATTACHMENT</span></span><span class="move up">▲4</span></div>
-      <div class="index-row"><span class="rank">05</span><span><b>Company Dreamer finds readers</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">FROM MY SHELF · DREAM INDUSTRY</span></span><span class="move new">★ MINE</span></div>
+      <a class="index-row" href="#radar/ai"><span class="rank top">01</span><span><b>AI companions changing fast</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI · BIG FEELINGS, KINDLY UNPACKED</span></span><span class="move up">▲2</span></a>
+      <a class="index-row" href="#cases"><span class="rank top">02</span><span><b>Pennywise roommate stories</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CHARACTER · HORROR FANS SHARING NOTES</span></span><span class="move new">NEW</span></a>
+      <a class="index-row" href="#radar/idol"><span class="rank top">03</span><span><b>Paid message apps</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">IDOL · WHAT CLOSENESS COSTS</span></span><span class="move down">▼1</span></a>
+      <a class="index-row" href="#radar/character"><span class="rank">04</span><span><b>Game characters we love</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">FICTION · LORE + ATTACHMENT</span></span><span class="move up">▲4</span></a>
+      <a class="index-row" href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener"><span class="rank">05</span><span><b>Company Dreamer finds readers</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">FROM MY SHELF · DREAM INDUSTRY</span></span><span class="move new">★ MINE</span></a>
     </div>
     <div class="sponsor-box"><small>KINDLY SUPPORTED</small><h3 class="serif" style="font-size:1.5rem">One friendly sponsor a week.</h3><p style="color:var(--dim);font-size:.9rem">If you'd like to support the Friday Signal and the Index, I'd love to hear from you — logo, a short note, and a link. No noisy ad tech, ever.</p><a class="btn btn-solid" href="mailto:iNNERdreamers@gmail.com?subject=Supporting%20the%20Signal">Say hello →</a></div>
   </div>
