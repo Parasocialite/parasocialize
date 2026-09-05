@@ -2,15 +2,15 @@
   "meta": {
     "model": "tools/resonance_model.md",
     "sweep_hours": 4,
-    "last_sweep": "2026-09-05T05:27:15.460389+00:00",
-    "sweep_count": 2
+    "last_sweep": "2026-09-05T05:31:53.383728+00:00",
+    "sweep_count": 3
   },
   "items": [
     {
       "slug": "living-with-pennywise",
       "lens": "character",
       "base_intensity": 9.2,
-      "resonance": 97.0,
+      "resonance": 94.0,
       "first_seen": "2026-09-01",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -47,7 +47,7 @@
       "slug": "stalker-economy-idols",
       "lens": "idol",
       "base_intensity": 8.8,
-      "resonance": 97.0,
+      "resonance": 94.0,
       "first_seen": "2026-09-02",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -73,7 +73,7 @@
       "slug": "ai-companion-lawsuit",
       "lens": "companion",
       "base_intensity": 9.5,
-      "resonance": 97.0,
+      "resonance": 94.0,
       "first_seen": "2026-09-03",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -104,7 +104,7 @@
       "slug": "streamers-know-your-name",
       "lens": "creator",
       "base_intensity": 8.2,
-      "resonance": 83.0,
+      "resonance": 80.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [

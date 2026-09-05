@@ -30,21 +30,21 @@ if index_items:
     index_rows = f'''<tr><td style="padding:18px 28px;background:#fff;border-top:2px solid #07070c;">
   <p style="margin:0;font-family:monospace;font-size:11px;letter-spacing:2px;color:#b71c1c;">THE PARASOCIAL INDEX · {index_week} · SCREENSHOT THIS</p>
   <ol style="margin:8px 0 4px;padding-left:20px;">{lis}</ol>
-  <p style="margin:6px 0 0;"><a href="https://www.parasocialize.com/#index" style="color:#b71c1c;font-size:13px;">Full Index + sponsor slot →</a></p></td></tr>'''
+  <p style="margin:6px 0 0;"><a href="https://www.parasocialize.com/#index" style="color:#b71c1c;font-size:13px;">See the full Top 5 →</a></p></td></tr>'''
 html = f"""<html><body style="margin:0;background:#0b0b12;padding:24px;">
 <center><table width="600" cellpadding="0" cellspacing="0" style="background:#f4f1e8;border-radius:12px;overflow:hidden;">
 <tr><td style="background:#07070c;color:#fff;padding:22px 28px;">
 <p style="margin:0;font-family:monospace;font-size:11px;letter-spacing:3px;color:#ff4d2e;">PARASOCIALIZE · FRIDAY SIGNAL · {datetime.date.today().isoformat()}</p>
 <h1 style="margin:8px 0 0;font-family:Georgia,serif;font-size:30px;">5 signals. 1 take. No algorithm.</h1></td></tr>
-<tr><td style="padding:8px 28px 4px;"><p style="font-family:monospace;font-size:11px;color:#888;">PRESENTED BY [SPONSOR — $250/issue] · <a href="#">Become sponsor →</a></p></td></tr>
+<tr><td style="padding:8px 28px 4px;"><p style="font-family:monospace;font-size:11px;color:#888;">FREE, SUPPORTED BY READERS + THE FIELD GUIDE</p></td></tr>
 {rows}
 {index_rows}
 <tr><td style="padding:20px 28px;background:#16131a;color:#ffcf5c;font-family:Georgia,serif;">
-<b>ENAN'S TAKE:</b> The industry now sells the one-sided contract directly — bubble apps, paid DMs, memory-wiped companions. I ran a video store before the feed; clerks did this with rentals. Full decode in File {case.get("file_no")}: {case.get("title")} — <a href="https://www.parasocialize.com/#cases" style="color:#ffcf5c;">members unlock full →</a></td></tr>
+<b>ENAN'S TAKE:</b> The industry now sells closeness directly — message apps, paid DMs, companions that change overnight. I ran a video store before the feed; clerks did this with rentals. The essentials live in the <a href="https://www.parasocialize.com/guide/" style="color:#ffcf5c;">Field Guide ($12) →</a></td></tr>
 <tr><td style="padding:20px 28px;text-align:center;">
-<a href="https://www.parasocialize.com/#circle" style="background:#ff4d2e;color:#14030a;padding:14px 28px;border-radius:99px;text-decoration:none;font-family:monospace;font-size:13px;">JOIN INNER CIRCLE — $7/MO</a>
+<a href="https://www.parasocialize.com/guide/" style="background:#ff4d2e;color:#14030a;padding:14px 28px;border-radius:99px;text-decoration:none;font-family:monospace;font-size:13px;">GET THE FIELD GUIDE — $12</a>
 <p style="font-family:monospace;font-size:11px;color:#888;margin-top:12px;">Free? Forward this. Tip a signal → iNNERdreamers@gmail.com · <a href="#">Unsubscribe</a></p></td></tr>
 </table></center></body></html>"""
 (ROOT/"signal"/"latest.html").write_text(html, encoding="utf-8")
-(ROOT/"signal"/"latest.txt").write_text(f"PARASOCIALIZE FRIDAY SIGNAL\n\n" + "\n\n".join(f'- {d.get("title")} ({d.get("intensity")}): {d.get("dek")}' for d in picks) + (f'\n\nINDEX {index_week}:\n' + "\n".join(f'{m.get("rank")}. {m.get("title")} [{m.get("lens")}]' for m in index_items) if index_items else "") + f'\n\nENAN TAKE: File {case.get("file_no")} {case.get("title")}\nJoin: https://www.parasocialize.com/#circle\n', encoding="utf-8")
+(ROOT/"signal"/"latest.txt").write_text(f"PARASOCIALIZE FRIDAY SIGNAL\n\n" + "\n\n".join(f'- {d.get("title")} ({d.get("intensity")}): {d.get("dek")}' for d in picks) + (f'\n\nINDEX {index_week}:\n' + "\n".join(f'{m.get("rank")}. {m.get("title")} [{m.get("lens")}]' for m in index_items) if index_items else "") + f'\n\nENAN TAKE: essentials in the Field Guide ($12): https://www.parasocialize.com/guide/\n', encoding="utf-8")
 print(f"wrote signal/latest.html + .txt with {len(picks)} picks + {len(index_items)} index")
