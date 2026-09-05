@@ -2,15 +2,15 @@
   "meta": {
     "model": "tools/resonance_model.md",
     "sweep_hours": 4,
-    "last_sweep": "2026-09-05T07:10:21.170177+00:00",
-    "sweep_count": 15
+    "last_sweep": "2026-09-05T07:16:33.243006+00:00",
+    "sweep_count": 16
   },
   "items": [
     {
       "slug": "stalker-economy-idols",
       "lens": "idol",
       "base_intensity": 8.8,
-      "resonance": 76.0,
+      "resonance": 73.0,
       "first_seen": "2026-09-02",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -60,7 +60,7 @@
       "slug": "swifties-record-sales",
       "lens": "idol",
       "base_intensity": 9.4,
-      "resonance": 76.0,
+      "resonance": 73.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -73,20 +73,20 @@
       "slug": "derry-season-two",
       "lens": "character",
       "base_intensity": 9.0,
-      "resonance": 72.0,
+      "resonance": 69.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
         "mag-rescan"
       ],
-      "state": "FLASHING",
+      "state": "PRESENT",
       "classic": false
     },
     {
       "slug": "cai-settlement",
       "lens": "companion",
       "base_intensity": 9.3,
-      "resonance": 75.0,
+      "resonance": 72.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -99,20 +99,20 @@
       "slug": "kai-cenat-return",
       "lens": "creator",
       "base_intensity": 8.9,
-      "resonance": 71.0,
+      "resonance": 68.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
         "mag-rescan"
       ],
-      "state": "FLASHING",
+      "state": "PRESENT",
       "classic": false
     },
     {
       "slug": "neuro-sama-number-one",
       "lens": "companion",
       "base_intensity": 9.1,
-      "resonance": 73.0,
+      "resonance": 70.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -125,7 +125,7 @@
       "slug": "characters-we-keep",
       "lens": "character",
       "base_intensity": 7.6,
-      "resonance": 58.0,
+      "resonance": 55.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -133,6 +133,19 @@
       ],
       "state": "PRESENT",
       "classic": false
+    },
+    {
+      "slug": "research-shelf",
+      "lens": "universe",
+      "base_intensity": 7.0,
+      "resonance": 64.0,
+      "first_seen": "2026-09-08",
+      "last_seen": "2026-09-08",
+      "sightings": [
+        "shelf"
+      ],
+      "state": "CLASSIC",
+      "classic": true
     }
   ]
 }
