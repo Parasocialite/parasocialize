@@ -1,0 +1,140 @@
+[
+  {
+    "slug": "streamers-know-your-name",
+    "title": "Streamers who feel like they know you",
+    "date": "2026-09-05",
+    "type": "non-fiction",
+    "lenses": [
+      "creator"
+    ],
+    "tags": [
+      "creator"
+    ],
+    "intensity": 8.2,
+    "read_minutes": 5,
+    "image": "img/videos/old-school.jpg",
+    "image_alt": "Old School playlist artwork",
+    "dek": "Shout-outs, raids, kind mods \u2014 the video-store-regular feeling, scaled up to thousands.",
+    "source_name": "NetPsychology \u2014 why we feel close to streamers",
+    "source_url": "https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/",
+    "link": "#index",
+    "link_label": "MY TAKE \u2192",
+    "resonance": 86.0,
+    "state": "FLASHING",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "living-with-pennywise",
+    "title": "Living with Pennywise: when horror feels like a roommate",
+    "date": "2026-09-01",
+    "type": "non-fiction",
+    "lenses": [
+      "character",
+      "creator"
+    ],
+    "intensity": 9.2,
+    "read_minutes": 6,
+    "image": "https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg",
+    "image_alt": "Living with Pennywise video thumbnail",
+    "dek": "Why horror icons move in and stay a while \u2014 my video plus some gentle context on fandom and attachment.",
+    "source_name": "Vice \u2014 when fandom becomes fixation",
+    "source_url": "https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/",
+    "link": "#cases",
+    "link_label": "MY TAKE \u2192",
+    "resonance": 100.0,
+    "state": "LINGERING",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "stalker-economy-idols",
+    "title": "The idol economy: when closeness is the product",
+    "date": "2026-09-02",
+    "type": "non-fiction",
+    "lenses": [
+      "idol"
+    ],
+    "intensity": 8.8,
+    "read_minutes": 4,
+    "image": "img/videos/insight-co.jpg",
+    "image_alt": "The Insight Company series artwork",
+    "dek": "From arena tours to paid message apps \u2014 what it feels like when closeness is for sale, and how to enjoy it kindly.",
+    "source_name": "KpopWave \u2014 The Friend You Pay For",
+    "source_url": "https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/",
+    "source2_name": "NNGroup \u2014 the illusion of private messaging",
+    "source2_url": "https://www.nngroup.com/articles/kpop-private-messaging",
+    "link": "#signal",
+    "link_label": "MY TAKE \u2192",
+    "resonance": 100.0,
+    "state": "PRESENT",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "ai-companion-lawsuit",
+    "title": "When your AI companion changes overnight",
+    "date": "2026-09-03",
+    "type": "fiction",
+    "lenses": [
+      "companion"
+    ],
+    "tags": [
+      "ai"
+    ],
+    "intensity": 9.5,
+    "read_minutes": 8,
+    "image": "img/podcasts/parasocialize.jpg",
+    "image_alt": "Parasocialize podcast artwork",
+    "dek": "Product updates, lost memories, real grief. A fictional lens on a very real feeling \u2014 with some grounding context.",
+    "source_name": "ExplainX \u2014 Replika, Character.AI and AI grief",
+    "source_url": "https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026",
+    "source2_name": "APA 2026 Trends \u2014 AI reshaping connection",
+    "source2_url": "https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection",
+    "link": "#cases",
+    "link_label": "MY TAKE \u2192",
+    "resonance": 100.0,
+    "state": "PRESENT",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "company-dreamer-parable",
+    "title": "Company Dreamer: the dream-recording industry",
+    "date": "2026-09-04",
+    "type": "fiction",
+    "lenses": [
+      "universe"
+    ],
+    "intensity": 7.8,
+    "read_minutes": 5,
+    "image": "img/books/company-dreamer.jpg",
+    "image_alt": "Company Dreamer book cover",
+    "dek": "My novel as a friendly parable \u2014 who holds the dream you end up living in?",
+    "source_name": "Gayle Stever \u2014 Understanding Parasocial Relationships (2026 book)",
+    "source_url": "https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/",
+    "link": "https://www.amazon.com/dp/B01FCHZCOE",
+    "link_label": "BROWSE \u2192",
+    "affiliate": true,
+    "resonance": 64.0,
+    "state": "CLASSIC",
+    "last_seen": "2026-09-04"
+  },
+  {
+    "slug": "sleep-canon",
+    "title": "Dreamarched + Regulated Brightness: the sleep shelf",
+    "date": "2026-09-06",
+    "type": "fiction",
+    "lenses": [
+      "universe"
+    ],
+    "intensity": 7.1,
+    "read_minutes": 4,
+    "image": "img/books/dreamarched.jpg",
+    "image_alt": "Dreamarched book cover",
+    "dek": "More from the sleep canon \u2014 poems as small manuals for big attachments.",
+    "source_name": "Helpful Professor \u2014 15 parasocial examples",
+    "source_url": "https://helpfulprofessor.com/parasocial-relationships-examples/",
+    "link": "#studio",
+    "link_label": "MY TAKE \u2192",
+    "resonance": 58.0,
+    "state": "CLASSIC",
+    "last_seen": "2026-09-05"
+  }
+]

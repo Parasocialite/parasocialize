@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.parasocialize.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.parasocialize.com/#radar</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/#index</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/#cases</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.parasocialize.com/guide/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.parasocialize.com/classroom/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.parasocialize.com/audit/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.parasocialize.com/tip/index.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+</urlset>

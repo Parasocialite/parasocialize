@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PARASOCIALIZE — The Entertainment Weekly of One-Sided Relationships</title>
+<meta name="description" content="Parasocialize is the hub for all things parasocial: fiction and non-fiction coverage of one-sided relationships, decoded by Enan Joe Heneghan. Radar, Index, Case Files + studio output.">
+<meta name="theme-color" content="#07070c">
+<link rel="canonical" href="https://www.parasocialize.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PARASOCIALIZE — The Entertainment Weekly of One-Sided Relationships">
+<meta property="og:description" content="Radar, Index, Case Files + studio output. Decoded by Enan Joe Heneghan.">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize Radar" href="radar.xml">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"PARASOCIALIZE","url":"https://www.parasocialize.com/","founder":{"@type":"Person","name":"Enan Joe Heneghan"},"sameAs":["https://www.compudactyl.com/","https://www.allthehorriblethings.com/"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"The Parasocial Index","itemListElement":[{"@type":"ListItem","position":1,"name":"AI companion memory-wipe backlash"},{"@type":"ListItem","position":2,"name":"Pennywise roommate TikToks"}]}
+</script>
+<style>
+:root{ --paper:#f4f1e8; --paperink:#16131a; --gold:#ffcf5c; }
+.serif{font-family:"Fraunces",Georgia,serif;}
+.masthead{max-width:1180px;margin:0 auto;padding:72px 28px 18px;display:grid;grid-template-columns:1.5fr .9fr;gap:28px;align-items:start}
+.dateline{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.22em;color:var(--accent);margin-bottom:14px}
+.masthead h1{font-family:"Fraunces",serif;font-weight:900;line-height:.98;letter-spacing:-.02em;font-size:clamp(2.8rem,6.5vw,5rem);margin-bottom:16px}
+.masthead h1 em{font-style:italic;color:var(--accent)}
+.dek{color:var(--dim);max-width:56ch;font-size:1.05rem}
+.dek strong{color:var(--ink)}
+.edition{border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,#10101a,#0b0b12);padding:22px;display:flex;flex-direction:column;gap:14px}
+.edition .face{display:flex;gap:14px;align-items:center}
+.face img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);background:#222}
+.face b{display:block;font-size:.95rem}
+.face span{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;color:var(--dim)}
+.take{font-family:"Fraunces",serif;font-size:1.15rem;line-height:1.45}
+.take a{color:var(--teal);border-bottom:1px solid rgba(55,211,192,.4)}
+.filter-row{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.fbtn{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);background:transparent;color:var(--dim);border-radius:999px;padding:8px 16px;cursor:pointer}
+.fbtn.active,.fbtn:hover{border-color:var(--accent);color:var(--accent)}
+.radar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.story{background:var(--paper);color:var(--paperink);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;border:1px solid rgba(0,0,0,.2)}
+.story .art{aspect-ratio:16/9;background:#111;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:2.6rem;color:#fff;position:relative;overflow:hidden}
+.story .art img{width:100%;height:100%;object-fit:cover;display:block}
+.studio-card{padding:0;overflow:hidden}
+.studio-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.studio-card .pad{padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.studio-card span{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.08em;color:var(--dim)}
+.story .body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.lensrow{display:flex;gap:8px;flex-wrap:wrap}
+.lens{font-family:"IBM Plex Mono",monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#16131a;color:var(--gold)}
+.lens.fic{background:#1d3a2f;color:#7dffd4}.lens.nonfic{background:#3a1d1d;color:#ff9a8a}.lens.ai{background:#25224d;color:#c9c4ff}
+.story h3{font-family:"Fraunces",serif;font-size:1.35rem;line-height:1.15}
+.story p{font-size:.9rem;color:#4a4450}
+.meter{height:6px;background:rgba(0,0,0,.12);border-radius:99px;overflow:hidden}
+.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.story .meta{display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.12em;color:#6b6570;margin-top:auto;padding-top:8px}
+.story .meta a{color:#b71c1c;font-weight:500}
+.story .meta.src{margin-top:0;padding-top:0;border-top:1px dashed rgba(0,0,0,.15);padding-top:8px}
+.story .meta.src a{color:#1a5c4d}
+.index-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.index-table{background:var(--bg2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.index-row{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+.index-row:last-child{border-bottom:0}
+.rank{font-family:"Fraunces",serif;font-size:1.6rem;font-weight:900;color:var(--dim)}
+.rank.top{color:var(--accent)}
+.move{font-family:"IBM Plex Mono",monospace;font-size:.64rem;padding:4px 8px;border-radius:99px}
+.move.up{background:rgba(55,211,192,.15);color:var(--teal)}.move.down{background:rgba(255,77,46,.15);color:var(--accent)}.move.new{background:var(--gold);color:#111}
+.sponsor-box{border:1px dashed rgba(255,207,92,.5);border-radius:14px;padding:24px;background:rgba(255,207,92,.06);display:flex;flex-direction:column;gap:12px}
+.sponsor-box small{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.22em;color:var(--gold)}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.case{position:relative}
+.lock{position:absolute;inset:auto 12px 12px 12px;background:rgba(7,7,12,.88);backdrop-filter:blur(8px);border:1px solid var(--gold);border-radius:10px;padding:12px 14px;font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.1em;color:var(--gold);text-align:center}
+.lens-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.lens-card{border:1px solid var(--line);border-radius:12px;padding:18px 14px;background:var(--bg2);text-align:center}
+.lens-card b{font-family:"Fraunces",serif;font-size:1.05rem;display:block;margin:8px 0 4px}
+.lens-card span{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.14em;color:var(--dim)}
+.lens-card .n{font-family:"Fraunces",serif;font-size:2rem;color:var(--accent)}
+.money{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.price{border:1px solid var(--line);border-radius:14px;padding:28px;background:var(--panel);display:flex;flex-direction:column;gap:12px}
+.price.hot{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 50px rgba(0,0,0,.5)}
+.price h3{font-family:"Fraunces",serif;font-size:1.6rem}
+.price .amt{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:900}
+.price ul{list-style:none;color:var(--dim);font-size:.9rem;display:flex;flex-direction:column;gap:8px;margin:8px 0 12px}
+.price ul li::before{content:"▸ ";color:var(--accent)}
+.studio-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.studio-strip .mini-card{min-height:130px;justify-content:center}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#14030a;padding:10px 18px;border-radius:0 0 10px 0;font-family:"IBM Plex Mono",monospace;font-size:.72rem;z-index:100}
+.skip:focus{left:0}
+.fbtn:focus-visible,.btn:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.countline{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;color:var(--dim);margin-top:10px}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+@media(max-width:1000px){.masthead,.index-wrap{grid-template-columns:1fr}.radar-grid,.case-grid,.money{grid-template-columns:1fr 1fr}.lens-grid{grid-template-columns:repeat(3,1fr)}.studio-strip{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.radar-grid,.case-grid,.money,.studio-strip{grid-template-columns:1fr}.lens-grid{grid-template-columns:1fr 1fr}.masthead{padding-top:48px}}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#radar">Skip to Radar</a>
+<div class="scanlines" aria-hidden="true"></div>
+<header class="topbar">
+  <a class="wordmark" href="#top"><img class="logo-img" src="img/logo.svg" alt="Parasocialize logo">PARA<span>SOCIALIZE</span></a>
+  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  <nav id="nav" class="nav" aria-label="Main">
+    <a href="#radar">Radar</a><a href="#index">Index</a><a href="#cases">Case Files</a><a href="#studio">Studio</a><a href="#circle" class="cta-link">Inner Circle</a>
+  </nav>
+  <div class="onair"><i class="dot"></i>ISSUE #001 · LIVE</div>
+</header>
+
+<div class="masthead">
+  <div>
+    <p class="dateline">A FRIENDLY FIELD GUIDE TO ONE-SIDED RELATIONSHIPS — DOWNERS GROVE → AUSTRALIA</p>
+    <h1>One-way connection, <em>fully human.</em></h1>
+    <p class="dek">I keep track of the <strong>parasocial stuff we all feel</strong> — idol news, AI companions, characters you live with, creators who feel like friends — fiction <strong>and</strong> real life. Noted weekly by <strong>Enan Joe Heneghan</strong>, novelist, teacher, and longtime student of how we attach.</p>
+    <div class="hero-ctas" style="margin-top:22px">
+      <a class="btn btn-solid" href="#signal">Get the Friday Signal — free</a>
+      <a class="btn btn-ghost" href="#radar">Browse this week's Radar ↓</a>
+    </div>
+    <p class="mono" style="margin-top:14px;font-size:.62rem;letter-spacing:.16em;color:var(--dim)">START WITH THE RADAR · STAY FOR THE FRIDAY SIGNAL · GO DEEPER IN CASE FILES</p>
+  </div>
+  <aside class="edition">
+    <p class="mono" style="font-size:.62rem;letter-spacing:.2em;color:var(--accent)">FROM ENAN · YOUR HOST</p>
+    <div class="face"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize show art"><div><b>Enan Joe Heneghan</b><span>VIDEO STORES → M.A. → CLASSROOM · NOW IN AUSTRALIA</span></div></div>
+    <p class="take">“I spent years handing you VHS tapes and learning your taste. That was parasocial before the feed — and I loved it. Now I write about it — <a href="#cases">starting with Pennywise.</a>”</p>
+    <a class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--teal)" href="#studio">WHY I LOVE THIS BEAT →</a>
+  </aside>
+</div>
+
+<div class="ticker"><div class="ticker-track"><span>THIS WEEK ● IDOL FAN ECONOMIES ● GAME CHARACTERS WE LOVE ● AI COMPANIONS + BIG FEELINGS ● PENNYWISE ROOMMATE STORIES ● K-POP MESSAGE APPS ● DREAMS AS STORIES ●&nbsp;&nbsp;</span><span>THIS WEEK ● IDOL FAN ECONOMIES ● GAME CHARACTERS WE LOVE ● AI COMPANIONS + BIG FEELINGS ● PENNYWISE ROOMMATE STORIES ● K-POP MESSAGE APPS ● DREAMS AS STORIES ●&nbsp;&nbsp;</span></div></div>
+
+<main>
+<section id="radar" class="section">
+  <p class="mono kicker">01 / THE RADAR — THIS WEEK IN ONE-SIDED RELATIONSHIPS</p>
+  <div class="sec-head"><h2 class="serif">Outside stories, gentle lens.</h2><p class="sec-lede">Not just my stuff — small fiction + real-life notes from anywhere, each with a simple intensity score so you know what you're getting into. Some links help support the site, and I'll always mark them.</p></div>
+  <div class="filter-row" role="group" aria-label="Filter Radar">
+    <button class="fbtn active" data-f="all" aria-pressed="true">All</button><button class="fbtn" data-f="nonfic" aria-pressed="false">Non-fiction</button><button class="fbtn" data-f="fic" aria-pressed="false">Fiction</button><button class="fbtn" data-f="ai" aria-pressed="false">AI Companions</button><button class="fbtn" data-f="creator" aria-pressed="false">Creators</button>
+  </div>
+  <p class="countline" id="radarCount" aria-live="polite"></p>
+  <p class="mono" style="font-size:.6rem;letter-spacing:.16em;color:var(--dim)">NEW HERE? START WITH ALL, THEN TRY A FILTER · <a href="radar.xml" style="color:var(--gold)">RSS →</a></p>
+  <!-- Builder note: /radar/*.md → radar.json → this grid. Add a .md, run tools/build_radar.py, upload. -->
+  <div class="radar-grid" id="radarGrid">
+    <article class="story" data-cat="nonfic creator"><div class="art"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="Living with Pennywise video thumbnail" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">CHARACTER</span></div><h3>Living with Pennywise: when horror feels like a roommate</h3><p>Why horror icons move in and stay a while — my video plus some gentle context on fandom and attachment.</p><div class="meta src"><span>SOURCE</span><a href="https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/" target="_blank" rel="noopener">Vice — when fandom becomes fixation ↗</a></div><div class="meter"><i style="width:92%"></i></div><div class="meta"><span>INTENSITY 9.2 · 6 MIN</span><a href="#cases">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="nonfic"><div class="art"><img src="img/videos/insight-co.jpg" alt="The Insight Company series artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">IDOL</span></div><h3>The idol economy: when closeness is the product</h3><p>From arena tours to paid message apps — what it feels like when closeness itself is for sale, and how to enjoy it kindly.</p><div class="meta src"><span>SOURCE</span><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave — The Friend You Pay For ↗</a></div><div class="meta src"><span>ALSO</span><a href="https://www.nngroup.com/articles/kpop-private-messaging" target="_blank" rel="noopener">NNGroup — illusion of private messaging ↗</a></div><div class="meter"><i style="width:88%"></i></div><div class="meta"><span>INTENSITY 8.8 · 4 MIN</span><a href="#signal">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="fic ai"><div class="art"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens ai">AI</span><span class="lens fic">FICTION + REAL LIFE</span></div><h3>When your AI companion changes overnight</h3><p>Product updates, lost memories, real grief. A fictional lens on a very real feeling — with some grounding context.</p><div class="meta src"><span>SOURCE</span><a href="https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026" target="_blank" rel="noopener">ExplainX — Replika, Character.AI and AI grief ↗</a></div><div class="meta src"><span>ALSO</span><a href="https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection" target="_blank" rel="noopener">APA 2026 Trends ↗</a></div><div class="meter"><i style="width:95%"></i></div><div class="meta"><span>INTENSITY 9.5 · 8 MIN</span><a href="#cases">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="fic"><div class="art"><img src="img/books/company-dreamer.jpg" alt="Company Dreamer book cover" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens fic">FICTION</span><span class="lens">UNIVERSE</span></div><h3>Company Dreamer: the dream-recording industry</h3><p>My novel as a friendly parable — who holds the dream you end up living in? <em>Browse + review.</em></p><div class="meta src"><span>SHELF-MATE</span><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever — Understanding Parasocial Relationships (2026) ↗</a></div><div class="meter"><i style="width:78%"></i></div><div class="meta"><span>FROM MY SHELF · AMAZON ↗</span><a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener">BROWSE →</a></div></div></article>
+    <article class="story" data-cat="nonfic creator"><div class="art"><img src="img/videos/old-school.jpg" alt="Old School playlist artwork" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens nonfic">NON-FICTION</span><span class="lens">CREATOR</span></div><h3>Streamers who feel like they know you</h3><p>Shout-outs, raids, kind mods — the video-store-regular feeling, scaled up to thousands. I find this one sweet and strange.</p><div class="meta src"><span>SOURCE</span><a href="https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/" target="_blank" rel="noopener">NetPsychology — why we feel close to streamers ↗</a></div><div class="meter"><i style="width:82%"></i></div><div class="meta"><span>INTENSITY 8.2 · 5 MIN</span><a href="#index">MY TAKE →</a></div></div></article>
+    <article class="story" data-cat="fic nonfic"><div class="art"><img src="img/books/dreamarched.jpg" alt="Dreamarched book cover" loading="lazy"></div><div class="body"><div class="lensrow"><span class="lens fic">FICTION</span><span class="lens">UNIVERSE</span></div><h3>Dreamarched + Regulated Brightness: the sleep shelf</h3><p>More from the sleep canon — poems as small manuals for big attachments.</p><div class="meta src"><span>SHELF-MATE</span><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Professor — 15 examples ↗</a></div><div class="meter"><i style="width:71%"></i></div><div class="meta"><span>FROM MY SHELF · LULU + AMAZON</span><a href="#studio">MY TAKE →</a></div></div></article>
+  </div>
+</section>
+
+<section id="index" class="section" style="padding-top:0">
+  <p class="mono kicker">02 / THE PARASOCIAL INDEX — A GENTLE WEEKLY RANKING</p>
+  <div class="sec-head"><h2 class="serif">What we're attached to this week.</h2><p class="sec-lede">Five things people felt strongly about — handy for screenshots and friendly debates. <span id="indexWeek" class="mono" style="font-size:.62rem;color:var(--gold)">WEEK 2026-W37</span> · <button id="indexCopy" class="fbtn" style="margin-left:8px">Copy Top 5 as text</button></p></div>
+  <div class="index-wrap">
+    <div class="index-table" id="indexTable">
+      <div class="index-row"><span class="rank top">01</span><span><b>AI companions changing fast</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI · LOTS OF CHATTER · BIG FEELINGS, KINDLY UNPACKED</span></span><span class="move up">▲2</span></div>
+      <div class="index-row"><span class="rank top">02</span><span><b>Pennywise roommate stories</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CHARACTER · HORROR FANS SHARING NOTES</span></span><span class="move new">NEW</span></div>
+      <div class="index-row"><span class="rank top">03</span><span><b>Paid message apps</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">IDOL · WHAT CLOSENESS COSTS</span></span><span class="move down">▼1</span></div>
+      <div class="index-row"><span class="rank">04</span><span><b>Game characters we love</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">FICTION · LORE + ATTACHMENT</span></span><span class="move up">▲4</span></div>
+      <div class="index-row"><span class="rank">05</span><span><b>Company Dreamer finds readers</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">FROM MY SHELF · DREAM INDUSTRY</span></span><span class="move new">★ MINE</span></div>
+    </div>
+    <div class="sponsor-box"><small>KINDLY SUPPORTED</small><h3 class="serif" style="font-size:1.5rem">One friendly sponsor a week.</h3><p style="color:var(--dim);font-size:.9rem">If you'd like to support the Friday Signal and the Index, I'd love to hear from you — logo, a short note, and a link. No noisy ad tech, ever.</p><a class="btn btn-solid" href="mailto:iNNERdreamers@gmail.com?subject=Supporting%20the%20Signal">Say hello →</a></div>
+  </div>
+</section>
+
+<section id="cases" class="section" style="padding-top:0">
+  <p class="mono kicker">03 / CASE FILES — SLOW READS</p>
+  <div class="sec-head"><h2 class="serif">Longer notes from someone who loves this stuff.</h2><p class="sec-lede">Monthly essays mixing video-store memories, classroom notes, old books I love, and my own fiction. A short teaser is always free — members get the full piece plus audio.</p></div>
+  <div class="case-grid" id="caseGrid">
+    <article class="card case"><h3 class="serif">File 001: The Binding of Margery Kempe → Binding of Stans</h3><p style="color:var(--dim);font-size:.88rem">An old essay I love, reread through today's fandom rituals.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">Members get the full file + audio · $7/mo</div></article>
+    <article class="card case"><h3 class="serif">File 002: Blockbuster Knew Your Name</h3><p style="color:var(--dim);font-size:.88rem">What video-store regulars taught me about recommendations with a human touch.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">Members get rental-log extras + stories</div></article>
+    <article class="card case"><h3 class="serif">File 003: Dream Recording as a Friendly Metaphor</h3><p style="color:var(--dim);font-size:.88rem">What my novel helped me understand about who holds our shared dreams.</p><span class="mono buy">READ FREE TEASER →</span><div class="lock">Members get my commentary track</div></article>
+  </div>
+</section>
+
+<section id="lenses" class="section" style="padding-top:0">
+  <p class="mono kicker">04 / SIX LENSES</p>
+  <div class="sec-head"><h2 class="serif">Every story gets a lens.</h2><p class="sec-lede">A simple way to browse: who (or what) are we attached to here?</p></div>
+  <div class="lens-grid">
+    <div class="lens-card"><div class="n">◎</div><b>Idols</b><span>128 SIGNALS</span></div>
+    <div class="lens-card"><div class="n">◍</div><b>Characters</b><span>96 SIGNALS</span></div>
+    <div class="lens-card"><div class="n">▣</div><b>Creators</b><span>142 SIGNALS</span></div>
+    <div class="lens-card"><div class="n">♥</div><b>Companions</b><span>61 SIGNALS · FASTEST ↑</span></div>
+    <div class="lens-card"><div class="n">⬣</div><b>Brands</b><span>44 SIGNALS</span></div>
+    <div class="lens-card"><div class="n">∞</div><b>Universes</b><span>87 SIGNALS</span></div>
+  </div>
+</section>
+
+<section id="studio" class="section" style="padding-top:0">
+  <p class="mono kicker">05 / FROM THE STUDIO</p>
+  <div class="sec-head"><h2 class="serif">Things I've made.</h2><p class="sec-lede">Books, podcasts, videos, albums — made by one person, shared with you. Browse whatever sounds fun.</p></div>
+  <div class="studio-strip">
+    <a class="card studio-card" href="https://www.youtube.com/playlist?list=PLlKXzJojs1fX0YDsXgx1zVcxGcaxMs90W" target="_blank" rel="noopener"><img src="img/videos/insight-co.jpg" alt="The Insight Company series" loading="lazy"><span class="pad"><b>WATCH</b><span>Living with Pennywise + Michael · series playlists</span></span></a>
+    <a class="card studio-card" href="https://open.spotify.com/show/1gkpaC8cMvu026VVhXNz2n" target="_blank" rel="noopener"><img src="img/podcasts/parasocialize.jpg" alt="Parasocialize podcast cover" loading="lazy"><span class="pad"><b>LISTEN</b><span>Parasocialize + All The Horrible Things</span></span></a>
+    <a class="card studio-card" href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener"><img src="img/books/company-dreamer.jpg" alt="Company Dreamer book cover" loading="lazy"><span class="pad"><b>READ</b><span>Company Dreamer · Dreamarched · poems</span></span></a>
+    <a class="card studio-card" href="https://www.compudactyl.com/" target="_blank" rel="noopener"><img src="img/covers/fallgate.jpg" alt="Fallgate album cover" loading="lazy"><span class="pad"><b>MUSIC</b><span>compuDACTYL — 5 albums from inside dead machines</span></span></a>
+  </div>
+</section>
+
+<section id="circle" class="section" style="padding-top:0">
+  <p class="mono kicker">06 / SUPPORT THE SIGNAL</p>
+  <div class="sec-head"><h2 class="serif">Free is great. Members keep it going.</h2></div>
+  <div class="money">
+    <div class="price"><h3>Signal</h3><div class="amt">Free</div><ul><li>Friday note: 5 signals + 1 take</li><li>Index Top 5</li><li>Unsubscribe anytime, no hard feelings</li></ul><a class="btn btn-ghost" href="#signal">Subscribe free</a></div>
+    <div class="price hot"><p class="mono" style="font-size:.6rem;letter-spacing:.2em;color:var(--gold)">POPULAR · $7/MO</p><h3>Inner Circle</h3><div class="amt">$7<span style="font-size:1rem;color:var(--dim)">/mo</span></div><ul><li>Full Case Files + audio notes</li><li>Bonus episodes + early peeks</li><li>Vote on what I cover next</li><li><a href="guide/index.html" style="color:var(--gold)">Field Guide PDF</a> (included)</li></ul><a class="btn btn-solid" href="mailto:iNNERdreamers@gmail.com?subject=Inner%20Circle">Join the Circle</a></div>
+    <div class="price"><h3>Work with me</h3><div class="amt" style="font-size:1.6rem">Parasocial Audit</div><ul><li>A kind check-up for your audience</li><li>Simple, ethical community guide</li><li>Talks + classroom visits (Aus + remote)</li></ul><a class="btn btn-ghost" href="audit/index.html">How an audit works →</a></div>
+  </div>
+</section>
+
+<section id="signal" class="section signal-sec">
+  <p class="mono kicker">07 / JOIN THE SIGNAL</p>
+  <h2 class="serif" style="font-size:clamp(1.8rem,4vw,2.8rem);max-width:22ch;margin:0 auto">One email Friday. Five signals. One take.</h2>
+  <!-- PROFIT WIRING: Phase 1 = FormSubmit (active). Phase 2 = swap to Buttondown: replace form action with https://buttondown.email/api/emails/embed-subscribe/YOUR-USERNAME and add hidden embed fields. Keep tip line always. -->
+  <form class="signal-form" action="https://formsubmit.co/iNNERdreamers@gmail.com" method="POST"><input type="hidden" name="_subject" value="New Signal subscriber — v2"><input type="hidden" name="_captcha" value="false"><label class="sr-only" for="email">Email address</label><input id="email" type="email" name="email" placeholder="you@anywhere.net" required autocomplete="email"><button class="btn btn-solid" type="submit">Subscribe free</button></form>
+  <p class="mono fineprint">+ TIP LINE: <a href="tip/index.html" style="color:var(--gold)">SPOT SOMETHING? 60-SEC FORM →</a> · TEACHERS: <a href="classroom/index.html" style="color:var(--teal)">$49 PACK →</a> · <a href="signal/latest.html" style="color:var(--gold)">PREVIEW EMAIL →</a></p>
+</section>
+</main>
+<footer class="footer"><div class="foot-grid"><div><p class="wordmark foot-mark"><img class="logo-img lg" src="img/logo.svg" alt="">PARA<span>SOCIALIZE</span></p><p class="mono foot-note">© <span id="year">2026</span> PARASOCIAL PRODUCTIONS · THE ENTERTAINMENT WEEKLY OF ONE-SIDED RELATIONSHIPS<br><a href="v1-oxalpha-backup.html" style="color:var(--teal)">← V1 ARCHIVE</a></p></div><nav class="foot-nav mono"><a href="#radar">RADAR</a><a href="#index">INDEX</a><a href="#cases">CASES</a><a href="#circle">CIRCLE</a></nav><p class="mono foot-tag">SOME LINKS SUPPORT THE SITE.<br>THANKS FOR KEEPING IT HUMAN.</p></div></footer>
+<script src="js/main.js"></script>
+<script src="js/radar.js" defer></script>
+<script src="js/ticker.js" defer></script>
+<script src="js/cases.js" defer></script>
+<script src="js/index.js" defer></script>
+<script>
+// Fallback filter (radar.js enhances with JSON render + hash persistence)
+(function(){
+  const btns=[...document.querySelectorAll('.fbtn')];
+  const count=document.getElementById('radarCount');
+  function apply(f){
+    btns.forEach(x=>{const on=x.dataset.f===f;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});
+    let n=0,total=0;
+    document.querySelectorAll('#radarGrid .story').forEach(s=>{total++;const show=(f==='all'||s.dataset.cat.includes(f));s.style.display=show?'flex':'none';if(show)n++;});
+    if(count)count.textContent=`SHOWING ${n} / ${total} SIGNALS — ${f.toUpperCase()}`;
+    if(location.hash.startsWith('#radar'))history.replaceState(null,'','#radar/'+f);
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.f)));
+  const h=(location.hash.split('/')[1]||'all');
+  apply(['all','nonfic','fic','ai','creator'].includes(h)?h:'all');
+})();
+</script>
+</body>
+</html>

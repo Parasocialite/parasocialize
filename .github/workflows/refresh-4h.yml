@@ -1,0 +1,28 @@
+name: refresh-4h
+on:
+  schedule:
+    - cron: "7 */4 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: resonance sweep
+        run: |
+          python tools/build_radar.py
+          python tools/refresh_4h.py
+          python tools/build_signal.py
+      - name: commit
+        run: |
+          git config user.name "signal-sweeper"
+          git config user.email "signal@parasocialize.com"
+          git add radar.json radar.xml data/ signal/ || true
+          git diff --cached --quiet || git commit -m "4h sweep $(date -u +%FT%TZ)"
+          git push || true
+

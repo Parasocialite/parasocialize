@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip a Signal — Parasocialize</title>
+<meta name="description" content="Spotted a parasocial moment? Send it in 60 seconds. You spot, Enan decodes. Best tips get credited in Friday Signal.">
+<link rel="stylesheet" href="../css/styles.css">
+<style>.page{max-width:720px;margin:0 auto;padding:56px 28px}label{display:block;font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.16em;color:var(--dim);margin:16px 0 6px}input,select,textarea{width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);font-size:.9rem}textarea{min-height:110px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:640px){.row2{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<header class="topbar"><a class="wordmark" href="..">PARA<span>SOCIALIZE</span></a><nav class="nav"><a href="..#radar">Radar</a><a href="../signal/latest.html">Signal</a></nav></header>
+<div class="page">
+<p class="mono" style="font-size:.66rem;letter-spacing:.22em;color:var(--accent)">TIP LINE · 60 SECONDS · CREDITED IF USED</p>
+<h1 class="serif" style="font-family:Georgia,serif;font-size:clamp(2rem,5vw,3rem)">Spotted a one-sided moment?</h1>
+<p style="color:var(--dim)">You write, Enan decodes. Best tips run in Friday Signal + Radar with your handle credited. No account, no spam — opens your email with everything pre-filled.</p>
+<form id="tipForm">
+<label for="what">WHAT HAPPENED (headline)</label>
+<input id="what" required placeholder="e.g. Streamer cried when a 3-year sub left">
+<div class="row2"><div><label for="type">FICTION / NON-FICTION</label><select id="type"><option>Non-fiction</option><option>Fiction</option><option>AI companion</option></select></div>
+<div><label for="lens">LENS</label><select id="lens"><option>Idol</option><option>Character</option><option>Creator</option><option>Companion (AI)</option><option>Brand</option><option>Universe</option></select></div></div>
+<label for="link">LINK (optional)</label>
+<input id="link" type="url" placeholder="https://…">
+<label for="why">WHY IS IT PARASOCIAL? (1-2 lines)</label>
+<textarea id="why" required placeholder="She knows his schedule better than her sister's…"></textarea>
+<label for="heat">INTENSITY 1–10</label>
+<input id="heat" type="number" min="1" max="10" value="8">
+<label for="handle">YOUR HANDLE FOR CREDIT (optional)</label>
+<input id="handle" placeholder="@you">
+<p style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-solid" type="submit">Send tip →</button><button class="btn btn-ghost" type="button" id="copyBtn">Copy instead</button></p>
+</form>
+<p class="mono" style="font-size:.62rem;color:var(--dim)">PIPELINE: tip → Enan scores intensity → radar/*.md → Friday Signal → Index. 3 tips/week = you never run dry.</p>
+</div>
+<script>
+function body(){const v=id=>document.getElementById(id).value;
+return `TIP\n---\nHeadline: ${v('what')}\nType: ${v('type')}\nLens: ${v('lens')}\nLink: ${v('link')}\nWhy parasocial: ${v('why')}\nIntensity guess: ${v('heat')}/10\nCredit: ${v('handle')}\n`;}
+document.getElementById('tipForm').addEventListener('submit',e=>{e.preventDefault();
+location.href='mailto:iNNERdreamers@gmail.com?subject='+encodeURIComponent('TIP: '+document.getElementById('what').value)+'&body='+encodeURIComponent(body());});
+document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(body());copyBtn.textContent='Copied ✓';}catch(e){prompt('Copy:',body());}};
+</script>
+</body>
+</html>

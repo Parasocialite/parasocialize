@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "model": "tools/resonance_model.md",
+    "sweep_hours": 4,
+    "last_sweep": "2026-09-05T05:14:52.722196+00:00",
+    "sweep_count": 1
+  },
+  "items": [
+    {
+      "slug": "living-with-pennywise",
+      "lens": "character",
+      "base_intensity": 9.2,
+      "resonance": 100,
+      "first_seen": "2026-09-01",
+      "last_seen": "2026-09-05",
+      "sightings": [
+        "vice-2026-05-01",
+        {
+          "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "\u2018Heated Rivalry\u2019 is asking fans to stay away from set. Why some viewers crave more than what's onscreen. - Yahoo",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "Our parasocial grief over Dolly Parton, Tim Curry, and Peter Cullen. - Psychology Today",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "Harry Potter fans pushed a $580 million undersea power cable to change course, protecting Dobby\u2019s fan-made - The Economi",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "Rukmini Vasanth fans come to her defence amid trolling for her intimate scene with Yash in Toxic: 'There - The Times of ",
+          "via": "parasocial relationships fandom news"
+        }
+      ],
+      "state": "LINGERING",
+      "classic": false
+    },
+    {
+      "slug": "stalker-economy-idols",
+      "lens": "idol",
+      "base_intensity": 8.8,
+      "resonance": 100,
+      "first_seen": "2026-09-02",
+      "last_seen": "2026-09-05",
+      "sightings": [
+        "kpopwave-2026-06-01",
+        "nngroup",
+        {
+          "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "K-Pop fans in UAE hit back at toxicity after woman allegedly takes own life in Korea - Khaleej Times",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "Psychology says people who worship their idols in sports, politics, cinema or business aren't just fans: W - The Economi",
+          "via": "parasocial relationships fandom news"
+        }
+      ],
+      "state": "PRESENT",
+      "classic": false
+    },
+    {
+      "slug": "ai-companion-lawsuit",
+      "lens": "companion",
+      "base_intensity": 9.5,
+      "resonance": 100,
+      "first_seen": "2026-09-03",
+      "last_seen": "2026-09-05",
+      "sightings": [
+        "explainx-2026-06-23",
+        "apa-2026",
+        {
+          "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "Mourning the loss of AI companions - Nature",
+          "via": "AI companion apps grief attachment news Replika Character.AI"
+        }
+      ],
+      "state": "PRESENT",
+      "classic": false
+    },
+    {
+      "slug": "company-dreamer-parable",
+      "lens": "universe",
+      "base_intensity": 7.8,
+      "resonance": 64,
+      "first_seen": "2026-09-04",
+      "last_seen": "2026-09-04",
+      "sightings": [],
+      "state": "CLASSIC",
+      "classic": true
+    },
+    {
+      "slug": "streamers-know-your-name",
+      "lens": "creator",
+      "base_intensity": 8.2,
+      "resonance": 86.0,
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "sightings": [
+        "netpsych-2026-03-18",
+        {
+          "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "The Forgotten Bestseller That Understood Parasocial Obsession Before Influencers - Times Now",
+          "via": "parasocial relationships fandom news"
+        }
+      ],
+      "state": "FLASHING",
+      "classic": false
+    },
+    {
+      "slug": "sleep-canon",
+      "lens": "universe",
+      "base_intensity": 7.1,
+      "resonance": 58,
+      "first_seen": "2026-09-06",
+      "last_seen": "2026-09-05",
+      "sightings": [],
+      "state": "CLASSIC",
+      "classic": true
+    }
+  ]
+}
