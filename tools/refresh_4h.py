@@ -1,10 +1,10 @@
 """4-hour resonance sweep. No dependencies, network-failure safe.
 Usage: python tools/refresh_4h.py [--no-fetch]
-- Fetches Google News RSS for rotating queries, matches sightings to ledger.
-- Applies decay/boost, recomputes states, rebuilds radar.json order + data/ticker.json.
-- Never creates new cards (candidates go to data/candidates.json for review).
-- Curator md content (titles/deks/images/links) always wins; ledger only adds resonance/state.
+AUTOPILOT: finds stories, boosts ledger, AUTO-PUBLISHES up to 2 fresh cards
+per sweep straight to radar.json (marked take-pending). No human required.
+Curator md files are never deleted; auto cards live in the ledger + radar.json.
 """
+import json, pathlib, datetime, re, sys, urllib.request, urllib.parse, xml.etree.ElementTree as ET
 import json, pathlib, datetime, re, sys, urllib.request, urllib.parse, xml.etree.ElementTree as ET
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -15,7 +15,7 @@ CAND = ROOT / "data" / "candidates.json"
 SRC = ROOT / "tools" / "sources.json"
 
 TIER = {"apa.org":20,"explainx.ai":14,"groundy.com":14,"nngroup.com":14,"vice.com":14,"new-kpop.org":14,"netpsychology.org":14,"helpfulprofessor.com":8,"gstever.sunyempirefaculty.net":8,"voxbooster.com":8,"rollingstone.com":14,"nationalgeographic.com":14,"abc.net.au":14}
-LENS_KEYS = {"idol":["idol","k-pop","kpop","swift","bts","bubble","weverse"],"companion":["ai companion","replika","character.ai","chatbot","ai girlfriend"],"creator":["streamer","youtuber","influencer","tiktok","twitch"],"character":["pennywise","horror","fandom","character"],"universe":["dream","lore","gta","npc","canon"],"brand":["brand","sponsor","cameo"]}
+LENS_KEYS = {"idol":["idol","k-pop","kpop","swift","bts","army","bubble","weverse","celebrity","stan","actor","singer","concert","tour","stans"],"companion":["ai companion","replika","character.ai","chatbot","ai girlfriend","ai boyfriend"],"creator":["streamer","youtuber","influencer","tiktok","twitch","podcast","creator","gamer"],"character":["pennywise","horror","fandom","character","movie","show","series","episode","season"],"universe":["dream","lore","gta","npc","canon","author","novel","book","writer","memoir","fiction"],"brand":["brand","sponsor","cameo","merch","subscription"]}
 
 def load(p, default):
     try: return json.loads(p.read_text(encoding="utf-8"))
@@ -33,8 +33,10 @@ def fetch_rss(query, limit=8):
         if len(out) >= limit: break
         t = (item.findtext("title") or "").strip()
         l = (item.findtext("link") or "").strip()
-        s = (item.findtext("source") or "").strip()
-        out.append({"title":t,"link":l,"source":s})
+        src_el = item.find("source")
+        s = (src_el.text or "").strip() if src_el is not None else ""
+        su = (src_el.get("url") or "").strip() if src_el is not None else ""
+        out.append({"title":t,"link":l,"source":s,"source_url":su})
     return out
 
 def guess_lens(text):
@@ -44,6 +46,27 @@ def guess_lens(text):
         s = sum(1 for k in keys if k in t)
         if s > score: best, score = lens, s
     return best
+
+GRAD = {"idol":"linear-gradient(135deg,#101a3a,#0a0714)","character":"linear-gradient(135deg,#4a1420,#160409)","creator":"linear-gradient(135deg,#30103a,#120414)","companion":"linear-gradient(135deg,#0e3038,#041214)","universe":"linear-gradient(135deg,#22242a,#0c0d10)","brand":"linear-gradient(135deg,#3a2410,#140a04)"}
+EMOJI = {"idol":"♆","character":"🎈","creator":"▶","companion":"♥","universe":"∞","brand":"⬣"}
+
+def clean_title(t):
+    t = (t or "").strip()
+    t = t.replace("“","\"").replace("”","\"").replace("‘","'").replace("’","'").replace("–","-").replace("—","-")
+    t = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f�]", "", t)
+    if " - " in t:
+        head, tail = t.rsplit(" - ", 1)
+        if len(tail) < 40 and head: return head.strip()
+    return t
+
+def slugify(t):
+    words = re.sub(r"[^a-z0-9 ]", "", t.lower()).split()[:6]
+    return "-".join(words) or "story"
+
+def overlap(a, b):
+    wa, wb = set(a.lower().split()), set(b.lower().split())
+    if not wa or not wb: return 0
+    return len(wa & wb) / max(len(wa), len(wb))
 
 def main():
     no_fetch = "--no-fetch" in sys.argv
@@ -84,7 +107,50 @@ def main():
                 new_sightings[target["slug"]] = new_sightings.get(target["slug"],0)+1
         else:
             if title and not any(c.get("title")==title for c in candidates):
-                candidates.append({"at":now.isoformat(),"query":q,"title":title,"link":e["link"],"lens":lens})
+                candidates.append({"at":now.isoformat(),"query":q,"title":title,"link":e["link"],"lens":lens,"source":e.get("source",""),"source_url":e.get("source_url","")})
+    # AUTOPILOT: promote best fresh finds straight to the grid (max 2/sweep,
+    # max 3 auto-live). Quality bar: cleaned title, guessed lens, deduped.
+    known_titles = [it.get("title","") for it in by_slug.values()] + [d.get("title","") for d in (radar if isinstance(radar,list) else [])]
+    auto_live = sum(1 for it in by_slug.values() if it.get("auto") and it.get("state") != "FADING")
+    promoted = []
+    if not no_fetch:
+        scored = []
+        for c in candidates:
+            t = clean_title(c.get("title",""))
+            if len(t) < 25 or len(t) > 140: continue
+            if any(overlap(t, k) > 0.55 for k in known_titles): continue
+            dom = ""
+            m = re.search(r"https?://([^/]+)", c.get("link",""))
+            if m: dom = m.group(1).lower().replace("www.","")
+            if dom.endswith("youtube.com") or dom.endswith("tiktok.com"): continue
+            lens = c.get("lens") or guess_lens(t + " " + c.get("query",""))
+            if not lens: continue
+            trusted = any(dom.endswith(k) for k in TIER) if dom else False
+            scored.append((0 if trusted else 1, c, t, dom, lens))
+        scored.sort(key=lambda x: x[0])
+        for _, c, t, dom, lens in scored:
+            if len(promoted) >= 2 or auto_live >= 3: break
+            slug = slugify(t)
+            if slug in by_slug: continue
+            base = 8.0 if (dom and any(dom.endswith(k) for k in TIER)) else 7.0
+            outlet = (c.get("source_url") or c.get("link") or "").strip()
+            src_name = (c.get("source") or "").strip() or (re.search(r"https?://([^/]+)", outlet).group(1) if re.search(r"https?://([^/]+)", outlet) else "Source")
+            src_name = re.sub(r"^www\.", "", src_name)
+            entry = {"slug":slug,"lens":lens,"base_intensity":base,
+                "resonance":round(base*10 - 8, 1),"first_seen":now.date().isoformat(),
+                "last_seen":now.date().isoformat(),"sightings":[{"at":now.isoformat(),"domain":dom or "news","title":t[:120],"via":"auto"}],
+                "state":"FLASHING","classic":False,"auto":True,
+                "title":t,"dek":f"Fresh via {src_name} - take lands Friday.",
+                "type":"non-fiction","lenses":[lens],"tags":["ai"] if lens=="companion" else [],
+                "intensity":base,"read_minutes":3,"emoji":EMOJI.get(lens,"●"),"gradient":GRAD.get(lens,"#222"),
+                "link":"#signal","link_label":"Take pending",
+                "source_url":outlet,"source_name":src_name or "Source"}
+            by_slug[slug] = entry
+            known_titles.append(t)
+            promoted.append(slug)
+            auto_live += 1
+        # promoted leave the pending queue
+        candidates = [c for c in candidates if slugify(clean_title(c.get("title",""))) not in set(promoted)]
     # decay + states
     for it in by_slug.values():
         if it["slug"] not in new_sightings and not it.get("classic"):
@@ -97,21 +163,31 @@ def main():
         elif r >= 55 and age > 3: it["state"] = "LINGERING"
         elif r < 45 and age > 3: it["state"] = "FADING"
         else: it["state"] = "PRESENT"
-    # order: flashing first, then resonance desc; classics pinned max 2; fading dropped from grid
+    # order: flashing first, then resonance desc; classics pinned max 2; fading dropped; auto max 2
     items = sorted(by_slug.values(), key=lambda x: (0 if x.get("state")=="FLASHING" else 1, -float(x.get("resonance",0))))
     classics = [x for x in items if x.get("classic")][:2]
-    rest = [x for x in items if not x.get("classic") and x.get("state")!="FADING"][:4]
+    rest = [x for x in items if not x.get("classic") and x.get("state")!="FADING"]
+    rest_auto = [x for x in rest if x.get("auto")][:2]
+    rest = [x for x in rest if not x.get("auto")][:4] + rest_auto
     order = [x["slug"] for x in items if x.get("state")=="FLASHING"][:1]
     for x in sorted(classics+rest, key=lambda v: -float(v.get("resonance",0))):
         if x["slug"] not in order: order.append(x["slug"])
     order = order[:6]
-    # rebuild radar.json order + inject resonance/state (curator fields untouched)
+    # rebuild radar.json order + inject resonance/state (curator md fields win when present;
+    # auto cards carry their own card fields from the ledger)
     rmap = {str(d.get("slug")): d for d in radar} if isinstance(radar, list) else {}
     out = []
     for slug in order:
-        base = rmap.get(slug, {"slug":slug})
         sig = by_slug.get(slug, {})
-        base = dict(base)
+        if slug in rmap and not sig.get("auto"):
+            base = dict(rmap[slug])
+        else:
+            base = {"slug":slug,"title":sig.get("title",slug),"dek":sig.get("dek",""),
+                "type":sig.get("type","non-fiction"),"lenses":sig.get("lenses",[sig.get("lens","universe")] if sig.get("lens") else []),
+                "tags":sig.get("tags",[]),"intensity":sig.get("intensity",7.0),"read_minutes":sig.get("read_minutes",3),
+                "emoji":sig.get("emoji","●"),"gradient":sig.get("gradient","#222"),
+                "link":sig.get("link","#signal"),"link_label":sig.get("link_label","Take pending"),
+                "source_url":sig.get("source_url",""),"source_name":sig.get("source_name","Source")}
         base["resonance"] = round(float(sig.get("resonance", base.get("intensity",7)*10)),1)
         base["state"] = sig.get("state","PRESENT")
         base["last_seen"] = sig.get("last_seen")
@@ -133,7 +209,7 @@ def main():
     ledger["meta"] = meta
     ledger["items"] = list(by_slug.values())
     SIG.write_text(json.dumps(ledger, indent=2), encoding="utf-8")
-    print(f"sweep {sweep+1}: feeds={len(hits)} boosts={new_sightings} order={order}")
+    print(f"sweep {sweep+1}: feeds={len(hits)} boosts={new_sightings} promoted={promoted} order={order}")
 
 if __name__ == "__main__":
     main()

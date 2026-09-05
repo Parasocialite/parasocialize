@@ -2,15 +2,15 @@
   "meta": {
     "model": "tools/resonance_model.md",
     "sweep_hours": 4,
-    "last_sweep": "2026-09-05T05:39:57.922444+00:00",
-    "sweep_count": 4
+    "last_sweep": "2026-09-05T05:45:11.173305+00:00",
+    "sweep_count": 8
   },
   "items": [
     {
       "slug": "living-with-pennywise",
       "lens": "character",
       "base_intensity": 9.2,
-      "resonance": 91.0,
+      "resonance": 97.0,
       "first_seen": "2026-09-01",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -38,6 +38,54 @@
           "domain": "news.google.com",
           "title": "Rukmini Vasanth fans come to her defence amid trolling for her intimate scene with Yash in Toxic: 'There - The Times of ",
           "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:07.860606+00:00",
+          "domain": "news.google.com",
+          "title": "\u2018Heated Rivalry\u2019 is asking fans to stay away from set. Why some viewers crave more than what's onscreen. - yahoo.com",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:07.860606+00:00",
+          "domain": "news.google.com",
+          "title": "Our parasocial grief over Dolly Parton, Tim Curry, and Peter Cullen. - Psychology Today",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:07.860606+00:00",
+          "domain": "news.google.com",
+          "title": "Harry Potter fans pushed a $580 million undersea power cable to change course, protecting Dobby\u2019s fan-made - The Economi",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:07.860606+00:00",
+          "domain": "news.google.com",
+          "title": "Rukmini Vasanth fans come to her defence amid trolling for her intimate scene with Yash in Toxic: 'There - The Times of ",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:42.454067+00:00",
+          "domain": "news.google.com",
+          "title": "\u2018Heated Rivalry\u2019 is asking fans to stay away from set. Why some viewers crave more than what's onscreen. - yahoo.com",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:42.454067+00:00",
+          "domain": "news.google.com",
+          "title": "Our parasocial grief over Dolly Parton, Tim Curry, and Peter Cullen. - Psychology Today",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:42.454067+00:00",
+          "domain": "news.google.com",
+          "title": "Harry Potter fans pushed a $580 million undersea power cable to change course, protecting Dobby\u2019s fan-made - The Economi",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:42.454067+00:00",
+          "domain": "news.google.com",
+          "title": "Rukmini Vasanth fans come to her defence amid trolling for her intimate scene with Yash in Toxic: 'There - The Times of ",
+          "via": "parasocial relationships fandom news"
         }
       ],
       "state": "LINGERING",
@@ -47,7 +95,7 @@
       "slug": "stalker-economy-idols",
       "lens": "idol",
       "base_intensity": 8.8,
-      "resonance": 91.0,
+      "resonance": 97.0,
       "first_seen": "2026-09-02",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -64,6 +112,30 @@
           "domain": "news.google.com",
           "title": "Psychology says people who worship their idols in sports, politics, cinema or business aren't just fans: W - The Economi",
           "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:07.860606+00:00",
+          "domain": "news.google.com",
+          "title": "K-Pop fans in UAE hit back at toxicity after woman allegedly takes own life in Korea - Khaleej Times",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:07.860606+00:00",
+          "domain": "news.google.com",
+          "title": "Psychology says people who worship their idols in sports, politics, cinema or business aren't just fans: W - The Economi",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:42.454067+00:00",
+          "domain": "news.google.com",
+          "title": "K-Pop fans in UAE hit back at toxicity after woman allegedly takes own life in Korea - Khaleej Times",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:42.454067+00:00",
+          "domain": "news.google.com",
+          "title": "Psychology says people who worship their idols in sports, politics, cinema or business aren't just fans: W - The Economi",
+          "via": "parasocial relationships fandom news"
         }
       ],
       "state": "PRESENT",
@@ -73,7 +145,7 @@
       "slug": "ai-companion-lawsuit",
       "lens": "companion",
       "base_intensity": 9.5,
-      "resonance": 91.0,
+      "resonance": 100,
       "first_seen": "2026-09-03",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -83,6 +155,18 @@
           "at": "2026-09-05T05:14:52.722196+00:00",
           "domain": "news.google.com",
           "title": "Mourning the loss of AI companions - Nature",
+          "via": "AI companion apps grief attachment news Replika Character.AI"
+        },
+        {
+          "at": "2026-09-05T05:43:42.454067+00:00",
+          "domain": "news.google.com",
+          "title": "Mourning the loss of AI companions - nature.com",
+          "via": "AI companion apps grief attachment news Replika Character.AI"
+        },
+        {
+          "at": "2026-09-05T05:45:11.173305+00:00",
+          "domain": "news.google.com",
+          "title": "Mourning the loss of AI companions - nature.com",
           "via": "AI companion apps grief attachment news Replika Character.AI"
         }
       ],
@@ -104,13 +188,25 @@
       "slug": "streamers-know-your-name",
       "lens": "creator",
       "base_intensity": 8.2,
-      "resonance": 77.0,
+      "resonance": 87.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
         "netpsych-2026-03-18",
         {
           "at": "2026-09-05T05:14:52.722196+00:00",
+          "domain": "news.google.com",
+          "title": "The Forgotten Bestseller That Understood Parasocial Obsession Before Influencers - Times Now",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:07.860606+00:00",
+          "domain": "news.google.com",
+          "title": "The Forgotten Bestseller That Understood Parasocial Obsession Before Influencers - Times Now",
+          "via": "parasocial relationships fandom news"
+        },
+        {
+          "at": "2026-09-05T05:43:42.454067+00:00",
           "domain": "news.google.com",
           "title": "The Forgotten Bestseller That Understood Parasocial Obsession Before Influencers - Times Now",
           "via": "parasocial relationships fandom news"

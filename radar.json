@@ -19,53 +19,8 @@
     "source_url": "https://netpsychology.org/parasocial-relationships-why-we-feel-close-to-influencers-and-streamers/",
     "link": "#index",
     "link_label": "MY TAKE \u2192",
-    "resonance": 77.0,
+    "resonance": 87.0,
     "state": "FLASHING",
-    "last_seen": "2026-09-05"
-  },
-  {
-    "slug": "living-with-pennywise",
-    "title": "Living with Pennywise: when horror feels like a roommate",
-    "date": "2026-09-01",
-    "type": "non-fiction",
-    "lenses": [
-      "character",
-      "creator"
-    ],
-    "intensity": 9.2,
-    "read_minutes": 6,
-    "image": "https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg",
-    "image_alt": "Living with Pennywise video thumbnail",
-    "dek": "Why horror icons move in and stay a while \u2014 my video plus some gentle context on fandom and attachment.",
-    "source_name": "Vice \u2014 when fandom becomes fixation",
-    "source_url": "https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/",
-    "link": "#cases",
-    "link_label": "MY TAKE \u2192",
-    "resonance": 91.0,
-    "state": "LINGERING",
-    "last_seen": "2026-09-05"
-  },
-  {
-    "slug": "stalker-economy-idols",
-    "title": "The idol economy: when closeness is the product",
-    "date": "2026-09-02",
-    "type": "non-fiction",
-    "lenses": [
-      "idol"
-    ],
-    "intensity": 8.8,
-    "read_minutes": 4,
-    "image": "img/videos/insight-co.jpg",
-    "image_alt": "The Insight Company series artwork",
-    "dek": "From arena tours to paid message apps \u2014 what it feels like when closeness is for sale, and how to enjoy it kindly.",
-    "source_name": "KpopWave \u2014 The Friend You Pay For",
-    "source_url": "https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/",
-    "source2_name": "NNGroup \u2014 the illusion of private messaging",
-    "source2_url": "https://www.nngroup.com/articles/kpop-private-messaging",
-    "link": "#signal",
-    "link_label": "MY TAKE \u2192",
-    "resonance": 91.0,
-    "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
   {
@@ -90,7 +45,52 @@
     "source2_url": "https://www.apa.org/monitor/2026/01-02/trends-digital-ai-relationships-emotional-connection",
     "link": "#cases",
     "link_label": "MY TAKE \u2192",
-    "resonance": 91.0,
+    "resonance": 100.0,
+    "state": "PRESENT",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "living-with-pennywise",
+    "title": "Living with Pennywise: when horror feels like a roommate",
+    "date": "2026-09-01",
+    "type": "non-fiction",
+    "lenses": [
+      "character",
+      "creator"
+    ],
+    "intensity": 9.2,
+    "read_minutes": 6,
+    "image": "https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg",
+    "image_alt": "Living with Pennywise video thumbnail",
+    "dek": "Why horror icons move in and stay a while \u2014 my video plus some gentle context on fandom and attachment.",
+    "source_name": "Vice \u2014 when fandom becomes fixation",
+    "source_url": "https://www.vice.com/en/article/parasocial-relationships-have-us-acting-like-toxic-exes-towards-people-weve-never-met/",
+    "link": "#cases",
+    "link_label": "MY TAKE \u2192",
+    "resonance": 97.0,
+    "state": "LINGERING",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "stalker-economy-idols",
+    "title": "The idol economy: when closeness is the product",
+    "date": "2026-09-02",
+    "type": "non-fiction",
+    "lenses": [
+      "idol"
+    ],
+    "intensity": 8.8,
+    "read_minutes": 4,
+    "image": "img/videos/insight-co.jpg",
+    "image_alt": "The Insight Company series artwork",
+    "dek": "From arena tours to paid message apps \u2014 what it feels like when closeness is for sale, and how to enjoy it kindly.",
+    "source_name": "KpopWave \u2014 The Friend You Pay For",
+    "source_url": "https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/",
+    "source2_name": "NNGroup \u2014 the illusion of private messaging",
+    "source2_url": "https://www.nngroup.com/articles/kpop-private-messaging",
+    "link": "#signal",
+    "link_label": "MY TAKE \u2192",
+    "resonance": 97.0,
     "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
@@ -135,6 +135,27 @@
     "link_label": "MY TAKE \u2192",
     "resonance": 58.0,
     "state": "CLASSIC",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "i-was-scared-i-was-going",
+    "title": "\u2018I was scared I was going mad\u2019: Meg Mason speaks to fellow authors about the parasocial relationships that begin on the page",
+    "dek": "Fresh via news.google.com \u2014 my take lands Friday.",
+    "type": "non-fiction",
+    "lenses": [
+      "universe"
+    ],
+    "tags": [],
+    "intensity": 7.0,
+    "read_minutes": 3,
+    "emoji": "\u221e",
+    "gradient": "linear-gradient(135deg,#22242a,#0c0d10)",
+    "link": "#signal",
+    "link_label": "Take pending",
+    "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNWjRleW5zWkdHRFZpcVMzNUJFbjZwYlpjUkFmYmp2T3d5MnhRVlYtUmpCbHo4ZkRCWk9JZFVzQ1A5ZUFHbFZGLXlJTE5DYzlnSFlEdzk0QjZ1REJnd1N2RXUtLXlqOWd0NExvd1dkYUctNUpDUzVDZ05fVlJmVER0S1Npc1RnX0I4dnBjYnJwSHBySUE4YURLYzRYQWtaQU1PS19jTlZWYVdIV1c2d2RhcU84aEFpc0VtWWY2UElTZmRlME84NkZGeg?oc=5",
+    "source_name": "news.google.com",
+    "resonance": 59.0,
+    "state": "PRESENT",
     "last_seen": "2026-09-05"
   }
 ]
