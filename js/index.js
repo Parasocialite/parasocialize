@@ -24,24 +24,6 @@
       <a class="index-row" href="${esc(m.link||'#radar')}"${ext(m.link)}><img src="${artFor(m)}" alt="" loading="lazy">
       <span><b>${esc(m.title)}</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">${esc(m.lens)} · ${esc(m.detail)}</span></span>
       ${badge(m)}</a>`).join('');
-    // deep-link support: #radar/ai etc. — scroll to grid and filter it
-    table.querySelectorAll('a[href^="#radar"]').forEach(a=>a.addEventListener('click',ev=>{
-      const parts = a.getAttribute('href').split('/');
-      if(parts.length < 2) return;
-      ev.preventDefault();
-      try{ history.replaceState(null,'',a.getAttribute('href')); }catch(e){}
-      const grid = document.getElementById('radar');
-      if(grid) grid.scrollIntoView({behavior:'smooth'});
-      const f = parts[1];
-      const btn = document.querySelector(`.fbtn[data-f="${f}"]`);
-      if(btn) btn.click(); else {
-        // lens-only keys (idol/character/universe) have no pill — filter directly
-        let n=0,total=0;
-        document.querySelectorAll('#radarGrid .story').forEach(s=>{total++;const show=(f==='all'||s.dataset.cat.includes(f));s.style.display=show?'flex':'none';if(show)n++;});
-        const count=document.getElementById('radarCount');
-        if(count)count.textContent=`SHOWING ${n} / ${total} — ${f.toUpperCase()}`;
-      }
-    }));
     const label = document.getElementById('indexWeek');
     if(label) label.textContent = 'WEEK ' + (d.week||'');
     const btn = document.getElementById('indexCopy');
