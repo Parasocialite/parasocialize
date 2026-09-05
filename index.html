@@ -43,27 +43,28 @@
 .fbtn{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);background:transparent;color:var(--dim);border-radius:999px;padding:8px 16px;cursor:pointer}
 .fbtn.active,.fbtn:hover{border-color:var(--accent);color:var(--accent)}
 .radar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.story{background:var(--paper);color:var(--paperink);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;border:1px solid rgba(0,0,0,.2)}
-.story .art{aspect-ratio:16/9;background:#111;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:2.6rem;color:#fff;position:relative;overflow:hidden}
+.story{background:var(--paper);color:var(--paperink);border-radius:12px;overflow:hidden;display:flex;flex-direction:row;border:1px solid rgba(0,0,0,.2);min-height:118px}
+.story .art{width:132px;flex:none;background:#111;aspect-ratio:auto;min-height:118px}
 .story .art img{width:100%;height:100%;object-fit:cover;display:block}
-.story .body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.story .body{padding:14px 16px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
 .lensrow{display:flex;gap:8px;flex-wrap:wrap}
 .lens{font-family:"IBM Plex Mono",monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#16131a;color:var(--gold)}
 .lens.fic{background:#1d3a2f;color:#7dffd4}.lens.nonfic{background:#3a1d1d;color:#ff9a8a}.lens.ai{background:#25224d;color:#c9c4ff}
-.story h3{font-family:"Fraunces",serif;font-size:1.35rem;line-height:1.15}
-.story p{font-size:.9rem;color:#4a4450}
+.story h3{font-family:"Fraunces",serif;font-size:1.02rem;line-height:1.2}
+.story p{font-size:.82rem;color:#4a4450;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .story .meta{display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.12em;color:#6b6570;margin-top:auto;padding-top:8px}
 .story .meta a{color:#b71c1c;font-weight:500}
 .story .meta.src{border-top:1px dashed rgba(0,0,0,.15);padding-top:8px}
 .story .meta.src a{color:#1a5c4d}
-.lead{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:var(--paper);color:var(--paperink);border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.2);margin-bottom:22px}
-.lead .art{min-height:300px}
+.lead{display:grid;grid-template-columns:300px 1fr;gap:0;background:var(--paper);color:var(--paperink);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,.2);margin-bottom:16px;min-height:170px}
+.lead .art{min-height:170px}
 .lead .art img{width:100%;height:100%;object-fit:cover;display:block}
-.lead .body{padding:30px;display:flex;flex-direction:column;gap:12px}
-.lead .kicker-lead{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.22em;color:#b71c1c}
-.lead h2{font-family:"Fraunces",serif;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.08}
-.lead p{font-size:.98rem;color:#4a4450}
-.sec-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px}
+.lead .body{padding:20px 22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.lead .kicker-lead{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.22em;color:#b71c1c}
+.lead h2{font-family:"Fraunces",serif;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.12}
+.lead p{font-size:.88rem;color:#4a4450}
+.sec-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.radar-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .index-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
 .index-table{background:var(--bg2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .index-row{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:background .2s}
@@ -98,6 +99,8 @@ a.index-row:hover b{color:var(--accent)}
 .story .meta.src{flex-wrap:wrap;gap:4px}.story .meta.src span{flex:none}
 .index-row{grid-template-columns:38px 1fr auto;gap:10px;padding:12px 14px}.rank{font-size:1.3rem}
 .ticker-track span{font-size:.6rem}
+.lead{grid-template-columns:1fr}.lead .art{min-height:180px}
+.story .art{width:96px;min-height:104px}.story .body{padding:12px 14px}
 .hero-ctas .btn{width:100%;text-align:center}}
 </style>
 </head>
