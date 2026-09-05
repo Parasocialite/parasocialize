@@ -27,4 +27,7 @@
     const takeUrl = storyUrl(d);
     return `<article class="story${i===0?' pinned':''}" data-cat="${esc(cats(d))}" data-res="${esc(d.resonance??'')}" data-date="${esc(d.last_seen||d.date||'')}" data-int="${esc(d.intensity??'')}"><a class="art" href="${esc(takeUrl)}">${d.image?`<img src="${esc(d.image)}" alt="${esc(d.image_alt||d.title)}" loading="lazy">`:''}</a><div class="body"><div class="lensrow">${pin}<span class="flair">${esc(flairFor(d))}</span><span class="mono postdate">${esc(dateFmt(d.last_seen||d.date||''))}</span></div><h3>${esc(d.title)}</h3><p>${esc(d.dek)}</p><div class="meta src">${d.source_url?`<a href="${esc(d.source_url)}"${ext}>${esc(d.source_name||shortSrc(d.source_url))} ↗</a>`:''}<a href="${esc(takeUrl)}">${esc(d.link_label||'Story →')}</a></div></div></article>`;
   }).join('');
+  // re-apply the toolbar's current sort (defaults New) to fresh rows
+  const active = document.querySelector('.sort .fbtn.active');
+  if(active) active.click();
 })();

@@ -128,7 +128,7 @@ a.index-row:hover b{color:var(--accent)}
 <div class="board">
 <div class="feed">
   <div class="toolbar" role="group" aria-label="Sort feed">
-    <div class="sort"><button class="fbtn active" data-sort="hot" aria-pressed="true">Hot</button><button class="fbtn" data-sort="new" aria-pressed="false">New</button><button class="fbtn" data-sort="top" aria-pressed="false">Top</button></div>
+    <div class="sort"><button class="fbtn" data-sort="hot" aria-pressed="false">Hot</button><button class="fbtn active" data-sort="new" aria-pressed="true">New</button><button class="fbtn" data-sort="top" aria-pressed="false">Top</button></div>
     <input class="search" id="feedSearch" type="search" placeholder="Search stories…" aria-label="Search stories">
   </div>
   <div class="filter-row" role="group" aria-label="Filter Radar">
@@ -209,8 +209,9 @@ a.index-row:hover b{color:var(--accent)}
   const search=document.getElementById('feedSearch');
   const sortBtns=[...document.querySelectorAll('[data-sort]')];
   const fBtns=[...document.querySelectorAll('.filter-row .fbtn')];
-  let sort='hot', f='all', q='';
+  let sort='new', f='all', q='';
   const valid=['all','nonfic','fic','ai','creator','idol','character','companion','universe'];
+  const pinRank = s => s.classList.contains('pinned') ? 0 : 1;
   function visible(s){
     if(f!=='all' && !(s.dataset.cat||'').includes(f)) return false;
     if(q && !((s.textContent||'').toLowerCase().includes(q))) return false;
@@ -219,12 +220,11 @@ a.index-row:hover b{color:var(--accent)}
   function render(){
     if(!feed) return;
     const rows=[...feed.querySelectorAll('.story')];
-    const key = sort==='new' ? 'date' : sort==='top' ? 'int' : 'res';
-    rows.sort((a,b)=>{
-      if(sort==='hot') return (a.classList.contains('pinned')?-1:0)-(b.classList.contains('pinned')?-1:0) || (+(b.dataset.res||0))-(+(a.dataset.res||0));
-      if(sort==='new') return String(b.dataset.date||'').localeCompare(String(a.dataset.date||''));
-      return (+(b.dataset.int||0))-(+(a.dataset.int||0));
-    }).forEach(r=>feed.appendChild(r));
+    const rows=[...feed.querySelectorAll('.story')];
+    rows.sort((a,b)=> pinRank(a)-pinRank(b) || (
+      sort==='new' ? String(b.dataset.date||'').localeCompare(String(a.dataset.date||'')) :
+      sort==='top' ? (+(b.dataset.int||0))-(+(a.dataset.int||0)) :
+      (+(b.dataset.res||0))-(+(a.dataset.res||0)))).forEach(r=>feed.appendChild(r));
     let n=0;
     rows.forEach(s=>{const show=visible(s);s.style.display=show?'':'none';if(show)n++;});
     if(count)count.textContent=`${n} / ${rows.length} STORIES — ${sort.toUpperCase()} · ${f.toUpperCase()}${q?` · “${q.toUpperCase()}”`:''}`;
