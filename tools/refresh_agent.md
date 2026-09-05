@@ -17,7 +17,7 @@ You are the Radar refresher. Run weekly (Mon/Wed/Fri). Goal: hub stays alive wit
 3. Draft `radar/007-slug.md` (next number) with frontmatter:
    slug, title (warm, no shame), date (today), type (fiction/non-fiction),
    lenses [idol|character|creator|companion|brand|universe], tags [ai|creator] if needed,
-   intensity 1-10, read_minutes, image (reuse an `img/` file — do NOT hotlink random images),
+   intensity 1-10, read_minutes,    image (story-connected still preferred: subject's own video thumb via i.ytimg.com/vi/ID/hqdefault.jpg ONLY with a verified ID, else img/art/{lens}.svg — NEVER hotlink press photos),
    image_alt, dek (1-2 lines, relatable), source_name, source_url,
    optional source2_name/source2_url, link (internal take: #cases/#signal/#index/#studio),
    link_label "MY TAKE →".

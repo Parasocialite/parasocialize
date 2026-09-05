@@ -2,15 +2,15 @@
   "meta": {
     "model": "tools/resonance_model.md",
     "sweep_hours": 4,
-    "last_sweep": "2026-09-05T06:47:18.797576+00:00",
-    "sweep_count": 13
+    "last_sweep": "2026-09-05T06:52:08.153867+00:00",
+    "sweep_count": 14
   },
   "items": [
     {
       "slug": "stalker-economy-idols",
       "lens": "idol",
       "base_intensity": 8.8,
-      "resonance": 82.0,
+      "resonance": 79.0,
       "first_seen": "2026-09-02",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -60,7 +60,7 @@
       "slug": "swifties-record-sales",
       "lens": "idol",
       "base_intensity": 9.4,
-      "resonance": 82.0,
+      "resonance": 79.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -73,7 +73,7 @@
       "slug": "derry-season-two",
       "lens": "character",
       "base_intensity": 9.0,
-      "resonance": 78.0,
+      "resonance": 75.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -86,7 +86,7 @@
       "slug": "cai-settlement",
       "lens": "companion",
       "base_intensity": 9.3,
-      "resonance": 81.0,
+      "resonance": 78.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -99,7 +99,7 @@
       "slug": "kai-cenat-return",
       "lens": "creator",
       "base_intensity": 8.9,
-      "resonance": 77.0,
+      "resonance": 74.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -112,7 +112,7 @@
       "slug": "neuro-sama-number-one",
       "lens": "companion",
       "base_intensity": 9.1,
-      "resonance": 79.0,
+      "resonance": 76.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [
@@ -125,7 +125,7 @@
       "slug": "characters-we-keep",
       "lens": "character",
       "base_intensity": 7.6,
-      "resonance": 64.0,
+      "resonance": 61.0,
       "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "sightings": [

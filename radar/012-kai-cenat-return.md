@@ -7,8 +7,8 @@ lenses: [creator]
 tags: [creator]
 intensity: 8.9
 read_minutes: 4
-image: "img/art/creator.svg"
-image_alt: "Play-in-chat motif for Kai Cenat's return"
+image: "https://i.ytimg.com/vi/rkdzxRaI68g/hqdefault.jpg"
+image_alt: "Still from Kai Cenat's own I Quit video"
 dek: "Streamer University 2026 reveal, dual-platform, 120 creators. Plus the 'I Quit' pivot that preceded it."
 source_name: "Tubefilter — the return (June 2026)"
 source_url: "https://www.tubefilter.com/2026/06/09/kai-cenat-return-2026-streamer-university-2-trailer/"

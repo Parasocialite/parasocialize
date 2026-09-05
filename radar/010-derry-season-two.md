@@ -6,8 +6,8 @@ type: non-fiction
 lenses: [character]
 intensity: 9.0
 read_minutes: 5
-image: "img/art/tv.svg"
-image_alt: "Retro television motif for the Derry prequel series"
+image: "https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg"
+image_alt: "Still from my Living with Pennywise video"
 dek: "HBO renews the IT prequel. Skarsgård returns, the town's history deepens — and my Living With Pennywise video watches back."
 source_name: "People — Season 2 renewal (Aug 2026)"
 source_url: "https://people.com/all-about-it-welcome-to-derry-season-2-12063817"
