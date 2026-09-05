@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="PARASOCIALIZE — A Friendly Field Guide to One-Sided Relationships">
 <meta property="og:image" content="https://www.parasocialize.com/img/podcasts/parasocialize.jpg">
-<meta property="og:description" content="Radar, Index, Case Files + studio output. Decoded by Enan Joe Heneghan.">
+<meta property="og:description" content="Fresh one-sided-relationship stories with short takes — idols, characters, creators, AI. Swept every 4 hours.">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize Radar" href="radar.xml">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
 {"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"PARASOCIALIZE","url":"https://www.parasocialize.com/","founder":{"@type":"Person","name":"Enan Joe Heneghan"},"sameAs":["https://www.compudactyl.com/","https://www.allthehorriblethings.com/"]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","name":"The Parasocial Index","itemListElement":[{"@type":"ListItem","position":1,"name":"AI companion memory-wipe backlash"},{"@type":"ListItem","position":2,"name":"Pennywise roommate TikToks"}]}
+{"@context":"https://schema.org","@type":"ItemList","name":"The Parasocial Index","itemListElement":[{"@type":"ListItem","position":1,"name":"Swifties power record album sales"},{"@type":"ListItem","position":2,"name":"Welcome to Derry gets season 2"}]}
 </script>
 <style>
 :root{ --paper:#f4f1e8; --paperink:#16131a; --gold:#ffcf5c; }
@@ -36,10 +36,7 @@ a.art{display:block}
 .story .art img{width:100%;height:100%;object-fit:cover;display:block}
 .story .body{padding:10px 14px;display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
 .section{padding-top:56px;padding-bottom:56px}
-.masthead{padding-top:48px}
-.lensrow{display:flex;gap:8px;flex-wrap:wrap}
-.lens{font-family:"IBM Plex Mono",monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#16131a;color:var(--gold)}
-.lens.fic{background:#1d3a2f;color:#7dffd4}.lens.nonfic{background:#3a1d1d;color:#ff9a8a}.lens.ai{background:#25224d;color:#c9c4ff}
+.lensrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .story h3{font-family:"Fraunces",serif;font-size:1.02rem;line-height:1.2}
 .story p{font-size:.82rem;color:#4a4450;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .story .meta{display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.12em;color:#6b6570;margin-top:auto;padding-top:8px}
@@ -92,14 +89,13 @@ a.index-row:hover b{color:var(--accent)}
 .sidebox a{color:var(--teal)}
 .sidebox .btn{display:block;text-align:center;margin-top:6px}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
-@media(max-width:1000px){.index-wrap{grid-template-columns:1fr}.radar-grid,.case-grid,.money{grid-template-columns:1fr 1fr}.board{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr;align-items:start}}
-@media(max-width:640px){.radar-grid,.case-grid,.money,.side{grid-template-columns:1fr}
+@media(max-width:1000px){.radar-grid,.money{grid-template-columns:1fr 1fr}.board{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr;align-items:start}}
+@media(max-width:640px){.radar-grid,.money,.side{grid-template-columns:1fr}
 .topbar{padding:12px 16px;gap:12px}.section{padding-left:20px;padding-right:20px}
 .filter-row{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}.fbtn{flex:none}
 .story .meta.src{flex-wrap:wrap;gap:4px}.story .meta.src span{flex:none}
 .index-row{grid-template-columns:44px 1fr auto;gap:10px;padding:10px 12px}
 .ticker-track span{font-size:.6rem}
-.lead{grid-template-columns:1fr}.lead .art{min-height:180px}
 .story .art{width:96px;min-height:104px}.story .body{padding:12px 14px}
 .hero-ctas .btn{width:100%;text-align:center}}
 </style>
@@ -220,7 +216,6 @@ a.index-row:hover b{color:var(--accent)}
   }
   function render(){
     if(!feed) return;
-    const rows=[...feed.querySelectorAll('.story')];
     const rows=[...feed.querySelectorAll('.story')];
     rows.sort((a,b)=> pinRank(a)-pinRank(b) || (
       sort==='new' ? String(b.dataset.date||'').localeCompare(String(a.dataset.date||'')) :

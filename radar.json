@@ -18,7 +18,7 @@
     "source2_url": "https://www.nytimes.com/2026/07/02/arts/music/taylor-swift-wedding-fans-swifties.html",
     "link": "radar/swifties-record-sales.html",
     "link_label": "Story \u2192",
-    "resonance": 73.0,
+    "resonance": 70.0,
     "state": "FLASHING",
     "last_seen": "2026-09-05"
   },
@@ -41,7 +41,7 @@
     "source2_url": "https://www.nngroup.com/articles/kpop-private-messaging",
     "link": "radar/stalker-economy-idols.html",
     "link_label": "Story \u2192",
-    "resonance": 73.0,
+    "resonance": 70.0,
     "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
@@ -67,8 +67,8 @@
     "source2_url": "https://lawsuitwatch.org/data-privacy-tech/character-ai-lawsuit",
     "link": "radar/cai-settlement.html",
     "link_label": "Story \u2192",
-    "resonance": 72.0,
-    "state": "FLASHING",
+    "resonance": 69.0,
+    "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
   {
@@ -95,8 +95,8 @@
     "source2_url": "https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026",
     "link": "radar/neuro-sama-number-one.html",
     "link_label": "Story \u2192",
-    "resonance": 70.0,
-    "state": "FLASHING",
+    "resonance": 67.0,
+    "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
   {

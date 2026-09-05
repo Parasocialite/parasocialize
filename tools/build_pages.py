@@ -47,7 +47,7 @@ HEAD = """<!DOCTYPE html>
 <style>.page{{max-width:720px;margin:0 auto;padding:56px 28px}}.page p{{color:var(--dim);line-height:1.75;margin-bottom:1em}}.page p b{{color:var(--ink)}}.hero-img{{width:100%;border-radius:12px;margin:18px 0}}.srcbox{{border:1px solid var(--line);border-radius:12px;padding:18px;margin:18px 0;background:var(--bg2)}}.rel{{display:grid;gap:10px;margin-top:18px}}.rel a{{border:1px solid var(--line);border-radius:10px;padding:12px 16px}}</style>
 </head>
 <body>
-<header class="topbar"><a class="wordmark" href="..">PARA<span>SOCIALIZE</span></a><nav class="nav"><a href="..#radar">Radar</a><a href="..#signal">Signal</a></nav></header>
+<header class="topbar"><a class="wordmark" href="..">PARA<span>SOCIALIZE</span></a><button class="menu-btn" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="nav"><a href="..#radar">Feed</a><a href="..#signal">Signal</a></nav></header>
 <div class="page">
 <p class="mono" style="font-size:.62rem;letter-spacing:.22em;color:var(--accent)">{kicker}</p>
 <h1 class="serif" style="font-family:Georgia,serif;font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.1">{title}</h1>
@@ -61,6 +61,7 @@ HEAD = """<!DOCTYPE html>
 <div class="rel">{rel}</div>
 </div>
 <footer class="footer"><div class="foot-grid"><p class="mono foot-note">© 2026 PARASOCIAL PRODUCTIONS · <a href="..">← HOME</a></p></div></footer>
+<script src="../js/main.js"></script>
 </body>
 </html>"""
 
@@ -74,7 +75,7 @@ CASE_HEAD = """<!DOCTYPE html>
 <style>.page{{max-width:720px;margin:0 auto;padding:56px 28px}}.page p,.page li{{color:var(--dim);line-height:1.75}}.page p b{{color:var(--ink)}}.buybox{{border:1px solid var(--gold);border-radius:14px;padding:24px;margin:24px 0;background:rgba(255,207,92,.06)}}</style>
 </head>
 <body>
-<header class="topbar"><a class="wordmark" href="..">PARA<span>SOCIALIZE</span></a><nav class="nav"><a href="..#cases">Files</a><a href="../guide/" class="cta-link">Guide $12</a></nav></header>
+<header class="topbar"><a class="wordmark" href="..">PARA<span>SOCIALIZE</span></a><button class="menu-btn" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="nav"><a href="..#radar">Feed</a><a href="../guide/" class="cta-link">Guide $12</a></nav></header>
 <div class="page">
 <p class="mono" style="font-size:.62rem;letter-spacing:.22em;color:var(--accent)">CASE FILE {no} · {date}</p>
 <h1 class="serif" style="font-family:Georgia,serif;font-size:clamp(1.9rem,4.5vw,2.8rem)">{title}</h1>
@@ -83,6 +84,7 @@ CASE_HEAD = """<!DOCTYPE html>
 <div class="buybox"><h3 class="serif">The essentials live in the Field Guide — $12</h3><p><a class="btn btn-solid" href="../guide/">Get the Guide →</a> <a class="btn btn-ghost" href="..#signal">Free Signal →</a></p></div>
 </div>
 <footer class="footer"><div class="foot-grid"><p class="mono foot-note">© 2026 PARASOCIAL PRODUCTIONS · <a href="..">← HOME</a></p></div></footer>
+<script src="../js/main.js"></script>
 </body>
 </html>"""
 

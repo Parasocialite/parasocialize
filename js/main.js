@@ -56,4 +56,5 @@ const spy = new IntersectionObserver(
 );
 sections.forEach((s) => spy.observe(s));
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
