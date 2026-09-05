@@ -12,10 +12,16 @@
     return `<span class="move">—</span>`;
   };
   const ext = u => /^https?:/.test(u||'') ? ' target="_blank" rel="noopener"' : '';
+  const artFor = m => { const l = String(m.lens||'').toUpperCase();
+    if(/AI/.test(l)) return 'img/art/ai.svg';
+    if(/CHARACTER|FICTION/.test(l)) return 'img/art/character.svg';
+    if(/CREATOR/.test(l)) return 'img/art/creator.svg';
+    if(/IDOL/.test(l)) return 'img/art/idol.svg';
+    return 'img/art/universe.svg'; };
   fetch('index.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{
     if(!d||!Array.isArray(d.items)||!d.items.length) return;
     table.innerHTML = d.items.map((m,i)=>`
-      <a class="index-row" href="${esc(m.link||'#radar')}"><span class="rank${i<3?' top':''}">${String(m.rank).padStart(2,'0')}</span>
+      <a class="index-row" href="${esc(m.link||'#radar')}"${ext(m.link)}><img src="${artFor(m)}" alt="" loading="lazy">
       <span><b>${esc(m.title)}</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">${esc(m.lens)} · ${esc(m.detail)}</span></span>
       ${badge(m)}</a>`).join('');
     // deep-link support: #radar/ai etc. — scroll to grid and filter it
