@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PARASOCIALIZE — The Entertainment Weekly of One-Sided Relationships</title>
+<title>PARASOCIALIZE — A Friendly Field Guide to One-Sided Relationships</title>
 <meta name="description" content="Parasocialize is the hub for all things parasocial: fiction and non-fiction coverage of one-sided relationships, decoded by Enan Joe Heneghan. Radar, Index, Case Files + studio output.">
 <meta name="theme-color" content="#07070c">
 <link rel="canonical" href="https://www.parasocialize.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="PARASOCIALIZE — The Entertainment Weekly of One-Sided Relationships">
+<meta property="og:title" content="PARASOCIALIZE — A Friendly Field Guide to One-Sided Relationships">
+<meta property="og:image" content="https://www.parasocialize.com/img/podcasts/parasocialize.jpg">
 <meta property="og:description" content="Radar, Index, Case Files + studio output. Decoded by Enan Joe Heneghan.">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize Radar" href="radar.xml">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -32,10 +33,6 @@
 .dek{color:var(--dim);max-width:56ch;font-size:1.05rem}
 .dek strong{color:var(--ink)}
 .edition{border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,#10101a,#0b0b12);padding:22px;display:flex;flex-direction:column;gap:14px}
-.edition .face{display:flex;gap:14px;align-items:center}
-.face img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);background:#222}
-.face b{display:block;font-size:.95rem}
-.face span{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;color:var(--dim)}
 .take{font-family:"Fraunces",serif;font-size:1.15rem;line-height:1.45}
 .take.small{font-size:1rem}
 .edition.mini{justify-content:center}
@@ -49,21 +46,15 @@
 .story{background:var(--paper);color:var(--paperink);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;border:1px solid rgba(0,0,0,.2)}
 .story .art{aspect-ratio:16/9;background:#111;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:2.6rem;color:#fff;position:relative;overflow:hidden}
 .story .art img{width:100%;height:100%;object-fit:cover;display:block}
-.studio-card{padding:0;overflow:hidden}
-.studio-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
-.studio-card .pad{padding:16px 18px;display:flex;flex-direction:column;gap:6px}
-.studio-card span{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.08em;color:var(--dim)}
 .story .body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
 .lensrow{display:flex;gap:8px;flex-wrap:wrap}
 .lens{font-family:"IBM Plex Mono",monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:#16131a;color:var(--gold)}
 .lens.fic{background:#1d3a2f;color:#7dffd4}.lens.nonfic{background:#3a1d1d;color:#ff9a8a}.lens.ai{background:#25224d;color:#c9c4ff}
 .story h3{font-family:"Fraunces",serif;font-size:1.35rem;line-height:1.15}
 .story p{font-size:.9rem;color:#4a4450}
-.meter{height:6px;background:rgba(0,0,0,.12);border-radius:99px;overflow:hidden}
-.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
 .story .meta{display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.12em;color:#6b6570;margin-top:auto;padding-top:8px}
 .story .meta a{color:#b71c1c;font-weight:500}
-.story .meta.src{margin-top:0;padding-top:0;border-top:1px dashed rgba(0,0,0,.15);padding-top:8px}
+.story .meta.src{border-top:1px dashed rgba(0,0,0,.15);padding-top:8px}
 .story .meta.src a{color:#1a5c4d}
 .index-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
 .index-table{background:var(--bg2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -78,14 +69,8 @@ a.index-row:hover b{color:var(--accent)}
 .sponsor-box{border:1px dashed rgba(255,207,92,.5);border-radius:14px;padding:24px;background:rgba(255,207,92,.06);display:flex;flex-direction:column;gap:12px}
 .sponsor-box small{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.22em;color:var(--gold)}
 .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.case{position:relative;display:flex;flex-direction:column}
+.case{display:flex;flex-direction:column}
 .lock{margin-top:12px;background:rgba(7,7,12,.88);backdrop-filter:blur(8px);border:1px solid var(--gold);border-radius:10px;padding:12px 14px;font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.1em;color:var(--gold);text-align:center}
-.lens-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.lens-card{border:1px solid var(--line);border-radius:12px;padding:18px 14px;background:var(--bg2);text-align:center;color:var(--ink);cursor:pointer;font:inherit;transition:.25s}
-.lens-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.lens-card b{font-family:"Fraunces",serif;font-size:1.05rem;display:block;margin:8px 0 4px}
-.lens-card span{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.14em;color:var(--dim)}
-.lens-card .n{font-family:"Fraunces",serif;font-size:2rem;color:var(--accent)}
 .money{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .price{border:1px solid var(--line);border-radius:14px;padding:28px;background:var(--panel);display:flex;flex-direction:column;gap:12px}
 .price.hot{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 50px rgba(0,0,0,.5)}
@@ -93,22 +78,18 @@ a.index-row:hover b{color:var(--accent)}
 .price .amt{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:900}
 .price ul{list-style:none;color:var(--dim);font-size:.9rem;display:flex;flex-direction:column;gap:8px;margin:8px 0 12px}
 .price ul li::before{content:"▸ ";color:var(--accent)}
-.studio-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.studio-strip .mini-card{min-height:130px;justify-content:center}
 .skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#14030a;padding:10px 18px;border-radius:0 0 10px 0;font-family:"IBM Plex Mono",monospace;font-size:.72rem;z-index:100}
 .skip:focus{left:0}
 .fbtn:focus-visible,.btn:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .countline{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;color:var(--dim);margin-top:10px}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
-@media(max-width:1000px){.masthead,.index-wrap{grid-template-columns:1fr}.radar-grid,.case-grid,.money{grid-template-columns:1fr 1fr}.lens-grid{grid-template-columns:repeat(3,1fr)}.studio-strip{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.radar-grid,.case-grid,.money,.studio-strip{grid-template-columns:1fr}.lens-grid{grid-template-columns:1fr 1fr}.masthead{padding-top:48px}
+@media(max-width:1000px){.masthead,.index-wrap{grid-template-columns:1fr}.radar-grid,.case-grid,.money{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.radar-grid,.case-grid,.money{grid-template-columns:1fr}.masthead{padding-top:48px}
 .topbar{padding:12px 16px;gap:12px}.masthead{padding:48px 20px 14px}.section{padding-left:20px;padding-right:20px}
 .filter-row{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}.fbtn{flex:none}
 .story .meta.src{flex-wrap:wrap;gap:4px}.story .meta.src span{flex:none}
 .index-row{grid-template-columns:38px 1fr auto;gap:10px;padding:12px 14px}.rank{font-size:1.3rem}
 .ticker-track span{font-size:.6rem}
-.studio-card img{aspect-ratio:16/9}
-.face img{width:52px;height:52px}
 .hero-ctas .btn{width:100%;text-align:center}}
 </style>
 </head>
@@ -212,7 +193,7 @@ a.index-row:hover b{color:var(--accent)}
 </section>
 
 <section id="signal" class="section signal-sec">
-  <p class="mono kicker">07 / JOIN THE SIGNAL</p>
+  <p class="mono kicker">06 · JOIN THE SIGNAL</p>
   <h2 class="serif" style="font-size:clamp(1.8rem,4vw,2.8rem);max-width:22ch;margin:0 auto">One email Friday. Five signals. One take.</h2>
   <!-- PROFIT WIRING: Phase 1 = FormSubmit (active). Phase 2 = swap to Buttondown: replace form action with https://buttondown.email/api/emails/embed-subscribe/YOUR-USERNAME and add hidden embed fields. Keep tip line always. -->
   <form class="signal-form" action="https://formsubmit.co/iNNERdreamers@gmail.com" method="POST"><input type="hidden" name="_subject" value="New Signal subscriber — v2"><input type="hidden" name="_captcha" value="false"><label class="sr-only" for="email">Email address</label><input id="email" type="email" name="email" placeholder="you@anywhere.net" required autocomplete="email"><button class="btn btn-solid" type="submit">Subscribe free</button></form>
@@ -243,10 +224,6 @@ a.index-row:hover b{color:var(--accent)}
     if(location.hash.startsWith('#radar'))history.replaceState(null,'','#radar/'+f);
   }
   btns.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.f)));
-  document.querySelectorAll('.lens-card').forEach(b=>b.addEventListener('click',()=>{
-    document.getElementById('radar').scrollIntoView({behavior:'smooth'});
-    apply(b.dataset.lens||'all');
-  }));
   const h=(location.hash.split('/')[1]||'all');
   apply(h);
 })();
