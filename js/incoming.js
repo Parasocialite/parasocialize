@@ -9,6 +9,6 @@
   fetch('data/candidates.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(items=>{
     if(!Array.isArray(items)||!items.length){ grid.innerHTML = '<p class="mono" style="font-size:.66rem;color:var(--dim)">Nothing pending — sweeper runs every 4 hours. <a href="tip/index.html" style="color:var(--gold)">Tip a story →</a></p>'; return; }
     grid.innerHTML = items.slice(-6).reverse().map(c=>`
-      <article class="story"><a class="art" href="${esc(c.link)}" target="_blank" rel="noopener"><img src="${artFor(c.lens)}" alt="" loading="lazy"></a><div class="body"><h3 style="font-size:1.02rem;"><a href="${esc(c.link)}" target="_blank" rel="noopener" style="color:inherit">${esc(c.title)}</a></h3><div class="meta src"><span>FOUND ${esc(ago(c.at))}</span><a href="tip/index.html">Take pending</a></div></div></article>`).join('');
+      <article class="story"><a class="art" tabindex="-1" aria-hidden="true" href="${esc(c.link)}" target="_blank" rel="noopener"><img src="${artFor(c.lens)}" alt="" loading="lazy"></a><div class="body"><h3 style="font-size:1.02rem;"><a href="${esc(c.link)}" target="_blank" rel="noopener" style="color:inherit">${esc(c.title)}</a></h3><div class="meta src"><span>FOUND ${esc(ago(c.at))}</span><a href="tip/index.html">Take pending</a></div></div></article>`).join('');
   }).catch(()=>{ grid.innerHTML = '<p class="mono" style="font-size:.66rem;color:var(--dim)">Offline — <a href="tip/index.html" style="color:var(--gold)">tip a story →</a></p>'; });
 })();
