@@ -1,5 +1,5 @@
 """Build Tier 1 (radar/<slug>.html) + Tier 2 (cases/<slug>.html) pages. No dependencies.
-Usage: python tools/build_pages.py   (run AFTER build_radar.py + refresh_4h.py)
+Usage: python tools/build_pages.py   (run AFTER build_radar.py + refresh_hourly.py)
 Sources: radar/*.md bodies + radar.json (cards incl. auto) + cases/*.md + cases.json.
 Every grid card links to a real story page; every case teaser links to a real file page.
 """
@@ -108,7 +108,7 @@ def main():
             s2 = f' <a class="btn btn-ghost" href="{html.escape(d["source2_url"])}" target="_blank" rel="noopener">{html.escape(d.get("source2_name","Related"))} ↗</a>'
         take = paras(body)
         if d.get("auto"):
-            take += "<p><i>Found by the 4-hour sweeper. My full take lands in Friday's Signal.</i></p>"
+            take += "<p><i>Found by the hourly sweeper. My full take lands in Friday's Signal.</i></p>"
         rel = []
         for o in radar:
             if o.get("slug") == slug: continue

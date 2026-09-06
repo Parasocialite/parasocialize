@@ -13,5 +13,5 @@
     if(d.updated) setLive(`LIVE · ${ago(d.updated)}`);
     const bar = document.querySelector('.ticker');
     if(bar&&d.updated) bar.title = 'Last sweep: ' + d.updated;
-  }).catch(()=>{ setPill('· UPDATED EVERY 4 HOURS'); });
+  }).catch(()=>{ setPill('· SWEPT HOURLY'); });
 })();

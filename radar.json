@@ -1,28 +1,5 @@
 [
   {
-    "slug": "swifties-record-sales",
-    "title": "Swifties just powered record album sales \u2014 the data",
-    "date": "2026-09-04",
-    "type": "non-fiction",
-    "lenses": [
-      "idol"
-    ],
-    "intensity": 9.4,
-    "read_minutes": 5,
-    "image": "img/art/idol.svg",
-    "image_alt": "Spotlight and microphone motif for Swiftie record sales",
-    "dek": "Luminate numbers show loyalty moving units. Plus: 20 years of Swift, a dictionary entry, and a NYT wedding-day dispatch.",
-    "source_name": "USA Today \u2014 Luminate report (Sept 2026)",
-    "source_url": "https://www.usatoday.com/story/entertainment/music/2026/09/04/luminate-report-taylor-swifts-fans-power-record-album-sales/91601521007/",
-    "source2_name": "NYT \u2014 Swifties on the wedding day",
-    "source2_url": "https://www.nytimes.com/2026/07/02/arts/music/taylor-swift-wedding-fans-swifties.html",
-    "link": "radar/swifties-record-sales.html",
-    "link_label": "Story \u2192",
-    "resonance": 70.0,
-    "state": "FLASHING",
-    "last_seen": "2026-09-05"
-  },
-  {
     "slug": "stalker-economy-idols",
     "title": "The idol economy: when closeness is the product",
     "date": "2026-09-02",
@@ -41,7 +18,30 @@
     "source2_url": "https://www.nngroup.com/articles/kpop-private-messaging",
     "link": "radar/stalker-economy-idols.html",
     "link_label": "Story \u2192",
-    "resonance": 70.0,
+    "resonance": 69.5,
+    "state": "LINGERING",
+    "last_seen": "2026-09-05"
+  },
+  {
+    "slug": "swifties-record-sales",
+    "title": "Swifties just powered record album sales \u2014 the data",
+    "date": "2026-09-04",
+    "type": "non-fiction",
+    "lenses": [
+      "idol"
+    ],
+    "intensity": 9.4,
+    "read_minutes": 5,
+    "image": "img/art/idol.svg",
+    "image_alt": "Spotlight and microphone motif for Swiftie record sales",
+    "dek": "Luminate numbers show loyalty moving units. Plus: 20 years of Swift, a dictionary entry, and a NYT wedding-day dispatch.",
+    "source_name": "USA Today \u2014 Luminate report (Sept 2026)",
+    "source_url": "https://www.usatoday.com/story/entertainment/music/2026/09/04/luminate-report-taylor-swifts-fans-power-record-album-sales/91601521007/",
+    "source2_name": "NYT \u2014 Swifties on the wedding day",
+    "source2_url": "https://www.nytimes.com/2026/07/02/arts/music/taylor-swift-wedding-fans-swifties.html",
+    "link": "radar/swifties-record-sales.html",
+    "link_label": "Story \u2192",
+    "resonance": 69.5,
     "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
@@ -67,7 +67,7 @@
     "source2_url": "https://lawsuitwatch.org/data-privacy-tech/character-ai-lawsuit",
     "link": "radar/cai-settlement.html",
     "link_label": "Story \u2192",
-    "resonance": 69.0,
+    "resonance": 68.5,
     "state": "PRESENT",
     "last_seen": "2026-09-05"
   },
@@ -95,7 +95,7 @@
     "source2_url": "https://www.explainx.ai/blog/ai-relationships-companionship-replika-character-ai-2026",
     "link": "radar/neuro-sama-number-one.html",
     "link_label": "Story \u2192",
-    "resonance": 67.0,
+    "resonance": 66.5,
     "state": "PRESENT",
     "last_seen": "2026-09-05"
   },

@@ -1,10 +1,9 @@
-"""4-hour resonance sweep. No dependencies, network-failure safe.
-Usage: python tools/refresh_4h.py [--no-fetch]
-AUTOPILOT: finds stories, boosts ledger, AUTO-PUBLISHES up to 2 fresh cards
-per sweep straight to radar.json (marked take-pending). No human required.
+"""Hourly resonance sweep. No dependencies, network-failure safe.
+Usage: python tools/refresh_hourly.py [--no-fetch]
+Stages: SWEEPER (fetch) -> DRAFTER (clean/dedupe) -> RANKER (decay/boost/order)
+-> PUBLISHER (autopublish capped + rebuilds). See tools/agents/.
 Curator md files are never deleted; auto cards live in the ledger + radar.json.
 """
-import json, pathlib, datetime, re, sys, urllib.request, urllib.parse, xml.etree.ElementTree as ET
 import json, pathlib, datetime, re, sys, urllib.request, urllib.parse, xml.etree.ElementTree as ET
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -101,7 +100,7 @@ def main():
             key = f"{dom or 'news'}-{now.date().isoformat()}-{len(s)}"
             if sum(1 for x in s if str(x).startswith(dom or 'news')) < 2:
                 s.append({"at":now.isoformat(),"domain":dom,"title":title[:120],"via":q})
-                target["resonance"] = min(100, float(target.get("resonance",60)) + 8)
+                target["resonance"] = min(100, float(target.get("resonance",60)) + 2)
                 target["last_seen"] = now.date().isoformat()
                 new_sightings[target["slug"]] = new_sightings.get(target["slug"],0)+1
         else:
@@ -154,7 +153,7 @@ def main():
     # decay + states
     for it in by_slug.values():
         if it["slug"] not in new_sightings and not it.get("classic"):
-            it["resonance"] = max(20, float(it.get("resonance",60)) - 3)
+            it["resonance"] = max(20, float(it.get("resonance",60)) - 0.5)
         r = float(it.get("resonance",60))
         try: age = (now.date() - datetime.date.fromisoformat(it.get("first_seen", now.date().isoformat()))).days
         except Exception: age = 0

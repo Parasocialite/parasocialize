@@ -1,7 +1,7 @@
-name: refresh-4h
+name: refresh-hourly
 on:
   schedule:
-    - cron: "7 */4 * * *"
+    - cron: "7 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -16,7 +16,7 @@ jobs:
       - name: resonance sweep
         run: |
           python tools/build_radar.py
-          python tools/refresh_4h.py
+          python tools/refresh_hourly.py
           python tools/build_pages.py
           python tools/build_signal.py
           python tools/link_audit.py
@@ -25,7 +25,7 @@ jobs:
           git config user.name "signal-sweeper"
           git config user.email "signal@parasocialize.com"
           git add radar.json radar.xml radar/ cases/ data/ signal/ || true
-          git diff --cached --quiet || git commit -m "4h sweep $(date -u +%FT%TZ)"
+          git diff --cached --quiet || git commit -m "hourly sweep $(date -u +%FT%TZ)"
           git push || true
 
 

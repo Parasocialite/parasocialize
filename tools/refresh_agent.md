@@ -1,6 +1,6 @@
-# Refresh Agent — Parasocialize 4-Hour Resonance Hub (ultimate model: tools/resonance_model.md)
+# Refresh Agent — Parasocialize Hourly Resonance Hub (ultimate model: tools/resonance_model.md)
 
-AUTOPILOT IS ON: `tools/refresh_4h.py` publishes up to 2 fresh cards/sweep itself
+AUTOPILOT IS ON: `tools/refresh_hourly.py` publishes up to 2 fresh cards/sweep itself
 (marked take-pending, capped at 3 auto-live). Human review is optional garnish,
 not a gate. Enan curates grandly: approve what sings, kill what stinks, monthly.
 

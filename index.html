@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="PARASOCIALIZE — A Friendly Field Guide to One-Sided Relationships">
 <meta property="og:image" content="https://www.parasocialize.com/img/podcasts/parasocialize.jpg">
-<meta property="og:description" content="Fresh one-sided-relationship stories with short takes — idols, characters, creators, AI. Swept every 4 hours.">
+<meta property="og:description" content="Fresh one-sided-relationship stories with short takes — idols, characters, creators, AI. Swept hourly.">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize Radar" href="radar.xml">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,6 +88,11 @@ a.index-row:hover b{color:var(--accent)}
 .sidebox ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .sidebox a{color:var(--teal)}
 .sidebox .btn{display:block;text-align:center;margin-top:6px}
+.shelf-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:4px}
+.shelf-grid a{display:block;border-radius:8px;overflow:hidden;border:1px solid var(--line);transition:.2s}
+.shelf-grid a:hover{border-color:var(--accent);transform:translateY(-2px)}
+.shelf-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.shelf-grid .pdf{background:var(--gold);color:#111;font-family:"IBM Plex Mono",monospace;font-size:.56rem;letter-spacing:.08em;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;text-align:center}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
 @media(max-width:1000px){.radar-grid,.money{grid-template-columns:1fr 1fr}.board{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr;align-items:start}}
 @media(max-width:640px){.radar-grid,.money,.side{grid-template-columns:1fr}
@@ -113,11 +118,11 @@ a.index-row:hover b{color:var(--accent)}
 </header>
 
 <div class="subhead">
-  <div class="sub-id"><img src="img/logo.svg" alt=""><div><b>r/parasocialize</b><span id="freshPill">FRESH ONE-SIDED STORIES · UPDATED EVERY 4 HOURS</span></div></div>
+  <div class="sub-id"><img src="img/logo.svg" alt=""><div><b>r/parasocialize</b><span id="freshPill">FRESH ONE-SIDED STORIES · SWEPT HOURLY</span></div></div>
   <div class="sub-actions"><a class="btn btn-solid" href="#signal">Join free</a><a class="btn btn-ghost" href="tip/index.html">Submit story</a></div>
 </div>
 
-<div class="ticker"><div class="ticker-track"><span>THIS WEEK ● IDOL FAN ECONOMIES ● GAME CHARACTERS WE LOVE ● AI COMPANIONS + BIG FEELINGS ● PENNYWISE ROOMMATE STORIES ● K-POP MESSAGE APPS ● DREAMS AS STORIES ●&nbsp;&nbsp;</span><span>THIS WEEK ● IDOL FAN ECONOMIES ● GAME CHARACTERS WE LOVE ● AI COMPANIONS + BIG FEELINGS ● PENNYWISE ROOMMATE STORIES ● K-POP MESSAGE APPS ● DREAMS AS STORIES ●&nbsp;&nbsp;</span></div></div>
+<div class="ticker"><div class="ticker-track"><span>SWIFTIES POWER RECORD SALES ● DERRY GETS SEASON 2 ● CHARACTER.AI SETTLES ● KAI ENDS 9 MONTHS QUIET ● AI TOPS TWITCH SUBS ●&nbsp;&nbsp;</span><span>SWIFTIES POWER RECORD SALES ● DERRY GETS SEASON 2 ● CHARACTER.AI SETTLES ● KAI ENDS 9 MONTHS QUIET ● AI TOPS TWITCH SUBS ●&nbsp;&nbsp;</span></div></div>
 
 <main>
 <section id="radar" class="section" style="padding-top:14px">
@@ -156,7 +161,13 @@ a.index-row:hover b{color:var(--accent)}
       <a class="index-row" href="radar/kai-cenat-return.html"><img src="https://i.ytimg.com/vi/rkdzxRaI68g/hqdefault.jpg" alt="" loading="lazy"><span><b>Kai ends 9 months quiet</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CREATOR · 1M</span></span><span class="move new">NEW</span></a>
       <a class="index-row" href="radar/neuro-sama-number-one.html"><img src="img/art/ai.svg" alt="" loading="lazy"><span><b>AI tops Twitch subs</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI × CREATOR · 296K</span></span><span class="move new">NEW</span></a>
   </div><button id="indexCopy" class="fbtn" style="margin-top:10px">Copy as text</button></div>
-  <div class="sidebox"><h4>ABOUT THIS FEED</h4><p>Outside stories on one-sided bonds — idols, characters, creators, AI — each with a short take. Swept every 4 hours; strong stories linger. No shame, no pile-ons.</p></div>
+  <div class="sidebox"><h4>MY SHELF</h4><div class="shelf-grid">
+    <a href="https://www.youtube.com/playlist?list=PLlKXzJojs1fX0YDsXgx1zVcxGcaxMs90W" target="_blank" rel="noopener" title="Watch"><img src="img/videos/insight-co.jpg" alt="Watch" loading="lazy"></a>
+    <a href="https://open.spotify.com/show/1gkpaC8cMvu026VVhXNz2n" target="_blank" rel="noopener" title="Listen"><img src="img/podcasts/parasocialize.jpg" alt="Listen" loading="lazy"></a>
+    <a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener" title="Read"><img src="img/books/company-dreamer.jpg" alt="Read" loading="lazy"></a>
+    <a href="https://www.compudactyl.com/" target="_blank" rel="noopener" title="Music"><img src="img/covers/fallgate.jpg" alt="Music" loading="lazy"></a>
+    <a href="guide/index.html" title="Field Guide $12"><span class="pdf">$12<br>GUIDE</span></a>
+  </div></div>
   <div class="sidebox" id="dives"><h4>DEEP DIVES</h4><ul>
     <li><a href="cases/kempe-to-stans.html">File 001: Kempe → Stans</a></li>
     <li><a href="cases/blockbuster-knew-your-name.html">File 002: Blockbuster Knew Your Name</a></li>
