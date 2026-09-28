@@ -209,7 +209,7 @@ def main():
     anchors = {}
     for i, m in enumerate(MEDIA_ORDER):
         a = i * 2.39996323
-        r = 86 + 30 * i
+        r = 150 + 62 * i
         anchors[m] = (r * math.cos(a), r * math.sin(a) * 0.62)
 
     payload = []
@@ -247,7 +247,7 @@ def main():
             f"{nd['y']}" if nd.get("ye") is None else f"{nd['y']}&ndash;{nd['ye']}")
         dot = "&#9679;" if nd["v"] else "&#9675;"
         rows.append(
-            f'<a href="../encyclopedia/{esc(nd["id"])}.html" '
+            f'<a href="../encyclopedia/{esc(nd["id"])}.html" data-atlas="{esc(nd["id"])}" '
             f'style="display:block;border:1px solid var(--line);border-radius:8px;'
             f'padding:11px 13px;text-decoration:none">'
             f'<span style="font-family:var(--label);font-size:.5rem;letter-spacing:.1em;'
@@ -256,6 +256,27 @@ def main():
             f'<b style="display:block;font-family:var(--serif);font-size:.95rem;'
             f'color:#f4e8d8;margin:3px 0 2px;line-height:1.2">{esc(nd["t"])}</b>'
             f'<span style="font-size:.72rem;color:var(--dimmer)">{yr}</span></a>')
+
+    # The state sentence, computed here so it cannot describe a graph that no
+    # longer exists.
+    deg = {n["i"]: 0 for n in payload}
+    for e in out_edges:
+        deg[e["a"]] = deg.get(e["a"], 0) + 1
+        deg[e["b"]] = deg.get(e["b"], 0) + 1
+    joined = sum(1 for v in deg.values() if v)
+    lone = len(payload) - joined
+    hubs = sorted(deg.items(), key=lambda kv: -kv[1])[:3]
+    hub_names = [t for t, _ in [(n["t"], n["i"]) for n in payload
+                                if n["i"] in dict(hubs)]]
+    if lone == 0:
+        state = (f"Every one of the {len(payload)} is joined to something. "
+                 f"The best connected are {hub_names[0].lower()}, "
+                 f"{hub_names[1].lower()} and {hub_names[2].lower()}, and they "
+                 f"are the shape of the thing.")
+    else:
+        state = (f"{joined} of the {len(payload)} are joined to something. "
+                 f"The other {lone} are here because they belong here, and the "
+                 f"edges are the work still to do.")
 
     data = {"nodes": payload, "edges": out_edges,
             "media": MEDIA_LABEL, "colours": colours, "kinds": kinds,
@@ -279,6 +300,7 @@ def main():
         raise SystemExit("atlas: the script sentinel is missing or duplicated")
     js = JS.replace("__DATA__", json.dumps(data, ensure_ascii=False)
                     .replace("</", "<\\/"))
+    js = js.replace("__STATE__", json.dumps(state))
     html = (tmpl
             .replace("{site}", bc.SITE)
             .replace("{n}", str(len(nodes)))
@@ -294,6 +316,18 @@ def main():
 
 
 JS = r"""
+/* THE NAMESPACE RULE, AND WHY IT IS HERE
+   The payload keys are single letters - i, t, s, y, m, v, k, g - because the
+   file is 350KB of JSON and they add up. That was a mistake with a body count.
+   The simulation also wants x, y, vx, vy, and the selection wanted s and t to
+   mean "neighbour ids". So the layout wrote the year 1970 into the node's y
+   coordinate and the panel printed 288.857117859941, and selecting a node
+   overwrote its own summary with a comma list of its neighbours' ids, so the
+   second entry you opened showed the first one's neighbours as its prose.
+
+   Both bugs were silent, both looked like content problems, and both came from
+   one habit. So: the payload lives under `d` and is never written to. Every
+   simulation field is owned by the simulation. */
 const D = __DATA__;
 const cv = document.getElementById('sky'), cx = cv.getContext('2d');
 const panel = document.getElementById('panel'), tip = document.getElementById('tip');
@@ -305,33 +339,32 @@ const KIND_R = {figure: 7.5, work: 6.5, study: 6, institution: 6,
                 event: 5.5, term: 5, mechanism: 5, case: 5.5};
 const fkR = {real: 2.6, mythological: 3.2, fictitious: 2.2};
 
-const st = {
-  on: {}, med: new Set(), kind: new Set(), fk: new Set(), onlyVerified: false,
-  showAll: false
-};
+const st = { med: new Set(), kind: new Set(), fk: new Set(), onlyVerified: false };
 D.mediaOrder = Object.keys(D.colours);
 
-// The map index is named `idx`, not `i`. The payload already carries `i` as the
-// entry's id, and `{ ...n, i }` is the array index shorthand, so writing `i`
-// here silently overwrote every id with 0..175. byId was then keyed by number,
-// every `byId[e.a]` lookup missed, and the filter left the graph with zero edges
-// and no error. Same shape of bug as the `s` collision above: a spread quietly
-// winning an argument with a key.
-const N = D.nodes.map((n, idx) => ({
-  ...n, idx,
-  x: n.ax + (Math.random() - 0.5) * 90,
-  y: n.ay + (Math.random() - 0.5) * 90,
-  vx: 0, vy: 0, r: (KIND_R[n.k] || 5) + (n.fk ? (fkR[n.fk] || 0) : 0),
-  on: true
+const N = D.nodes.map((d, idx) => ({
+  d, idx, deg: 0, on: true, vx: 0, vy: 0,
+  x: d.ax + (Math.random() - 0.5) * 90,
+  y: d.ay + (Math.random() - 0.5) * 90,
+  r: (KIND_R[d.k] || 5) + (d.fk ? (fkR[d.fk] || 0) : 0)
 }));
 const byId = {};
-N.forEach(n => byId[n.i] = n);
+N.forEach(n => { byId[n.d.i] = n; });
+
 // spread first, then the resolved endpoints, so no payload key can shadow them
 const E = D.edges
   .filter(e => byId[e.a] && byId[e.b])
   .map(e => ({ ...e, s: byId[e.a], t: byId[e.b] }));
+for (const e of E) { e.s.deg++; e.t.deg++; }
+// hubs read as hubs rather than as one more dot
+for (const n of N) {
+  if (n.deg >= 8) n.r += 2.2;
+  else if (n.deg >= 5) n.r += 1.1;
+}
 
-let cam = { x: 0, y: 0, k: 1 }, drag = null, sel = null, hover = null;
+let cam = { x: 0, y: 0, k: 1 }, drag = null, hover = null;
+// the selection's neighbours live here, NOT on the node, for the reason above
+let sel = null, selNb = { s: [], t: [] };
 
 function resize() {
   const r = cv.getBoundingClientRect();
@@ -344,7 +377,7 @@ addEventListener('resize', resize);
 /* ---- forces. repulsion is brute force: 176 nodes is about 15k pair tests a
    frame, which is nothing, and it would be nothing at 1,500 too. */
 function tick() {
-  const A = 760;                        // repulsion
+  const A = 2100;
   for (let i = 0; i < N.length; i++) {
     const a = N[i];
     for (let j = i + 1; j < N.length; j++) {
@@ -361,18 +394,22 @@ function tick() {
   for (const e of E) {
     const dx = e.t.x - e.s.x, dy = e.t.y - e.s.y;
     const d = Math.max(1, Math.hypot(dx, dy));
-    const f = (d - 88) * 0.030;
+    // Weak, long rest length. At 47 edges the springs could be stiff; at 417
+    // they beat the anchors and every bay collapsed into one ball with a few
+    // nodes flung off the side of the screen on long cross-medium edges.
+    const f = (d - 120) * 0.0055;
     const fx = (dx / d) * f, fy = (dy / d) * f;
     e.s.vx += fx; e.s.vy += fy; e.t.vx -= fx; e.t.vy -= fy;
   }
   for (const n of N) {
-    // The anchor pull is what makes the arrangement legible, and it has to beat
-    // repulsion or the thing is a uniform scatter with no clusters in it. First
-    // attempt had it at 0.0125 against A=2100 and every bay bled into every
-    // other one: 176 dots, none of them near anything.
-    n.vx += (n.ax - n.x) * 0.030;
-    n.vy += (n.ay - n.y) * 0.030;
-    n.vx -= n.x * 0.0009; n.vy -= n.y * 0.0009;
+    // The anchor pull scales with degree. A node with nineteen edges feels
+    // nineteen times the spring pull of a leaf, so a flat anchor force drags
+    // the well-connected hub out of its own neighbourhood - which is the one
+    // node a reader most wants to see in context.
+    const hold = 0.055 * (1 + n.deg / 7);
+    n.vx += (n.d.ax - n.x) * hold;
+    n.vy += (n.d.ay - n.y) * hold;
+    n.vx -= n.x * 0.0011; n.vy -= n.y * 0.0011;
     n.vx *= 0.84; n.vy *= 0.84;
     if (!drag || drag.n !== n) { n.x += n.vx; n.y += n.vy; }
   }
@@ -384,56 +421,56 @@ function draw() {
   cx.translate(W / 2 + cam.x, H / 2 + cam.y);
   cx.scale(cam.k, cam.k);
 
-  cx.lineWidth = 1.6 / cam.k;
+  cx.lineWidth = 1.1 / cam.k;
   for (const e of E) {
     if (!e.s.on || !e.t.on) continue;
-    cx.strokeStyle = e.s === sel || e.t === sel ? 'rgba(255,90,26,.85)'
-                   : (hover && (e.s === hover || e.t === hover)) ? 'rgba(255,200,140,.5)'
-                   : 'rgba(232,212,190,.46)';
+    const touching = sel && (e.s === sel || e.t === sel);
+    const near = touching || (hover && (e.s === hover || e.t === hover));
+    cx.strokeStyle = touching ? 'rgba(255,90,26,.9)'
+      : near ? 'rgba(255,214,160,.75)'
+      : 'rgba(226,208,188,.11)';
     cx.beginPath(); cx.moveTo(e.s.x, e.s.y); cx.lineTo(e.t.x, e.t.y); cx.stroke();
   }
 
   const anyOn = N.some(n => n.on);
   for (const n of N) {
     if (!n.on) continue;
-    const c = D.colours[(n.m && n.m[0]) || 'history'] || '#ccc';
-    const near = sel && (sel.s.indexOf(n.i) >= 0 || sel.t.indexOf(n.i) >= 0);
-    if (n.v) { cx.fillStyle = c; }
-    else { cx.fillStyle = 'rgba(18,12,9,.9)'; }
-    cx.globalAlpha = (anyOn && (sel || hover) && !near) ? 0.26 : 1;
+    const d = n.d;
+    const c = D.colours[(d.m && d.m[0]) || 'history'] || '#ccc';
+    const near = sel && (selNb.s.indexOf(d.i) >= 0 || selNb.t.indexOf(d.i) >= 0);
+    cx.fillStyle = d.v ? c : 'rgba(18,12,9,.9)';
+    cx.globalAlpha = (anyOn && (sel || hover) && !(near || n === sel)) ? 0.22 : 1;
     cx.beginPath(); cx.arc(n.x, n.y, n.r, 0, 6.2832); cx.fill();
-    if (!n.v) { cx.globalAlpha = 1; cx.strokeStyle = c; cx.lineWidth = 1.3 / cam.k; cx.stroke(); }
+    if (!d.v) {
+      cx.globalAlpha = 1; cx.strokeStyle = c;
+      cx.lineWidth = 1.3 / cam.k; cx.stroke();
+    }
     // an inferred medium tag gets a dashed ring: the map is saying which parts
     // of itself are inference rather than authored
-    if (n.mi && (sel === n || hover === n)) {
+    if (d.mi && (n === sel || n === hover)) {
       cx.setLineDash([2 / cam.k, 2.5 / cam.k]);
-      cx.strokeStyle = 'rgba(255,255,255,.55)'; cx.lineWidth = 1 / cam.k;
-      cx.beginPath(); cx.arc(n.x, n.y, n.r + 3.4, 0, 6.2832); cx.stroke();
+      cx.strokeStyle = 'rgba(255,255,255,.6)'; cx.lineWidth = 1 / cam.k;
+      cx.beginPath(); cx.arc(n.x, n.y, n.r + 3.6, 0, 6.2832); cx.stroke();
       cx.setLineDash([]);
     }
     cx.globalAlpha = 1;
   }
-  cx.restore();
 
   if (sel) {
-    cx.save();
-    cx.translate(W / 2 + cam.x, H / 2 + cam.y);
-    cx.scale(cam.k, cam.k);
-    const s = byId[sel.i];
-    if (s) {
-      cx.strokeStyle = '#ff5a1a'; cx.lineWidth = 1.8 / cam.k;
-      cx.beginPath(); cx.arc(s.x, s.y, s.r + 6, 0, 6.2832); cx.stroke();
-      cx.fillStyle = '#fff'; cx.font = (600 / cam.k) + 'px "IBM Plex Mono", monospace';
-      cx.textAlign = 'center';
-      cx.fillText(s.t, s.x, s.y - s.r - 11);
-    }
-    cx.restore();
+    cx.strokeStyle = '#ff5a1a'; cx.lineWidth = 1.8 / cam.k;
+    cx.beginPath(); cx.arc(sel.x, sel.y, sel.r + 6, 0, 6.2832); cx.stroke();
+    // 13/cam.k is 13 screen pixels whatever the zoom. The original was
+    // 600/cam.k, which at cam.k 1.35 painted a 444px label across the canvas.
+    cx.fillStyle = '#fff';
+    cx.font = (13 / cam.k) + 'px "IBM Plex Mono", monospace';
+    cx.textAlign = 'center';
+    cx.fillText(sel.d.t, sel.x, sel.y - sel.r - 10 / cam.k);
   }
+  cx.restore();
 }
 
-let alpha = 0;
 function frame() {
-  if (!reduce) { tick(); alpha = Math.min(1, alpha + 0.02); }
+  if (!reduce) tick();
   applyFilters();
   draw();
   requestAnimationFrame(frame);
@@ -442,10 +479,11 @@ function frame() {
 function applyFilters() {
   const anyMed = st.med.size, anyK = st.kind.size, anyFk = st.fk.size;
   for (const n of N) {
-    n.on = (!anyMed || n.m.some(m => st.med.has(m)))
-        && (!anyK || st.kind.has(n.k))
-        && (!anyFk || !n.fk || st.fk.has(n.fk))
-        && (!st.onlyVerified || n.v);
+    const d = n.d;
+    n.on = (!anyMed || d.m.some(m => st.med.has(m)))
+        && (!anyK || st.kind.has(d.k))
+        && (!anyFk || !d.fk || st.fk.has(d.fk))
+        && (!st.onlyVerified || d.v);
   }
 }
 
@@ -485,7 +523,7 @@ cv.addEventListener('pointermove', e => {
   if (n !== hover) {
     hover = n;
     if (n) {
-      tip.innerHTML = '<b>' + esc(n.t) + '</b><br>' + esc((n.m || []).join(', '));
+      tip.innerHTML = '<b>' + esc(n.d.t) + '</b><br>' + esc((n.d.m || []).join(', '));
       tip.style.opacity = 1;
     } else tip.style.opacity = 0;
   }
@@ -515,60 +553,60 @@ function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"]/g, c =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 }
-function yr(n) {
-  if (n.y == null) return 'undated';
-  return n.ye ? n.y + '–' + n.ye : '' + n.y;
+function yr(d) {
+  if (d.y == null) return 'undated';
+  return d.ye ? d.y + '\u2013' + d.ye : '' + d.y;
 }
+
 function open(n) {
   sel = n;
-  const nb = byId[n.i];
-  const inc = E.filter(e => e.b === n.i), out = E.filter(e => e.a === n.i);
+  const d = n.d;
+  const inc = E.filter(e => e.b === n.d.i), out = E.filter(e => e.a === n.d.i);
+  selNb = { s: inc.map(e => e.a), t: out.map(e => e.b) };
   const seen = new Set(), rel = [];
-  // the neighbour id lists the draw loop uses to decide what to dim, so a
-  // selected node's surroundings stay lit and the rest of the sky recedes
-  sel.s = inc.map(e => e.a); sel.t = out.map(e => e.b);
   for (const e of [...inc, ...out]) {
-    const o = e.a === n.i ? e.t : e.s;
-    if (seen.has(o.i)) continue;
-    seen.add(o.i);
-    rel.push({ o, l: e.a === n.i ? e.l : (D.rel[e.y] || e.y) });
+    const o = e.a === n.d.i ? e.t : e.s;
+    if (seen.has(o.d.i)) continue;
+    seen.add(o.d.i);
+    rel.push({ o, l: e.a === n.d.i ? e.l : (D.rel[e.y] || e.y) });
   }
-  rel.sort((a, b) => a.o.t.localeCompare(b.o.t));
-  const cites = (n.src || []).map(s =>
+  rel.sort((a, b) => a.o.d.t.localeCompare(b.o.d.t));
+  const cites = (d.src || []).map(s =>
     '<p class="cite"><b>' + esc(s.status || 'unchecked') + '</b>' +
     esc(s.claim || '') + '<br>' + esc(s.citation || '') +
     (s.url ? ' <a href="' + esc(s.url) + '" target="_blank" rel="noopener">source</a>' : '') +
     '</p>').join('');
   panel.innerHTML =
     '<button class="x" id="cx" aria-label="Close">&times;</button>' +
-    '<p class="kicker">' + esc((n.m || []).join(' · ') || 'unclassified') + '</p>' +
-    '<h2>' + esc(n.t) + '</h2>' +
-    '<p class="yrs">' + esc(n.k) + (n.fk ? ' · ' + n.fk : '') + ' · ' + yr(n) +
-    (n.era ? ' · ' + esc(n.era) : '') + (n.v ? '' : ' · citation not yet checked') + '</p>' +
-    (n.s ? '<p>' + esc(n.s) + '</p>' : '') +
-    (n.g ? '<p class="sig">' + esc(n.g) + '</p>' : '') +
+    '<p class="kicker">' + esc((d.m || []).join(' \u00b7 ') || 'unclassified') + '</p>' +
+    '<h2>' + esc(d.t) + '</h2>' +
+    '<p class="yrs">' + esc(d.k) + (d.fk ? ' \u00b7 ' + d.fk : '') + ' \u00b7 ' + yr(d) +
+    (d.era ? ' \u00b7 ' + esc(d.era) : '') + (d.v ? '' : ' \u00b7 citation not yet checked') + '</p>' +
+    (d.s ? '<p>' + esc(d.s) + '</p>' : '') +
+    (d.g ? '<p class="sig">' + esc(d.g) + '</p>' : '') +
     (rel.length ? '<h3>Connected to</h3><ul class="rel">' + rel.map(r =>
-      '<li><a href="#" data-go="' + esc(r.o.i) + '"><em>' + esc(r.o.t) +
+      '<li><a href="#" data-go="' + esc(r.o.d.i) + '"><em>' + esc(r.o.d.t) +
       '</em><i>' + esc(r.l) + '</i></a></li>').join('') + '</ul>' : '') +
     (cites ? '<h3>Sources</h3>' + cites : '<h3>Sources</h3><p class="cite">none recorded</p>') +
-    '<h3>Full entry</h3><p><a href="../encyclopedia/' + esc(n.i) +
-    '.html" style="color:var(--hot)">' + esc(n.t) + ' &rarr;</a></p>';
+    '<h3>Full entry</h3><p><a href="../encyclopedia/' + esc(d.i) +
+    '.html" style="color:var(--hot)">' + esc(d.t) + ' &rarr;</a></p>';
   panel.classList.add('on');
   panel.scrollTop = 0;
   document.getElementById('cx').onclick = close;
   panel.querySelectorAll('[data-go]').forEach(a => a.onclick = ev => {
     ev.preventDefault();
     const t = byId[a.dataset.go];
-    if (t) { open(t); cam.k = Math.max(cam.k, 1.5); }
+    if (t) { open(t); focus(t); }
   });
+  if (!/[#&]n=/.test(location.hash)) history.replaceState(null, '', '#n=' + d.i);
 }
-function close() { sel = null; panel.classList.remove('on'); }
+function close() { sel = null; selNb = { s: [], t: [] }; panel.classList.remove('on'); }
 
 /* ---- filters */
-function chip(parent, label, colour, on, fn) {
+function chip(parent, label, colour, fn) {
   const b = document.createElement('button');
   b.className = 'chip2'; b.type = 'button';
-  b.setAttribute('aria-pressed', String(on));
+  b.setAttribute('aria-pressed', 'false');
   b.style.color = colour || '';
   b.innerHTML = '<span>' + esc(label) + '</span>';
   b.onclick = () => {
@@ -580,45 +618,16 @@ function chip(parent, label, colour, on, fn) {
   return b;
 }
 const fm = document.getElementById('f-med');
-D.mediaOrder.forEach(m => chip(fm, D.media[m] || m, D.colours[m], false, v => {
+D.mediaOrder.forEach(m => chip(fm, D.media[m] || m, D.colours[m], v => {
   v ? st.med.add(m) : st.med.delete(m);
 }));
-const fk = document.getElementById('f-kind');
-D.kinds.forEach(k => chip(fk, k, null, false, v => { v ? st.kind.add(k) : st.kind.delete(k); }));
+const fkEl = document.getElementById('f-kind');
+D.kinds.forEach(k => chip(fkEl, k, null, v => { v ? st.kind.add(k) : st.kind.delete(k); }));
 const ff = document.getElementById('f-fk');
-D.fk.forEach(k => chip(ff, k, null, false, v => { v ? st.fk.add(k) : st.fk.delete(k); }));
-chip(document.getElementById('f-state'), 'sourced only', null, false, v => st.onlyVerified = v);
+D.fk.forEach(k => chip(ff, k, null, v => { v ? st.fk.add(k) : st.fk.delete(k); }));
+chip(document.getElementById('f-state'), 'sourced only', null, v => st.onlyVerified = v);
 
-// Everything below is wrapped so that a failure reports itself on <body>
-// instead of leaving a perfectly good-looking HUD over an empty canvas, which
-// is exactly what happened twice while this was being built.
-try {
-resize();
-if (reduce) { for (let i = 0; i < 500; i++) tick(); }
-fit();
-frame();
-setTimeout(() => hint.style.opacity = 0, 9000);
-document.body.dataset.edges = String(E.length);
-document.body.dataset.nodes = String(N.length);
-document.body.dataset.ok = '1';
-// reads as a sentence rather than a debug print, because the honest thing to
-// show a reader is how much of this is actually connected
-const hud = document.querySelector('.hud-tl p');
-if (hud) hud.textContent += ' Right now ' + E.length + ' of the ' + N.length +
-  ' are joined to something. The rest are here because they belong here, and '
-  + 'the edges are the work still to do.';
-} catch (err) {
-  document.body.dataset.ok = '0';
-  document.body.dataset.err = String(err && err.message || err);
-  const hud = document.querySelector('.hud-tl p');
-  if (hud) hud.textContent += ' [ERROR: ' + (err && err.message || err) + ']';
-  const t = document.getElementById('tip');
-  if (t) { t.style.opacity = 1; t.textContent = 'atlas error: ' + (err && err.message || err); }
-}
-
-/* Frame the whole graph. Without this the thing opens wherever the simulation
-   happened to stop, which is often off the edge of the screen - a constellation
-   you have to go looking for is not a map. */
+/* ---- framing */
 function fit() {
   let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
   for (const n of N) {
@@ -628,8 +637,8 @@ function fit() {
   }
   if (x0 > x1) return;
   // The HUD panels sit over the canvas, so framing to the full width parks two
-  // clusters behind them. Fit the area the reader can actually see and shift
-  // the camera to its centre, which is not the canvas centre.
+  // clusters behind them. Fit the area the reader can see and shift the camera
+  // to its centre, which is not the canvas centre.
   const wide = W > 900;
   const iL = wide ? 296 : 16, iR = wide ? 224 : 16, iT = 16, iB = 52;
   const aw = Math.max(120, W - iL - iR), ah = Math.max(120, H - iT - iB);
@@ -640,7 +649,60 @@ function fit() {
   cam.x = (ax - W / 2) - ((x0 + x1) / 2) * k;
   cam.y = (ay - H / 2) - ((y0 + y1) / 2) * k;
 }
+function focus(n) {
+  cam.k = Math.max(cam.k, 1.35);
+  cam.x = -n.x * cam.k;
+  cam.y = -n.y * cam.k;
+}
 addEventListener('keydown', e => { if (e.key === 'f' || e.key === 'F') fit(); });
+
+/* Deep links. /atlas/#n=grief opens on that node with its neighbourhood lit
+   and the camera framed on it, which makes a position in the catalogue
+   shareable - the map is only useful to somebody else if you can point at it. */
+function fromHash() {
+  const m = /(?:^|[#&])n=([a-z0-9-]+)/i.exec(location.hash || '');
+  if (!m) return false;
+  const n = byId[m[1]];
+  if (!n) return false;
+  open(n); focus(n);
+  return true;
+}
+addEventListener('hashchange', () => { if (!fromHash() && !drag) hint.style.opacity = .6; });
+
+/* Everything above is wrapped so a failure reports itself on <body> instead of
+   leaving a good-looking HUD over an empty canvas, which is what happened twice
+   while this was being built. */
+try {
+  resize();
+  if (reduce) { for (let i = 0; i < 500; i++) tick(); }
+  fit();
+  frame();
+  const deep = fromHash();
+  setTimeout(() => hint.style.opacity = 0, 9000);
+  // the list under the map is a second way in: clicking a title opens the node
+  // on the graph rather than leaving for the entry page
+  document.querySelectorAll('[data-atlas]').forEach(a => a.addEventListener('click', ev => {
+    if (!ev.metaKey && !ev.ctrlKey && !ev.shiftKey) {
+      ev.preventDefault();
+      location.hash = '#n=' + a.dataset.atlas;
+      document.querySelector('.atlas-wrap').scrollIntoView({ behavior: 'smooth' });
+    }
+  }));
+  document.body.dataset.ok = '1';
+  // The counts are computed in Python, not here. The first version of this line
+  // was written when the graph had 47 edges and said "N of the 176 are joined to
+  // something" - and after the graph was filled it cheerfully reported "417 of
+  // the 176", with a second sentence about entries still to do when there were
+  // none. A sentence about the data belongs next to the data.
+  const hud = document.querySelector('.hud-tl p');
+  if (hud) hud.textContent += ' ' + __STATE__;
+} catch (err) {
+  document.body.dataset.ok = '0';
+  const hud = document.querySelector('.hud-tl p');
+  if (hud) hud.textContent += ' [ERROR: ' + (err && err.message || err) + ']';
+  const t = document.getElementById('tip');
+  if (t) { t.style.opacity = 1; t.textContent = 'atlas error: ' + (err && err.message || err); }
+}
 """
 
 if __name__ == "__main__":

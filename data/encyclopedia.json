@@ -71,7 +71,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "p",
+          "type": "cites"
+        },
+        {
+          "to": "congregation",
+          "type": "contemporary"
+        },
+        {
+          "to": "congregation",
+          "type": "depicts"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -94,7 +107,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "myth-and-ritual",
+          "type": "cites"
+        },
+        {
+          "to": "macy",
+          "type": "contemporary"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -126,7 +148,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-priest",
+          "type": "depicts"
+        },
+        {
+          "to": "myth-and-ritual",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -151,7 +182,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "congregation",
+          "type": "occurred_in"
+        },
+        {
+          "to": "macy",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -226,7 +266,16 @@
         "literature"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "macy",
+          "type": "contemporary"
+        },
+        {
+          "to": "macy-paradox",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -556,7 +605,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "green-shield",
+          "type": "preceded"
+        },
+        {
+          "to": "club-card",
+          "type": "succeeded"
+        },
+        {
+          "to": "coffee-card",
+          "type": "succeeded"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -579,7 +641,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "superman-comic",
+          "type": "depicts"
+        },
+        {
+          "to": "protagonist-parasocial",
+          "type": "cites"
+        },
+        {
+          "to": "film-serial",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -640,7 +715,16 @@
         "sport"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-transfer",
+          "type": "cites"
+        },
+        {
+          "to": "the-teacher",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -664,7 +748,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-neighbour",
+          "type": "contemporary"
+        },
+        {
+          "to": "the-local-anchor",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -688,7 +781,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "crossover",
+          "type": "cites"
+        },
+        {
+          "to": "the-coach",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -713,7 +815,16 @@
         "sport"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-coach",
+          "type": "depicts"
+        },
+        {
+          "to": "the-atletefan-bond",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -736,7 +847,20 @@
         "film"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "radio-serials",
+          "type": "preceded"
+        },
+        {
+          "to": "protagonist-parasocial",
+          "type": "cites"
+        },
+        {
+          "to": "comic-strip",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -759,7 +883,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "trading-stamps",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-atletefan-bond",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -783,7 +916,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "dionne-warwick",
+          "type": "depicts"
+        },
+        {
+          "to": "dere",
+          "type": "cites"
+        },
+        {
+          "to": "the-clerk",
+          "type": "contemporary"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -815,7 +961,20 @@
         "sport"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "green-shield",
+          "type": "cites"
+        },
+        {
+          "to": "trading-stamps",
+          "type": "cites"
+        },
+        {
+          "to": "the-transfer",
+          "type": "depicts"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -838,7 +997,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "will-and-want",
+          "type": "depicts"
+        },
+        {
+          "to": "elvis-hologram",
+          "type": "preceded"
+        },
+        {
+          "to": "the-priest",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -887,7 +1059,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "film-serial",
+          "type": "preceded"
+        },
+        {
+          "to": "soap-opera",
+          "type": "succeeded"
+        },
+        {
+          "to": "protagonist-parasocial",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -911,7 +1096,20 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "radio-serials",
+          "type": "preceded"
+        },
+        {
+          "to": "protagonist-parasocial",
+          "type": "cites"
+        },
+        {
+          "to": "the-many-to-many",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -941,7 +1139,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "comic-strip",
+          "type": "preceded"
+        },
+        {
+          "to": "tony-stark",
+          "type": "cites"
+        },
+        {
+          "to": "macy",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -964,7 +1175,20 @@
         "film"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "soap-opera",
+          "type": "depicts"
+        },
+        {
+          "to": "film-serial",
+          "type": "depicts"
+        },
+        {
+          "to": "transparasocial",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -987,7 +1211,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "will-and-want",
+          "type": "depicts"
+        },
+        {
+          "to": "elvis",
+          "type": "preceded"
+        },
+        {
+          "to": "first-fans",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1010,7 +1247,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "first-fans",
+          "type": "depicts"
+        },
+        {
+          "to": "teen-idols",
+          "type": "depicts"
+        },
+        {
+          "to": "the-many-to-many",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1033,7 +1283,16 @@
         "film"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "star-wars-holiday",
+          "type": "contemporary"
+        },
+        {
+          "to": "protagonist-parasocial",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1100,7 +1359,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "macy-paradox",
+          "type": "preceded"
+        },
+        {
+          "to": "fan-mail",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1130,7 +1398,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "parasocial-interaction",
+          "type": "cites"
+        },
+        {
+          "to": "protagonist-parasocial",
+          "type": "cites"
+        },
+        {
+          "to": "soap-opera",
+          "type": "contemporary"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1161,7 +1442,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "macy",
+          "type": "depicts"
+        },
+        {
+          "to": "macy-paradox",
+          "type": "cites"
+        },
+        {
+          "to": "clerks-beat-algorithms",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1185,7 +1479,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "rubin-loneliness",
+          "type": "cites"
+        },
+        {
+          "to": "the-neighbour",
+          "type": "contemporary"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1216,7 +1519,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "rubin-loneliness",
+          "type": "cites"
+        },
+        {
+          "to": "the-landlord",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1241,7 +1553,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-clerk",
+          "type": "depicts"
+        },
+        {
+          "to": "macy-paradox",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1266,7 +1587,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "elvis-hologram",
+          "type": "depicts"
+        },
+        {
+          "to": "first-fans",
+          "type": "bond_with"
+        },
+        {
+          "to": "will-and-want",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1297,7 +1631,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "transparasocial",
+          "type": "preceded"
+        },
+        {
+          "to": "the-clerk",
+          "type": "depicts"
+        },
+        {
+          "to": "gazing-at-celebrities",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1366,7 +1713,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "will-and-want",
+          "type": "depicts"
+        },
+        {
+          "to": "gomer-pyle",
+          "type": "preceded"
+        },
+        {
+          "to": "the-brand-as-character",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1390,7 +1750,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "protagonist-parasocial",
+          "type": "cites"
+        },
+        {
+          "to": "the-politician",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1415,7 +1784,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "candidacy-and-charisma",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-persuasion",
+          "type": "cites"
+        },
+        {
+          "to": "gomer-pyle",
+          "type": "contemporary"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1446,7 +1828,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "dionne-warwick",
+          "type": "depicts"
+        },
+        {
+          "to": "fan-mail",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-interaction",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1471,7 +1866,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "dere",
+          "type": "cites"
+        },
+        {
+          "to": "fan-mail",
+          "type": "depicts"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1502,7 +1906,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "will-and-want",
+          "type": "depicts"
+        },
+        {
+          "to": "sinatra-bobby-soxers",
+          "type": "succeeded"
+        },
+        {
+          "to": "gomer-pyle",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1589,7 +2006,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "parasocial-persuasion",
+          "type": "cites"
+        },
+        {
+          "to": "the-politician",
+          "type": "depicts"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1637,7 +2063,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "mourn-a-person-you-met",
+          "type": "depicts"
+        },
+        {
+          "to": "keep-it-or-lose-it",
+          "type": "cites"
+        },
+        {
+          "to": "killing-off",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1660,7 +2099,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-uncanny-corridor",
+          "type": "cites"
+        },
+        {
+          "to": "siri",
+          "type": "preceded"
+        },
+        {
+          "to": "eliza",
+          "type": "contemporary"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1692,7 +2144,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "con-culture",
+          "type": "member_of"
+        },
+        {
+          "to": "first-fans",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1717,7 +2178,20 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "elvis",
+          "type": "depicts"
+        },
+        {
+          "to": "deepfake-grief",
+          "type": "cites"
+        },
+        {
+          "to": "michael-jackson",
+          "type": "succeeded"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1748,7 +2222,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "star-trek-con",
+          "type": "depicts"
+        },
+        {
+          "to": "star-wars-holiday",
+          "type": "preceded"
+        },
+        {
+          "to": "fandom-wars",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1774,7 +2261,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "soap-opera",
+          "type": "cites"
+        },
+        {
+          "to": "will-and-want",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-interaction",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1805,7 +2305,16 @@
         "film"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "con-culture",
+          "type": "depicts"
+        },
+        {
+          "to": "superman-comic",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1828,7 +2337,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "shrlu",
+          "type": "depicts"
+        },
+        {
+          "to": "the-ai-assistant",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1860,7 +2378,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "tv-cliffhanger-season",
+          "type": "cites"
+        },
+        {
+          "to": "macy-paradox",
+          "type": "cites"
+        },
+        {
+          "to": "mourn-a-person-you-met",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -1891,7 +2422,20 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "soap-finale-study",
+          "type": "cites"
+        },
+        {
+          "to": "macy-paradox",
+          "type": "cites"
+        },
+        {
+          "to": "cliffhanger",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1914,7 +2458,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-atletefan-bond",
+          "type": "cites"
+        },
+        {
+          "to": "club-card",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1937,7 +2490,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "trading-stamps",
+          "type": "preceded"
+        },
+        {
+          "to": "loyalty-dark-pattern",
+          "type": "depicts"
+        },
+        {
+          "to": "coffee-card",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1961,7 +2527,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "gomer-pyle",
+          "type": "depicts"
+        },
+        {
+          "to": "tv-cliffhanger-season",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -1986,7 +2561,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-clerk",
+          "type": "depicts"
+        },
+        {
+          "to": "tv-cliffhanger-season",
+          "type": "cites"
+        },
+        {
+          "to": "macy",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2009,7 +2597,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief-extraction",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-consent",
+          "type": "cites"
+        },
+        {
+          "to": "eudaimonia",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -2039,7 +2640,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-local-anchor",
+          "type": "cites"
+        },
+        {
+          "to": "the-neighbour",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -2070,7 +2680,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "trading-stamps",
+          "type": "succeeded"
+        },
+        {
+          "to": "club-card",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2094,7 +2713,16 @@
         "literature"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "mourn-a-person-you-met",
+          "type": "cites"
+        },
+        {
+          "to": "grief",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2117,7 +2745,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "parasocial-diagnosis",
+          "type": "cites"
+        },
+        {
+          "to": "who-holds-the-dream",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2142,7 +2779,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief",
+          "type": "depicts"
+        },
+        {
+          "to": "soap-finale-study",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2166,7 +2812,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-fanfic-writer",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-interaction",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2191,7 +2846,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "sasaeng",
+          "type": "cites"
+        },
+        {
+          "to": "fandom-doxxing",
+          "type": "contemporary"
+        },
+        {
+          "to": "parasocial-consent",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2215,7 +2883,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "saturday-mornings",
+          "type": "member_of"
+        },
+        {
+          "to": "grief",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -2247,7 +2924,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "saturday-mornings",
+          "type": "member_of"
+        },
+        {
+          "to": "sasaeng-culture",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -2278,7 +2964,20 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "saturday-cartoons-top8",
+          "type": "depicts"
+        },
+        {
+          "to": "power-rangers-handover",
+          "type": "depicts"
+        },
+        {
+          "to": "peak-tv",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2302,7 +3001,20 @@
         "music"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief",
+          "type": "depicts"
+        },
+        {
+          "to": "michael-jackson",
+          "type": "cites"
+        },
+        {
+          "to": "prince",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2327,7 +3039,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief",
+          "type": "depicts"
+        },
+        {
+          "to": "avengers-endgame",
+          "type": "cites"
+        },
+        {
+          "to": "got-finale",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2350,7 +3075,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "second-life",
+          "type": "preceded"
+        },
+        {
+          "to": "the-ai-assistant",
+          "type": "cites"
+        },
+        {
+          "to": "replika",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2399,7 +3137,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "club-card",
+          "type": "cites"
+        },
+        {
+          "to": "twitch-subs",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2423,7 +3170,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "celebrity-endorsement-fatigue",
+          "type": "cites"
+        },
+        {
+          "to": "crossover",
+          "type": "cites"
+        },
+        {
+          "to": "boybands",
+          "type": "depicts"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2447,7 +3207,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-brand-as-character",
+          "type": "depicts"
+        },
+        {
+          "to": "kpop-parasocial-industry",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2470,7 +3239,16 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "twitch-launch",
+          "type": "preceded"
+        },
+        {
+          "to": "podcast-intimacy",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2494,7 +3272,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "kpop-parasocial-industry",
+          "type": "cites"
+        },
+        {
+          "to": "transnational-fandom",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2518,7 +3305,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-pile-on",
+          "type": "depicts"
+        },
+        {
+          "to": "contest",
+          "type": "cites"
+        },
+        {
+          "to": "fandom-wars",
+          "type": "succeeded"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2541,7 +3341,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "stalker-law",
+          "type": "cites"
+        },
+        {
+          "to": "sasaeng-culture",
+          "type": "member_of"
+        },
+        {
+          "to": "fandom-doxxing",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -2573,7 +3386,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "fandom-doxxing",
+          "type": "depicts"
+        },
+        {
+          "to": "parasocial-consent",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2598,7 +3420,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "parasocial-interaction",
+          "type": "succeeded"
+        },
+        {
+          "to": "protagonist-parasocial",
+          "type": "cites"
+        },
+        {
+          "to": "characters-move-in",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -2629,7 +3464,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "anime-import",
+          "type": "depicts"
+        },
+        {
+          "to": "kpop-parasocial-industry",
+          "type": "depicts"
+        },
+        {
+          "to": "second-life",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2654,7 +3502,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "parasocial-interaction",
+          "type": "cites"
+        },
+        {
+          "to": "peak-tv",
+          "type": "cites"
+        },
+        {
+          "to": "the-uncanny-corridor",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2680,7 +3541,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-uncanny-corridor",
+          "type": "depicts"
+        },
+        {
+          "to": "vtuber",
+          "type": "cites"
+        },
+        {
+          "to": "forum-culture",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2705,7 +3579,16 @@
         "music"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "elvis-hologram",
+          "type": "succeeded"
+        },
+        {
+          "to": "grief",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2729,7 +3612,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-pile-on",
+          "type": "depicts"
+        },
+        {
+          "to": "fandom-doxxing",
+          "type": "cites"
+        },
+        {
+          "to": "mob-and-internet-pile",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2753,7 +3649,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "fandom-doxxing",
+          "type": "depicts"
+        },
+        {
+          "to": "sasaeng",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2778,7 +3683,16 @@
         "music"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "sasaeng-culture",
+          "type": "cites"
+        },
+        {
+          "to": "pokemon-go-incident",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2803,7 +3717,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "doxxing",
+          "type": "depicts"
+        },
+        {
+          "to": "swatting",
+          "type": "cites"
+        },
+        {
+          "to": "contest",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2826,7 +3753,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "celebrity-endorsement-fatigue",
+          "type": "cites"
+        },
+        {
+          "to": "paid-intimacy",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2849,7 +3785,20 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "webcasting",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-algorithm-decides",
+          "type": "cites"
+        },
+        {
+          "to": "twitch-launch",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2874,7 +3823,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-ai-assistant",
+          "type": "depicts"
+        },
+        {
+          "to": "siri",
+          "type": "cites"
+        },
+        {
+          "to": "paid-intimacy",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2898,7 +3860,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "mob-and-internet-pile",
+          "type": "depicts"
+        },
+        {
+          "to": "contest",
+          "type": "cites"
+        },
+        {
+          "to": "cancelling",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2923,7 +3898,16 @@
         "film"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "superman-comic",
+          "type": "depicts"
+        },
+        {
+          "to": "crossover",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2947,7 +3931,16 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief",
+          "type": "cites"
+        },
+        {
+          "to": "cobain",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -2972,7 +3965,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "who-holds-the-dream",
+          "type": "cites"
+        },
+        {
+          "to": "the-reply-heres-watching",
+          "type": "depicts"
+        },
+        {
+          "to": "the-algorithm-decides",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -3003,7 +4009,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-pile-on",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-consent",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3026,7 +4041,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "club-card",
+          "type": "depicts"
+        },
+        {
+          "to": "free-trial-bait",
+          "type": "depicts"
+        },
+        {
+          "to": "the-subscription-box",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3051,7 +4079,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-closure-gift",
+          "type": "cites"
+        },
+        {
+          "to": "the-subscription-box",
+          "type": "cites"
+        },
+        {
+          "to": "the-phone",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -3083,7 +4124,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "macy-paradox",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-consent",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3108,7 +4158,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief-extraction",
+          "type": "depicts"
+        },
+        {
+          "to": "grief",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3133,7 +4192,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "attention-economy",
+          "type": "cites"
+        },
+        {
+          "to": "live-commentary",
+          "type": "cites"
+        },
+        {
+          "to": "forum-culture",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3156,7 +4228,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "loyalty-dark-pattern",
+          "type": "cites"
+        },
+        {
+          "to": "paid-intimacy",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3180,7 +4261,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "mourn-a-person-you-met",
+          "type": "cites"
+        },
+        {
+          "to": "grief",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3204,7 +4294,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-pile-on",
+          "type": "depicts"
+        },
+        {
+          "to": "contest",
+          "type": "cites"
+        },
+        {
+          "to": "cancelling",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3230,7 +4333,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "shrlu",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-phone",
+          "type": "depicts"
+        },
+        {
+          "to": "eliza",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3253,7 +4369,20 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "webcasting",
+          "type": "succeeded"
+        },
+        {
+          "to": "youtube-launch",
+          "type": "succeeded"
+        },
+        {
+          "to": "twitch-subs",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3277,7 +4406,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "forum-culture",
+          "type": "succeeded"
+        },
+        {
+          "to": "contest",
+          "type": "cites"
+        },
+        {
+          "to": "gamergate",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3301,7 +4443,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "fandom-doxxing",
+          "type": "cites"
+        },
+        {
+          "to": "sasaeng-culture",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3325,7 +4476,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "fandom-wars",
+          "type": "member_of"
+        },
+        {
+          "to": "contest",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-persuasion",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3349,7 +4513,20 @@
         "music"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "psr-research-begins",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-interaction",
+          "type": "cites"
+        },
+        {
+          "to": "live-commentary",
+          "type": "preceded"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -3380,7 +4557,16 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "parasocial-interaction",
+          "type": "cites"
+        },
+        {
+          "to": "podcast-intimacy",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -3413,7 +4599,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-brand-as-character",
+          "type": "cites"
+        },
+        {
+          "to": "the-closure-gift",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -3445,7 +4640,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-brand-as-character",
+          "type": "depicts"
+        },
+        {
+          "to": "tony-stark",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3469,7 +4673,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "loyalty-dark-pattern",
+          "type": "depicts"
+        },
+        {
+          "to": "the-subscription-box",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3493,7 +4706,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-reply-heres-watching",
+          "type": "cites"
+        },
+        {
+          "to": "podcast-intimacy",
+          "type": "succeeded"
+        },
+        {
+          "to": "ratio",
+          "type": "depicts"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3516,7 +4742,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "candidacy-and-charisma",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-interaction",
+          "type": "cites"
+        },
+        {
+          "to": "celebrity-endorsement-fatigue",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -3548,7 +4787,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "live-commentary",
+          "type": "cites"
+        },
+        {
+          "to": "the-pile-on",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3573,7 +4821,20 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "loyalty-counter",
+          "type": "depicts"
+        },
+        {
+          "to": "paid-intimacy",
+          "type": "cites"
+        },
+        {
+          "to": "twitch-launch",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3597,7 +4858,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-algorithm-decides",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-persuasion",
+          "type": "cites"
+        },
+        {
+          "to": "eudaimonia",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3622,7 +4896,20 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "transnational-fandom",
+          "type": "cites"
+        },
+        {
+          "to": "boybands",
+          "type": "cites"
+        },
+        {
+          "to": "anime-import",
+          "type": "contemporary"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -3655,7 +4942,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "soap-opera",
+          "type": "cites"
+        },
+        {
+          "to": "tv-cliffhanger-season",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3680,7 +4976,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "fan-injury",
+          "type": "cites"
+        },
+        {
+          "to": "the-atletefan-bond",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3704,7 +5009,16 @@
         "music"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief",
+          "type": "cites"
+        },
+        {
+          "to": "cobain",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3762,7 +5076,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "who-holds-the-dream",
+          "type": "cites"
+        },
+        {
+          "to": "attention-economy",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3787,7 +5110,20 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "second-life",
+          "type": "succeeded"
+        },
+        {
+          "to": "vshojo",
+          "type": "cites"
+        },
+        {
+          "to": "twitch-launch",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -3885,7 +5221,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-pile-on",
+          "type": "member_of"
+        },
+        {
+          "to": "fandom-wars",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3953,7 +5298,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "chatterbots",
+          "type": "preceded"
+        },
+        {
+          "to": "replika-update",
+          "type": "succeeded"
+        },
+        {
+          "to": "eliza",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -3978,7 +5336,16 @@
         "film"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "killing-off",
+          "type": "depicts"
+        },
+        {
+          "to": "keep-it-or-lose-it",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4003,7 +5370,16 @@
         "music"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-pile-on",
+          "type": "member_of"
+        },
+        {
+          "to": "contest",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4027,7 +5403,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "killing-off",
+          "type": "cites"
+        },
+        {
+          "to": "tv-cliffhanger-season",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4051,7 +5436,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-mourning-merch",
+          "type": "depicts"
+        },
+        {
+          "to": "parasocial-diagnosis",
+          "type": "cites"
+        },
+        {
+          "to": "grief",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4074,7 +5472,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief",
+          "type": "cites"
+        },
+        {
+          "to": "avengers-endgame",
+          "type": "cites"
+        },
+        {
+          "to": "grief-extraction",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -4105,7 +5516,16 @@
         "sport"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "grief",
+          "type": "depicts"
+        },
+        {
+          "to": "prince",
+          "type": "contemporary"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4130,7 +5550,20 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "sasaeng-culture",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-diagnosis",
+          "type": "cites"
+        },
+        {
+          "to": "characterai-lawsuits",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4154,7 +5587,16 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "doxxing",
+          "type": "cites"
+        },
+        {
+          "to": "fandom-doxxing",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4178,7 +5620,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "characterai-lawsuits",
+          "type": "cites"
+        },
+        {
+          "to": "scale-change",
+          "type": "cites"
+        },
+        {
+          "to": "eliza",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4203,7 +5658,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "siri",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-phone",
+          "type": "cites"
+        },
+        {
+          "to": "the-uncanny-corridor",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4227,7 +5695,16 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "vtuber",
+          "type": "cites"
+        },
+        {
+          "to": "paid-intimacy",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -4260,7 +5737,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "replika-closure",
+          "type": "depicts"
+        },
+        {
+          "to": "grief",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4285,7 +5771,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "soap-finale-study",
+          "type": "cites"
+        },
+        {
+          "to": "mourn-a-person-you-met",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -4318,7 +5813,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "replika-update",
+          "type": "succeeded"
+        },
+        {
+          "to": "digital-bereavement",
+          "type": "depicts"
+        },
+        {
+          "to": "grief",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -4353,7 +5861,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "replika-launch",
+          "type": "succeeded"
+        },
+        {
+          "to": "replika-closure",
+          "type": "depicts"
+        },
+        {
+          "to": "digital-bereavement",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -4385,7 +5906,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "digital-orphans",
+          "type": "cites"
+        },
+        {
+          "to": "characterai",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4409,7 +5939,16 @@
         "games"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "the-atletefan-bond",
+          "type": "cites"
+        },
+        {
+          "to": "pokemon-go-incident",
+          "type": "contemporary"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -4440,7 +5979,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "characterai",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-consent",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4465,7 +6013,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "characterai",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-consent",
+          "type": "cites"
+        },
+        {
+          "to": "the-litigation-year",
+          "type": "member_of"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4490,7 +6051,20 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "elvis-hologram",
+          "type": "succeeded"
+        },
+        {
+          "to": "digital-orphans",
+          "type": "cites"
+        },
+        {
+          "to": "grief",
+          "type": "depicts"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4515,7 +6089,16 @@
         "ai"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "scale-change",
+          "type": "cites"
+        },
+        {
+          "to": "deepfake-grief",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4538,7 +6121,16 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "twitch-launch",
+          "type": "cites"
+        },
+        {
+          "to": "parasocial-consent",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4563,7 +6155,16 @@
         "history"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "characterai-lawsuits",
+          "type": "member_of"
+        },
+        {
+          "to": "stalker-law",
+          "type": "cites"
+        }
+      ],
       "sources": [],
       "media_inferred": true
     },
@@ -4587,7 +6188,16 @@
         "television_unscripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "gomer-pyle",
+          "type": "cites"
+        },
+        {
+          "to": "tv-cliffhanger-season",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -4620,7 +6230,16 @@
         "television_scripted"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "fandom-doxxing",
+          "type": "cites"
+        },
+        {
+          "to": "the-uncanny-corridor",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
@@ -4651,7 +6270,16 @@
         "technology"
       ],
       "year_end": null,
-      "relations": [],
+      "relations": [
+        {
+          "to": "twitch-launch",
+          "type": "cites"
+        },
+        {
+          "to": "twitch-subs",
+          "type": "cites"
+        }
+      ],
       "sources": [
         {
           "claim": "the entry as a whole",
