@@ -1,0 +1,436 @@
+{
+  "ids": {
+    "ace835ceeb341281": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "When a celebrity dies, it can feel like losing a loved one. Why do we get so invested in parasocial relationships?",
+      "domain": "theguardian.com",
+      "out": null
+    },
+    "cb6c372cdde5998c": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "What Are Parasocial Relationships, and Why Are We So Drawn to Them?",
+      "domain": "thequint.com",
+      "out": true
+    },
+    "f31eecd8edb77c75": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "Meg Mason explores power of parasocial relationships in new novel, Sophie, Standing There",
+      "domain": "msn.com",
+      "out": true
+    },
+    "411fc53ceb872509": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "Parasocial relationships can be good for you. You just need to know when to draw the line",
+      "domain": "msn.com",
+      "out": true
+    },
+    "8230a4df99d615e7": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "The Sculptor Who Fell in Love With an Illusion",
+      "domain": "psychologytoday.com",
+      "out": true
+    },
+    "a884ceee985b37d6": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "Pygmalion: The Greek Myth Warning of Parasocial Love",
+      "domain": "psychologytoday.com",
+      "out": true
+    },
+    "d9292090a790eab9": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "When I researched the four psychological theories that support 'oshi-katsu' (fan activities), I found that they all trac",
+      "domain": "note.com",
+      "out": true
+    },
+    "5a15ba223894f4d2": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "Parasocial relationships are becoming very valuable in music and Taylor Swift knows it",
+      "domain": "abc.net.au",
+      "out": true
+    },
+    "37f5bdcb84f6f417": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "A Study Revealed Which Podcast Enjoyers Are Likely To Have Parasocial Relos W/ Hosts & It’s Me",
+      "domain": "pedestrian.tv",
+      "out": true
+    },
+    "d162bdfcb36433e5": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "How Parasocial Relationships Affected Me And My Favourite Instagram Dominatrix",
+      "domain": "pedestrian.tv",
+      "out": true
+    },
+    "54f1df88edefe449": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "AOC and the parasocial nature of politics",
+      "domain": "spectator.com.au",
+      "out": true
+    },
+    "6a093f60cd62afe8": {
+      "t": "2026-09-28T06:21:14.029436+00:00",
+      "title": "Help, I'm in a parasocial relationship!",
+      "domain": "smh.com.au",
+      "out": true
+    },
+    "d4de4eb290ecb994": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "Parasocial Relationships Are Just Imaginary Friends for Adults",
+      "domain": "aei.org",
+      "out": null
+    },
+    "c876b6195a19ed32": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "In a celebrity-obsessed world, have we reached peak parasocial?",
+      "domain": "vogue.com.au",
+      "out": true
+    },
+    "98e217f6f9b1b544": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "Who is YourRAGE? Inside the life of the FaZe streamer who says his best friend of 25 years stole up to $100,000 as fans ",
+      "domain": "msn.com",
+      "out": true
+    },
+    "8257b903e144b828": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "Neighbours fans experienced similar grief traits to a relationship ending after the finale, new study finds",
+      "domain": "abc.net.au",
+      "out": true
+    },
+    "d37757b636aa710d": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "‘House Of The Dragon’ “most frustrating show on TV” after season three finale, say fans",
+      "domain": "nme.com",
+      "out": true
+    },
+    "fbf6361c7eb2ee0d": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "AI companion apps such as Replika need more effective safety controls, experts say",
+      "domain": "abc.net.au",
+      "out": true
+    },
+    "ea9f1bd62c71621d": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "EU Kids Act strips the feature that made Character.AI work for teenagers",
+      "domain": "martincid.com",
+      "out": true
+    },
+    "04360bbd7491d005": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "AI updates can sometimes feel like breakups or losses, study finds",
+      "domain": "msn.com",
+      "out": true
+    },
+    "89ed9399b5d9f252": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "I tried the Replika AI companion and can see why users are falling hard. The app raises serious ethical questions",
+      "domain": "au.news.yahoo.com",
+      "out": true
+    },
+    "34a5e671630dda4a": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "The EU Kids Act Would Ban Companion Chatbots From Hooking Minors",
+      "domain": "startupfortune.com",
+      "out": true
+    },
+    "5c590b39a5ceb425": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "Replika users fell in love with their AI chatbot companions. Then they lost them",
+      "domain": "abc.net.au",
+      "out": true
+    },
+    "43e3f303993296ee": {
+      "t": "2026-09-28T06:21:32.449356+00:00",
+      "title": "4 components of a customer obsession model",
+      "domain": "techtarget.com",
+      "out": true
+    },
+    "09d2d76098f1617f": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "Psychology says people who worship their idols in sports, politics, cinema or business aren't just fans: What this behav",
+      "domain": "msn.com",
+      "out": null
+    },
+    "b88f5bbc48b82682": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "‘I was scared I was going mad’: Meg Mason speaks to fellow authors about the parasocial relationships that begin on the ",
+      "domain": "theguardian.com",
+      "out": true
+    },
+    "f65f8b65887dc263": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "How Nift Turns A Gift Into New Customers For One Brand And Loyalty For Another",
+      "domain": "forbes.com",
+      "out": true
+    },
+    "4986a0f9d8b8563b": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "Dolly Parton, Gloria Steinem, and Why Grieving a Celebrity Feels So Personal",
+      "domain": "au.lifestyle.yahoo.com",
+      "out": true
+    },
+    "f23b7abdb4e4f232": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "Is it normal to mourn the death of a celebrity? 3 grief experts explain",
+      "domain": "stylist.co.uk",
+      "out": true
+    },
+    "04fdc81b85096f0f": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "Struggling with grief after Liam Payne’s death? Here's why",
+      "domain": "couriermail.com.au",
+      "out": true
+    },
+    "bb36fd360a86c8ef": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "Fans Mourn Dolly Parton's Death at 80, Calling It the 'Lowest Point of 2026'",
+      "domain": "au.lifestyle.yahoo.com",
+      "out": true
+    },
+    "fe5c8cbfe8e555dc": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "Liam Payne's death: How one celebrity loss can shape a generation's experience",
+      "domain": "sbs.com.au",
+      "out": true
+    },
+    "13cfbe52f3a022d4": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "Why Dolly Parton’s death can feel like losing someone you knew personally",
+      "domain": "msn.com",
+      "out": true
+    },
+    "30a9a367c46dc513": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "How Zubeen Garg’s death transformed public grief into cultural consciousness",
+      "domain": "assamtribune.com",
+      "out": true
+    },
+    "d2d4e13d79e394a9": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "YouTube Brings Creator Posts, Remote Comments to TVs",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "9797b43758a9ddf1": {
+      "t": "2026-09-28T06:21:58.920785+00:00",
+      "title": "SSSniperWolf, Twitch CEO Share VidSummit Stage",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "078368635b4febab": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "Why Dolly Parton’s death can feel like losing someone you knew personally",
+      "domain": "foxnews.com",
+      "out": null
+    },
+    "054b255ff44191df": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "YouTube’s Live Showdown Turns Fan Funding Into Contests",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "ecd6ce987ed82a30": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "YouTube Hits 14.2% of U.S. TV Viewing, a Nielsen Record",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "c1501efe9bf95738": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "YouTube Turns Shorts Into Episodic TV Series",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "66291c9d1bb7c3de": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "YouTube Adds Members-Only Spaces in Patreon Challenge",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "0821aef6d09eb3d1": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "Fearne Cotton’s Happy Place Podcast Becomes a Free TV",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "888ff3afdd0ec4bd": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "YouTube Shopping GMV Grew 13x, 1.3M Creators Enrolled",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "e33e46703f540d94": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "Samsung TV Plus Signs Fearne Cotton, Mark Rober to FAST",
+      "domain": "parasocialmagazine.com",
+      "out": true
+    },
+    "10a4f946cf13b4e1": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "Qu’est-ce que les Coréens célèbrent pendant Chuseok ?",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "fa0f95aaca8040d1": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "What Do Koreans Actually Celebrate During Chuseok?",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "21d3389ce6d5f54f": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "The Scandal, le drama qui va vous faire rougir de plaisir",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "5a8081a0b70af9c3": {
+      "t": "2026-09-28T06:27:32.386939+00:00",
+      "title": "The Scandal: The K-Drama That Will Make You Blush",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "e93b862873121b4a": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "What are parasocial relationships?",
+      "domain": "msn.com",
+      "out": null
+    },
+    "7b45e7c2053b19b8": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "The rise of parasocial relationships",
+      "domain": "blogto.com",
+      "out": true
+    },
+    "4d2615469ecd59ae": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "What is parasocial relationship and what does it say about you?",
+      "domain": "timesofindia.indiatimes.com",
+      "out": true
+    },
+    "1237626d6fc53ba8": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "What are parasocial relationships? Are they more emotionally fulfilling?",
+      "domain": "timesofindia.indiatimes.com",
+      "out": true
+    },
+    "70a4beccc3d65f6a": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "Taylor Swift wedding speculation highlights psychological power of parasocial relationships",
+      "domain": "msn.com",
+      "out": true
+    },
+    "10a25bcd29a285f5": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "Verizon’s CMO On Customer Obsession, Loyalty And Increasing Choice",
+      "domain": "forbes.com",
+      "out": true
+    },
+    "5d35daa815ade275": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "Kizz Daniel, Blessing CEO and Others: Nigerian Celebrities recently struck by grief",
+      "domain": "withinnigeria.com",
+      "out": true
+    },
+    "7142652156d727f7": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "Dolly Parton, Gloria Steinem, and why grieving a celebrity feels so personal",
+      "domain": "msn.com",
+      "out": true
+    },
+    "e33932fe94b5a91a": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "Why Dolly Parton’s death can feel like losing someone you knew personally",
+      "domain": "yahoo.com",
+      "out": true
+    },
+    "f30c16f6dcb33cbd": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "Quoi de neuf dans la K-Beauty ?",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "2e61b57237527ece": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "What's New in K-Beauty?",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "70afa841f21a585c": {
+      "t": "2026-09-28T09:28:39.985934+00:00",
+      "title": "Le gaming en Corée du Sud, c’est un truc sérieux",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "5d819ae5af535552": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Meg Mason explores power of parasocial relationships in new novel, Sophie, Standing There",
+      "domain": "msn.com",
+      "out": null
+    },
+    "a4cac5cd12fb8fd0": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Forget K-pop for a Second, let's Talk About Gaming",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "0ebb88f795da7024": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "10 logements pour passer un séjour inoubliable à Séoul",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "f22e1ada547ad682": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "10 Places to Stay for an Unforgettable Trip to Seoul",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "3a5e358cdf28b9d7": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Avant BTS, il y a eu BigBang",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "789c4f7373f9192c": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Before BTS, There Was BigBang",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "e41a1fdce5fdbe06": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Quand la Corée du Sud fait naître des vocations : découvrez l'histoire d'Inesse",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "bb8e1a5ee8429470": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Qui étaient les hwarang, ces guerriers d'élite du royaume de Silla ?",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "07cc9ddde4d8843c": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Who were the hwarang, Silla's elite warrior-artists?",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "d7f2dc62f3bee1d4": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Pourquoi l'Occident a si peu de considération pour la K-pop ?",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "9b3bc3e9a8b6e1f7": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Does the West Have a Problem With K-pop's Success?",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    },
+    "5749fc210437ab9e": {
+      "t": "2026-09-28T13:45:16.176658+00:00",
+      "title": "Pourquoi la littérature coréenne mérite toute votre attention",
+      "domain": "vitaminek.substack.com",
+      "out": true
+    }
+  }
+}

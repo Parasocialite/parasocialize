@@ -1,45 +1,141 @@
-# Money model (realistic, v1.0) — Parasocialize
+# Money model — Parasocialize
 
-Rule: the site runs 90% alone. Enan curates ~30 min/week. Nothing ships that needs
-an audience we don't have yet.
+**The rule this site runs on: the counter, the ten aisles, the archive and the
+Friday Signal are free, and they stay free.** Everything below is how the
+electricity gets paid for.
 
-## The only product: Field Guide PDF — $12 launch
-- Tangible artifact people actually buy cold: 7 patterns + worksheet + reading list.
-- Gumroad (or Ko-fi Shop) handles payment + delivery. Zero fulfillment, zero support queue.
-- $12 launch price (not $19 — cold traffic converts ~2x better under $15).
-- Every Radar card + Signal email ends at the Guide, not a membership.
+---
 
-## Passive layer (runs itself)
-1. **Affiliates** — Amazon/Bookshop links on book cards + source-adjacent picks. 4-6%,
-   marked AD. Needs zero maintenance once tagged.
-2. **Tip jar** — Ko-fi link in footer + Signal page. Some readers pay $3-5 for free
-   stuff they like. No tiers, no Discord to moderate.
-3. **Existing shows** — YouTube/Spotify revenue already exists; site just funnels
-   watch/listen time via Studio cards. No new work.
-4. **Email list** — free Signal via Buttondown free tier. 3-email welcome sequence
-   sells the Guide on autopilot (write once, runs forever).
+## Why the last version failed
 
-## Parked (pages stay live, OFF the homepage until gates hit)
-- Inner Circle $7/mo → gate: 500 Signal subs + 4 consecutive weekly sends.
-  Reason: memberships with <100 people = support burden > revenue. Run as waitlist.
-- Sponsors → gate: 500 subs or 5k monthly visits. One slot, inbound only.
-- Audit $500-1500 → gate: 2 inbound asks. Keep page, no homepage promo.
-- Classroom $49 → gate: 1 teacher asks. Keep page, link from Guide only.
+The previous model shipped a $12 PDF and a tip jar and gated everything else
+behind demand that never arrived. Its own `MONETIZATION.md` said:
 
-## Enan's 30 min/week (grander curation, not content mill)
-- Mon: approve/reject agent drafts in data/candidates.json (10 min).
-- Wed: nothing (sweeper reorders + decays alone).
-- Fri: glance at auto-built signal/latest.html, hit send (20 min), done.
-- Monthly: 1 Case File teaser when moved to — otherwise skip, Guide sells regardless.
+> Classroom $49 → gate: 1 teacher asks
 
-## Agents (what runs without you)
-- Sweeper (4h cron): scores, decays, reorders, rebuilds ticker. Cannot publish.
-- Drafter: files candidates, never homepage.
-- Ranker: lingering/fading keeps grid fresh with zero posts.
-- Salesman: welcome sequence (to be written once) — the only "agent" that takes money.
+then hid the page. That is not a business model, it is a wish list. And the
+$12 was unsellable by construction — the guide page gave away the entire book
+and then charged $12 for a PDF of what you had just read. Nobody buys paper of
+something they finished scrolling.
 
-## Math that works
-- 3k visits/mo × 3% email capture = 90 subs/mo → 1k subs in ~11 mo.
-- 1k subs × 2% Guide conversion × $12 ≈ $240/mo passive + affiliates/tips.
-- Not retirement. Realistic foundation that funds itself while the moat (SEO + archive) compounds.
-- Memberships/sponsors/audits layer on top ONLY when gates hit — that's when lofty becomes realistic.
+**The structural mistake was selling a product with real cost (fulfilment,
+updates) and no lock-in.** Everything below is chosen to avoid that.
+
+---
+
+## The three offers. Only three.
+
+### 1. Renewals — $6/mo or $60/yr · the one that pays the bills
+
+The product is **the Index**: every card, cross-referenced by aisle and by law,
+plus the archive, plus the rejected drafts and why, plus the whole thing as JSON.
+
+This works where the PDF failed for one specific reason: **the machines produce
+it.** The marginal cost of member #2,000 is approximately zero, because the
+agent pipeline writes the entries and a person signs them off. A subscription
+whose deliverable is *a tool a machine maintains* is the one model on the
+internet where a solo operator is not structurally disadvantaged. It is also
+impossible to scrape, because it isn't the writing — it's the structure, the
+ten aisles, the seven laws, and the shelf-links.
+
+Aisle 07 (CROSSOVER) and the rejected-drafts archive are the paid tier's
+distinctive draws. Neither is scrapable and both only exist because a person
+maintains them.
+
+- **Price:** $6/mo, $60/yr. A second tier at $15 with the monthly Clinic seat
+  bundled is the only other one. There is no tier four.
+- **Who actually pays:** students, teachers, journalists, researchers, and
+  platform/safety people. Not the 18-year-olds. Size the plan for the first
+  group; the second group is the funnel.
+- **What it must never become:** a wall in front of the archive. If it ever
+  looks like that, it has stopped being a membership and started being a
+  hostage situation.
+- **Platform:** Stripe or Paddle, one click, cancel from the same place. The
+  button is not wired yet and the page says so rather than showing a fake form.
+
+### 2. The Clinic — $18 · highest money per hour
+
+Once a month. One hour, live, small group, six people. Bring one attachment,
+we audit it out loud. It's the classroom exercise with adults who have not had
+anybody to say it to.
+
+Why this is second and not institutional licences: **no sales cycle.** You
+advertise to your own list and the room fills. Institutional licences need a
+salesperson — finding principals, PD coordinators, department heads — and
+turning yourself into a vendor is the single most likely way to burn six months
+and get nothing. This is the clerk's counter, in person, at the scale a person
+can actually run.
+
+Recording goes to the whole list, so it earns its slot even for the weeks
+you can't be there.
+
+### 3. The shelf — multi-door, not a pitch
+
+Not a revenue model. A checkout fix. The books already have an audience and it
+was leaking through a single Amazon link, which is both bad citizenship and bad
+revenue. Every work now has several doors:
+
+| Work | Doors |
+|---|---|
+| *Company Dreamer*, *Dreamarched* | Amazon, Bookshop.org, Kobo, Apple Books, B&N |
+| *Regulated Brightness* (poetry) | Lulu direct, Amazon |
+| Podcasts | Spotify, Apple Podcasts, YouTube |
+| Albums | YouTube, Bandcamp |
+| *The Binding of Margery Kempe* (essay) | free to read |
+
+Bookshop.org matters beyond the commission: it's the retailer indie authors
+actually get paid by properly.
+
+**The important change is that the shelf is now the evidence base, not a
+sidebar.** Every card links to the work that got there first, and the shelf page
+prints a "cited by N cards" badge. A reader researching Law 3 lands on the
+*Company Dreamer* passage because it's load-bearing in the analysis. That is a
+far better path to book sales than a card grid — and it makes the work matter
+to the site instead of the site mattering to the work.
+
+---
+
+## Parked, deliberately
+
+| Thing | Why it is not built |
+|---|---|
+| **Sponsorships** | One slot, disclosed, inbound only. Gated on the list actually existing. The niche has genuine sponsor demand (streaming, companion AI, fandom merch) but it's a second-act play. |
+| **Institutional licences** | Correct buyer, wrong motion for one person. It needs a salesperson. If you ever *want* to be one, the $49 pack is still live at `/classroom/` and the pitch is a whole-year program, not a PDF. |
+| **Printed almanac** | A Kickstarter'd printed annual is the natural artifact of this design and would probably fund. It is also a six-month project, not a website change. |
+| **Grants** | Low odds, high value, near-zero time. File two or three a year for journalism/culture and forget about them. |
+| **Paid tier on the Friday email** | Not yet. Sell Renewals and the Clinic first; the email is the funnel, and putting a wall on the funnel before it has flow is how you get a dead list. |
+| **Data licensing** | The taxonomy is genuinely licensable to researchers and brands. Revisit when the Index has a few hundred cards. |
+
+---
+
+## Costs, honestly
+
+| Thing | Monthly |
+|---|---|
+| Domain | ~$1.50 |
+| Static hosting (Cloudflare Pages) | $0 |
+| **Model calls** | the only real cost — see below |
+| Email (Buttondown free tier) | $0 |
+
+**The model calls are the budget, and they are the budget.** At
+`PARASOCIALIZE_BUDGET=12` drafts and `PARASOCIALIZE_MAX_CALLS=30` calls per
+hour, that's ~720 calls/day, which is the number to watch. The system prompt is
+cached, rejections are remembered so you never pay twice to be told no, and a
+recency gate ignores archive dumps. Set `PARASOCIALIZE_BUDGET=0` and the
+sweeper keeps running, the queue keeps filling, and nothing reaches anybody
+until you're back.
+
+**A backlog is better than a shelf you didn't read.**
+
+---
+
+## The numbers that decide it
+
+- Renewals at $6: **17 members pays the domain and the model calls.** That's
+  the bar. Hit it and the site runs.
+- 2% of a free list converting to Renewals: 500 subs → 10 members. 2,000 → 40.
+- One Clinic a month at 40 × $18 = **$720**, occasionally, for one evening.
+
+If the list stays under ~1,000, none of this is a living and the honest
+framing is a well-built free thing that costs almost nothing. That's fine.
+Building it as if it might not work is the whole reason the free part stays free.

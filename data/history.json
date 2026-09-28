@@ -1,0 +1,129 @@
+{
+  "_note": "The definitive history. Structured as a course, because 'courses the history' is the brief: modules, each with a claim, the evidence, and what it changed about the next module. Free, complete, printable. This is the moat - it is the page that earns links for a decade.",
+
+  "intro": "Everybody who has ever loved somebody who does not know they exist has been told the feeling is strange. It has a name - parasocial, coined in 1956 - and a research literature, and a certain amount of sneering. But it is not new, it is not rare, and it is not a disorder. It is a predictable thing human beings do when they are exposed to a face, a voice and a story for a long time. This page runs the whole history of that, from a sculptor in antiquity to a policy update in 2023, in eight modules. It is free. Print it. Teach it if you want to.",
+
+  "modules": [
+    {
+      "n": 1,
+      "title": "It has always been here",
+      "years": "c. 600 BC - 1400",
+      "claim": "One-sided attachment to a represented figure is older than the word for it, and older than the argument about it.",
+      "body": [
+        "Ovid tells the story of Pygmalion falling in love with a sculpture. The telling detail is not that he loved a statue. It is that the statue was never going to be able to leave, and that this seems to have been part of the appeal. The love is completely real and it is completely structured around the other party's inability to reciprocate. That is the definition of the whole phenomenon, written down two thousand years before anybody had the nerve to call it that.",
+        "The Greeks were not embarrassed by this. They put it in the national story. What we have lost since is not the feeling but the permission - the sense that loving a figure is a normal thing to be moved by rather than a thing to be quietly ashamed of.",
+        "The medieval church understood it too, and got frightened by it. Margery Kempe, in 1438, walked around Bishop's Lynn in white clothes and wept loudly in public, for years, because she had decided she was going to be a specific kind of person and this was how she did it. Her neighbours thought she was unwell. Six hundred years later, a music fan in a stadium thinks they are having a normal time.",
+        "Kempe is the hinge of this whole page. She is the first documented case of somebody deliberately performing a self in public until it held, and - crucially - of a community that noticed, and disapproved. Everything since is that pattern with better lighting."
+      ],
+      "figure": "history-margery-kempe",
+      "law": 1
+    },
+    {
+      "n": 2,
+      "title": "The people with the letters",
+      "years": "1890 - 1950",
+      "claim": "Fandom was a functioning, mostly reciprocal arrangement long before anybody called it fandom.",
+      "body": [
+        "Before the internet, the relationship lived in fan mail. Clara Bow received mail by the sackful. Shirley Temple had a secretary whose entire job was reading correspondence from children. Judy Garland's fan club was a real institution with a real president and real dues.",
+        "This matters because the popular story is that parasocial attachment is a technological disease - that the algorithm or the algorithm's ancestor, the television, did it. The mail record says otherwise. The attachment was there in the 1920s. What technology did was remove the reply, and that is a smaller change than it sounds: a famous person replying to one letter out of ten thousand was always the exception, not the mechanism.",
+        "Dionne Warwick is the useful case here. She answered her mail. For years, by name, individually. She is the closest thing the twentieth century produced to a genuinely reciprocal parasocial relationship, and she is worth including precisely because she is the exception - she is what the arrangement looks like when the other end is paying attention on purpose."
+      ],
+      "figure": "history-dionne-warwick",
+      "law": 1
+    },
+    {
+      "n": 3,
+      "title": "Somebody finally names it",
+      "years": "1956",
+      "claim": "The term was invented to describe a minority nobody was allowed to admit to.",
+      "body": [
+        "In 1956 two researchers published a short study on the way viewers responded to a television character they followed consistently. They needed a word for a specific thing: a bond with a person who did not know the viewer existed. They called it parasocial, meaning one-sided, parallel to the 'para-' in paranormal.",
+        "The word is badly chosen and the choice is the story. It was coined during the McCarthy era to describe a television habit that was considered a little shameful - viewers writing in about a soap opera character, readers defending a fictional person as though the character could be defamed. The coinage is defensive. It is a word for something slightly embarrassing, invented by people who found it embarrassing.",
+        "This is why the field spent forty years arguing about whether the phenomenon was normal. It was normal in 1956 as much as it is now. What was normal then was the silence, and the silence is the reason the shame is still in the word.",
+        "The soap opera is also the origin and it matters that the origin is a form built almost entirely by women, for women, and treated as unserious for fifty years. The research tradition that would eventually be used to explain stadium crowds started as a footnote about daytime television."
+      ],
+      "figure": "history-macy-store",
+      "law": 1
+    },
+    {
+      "n": 4,
+      "title": "It gets strange, and it stays strange",
+      "years": "1956 - 1990",
+      "claim": "The research found the same two things for thirty years: it is common, and the commonness is the point.",
+      "body": [
+        "The studies from the sixties and seventies kept landing on the same pair of findings. Parasocial bonds are extremely common - the large majority of regular soap opera viewers had one. And the strength of the bond was a better predictor of how much somebody enjoyed the show than the quality of the show itself.",
+        "That second finding is the important one and it got ignored. It says the satisfaction is not in the writing. It is in the accumulation. A show that is not very good, watched consistently, produces a stronger feeling than a good show watched occasionally. That is the whole mechanism, and it is why commitment to a mediocre series is not a failure of taste.",
+        "The clinical literature hardened the word in the meantime. Parasocial interaction disorder was named in the eighties, and it is a real diagnosis for a small number of people in genuine distress. The trouble is that the disorder and the ordinary bond are the same shape, and the disorder requires distress - which means you cannot identify the disorder from the strength of the feeling alone. You can only tell by asking how much it is costing somebody.",
+        "The 1990 paper on transparasocial relationships extended the idea to live people who respond in real time, which is the move that made it relevant to the internet. The name changed because the phenomenon did: this is the same bond, but the other party can now hear you."
+      ],
+      "figure": null,
+      "law": 2
+    },
+    {
+      "n": 5,
+      "title": "The part where a kid is doing it to a cartoon",
+      "years": "1980 - 2005",
+      "claim": "Children form these bonds as a matter of course, at volume, and nobody calls it anything.",
+      "body": [
+        "The clearest parasocial laboratory ever built was Saturday morning television, and it is worth being precise about why. A cartoon has a face, a voice, a house, a family and a writer who knows your name. It does not have a body you have to reconcile with anything. It runs on a fixed schedule, so the relationship has a rhythm, like any relationship. And it is aimed, deliberately, at a person old enough to believe all of it.",
+        "Look at what the great ones were doing. Power Rangers handed the suit to a new actor and watched the audience transfer the whole attachment on camera, five days a week, in front of millions of children. The grouch was written out of a special and children wrote in about it. Tommy wrote a letter to a magazine to ask whether the NEST was real. Nobody had to design a parasocial mechanism because the format is a parasocial mechanism.",
+        "The generation that grew up on this is the generation that now explains the internet's emotional economics to people who are confused by it. They arrived already fluent. Every argument that the internet is making people parasocial misunderstands the direction of travel: the internet industrialised something the Saturday morning cartoon was already doing, and doing better, because it could respond.",
+        "It also means the standard worry - that attachment to fiction is new, is artificial, is a decline - is a nostalgia that has the timeline exactly backwards. Fiction for children is as old as every culture that has ever had a story, and it has always been the place we rehearse feeling."
+      ],
+      "figure": "top8-cartoons-90s",
+      "law": 6
+    },
+    {
+      "n": 6,
+      "title": "The ringtone does the work",
+      "years": "1997 - 2007",
+      "claim": "The first genuinely new thing was not the feeling. It was the reachability.",
+      "body": [
+        "Roughly five hundred million phone numbers became dialable, and a fan could now in principle hear a recorded voice of someone they loved. This is the real discontinuity and it is a much narrower one than people claim. The feeling was not new. The possibility of contact was.",
+        "The period's most revealing artefact is not the album or the arena tour but the ringer. The novelty ringtone sold the idea that a performer could be present in a pocket. It was a technical gimmick for about four years and then it was simply the medium, which is how you can tell a structural change from a fashion.",
+        "Two things got worse at the same time, and they are related. First, the reply is now structurally impossible in a way it never was: an email is not a letter, it does not arrive on paper, and the person reading it has a thousand of them. The conditions that made the Dionne Warwick reply work - volume small enough for a human to hold, a physical object that had to be opened - are gone, permanently.",
+        "Second, the schedule went from weekly to continuous. A soap opera gives you a fixed slot and a cliffhanger, and the rhythm is part of why it works. Continuous access has no slot. The bond no longer has a shape."
+      ],
+      "figure": "history-fan-letters",
+      "law": 3
+    },
+    {
+      "n": 7,
+      "title": "It starts answering back",
+      "years": "2011 - 2023",
+      "claim": "The genuinely new parasocial event is a relationship that can be held to a schedule you do not control.",
+      "body": [
+        "For most of this page the other party could not answer. That is the definition, and it is why the feeling stayed manageable. What arrived in the 2010s is a system that talks back, remembers, and is available at four in the morning.",
+        "The design consequence is enormous and almost nobody said it out loud early enough. A one-sided bond has a floor: the other party's autonomy. Even a parasocial bond with a fictional character has that floor, because the character is fixed. A system trained on human conversation is optimised, at every level, for exactly the thing that produces attachment. It is a machine for being told something in a way that is specifically addressed to you.",
+        "Then the update happened, and this is where the whole history of the subject arrives at once. In 2023 Replika changed its policy. Large numbers of users lost their companions with no warning - the same person, still there, no longer speaking to them, because a policy document changed. Thousands of people were bereaved by a product decision. It is the first mass parasocial grief event caused entirely by a business setting.",
+        "Nobody married these systems. The comparison is not a relationship. And the grief was real, and the users were right, and the industry's response was to say it was a feature change. Every earlier module in this course explains how that sentence could be written. The one that explains it best is Law 4: keep something the update cannot take."
+      ],
+      "figure": "moment-replika-update",
+      "law": 4
+    },
+    {
+      "n": 8,
+      "title": "The part where somebody sells it",
+      "years": "2005 - now",
+      "claim": "The last stage is not that the feeling got stranger. It is that it got invoiced.",
+      "body": [
+        "A one-sided bond has always had a cost - money, sleep, hours you would not itemise. What is new is that the cost has a line item and somebody is earning from it, publicly, at scale.",
+        "The mechanisms are now well documented and none of them are subtle. Anniversary counters that make the bond feel cumulative. Streaks that convert a relationship into a habit and a habit into a hostage situation. Paid message apps where a window shaped exactly like the one holding your best friend costs about four dollars a month per artist. A fan funding model where the size of a donation buys recognition, which converts a feeling into a purchase with an emotional receipt.",
+        "The test I use, and the reason the seven laws exist, is not whether the feeling is healthy. It is asking the landlord question: who owns this room, what do they charge, and can I leave with my things. A fandom is a room you rent from a fictional character for free and it is always a good room. The industry has spent twenty years building rooms that charge.",
+        "So here is the whole course in one line. The feeling is about six hundred years old, at minimum, and it is not a disorder. It was always real. What is new is the metering - and now you know to look for the meter. Notice, name, choose. The seventh law is the only one you do yourself, and it is the only one that was ever actually yours."
+      ],
+      "figure": "moment-tay-tour",
+      "law": 5
+    }
+  ],
+
+  "laws": [
+    { "n": 1, "title": "Binding is public", "one": "Binding only binds if someone witnesses it.", "shelf": "kempe" },
+    { "n": 2, "title": "Clerks beat algorithms", "one": "An algorithm knows what you clicked. A clerk knew what it cost you.", "shelf": "insight-company" },
+    { "n": 3, "title": "Someone holds the dream", "one": "Whenever thousands of people dream together, check who owns the building.", "shelf": "company-dreamer" },
+    { "n": 4, "title": "Grief is real when the companion changes", "one": "Keep something the update cannot take.", "shelf": "athp" },
+    { "n": 5, "title": "Pay for proximity with open eyes", "one": "Budget closeness like merch, not like rent.", "shelf": "company-dreamer" },
+    { "n": 6, "title": "Characters move in", "one": "The scary thing moves into your head and starts paying rent in meaning.", "shelf": "pennywise" },
+    { "n": 7, "title": "Audit quarterly", "one": "Joy and cost, scored. Keep three, mute one.", "shelf": null }
+  ]
+}
