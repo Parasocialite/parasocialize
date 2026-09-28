@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The clerk's desk - Parasocialize</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="The signoff queue. Machines draft, a person signs.">
+<link rel="icon" type="image/svg+xml" href="https://www.parasocialize.com/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<header class="topbar"><div class="topbar-in">
+  <a class="wordmark" href="../index.html"><img class="logo-img" src="../img/logo.svg" alt="" width="24" height="24">PARA<b>SOCIALIZE</b></a>
+  <nav id="nav" class="nav" aria-label="Main">
+    <a href="../index.html">Front page</a>
+    <a href="index.html" aria-current="true">Desk</a>
+    <a href="../aisle/index.html">Sections</a>
+  </nav>
+</div></header>
+
+<main>
+<section class="section">
+  <p class="kicker" style="color:var(--neon)">Back office · noindex · <span id="lastRun">reading the log…</span></p>
+  <div class="sec-head">
+    <h1 style="color:var(--neon)">The desk</h1>
+    <p class="sec-lede">Machines draft. A person signs. <b style="color:var(--paper)">Nothing reaches the front page
+    without a person deciding it should.</b> A model that gets this wrong is a nuisance. A model that gets this wrong
+    <em>published</em> is why everyone stops trusting a site like this, and trust is the only thing here that matters.</p>
+  </div>
+
+  <div class="front front-3" style="margin-top:28px" id="stats">
+    <div class="price" style="gap:4px"><p class="flag">Last sweep</p><div class="amt" style="font-size:1.4rem" id="sWhen">—</div><p style="color:var(--dim);font-size:.84rem" id="sDur"></p></div>
+    <div class="price" style="gap:4px"><p class="flag">Feeds reached</p><div class="amt" style="font-size:1.4rem" id="sFeeds">—</div><p style="color:var(--dim);font-size:.84rem" id="sModel"></p></div>
+    <div class="price hot" style="gap:4px"><p class="flag">Waiting on a human</p><div class="amt" style="font-size:1.4rem" id="sQueue">—</div><p style="color:var(--dim);font-size:.84rem" id="sRej"></p></div>
+  </div>
+
+  <p class="kicker" style="margin-top:44px">The queue</p>
+  <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Filter by headline, source or aisle…" aria-label="Filter the queue">
+    <select id="sort" aria-label="Sort" style="padding:11px 14px;border-radius:99px;border:1px solid var(--line);background:var(--bg2);color:var(--paper);font-family:var(--label);font-size:.66rem">
+      <option value="conf">Most confident first</option>
+      <option value="date">Newest first</option>
+      <option value="aisle">By aisle</option>
+    </select>
+  </div>
+  <p class="countline" id="count" aria-live="polite"></p>
+  <div class="front front-2" style="margin-top:18px" id="queue"></div>
+
+  <p class="kicker" style="margin-top:44px">What the machine turned down, and why</p>
+  <p class="sec-lede" style="margin-bottom:14px;font-size:.96rem">Kept on purpose. A classifier that only shows you
+  what it likes is a classifier you cannot audit, and the entire claim of this site is that the line is deliberate.</p>
+  <div class="ledger" id="rejected"></div>
+
+  <p class="kicker" style="margin-top:44px">Signing off</p>
+  <div class="note">
+    <p>To publish a draft: edit <b>data/queue.json</b> — set <b>"state":"signed"</b>, fill in <b>aisle</b>,
+    <b>law</b> and <b>shelf</b> if the model left them null — move the object into <b>cards</b> in
+    <b>data/shop.json</b> with a <b>slug</b>, <b>filed</b> and a <b>state</b>, then run
+    <b>python tools/build_cards.py</b>. The hourly job picks the commit up.</p>
+    <p>Give it a real <b>sources[0].url</b>. A card with an unresolved link is rendered with a
+    <em>treat with suspicion</em> note on purpose, and that is a thing to fix rather than leave.</p>
+    <p>Going away? Set <b>PARASOCIALIZE_BUDGET=0</b>. The sweeper keeps running and the queue keeps filling, and
+    nothing reaches anybody until you are back. A backlog beats a shelf you did not read.</p>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="foot-grid">
+  <div>
+    <p class="wordmark foot-mark"><img class="logo-img lg" src="../img/logo.svg" alt="">PARA<b>SOCIALIZE</b></p>
+    <p class="foot-note">NOINDEX · THIS PAGE IS NOT FOR READERS</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="../index.html">FRONT PAGE</a><a href="../aisle/index.html">SECTIONS</a><a href="../radar.xml">RSS</a>
+  </nav>
+</div></footer>
+
+<script>
+(function(){
+  var AIS=["idol","creator","character","companion","world","brand","crossover","contest","grief","danger"];
+  var LAW={1:"Binding is public",2:"Clerks beat algorithms",3:"Someone holds the dream",
+    4:"Grief when the companion changes",5:"Pay for proximity with open eyes",
+    6:"Characters move in",7:"Audit quarterly"};
+  function esc(s){var d=document.createElement("div");d.textContent=String(s==null?"":s);return d.innerHTML;}
+
+  function card(d){
+    var unlensed=d.state==="awaiting_lens", conf=Math.round((d.conf||0)*100);
+    var hay=((d.headline||"")+" "+(d.domain||"")+" "+(d.aisle||"")).toLowerCase();
+    var col=d.aisle&&AIS.indexOf(d.aisle)>-1
+      ? getComputedStyle(document.documentElement).getPropertyValue("--warm"):"#ffb454";
+    var tags='<span class="tag tag-law">SRC '+(d.domain||"?")+"</span>";
+    if(d.aisle) tags+='<span class="tag tag-aisle">AISLE '+(AIS.indexOf(d.aisle)+1)+' '+esc(d.aisle.toUpperCase())+"</span>";
+    if(d.law) tags+='<span class="tag tag-law">LAW '+d.law+" · "+esc(LAW[d.law]||"")+"</span>";
+    if(d.shelf) tags+='<span class="tag tag-law">SHELF '+esc(d.shelf.toUpperCase())+"</span>";
+    return '<article class="story story-lg" data-hay="'+esc(hay)+'">'
+      +'<div class="body"><div class="tags">'
+      +(unlensed?'<span class="tag tag-od">NO LENS</span>':'<span class="tag tag-aisle">'+conf+'% CONFIDENCE</span>')
+      +tags+'</div>'
+      +'<h3>'+esc(d.headline||"(untitled)")+"</h3>"
+      +(d.one_line?'<p class="dek">'+esc(d.one_line)+"</p>":"")
+      +(d.take?'<p class="take">'+esc(d.take)+"</p>":"")
+      +'<p class="dek" style="font-style:italic">'+esc(d.why||"")+"</p>"
+      +'<div class="foot"><a href="'+esc(d.url)+'" target="_blank" rel="noopener">Read the source ↗</a>'
+      +'<span class="src">'+esc(d.feed||"")+"</span></div></div></article>";
+  }
+
+  function render(q2){
+    var t=(document.getElementById("q").value||"").trim().toLowerCase();
+    var s=document.getElementById("sort").value;
+    var list=q2.filter(function(d){
+      return !t||((d.headline||"")+" "+(d.domain||"")+" "+(d.aisle||"")+" "+(d.feed||""))
+        .toLowerCase().indexOf(t)>-1;});
+    list.sort(function(a,b){
+      if(s==="conf")return (b.conf||0)-(a.conf||0);
+      if(s==="aisle")return String(a.aisle||"zz").localeCompare(String(b.aisle||"zz"));
+      return String(b.at||"").localeCompare(String(a.at||""));});
+    document.getElementById("queue").innerHTML=list.map(card).join("")
+      ||'<p class="countline">Nothing in the queue.</p>';
+    var raw=list.filter(function(d){return d.state==="awaiting_lens";}).length;
+    document.getElementById("count").textContent=list.length+" / "+q2.length+" IN THE QUEUE"
+      +(raw?" · "+raw+" WITH NO LENS (no model key set)":"");
+  }
+
+  Promise.all([
+    fetch("../data/queue.json").then(function(r){return r.json();}).catch(function(){return[];}),
+    fetch("../data/sweep.json").then(function(r){return r.json();}).catch(function(){return{};})
+  ]).then(function(res){
+    var q2=res[0]||[], sw=res[1]||{};
+    if(sw.last_run){
+      var mins=Math.floor((Date.now()-new Date(sw.last_run).getTime())/60000);
+      document.getElementById("lastRun").textContent="swept "+(mins<60?mins+"m":Math.floor(mins/60)+"h")+" ago";
+      var w=document.getElementById("sWhen");
+      w.textContent=mins<120?"fresh":"STALE";
+      w.style.color=mins<120?"var(--mint)":"var(--neon)";
+      document.getElementById("sDur").textContent=(sw.duration_s||0)+"s · "+(sw.candidates||0)+" candidates seen";
+      document.getElementById("sFeeds").textContent=(sw.feeds_ok||0)+" / "+(sw.feeds_total||0);
+      document.getElementById("sModel").textContent=sw.model||"";
+      document.getElementById("sRej").textContent=(sw.rejected||0)+" turned down this sweep";
+    }
+    document.getElementById("sQueue").textContent=q2.length;
+    document.getElementById("rejected").innerHTML=(sw.rejected_sample||[]).map(function(r){
+      return '<div class="log-row"><span class="tick" style="--c:#e63946"></span><span><b>'+esc(r.title)
+        +'</b><span class="meta">'+esc(r.why)+"</span></span>"
+        +'<span class="tag tag-od">no</span></div>';}).join("")
+      ||'<div class="log-row"><span class="tick" style="--c:#3d2e23"></span><span><b style="color:var(--dimmer)">Nothing rejected yet.</b></span></div>';
+    document.getElementById("q").addEventListener("input",function(){render(q2);});
+    document.getElementById("sort").addEventListener("change",function(){render(q2);});
+    render(q2);
+  });
+})();
+</script>
+</body></html>

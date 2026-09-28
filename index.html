@@ -1,248 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PARASOCIALIZE — A Friendly Field Guide to One-Sided Relationships</title>
-<meta name="description" content="Parasocialize is the hub for all things parasocial: fiction and non-fiction coverage of one-sided relationships, decoded by Enan Joe Heneghan. Radar, Index, Case Files + studio output.">
-<meta name="theme-color" content="#07070c">
+<title>Parasocialize</title>
+<meta name="description" content="Parasocial is when you feel you know someone who has no idea you exist. News, argument, research and the definitive history - idols, AI, sport, politics, grief. Free.">
+<link rel="canonical" href="https://www.parasocialize.com/">
 <link rel="canonical" href="https://www.parasocialize.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="PARASOCIALIZE — A Friendly Field Guide to One-Sided Relationships">
+<meta property="og:title" content="Parasocialize">
+<meta property="og:description" content="News, argument, research and the definitive history. Free.">
 <meta property="og:image" content="https://www.parasocialize.com/img/podcasts/parasocialize.jpg">
-<meta property="og:description" content="Fresh one-sided-relationship stories with short takes — idols, characters, creators, AI. Swept hourly.">
-<link rel="alternate" type="application/rss+xml" title="Parasocialize Radar" href="radar.xml">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize" href="https://www.parasocialize.com/radar.xml">
+<link rel="icon" type="image/svg+xml" href="https://www.parasocialize.com/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600;1,9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"PARASOCIALIZE","url":"https://www.parasocialize.com/","founder":{"@type":"Person","name":"Enan Joe Heneghan"},"sameAs":["https://www.compudactyl.com/","https://www.allthehorriblethings.com/"]}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","name":"The Parasocial Index","itemListElement":[{"@type":"ListItem","position":1,"name":"Swifties power record album sales"},{"@type":"ListItem","position":2,"name":"Welcome to Derry gets season 2"}]}
-</script>
-<style>
-:root{ --paper:#f4f1e8; --paperink:#16131a; --gold:#ffcf5c; }
-.serif{font-family:"Fraunces",Georgia,serif;}
-.filter-row{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
-.fbtn{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);background:transparent;color:var(--dim);border-radius:999px;padding:8px 16px;cursor:pointer}
-.fbtn.active,.fbtn:hover{border-color:var(--accent);color:var(--accent)}
-.radar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.story{background:var(--paper);color:var(--paperink);border-radius:10px;overflow:hidden;display:flex;flex-direction:row;border:1px solid rgba(0,0,0,.2);min-height:96px}
-.story .art{width:112px;flex:none;background:#111;min-height:96px}
-a.art{display:block}
-.story .art img{width:100%;height:100%;object-fit:cover;display:block}
-.story .body{padding:10px 14px;display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
-.section{padding-top:44px;padding-bottom:44px}
-.lensrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.story h3{font-family:"Fraunces",serif;font-size:1.02rem;line-height:1.2}
-.story p{font-size:.82rem;color:#4a4450;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.story .meta{display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.12em;color:#6b6570;margin-top:auto;padding-top:8px}
-.story .meta a{color:#b71c1c;font-weight:500}
-.story .meta.src{border-top:1px dashed rgba(0,0,0,.15);padding-top:8px}
-.story .meta.src a{color:#1a5c4d}
-#incomingGrid{display:grid;gap:14px}
-.index-table{background:var(--bg2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.index-row{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:background .2s}
-.index-row img{width:44px;height:44px;object-fit:cover;border-radius:8px;display:block}
-a.index-row:hover{background:rgba(255,255,255,.04)}
-a.index-row:hover b{color:var(--accent)}
-.index-row:last-child{border-bottom:0}
-.move{font-family:"IBM Plex Mono",monospace;font-size:.64rem;padding:4px 8px;border-radius:99px}
-.move.up{background:rgba(55,211,192,.15);color:var(--teal)}.move.down{background:rgba(255,77,46,.15);color:var(--accent)}.move.new{background:var(--gold);color:#111}
-.money{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.price{border:1px solid var(--line);border-radius:14px;padding:28px;background:var(--panel);display:flex;flex-direction:column;gap:12px}
-.price.hot{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 50px rgba(0,0,0,.5)}
-.price h3{font-family:"Fraunces",serif;font-size:1.6rem}
-.price .amt{font-family:"Fraunces",serif;font-size:2.4rem;font-weight:900}
-.price ul{list-style:none;color:var(--dim);font-size:.9rem;display:flex;flex-direction:column;gap:8px;margin:8px 0 12px}
-.price ul li::before{content:"▸ ";color:var(--accent)}
-.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#14030a;padding:10px 18px;border-radius:0 0 10px 0;font-family:"IBM Plex Mono",monospace;font-size:.72rem;z-index:100}
-.skip:focus{left:0}
-.fbtn:focus-visible,.btn:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.countline{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;color:var(--dim);margin-top:10px}
-.subhead{max-width:1180px;margin:0 auto;padding:26px 28px 6px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between}
-.sub-id{display:flex;align-items:center;gap:12px}
-.sub-id img{width:40px;height:40px}
-.sub-id b{font-size:1.15rem;letter-spacing:.02em}
-.sub-id span{display:block;font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.1em;color:var(--dim)}
-.sub-actions{display:flex;gap:10px}
-.sub-actions .btn{padding:10px 20px}
-.board{max-width:1180px;margin:0 auto;padding:10px 28px 0;display:grid;grid-template-columns:1fr 300px;gap:22px;align-items:start}
-.feed{min-width:0}
-.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0 4px}
-.sort{display:flex;gap:6px}
-.search{flex:1;min-width:140px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);font-family:"IBM Plex Mono",monospace;font-size:.72rem}
-.search:focus{outline:none;border-color:var(--accent)}
-#feed{display:flex;flex-direction:column;gap:10px}
-.story.pinned{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
-.flair{font-family:"IBM Plex Mono",monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:#16131a;color:var(--gold)}
-.flair.pin{background:var(--gold);color:#111}
-.postdate{font-family:"IBM Plex Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:#8a8494}
-.side{display:flex;flex-direction:column;gap:14px;min-width:0}
-.sidebox{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg2)}
-.sidebox h4{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.2em;color:var(--dim);margin-bottom:10px}
-.sidebox p,.sidebox li{font-size:.84rem;color:var(--dim)}
-.sidebox ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.sidebox a{color:var(--teal)}
-.sidebox .btn{display:block;text-align:center;margin-top:6px}
-.shelf-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:4px}
-.shelf-grid a{display:block;border-radius:8px;overflow:hidden;border:1px solid var(--line);transition:.2s}
-.shelf-grid a:hover{border-color:var(--accent);transform:translateY(-2px)}
-.shelf-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
-.shelf-grid .pdf{background:var(--gold);color:#111;font-family:"IBM Plex Mono",monospace;font-size:.56rem;letter-spacing:.08em;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;text-align:center}
-@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
-@media(max-width:1000px){.radar-grid,.money{grid-template-columns:1fr 1fr}.board{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr;align-items:start}}
-@media(max-width:640px){.radar-grid,.money,.side{grid-template-columns:1fr}
-.topbar{padding:12px 16px;gap:12px}.section{padding-left:20px;padding-right:20px}
-.filter-row{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}.fbtn{flex:none}
-.story .meta.src{flex-wrap:wrap;gap:4px}.story .meta.src span{flex:none}
-.index-row{grid-template-columns:44px 1fr auto;gap:10px;padding:10px 12px}
-.ticker-track span{font-size:.6rem}
-.story .art{width:96px;min-height:104px}.story .body{padding:12px 14px}
-.hero-ctas .btn{width:100%;text-align:center}}
-</style>
+<link rel="stylesheet" href="css/mascot.css">
 </head>
-<body id="top">
-<a class="skip" href="#radar">Skip to Radar</a>
-<div class="scanlines" aria-hidden="true"></div>
-<header class="topbar">
-  <a class="wordmark" href="#top"><img class="logo-img" src="img/logo.svg" alt="Parasocialize logo" style="width:22px;height:22px">PARA<span>SOCIALIZE</span></a>
-  <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+<body>
+<a class="skip" href="#hub">Skip to the sections</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="topbar"><div class="topbar-in">
+  <a class="wordmark" href="index.html"><svg class="mascot wm-mascot" viewBox="0 0 118 118" width="30" height="30" aria-hidden="true" focusable="false"><defs><radialGradient id="ayog97197h" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6e6" stop-opacity=".85"/><stop offset="1" stop-color="#fff6e6" stop-opacity="0"/></radialGradient><linearGradient id="ayog97197" x1=".12" y1="0" x2=".88" y2="1"><stop offset="0" stop-color="#ffe7c4"/><stop offset="1" stop-color="#ff8f5e"/></linearGradient><clipPath id="ayog97197l"><circle cx="42" cy="42" r="26"/></clipPath><clipPath id="ayog97197r"><circle cx="76" cy="42" r="26"/></clipPath></defs><g class="ayo" style="--d:0.45s"><circle class="ayo-bloom" cx="48" cy="46" r="35" fill="url(#ayog97197h)"/><g class="ayo-lobe"><circle cx="42" cy="42" r="26" fill="url(#ayog97197)"/></g><g class="ayo-lobe"><circle cx="76" cy="42" r="26" fill="url(#ayog97197)"/></g><g class="ayo-blush" opacity=".26"><ellipse cx="42" cy="55" rx="8" ry="4.4" fill="#e0533f"/><ellipse cx="76" cy="55" rx="8" ry="4.4" fill="#e0533f"/></g><g class="ayo-pupil"><circle cx="42" cy="45" r="12" fill="#231009"/><circle cx="38.16" cy="40.68" r="4.08" fill="#fffaf2"/><circle cx="45.84" cy="48.6" r="1.92" fill="#fffaf2" opacity=".7"/><circle cx="41.04" cy="50.28" r="1.2000000000000002" fill="#fffaf2" opacity=".45"/></g><g class="ayo-pupil"><circle cx="76" cy="45" r="12" fill="#231009"/><circle cx="72.16" cy="40.68" r="4.08" fill="#fffaf2"/><circle cx="79.84" cy="48.6" r="1.92" fill="#fffaf2" opacity=".7"/><circle cx="75.04" cy="50.28" r="1.2000000000000002" fill="#fffaf2" opacity=".45"/></g></g></svg><b>PARASOCIALIZE</b></a>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   <nav id="nav" class="nav" aria-label="Main">
-    <a href="#radar">Feed</a><a href="#trending">Trending</a><a href="#dives">Deep dives</a><a href="guide/index.html" class="cta-link">Guide $12</a>
+    <a href="index.html">Home</a>
+    <a href="aisle/index.html">All 47</a>
+    <a href="top8/index.html">Top 8</a>
+    <a href="history/index.html">The history</a>
+    <a href="moments/index.html">Moments</a>
+    <a href="timeline/index.html">Timeline</a>
+    <a href="encyclopedia/index.html">Encyclopedia</a>
+    <a href="brand/index.html">Ayo</a>
+    <a href="membership/index.html" class="cta">Support</a>
   </nav>
-  <div class="onair"><i class="dot"></i><span id="liveAgo">LIVE</span></div>
-</header>
-
-<div class="subhead">
-  <div class="sub-id"><img src="img/logo.svg" alt=""><div><b>r/parasocialize</b><span id="freshPill">FRESH ONE-SIDED STORIES · SWEPT HOURLY</span></div></div>
-  <div class="sub-actions"><a class="btn btn-solid" href="#signal">Join free</a><a class="btn btn-ghost" href="tip/index.html">Submit story</a></div>
-</div>
-
-<div class="ticker" aria-hidden="true"><div class="ticker-track"><span>SWIFTIES POWER RECORD SALES ● DERRY GETS SEASON 2 ● CHARACTER.AI SETTLES ● KAI ENDS 9 MONTHS QUIET ● AI TOPS TWITCH SUBS ●&nbsp;&nbsp;</span><span>SWIFTIES POWER RECORD SALES ● DERRY GETS SEASON 2 ● CHARACTER.AI SETTLES ● KAI ENDS 9 MONTHS QUIET ● AI TOPS TWITCH SUBS ●&nbsp;&nbsp;</span></div></div>
+</div></header>
 
 <main>
-<section id="radar" class="section" style="padding-top:14px">
-<div class="board">
-<div class="feed">
-  <div class="toolbar" role="group" aria-label="Sort feed">
-    <div class="sort"><button class="fbtn" data-sort="hot" aria-pressed="false">Hot</button><button class="fbtn active" data-sort="new" aria-pressed="true">New</button><button class="fbtn" data-sort="top" aria-pressed="false">Top</button></div>
-    <input class="search" id="feedSearch" type="search" placeholder="Search stories…" aria-label="Search stories">
+<section class="masthead">
+  <div class="wrap">
+    <h1>Parasocialize.</h1>
+    <p class="line">Parasocial is when you feel you know someone who has no idea you exist.
+    This is the news, the argument, the research and the whole history of it — in 10 places it turns up.</p>
+    <p class="mono-s" style="margin-top:14px">47 stories · swept hourly · free · signed by a person ·
+    <a href="aisle/index.html">all of it, searchable →</a></p>
   </div>
-  <div class="filter-row" role="group" aria-label="Filter Radar">
-    <button class="fbtn active" data-f="all" aria-pressed="true">All</button><button class="fbtn" data-f="idol" aria-pressed="false">Idols</button><button class="fbtn" data-f="character" aria-pressed="false">Characters</button><button class="fbtn" data-f="creator" aria-pressed="false">Creators</button><button class="fbtn" data-f="ai" aria-pressed="false">AI</button><button class="fbtn" data-f="universe" aria-pressed="false">Universes</button>
-  </div>
-  <p class="countline" id="radarCount" aria-live="polite"></p>
-  <!-- Builder note: /radar/*.md → radar.json → this grid. Add a .md, run tools/build_radar.py, upload. -->
-  <div id="feed">
-    <article class="story pinned" data-cat="nonfic idol" data-res="88" data-date="2026-09-04" data-int="9.4"><a class="art" tabindex="-1" aria-hidden="true" href="radar/swifties-record-sales.html"><img src="img/art/idol.svg" alt="Spotlight and microphone motif for Swiftie record sales" loading="lazy"></a><div class="body"><div class="lensrow"><span class="flair pin">📌 PINNED</span><span class="flair">IDOLS</span><span class="mono postdate">SEP 2026</span></div><h3>Swifties just powered record album sales — the data</h3><p>Luminate numbers show loyalty moving units. 20 years of Swift, a dictionary entry, a wedding-day dispatch.</p><div class="meta src"><a href="https://www.usatoday.com/story/entertainment/music/2026/09/04/luminate-report-taylor-swifts-fans-power-record-album-sales/91601521007/" target="_blank" rel="noopener">USA Today ↗</a><a href="radar/swifties-record-sales.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic companion ai" data-res="87" data-date="2026-01-07" data-int="9.3"><a class="art" tabindex="-1" aria-hidden="true" href="radar/cai-settlement.html"><img src="img/art/ai.svg" alt="Heart-circuit motif for the Character.AI settlement" loading="lazy"></a><div class="body"><div class="lensrow"><span class="flair">AI</span><span class="mono postdate">JAN 2026</span></div><h3>Character.AI and Google settle the teen-safety suits</h3><p>Four states, landmark terms, under-18s phased off open chat.</p><div class="meta src"><a href="https://www.cnn.com/2026/01/07/business/character-ai-google-settle-teen-suicide-lawsuit" target="_blank" rel="noopener">CNN ↗</a><a href="radar/cai-settlement.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic companion creator ai" data-res="85" data-date="2026-01-05" data-int="9.1"><a class="art" tabindex="-1" aria-hidden="true" href="radar/neuro-sama-number-one.html"><img src="img/art/ai.svg" alt="Heart-circuit motif for AI VTuber Neuro-sama" loading="lazy"></a><div class="body"><div class="lensrow"><span class="flair">AI × CREATORS</span><span class="mono postdate">JAN 2026</span></div><h3>An AI is Twitch's most-subscribed channel</h3><p>Neuro-sama's 296k subs top Twitch. The Swarm shows up.</p><div class="meta src"><a href="https://dotesports.com/streaming/news/neuro-most-subscribed-twitch" target="_blank" rel="noopener">Dot Esports ↗</a><a href="radar/neuro-sama-number-one.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic character" data-res="84" data-date="2026-08-22" data-int="9.0"><a class="art" tabindex="-1" aria-hidden="true" href="radar/derry-season-two.html"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="Still from my Living with Pennywise video" loading="lazy"></a><div class="body"><div class="lensrow"><span class="flair">CHARACTERS</span><span class="mono postdate">AUG 2026</span></div><h3>Welcome to Derry gets season 2</h3><p>HBO renews the IT prequel; Pennywise expands.</p><div class="meta src"><a href="https://people.com/all-about-it-welcome-to-derry-season-2-12063817" target="_blank" rel="noopener">People ↗</a><a href="radar/derry-season-two.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic idol" data-res="80" data-date="2026-09-02" data-int="8.8"><a class="art" tabindex="-1" aria-hidden="true" href="radar/stalker-economy-idols.html"><img src="img/art/idol.svg" alt="Spotlight and microphone motif for idol closeness" loading="lazy"></a><div class="body"><div class="lensrow"><span class="flair">IDOLS</span><span class="mono postdate">SEP 2026</span></div><h3>The idol economy: when closeness is the product</h3><p>Paid message apps and what closeness-for-sale feels like.</p><div class="meta src"><a href="https://new-kpop.org/kpop-fandom-intimacy-economy-part-1/" target="_blank" rel="noopener">KpopWave ↗</a><a href="radar/stalker-economy-idols.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic creator" data-res="78" data-date="2026-07-07" data-int="8.9"><a class="art" tabindex="-1" aria-hidden="true" href="radar/kai-cenat-return.html"><img src="https://i.ytimg.com/vi/rkdzxRaI68g/hqdefault.jpg" alt="Still from Kai Cenat's own I Quit video" loading="lazy"></a><div class="body"><div class="lensrow"><span class="flair">CREATORS</span><span class="mono postdate">JUL 2026</span></div><h3>Kai Cenat ends 9 months quiet with 1M watching</h3><p>Streamer University reveal + the 'I Quit' pivot before it.</p><div class="meta src"><a href="https://www.tubefilter.com/2026/06/09/kai-cenat-return-2026-streamer-university-2-trailer/" target="_blank" rel="noopener">Tubefilter ↗</a><a href="radar/kai-cenat-return.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic character" data-res="70" data-date="2026-09-07" data-int="7.6"><a class="art" tabindex="-1" aria-hidden="true" href="radar/characters-we-keep.html"><img src="img/art/character.svg" alt="Abstract mask motif for character attachment" loading="lazy"></a><div class="body"><div class="lensrow"><span class="flair">CHARACTERS</span><span class="mono postdate">SEP 2026</span></div><h3>Characters we keep: why fiction sticks</h3><p>Shipping, kinning, comfort watches — how fictional bonds work.</p><div class="meta src"><a href="https://helpfulprofessor.com/parasocial-relationships-examples/" target="_blank" rel="noopener">Helpful Prof ↗</a><a href="radar/characters-we-keep.html">Story →</a></div></div></article>
-    <article class="story" data-cat="nonfic universe" data-res="64" data-date="2026-09-08" data-int="7.0"><a class="art" tabindex="-1" aria-hidden="true" href="radar/research-shelf.html"><img src="img/art/universe.svg" alt="Arches motif for the research shelf" loading="lazy"></a><div class="body"><div class="lensrow"><span class="flair">UNIVERSES</span><span class="mono postdate">SEP 2026</span></div><h3>The research shelf: two places to go deeper</h3><p>Stever's 2026 book for scholars, the APA trends report for everyone.</p><div class="meta src"><a href="https://gstever.sunyempirefaculty.net/understanding-parasocial-relationships/" target="_blank" rel="noopener">Stever ↗</a><a href="radar/research-shelf.html">Story →</a></div></div></article>
-  </div>
-  </div>
-  <div id="incoming" style="margin-top:18px">
-    <p class="mono kicker">INCOMING · FOUND BY THE SWEEPER</p>
-    <div class="radar-grid" id="incomingGrid" style="grid-template-columns:1fr"><p class="mono" style="font-size:.66rem;color:var(--dim)">Checking the net…</p></div>
-  </div>
-</div>
-<aside class="side">
-  <div class="sidebox" id="trending"><h4>TRENDING THIS WEEK · <span id="indexWeek">W37</span></h4><div class="index-table" id="indexTable">
-      <a class="index-row" href="radar/swifties-record-sales.html"><img src="img/art/idol.svg" alt="" loading="lazy"><span><b>Swifties power record sales</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">IDOL · SEPT 2026</span></span><span class="move new">NEW</span></a>
-      <a class="index-row" href="radar/derry-season-two.html"><img src="https://i.ytimg.com/vi/m8bAX0oBFXM/hqdefault.jpg" alt="" loading="lazy"><span><b>Derry gets season 2</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CHARACTER · HBO</span></span><span class="move new">NEW</span></a>
-      <a class="index-row" href="radar/cai-settlement.html"><img src="img/art/ai.svg" alt="" loading="lazy"><span><b>CAI settles suits</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI · FOUR STATES</span></span><span class="move new">NEW</span></a>
-      <a class="index-row" href="radar/kai-cenat-return.html"><img src="https://i.ytimg.com/vi/rkdzxRaI68g/hqdefault.jpg" alt="" loading="lazy"><span><b>Kai ends 9 months quiet</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">CREATOR · 1M</span></span><span class="move new">NEW</span></a>
-      <a class="index-row" href="radar/neuro-sama-number-one.html"><img src="img/art/ai.svg" alt="" loading="lazy"><span><b>AI tops Twitch subs</b><br><span class="mono" style="font-size:.62rem;color:var(--dim)">AI × CREATOR · 296K</span></span><span class="move new">NEW</span></a>
-  </div><button id="indexCopy" class="fbtn" style="margin-top:10px">Copy as text</button></div>
-  <div class="sidebox"><h4>MY SHELF</h4><div class="shelf-grid">
-    <a href="https://www.youtube.com/playlist?list=PLlKXzJojs1fX0YDsXgx1zVcxGcaxMs90W" target="_blank" rel="noopener" title="Watch"><img src="img/videos/insight-co.jpg" alt="Watch" loading="lazy"></a>
-    <a href="https://open.spotify.com/show/1gkpaC8cMvu026VVhXNz2n" target="_blank" rel="noopener" title="Listen"><img src="img/podcasts/parasocialize.jpg" alt="Listen" loading="lazy"></a>
-    <a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener" title="Read"><img src="img/books/company-dreamer.jpg" alt="Read" loading="lazy"></a>
-    <a href="https://www.compudactyl.com/" target="_blank" rel="noopener" title="Music"><img src="img/covers/fallgate.jpg" alt="Music" loading="lazy"></a>
-    <a href="guide/index.html" title="Field Guide $12"><span class="pdf">$12<br>GUIDE</span></a>
-  </div></div>
-  <div class="sidebox" id="dives"><h4>DEEP DIVES</h4><ul>
-    <li><a href="cases/kempe-to-stans.html">File 001: Kempe → Stans</a></li>
-    <li><a href="cases/blockbuster-knew-your-name.html">File 002: Blockbuster Knew Your Name</a></li>
-    <li><a href="cases/dream-recording-metaphor.html">File 003: Dream Recording</a></li>
-    <li><a href="guide/index.html" style="color:var(--gold)">Field Guide $12 →</a></li>
-  </ul></div>
-  <div class="sidebox"><h4>ELSEWHERE + MASCOT</h4><p>🎈 Kept by <b style="color:var(--ink)">Enan Joe Heneghan</b> — clerk turned teacher.</p><ul>
-    <li><a href="tip/index.html">Submit a story →</a></li>
-    <li><a href="#signal">Friday email →</a></li>
-    <li><a href="radar.xml">RSS →</a></li>
-    <li><a href="https://www.youtube.com/playlist?list=PLlKXzJojs1fX0YDsXgx1zVcxGcaxMs90W" target="_blank" rel="noopener">Watch ·</a> <a href="https://open.spotify.com/show/1gkpaC8cMvu026VVhXNz2n" target="_blank" rel="noopener">Listen ·</a> <a href="https://www.amazon.com/dp/B01FCHZCOE" target="_blank" rel="noopener">Read ·</a> <a href="https://www.compudactyl.com/" target="_blank" rel="noopener">Music</a></li>
-  </ul></div>
-</aside>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="t8col-wrap">
+  <p class="kicker">The top 8 · this week · rotating</p>
+  <div class="t8col-list"><a class="t8col" href="top8/index.html"><span class="t8col-art"><span class="t8col-n">1</span></span><span class="t8col-body"><b>1. The letter from the NEST</b><span>Rugrats, 1991</span></span></a><a class="t8col" href="top8/index.html"><span class="t8col-art"><span class="t8col-n">2</span></span><span class="t8col-body"><b>2. Tommy finds the gun and it works</b><span>Rugrats, 1995</span></span></a><a class="t8col" href="top8/index.html"><span class="t8col-art"><span class="t8col-n">3</span></span><span class="t8col-body"><b>3. The grouch on the telethon</b><span>The grouch, Sesame Street, 1990s</span></span></a><a class="t8col" href="top8/index.html"><span class="t8col-art"><span class="t8col-n">4</span></span><span class="t8col-body"><b>4. Zuko&#x27;s redemption arc</b><span>Avatar: The Last Airbender, 2005</span></span></a></div>
+  <a class="btn btn-solid" href="top8/index.html">Read the whole list</a>
+  <p class="countline">Rotates weekly. This week it is the top 8 parasocial moments in saturday morning cartoons of the 1990s.</p>
 </div>
 </section>
 
-<section id="circle" class="section" style="padding-top:0">
-  <p class="mono kicker">05 · KEEP IT GOING</p>
-  <div class="sec-head"><h2 class="serif">Free forever. One thing to buy.</h2><p class="sec-lede">The Radar, Signal, and Index are free and always will be. If they help you, there's exactly one paid thing — everything else can wait.</p></div>
-  <div class="money">
-    <div class="price"><h3>Signal</h3><div class="amt">Free</div><ul><li>Friday note: 5 signals + 1 take</li><li>Index Top 5</li><li>Unsubscribe anytime, no hard feelings</li></ul><a class="btn btn-ghost" href="#signal">Subscribe free</a></div>
-    <div class="price hot"><p class="mono" style="font-size:.6rem;letter-spacing:.2em;color:var(--gold)">THE ONE PAID THING · $12</p><h3>Field Guide PDF</h3><div class="amt">$12</div><ul><li>7 patterns of one-sided attachment</li><li>Worksheet: audit your own ties</li><li>Reading list: fiction + research</li><li><a href="guide/index.html" style="color:var(--gold)">Peek inside →</a></li></ul><a class="btn btn-solid" href="guide/index.html">Get the Guide →</a></div>
-    <div class="price"><h3>Tip jar</h3><div class="amt" style="font-size:1.6rem">$3–5</div><ul><li>Like the free stuff? Say thanks</li><li>No tiers, no accounts, no Discord</li><li>Funds hosting + Friday emails</li></ul><a class="btn btn-ghost" href="mailto:iNNERdreamers@gmail.com?subject=Tip%20jar">Leave a tip →</a></div>
-  </div>
-  <p class="mono" style="margin-top:16px;font-size:.62rem;letter-spacing:.12em;color:var(--dim)">MORE LATER: MEMBERSHIPS · SPONSORS · AUDITS · <a href="audit/index.html" style="color:var(--dim)">WORK →</a> · <a href="classroom/index.html" style="color:var(--dim)">TEACHERS →</a></p>
+<section class="section" id="hub" style="padding-top:0">
+  <p class="kicker">Ten ways it shows up · the top story in each</p>
+  <div class="hubs"><a class="hub" style="--c:#ff5a1f" href="section/idol/index.html">
+  <span class="hub-art"><img src="img/editorial/1a5445384e8a1d.jpg" alt=""></span>
+  <b class="hub-name">IDOL</b>
+  <h3>An economics think tank argues parasocial relationships are just imaginary friends for adults</h3>
+  <p>I am going to defend this one against its own author. The Farrah Fawcett poster panic of 1976 and this…</p>
+  <span class="hub-go">6 more →</span>
+</a><a class="hub" style="--c:#ffb300" href="section/creator/index.html">
+  <span class="hub-art"><img src="img/editorial/7e0302729d0818.jpg" alt=""></span>
+  <b class="hub-name">CREATOR</b>
+  <h3>A streamer said his best friend of 25 years took $100,000. Fans said loyalty is dead</h3>
+  <p>Twenty-five years of friendship does not survive being a public commodity, and everybody involved is surprised. I have seen this…</p>
+  <span class="hub-go">6 more →</span>
+</a><a class="hub" style="--c:#a04dff" href="section/character/index.html">
+  <span class="hub-art"><img src="img/editorial/b935db332bb9dc.jpg" alt=""></span>
+  <b class="hub-name">CHARACTER</b>
+  <h3>A clown got a prequel and four million households signed up without signing anything</h3>
+  <p>A clown gets a prequel. That sentence is the entire essay, and I have written about this before and I…</p>
+  <span class="hub-go">2 more →</span>
+</a><a class="hub" style="--c:#00e8c0" href="section/companion/index.html">
+  <span class="hub-art"><img src="img/editorial/e9ef3c6de3805a.jpg" alt=""></span>
+  <b class="hub-name">COMPANION</b>
+  <h3>The EU is about to rewrite what a companion app is allowed to do to a child</h3>
+  <p>Read the specific wording, because it matters: not ban the app, ban the attachment. That is a genuinely different thing…</p>
+  <span class="hub-go">9 more →</span>
+</a><a class="hub" style="--c:#2d8bff" href="section/world/index.html">
+  <span class="hub-art"><img src="img/editorial/3a85cbcbdfa98b.jpg" alt=""></span>
+  <b class="hub-name">WORLD</b>
+  <h3>YouTube is turning Shorts into episodic television</h3>
+  <p>Shorts were supposed to be the snack. Instead somebody noticed that people want a story with a next part, and…</p>
+  <span class="hub-go">3 more →</span>
+</a><a class="hub" style="--c:#ff2d9e" href="section/brand/index.html">
+  <span class="hub-art"><img src="img/editorial/3f44b5eb1ac3d6.jpg" alt=""></span>
+  <b class="hub-name">BRAND</b>
+  <h3>YouTube just put your spending on the scoreboard</h3>
+  <p>Here is what nobody said out loud at Made on YouTube: the relationship is now a fixture with a sponsorship…</p>
+  <span class="hub-go">5 more →</span>
+</a><a class="hub" style="--c:#c8ff2e" href="section/crossover/index.html">
+  <span class="hub-art"><img src="img/editorial/b5707ad0012445.jpg" alt=""></span>
+  <b class="hub-name">CROSSOVER</b>
+  <h3>AOC and the parasocial nature of politics</h3>
+  <p>This is the one nobody in this field covers, because it is unfashionable to admit that a politician occupies the…</p>
+  <span class="hub-go">2 more →</span>
+</a><a class="hub" style="--c:#ff7a3d" href="section/contest/index.html">
+  <span class="hub-art"><img src="img/editorial/8bbac49393dd23.jpg" alt=""></span>
+  <b class="hub-name">CONTEST</b>
+  <h3>House of the Dragon ended and the fans are furious at the show, not the characters</h3>
+  <p>This is a fight about a story and it is being fought with the vocabulary of a parasocial grievance, which…</p>
+  <span class="hub-go">2 more →</span>
+</a><a class="hub" style="--c:#7b8cff" href="section/grief/index.html">
+  <span class="hub-art"><img src="img/editorial/fec5ec9cdbeaa9.jpg" alt=""></span>
+  <b class="hub-name">GRIEF</b>
+  <h3>A famous author was saved by a fictional family and then wrote a novel about it</h3>
+  <p>I want to note this without making it about me, which is difficult, so I will make it about the…</p>
+  <span class="hub-go">11 more →</span>
+</a><a class="hub" style="--c:#ff1744" href="section/danger/index.html">
+  <span class="hub-art"><img src="img/editorial/659319cc04fbb1.jpg" alt=""></span>
+  <b class="hub-name">DANGER</b>
+  <h3>A fan was convicted of stalking Jungkook. Twenty-two visits. One hundred and thirty-three doorbell rings</h3>
+  <p>I am not going to do the thing where I explain this away, and I notice that every parasocial site…</p>
+  <span class="hub-go">1 more →</span>
+</a></div>
 </section>
 
-<section id="signal" class="section signal-sec">
-  <p class="mono kicker">06 · JOIN THE SIGNAL</p>
-  <h2 class="serif" style="font-size:clamp(1.8rem,4vw,2.8rem);max-width:22ch;margin:0 auto">One email Friday. Five signals. One take.</h2>
-  <!-- PROFIT WIRING: Phase 1 = FormSubmit (active). Phase 2 = swap to Buttondown: replace form action with https://buttondown.email/api/emails/embed-subscribe/YOUR-USERNAME and add hidden embed fields. Keep tip line always. -->
-  <form class="signal-form" action="https://formsubmit.co/iNNERdreamers@gmail.com" method="POST"><input type="hidden" name="_subject" value="New Signal subscriber — v2"><input type="hidden" name="_captcha" value="false"><label class="sr-only" for="email">Email address</label><input id="email" type="email" name="email" placeholder="you@anywhere.net" required autocomplete="email"><button class="btn btn-solid" type="submit">Subscribe free</button></form>
-  <p class="mono fineprint">+ TIP LINE: <a href="tip/index.html" style="color:var(--gold)">SPOT SOMETHING? 60-SEC FORM →</a> · TEACHERS: <a href="classroom/index.html" style="color:var(--teal)">$49 PACK →</a> · <a href="signal/latest.html" style="color:var(--gold)">PREVIEW EMAIL →</a></p>
+<section class="section" style="padding-top:0">
+  <p class="kicker">Go deeper · the definitive bits</p>
+  <div class="fdoors"><a class="fdoor" href="history/index.html" style="--c:#ff5a1f">
+  <span class="fdoor-art"></span>
+  <span class="fdoor-body"><strong>The history</strong><span>A course in 8 modules, from a sculptor to a 2023 policy update. Free, printable.</span></span>
+</a><a class="fdoor" href="moments/index.html" style="--c:#ff5a1f">
+  <span class="fdoor-art"></span>
+  <span class="fdoor-body"><strong>The moments</strong><span>8 significant moments across television, music, the internet, games and AI.</span></span>
+</a><a class="fdoor" href="figures/index.html" style="--c:#ff5a1f">
+  <span class="fdoor-art"></span>
+  <span class="fdoor-body"><strong>The figures</strong><span>7 people and characters who keep the sphere turning, from Pygmalion to a Twitch emote.</span></span>
+</a></div>
+</section>
+
+<section class="section signal-sec">
+  <p class="kicker" style="justify-content:center">One email · Fridays · free</p>
+  <h2 class="serif" style="font-size:clamp(1.6rem,3.4vw,2.2rem);max-width:22ch;margin:0 auto 12px">Five stories and one argument, once a week.</h2>
+  <p class="sec-lede" style="margin:0 auto;max-width:50ch">No algorithm chose it. It pays for the machine that finds the stories.</p>
+  <form class="signal-form" action="https://formsubmit.co/iNNERdreamers@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Signal subscriber">
+    <input type="hidden" name="_captcha" value="false">
+    <label class="sr-only" for="email">Email address</label>
+    <input id="email" type="email" name="email" placeholder="you@anywhere.net" required autocomplete="email">
+    <button class="btn btn-solid" type="submit">Send it</button>
+  </form>
+  <p class="fineprint">+ <a href="tip/index.html">spot something we missed? 60-sec tip →</a> ·
+    <a href="signal/latest.html">read last friday →</a> · <a href="radar.xml">rss →</a></p>
 </section>
 </main>
-<footer class="footer"><div class="foot-grid"><div><p class="wordmark foot-mark"><img class="logo-img lg" src="img/logo.svg" alt="">PARA<span>SOCIALIZE</span></p><p class="mono foot-note">© <span id="year">2026</span> PARASOCIAL PRODUCTIONS · A FRIENDLY FIELD GUIDE TO ONE-SIDED RELATIONSHIPS<br><a href="v1-oxalpha-backup.html" style="color:var(--teal)">← V1 ARCHIVE</a></p></div><nav class="foot-nav mono"><a href="#radar">FEED</a><a href="#trending">TRENDING</a><a href="#dives">DIVES</a><a href="guide/index.html">GUIDE</a><a href="radar.xml">RSS</a></nav><p class="mono foot-tag">SOME LINKS SUPPORT THE SITE.<br>THANKS FOR KEEPING IT HUMAN.</p></div></footer>
-<script src="js/main.js"></script>
-<script src="js/radar.js" defer></script>
-<script src="js/ticker.js" defer></script>
-<script src="js/incoming.js" defer></script>
-<script src="js/index.js" defer></script>
+<footer class="footer"><div class="foot-grid">
+  <div>
+    <p class="wordmark foot-mark"><img class="logo-img" src="img/logo.svg" alt="" width="24" height="24">PARA<b>SOCIALIZE</b></p>
+    <p class="foot-note">No replies. The connection stays one-sided either way. Nobody here is going to tell you to log off.<br>Kept by Enan Joe Heneghan - video store clerk, M.A., teacher in Australia.<br>
+    Every card links to its sources. Every card is signed by a person.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="index.html">LATEST</a><a href="aisle/index.html">SECTIONS</a>
+    <a href="guide/index.html">FIELD GUIDE</a><a href="atlas/index.html">THE ATLAS</a>
+    <a href="credits/index.html">CREDITS</a>
+    <a href="membership/index.html">SUPPORT</a><a href="desk/index.html">CLERK'S DESK</a>
+    <a href="radar.xml">RSS</a>
+  </nav>
+  <p class="foot-tag">BE KIND. REWIND.<br>THERE IS NO RETURN PATH HERE.</p>
+</div></footer>
 <script>
-// Feed controls: sort (Hot/New/Top) + lens filter + text search, combined.
 (function(){
-  const feed=document.getElementById('feed');
-  const count=document.getElementById('radarCount');
-  const search=document.getElementById('feedSearch');
-  const sortBtns=[...document.querySelectorAll('[data-sort]')];
-  const fBtns=[...document.querySelectorAll('.filter-row .fbtn')];
-  let sort='new', f='all', q='';
-  const valid=['all','nonfic','fic','ai','creator','idol','character','companion','universe'];
-  const pinRank = s => s.classList.contains('pinned') ? 0 : 1;
-  function visible(s){
-    if(f!=='all' && !(s.dataset.cat||'').includes(f)) return false;
-    if(q && !((s.textContent||'').toLowerCase().includes(q))) return false;
-    return true;
+  var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
+  if(b)b.addEventListener('click',function(){
+    var o=document.body.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded',String(o));
+  });
+  var r=document.querySelectorAll('.reveal');
+  if(r.length){
+    if(!('IntersectionObserver' in window)){r.forEach(function(x){x.classList.add('in')})}
+    else{var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})});
+      r.forEach(function(x){io.observe(x)})}
   }
-  function render(){
-    if(!feed) return;
-    const rows=[...feed.querySelectorAll('.story')];
-    rows.sort((a,b)=> pinRank(a)-pinRank(b) || (
-      sort==='new' ? String(b.dataset.date||'').localeCompare(String(a.dataset.date||'')) :
-      sort==='top' ? (+(b.dataset.int||0))-(+(a.dataset.int||0)) :
-      (+(b.dataset.res||0))-(+(a.dataset.res||0)))).forEach(r=>feed.appendChild(r));
-    let n=0;
-    rows.forEach(s=>{const show=visible(s);s.style.display=show?'':'none';if(show)n++;});
-    if(count)count.textContent=`${n} / ${rows.length} STORIES — ${sort.toUpperCase()} · ${f.toUpperCase()}${q?` · “${q.toUpperCase()}”`:''}`;
-  }
-  sortBtns.forEach(b=>b.addEventListener('click',()=>{sort=b.dataset.sort;sortBtns.forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});render();}));
-  fBtns.forEach(b=>b.addEventListener('click',()=>{let v=b.dataset.f;if(v==='brand')v='all';f=valid.includes(v)?v:'all';fBtns.forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});render();}));
-  if(search)search.addEventListener('input',()=>{q=search.value.trim().toLowerCase();render();});
-  const h=(location.hash.split('/')[1]||'all');
-  if(valid.includes(h)&&h!=='all'){const b=fBtns.find(x=>x.dataset.f===h);if(b)b.click();else{f=h;render();}}
-  else render();
+  var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 })();
 </script>
-</body>
-</html>
+</body></html>
+</body></html>
