@@ -1,31 +1,76 @@
-name: refresh-hourly
+name: counter
+
+# The counter sweeps hourly. Machines find, read, judge and draft; nothing
+# reaches the public shelf without a human signing it at /desk/.
+#
+# COST. This is the only thing on the site that costs money to run. Four repo
+# variables control it, so you never have to edit code:
+#   Settings > Secrets and variables > Actions > Variables
+#     PARASOCIALIZE_PROVIDER      anthropic | openai | compatible  (default anthropic)
+#     PARASOCIALIZE_BUDGET        drafts per hour               (default 12)
+#     PARASOCIALIZE_MAX_CALLS     total model calls/hour        (default 30)
+#     PARASOCIALIZE_RECENCY_DAYS  ignore anything older than     (default 6)
+# Set PARASOCIALIZE_BUDGET=0 while you are away. The queue keeps filling and
+# nothing reaches anybody until you are back. Better a backlog than a shelf
+# you did not read.
+#
+# One secret: PARASOCIALIZE_KEY. Without it the sweeper still runs and files
+# candidates raw and unfiled, flagged "no lens" on the desk. Nothing is lost.
+
 on:
   schedule:
     - cron: "7 * * * *"
   workflow_dispatch:
+    inputs:
+      budget:
+        description: "Drafts this run (0 = sweep only)"
+        required: false
+        default: ""
+
 permissions:
   contents: write
+
+concurrency:
+  group: counter
+  cancel-in-progress: false   # never let two sweeps write the same ledger
+
 jobs:
   sweep:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: resonance sweep
-        run: |
-          python tools/build_radar.py
-          python tools/refresh_hourly.py
-          python tools/build_pages.py
-          python tools/build_signal.py
-          python tools/link_audit.py
-      - name: commit
-        run: |
-          git config user.name "signal-sweeper"
-          git config user.email "signal@parasocialize.com"
-          git add radar.json radar.xml radar/ cases/ data/ signal/ || true
-          git diff --cached --quiet || git commit -m "hourly sweep $(date -u +%FT%TZ)"
-          git push || true
 
+      - name: Last sweep
+        run: cat data/sweep.json 2>/dev/null || echo "(no previous sweep recorded)"
 
+      - name: Sweep
+        env:
+          PARASOCIALIZE_KEY: ${{ secrets.PARASOCIALIZE_KEY }}
+          PARASOCIALIZE_PROVIDER: ${{ vars.PARASOCIALIZE_PROVIDER || 'anthropic' }}
+          PARASOCIALIZE_MODEL: ${{ vars.PARASOCIALIZE_MODEL }}
+          PARASOCIALIZE_BASE: ${{ vars.PARASOCIALIZE_BASE }}
+          PARASOCIALIZE_BUDGET: ${{ inputs.budget || vars.PARASOCIALIZE_BUDGET || '12' }}
+          PARASOCIALIZE_MAX_CALLS: ${{ vars.PARASOCIALIZE_MAX_CALLS || '30' }}
+          PARASOCIALIZE_RECENCY_DAYS: ${{ vars.PARASOCIALIZE_RECENCY_DAYS || '6' }}
+        run: python tools/counter.py || echo "::warning::sweep failed, keeping the previous ledger"
+
+      - name: Redraw the counter
+        run: python tools/build_cards.py
+
+      - name: Check internal links
+        run: python tools/link_audit.py || true
+
+      - name: Commit
+        run: |
+          git config user.name "counter"
+          git config user.email "counter@parasocialize.com"
+          git add -A data radar radar.xml aisle shelf || true
+          git diff --cached --quiet || git commit -m "sweep $(date -u +%FT%TZ)"
+          # A failed push must be loud. Silent failure is how the last sweeper
+          # ended up three weeks stale with nobody noticing.
+          git push || echo "::error::could not push - the site is stale until this succeeds"

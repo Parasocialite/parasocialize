@@ -1,60 +1,69 @@
-const menuBtn = document.querySelector(".menu-btn");
-menuBtn.addEventListener("click", () => {
-  const open = document.body.classList.toggle("nav-open");
-  menuBtn.setAttribute("aria-expanded", String(open));
-});
+/* main.js — the only script the site loads globally.
+   Mobile menu, scroll reveals, and click-to-load YouTube facades.
+   No dependencies. Everything degrades fine without it. */
+(function () {
+  "use strict";
 
-document.querySelectorAll(".nav a").forEach((link) =>
-  link.addEventListener("click", () => {
-    document.body.classList.remove("nav-open");
-    menuBtn.setAttribute("aria-expanded", "false");
-  })
-);
-
-document.querySelectorAll(".yt-facade").forEach((facade) => {
-  facade.addEventListener("click", () => {
-    const id = facade.dataset.id;
-    const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-    iframe.title = "YouTube video player";
-    iframe.allow =
-      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-    iframe.allowFullscreen = true;
-    facade.replaceWith(iframe);
-  });
-});
-
-const io = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in");
-        io.unobserve(entry.target);
+  /* ---- mobile menu ------------------------------------------------- */
+  var btn = document.querySelector(".menu-btn");
+  var nav = document.getElementById("nav");
+  if (btn && nav) {
+    btn.addEventListener("click", function () {
+      var open = document.body.classList.toggle("nav-open");
+      btn.setAttribute("aria-expanded", String(open));
+    });
+    nav.addEventListener("click", function (ev) {
+      if (ev.target.tagName === "A") {
+        document.body.classList.remove("nav-open");
+        btn.setAttribute("aria-expanded", "false");
       }
     });
-  },
-  { threshold: 0.12 }
-);
-document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-const spy = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((l) =>
-          l.setAttribute(
-            "aria-current",
-            l.getAttribute("href") === `#${entry.target.id}` ? "true" : "false"
-          )
-        );
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape" && document.body.classList.contains("nav-open")) {
+        document.body.classList.remove("nav-open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.focus();
       }
     });
-  },
-  { rootMargin: "-40% 0px -55% 0px" }
-);
-sections.forEach((s) => spy.observe(s));
+  }
 
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+  /* ---- scroll reveals ---------------------------------------------- */
+  var reveals = document.querySelectorAll(".reveal");
+  if (reveals.length) {
+    if (!("IntersectionObserver" in window)) {
+      reveals.forEach(function (el) { el.classList.add("in"); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add("in");
+            io.unobserve(en.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px" });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+  }
+
+  /* ---- YouTube click-to-load ---------------------------------------
+     Keeps the page light: no iframe, no autoplay request, no cookie
+     until somebody actually asks for the video.                        */
+  function facade(btn) {
+    btn.addEventListener("click", function () {
+      var id = btn.getAttribute("data-video");
+      if (!id) return;
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube-nocookie.com/embed/" +
+        encodeURIComponent(id) + "?autoplay=1&rel=0";
+      iframe.title = btn.getAttribute("data-title") || "Video player";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+      iframe.allowFullscreen = true;
+      btn.replaceWith(iframe);
+    });
+  }
+  document.querySelectorAll("[data-video]").forEach(facade);
+
+  /* ---- copyright year ---------------------------------------------- */
+  var y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+})();
