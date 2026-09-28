@@ -55,7 +55,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
   <nav class="foot-nav" aria-label="Footer">
     <a href="{root}index.html">LATEST</a><a href="{root}aisle/index.html">SECTIONS</a>
     <a href="{root}guide/index.html">FIELD GUIDE</a><a href="{root}atlas/index.html">THE ATLAS</a><a href="{root}quiz/index.html">QUIZ</a>
-    <a href="{root}credits/index.html">CREDITS</a>
+    <a href="{root}citations/index.html">CITATIONS</a><a href="{root}credits/index.html">CREDITS</a>
     <a href="{root}membership/index.html">SUPPORT</a><a href="{root}desk/index.html">CLERK'S DESK</a>
     <a href="{root}radar.xml">RSS</a>
   </nav>
@@ -308,6 +308,134 @@ def build_card(c, aisles, laws, shelf, data, manifest=None):
 
 
 # ------------------------------------------------------------------ section
+def build_citations(data, enc):
+    """/citations/ - the backlog, in public.
+
+    The footer has said THE UNVERIFIED ONES ARE MARKED. NOT HIDDEN. since the
+    first build, and 122 of 176 entries are not sourced. That is a sentence,
+    and a sentence is not accountability. This page is the number behind it,
+    ranked by how much of the graph lands on each entry: grief has nineteen
+    edges into it, so a reader reaches its citation status nineteen times more
+    often than a leaf's, and the fix order should follow that rather than
+    author order.
+
+    tools/verify_atlas.py produces the same table. This is that table, rendered,
+    with no sign-off and no filtering to the flattering subset."""
+    r = root(1)
+    entries = enc["entries"]
+    deg = {e["id"]: 0 for e in entries}
+    for e in entries:
+        for rel in (e.get("relations") or []):
+            if rel["to"] in deg:
+                deg[e["id"]] += 1
+                deg[rel["to"]] += 1
+    edges = sum(deg.values()) // 2
+
+    def what(e):
+        srcs = e.get("sources") or []
+        if not srcs:
+            return "no source at all"
+        bits = []
+        n = sum(1 for s in srcs if not str(s.get("url") or "").strip())
+        u = sum(1 for s in srcs if s.get("status") not in ("verified", "retrievable"))
+        if n:
+            bits.append(f"{n} with no locator")
+        if u:
+            bits.append(f"{u} unchecked")
+        return ", ".join(bits) or "complete"
+
+    done = [e for e in entries if e.get("verified")]
+    todo = sorted((e for e in entries if not e.get("verified")),
+                  key=lambda e: (-deg.get(e["id"], 0), str(e.get("year") or 0)))
+    reached = sum(1 for e in todo if deg.get(e["id"], 0))
+    lands = sum(deg.get(e["id"], 0) for e in todo) // 2
+
+    with_loc = sum(1 for e in entries for s in (e.get("sources") or [])
+                   if str(s.get("url") or "").strip())
+    all_src = sum(len(e.get("sources") or []) for e in entries)
+
+    rows = []
+    for e in todo:
+        med = (e.get("medium") or ["unclassified"])[0]
+        yr = "undated" if e.get("year") is None else (
+            f"{e['year']}" if not e.get("year_end") else f"{e['year']}&ndash;{e['year_end']}")
+        rows.append(
+            f'<tr><td class="cit-d">{deg.get(e["id"], 0)}</td>'
+            f'<td><a href="{r}encyclopedia/{esc(e["id"])}.html">{esc(e["title"])}</a>'
+            f'<span class="cit-y">{yr} &middot; {esc(med.replace("_", " "))}</span></td>'
+            f'<td class="cit-k">{esc(e.get("kind", ""))}</td>'
+            f'<td class="cit-m">{esc(what(e))}</td></tr>')
+
+    done_rows = []
+    for e in done[:40]:
+        med = (e.get("medium") or ["unclassified"])[0]
+        yr = "undated" if e.get("year") is None else (
+            f"{e['year']}" if not e.get("year_end") else f"{e['year']}&ndash;{e['year_end']}")
+        done_rows.append(
+            f'<tr><td class="cit-d">{deg.get(e["id"], 0)}</td>'
+            f'<td><a href="{r}encyclopedia/{esc(e["id"])}.html">{esc(e["title"])}</a>'
+            f'<span class="cit-y">{yr} &middot; {esc(med.replace("_", " "))}</span></td>'
+            f'<td class="cit-k">{esc(e.get("kind", ""))}</td>'
+            f'<td class="cit-ok">sourced</td></tr>')
+
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citations - Parasocialize</title>
+<meta name="description" content="Every entry in the catalogue, and which of them somebody has actually checked.">
+{HEAD.format(site=SITE, path="/citations/", otype="website",
+             title="Citations - Parasocialize",
+             desc="What in this catalogue is sourced and what is not.", root=r)}
+</head>
+<body>
+<a class="skip" href="#backlog">Skip to the backlog</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+<main class="section">
+  <p class="kicker">ACCOUNTABILITY</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.4rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.02;margin:0 0 16px">Citations</h1>
+  <p class="sec-lede" style="max-width:64ch;font-size:1.08rem">This site argues that
+  a claim nobody checked is worth less than one that is. Here is the state of the
+  catalogue, in public, ranked by how much of the <a href="{r}atlas/index.html"
+  style="color:var(--hot)">atlas</a> points at each entry. No sign-off and no
+  filtering to the flattering subset.</p>
+
+  <div class="cit-stats">
+    <div><b>{len(done)}</b><span>sourced</span></div>
+    <div><b>{len(todo)}</b><span>not yet stood behind</span></div>
+    <div><b>{lands}</b><span>of {edges} edges land on something unchecked</span></div>
+    <div><b>{with_loc}</b><span>of {all_src} sources {'has' if with_loc == 1 else 'have'} a locator</span></div>
+  </div>
+
+  <div class="note" style="margin:30px 0 8px"><p>Two words that are not the same
+  thing. <b>Sourced</b> means a person read the citation and stood behind it.
+  <b>Retrieved</b> means the link resolves, which is a statement about a URL and
+  not about the world. Most of the gap above is the second kind of problem: the
+  claim is written and the reference exists, but nobody has fetched the reference
+  or checked it against the sentence.</p></div>
+
+  <p class="kicker" style="margin-top:38px">{len(done)} SOURCED</p>
+  <table class="cit">
+    <thead><tr><th>Edges</th><th>Entry</th><th>Kind</th><th>State</th></tr></thead>
+    <tbody>{''.join(done_rows) if done_rows else '<tr><td colspan="4">none</td></tr>'}</tbody>
+  </table>
+  {f'<p class="countline">and {len(done)-40} more, in the '
+     f'<a href="{r}encyclopedia/index.html">full index</a>.</p>' if len(done) > 40 else ''}
+
+  <p class="kicker" style="margin-top:44px" id="backlog">THE BACKLOG, WORST FIRST</p>
+  <p class="sec-lede" style="max-width:64ch">Ranked by degree, not by age. An entry
+  with nineteen edges into it is reached nineteen times as often, so its citation
+  status matters nineteen times over. This is the order to fix them in.</p>
+  <table class="cit">
+    <thead><tr><th>Edges</th><th>Entry</th><th>Kind</th><th>What is missing</th></tr></thead>
+    <tbody>{''.join(rows)}</tbody>
+  </table>
+</main>
+{FOOT.format(root=r, sweep="", motto='THE UNVERIFIED ONES ARE MARKED.<br>NOT HIDDEN.')}
+</body></html>"""
+
+
 def build_credits(data, manifest):
     """Every photograph on the site, once, with who made it and under what terms.
 
@@ -1715,6 +1843,7 @@ def build_sitemap(data):
     urls.append((f"{SITE}/atlas/", "0.6", "weekly"))
     urls.append((f"{SITE}/quiz/", "0.6", "monthly"))
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
+    urls.append((f"{SITE}/citations/", "0.5", "weekly"))
     for a in data["aisles"]:
         urls.append((f"{SITE}/section/{a['id']}/", "0.8", "daily"))
         urls.append((f"{SITE}/timeline/{a['id']}/", "0.7", "monthly"))
@@ -1788,6 +1917,12 @@ def main():
            capture_output=True)
     _sp.run(["python", str(ROOT / "tools" / "build_quiz.py")], check=True,
            capture_output=True)
+
+    # /citations/ - the sourcing backlog, ranked, in public
+    _enc2 = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
+    (ROOT / "citations").mkdir(exist_ok=True)
+    (ROOT / "citations" / "index.html").write_text(
+        build_citations(data, _enc2), encoding="utf-8")
 
     # /credits/ - every photograph, once, with its author and licence
     (ROOT / "credits").mkdir(exist_ok=True)

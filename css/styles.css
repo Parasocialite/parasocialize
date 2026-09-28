@@ -1070,3 +1070,35 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .t8-sharedlaw a{color:var(--hot);border-bottom:1px solid rgba(255,90,31,.4)}
 .t8-sharedlaw-n{font-family:var(--label);font-size:.55rem;letter-spacing:.18em;
   color:var(--hot);margin-right:10px}
+
+/* ------------------------------------------------- /citations/
+   The sourcing backlog, in public. Four numbers first, because a table of 122
+   rows is a filing cabinet and four numbers are an argument. The degree
+   column is the useful part: it says how much of the atlas points at each
+   entry, which is what makes the order a fix order rather than a list. */
+.cit-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+  gap:2px;margin:30px 0 0;border-top:1px solid var(--line)}
+.cit-stats>div{padding:18px 16px;border-bottom:1px solid var(--line)}
+.cit-stats b{display:block;font-family:var(--serif);font-weight:900;
+  font-size:clamp(1.8rem,4vw,2.6rem);line-height:1;color:var(--hot)}
+.cit-stats span{display:block;margin-top:7px;font-family:var(--label);
+  font-size:.52rem;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
+  line-height:1.5}
+.cit{width:100%;border-collapse:collapse;margin:16px 0 0;font-size:.92rem}
+.cit th{text-align:left;font-family:var(--label);font-size:.5rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--dimmer);padding:0 12px 9px 0;
+  border-bottom:1px solid var(--line2);font-weight:400}
+.cit td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);
+  vertical-align:top}
+.cit-d{font-family:var(--serif);font-weight:900;font-size:1.15rem;color:var(--hot);
+  width:52px;text-align:right;padding-right:14px}
+.cit-y{display:block;font-family:var(--label);font-size:.5rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--dimmer);margin-top:3px}
+.cit-k{font-family:var(--label);font-size:.55rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);width:110px}
+.cit-m{color:var(--dim);font-size:.86rem;width:38%}
+.cit-ok{color:#7bd88f;font-family:var(--label);font-size:.55rem;letter-spacing:.11em;
+  text-transform:uppercase}
+.cit tbody tr:hover{background:rgba(255,90,26,.045)}
+@media (max-width:700px){.cit-k,.cit-m{width:auto;display:block}
+  .cit th:nth-child(3),.cit td:nth-child(3){display:none}}
