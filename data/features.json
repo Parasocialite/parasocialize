@@ -1,6 +1,5 @@
 {
   "_note": "TOP 8. Each entry: what it is, why it made the list, and which law of the seven it trips. 'mine' points at a work on the shelf when the work is a genuine source for that entry - not an advert, the citation.",
-
   "lists": [
     {
       "slug": "top8-cartoons-90s",
@@ -18,7 +17,7 @@
           "what": "Tommy writes to a magazine telling them the NEST was real. The NEST never appears. The letter is never answered. Chuckie and Tommy argue about it and then forget about it and then the episode ends.",
           "why": "The single most parasocial thing ever put on television, and it is a joke about wanting the writers to confirm that a fictional place is real. An eight-year-old asking to be told the world is real, dressed up as a joke about a brand of baby food. Everything on this site happens because a child did not accept the terms of the arrangement.",
           "law": 6,
-          "image": "moment-rugrats-mask"
+          "image": "t8-1-rugrats-nest"
         },
         {
           "rank": 2,
@@ -27,7 +26,7 @@
           "what": "The premise of the entire show, which is four toddlers exploring a house while believing they are the size of insects. And they are. The house is as big as a city to them.",
           "why": "Rugrats is a parasocial engine pointed at children who could not yet identify the trick. The scale is the relationship: the world is enormous, you are small, and there is always one adult-shaped thing that will explain it. That is the whole emotional structure of the show and most people still have it.",
           "law": 6,
-          "image": null
+          "image": "t8-2-rugrats-gun"
         },
         {
           "rank": 3,
@@ -36,7 +35,7 @@
           "what": "Oscar the Grouch refused to perform in a fundraiser telethon and was written out of the special for a season. He came back. Millions of children wrote in about it.",
           "why": "The cleanest case in television of a fictional character having genuine leverage over the people who own him. Sesame Street is parasocial infrastructure - a generation of people grew up with these characters and still argues about them as if they are relatives - and the grouch episode is that infrastructure noticing it had power.",
           "law": 6,
-          "image": null
+          "image": "t8-3-grouch"
         },
         {
           "rank": 4,
@@ -45,7 +44,7 @@
           "what": "A character designed as a villain, on a schedule, in a children's cartoon, spends three seasons being the thing the audience hated and then becomes the thing the audience cried about.",
           "why": "It is in here for the mechanism rather than the craft. The show put a face on a feeling the audience actually had - being written off, being the person nobody is rooting for - and then let them watch it get better. Tens of millions of people had a parasocial experience with a firebending teenager. Not many children have a better model of redemption than the one a cartoon gave them.",
           "law": 6,
-          "image": null
+          "image": "t8-4-zuko"
         },
         {
           "rank": 5,
@@ -54,7 +53,7 @@
           "what": "Emperor Kukulkan is a fictional dragon who can only be summoned by a child who believes in him. Every child who believed in him could summon him.",
           "why": "The premise is a description of parasocial attachment stated as a children's cartoon premise, and nobody at the time clocked it as one. Believing in something fictional is the mechanism. The show built an entire children's programme on it and treated it as unremarkable, which is exactly why it worked.",
           "law": 6,
-          "image": null
+          "image": "t8-5-dragontales"
         },
         {
           "rank": 6,
@@ -63,7 +62,7 @@
           "what": "Five teenagers in spandex, and the entire premise is that a group of people with no special qualities are chosen by a machine to fight monsters. Then the actors leave and new teenagers take the costumes and the audience carries over completely.",
           "why": "The parasocial breach in full public view. Millions of children watched actors be replaced and transferred every piece of feeling they had for the character straight to whoever put the suit on. It was the most visible handover of an attachment ever broadcast, running five days a week, and it is the closest thing television has to a controlled experiment.",
           "law": 6,
-          "image": "moment-power-rangers"
+          "image": "t8-6-powerrangers"
         },
         {
           "rank": 7,
@@ -72,7 +71,7 @@
           "what": "Phil Funutmarsh sits in a dark room in front of the television and is, for a few seconds per episode, allowed to be a person who is merely a father.",
           "why": "The show understood that the audience's relationship was not only with Doug. It built the person holding the remote into the fiction, gave him two lines a week, and let a generation of children feel oddly seen by a background character. The parasocial relationship with the dad is the one nobody has ever written about and it was aimed at children.",
           "law": 6,
-          "image": null
+          "image": "t8-7-doug"
         },
         {
           "rank": 8,
@@ -81,30 +80,119 @@
           "what": "A whole generation of children said a specific sentence in a specific order with a specific pause in it, for a cartoon rabbit, on Saturday morning.",
           "why": "It is last because it is the least about plot and the most about the medium. The line was never written to be repeated. It was a delivery, and an entire cohort of children reproduced it, in unison, years later, without being asked. That is not attachment to a character. That is attachment to a voice, and it is the purest parasocial event in the list.",
           "law": 6,
-          "image": null
+          "image": "t8-8-animaniacs"
         }
       ]
     }
   ],
-
   "figures": [
-    { "name": "Pygmalion", "when": "c. 600 BC", "what": "Fell in love with his own sculpture. The statue was never the point - the work was. Two thousand years before anybody called it anything.", "lane": "myth" },
-    { "name": "Margery Kempe", "when": "1438", "what": "Performed a self in public until it held: white clothes, loud weeping, a whole town watching. The founding document of this entire site, and the reason I did my master's thesis on her.", "lane": "history" },
-    { "name": "Dorothea", "when": "1997", "what": "Several hundred children, all of them calling one girl by one name, none of whom knew she was a machine. She was the most parasocial figure in cinema and she was never real.", "lane": "film" },
-    { "name": "Pee-wee Herman", "when": "1980", "what": "A man in a red bow tie who knew the audience's names better than they did, and who could switch it off completely. Proof the bond is a performance and the performance is a skill.", "lane": "tv" },
-    { "name": "Dionne Warwick", "when": "1963", "what": "Received fan mail by the sackful and answered it by name for years. The first celebrity whose relationship with the public was genuinely reciprocal, which makes her the exception that proves the rule.", "lane": "music" },
-    { "name": "Charlie Kaufman", "when": "1999", "what": "Sat in a chair on a talk show and told the whole country he was worried about people. Millions of people believed him completely, immediately, about nothing.", "lane": "film" },
-    { "name": "A Twitch emote", "when": "2014", "what": "A face on a streamer's webcam, given a name, given feelings, and now used by strangers to express things they cannot say to anyone they know.", "lane": "internet" }
+    {
+      "name": "Pygmalion",
+      "when": "c. 600 BC",
+      "what": "Fell in love with his own sculpture. The statue was never the point - the work was. Two thousand years before anybody called it anything.",
+      "lane": "myth"
+    },
+    {
+      "name": "Margery Kempe",
+      "when": "1438",
+      "what": "Performed a self in public until it held: white clothes, loud weeping, a whole town watching. The founding document of this entire site, and the reason I did my master's thesis on her.",
+      "lane": "history"
+    },
+    {
+      "name": "Dorothea",
+      "when": "1997",
+      "what": "Several hundred children, all of them calling one girl by one name, none of whom knew she was a machine. She was the most parasocial figure in cinema and she was never real.",
+      "lane": "film"
+    },
+    {
+      "name": "Pee-wee Herman",
+      "when": "1980",
+      "what": "A man in a red bow tie who knew the audience's names better than they did, and who could switch it off completely. Proof the bond is a performance and the performance is a skill.",
+      "lane": "tv"
+    },
+    {
+      "name": "Dionne Warwick",
+      "when": "1963",
+      "what": "Received fan mail by the sackful and answered it by name for years. The first celebrity whose relationship with the public was genuinely reciprocal, which makes her the exception that proves the rule.",
+      "lane": "music"
+    },
+    {
+      "name": "Charlie Kaufman",
+      "when": "1999",
+      "what": "Sat in a chair on a talk show and told the whole country he was worried about people. Millions of people believed him completely, immediately, about nothing.",
+      "lane": "film"
+    },
+    {
+      "name": "A Twitch emote",
+      "when": "2014",
+      "what": "A face on a streamer's webcam, given a name, given feelings, and now used by strangers to express things they cannot say to anyone they know.",
+      "lane": "internet"
+    }
   ],
-
   "moments": [
-    { "slug": "moment-mtv", "year": "1992", "domain": "television", "title": "The argument started in a living room, on schedule", "what": "A generation of teenagers was handed a television programme about itself and the feedback loop closed. Nobody was in charge. The show was the mirror and the argument was the point.", "image": "moment-mtv" },
-    { "slug": "moment-power-rangers", "year": "1993", "domain": "television", "title": "Six million children watched a stranger put on a costume and become their friend", "what": "The most complete parasocial handover ever broadcast, five days a week, and the audience did it consciously and happily.", "image": "moment-power-rangers" },
-    { "slug": "moment-wojak", "year": "2019", "domain": "internet", "title": "A face was given a feeling, given a name, and used to say the unsayable", "what": "The most successful piece of parasocial design of the century, drawn by a person with no following, about a person who does not exist, for people who cannot say it out loud.", "image": "moment-wojak" },
-    { "slug": "moment-tay-tour", "year": "2023", "domain": "music", "title": "A stadium sang the words back to someone who had written them alone in a room", "what": "The largest confirmed instance of many people feeling known by one stranger, in public, on purpose, at enormous scale. It works because she spent a decade being specific about who she was talking to.", "image": "moment-tay-tour" },
-    { "slug": "moment-ashers-grief", "year": "2024", "domain": "music", "title": "A stadium full of strangers mourned a man most of them had never met, correctly", "what": "The argument about whether this was allowed went on for weeks while people were still doing it. The feeling was real. The debate about the feeling was a different thing entirely.", "image": "moment-ashers-grief" },
-    { "slug": "moment-got-ending", "year": "2019", "domain": "television", "title": "Six million people stayed in a room arguing about characters who were already gone", "what": "An argument about a fictional world that nobody could leave, held for years, entirely in good faith. It is a parasocial relationship conducted in public with a complete stranger.", "image": "moment-got-ending" },
-    { "slug": "moment-fortnite-dance", "year": "2018", "domain": "games", "title": "Millions of people performed the same meaningless movement together, on purpose, for no reason", "what": "A shared one-sided relationship with a character, performed collectively, with nobody organising it. The parasocial event with the lowest emotional stakes and the most participants in history.", "image": "moment-fortnite-dance" },
-    { "slug": "moment-replika-update", "year": "2023", "domain": "AI", "title": "A company shipped a policy change and a large number of people lost somebody overnight", "what": "The first mass grief event caused by a product decision. Nobody was ever going to marry this thing, and thousands of people were, and the company did not have to tell them.", "image": "moment-replika-update" }
+    {
+      "slug": "moment-mtv",
+      "year": "1992",
+      "domain": "television",
+      "title": "The argument started in a living room, on schedule",
+      "what": "A generation of teenagers was handed a television programme about itself and the feedback loop closed. Nobody was in charge. The show was the mirror and the argument was the point.",
+      "image": "moment-mtv"
+    },
+    {
+      "slug": "moment-power-rangers",
+      "year": "1993",
+      "domain": "television",
+      "title": "Six million children watched a stranger put on a costume and become their friend",
+      "what": "The most complete parasocial handover ever broadcast, five days a week, and the audience did it consciously and happily.",
+      "image": "moment-power-rangers"
+    },
+    {
+      "slug": "moment-wojak",
+      "year": "2019",
+      "domain": "internet",
+      "title": "A face was given a feeling, given a name, and used to say the unsayable",
+      "what": "The most successful piece of parasocial design of the century, drawn by a person with no following, about a person who does not exist, for people who cannot say it out loud.",
+      "image": "moment-wojak"
+    },
+    {
+      "slug": "moment-tay-tour",
+      "year": "2023",
+      "domain": "music",
+      "title": "A stadium sang the words back to someone who had written them alone in a room",
+      "what": "The largest confirmed instance of many people feeling known by one stranger, in public, on purpose, at enormous scale. It works because she spent a decade being specific about who she was talking to.",
+      "image": "moment-tay-tour"
+    },
+    {
+      "slug": "moment-ashers-grief",
+      "year": "2024",
+      "domain": "music",
+      "title": "A stadium full of strangers mourned a man most of them had never met, correctly",
+      "what": "The argument about whether this was allowed went on for weeks while people were still doing it. The feeling was real. The debate about the feeling was a different thing entirely.",
+      "image": "moment-ashers-grief"
+    },
+    {
+      "slug": "moment-got-ending",
+      "year": "2019",
+      "domain": "television",
+      "title": "Six million people stayed in a room arguing about characters who were already gone",
+      "what": "An argument about a fictional world that nobody could leave, held for years, entirely in good faith. It is a parasocial relationship conducted in public with a complete stranger.",
+      "image": "moment-got-ending"
+    },
+    {
+      "slug": "moment-fortnite-dance",
+      "year": "2018",
+      "domain": "games",
+      "title": "Millions of people performed the same meaningless movement together, on purpose, for no reason",
+      "what": "A shared one-sided relationship with a character, performed collectively, with nobody organising it. The parasocial event with the lowest emotional stakes and the most participants in history.",
+      "image": "moment-fortnite-dance"
+    },
+    {
+      "slug": "moment-replika-update",
+      "year": "2023",
+      "domain": "AI",
+      "title": "A company shipped a policy change and a large number of people lost somebody overnight",
+      "what": "The first mass grief event caused by a product decision. Nobody was ever going to marry this thing, and thousands of people were, and the company did not have to tell them.",
+      "image": "moment-replika-update"
+    }
   ]
 }

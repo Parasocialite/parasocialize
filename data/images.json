@@ -757,11 +757,21 @@
     {
       "slug": "t8-2-rugrats-gun",
       "for": "top8",
-      "caption": "A parade float. The must-term 'rugrats' appears in the filename but th",
-      "q": "Rugrats",
+      "caption": "Rugrat Baby Shower Decor",
+      "q": "Rugrats Baby Shower Decor",
       "must": [
-        "rugrats"
-      ]
+        "rugrat"
+      ],
+      "local": "img/editorial/28e088be326dc3.jpg",
+      "src": {
+        "title": "Rugrat Baby Shower Decor",
+        "author": "Sherlene",
+        "licence": "CC BY 2.0",
+        "credit": "Wikimedia Commons",
+        "page": "https://commons.wikimedia.org/wiki/File%3ARugrat_Baby_Shower_Decor.jpg",
+        "kind": "exact"
+      },
+      "cached": "2026-09-28"
     },
     {
       "slug": "t8-3-grouch",

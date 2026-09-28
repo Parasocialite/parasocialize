@@ -568,17 +568,29 @@ def build_front(data, feat=None, manifest=None, hist=None):
         L = t8[0]
         pick = rotate(L["entries"], f"top8-w{week}", 4, by="rank")
         rows = []
+        shot = 0
         for en in pick:
             f = img_for(manifest, en.get("image"), 0)  # front page: depth 0
-            im = (f'<img src="{esc(f["path"])}" alt="" loading="lazy">' if f
-                  else f'<span class="t8col-n">{esc(en["rank"])}</span>')
+            if f:
+                shot += 1
+                im = (f'<span class="t8col-photo"><img src="{esc(f["path"])}" alt="" '
+                      f'loading="lazy"></span>')
+            else:
+                im = f'<span class="t8col-n">{esc(en["rank"])}</span>'
             rows.append(f'<a class="t8col" href="top8/index.html">'
                         f'<span class="t8col-art">{im}</span>'
                         f'<span class="t8col-body"><b>{esc(en["rank"])}. {esc(en["name"])}</b>'
                         f'<span>{esc(en["show"])}</span></span></a>')
+        # one line, on the front page, because the photographs are of the fans
+        # rather than of the cartoons and that is worth saying before somebody
+        # wonders why a list about cartoons is illustrated with a toy
+        frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
+                  f'freely licensed, so every picture above is of <b>the audience '
+                  f'instead</b> &mdash; which is the list.</p>') if shot else ""
         t8_block = f"""<div class="t8col-wrap">
-  <p class="kicker">The top 8 · this week · rotating</p>
+  <p class="kicker">The top 8 &middot; this week &middot; rotating</p>
   <div class="t8col-list">{''.join(rows)}</div>
+  {frames}
   <a class="btn btn-solid" href="top8/index.html">Read the whole list</a>
   <p class="countline">Rotates weekly. This week it is the {esc(L['title'].lower())}.</p>
 </div>"""
@@ -814,34 +826,89 @@ def build_top8(data, feat, manifest):
     shelf = {s["id"]: s for s in data["shelf"]}
 
     items = []
+    photographed = 0
+    # All eight entries are instances of Law 6, which is the point of the list
+    # rather than a tagging accident. Rendering the same shelf item in a source
+    # box eight times said nothing eight times over, so when the whole list
+    # shares one law it is stated once above the list and the per-entry box is
+    # dropped.
+    shared = {en.get("law") for en in L["entries"]}
+    one_law = next(iter(shared)) if len(shared) == 1 else None
     for en in L["entries"]:
         law = laws.get(en.get("law"), {})
         sh = shelf.get(law.get("shelf")) if law.get("shelf") else None
         cite = ""
-        if sh:
+        if sh and one_law is None:
             # the work is a source for this entry, cited like any other source
             cite = (f'<div class="t8-cite"><p class="t8-cite-l">SOURCE</p>'
                     f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
                     f'{esc(sh["title"])}</a>'
                     f'<p>{esc(sh["blurb"])}</p></div>')
         f = img_for(manifest, en.get("image"), 2)
-        im = (f'<img class="t8-art" src="{esc(f["path"])}" alt="{esc(f["caption"])}" loading="lazy">'
-              if f else
-              f'<div class="t8-art t8-art-none" style="--c:{"#ff5a1f"}"><span>{esc(en["rank"])}</span></div>')
-        items.append(f"""<li class="t8-item">
+        if f:
+            photographed += 1
+            im = (f'<figure class="t8-fig"><img src="{esc(f["path"])}" alt="" loading="lazy">'
+                  f'<figcaption>{esc(f["caption"])} &middot; '
+                  f'<a href="{esc(f["page"])}" target="_blank" rel="noopener nofollow">'
+                  f'{esc(f["credit"])}</a></figcaption></figure>')
+        else:
+            # No freely-licensed frame exists, and saying so is better than
+            # borrowing a photograph of something adjacent and hoping nobody
+            # looks. This is a designed plate, not a placeholder: the show set in
+            # display type on the entry's own colour, with the reason it is blank
+            # written underneath in the same voice as the credits page.
+            im = (f'<div class="t8-plate" style="--c:#ff5a1f">'
+                  f'<span class="t8-plate-n">{esc(en["rank"])}</span>'
+                  f'<span class="t8-plate-t">{esc(en["show"].split(",")[0])}</span>'
+                  f'<span class="t8-plate-n">no free frame exists</span></div>')
+        items.append(f"""<li class="t8-item" data-rank="{esc(en['rank'])}">
   <div class="t8-head">
     <span class="t8-rank">{esc(en['rank'])}</span>
     {im}
     <div class="t8-titles">
       <h3>{esc(en['name'])}</h3>
       <p class="t8-show">{esc(en['show'])}</p>
-      <a class="t8-law" href="../history/index.html#law-{esc(en.get('law',1))}">LAW {esc(en.get('law',1))} · {esc(law.get('title',''))}</a>
+      <a class="t8-law" href="../history/index.html#law-{esc(en.get('law',1))}">LAW {esc(en.get('law',1))} &middot; {esc(law.get('title',''))}</a>
     </div>
   </div>
   <p class="t8-what"><b>What happens.</b> {esc(en['what'])}</p>
-  <p class="t8-why"><b>Why it's on the list.</b> {esc(en['why'])}</p>
+  <p class="t8-why"><b>Why it is on the list.</b> {esc(en['why'])}</p>
   {cite}
 </li>""")
+
+    stand = fig(manifest, L.get("image"), 2, cls="t8-hero-fig")
+    # the shared law, stated once above the list
+    shared_law = ""
+    if one_law is not None:
+        l = laws.get(one_law, {})
+        sh = shelf.get(l.get("shelf")) if l.get("shelf") else None
+        src_line = (f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
+                    f'{esc(sh["title"])}</a> &mdash; {esc(sh["blurb"])}') if sh else ""
+        shared_law = (f'<p class="t8-sharedlaw"><span class="t8-sharedlaw-n">'
+                      f'LAW {esc(one_law)}</span> All eight entries are instances of '
+                      f'<b>{esc(l.get("title", ""))}</b>, which is the reason they are '
+                      f'on one list. {src_line}</p>')
+    # The licensing constraint hands the page its argument. Not one frame of
+    # these cartoons is freely licensed, so every photograph here is of the
+    # audience instead: a toy in a shop, a party, a costume, a convention floor,
+    # a cast photo. For a list about one-sided bonds, the illustrations are
+    # themselves evidence of the bond, and saying so is better than pretending
+    # the gap is a production accident.
+    missing = len(L["entries"]) - photographed
+    frame_note = f"""<aside class="t8-frame">
+  <p class="kicker">Read this before the list</p>
+  <p>There is not one frame of these eight cartoons on this page. All of it is
+  Nickelodeon property and none of it is free to reuse, so {photographed} of the
+  {len(L['entries'])} pictures below are of <b>the audience instead</b>: a Reptar
+  toy in a shop, somebody's Rugrats party, a Grouch costume in a church hall, a
+  Zuko at a convention, a cast photo from a film that is not the show, the
+  Animaniacs on a convention floor.</p>
+  <p>That is not a workaround. It is the list. Every entry here is about a
+  relationship with a character who cannot reciprocate, and the only images left
+  standing are of the people having it.</p>
+  {f'<p class="t8-frame-s">{missing} of the {len(L["entries"])} have no such photograph either, and are set in type rather than filled with something adjacent.</p>' if missing else ''}
+</aside>"""
+
 
     stand = fig(manifest, L.get("image"), 2, cls="t8-hero-fig")
     return f"""<!DOCTYPE html>
@@ -864,9 +931,14 @@ def build_top8(data, feat, manifest):
   <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">{esc(L['dek'])}</p>
   {stand}
   <div class="note" style="margin-top:26px"><p>{esc(L['standfirst'])}</p></div>
+  {frame_note}
+  <p style="margin-top:30px;max-width:62ch"><a class="btn btn-solid" href="../quiz/index.html">Which of these are you?</a>
+  <span style="font-size:.92rem;color:var(--dim)">&nbsp;Eight questions, and the answers are people in the
+  <a href="../atlas/index.html" style="color:var(--hot)">catalogue</a> rather than personality types.</span></p>
 </section>
 
 <section class="section" id="list" style="padding-top:8px">
+  {shared_law}
   <ol class="t8">{''.join(items)}</ol>
   <p class="countline" style="margin-top:30px">More top 8s coming, rotated weekly.
   <a href="{r}index.html">Back to the ten aisles →</a></p>

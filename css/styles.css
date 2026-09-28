@@ -1003,3 +1003,70 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .fig.article-photo figcaption b{
   display:block;color:var(--hot);letter-spacing:.06em;margin-bottom:4px;
   text-transform:uppercase}
+
+/* ------------------------------------------------- the top 8, as a set piece
+   The eight entries run down a rank spine and get smaller as the numbers get
+   worse, so the list reads as a ranking at a glance without a single number
+   having to be counted. The photographs are all of the audience rather than of
+   the cartoons - see the frame note on /top8/ - so the caption sits under the
+   picture at full contrast rather than being hidden in a credit line. */
+.t8-item[data-rank="1"] .t8-fig img,
+.t8-item[data-rank="1"] .t8-plate{height:250px}
+.t8-item[data-rank="2"] .t8-fig img,
+.t8-item[data-rank="2"] .t8-plate{height:210px}
+.t8-item[data-rank="3"] .t8-fig img,
+.t8-item[data-rank="3"] .t8-plate{height:180px}
+.t8-fig{margin:0;flex:none;width:min(300px,38%)}
+.t8-fig img{width:100%;height:150px;object-fit:cover;border-radius:8px;
+  box-shadow:0 12px 30px rgba(0,0,0,.55);display:block}
+.t8-fig figcaption{font-family:var(--label);font-size:.48rem;letter-spacing:.08em;
+  color:var(--dimmer);margin-top:7px;line-height:1.5}
+.t8-fig figcaption a{color:var(--dim);border-bottom:1px solid var(--line)}
+
+/* The designed plate. Three of the eight have no freely-licensed photograph and
+   this is what they get: the show set in display type, the rank large, and the
+   reason it is blank stated rather than disguised with a photograph of
+   something adjacent. */
+.t8-plate{height:150px;flex:none;width:min(300px,38%);border-radius:8px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;text-align:center;padding:14px 12px;
+  background:
+    repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 9px),
+    linear-gradient(150deg,
+      color-mix(in srgb,var(--c) 88%,#000) 0%,
+      color-mix(in srgb,var(--c) 44%,#170e08) 62%,#120b07 100%);
+  box-shadow:0 12px 30px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.09)}
+.t8-plate-n{font-family:var(--label);font-size:.46rem;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(255,246,234,.72)}
+.t8-plate-t{font-family:var(--serif);font-weight:900;font-size:clamp(1.5rem,4vw,2.3rem);
+  line-height:1;color:#fff6ea;letter-spacing:-.03em;max-width:11ch}
+
+/* the frame note - the page's argument, before the list rather than in a
+   footnote at the bottom where a licensing caveat belongs and nobody reads */
+.t8-frame{margin:30px 0 0;padding:22px 24px;border:1px solid var(--line2);
+  border-radius:12px;background:
+  linear-gradient(150deg,rgba(255,90,26,.07),transparent 58%),
+  rgba(255,246,234,.022);max-width:74ch}
+.t8-frame .kicker{margin:0 0 10px;color:var(--hot)}
+.t8-frame p{margin:0 0 11px;font-size:1.02rem;line-height:1.6}
+.t8-frame p:last-child{margin:0}
+.t8-frame b{color:#fff6ea}
+.t8-frame-s{font-family:var(--label);font-size:.56rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--dimmer);line-height:1.65}
+
+/* the homepage strip, photo-led */
+.t8col-art{background:linear-gradient(150deg,#2a1a10,#140c07)}
+.t8col-photo{position:relative}
+.t8col-photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,6,4,.8),rgba(10,6,4,.05) 60%)}
+.t8col-photo span{position:relative;z-index:2}
+.t8col-frames{margin:12px 0 0;padding:0 2px;max-width:60ch;font-size:.86rem;
+  line-height:1.55;color:var(--dim)}
+.t8col-frames b{color:#efe3d3}
+.t8-sharedlaw{margin:0 0 30px;padding:14px 18px;border:1px solid var(--line2);
+  border-radius:9px;background:rgba(255,246,234,.022);font-size:.95rem;line-height:1.6;
+  max-width:78ch;color:var(--dim)}
+.t8-sharedlaw b{color:#fff6ea}
+.t8-sharedlaw a{color:var(--hot);border-bottom:1px solid rgba(255,90,31,.4)}
+.t8-sharedlaw-n{font-family:var(--label);font-size:.55rem;letter-spacing:.18em;
+  color:var(--hot);margin-right:10px}
