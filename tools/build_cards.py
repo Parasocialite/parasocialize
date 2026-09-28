@@ -54,7 +54,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
   </div>
   <nav class="foot-nav" aria-label="Footer">
     <a href="{root}index.html">LATEST</a><a href="{root}aisle/index.html">SECTIONS</a>
-    <a href="{root}guide/index.html">FIELD GUIDE</a><a href="{root}atlas/index.html">THE ATLAS</a>
+    <a href="{root}guide/index.html">FIELD GUIDE</a><a href="{root}atlas/index.html">THE ATLAS</a><a href="{root}quiz/index.html">QUIZ</a>
     <a href="{root}credits/index.html">CREDITS</a>
     <a href="{root}membership/index.html">SUPPORT</a><a href="{root}desk/index.html">CLERK'S DESK</a>
     <a href="{root}radar.xml">RSS</a>
@@ -1641,6 +1641,7 @@ def build_sitemap(data):
             (f"{SITE}/clinic/", "0.6", "monthly"), (f"{SITE}/guide/", "0.8", "monthly"),
             (f"{SITE}/signal/latest.html", "0.5", "weekly"), (f"{SITE}/tip/", "0.4", "monthly")]
     urls.append((f"{SITE}/atlas/", "0.6", "weekly"))
+    urls.append((f"{SITE}/quiz/", "0.6", "monthly"))
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
     for a in data["aisles"]:
         urls.append((f"{SITE}/section/{a['id']}/", "0.8", "daily"))
@@ -1712,6 +1713,8 @@ def main():
     _sp.run(["python", str(ROOT / "tools" / "atlas.py"), "--graph"], check=True,
            capture_output=True)
     _sp.run(["python", str(ROOT / "tools" / "build_atlas.py")], check=True,
+           capture_output=True)
+    _sp.run(["python", str(ROOT / "tools" / "build_quiz.py")], check=True,
            capture_output=True)
 
     # /credits/ - every photograph, once, with its author and licence
