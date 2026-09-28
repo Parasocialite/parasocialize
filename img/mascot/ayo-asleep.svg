@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" width="118" height="118" role="img" aria-label="Ayo"><title>Ayo - asleep</title><style>.ayo,.ayo-bloom,.ayo-lobe,.ayo-pupil,.ayo-lid,.ayo-blush{
+transform-box:fill-box;transform-origin:center}
+@keyframes ayo-breathe{0%,100%{transform:scale(1)}
+50%{transform:scale(1.035)}}
+@keyframes ayo-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
+@keyframes ayo-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
+.ayo{animation:ayo-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+.ayo-pupil{animation:ayo-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.ayo-bloom{animation:ayo-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+@media (prefers-reduced-motion:reduce){
+.ayo,.ayo-pupil,.ayo-bloom{animation:none}}</style><defs><radialGradient id="ayogasleeph" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6e6" stop-opacity=".85"/><stop offset="1" stop-color="#fff6e6" stop-opacity="0"/></radialGradient><linearGradient id="ayogasleep" x1=".12" y1="0" x2=".88" y2="1"><stop offset="0" stop-color="#ffe7c4"/><stop offset="1" stop-color="#ff8f5e"/></linearGradient><clipPath id="ayogasleepcl"><circle cx="42" cy="42" r="26"/></clipPath><clipPath id="ayogasleepcr"><circle cx="76" cy="42" r="26"/></clipPath><mask id="ayogasleepm"><rect width="118" height="118" fill="#000"/><circle cx="42" cy="42" r="26" fill="#fff"/><circle cx="76" cy="42" r="26" fill="#fff"/></mask></defs><g class="ayo"><circle class="ayo-bloom" cx="48" cy="46" r="35" fill="url(#ayogasleeph)"/><g class="ayo-lobe"><circle cx="42" cy="42" r="26" fill="url(#ayogasleep)"/></g><g class="ayo-lobe"><circle cx="76" cy="42" r="26" fill="url(#ayogasleep)"/></g><g class="ayo-lid"><g clip-path="url(#ayogasleepcl)"><path d="M30.0 40q12.0 9 24 0" stroke="#231009" stroke-width="5.5" stroke-linecap="round" fill="none"/></g></g><g class="ayo-lid"><g clip-path="url(#ayogasleepcr)"><path d="M64.0 40q12.0 9 24 0" stroke="#231009" stroke-width="5.5" stroke-linecap="round" fill="none"/></g></g></g></svg>
