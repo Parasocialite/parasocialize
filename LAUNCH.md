@@ -5,7 +5,7 @@ Upload whole `parasocialize/` folder to Cloudflare Pages / GitHub Pages. No buil
 ## 1. Before DNS (10 min)
 - [ ] Open `index.html` locally: filters, `?member=1` preview, Index copy button, tip form mailto
 - [ ] Open `signal/latest.html`: 5 picks + Index block render
-- [ ] Open `guide/`, `classroom/`, `audit/`, `tip/` pages: buy buttons point to your email
+- [ ] Open `classroom/`, `audit/`, `tip/` pages: buy buttons point to your email
 - [ ] `python tools/build_radar.py && python tools/build_signal.py` both print success
 
 ## 2. Email (15 min, unlocks recurring)
@@ -13,10 +13,10 @@ Upload whole `parasocialize/` folder to Cloudflare Pages / GitHub Pages. No buil
 - [ ] At 200 subs: create Buttondown, replace `<form action>` in v2 (instructions in HTML comment)
 - [ ] Paste `signal/latest.html` into first broadcast → send to yourself → check Gmail spam score
 
-## 3. Money (30 min, unlocks $19 → $1,500)
-- [ ] Gumroad product 1: Field Guide $19 PDF (print `guide/` via Ctrl+P → upload)
-- [ ] Replace `mailto:` buy hrefs in `guide/index.html` with Gumroad link
-- [ ] Gumroad product 2: Classroom $49 (same PDF + worksheet) — clone listing
+## 3. Money (30 min) - SHELVED until the revenue avenue is decided
+- [X] ~~Gumroad product 1: Field Guide $19 PDF~~ **CANCELLED 2026-09-29.** A $19 PDF of writing the reader can already read free in the browser is not a product, it is a toll on the same words. `guide/` is recoverable at commit ad17778 if it ever earns its place back.
+- [ ] Decide the actual revenue avenue *before* building the next thing. The $6/mo index tier and the $18 clinic already stand on their own and do not depend on this.
+- [ ] Gumroad product 1 (now the first product): Classroom $49 - worksheet + rubric. No longer a clone of a guide listing, so it needs its own cover, its own proof, and its own reason to exist at $49.
 - [ ] Audit: keep mailto until 2 bookings, then add Stripe payment link
 - [ ] Affiliate: confirm Amazon Associates tag on Company Dreamer links (or keep bare)
 
@@ -36,4 +36,4 @@ Upload whole `parasocialize/` folder to Cloudflare Pages / GitHub Pages. No buil
 - `cases/*.md` → `cases.json` → paywall grid
 - `index.json` (+ `index/YYYY-Www.json` archive) → table + email block
 - `signal/latest.html/.txt` → Buttondown paste
-- `guide/`, `classroom/`, `audit/`, `tip/` → standalone converters
+- `classroom/`, `audit/`, `tip/` -> standalone converters

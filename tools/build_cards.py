@@ -57,7 +57,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
     <a href="{root}index.html">LATEST</a><a href="{root}aisle/index.html">SECTIONS</a>
     <a href="{root}top8/index.html">TOP 8</a><a href="{root}timeline/index.html">TIMELINE</a>
     <a href="{root}moments/index.html">MOMENTS</a>
-    <a href="{root}guide/index.html">FIELD GUIDE</a><a href="{root}atlas/index.html">THE ATLAS</a>
+    <a href="{root}atlas/index.html">THE ATLAS</a>
     <a href="{root}quiz/index.html">QUIZ</a>
     <a href="{root}citations/index.html">CITATIONS</a><a href="{root}credits/index.html">CREDITS</a>
     <a href="{root}membership/index.html">SUPPORT</a><a href="{root}desk/index.html">CLERK'S DESK</a>
@@ -1160,7 +1160,7 @@ def build_history(data, hist, manifest):
   now, which is a different job and the more useful one. Notice, name, choose.</p></div>
   <div class="h-laws">{''.join(laws_html)}</div>
   <p class="countline" style="margin-top:26px">The full versions, with the worksheet, are in
-  <a href="../guide/index.html">the field guide</a>. Free.</p>
+  </p>
 </section>
 </main>
 {FOOT.format(root=root(1), sweep=MESSY, motto='SIX HUNDRED YEARS, EIGHT MODULES,<br>ONE UNCOMFORTABLE QUESTION.')}
@@ -1845,7 +1845,7 @@ def build_sitemap(data):
             (f"{SITE}/history/", "0.9", "monthly"), (f"{SITE}/top8/", "0.9", "weekly"),
             (f"{SITE}/moments/", "0.8", "monthly"), (f"{SITE}/figures/", "0.7", "monthly"),
             (f"{SITE}/shelf/", "0.8", "monthly"), (f"{SITE}/membership/", "0.7", "monthly"),
-            (f"{SITE}/clinic/", "0.6", "monthly"), (f"{SITE}/guide/", "0.8", "monthly"),
+            (f"{SITE}/clinic/", "0.6", "monthly"),
             (f"{SITE}/signal/latest.html", "0.5", "weekly"), (f"{SITE}/tip/", "0.4", "monthly")]
     urls.append((f"{SITE}/atlas/", "0.6", "weekly"))
     urls.append((f"{SITE}/quiz/", "0.6", "monthly"))
