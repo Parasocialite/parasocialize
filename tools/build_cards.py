@@ -972,7 +972,7 @@ def build_top8(data, feat, manifest):
                     f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
                     f'{esc(sh["title"])}</a>'
                     f'<p>{esc(sh["blurb"])}</p></div>')
-        f = img_for(manifest, en.get("image"), 2)
+        f = img_for(manifest, en.get("image"), 1)   # /top8/index.html is depth 1
         if f:
             photographed += 1
             im = (f'<figure class="t8-fig"><img src="{esc(f["path"])}" alt="" loading="lazy">'
@@ -1004,7 +1004,7 @@ def build_top8(data, feat, manifest):
   {cite}
 </li>""")
 
-    stand = fig(manifest, L.get("image"), 2, cls="t8-hero-fig")
+    stand = fig(manifest, L.get("image"), 1, cls="t8-hero-fig")   # depth 1, as above
     # the shared law, stated once above the list
     shared_law = ""
     if one_law is not None:
@@ -1038,7 +1038,7 @@ def build_top8(data, feat, manifest):
 </aside>"""
 
 
-    stand = fig(manifest, L.get("image"), 2, cls="t8-hero-fig")
+    stand = fig(manifest, L.get("image"), 1, cls="t8-hero-fig")   # depth 1, as above
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1536,7 +1536,12 @@ def build_timeline(enc, data, section=None):
 
 def build_entry(ent, enc, data):
     # NB: the module-level escape helper is also called esc(). Do not shadow it.
-    r = root(2)
+    # depth 1, not 2. Entries are written as encyclopedia/<id>.html, so the root
+    # is one level up. root(2) put 27-28 over-deep links on all 177 pages; a
+    # browser clamps them at a domain root so the site looked fine, and
+    # link_audit had been reporting "link escapes the site" as a warning that
+    # I read as a limitation of the audit rather than as the bug it was.
+    r = root(1)
     kinds = enc["kinds"]
     back = next((s for s in data["aisles"] if s["id"] in ent.get("sections", [])), None)
     rel = [x for x in enc["entries"] if x["id"] in ent.get("related", [])]
@@ -1555,7 +1560,7 @@ def build_entry(ent, enc, data):
 
     others = "".join(
         f'<a class="chip" style="--c:{esc(s.get("colour", "#ff5a1f"))}" '
-        f'href="../../timeline/{esc(s["id"])}/index.html">{esc(s["sign"])}</a>'
+        f'href="{r}timeline/{esc(s["id"])}/index.html">{esc(s["sign"])}</a>'
         for s in data["aisles"] if s["id"] in ent.get("sections", []))
 
     return f"""<!DOCTYPE html>
@@ -1592,8 +1597,8 @@ def build_entry(ent, enc, data):
   <p class="kicker" style="margin-top:40px">Timelines this appears in</p>
   <div class="chips">{others}</div>
   <p class="countline" style="margin-top:20px">
-    <a href="../../timeline/index.html">The full timeline →</a> ·
-    <a href="../../encyclopedia/index.html">The database →</a></p>
+    <a href="{r}timeline/index.html">The full timeline →</a> ·
+    <a href="{r}encyclopedia/index.html">The database →</a></p>
 </main>
 {FOOT.format(root=r, sweep=MESSY, motto='A DATABASE, NOT A POST.<br>EVERY ENTRY IS LINKED.')}
 </body></html>"""
