@@ -628,7 +628,7 @@ def build_aisle(data, feat=None, manifest=None):
   <p class="kicker">The whole shop · {len(cards)} stories · {len(aisles)} aisles</p>
   <div class="sec-head">
     <h1>Pick an aisle. Or don't.</h1>
-    <p class="sec-lede">Parasocial is when you feel you know someone who has no idea you exist. It is not a genre - it is a
+    <p class="sec-lede">Parasocial is a relationship where the other end cannot say it back. It is not a genre - it is a
     shape, and it shows up in a stadium and in a court docket and in the teacher at the front of the room exactly as hard as
     it shows up in a fandom. Ten aisles. Seven of them a fandom site would never build.</p>
   </div>
@@ -788,7 +788,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parasocialize</title>
-<meta name="description" content="Parasocial is when you feel you know someone who has no idea you exist. News, argument, research and the definitive history - idols, AI, sport, politics, grief. Free.">
+<meta name="description" content="Parasocial is a real relationship with somebody who cannot say it back. News, argument, research and the definitive history - idols, AI, sport, politics, grief. Free.">
 {HEAD.format(site=SITE, path="/", otype="website", title="Parasocialize",
              desc="News, argument, research and the definitive history. Free.", root="")}
 </head>
@@ -801,7 +801,8 @@ def build_front(data, feat=None, manifest=None, hist=None):
 <section class="masthead">
   <div class="wrap">
     <h1>Parasocialize.</h1>
-    <p class="line">Parasocial is when you feel you know someone who has no idea you exist.
+    <p class="line">Parasocial is a real relationship with somebody who cannot say it back.
+The missing half is the reply, not the bond.
     This is the news, the argument, the research and the whole history of it — in {len(aisles)} places it turns up.</p>
     <p class="mono-s" style="margin-top:14px">{total} stories · swept hourly · free · signed by a person ·
     <a href="aisle/index.html">all of it, searchable →</a></p>

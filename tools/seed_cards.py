@@ -379,7 +379,7 @@ C = [
 ("podcast-listeners-study", "creator", 2, "pod", "2026-09-22", "OUT",
  "",
  "Podcast listeners score suspiciously high on parasocial attachment",
- "And so do people who like novelty and good conversation. Which is to say, normal people.",
+ "And so do people who like novelty and good conversation, which is most of us and a good deal less exotic than the discourse assumes.",
  "Podcast listening is the single most parasocial habit in the English language and it is very rarely discussed as such, "
  "because it does not look like the stereotype. A host's voice in your ear twice a week for four years is a closer "
  "relationship than most people have with anyone who has not met them. This study is the first one I have seen that says "
