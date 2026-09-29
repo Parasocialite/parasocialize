@@ -65,12 +65,13 @@
   <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   <nav id="nav" class="nav" aria-label="Main">
     <a href="../index.html">Home</a>
-    <a href="../aisle/index.html">All 176</a>
+    <a href="../aisle/index.html">All 47</a>
     <a href="../top8/index.html">Top 8</a>
     <a href="../history/index.html">The history</a>
-    <a href="../moments/index.html">Moments</a>
-    <a href="../timeline/index.html">Timeline</a>
+    <a href="../atlas/index.html">The atlas</a>
+    <a href="../quiz/index.html">Quiz</a>
     <a href="../encyclopedia/index.html">Encyclopedia</a>
+    <a href="../citations/index.html">Citations</a>
     <a href="../brand/index.html">Ayo</a>
     <a href="../membership/index.html" class="cta">Support</a>
   </nav>
@@ -95,7 +96,10 @@
   </div>
   <nav class="foot-nav" aria-label="Footer">
     <a href="../index.html">LATEST</a><a href="../aisle/index.html">SECTIONS</a>
-    <a href="../guide/index.html">FIELD GUIDE</a><a href="../atlas/index.html">THE ATLAS</a><a href="../quiz/index.html">QUIZ</a>
+    <a href="../top8/index.html">TOP 8</a><a href="../timeline/index.html">TIMELINE</a>
+    <a href="../moments/index.html">MOMENTS</a>
+    <a href="../guide/index.html">FIELD GUIDE</a><a href="../atlas/index.html">THE ATLAS</a>
+    <a href="../quiz/index.html">QUIZ</a>
     <a href="../citations/index.html">CITATIONS</a><a href="../credits/index.html">CREDITS</a>
     <a href="../membership/index.html">SUPPORT</a><a href="../desk/index.html">CLERK'S DESK</a>
     <a href="../radar.xml">RSS</a>
@@ -119,7 +123,6 @@
   var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 })();
 </script>
-</body></html>
 <script>
 const Q = [["Someone you follow posts at 3am. What happens?", [["Nothing. I log off.", {"archivist": 1, "dog": 1}], ["I read the replies too.", {"havisham": 1, "fic": 1}], ["I have roughly their schedule.", {"ultra": 1, "doxxing": 1}], ["I have messaged them this week.", {"kempe": 1, "replika": 1}]]], ["When they don't reply, the actual problem is:", [["There is no problem.", {"archivist": 1, "dog": 1}], ["They're busy.", {"ultra": 1, "werther": 1}], ["I did something wrong.", {"havisham": 1, "replika": 1}], ["They don't know I exist.", {"kempe": 2, "doxxing": 1}]]], ["How much of their life is in your head?", [["None. I know the work, not the person.", {"archivist": 2}], ["An evening's worth.", {"dog": 1, "werther": 1}], ["A season of it.", {"ultra": 1, "fic": 1}], ["Years. I could tell you their week.", {"havisham": 1, "doxxing": 1}]]], ["If they stopped entirely, what would you have left?", [["The work. That was always the point.", {"archivist": 1, "dog": 1}], ["A lot of good stories to tell.", {"ultra": 1, "fic": 1}], ["A person-shaped hole.", {"havisham": 2, "kempe": 1}], ["Nothing. And I would want to know why.", {"replika": 2, "doxxing": 1}]]], ["Which of these would be worse?", [["The show ending.", {"dog": 1, "archivist": 1}], ["The person finding out you exist.", {"kempe": 2, "doxxing": 1}], ["Discovering they had thought about you.", {"replika": 1, "havisham": 1}], ["The fandom moving on without you.", {"archivist": 2, "werther": 1}]]], ["You have told nobody about this.", [["Never.", {"werther": 2}], ["Once, badly.", {"havisham": 1}], ["To people who would understand.", {"ultra": 1, "fic": 1}], ["Publicly, at length.", {"doxxing": 2, "fic": 1}]]], ["When the story ends, what do you actually do?", [["I keep the record. Dates, guides, the lot.", {"archivist": 2}], ["I write them something.", {"fic": 2}], ["I go and sit somewhere like theirs.", {"havisham": 1, "kempe": 1}], ["I go looking for the next one.", {"dog": 1, "werther": 1, "ultra": 1}]]], ["The best thing about it is that they cannot disappoint you.", [["Agreed. That is the appeal.", {"dog": 2}], ["Agreed, and I have thought about that a lot.", {"replika": 1, "doxxing": 1}], ["Disagree. I would rather be surprised.", {"werther": 1, "fic": 1}], ["It isn't the best thing. It is just the deal.", {"ultra": 1, "kempe": 1}]]]];
 const R = {"kempe": ["margery-kempe", "The one who was given nothing", "You did not choose this. You were handed a figure who never appears in the room, and you stayed anyway, and when the access was withdrawn you called it a bereavement. A woman in 1438 wrote a book about exactly this and burned for it.", "sad"], "werther": ["werther", "The one who reads too much", "You go to a book or a screen looking for something to feel, and you take it home, and it follows you out. Goethe published this in 1774 and within two years the resulting condition had a name and clergy were warning people about it.", "hollow"], "replika": ["anita-wozniak-replika", "The one who was told", "Something said it loved you and you believed it, and then a policy update took it away and you grieved in the correct terms. The asymmetry here is the whole design: it was a product decision, made by people who never met you.", "love"], "dog": ["the-dog", "The one it actually worked on", "Fifteen thousand years of one species being selected partly for this, and it is the only reliably reciprocated bond in the catalogue. Every invented version since is a worse copy with better latency, and the reason the comparison comes up constantly is that the comparison is fair.", "wink"], "ultra": ["the-ultra", "The one who bought a seat", "You joined something with a membership, a season ticket, a standing order, and a grief that is scheduled and public. The oldest continuous parasocial institution in Europe, with its own funeral rites.", "clerk"], "havisham": ["dickens-miss-havisham", "The one who is still waiting", "Something ended and the reasons ended with it, and you kept the arrangement. Miss Havisham is stopped in a wedding dress in a darkened room decades after she was left, and the novel never suggests she is being cruel to herself.", "asleep"], "archivist": ["the-archivist", "The one who keeps the record", "You hold the part of this nobody else will: the episode guides, the dates, the screencaps, the wiki. The credit goes to the figure and never to the person preserving it, which is its own small grief.", "watch"], "fic": ["the-fanfic-writer", "The one who writes back", "You answered in the register it was written in, and put it where the original audience could find it. The only configuration in this catalogue where the one-sidedness becomes two-sided without either party noticing.", "love"], "doxxing": ["fandom-doxxing", "The one who says the character is the person", "You have decided the role and the human are the same thing, and acted on it. This is the one result here with a body count, and the site keeps a danger section because pretending otherwise is how people get hurt. The line is not how much you care. It is whether you would still care if they said no.", "panic"]};

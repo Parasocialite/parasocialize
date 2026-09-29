@@ -35,12 +35,13 @@ NAV = """<header class="topbar"><div class="topbar-in">
   <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   <nav id="nav" class="nav" aria-label="Main">
     <a href="{root}index.html">Home</a>
-    <a href="{root}aisle/index.html">All {total}</a>
+    <a href="{root}aisle/index.html">All 47</a>
     <a href="{root}top8/index.html">Top 8</a>
     <a href="{root}history/index.html">The history</a>
-    <a href="{root}moments/index.html">Moments</a>
-    <a href="{root}timeline/index.html">Timeline</a>
+    <a href="{root}atlas/index.html">The atlas</a>
+    <a href="{root}quiz/index.html">Quiz</a>
     <a href="{root}encyclopedia/index.html">Encyclopedia</a>
+    <a href="{root}citations/index.html">Citations</a>
     <a href="{root}brand/index.html">Ayo</a>
     <a href="{root}membership/index.html" class="cta">Support</a>
   </nav>
@@ -54,7 +55,10 @@ FOOT = """<footer class="footer"><div class="foot-grid">
   </div>
   <nav class="foot-nav" aria-label="Footer">
     <a href="{root}index.html">LATEST</a><a href="{root}aisle/index.html">SECTIONS</a>
-    <a href="{root}guide/index.html">FIELD GUIDE</a><a href="{root}atlas/index.html">THE ATLAS</a><a href="{root}quiz/index.html">QUIZ</a>
+    <a href="{root}top8/index.html">TOP 8</a><a href="{root}timeline/index.html">TIMELINE</a>
+    <a href="{root}moments/index.html">MOMENTS</a>
+    <a href="{root}guide/index.html">FIELD GUIDE</a><a href="{root}atlas/index.html">THE ATLAS</a>
+    <a href="{root}quiz/index.html">QUIZ</a>
     <a href="{root}citations/index.html">CITATIONS</a><a href="{root}credits/index.html">CREDITS</a>
     <a href="{root}membership/index.html">SUPPORT</a><a href="{root}desk/index.html">CLERK'S DESK</a>
     <a href="{root}radar.xml">RSS</a>
@@ -77,8 +81,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
   }}
   var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 }})();
-</script>
-</body></html>"""
+</script>"""
 
 MESSY = ("No replies. The connection stays one-sided either way. "
          "Nobody here is going to tell you to log off.")
@@ -786,7 +789,6 @@ def build_front(data, feat=None, manifest=None, hist=None):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parasocialize</title>
 <meta name="description" content="Parasocial is when you feel you know someone who has no idea you exist. News, argument, research and the definitive history - idols, AI, sport, politics, grief. Free.">
-<link rel="canonical" href="{SITE}/">
 {HEAD.format(site=SITE, path="/", otype="website", title="Parasocialize",
              desc="News, argument, research and the definitive history. Free.", root="")}
 </head>
