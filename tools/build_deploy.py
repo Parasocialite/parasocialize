@@ -38,10 +38,29 @@ quietly. So after assembling, this walks every local href and src in every page
 in dist and confirms it resolves to a file that is actually there, and confirms
 the count is under the limit. A missing file is a build failure, not a warning.
 
+THE IMAGES
+37.8 of the 41 MB was 96 cached photographs, unoptimised - one frame of Hugh
+Jackman was 3.65 MB. That uploads fine and then makes the homepage download
+megabytes before a reader sees a headline, which is the sort of thing that
+shows up in Core Web Vitals as your problem rather than the host's.
+
+So dist/ ships WebP, re-encoded at 1400px and quality 76, which is 16% of the
+original bytes and visually indistinguishable at the sizes these are actually
+displayed. The originals stay in img/editorial/ as the cache and the thing a
+re-run re-encodes from; only dist/ gets the derived files. If a file comes out
+LARGER as WebP, the original is kept and the reference is left alone rather
+than paying bytes for nothing.
+
+Critically this rewrites the references. Adding .webp files without repointing
+the HTML at them would reduce nothing at all, which is the obvious way to do
+this wrong, and the link verifier at the end is what catches it if the mapping
+and the filenames ever stop agreeing.
+
   python tools/build_deploy.py
   python tools/build_deploy.py --check-only
+  python tools/build_deploy.py --no-optimise
 """
-import pathlib, shutil, sys, re, urllib.parse, argparse
+import pathlib, shutil, sys, re, urllib.parse, argparse, io
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
@@ -49,10 +68,19 @@ DIST = ROOT / "dist"
 INCLUDE_GLOBS = ["*.html", "*.css", "*.js", "*.txt", "*.xml", "*.svg", "*.jpg",
                  "*.png", "*.webp", "*.ico", "*.woff2"]
 INCLUDE_DIRS = ["css", "js", "img"]
+# ".html" comes out of "*.html" by dropping the asterisk and nothing else.
+# lstrip("*.") also ate the dot and matched nothing, which put a dist/ with 116
+# files and no pages in it - see the page-count guard in main().
 EXTS = {g.lstrip("*") for g in INCLUDE_GLOBS}
 EXCLUDE_NAMES = {".git", "__pycache__", "tools", "data", "node_modules", "dist",
-                  ".github", "audit_out"}
+                  ".github", "audit_out", "__dist__"}
 LIMIT = 1000
+
+# only these get re-encoded. the mascot and the logo are vectors, already a few
+# hundred bytes, and re-rendering them would be a waste of a build.
+PHOTO_DIR = "img/editorial"
+IMG_MAX_W = 1400
+IMG_Q = 76
 
 HEADERS = """\
 # Cloudflare Pages headers. Static assets are content-addressed by the build in
@@ -89,21 +117,117 @@ def wanted(p: pathlib.Path):
     return p.suffix.lower() in EXTS
 
 
-def assemble():
+def photos():
+    d = ROOT / PHOTO_DIR
+    if not d.is_dir():
+        return []
+    return sorted(p for p in d.iterdir()
+                  if p.suffix.lower() in (".jpg", ".jpeg", ".png") and p.is_file())
+
+
+def reencode(src: pathlib.Path) -> tuple[bytes, int, int]:
+    """Return (webp bytes, new width, new height) for one cached photograph."""
+    from PIL import Image
+    im = Image.open(src)
+    # a palette PNG with transparency has to become RGBA before it goes to
+    # WebP, or Pillow warns and the alpha silently flattens onto black
+    if im.mode in ("P", "LA") or (im.mode == "P" and "transparency" in im.info):
+        im = im.convert("RGBA")
+    elif im.mode != "RGB":
+        im = im.convert("RGB")
+    w0, h0 = im.size
+    if im.width > IMG_MAX_W:
+        im.thumbnail((IMG_MAX_W, 10_000), Image.LANCZOS)
+    b = io.BytesIO()
+    im.save(b, "WEBP", quality=IMG_Q, method=4)
+    return b.getvalue(), im.width, im.height
+
+
+def optimise():
+    """Write the optimised photographs into dist/ and return {old: new}.
+
+    The mapping is what the HTML rewrite uses, so the filenames and the
+    references cannot drift apart. If a file comes out bigger as WebP the
+    original is copied instead and the name is left alone, because paying more
+    bytes for a worse-looking image is not a trade anyone wants."""
+    from PIL import Image, features
+    if not features.check("webp"):
+        print("  Pillow has no webp support - copying photographs unchanged")
+        return {}
+    mapping, before, after, skipped = {}, 0, 0, 0
+    outdir = DIST / PHOTO_DIR
+    outdir.mkdir(parents=True, exist_ok=True)
+    for src in photos():
+        before += src.stat().st_size
+        try:
+            blob, w, h = reencode(src)
+        except Exception as e:
+            shutil.copy2(src, outdir / src.name)
+            skipped += 1
+            continue
+        if len(blob) >= src.stat().st_size and src.suffix.lower() != ".png":
+            # a tiny or already-efficient file; leave it be
+            shutil.copy2(src, outdir / src.name)
+            skipped += 1
+            continue
+        name = src.stem + ".webp"
+        (outdir / name).write_bytes(blob)
+        after += len(blob)
+        mapping[src.name] = name
+    print(f"  {len(mapping)} photographs -> webp at {IMG_MAX_W}px q{IMG_Q}: "
+          f"{before/1024/1024:.1f} MB -> {after/1024/1024:.1f} MB"
+          + (f", {skipped} left alone" if skipped else ""))
+    return mapping
+
+
+def rewrite_photos(mapping):
+    """Point every reference at the optimised file.
+
+    Without this the WebP files sit in dist/ doing nothing, because 269 pages
+    still ask for the .jpg. This is the step that makes the saving real, and
+    the link verifier at the end is what catches it if the two ever disagree.
+    """
+    if not mapping:
+        return 0
+    n = 0
+    for f in DIST.rglob("*.html"):
+        t = f.read_text(encoding="utf-8", errors="replace")
+        orig = t
+        for old, new in mapping.items():
+            t = t.replace(f"{PHOTO_DIR}/{old}", f"{PHOTO_DIR}/{new}")
+        if t != orig:
+            f.write_text(t, encoding="utf-8")
+            n += 1
+    print(f"  repointed photographs in {n} pages")
+    return n
+
+
+def assemble(do_optimise=True):
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
     n = 0
+    mapping = {}
+    if do_optimise:
+        DIST.mkdir(parents=True, exist_ok=True)
+        mapping = optimise()
     for p in ROOT.rglob("*"):
         if not p.is_file() or ".git" in p.parts:
             continue
         rel = p.relative_to(ROOT)
         if not wanted(p):
             continue
+        if do_optimise and mapping and p.parent == ROOT / PHOTO_DIR \
+                and p.name in mapping:
+            continue                      # already written as webp
         dst = DIST / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(p, dst)
         n += 1
+    if do_optimise:
+        n += len(mapping) - sum(1 for p in (DIST / PHOTO_DIR).iterdir()
+                                if p.suffix.lower() != ".webp")
+    rewrite_photos(mapping)
     (DIST / "_headers").write_text(HEADERS, encoding="utf-8")
     n += 1
     (DIST / "_redirects").write_text(
@@ -163,9 +287,11 @@ def verify():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check-only", action="store_true")
+    ap.add_argument("--no-optimise", action="store_true",
+                    help="copy the photographs as they are, no webp")
     a = ap.parse_args()
     if not a.check_only:
-        n = assemble()
+        n = assemble(not a.no_optimise)
         print(f"assembled {n} files -> {DIST}")
     else:
         n = sum(1 for p in DIST.rglob("*") if p.is_file())
@@ -199,4 +325,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
 
