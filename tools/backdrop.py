@@ -114,9 +114,13 @@ def _ai(p, W, H, rng):
             f'opacity="{rng.uniform(.34,.9):.2f}" class="pf" '
             f'style="animation:orb {dur:.1f}s ease-in-out infinite;'
             f'animation-delay:{-rng.uniform(0,dur):.1f}s"/>')
-    # one-way messages
+    # one-way messages, kept OUT of the type band. The type occupies roughly
+    # 230..1310 of 1920, so a rectangle placed anywhere in 0.12H..0.68H cuts
+    # straight across 60-90px of type - which is what the first render did, and
+    # it read as noise rather than as a background.
     for i in range(7):
-        x, y = rng.uniform(W * .04, W * .58), rng.uniform(H * .12, H * .8)
+        x = rng.uniform(W * .42, W * .80)
+        y = rng.uniform(H * .70, H * .93)
         w, h = rng.uniform(150, 330), rng.uniform(54, 96)
         dur = rng.uniform(11, 21)
         parts.append(

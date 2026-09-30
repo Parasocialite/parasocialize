@@ -351,11 +351,14 @@ text{{white-space:pre}}
 /* SAFE stops at 1310, so 1310-1920 is 610px of clear stage under the type.
    Iyi is centred in that band and given 480 of it, which is the largest the
    frame allows without the bloom clipping the bottom edge. */
-.iyi-stage{{position:absolute;left:{x0}px;top:1330px;width:620px;height:500px;
+.iyi-stage{{position:absolute;left:{x0}px;top:1300px;width:620px;height:520px;
   pointer-events:none}}
 .iyi-stage .act{{position:absolute;inset:0}}
-.iyi-stage .act-body{{position:absolute;left:46%;top:52%;width:480px;height:480px;
-  margin:-240px 0 0 -240px}}
+/* 480 in a 500px stage leaves 10px, and the pivot's recoil scales the
+   character to 1.1 - so it clipped against the bottom of the frame. 430 with
+   the stage top raised to 1300 leaves room for the overshoot. */
+.iyi-stage .act-body{{position:absolute;left:46%;top:50%;width:430px;height:430px;
+  margin:-215px 0 0 -215px}}
 .iyi-stage .act-body>svg{{width:100%;height:100%;display:block;overflow:visible}}
 .iyi-stage .act-ping{{position:absolute;left:50%;top:50%;width:300px;height:300px;
   margin:-150px 0 0 -150px;border-radius:50%;border:2px solid var(--teal, #00e8c0);
@@ -463,19 +466,25 @@ def concat_manifest(script: dict, d: pathlib.Path, scenes: list[dict],
     Durations come from the narration, so the visuals change when the voice
     changes without anyone editing a timing by hand.
     """
-    lines = ["# concat demuxer: every motion frame, held for its share of the scene"]
+    lines = ["# concat demuxer: every motion frame, held for its share of the scene",
+             "# paths are relative to THIS file, which is the episode root, so",
+             "# they need the scenes/ prefix. ffmpeg resolved bare filenames",
+             "# against the episode root too and failed with 'Impossible to",
+             "# open 00_0.png' - the storyboard masked it, because the storyboard",
+             "# globs the directory directly and never reads the manifest."]
+    rel = "scenes/"
     for sc, c in zip(scenes, clips):
         shots = sc["shots"]
         if not shots:
             continue
         per = (c["dur"] or 1.0) / len(shots)
         for j, png in enumerate(shots):
-            lines.append(f"file '{png.name}'")
+            lines.append(f"file '{rel}{png.name}'")
             lines.append(f"duration {per:.4f}")
     # the concat demuxer ignores the last duration unless the final file is
     # repeated, so it is
     if scenes and scenes[-1]["shots"]:
-        lines.append(f"file '{scenes[-1]['shots'][-1].name}'")
+        lines.append(f"file '{rel}{scenes[-1]['shots'][-1].name}'")
     mf = d / "frames.txt"
     mf.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return mf
@@ -635,12 +644,12 @@ def assemble(script: dict, d: pathlib.Path, clips: list[dict],
         "#\n"
         "cd " + str(d) + "\n"
         f'ffmpeg -y -f concat -safe 0 -i "{mf.name}" -i narration.wav \\\n'
-        f'  -vsync vfr -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow \\\n'
+        f'  -fps_mode vfr  # -vsync was REMOVED in ffmpeg 9; this is the replacement -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow \\\n'
         f'  -c:a aac -b:a 128k -shortest -movflags +faststart "{script["id"]}.mp4"\n'
         "#\n"
         "# horizontal master for youtube, same frames, same audio:\n"
         f'ffmpeg -y -f concat -safe 0 -i "{mf.name}" -i narration.wav \\\n'
-        f'  -vsync vfr -vf "scale=1920:1080:force_original_aspect_ratio=increase,'
+        f'  -fps_mode vfr  # -vsync was REMOVED in ffmpeg 9; this is the replacement -vf "scale=1920:1080:force_original_aspect_ratio=increase,'
         f'crop=1920:1080" -c:v libx264 -pix_fmt yuv420p -crf 20 \\\n'
         f'  -c:a aac -b:a 128k -shortest "{script["id"]}-16x9.mp4"\n'
         "#\n"

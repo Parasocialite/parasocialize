@@ -3,12 +3,12 @@
 #
 cd C:\Users\paras\Documents\Default Project\parasocialize\episode\eliza
 ffmpeg -y -f concat -safe 0 -i "frames.txt" -i narration.wav \
-  -vsync vfr -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow \
+  -fps_mode vfr  # -vsync was REMOVED in ffmpeg 9; this is the replacement -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow \
   -c:a aac -b:a 128k -shortest -movflags +faststart "eliza.mp4"
 #
 # horizontal master for youtube, same frames, same audio:
 ffmpeg -y -f concat -safe 0 -i "frames.txt" -i narration.wav \
-  -vsync vfr -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -c:v libx264 -pix_fmt yuv420p -crf 20 \
+  -fps_mode vfr  # -vsync was REMOVED in ffmpeg 9; this is the replacement -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -c:v libx264 -pix_fmt yuv420p -crf 20 \
   -c:a aac -b:a 128k -shortest "eliza-16x9.mp4"
 #
 # 36 motion frames over 51.57s of narration
