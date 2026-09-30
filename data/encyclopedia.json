@@ -899,9 +899,28 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "American serials begin in 1912 as publisher-sponsored film adaptations of their own magazine characters, to build interest and boost circulation - the parasocial mechanism, documented, at the start of cinema",
+          "citation": "Serial film. Wikipedia, citing trade histories. Serials in the United States first came about in 1912 as extensions of magazine and newspaper stories; publishers sponsored live-action adventures of the printed characters to boost circulation.",
+          "url": "https://en.wikipedia.org/wiki/Serial_film",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The first serial: What Happened to Mary (1912), Edison, 12 reels, Mary Fuller, released one chapter per month alongside the story in McClure's Ladies' World from 26 July 1912",
+          "citation": "Serial Films: Part 1. filmsite.org.",
+          "url": "https://www.filmsite.org/serialfilms.html",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The early audience was female - thrills rather than blood-and-thunder - and the format ran to 1956",
+          "citation": "EBSCO Research Starters, Film Serials.",
+          "url": "https://www.ebsco.com/research-starters/film/film-serials",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "green-shield",
@@ -1198,9 +1217,28 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Superman's first comic-book appearance was 1938; newspapers in early 1939, radio February 1940",
+          "citation": "EBSCO Research Starters, Film Serials (chronology of the character's media appearances).",
+          "url": "https://www.ebsco.com/research-starters/film/film-serials",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Republic Pictures negotiated with Jerry Siegel and Joe Shuster for a serial, and went to another hero when they demanded script control - creators versus commercial terms, early",
+          "citation": "EBSCO Research Starters, Film Serials.",
+          "url": "https://www.ebsco.com/research-starters/film/film-serials",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The genre that made the character worked on television, not film: Columbia's 1948 Superman used cartoon animation for flight because effects were unaffordable",
+          "citation": "Film International, 'A World of Constant Peril: Seriality, Narrative and Closure' (2014).",
+          "url": "https://filmint.nu/a-world-of-constant-peril-seriality-narrative-and-closure/",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "protagonist-parasocial",
@@ -3782,9 +3820,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Fighting about a stranger is norm enforcement, not expression: accusation triggers moral outrage, the network piles on, and the target self-censors. Interviews n=28 plus n=9 Trust and Safety workers",
+          "citation": "Marwick, A. E. Morally Motivated Networked Harassment as Normative Reinforcement.",
+          "url": "https://cdr.lib.unc.edu/downloads/s7526p317",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Sanctioning a stranger is an identity signal, and is read as one by everyone watching",
+          "citation": "Ahn, C., Lelkes, Y., & Levendusky, M. S. (2024). Sanctioning political speech on social media is driven by partisan norms and identity signaling.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "doxxing",
@@ -3888,9 +3939,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Doxxing and public shaming are the standard repertoire of morally motivated networked harassment (n=28 targets, n=9 platform Trust and Safety staff)",
+          "citation": "Marwick, A. E. Morally Motivated Networked Harassment as Normative Reinforcement.",
+          "url": "https://cdr.lib.unc.edu/downloads/s7526p317",
+          "status": "retrievable"
+        },
+        {
+          "claim": "People judge harassment MORE justified and more deserved - though not more appropriate - when the target has done something. Retribution drives it (n=160, n=432)",
+          "citation": "Blackwell, L., Chen, T., Schoenebeck, S., & Lampe, C. When Online Harassment Is Perceived as Justified. ICWSM.",
+          "url": "https://ojs.aaai.org/index.php/ICWSM/article/download/15036/14886",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "the-closure-gift",
@@ -4034,9 +4098,28 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The mechanism: people are reluctant to be the FIRST to sanction anyone, but pile on once others have acted. Three experiments.",
+          "citation": "Ahn, C., Lelkes, Y., & Levendusky, M. S. (2024). Sanctioning political speech on social media is driven by partisan norms and identity signaling.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Pile-ons are learned, not spontaneous: positive social feedback for outrage raises future outrage, and users conform to their network's expressive norm",
+          "citation": "Brady, N., et al. (2021). How social learning amplifies moral outrage expression in online social networks. Science Advances, 7(28), eabe5641.",
+          "url": "https://doi.org/10.1126/sciadv.abe5641",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The outrage-mob shape, stated plainly: a few condemn, then more pile on with little regard for evidence (n=10,343)",
+          "citation": "How reputation does (and does not) drive people to punish without looking. (2023).",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10334795/",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "tony-stark",
