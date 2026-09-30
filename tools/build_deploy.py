@@ -60,7 +60,7 @@ and the filenames ever stop agreeing.
   python tools/build_deploy.py --check-only
   python tools/build_deploy.py --no-optimise
 """
-import pathlib, shutil, sys, re, urllib.parse, argparse, io
+import pathlib, shutil, sys, re, urllib.parse, argparse, io, json
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
@@ -234,14 +234,31 @@ def assemble(do_optimise=True):
     rewrite_photos(mapping)
     (DIST / "_headers").write_text(HEADERS, encoding="utf-8")
     n += 1
-    (DIST / "_redirects").write_text(
-        "# Single-page-ish: serve directory indexes the way the site is built.\n"
-        "/index.html  /  301\n"
-        "# The ten categories were called 'aisles' until 2026-09-30. The word was\n"
-        "# doing no work and the nav already said SECTIONS, so the URL followed.\n"
-        "/aisle/       /sections/  301\n"
-        "/aisle/*      /sections/:splat  301\n",
-        encoding="utf-8")
+    # /e/<id> - a short path to an encyclopedia entry, for video end cards.
+    #
+    # The episodes already ended on "Entry 53 of 175. ELIZA" but pointed at a
+    # bare domain, so a viewer who wanted the entry had to guess the path. A
+    # full /encyclopedia/<id>.html is unreadable burned into a 1080x1920 frame,
+    # and a QR code on a phone is worse. /e/eliza is four characters and goes
+    # straight there.
+    #
+    # Generated for every entry rather than only the three with episodes, so a
+    # future episode needs no deploy change to get a working end card.
+    enc_path = ROOT / "data" / "encyclopedia.json"
+    lines = [
+        "# Single-page-ish: serve directory indexes the way the site is built.",
+        "/index.html  /  301",
+        "# The ten categories were called 'aisles' until 2026-09-30. The word was",
+        "# doing no work and the nav already said SECTIONS, so the URL followed.",
+        "/aisle/       /sections/  301",
+        "/aisle/*      /sections/:splat  301",
+        "# Short path to an encyclopedia entry, for video end cards and citations.",
+    ]
+    if enc_path.is_file():
+        entries = json.loads(enc_path.read_text(encoding="utf-8"))["entries"]
+        for e in sorted(entries, key=lambda x: x["id"]):
+            lines.append(f"/e/{e['id']}  /encyclopedia/{e['id']}.html  301")
+    (DIST / "_redirects").write_text("\n".join(lines) + "\n", encoding="utf-8")
     n += 1
     return n
 
@@ -334,6 +351,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 

@@ -184,7 +184,12 @@ def build_script(eid: str, enc: dict) -> dict | None:
     scenes.append({
         "kind": "end", "text": title, "sub": f"ENTRY {n} OF {len(enc['entries'])}",
         "accent": accent, "year": year,
-        "url": "parasocialize.com",
+        # A short path, not the bare domain. This card already says which entry
+        # it is - "Entry 53 of 175, ELIZA" - and then made the viewer type a
+        # guess to reach it, which is the whole loop going nowhere. /e/<id> is
+        # four characters, legible burned into a vertical frame, and it is
+        # generated for every entry in _redirects rather than per episode.
+        "url": f"parasocialize.com/e/{eid}",
     })
 
     # narration per scene

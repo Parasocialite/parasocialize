@@ -65,13 +65,22 @@ sys.path.insert(0, str(ROOT / "tools"))
 import mascot as M  # noqa: E402
 
 # scene kind -> (mood, behaviour)
+#
+# The end card used to be "love". That put heart eyes on the closing frame of
+# every episode, which is the single most prominent frame in the video and the
+# one most likely to be screenshotted - and it is not a romantic beat, it is a
+# sign-off. Hearts are reserved for an actual romantic or affectionate moment;
+# spending them on the default sign-off devalues the one expression that means
+# something and makes the mascot read as a sticker. The end card is the moment
+# the viewer is being asked to go and read something, so it gets "watch": the
+# default posture, looking back at you, which is also the whole thesis.
 BEHAVIOUR = {
     "hook":  ("watch", "alert"),
     "card":  ("watch", "idle"),
     "beat":  ("watch", "idle"),
     "pivot": ("wink",  "react"),
     "why":   ("watch", "reflect"),
-    "end":   ("love",  "idle"),
+    "end":   ("watch", "idle"),
 }
 
 # how hot the character runs, by lane. manipulation is twitchy, consideration

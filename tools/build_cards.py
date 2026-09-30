@@ -1745,6 +1745,10 @@ def build_entry(ent, enc, data, manifest=None):
     lanes = ent.get("lanes") or []
     med = ent.get("medium") or []
     year = ent.get("year")
+    # What to call the video in the link text. Taken from the entry's own title
+    # rather than hardcoded, so an entry that gets an episode of a different
+    # shape does not end up labelled "the ELIZA" next to something unrelated.
+    vid_label = "fifty-second version"
 
     # ---- outgoing and incoming edges -----------------------------------------
     out_edges = [(x["to"], x.get("type", "related")) for x in rels
@@ -1887,6 +1891,28 @@ def build_entry(ent, enc, data, manifest=None):
   <div class="ent-prov">
     <p class="kicker">Provenance · {len(srcs)} source record(s)</p>
     <ul class="prov">{''.join(items)}</ul>
+  </div>"""
+
+    # ---- the return leg of the video loop ------------------------------------
+    # The episodes end on a card naming this entry, and for a long time that was
+    # the only half of the loop that existed. A viewer could be told the entry
+    # number and be given nowhere to go; a reader landing here from search had no
+    # way back to the fifty-second version, which is the thing most likely to
+    # make them stay.
+    #
+    # Rendered only when the entry carries a `video` URL. The three episodes are
+    # cut but not yet published, and a link to an unpublished video is a dead
+    # link - worse than no link, because it looks like an oversight. So the field
+    # is empty until there is something real to point at, and adding a URL is a
+    # one-line data change that makes the block appear on the next build.
+    vid = (ent.get("video") or "").strip()
+    if vid:
+        prov += f"""
+  <div class="ent-video">
+    <p class="kicker">Watch</p>
+    <p><a class="btn btn-solid" href="{esc(vid)}">The {esc(vid_label)}</a></p>
+    <p class="countline">Fifty seconds, vertical. The short version of this entry,
+    and the way most people meet it.</p>
   </div>"""
 
     # ---- where it sits in time ---------------------------------------------

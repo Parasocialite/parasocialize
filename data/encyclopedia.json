@@ -51,7 +51,8 @@
       "relations": [],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "myth-and-ritual",
@@ -89,7 +90,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "p",
@@ -138,7 +140,8 @@
       "year": -200,
       "era": "Faith",
       "lanes": [
-        "application"
+        "application",
+        "crossover"
       ],
       "sections": [
         "world",
@@ -163,7 +166,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-priest",
@@ -198,7 +202,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "margery-kempe",
@@ -387,7 +392,8 @@
       "relations": [],
       "sources": [],
       "media_inferred": true,
-      "provenance": "thesis"
+      "provenance": "thesis",
+      "source": ""
     },
     {
       "id": "don-quixote",
@@ -598,7 +604,8 @@
       "year": 1880,
       "era": "Sport",
       "lanes": [
-        "application"
+        "application",
+        "grief"
       ],
       "sections": [
         "world",
@@ -614,7 +621,8 @@
       "relations": [],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "trading-stamps",
@@ -652,7 +660,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "comic-strip",
@@ -689,7 +698,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "hitchcock",
@@ -736,7 +746,8 @@
       "year": 1900,
       "era": "Sport",
       "lanes": [
-        "application"
+        "application",
+        "grief"
       ],
       "sections": [
         "crossover",
@@ -762,7 +773,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-landlord",
@@ -796,7 +808,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-teacher",
@@ -830,7 +843,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-transfer",
@@ -839,6 +853,7 @@
       "year": 1900,
       "era": "Sport",
       "lanes": [
+        "grief",
         "manipulation"
       ],
       "sections": [
@@ -864,7 +879,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "film-serial",
@@ -920,7 +936,8 @@
         }
       ],
       "media_inferred": true,
-      "provenance": "sourced"
+      "provenance": "sourced",
+      "source": ""
     },
     {
       "id": "green-shield",
@@ -953,7 +970,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "fan-mail",
@@ -1007,7 +1025,8 @@
       "year": 1920,
       "era": "Sport",
       "lanes": [
-        "application"
+        "application",
+        "grief"
       ],
       "sections": [
         "idol",
@@ -1036,7 +1055,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "first-fans",
@@ -1073,7 +1093,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "cliffhanger",
@@ -1137,7 +1158,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "soap-opera",
@@ -1238,7 +1260,8 @@
         }
       ],
       "media_inferred": true,
-      "provenance": "sourced"
+      "provenance": "sourced",
+      "source": ""
     },
     {
       "id": "protagonist-parasocial",
@@ -1275,7 +1298,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": "thesis"
+      "provenance": "thesis",
+      "source": ""
     },
     {
       "id": "sinatra-bobby-soxers",
@@ -1312,7 +1336,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "will-and-want",
@@ -1551,7 +1576,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": "thesis"
+      "provenance": "thesis",
+      "source": ""
     },
     {
       "id": "the-local-anchor",
@@ -1560,7 +1586,8 @@
       "year": 1950,
       "era": "Broadcast",
       "lanes": [
-        "application"
+        "application",
+        "grief"
       ],
       "sections": [
         "crossover"
@@ -1625,7 +1652,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "macy",
@@ -1830,7 +1858,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "gomer-pyle",
@@ -1839,7 +1868,8 @@
       "year": 1960,
       "era": "Television",
       "lanes": [
-        "application"
+        "application",
+        "crossover"
       ],
       "sections": [
         "character"
@@ -1863,7 +1893,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-politician",
@@ -2027,7 +2058,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "eliza",
@@ -2131,7 +2163,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "characters-move-in",
@@ -2316,7 +2349,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "elvis-hologram",
@@ -2400,7 +2434,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-many-to-many",
@@ -2456,7 +2491,8 @@
       "year": 1978,
       "era": "Cinema",
       "lanes": [
-        "application"
+        "application",
+        "grief"
       ],
       "sections": [
         "character"
@@ -2480,7 +2516,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-uncanny-corridor",
@@ -2604,7 +2641,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "airline-miles",
@@ -2637,7 +2675,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "club-card",
@@ -2674,7 +2713,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": "thesis"
+      "provenance": "thesis",
+      "source": ""
     },
     {
       "id": "mash-finale",
@@ -2683,7 +2723,7 @@
       "year": 1983,
       "era": "Television",
       "lanes": [
-        "application"
+        "grief"
       ],
       "sections": [
         "grief",
@@ -2708,7 +2748,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "macy-paradox",
@@ -2865,7 +2906,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "comfort-watch",
@@ -2967,7 +3009,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "shipping",
@@ -3001,7 +3044,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "stalker-law",
@@ -3010,7 +3054,8 @@
       "year": 1990,
       "era": "Legislation",
       "lanes": [
-        "consideration"
+        "consideration",
+        "danger"
       ],
       "sections": [
         "danger",
@@ -3039,7 +3084,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "saturday-cartoons-top8",
@@ -3169,7 +3215,7 @@
       "year": 1994,
       "era": "Music",
       "lanes": [
-        "application"
+        "grief"
       ],
       "sections": [
         "grief",
@@ -3198,7 +3244,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "killing-off",
@@ -3207,6 +3254,7 @@
       "year": 1994,
       "era": "Fandom",
       "lanes": [
+        "grief",
         "manipulation"
       ],
       "sections": [
@@ -3236,7 +3284,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "chatterbots",
@@ -3273,7 +3322,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "clerks-beat-algorithms",
@@ -3371,7 +3421,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "boybands",
@@ -3405,7 +3456,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "webcasting",
@@ -3438,7 +3490,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "anime-import",
@@ -3472,7 +3525,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "forum-culture",
@@ -3481,7 +3535,7 @@
       "year": 1999,
       "era": "Internet",
       "lanes": [
-        "consideration"
+        "contest"
       ],
       "sections": [
         "contest",
@@ -3510,7 +3564,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "sasaeng",
@@ -3563,6 +3618,7 @@
       "year": 2000,
       "era": "Korean fandom",
       "lanes": [
+        "danger",
         "manipulation"
       ],
       "sections": [
@@ -3588,7 +3644,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "transparasocial",
@@ -3672,7 +3729,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "reality-celebrity",
@@ -3711,7 +3769,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "second-life",
@@ -3720,7 +3779,8 @@
       "year": 2003,
       "era": "Virtual worlds",
       "lanes": [
-        "application"
+        "application",
+        "companion"
       ],
       "sections": [
         "companion",
@@ -3750,7 +3810,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "michael-jackson",
@@ -3759,7 +3820,8 @@
       "year": 2004,
       "era": "Music",
       "lanes": [
-        "application"
+        "grief",
+        "danger"
       ],
       "sections": [
         "grief",
@@ -3784,7 +3846,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "contest",
@@ -3878,7 +3941,8 @@
       "year": 2005,
       "era": "Concerts",
       "lanes": [
-        "manipulation"
+        "danger",
+        "grief"
       ],
       "sections": [
         "danger",
@@ -3903,7 +3967,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "fandom-doxxing",
@@ -3912,7 +3977,8 @@
       "year": 2005,
       "era": "Internet",
       "lanes": [
-        "manipulation"
+        "danger",
+        "contest"
       ],
       "sections": [
         "danger",
@@ -3954,7 +4020,8 @@
         }
       ],
       "media_inferred": true,
-      "provenance": "sourced"
+      "provenance": "sourced",
+      "source": ""
     },
     {
       "id": "the-closure-gift",
@@ -3987,7 +4054,8 @@
         "technology"
       ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "youtube-launch",
@@ -4024,7 +4092,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-phone",
@@ -4072,6 +4141,7 @@
       "year": 2008,
       "era": "Internet",
       "lanes": [
+        "contest",
         "manipulation"
       ],
       "sections": [
@@ -4119,7 +4189,8 @@
         }
       ],
       "media_inferred": true,
-      "provenance": "sourced"
+      "provenance": "sourced",
+      "source": ""
     },
     {
       "id": "tony-stark",
@@ -4154,7 +4225,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "bieber-effect",
@@ -4163,7 +4235,8 @@
       "year": 2009,
       "era": "Live",
       "lanes": [
-        "application"
+        "application",
+        "danger"
       ],
       "sections": [
         "creator"
@@ -4187,7 +4260,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "attention-economy",
@@ -4242,7 +4316,7 @@
       "year": 2010,
       "era": "Korean fandom",
       "lanes": [
-        "manipulation"
+        "danger"
       ],
       "sections": [
         "danger",
@@ -4267,7 +4341,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "loyalty-dark-pattern",
@@ -4304,7 +4379,8 @@
         "technology"
       ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "paid-intimacy",
@@ -4394,7 +4470,8 @@
       "year": 2010,
       "era": "Merch",
       "lanes": [
-        "manipulation"
+        "manipulation",
+        "grief"
       ],
       "sections": [
         "grief",
@@ -4419,7 +4496,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-reply-heres-watching",
@@ -4428,7 +4506,8 @@
       "year": 2010,
       "era": "Internet",
       "lanes": [
-        "consideration"
+        "contest",
+        "creator"
       ],
       "sections": [
         "contest",
@@ -4457,7 +4536,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-subscription-box",
@@ -4490,7 +4570,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "continuity",
@@ -4533,7 +4614,7 @@
       "year": 2011,
       "era": "Internet",
       "lanes": [
-        "consideration"
+        "contest"
       ],
       "sections": [
         "contest",
@@ -4562,7 +4643,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "siri",
@@ -4571,7 +4653,8 @@
       "year": 2011,
       "era": "Virtual worlds",
       "lanes": [
-        "application"
+        "application",
+        "crossover"
       ],
       "sections": [
         "companion",
@@ -4601,7 +4684,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "twitch-launch",
@@ -4638,7 +4722,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "fandom-wars",
@@ -4647,6 +4732,7 @@
       "year": 2012,
       "era": "Assembled fandom",
       "lanes": [
+        "contest",
         "manipulation"
       ],
       "sections": [
@@ -4675,7 +4761,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "swatting",
@@ -4684,7 +4771,7 @@
       "year": 2013,
       "era": "Gaming",
       "lanes": [
-        "manipulation"
+        "danger"
       ],
       "sections": [
         "danger",
@@ -4709,7 +4796,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "gamergate",
@@ -4718,7 +4806,8 @@
       "year": 2014,
       "era": "Internet",
       "lanes": [
-        "consideration"
+        "contest",
+        "danger"
       ],
       "sections": [
         "contest"
@@ -4746,7 +4835,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "podcast-intimacy",
@@ -4944,7 +5034,8 @@
         "technology"
       ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "live-commentary",
@@ -5035,6 +5126,7 @@
       "year": 2015,
       "era": "Internet",
       "lanes": [
+        "contest",
         "manipulation"
       ],
       "sections": [
@@ -5060,7 +5152,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "twitch-subs",
@@ -5219,7 +5312,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "pokemon-go-incident",
@@ -5228,6 +5322,7 @@
       "year": 2016,
       "era": "Games",
       "lanes": [
+        "danger",
         "manipulation"
       ],
       "sections": [
@@ -5253,7 +5348,8 @@
         "games"
       ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "prince",
@@ -5262,7 +5358,7 @@
       "year": 2016,
       "era": "Music",
       "lanes": [
-        "application"
+        "grief"
       ],
       "sections": [
         "grief",
@@ -5287,7 +5383,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "tay",
@@ -5296,6 +5393,7 @@
       "year": 2016,
       "era": "AI",
       "lanes": [
+        "danger",
         "consideration"
       ],
       "sections": [
@@ -5329,6 +5427,7 @@
       "year": 2016,
       "era": "Platforms",
       "lanes": [
+        "contest",
         "manipulation"
       ],
       "sections": [
@@ -5354,7 +5453,8 @@
         "technology"
       ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "vtuber",
@@ -5479,7 +5579,8 @@
       "year": 2017,
       "era": "Internet",
       "lanes": [
-        "consideration"
+        "contest",
+        "danger"
       ],
       "sections": [
         "contest",
@@ -5504,7 +5605,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "replika",
@@ -5555,7 +5657,7 @@
     },
     {
       "id": "replika-launch",
-      "title": "The launch",
+      "title": "Replika",
       "kind": "event",
       "year": 2017,
       "era": "AI",
@@ -5589,7 +5691,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "avengers-endgame",
@@ -5598,6 +5701,7 @@
       "year": 2019,
       "era": "Cinema",
       "lanes": [
+        "grief",
         "manipulation"
       ],
       "sections": [
@@ -5623,7 +5727,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "billi-eilish",
@@ -5632,7 +5737,8 @@
       "year": 2019,
       "era": "Music",
       "lanes": [
-        "manipulation"
+        "danger",
+        "contest"
       ],
       "sections": [
         "danger",
@@ -5657,7 +5763,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "got-finale",
@@ -5666,7 +5773,8 @@
       "year": 2019,
       "era": "Television",
       "lanes": [
-        "application"
+        "contest",
+        "grief"
       ],
       "sections": [
         "character"
@@ -5690,7 +5798,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "grief-extraction",
@@ -5781,7 +5890,7 @@
       "year": 2020,
       "era": "Sport",
       "lanes": [
-        "application"
+        "grief"
       ],
       "sections": [
         "grief",
@@ -5806,7 +5915,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "parasocial-consent",
@@ -5815,7 +5925,8 @@
       "year": 2020,
       "era": "Ethics",
       "lanes": [
-        "consideration"
+        "consideration",
+        "danger"
       ],
       "sections": [
         "danger",
@@ -5844,7 +5955,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": "thesis"
+      "provenance": "thesis",
+      "source": ""
     },
     {
       "id": "pokimane",
@@ -5853,6 +5965,7 @@
       "year": 2021,
       "era": "Live",
       "lanes": [
+        "danger",
         "consideration"
       ],
       "sections": [
@@ -5877,7 +5990,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "characterai",
@@ -5886,7 +6000,8 @@
       "year": 2022,
       "era": "AI",
       "lanes": [
-        "application"
+        "application",
+        "danger"
       ],
       "sections": [
         "companion"
@@ -5914,7 +6029,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-ai-assistant",
@@ -5953,7 +6069,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "vshojo",
@@ -5962,7 +6079,8 @@
       "year": 2022,
       "era": "Live",
       "lanes": [
-        "manipulation"
+        "manipulation",
+        "danger"
       ],
       "sections": [
         "creator"
@@ -6038,6 +6156,7 @@
       "year": 2023,
       "era": "Television",
       "lanes": [
+        "grief",
         "application"
       ],
       "sections": [
@@ -6247,7 +6366,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "characterai-lawsuits",
@@ -6256,7 +6376,8 @@
       "year": 2024,
       "era": "AI",
       "lanes": [
-        "consideration"
+        "consideration",
+        "danger"
       ],
       "sections": [
         "companion",
@@ -6285,7 +6406,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "deepfake-grief",
@@ -6333,6 +6455,7 @@
       "year": 2024,
       "era": "AI",
       "lanes": [
+        "grief",
         "consideration"
       ],
       "sections": [
@@ -6358,7 +6481,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "streamer-ban",
@@ -6367,7 +6491,7 @@
       "year": 2024,
       "era": "Live",
       "lanes": [
-        "application"
+        "danger"
       ],
       "sections": [
         "creator"
@@ -6391,7 +6515,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "the-litigation-year",
@@ -6400,7 +6525,8 @@
       "year": 2024,
       "era": "Legislation",
       "lanes": [
-        "consideration"
+        "consideration",
+        "danger"
       ],
       "sections": [
         "danger",
@@ -6425,7 +6551,8 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "",
+      "source": ""
     },
     {
       "id": "creator-on-tv",
