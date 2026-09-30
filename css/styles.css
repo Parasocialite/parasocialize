@@ -91,6 +91,14 @@ img{max-width:100%;display:block}
 .nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--warm);transform:scaleX(0);transform-origin:left;transition:transform .2s}
 .nav a:hover,.nav a[aria-current="true"]{color:var(--paper)}
 .nav a:hover::after,.nav a[aria-current="true"]::after{transform:scaleX(1)}
+/* the name is never uppercased. Every other nav item is set in caps by the
+   rule above, which silently turned iYi into IYI - a name is not a label, and
+   the lowercase i on both sides is the whole mark. */
+.nav a.nav-iyi{
+  text-transform:none;letter-spacing:.01em;font-size:.82rem;
+  color:var(--hot);font-weight:600;
+}
+.nav a.nav-iyi::after{background:var(--neon)}
 .nav .cta{background:var(--warm);color:#1b1410;border-radius:99px;padding:9px 15px;font-weight:500}
 .nav .cta::after{display:none}
 .nav .cta:hover{background:var(--warm-hot);color:#1b1410}
@@ -126,23 +134,69 @@ img{max-width:100%;display:block}
 
 /* the mascot in the masthead: a flex item, not an image, so it scales with
    the wordmark and never needs a second asset */
-.mascot{display:block;flex:none;overflow:visible}
-.wm-mascot{margin-right:2px}
-.wordmark b{color:var(--paper);font-weight:700;letter-spacing:.04em}
+/* ---------- the iYi logotype ----------
+   The name is the drawing: i-Y-i. Two lowercase i for the two selves, a Y for
+   the fork where they diverge, and the dots on the i's do the work of the
+   catchlights. It is asymmetric for the same reason the face is - the left i is
+   the side that is present, the right i is smaller and dimmer - so the mark and
+   the mascot carry one idea in two registers.
 
-/* Iyi in the masthead, as a generated plate rather than the vector.
-   Deliberately smaller than the wordmark: at any size near the h1 it reads as a
-   second headline and the page loses its front door. At this size it reads as a
-   look. The edges are feathered because the plate is a square sitting on a
-   square page, and any difference in backdrop tone shows up as a visible box.
-   The picture element swaps in a static frame under prefers-reduced-motion,
-   which CSS cannot do for an animated WebP on its own. */
-.mascot-hero{margin:14px 0 -6px;display:flex;justify-content:center}
-.mascot-hero img{
-  width:clamp(168px,23vw,244px);height:auto;display:block;
-  -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 52%,transparent 74%);
-  mask-image:radial-gradient(circle at 50% 50%,#000 52%,transparent 74%);
+   It replaced a mascot in the nav for a measured reason rather than a taste one.
+   At 30px the mascot collapses into one smudge: the lobes merge, the pupils
+   merge with them, and the asymmetry that is the whole concept disappears. Type
+   has no such floor. So the nav carries the name, and the mascot is only used
+   where it is large enough to be a character. */
+/* the mascot as a figure, at sizes where it is a character rather than a
+   texture. overflow:visible matters - the bloom is a radial gradient larger
+   than the lobes, and without it the glow clips to the SVG box. The 30px nav
+   stamp is deliberately NOT this: it measures as an unreadable smudge, which is
+   why the nav carries the logotype instead. */
+.mascot{display:block;flex:none;overflow:visible}
+
+.iyiw{
+  display:inline-flex;align-items:baseline;line-height:.82;
+  font-family:var(--serif);font-weight:900;letter-spacing:-.02em;
+  font-size:1.02rem;
 }
+.iyiw-l{color:var(--hot)}
+.iyiw-y{
+  color:var(--neon);
+  /* the conduit: the fork is the point of the letter, so let it carry the
+     gradient the wordmark uses elsewhere and sit slightly proud of the i's */
+  background:linear-gradient(180deg,var(--hot) 0%,var(--neon) 55%,var(--violet) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  padding:0 .04em;
+}
+.iyiw-r{
+  /* the second side. Scale carries most of this, not opacity: at .5 the hot
+     orange turned muddy brown against the dark ground and read as a rendering
+     fault rather than as the dimmer half. Staying in the same hue at .72 keeps
+     it legibly the same letter, just less of it - which is the whole idea. */
+  color:var(--hot);opacity:.72;
+  transform:scale(.82);transform-origin:50% 62%;
+}
+
+.iyiw-hero{font-size:clamp(4.2rem,17vw,10.5rem);display:flex;justify-content:center}
+.iyiw-hero .iyiw-r{opacity:.7;transform:scale(.8)}
+.masthead-mark{margin:26px 0 6px;display:flex;justify-content:center}
+
+/* the wordmark strip: iYi, then the publication name as a quiet subtitle */
+.wordmark{display:inline-flex;align-items:center;gap:9px;text-decoration:none}
+.wordmark b{
+  color:var(--paper);font-weight:700;letter-spacing:.04em;
+  font-family:var(--label);font-size:.62rem;text-transform:uppercase;
+  padding-bottom:1px;
+}
+
+/* Iyi in a section head: the section's own expression, at a size that reads */
+.sec-head{display:flex;align-items:flex-start;justify-content:space-between;gap:26px}
+.sec-head-txt{min-width:0;flex:1}
+.sec-head-iyi{flex:none;opacity:.9;margin-top:2px}
+@media (max-width:640px){
+  .sec-head{gap:14px}
+  .sec-head-iyi svg{width:62px;height:62px}
+}
+
 
 /* ---------- the hub: ten tiles ---------- */
 /* Labels were the problem here, not the layout. Four tiers of tiny mono caps

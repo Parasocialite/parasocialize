@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-mascot.py - Iyi.
+mascot.py - iYi.
 
 An eight lying on its side. Which is also infinity. Which is also two eyes.
 
@@ -57,7 +57,7 @@ LX, RX = 42, 76          # lobe centres, 34 apart so they overlap into an eight
 # ---------------------------------------------------------------------------
 # TIMELESS PALETTE
 # Two stops, one warm family, nothing else. The four-stop orange->pink->purple
-# was the single most dated thing about Iyi: a multi-hue gradient is how this
+# was the single most dated thing about iYi: a multi-hue gradient is how this
 # decade looks, so it ages the character whether or not the rest survives.
 # Apricot into coral is just light falling on a warm surface, which is a much
 # older idea than any particular palette. Saturation and hue trends move; a
@@ -103,15 +103,22 @@ BLINK_CSS = """@keyframes iyi-breathe{0%,100%{transform:scale(1)}
 MASCOT_CSS = RIG_CSS + "\n" + BLINK_CSS
 
 
-def pupil(cx, cy, r, ink, hi=True):
+def pupil(cx, cy, r, ink, hi=True, spark=1.0):
     """Big warm pupil. Deliberately not a tiny dot in a big pale lobe - that
     reads as a googly eye and looks startled. A large dark pupil with a soft
-    highlight reads as warm, and warmth is the entire brief for this character."""
+    highlight reads as warm, and warmth is the entire brief for this character.
+
+    spark scales the catchlights. It is the quietest way to say one side of the
+    relationship is less present than the other: the pupil is the same size, but
+    only one of them catches the light. A mood can also set spark=0 to leave a
+    pupil matte, which reads as nobody home without needing a lid to do it.
+    """
     o = [f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{ink}"/>']
-    if hi:
-        o.append(f'<circle cx="{cx-r*0.32}" cy="{cy-r*0.36}" r="{r*0.34}" fill="#fffaf2"/>')
-        o.append(f'<circle cx="{cx+r*0.32}" cy="{cy+r*0.3}" r="{r*0.16}" fill="#fffaf2" opacity=".7"/>')
-        o.append(f'<circle cx="{cx-r*0.08}" cy="{cy+r*0.44}" r="{r*0.1}" fill="#fffaf2" opacity=".45"/>')
+    if hi and spark > 0.02:
+        s = max(0.0, min(1.0, spark))
+        o.append(f'<circle cx="{cx-r*0.32}" cy="{cy-r*0.36}" r="{r*0.34*s}" fill="#fffaf2"/>')
+        o.append(f'<circle cx="{cx+r*0.32}" cy="{cy+r*0.3}" r="{r*0.16*s}" fill="#fffaf2" opacity="{round(0.7*s,3)}"/>')
+        o.append(f'<circle cx="{cx-r*0.08}" cy="{cy+r*0.44}" r="{r*0.1*s}" fill="#fffaf2" opacity="{round(0.45*s,3)}"/>')
     return "".join(o)
 
 
@@ -149,25 +156,75 @@ def heart_d(cx, cy, s):
 
 
 # mood table. the whole expression vocabulary is lid depth, pupil offset, pupil
-# size, and whether a pupil is a heart - four numbers. every one of them is a
-# transform on a named group, which is why the rig animates without keyframes.
+# size, catchlight strength, and whether a pupil is a heart. every one of them is
+# a transform on a named group, which is why the rig animates without keyframes.
+#
+# WHO IYI IS. iYi is the conduit: the middle term in a connection that is not
+# reciprocated. Not the reader and not the idol - the channel between them. The
+# two pupils are the two sides of that connection, you and them, and they are
+# NOT the same size, because the relationship is not symmetrical. That is the
+# argument of the whole site drawn in one face.
+#
+# The name is the drawing. i-Y-i: two lowercase i for two selves, a Y for the
+# fork where they diverge, and the dots on the i's are the catchlights. Write it
+# iYi, always, with a lowercase i on both sides.
+#
+# The default is deliberately lopsided - bigger, brighter, more centred on the
+# left; smaller, dimmer, turned away on the right. Symmetry here would render
+# the exact thing the site argues against.
 #
 # HEARTS ARE NOT A DEFAULT. love is the only mood with hearts, and it is the
 # only one that means it. Hearts belong to a specific romantic or affectionate
-# beat, never to the base character, never to a masthead, a wordmark, a plate or
-# a default state - a mascot wearing hearts by default stops reading as a
-# mascot and starts reading as a sticker, and it flattens the one expression
-# that carries meaning. watch is the default and it has round pupils.
+# beat, never to the base character and never to a default state - a mascot
+# wearing hearts by default stops reading as a mascot and starts reading as a
+# sticker, and it spends the one expression that carries meaning.
 MOODS = {
-    "watch":  dict(lid=0.0,  pupils=(0, 3),  pr=12, blush=True, note="the default. the reader looking back."),
-    "hollow": dict(lid=17,   pupils=(0, 6),  pr=8,  note="nobody is home. the joke of the whole site."),
-    "wink":   dict(lid=0.0,  pupils=(0, 3),  pr=12, blush=True, shut="r", note="pull quotes."),
-    "sad":    dict(lid=15,   pupils=(0, 5),  pr=11, note="grief. the obituary cards."),
-    "panic":  dict(lid=6,    pupils=(0, -5), pr=8,  note="the sweep is late and the clock is red."),
+    "watch":  dict(lid=(0.0, 6.0), pr=(13, 9), blush=True, spark=(1.0, 0.3),
+                   pupils=((0, 2), (4, 5)),
+                   note="the default. the two sides, unequal. one of them is you."),
+    "hollow": dict(lid=(17, 21), pupils=((0, 6), (4, 8)), pr=(8, 6), spark=(0.5, 0.0),
+                   note="nobody is home. the joke of the whole site."),
+    "wink":   dict(lid=0.0, pupils=((0, 3), (4, 4)), pr=(12, 10), blush=True,
+                   spark=(1.0, 0.35), shut="r",
+                   note="pull quotes."),
+    "sad":    dict(lid=(15, 19), pupils=((0, 5), (3, 7)), pr=(11, 8), spark=(0.8, 0.15),
+                   note="grief. the obituary cards."),
+    "panic":  dict(lid=6,    pupils=((0, -5), (3, -6)), pr=(8, 6), spark=(1.0, 0.2),
+                   note="the sweep is late and the clock is red."),
     "love":   dict(lid=0.0,  hearts=True, blush=True, note="the club. ONLY for a romantic beat."),
-    "clerk":  dict(lid=5,    pupils=(0, 2),  pr=12, note="behind the counter. Enan's own tell."),
+    "clerk":  dict(lid=5,    pupils=((0, 2), (3, 4)), pr=(12, 9), spark=(1.0, 0.3),
+                   note="behind the counter. Enan's own tell."),
     "asleep": dict(shut=True, note="sweeping hourly, seven past."),
 }
+
+
+def per_pair(v, i, default=(0, 0)):
+    """A value that is an (x, y) offset, optionally given per eye.
+
+    Ambiguous by nature, so it is resolved by shape: a pair of PAIRS is per eye,
+    a pair of NUMBERS is one shared offset. Those cannot be confused, and it
+    means every existing mood that writes pupils=(0, 3) keeps working untouched.
+    """
+    if v is None:
+        return default
+    if isinstance(v, (tuple, list)) and len(v) == 2 \
+            and all(isinstance(x, (tuple, list)) and len(x) == 2 for x in v):
+        return tuple(v[i])
+    return v
+
+
+def per_num(v, i, default=0):
+    """A value that is a plain number, optionally given per eye.
+
+    A number is shared. A pair of numbers is per eye. The two cases are
+    distinguishable because a shared scalar is never itself a pair.
+    """
+    if v is None:
+        return default
+    if isinstance(v, (tuple, list)) and len(v) == 2 \
+            and not any(isinstance(x, (tuple, list)) for x in v):
+        return v[i]
+    return v
 
 
 def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
@@ -183,7 +240,7 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
     as black, for the single-colour build to punch out of its mask - so a stamp
     and a screen print are the same drawing rather than two drawings that drift.
     """
-    pr = m.get("pr", pr_default)
+    prs = m.get("pr", pr_default)
     o = [f'<g class="iyi-lobe"{lobe_mask}><circle cx="{LX}" cy="{CY}" r="{R}" fill="{body}"/></g>',
          f'<g class="iyi-lobe"{lobe_mask}><circle cx="{RX}" cy="{CY}" r="{R}" fill="{body}"/></g>']
     k = []
@@ -199,8 +256,10 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
     # flat skips them: a lid is a crescent, and a crescent punched out of the top
     # of a one-colour eight reads as a chip broken off it rather than a lid.
     if m.get("lid") and not flat:
-        d = m["lid"]
-        for c, cp in ((LX, clip_l), (RX, clip_r)):
+        for i, (c, cp) in enumerate(((LX, clip_l), (RX, clip_r))):
+            d = per_num(m["lid"], i, 0)
+            if not d:
+                continue
             o.append(f'<g class="iyi-lid"><g clip-path="url(#{cp})">'
                      f'<path d="{lid_d(c, d)}" fill="{ink}"/></g></g>')
     if m.get("shut") == "r":
@@ -225,18 +284,23 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
                 o.append(f'<g class="iyi-pupil">'
                          f'<path d="{heart_d(c, CY, 20)}" fill="{ink}"/></g>')
     elif not m.get("shut"):
-        dx, dy = m.get("pupils", (0, 0))
-        for c in (LX, RX):
+        po = m.get("pupils", (0, 0))
+        spark = m.get("spark", 1.0)
+        for i, c in enumerate((LX, RX)):
+            dx, dy = per_pair(po, i)
+            pr = per_num(prs, i, pr_default)
+            sp = per_num(spark, i, 1.0)
             if flat:
                 k.append(f'<circle cx="{c+dx}" cy="{CY+dy}" r="{pr+1.5}" fill="#000"/>')
             else:
-                o.append(f'<g class="iyi-pupil">{pupil(c + dx, CY + dy, pr, ink)}</g>')
+                o.append(f'<g class="iyi-pupil">'
+                         f'{pupil(c + dx, CY + dy, pr, ink, spark=sp)}</g>')
     return "".join(o), "".join(k)
 
 
 
 def build(mood="watch", flat=None, ink=INK, grad=True):
-    """A standalone Iyi, with its own stylesheet so it still animates when the
+    """A standalone iYi, with its own stylesheet so it still animates when the
     file is opened or dropped in an <img> with no page around it.
 
     flat=colour is the single-colour version for stamps and vinyl. One colour
@@ -270,8 +334,8 @@ def build(mood="watch", flat=None, ink=INK, grad=True):
     o.append(eyes)
     o.append('</g>')
     return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" '
-            'width="118" height="118" role="img" aria-label="Iyi">'
-            f'<title>Iyi - {mood}</title>{"".join(o)}</svg>')
+            'width="118" height="118" role="img" aria-label="iYi">'
+            f'<title>iYi - {mood}</title>{"".join(o)}</svg>')
 
 
 def inline(mood="watch", size=34, cls="", ink=INK, grad=True):
@@ -286,7 +350,7 @@ def inline(mood="watch", size=34, cls="", ink=INK, grad=True):
     The animation is deliberately NOT inlined. It lives once in css/mascot.css
     (written by this module) because a page carries a dozen of these and the
     keyframes would otherwise ship a dozen times over. --d staggers the copies
-    so a page full of Iyi is not blinking in unison, which is the single
+    so a page full of iYi is not blinking in unison, which is the single
     fastest way to make a character look like a CSS demo instead of a mascot.
     """
     gid = f"iyig{zlib.crc32(repr((mood, size, cls, ink, grad)).encode()) % 99991}"
@@ -317,11 +381,11 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     # the site gets the rig from a real stylesheet, emitted here so mascot.py
-    # stays the single source of truth for how Iyi moves
+    # stays the single source of truth for how iYi moves
     css = ROOT / "css" / "mascot.css"
     css.parent.mkdir(parents=True, exist_ok=True)
     header = ("/* generated by tools/mascot.py - do not edit by hand.\n"
-              "   Iyi's animation rig. Each part is its own group, so a blink is\n"
+              "   iYi's animation rig. Each part is its own group, so a blink is\n"
               "   scaleY() on .iyi-pupil and a look-around is translateX() on it.\n"
               "   --d staggers the copies; it inherits, animation-delay does not. */\n")
     css.write_text(header + MASCOT_CSS + "\n", encoding="utf-8")
@@ -347,5 +411,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 

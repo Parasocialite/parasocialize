@@ -68,7 +68,7 @@ FPS = 30
 LOOP = 21.0
 # The platform UI covers the right rail and the bottom third. Type goes in here
 # and nowhere else, or it ends up underneath a like button.
-# The safe area. It stops short of the bottom because Iyi now lives down there
+# The safe area. It stops short of the bottom because iYi now lives down there
 # in every frame - so the type and the character no longer overlap, which was
 # the other reason the old hook-only stamp looked like an afterthought.
 SAFE = (64, 230, 872, 1310)
@@ -212,7 +212,7 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
     """One frame.
 
     `entry` is what makes a frame about its subject rather than about the
-    format: it selects the backdrop system, and it selects how Iyi moves. Both
+    format: it selects the backdrop system, and it selects how iYi moves. Both
     come from the entry's own record, so neither is a designer's per-episode
     decision.
     """
@@ -325,7 +325,7 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
         body.append(f'<text x="{x0}" y="{y2 + 236:.0f}" font-size="32" fill="{DIM}" '
                     f'opacity=".9">one-sided relationships are just easier</text>')
 
-    # Iyi is in EVERY frame now, acting. The previous version put a static stamp
+    # iYi is in EVERY frame now, acting. The previous version put a static stamp
     # on the hook alone, which is a logo with a heartbeat rather than a
     # character - and it left the pivot, the one scene that has to visibly
     # change, with nothing in it but a line of type.
@@ -349,7 +349,7 @@ text{{white-space:pre}}
 {css}
 {scrim}
 /* SAFE stops at 1310, so 1310-1920 is 610px of clear stage under the type.
-   Iyi is centred in that band and given 480 of it, which is the largest the
+   iYi is centred in that band and given 480 of it, which is the largest the
    frame allows without the bloom clipping the bottom edge. */
 .iyi-stage{{position:absolute;left:{x0}px;top:1300px;width:620px;height:520px;
   pointer-events:none}}

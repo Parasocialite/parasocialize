@@ -1,4 +1,4 @@
-"""Grade a generated Iyi plate onto the site palette.
+"""Grade a generated iYi plate onto the site palette.
 
 An LTX render is never on-brand on arrival, and the drift is specific rather
 than general. Two things are wrong:
@@ -6,7 +6,7 @@ than general. Two things are wrong:
   - the background is a COOL near-black. The render comes out on #0b0b0d, which
     is neutral-to-blue, while the site sits on --bg #130d0a. Side by side the
     plate reads as a foreign object rather than a mascot of this site.
-  - the body is a desaturated pastel peach. Iyi is #ff8f5e, a saturated warm
+  - the body is a desaturated pastel peach. iYi is #ff8f5e, a saturated warm
     amber, with #ffe7c4 for the pale highlight and #231009 for the pupil.
 
 The grade preserves the luminance ramp rather than flattening toward a target
@@ -32,9 +32,9 @@ from PIL import Image, ImageSequence
 
 # pulled from styles.css and tools/mascot.py - the actual tokens, not guesses
 BG      = (0x13, 0x0d, 0x0a)   # --bg
-BODY    = (0xff, 0x8f, 0x5e)   # Iyi amber
-HILIGHT = (0xff, 0xe7, 0xc4)   # Iyi pale
-PUPIL   = (0x23, 0x10, 0x09)   # Iyi warm near-black
+BODY    = (0xff, 0x8f, 0x5e)   # iYi amber
+HILIGHT = (0xff, 0xe7, 0xc4)   # iYi pale
+PUPIL   = (0x23, 0x10, 0x09)   # iYi warm near-black
 GLOW    = (0xff, 0x5a, 0x1f)   # --hot
 
 BODY_H, _, _ = colorsys.rgb_to_hsv(*(c / 255 for c in BODY))

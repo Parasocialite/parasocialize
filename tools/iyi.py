@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-iyi.py - Iyi as an actor, rather than a stamp in the corner.
+iyi.py - iYi as an actor, rather than a stamp in the corner.
 
 THE ASK WAS "the brand character needs to be animated throughout in a manner
 reflecting topic of video". Two halves to that, and the second is the harder
@@ -22,7 +22,7 @@ episode's own subject chooses:
                      horizontal slice of it tears sideways. seen on a screen
     games            a stepped bob and a squash on the landing frame, on a
                      stepped timing curve so it moves in whole pixels
-    music            scale locked to the equaliser's phase, so Iyi is on the
+    music            scale locked to the equaliser's phase, so iYi is on the
                      same beat as the bars behind it
     film             projector flicker: brief opacity dips and a small vertical
                      jump, irregular, the way a projector does
@@ -254,7 +254,7 @@ def _topic_css(system: str, lane: str) -> tuple[list[str], str]:
 
 
 def perform(entry: dict, kind: str) -> str:
-    """A complete, self-contained, topic-tuned Iyi for one scene. Returns HTML.
+    """A complete, self-contained, topic-tuned iYi for one scene. Returns HTML.
 
     Sized and positioned by the caller, so the same fragment works in a 1080x1920
     episode frame and in a smaller preview without a second implementation.

@@ -48,7 +48,7 @@ NAV = """<header class="topbar"><div class="topbar-in">
     <a href="{root}quiz/index.html">Quiz</a>
     <a href="{root}encyclopedia/index.html">Encyclopedia</a>
     <a href="{root}citations/index.html">Citations</a>
-    <a href="{root}brand/index.html">Iyi</a>
+    <a class="nav-iyi" href="{root}brand/index.html">iYi</a>
     <a href="{root}membership/index.html" class="cta">Support</a>
   </nav>
 </div></header>"""
@@ -286,7 +286,7 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
 <body>
 <a class="skip" href="#story">Skip to story</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data["cards"]), mk=mascot(30, "wm-mascot"))}
+{NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
 <main class="article" id="story">
   <div style="margin-bottom:18px">{''.join(tags)}</div>
   <h1>{esc(c['headline'])}</h1>
@@ -399,7 +399,7 @@ def build_citations(data, enc):
 <body>
 <a class="skip" href="#backlog">Skip to the backlog</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
 <main class="section">
   <p class="kicker">ACCOUNTABILITY</p>
   <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.4rem);font-weight:900;
@@ -482,7 +482,7 @@ def build_credits(data, manifest):
 <body>
 <a class="skip" href="#s">Skip to the credits</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data["cards"]), mk=mascot(30, "wm-mascot"))}
+{NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
 <main>
 <section class="section" id="s">
   <div class="sec-head">
@@ -504,6 +504,33 @@ def build_credits(data, manifest):
 </main>
 {FOOT.format(root=r, sweep="", motto='THE UNVERIFIED ONES ARE MARKED.<br>NOT HIDDEN.')}
 </body></html>"""
+
+
+# Which expression iYi wears per section, and why.
+#
+# A mascot that is the same on every page is wallpaper. These ten sections are
+# ten different relationships, and each blurb already says what the relationship
+# feels like, so the expression is read off the section rather than picked to
+# look decorative:
+#
+#   character  never real, fictional, played      -> nobody is home
+#   world      you live inside and cannot reach   -> nobody is home
+#   crossover  supposed to be reachable            -> nobody is home
+#   brand      learned your name                  -> behind the counter
+#   idol       performs at you                    -> showing off
+#   contest    the one you are fighting about     -> the clock is red
+#   danger     where it turned criminal           -> the clock is red
+#   creator    shows up until you know the routine-> looking back, steady
+#   companion  the one that answers back          -> looking back. this is us.
+#   grief      the one who left                    -> grief
+#
+# love is deliberately absent. It belongs to a romantic beat and nothing else.
+SECTION_MOOD = {
+    "idol": "wink", "creator": "watch", "character": "hollow",
+    "companion": "watch", "world": "hollow", "brand": "clerk",
+    "crossover": "hollow", "contest": "panic", "grief": "sad",
+    "danger": "panic",
+}
 
 
 def build_section(a, data, manifest=None):
@@ -537,14 +564,17 @@ def build_section(a, data, manifest=None):
 <body>
 <a class="skip" href="#s">Skip to stories</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data["cards"]), mk=mascot(30, "wm-mascot"))}
+{NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
 <div style="height:5px;background:{esc(col)}"></div>
 <main>
 <section class="section" id="s">
   <p class="kicker" style="color:{esc(col)}">{len(mine)} stor{"y" if len(mine)==1 else "ies"}</p>
   <div class="sec-head">
-    <h1 style="color:{esc(col)}">{esc(a['sign'])}</h1>
-    <p class="sec-lede">{esc(a['blurb'])} <em style="color:var(--dim)">{esc(a['note'])}</em></p>
+    <div class="sec-head-txt">
+      <h1 style="color:{esc(col)}">{esc(a['sign'])}</h1>
+      <p class="sec-lede">{esc(a['blurb'])} <em style="color:var(--dim)">{esc(a['note'])}</em></p>
+    </div>
+    <div class="sec-head-iyi" title="iYi, in the expression this section is about">{mascot(104, "", SECTION_MOOD.get(a['id'], 'watch'))}</div>
   </div>
 
   {fig(manifest, f"section-{esc(a['id'])}", 2, "sec-mast")}
@@ -628,7 +658,7 @@ def build_aisle(data, feat=None, manifest=None):
 <body>
 <a class="skip" href="#a">Skip to sections</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data["cards"]), mk=mascot(30, "wm-mascot"))}
+{NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
 <main>
 <section class="section" id="a">
   <p class="kicker">The whole shop · {len(cards)} stories · {len(sections)} sections</p>
@@ -801,7 +831,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
 <body>
 <a class="skip" href="#hub">Skip to the sections</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root="", total=total, mk=mascot(30, "wm-mascot"))}
+{NAV.format(root="", total=total, mk=wordmark("nav"))}
 
 <main>
 <section class="masthead">
@@ -811,13 +841,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
     The news, the argument, the research and the whole history of it — in {len(sections)} places it turns up.</p>
     <p class="mono-s" style="margin-top:14px">{total} stories · free · every one signed by a person ·
     <a href="sections/index.html">all of it, searchable →</a></p>
-    <figure class="mascot-hero">
-      <picture>
-        <source srcset="img/mascot/iyi-hero.webp" media="(prefers-reduced-motion:no-preference)">
-        <img src="img/mascot/iyi-hero-poster.webp" width="768" height="768"
-          alt="Iyi, this site's mascot: two warm amber eyes looking back at you.">
-      </picture>
-    </figure>
+    <div class="masthead-mark">{wordmark("hero")}</div>
   </div>
 </section>
 
@@ -928,8 +952,21 @@ def mascot(size=40, cls="", mood="watch", dark=False):
 
 
 
+def wordmark(size="nav", label=True):
+    """The iYi logotype: i-Y-i, the two i's unequal and the Y as the fork.
+
+    Late import for the same reason mascot() does one - the repo root is not on
+    sys.path when this module is loaded, only by the time a page is being built.
+    See tools/wordmark.py for why this replaced the mascot in the nav."""
+    import sys as _s
+    if str(ROOT) not in _s.path:
+        _s.path.insert(0, str(ROOT))
+    import wordmark as _w
+    return _w.wordmark(size=size, label=label)
+
+
 def mascot(size=34, cls="", mood="watch", dark=False):
-    """Iyi, the brand mark. An eight on its side: also infinity, also two eyes.
+    """iYi, the brand mark. An eight on its side: also infinity, also two eyes.
     The lobes are the eyes - no head, so the silhouette survives at 3cm.
     See tools/mascot.py for the full expression set and the merch exports."""
     import sys as _s
@@ -1065,7 +1102,7 @@ def build_top8(data, feat, manifest):
 <body>
 <a class="skip" href="#list">Skip to the list</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=root(1), total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=root(1), total=len(data['cards']), mk=wordmark("nav"))}
 <main>
 <section class="section" style="padding-bottom:20px">
   <p class="kicker">{esc(L['kicker'])} · the top 8</p>
@@ -1152,7 +1189,7 @@ def build_history(data, hist, manifest):
 <body>
 <a class="skip" href="#course">Skip to the course</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=root(1), total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=root(1), total=len(data['cards']), mk=wordmark("nav"))}
 <main>
 <section class="section" style="padding-bottom:24px">
   <p class="kicker">A course in eight modules · free · printable</p>
@@ -1203,7 +1240,7 @@ def build_figures(data, feat, manifest):
 <body>
 <a class="skip" href="#f">Skip to the figures</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=root(1), total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=root(1), total=len(data['cards']), mk=wordmark("nav"))}
 <main>
 <section class="section" id="f">
   <p class="kicker">Figures · the people holding the sphere</p>
@@ -1247,7 +1284,7 @@ def build_moments(data, feat, manifest):
 <body>
 <a class="skip" href="#m">Skip to the moments</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=root(1), total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=root(1), total=len(data['cards']), mk=wordmark("nav"))}
 <main>
 <section class="section" id="m">
   <p class="kicker">Moments · the ones that changed the shape of it</p>
@@ -1267,7 +1304,7 @@ def build_brand(data, feat):
     """The mascot page. A 30px mark in a masthead is not somewhere anybody
     reviews a character, so here it is at size, with the expressions and the
     lore."""
-    moods = [("watch", "The default. Iyi looking back at you, which is the whole "
+    moods = [("watch", "The default. iYi looking back at you, which is the whole "
                        "premise: the eyes belong to the audience."),
              ("hollow", "Nobody home. The one-sided joke, and the thesis of the site "
                         "in one expression."),
@@ -1276,7 +1313,7 @@ def build_brand(data, feat):
              ("love", "The club. Heart eyes, for when somebody has told you which "
                       "section they are in."),
              ("panic", "The sweep is late and the clock is red."),
-             ("clerk", "Behind the counter. Iyi in the nametag."),
+             ("clerk", "Behind the counter. iYi in the nametag."),
              ("asleep", "Seven past, and asleep on the job.")]
     cards = "".join(
         f'<figure class="mood"><div class="mood-art">{mascot(120, "", m)}</div>'
@@ -1285,20 +1322,20 @@ def build_brand(data, feat):
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iyi - the mascot - Parasocialize</title>
-<meta name="description" content="Iyi is an eight lying on its side, which is also infinity, which is also two eyes. The brand mark of Parasocialize.">
+<title>iYi - the mascot - Parasocialize</title>
+<meta name="description" content="iYi is an eight lying on its side, which is also infinity, which is also two eyes. The brand mark of Parasocialize.">
 {HEAD.format(site=SITE, path="/brand/", otype="website",
-             title="Iyi - the Parasocialize mascot",
+             title="iYi - the Parasocialize mascot",
              desc="An eight on its side: also infinity, also two eyes.", root=root(1))}
 </head>
 <body>
 <a class="skip" href="#moods">Skip to the expressions</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=root(1), total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=root(1), total=len(data['cards']), mk=wordmark("nav"))}
 <main>
 <section class="section" style="text-align:center">
   <div style="display:flex;justify-content:center;margin:10px 0 22px">{mascot(200, 'mascot-hero')}</div>
-  <h1 class="h-title" style="font-size:clamp(2.4rem,7vw,4.4rem);margin:0 auto 14px">Iyi</h1>
+  <h1 class="h-title" style="font-size:clamp(2.4rem,7vw,4.4rem);margin:0 auto 14px">iYi</h1>
   <p class="sec-lede" style="margin:0 auto;max-width:54ch">An eight lying on its side.
   Which is also infinity. Which is also two eyes. The lobes <em>are</em> the eyes —
   there is no head and no face, the whole glyph is doing the work, which is why it
@@ -1307,7 +1344,7 @@ def build_brand(data, feat):
 
 <section class="section" style="padding-top:0">
   <div class="note" style="max-width:64ch;margin:0 auto">
-    <p><b>The eyes are the audience.</b> Iyi watches somebody who does not know Iyi
+    <p><b>The eyes are the audience.</b> iYi watches somebody who does not know iYi
     is there, which is the entire premise, so the mascot is not a decoration — it is
     the reader, caught in the act. The joke and the argument are the same thing.</p>
     <p><b>The name is from "eight".</b> Two letters, pronounceable, works on a
@@ -1321,15 +1358,15 @@ def build_brand(data, feat):
   <div class="sec-head"><h2>One silhouette, so it reads as one character.</h2>
   <p class="sec-lede">The two lobes are identical in every expression. That is the
   constraint that makes it a character and not a set of stickers — you know it is
-  Iyi at postage-stamp size because the shape never changes, only the face.</p></div>
+  iYi at postage-stamp size because the shape never changes, only the face.</p></div>
   <div class="moods" style="margin-top:26px">{cards}</div>
 </section>
 
 <section class="section" style="padding-top:0">
   <p class="kicker">The lore, if you want it</p>
   <div class="note" style="max-width:64ch">
-    <p>Iyi watched a character who was never real for thirty years. One day the
-    character was retired from the show. Nobody told Iyi. Iyi found out the way
+    <p>iYi watched a character who was never real for thirty years. One day the
+    character was retired from the show. Nobody told iYi. iYi found out the way
     everybody finds out.</p>
     <p style="margin-top:14px">That is the origin, it is genuinely the thesis of
     this site, and it leaves about forty years of adventures in it. It is also the
@@ -1559,7 +1596,7 @@ def build_timeline(enc, data, section=None):
 <body>
 <a class="skip" href="#tl">Skip to the timeline</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
 <main>
 <section class="section" id="tl" style="padding-bottom:20px">
   {head}
@@ -1877,7 +1914,7 @@ def build_entry(ent, enc, data, manifest=None):
 <body>
 <a class="skip" href="#e">Skip to the entry</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
 <main class="article" id="e">
   <p class="kicker">{esc(kinds.get(ent.get('kind',''),''))} · {_fmt_year(ent.get('year'))} · {esc(ent.get('era',''))}</p>
   <h1>{esc(ent['title'])}</h1>
@@ -2002,7 +2039,7 @@ def build_encyclopedia(enc, data):
 <body>
 <a class="skip" href="#db">Skip to the database</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
 <main>
 <section class="section" id="db">
   <p class="kicker">Encyclopedia · {n} entries</p>
@@ -2153,7 +2190,7 @@ def build_shelf(data):
 <body>
 <a class="skip" href="#s">Skip to the shelf</a>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(cards), mk=mascot(30, "wm-mascot"))}
+{NAV.format(root=r, total=len(cards), mk=wordmark("nav"))}
 <main>
 <section class="section" id="s">
   <p class="kicker">{len(shelf)} works</p>
@@ -2275,7 +2312,7 @@ def build_404(data):
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
-{NAV.format(root=r, total=len(data["cards"]), mk=mascot(30, "wm-mascot"))}
+{NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
 <main class="wrap" style="padding:64px 0 90px">
   <p class="kicker">404</p>
   <h1>Nothing here.</h1>

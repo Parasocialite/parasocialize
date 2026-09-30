@@ -201,7 +201,7 @@ def main():
     nodes, edges = graph["nodes"], graph["edges"]
     enc = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
 
-    mk = bc.NAV.format(root="../", total=len(enc["entries"]), mk=bc.mascot(30, "wm-mascot"))
+    mk = bc.NAV.format(root="../", total=len(enc["entries"]), mk=bc.wordmark("nav"))
     foot = bc.FOOT.format(root="../", sweep=bc.MESSY,
                           motto='THE UNVERIFIED ONES ARE MARKED.<br>NOT HIDDEN.')
 

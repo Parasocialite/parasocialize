@@ -372,7 +372,7 @@ def main():
     results = {k: [v[0], v[1], v[2], v[3]] for k, v in RESULTS.items()}
 
     # The nine mascot expressions are all handed to the client and picked by key,
-    # so the result page can change Iyi's face without a round trip. Building
+    # so the result page can change iYi's face without a round trip. Building
     # them here rather than referencing img/mascot/iyi-<mood>.svg keeps the whole
     # quiz one file, like the atlas.
     js = (PAGE
@@ -395,7 +395,7 @@ def main():
     OUT.parent.mkdir(exist_ok=True)
     html = (js.replace("{site}", bc.SITE)
               .replace("{mk}", bc.NAV.format(root="../", total=len(enc["entries"]),
-                                            mk=bc.mascot(30, "wm-mascot")))
+                                            mk=bc.wordmark("nav")))
               .replace("{foot}", bc.FOOT.format(root="../", sweep=bc.MESSY,
                                                 motto="THE ONES THAT HURT PEOPLE ARE "
                                                       "MARKED.<br>NOT LAUGHED AT.")))
