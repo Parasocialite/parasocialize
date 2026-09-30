@@ -658,9 +658,34 @@
           "type": "succeeded"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "DATE PROBLEM: the entry says 1880. The first US issue is Schuster's Department Store, Milwaukee, 1890-91, and S&H Green Stamps launched 1896. Peer-reviewed history runs 1891-2008. The 1880 date looks a decade early",
+          "citation": "Elnahla, N., & Neilson, L. C. Getting something for nothing: the history of trading stamps in the United States of America (1891-2008).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Schuster's Department Store, Milwaukee issued the first stamps in 1890-91, specifically to push cash customers away from credit; L.H. Parke followed in 1895; S&H Green Stamps launched 1896, first customer a housewife in a Jackson, Michigan dry goods store",
+          "citation": "Something for everyone? The rise and fall of trading stamps (2024), drawing on the Hartman Center archives, Duke University.",
+          "url": "https://retailhistory.wordpress.com/2024/03/04/stamps/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Scale: in the 1950s-60s S&H printed three times as many stamps as the US Post Office, and its 1964 catalogue was the largest single publication in the United States. Andy Warhol painted the stamps",
+          "citation": "Trading Stamps. Encyclopedia.com.",
+          "url": "https://www.encyclopedia.com/history/united-states-and-canada/us-history/trading-stamps",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The retailer case, with USDA field studies: sustained sales lift, and S&H claiming a 15-20% increase was needed to make stamps pay",
+          "citation": "Johnson, C. K. Trading stamps and the retailer. (USDA Marketing Division studies).",
+          "url": "https://krex.k-state.edu/server/api/core/bitstreams/1f52d6dd-35ce-4a6f-84c3-e11753b71fab/content",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3642,9 +3667,40 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE MECHANISM: fans know far more about the celebrity than the reverse, which lets them disrupt the relationship and gain a temporary sense of power and self-efficacy. Ethnogographic study with interviews",
+          "citation": "Nanyang Business School, NTU Singapore (2017). The Darker Side of K-pop?",
+          "url": "https://www.ntu.edu.sg/business/news-events/news/story-detail/the-darker-side-of-k-pop",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The term: sa (private) + saeng (life), intrusion into celebrities' private lives. Behaviour emerges with 1990s K-pop idol groups, not with the digital era",
+          "citation": "Sasaeng fan. Wikipedia.",
+          "url": "https://en.wikipedia.org/wiki/Sasaeng_fan",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The law followed the behaviour: the Kim Changwan case, stalked over ten years, produced a 'persistent harassment' offence added to the Minor Offences Act in 2011, revised 2013, and a 2016 bill raising the maximum penalty",
+          "citation": "Sasaeng fan. Wikipedia, citing the statute history.",
+          "url": "https://en.wikipedia.org/wiki/Sasaeng_fan",
+          "status": "retrievable"
+        },
+        {
+          "claim": "A peer-reviewed typology of True Fan / Ani-Fan / Sasaeng, which states that parasocial relationship is central to the Korean pop culture industry and examines its top-down structuring of the fan-object bond",
+          "citation": "The Spectrum of Fan Attitudes in Korean Culture Industry (2022).",
+          "url": "https://apcz.umk.pl/LL/article/view/42804",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The global parallel: sasaeng behaviour exported, and doxxing as the anglophone equivalent - plus the gendered stigma attached to female fandom",
+          "citation": "Khedun-Burgoine, B. 'How do I Make Oppa Sarang Me?': Resemiotisation and Reconstruction of Meaning in the Global K-pop Fandom. University of Oxford ORA.",
+          "url": "https://ora.ox.ac.uk/objects/uuid:785cb0d4-965a-4a30-88ba-2c50362cc7ad",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -4720,9 +4776,40 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Twitch launched 6 June 2011 as a spin-off of Justin.tv's gaming section, named for 'twitch gameplay', in public beta",
+          "citation": "Twitch (service). Wikipedia, citing contemporary coverage.",
+          "url": "https://en.wikipedia.org/wiki/Twitch_(service)",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The founder's own account of how a parasocial bond was accidentally engineered: an audio idea became a 24/7 camera feed following one person, then chat, then a community around watching",
+          "citation": "Kan, J. (2011). Why Starting Justin.tv Was A Really Bad Idea, But I'm Glad We Did It Anyway. TechCrunch (guest post).",
+          "url": "https://techcrunch.com/2011/02/12/starting-justin-tv/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Justin.tv began as Justin Kan broadcasting his life 24/7 from a cap-mounted camera at midnight on 19 March 2007 - the first and most parasocial thing on the platform",
+          "citation": "Justin.tv. Wikipedia.",
+          "url": "https://en.wikipedia.org/wiki/Justin.tv",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Intimacy turned to intrusion almost immediately: viewers swatted Kan and sent large delivery orders to his apartment",
+          "citation": "Justin.tv. Wikipedia, citing AllThingsD coverage of the TwitchTV launch.",
+          "url": "https://en.wikipedia.org/wiki/Justin.tv",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Contemporary launch coverage, 6 June 2011, E3 unveiling",
+          "citation": "Duryee, T. (2011). Justin.tv Broadcasts Gamers' Every Move on TwitchTV. AllThingsD.",
+          "url": "https://allthingsd.com/20110606/justin-tv-broadcasts-gamers-every-move-on-twitchtv/",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
