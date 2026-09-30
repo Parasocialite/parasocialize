@@ -50,9 +50,15 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 # geometry. two tangent circles, centres 34 apart, radius 26. everything is on
 # a 118 square so the parts line up with the pupil and lash centres, which is
 # what makes the rig above animatable without touching coordinates.
-R = 26
+R = 25
 CY = 42
-LX, RX = 42, 76          # lobe centres, 34 apart so they overlap into an eight
+# Lobe centres. They used to sit 34 apart, which overlapped them by 18 units and
+# read as one wide blob with two eyes in it. That cost both readings at once: it
+# was not cute, because a fused pair of eyes is not a face, and it was not two
+# sides either, because the sides had merged. 44 apart leaves a 6-unit overlap,
+# enough to still read as one continuous form and little enough that each lobe
+# holds its own pupil.
+LX, RX = 40, 84
 
 # ---------------------------------------------------------------------------
 # TIMELESS PALETTE
@@ -66,20 +72,45 @@ LX, RX = 42, 76          # lobe centres, 34 apart so they overlap into an eight
 SCLERA = ("#ffe7c4", "#ff8f5e")
 ACCENT = "#e0533f"
 INK = "#231009"
-PUPIL_R = 12
+# The pupil is large on purpose. It used to be 12 against a 26 lobe, which left
+# a thick ring of body colour around it and read as clip-art. Cute eyes are
+# mostly pupil; the body is a rim, not a field. 17.5 against a 25 lobe fills it
+# properly while still leaving enough margin that the lid has somewhere to crop.
+PUPIL_R = 17.5
 
 
 def sclera_grad(gid):
+    """Light falling on a warm surface, in three stops rather than two.
+
+    The two-stop version was too shallow to read as a rounded form at small
+    sizes - the lobes came out as flat discs, which is the difference between a
+    character and a shape. The middle stop is what turns the gradient into a
+    volume: pale where the light lands, saturated through the body, and a deeper
+    coral at the bottom edge so the form turns away from the light instead of
+    stopping flat.
+    """
     a, b = SCLERA
-    return (f'<linearGradient id="{gid}" x1=".12" y1="0" x2=".88" y2="1">'
+    deep = "#f2703f"
+    return (f'<linearGradient id="{gid}" x1=".18" y1="0" x2=".82" y2="1">'
             f'<stop offset="0" stop-color="{a}"/>'
-            f'<stop offset="1" stop-color="{b}"/></linearGradient>')
+            f'<stop offset=".52" stop-color="{b}"/>'
+            f'<stop offset="1" stop-color="{deep}"/>'
+            f'</linearGradient>')
 
 
 def bloom_grad(gid):
+    """The halo, warmed.
+
+    It was near-white at .85, which over a dark ground read as a grey smudge
+    behind the head rather than as light coming off it. Warm and a little
+    weaker: the halo should suggest the body is giving off light, not that
+    something pale is sitting behind it.
+    """
     return (f'<radialGradient id="{gid}" cx=".5" cy=".5" r=".5">'
-            f'<stop offset="0" stop-color="#fff6e6" stop-opacity=".85"/>'
-            f'<stop offset="1" stop-color="#fff6e6" stop-opacity="0"/></radialGradient>')
+            f'<stop offset="0" stop-color="#ff8f5e" stop-opacity=".42"/>'
+            f'<stop offset=".55" stop-color="#ff5a1f" stop-opacity=".14"/>'
+            f'<stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/>'
+            f'</radialGradient>')
 
 
 # THE RIG. transform-box:fill-box gives every part its own bounding box, so a
@@ -103,22 +134,41 @@ BLINK_CSS = """@keyframes iyi-breathe{0%,100%{transform:scale(1)}
 MASCOT_CSS = RIG_CSS + "\n" + BLINK_CSS
 
 
+def star_d(cx, cy, r, waist=0.3):
+    """A four-point sparkle.
+
+    The single strongest cuteness signal available, and the thing the old
+    highlights were missing. A plain white circle says 'shiny'. A four-point
+    sparkle says 'alive' - it is the shape every kawaii and anime eye uses to
+    signal that there is somebody in there, which is precisely the claim this
+    character is making and also precisely what it must not oversell. The
+    concave waist is what makes it read as a sparkle rather than a diamond.
+    """
+    w = r * waist
+    return (f"M{cx} {cy - r}L{cx + w} {cy - w}L{cx + r} {cy}"
+            f"L{cx + w} {cy + w}L{cx} {cy + r}L{cx - w} {cy + w}"
+            f"L{cx - r} {cy}L{cx - w} {cy - w}Z")
+
+
 def pupil(cx, cy, r, ink, hi=True, spark=1.0):
     """Big warm pupil. Deliberately not a tiny dot in a big pale lobe - that
     reads as a googly eye and looks startled. A large dark pupil with a soft
     highlight reads as warm, and warmth is the entire brief for this character.
 
-    spark scales the catchlights. It is the quietest way to say one side of the
-    relationship is less present than the other: the pupil is the same size, but
-    only one of them catches the light. A mood can also set spark=0 to leave a
-    pupil matte, which reads as nobody home without needing a lid to do it.
+    The highlights are a big round catchlight plus a small four-point sparkle
+    plus a low rim light. The pairing is the point: a lone circle looks like a
+    sticker, and the lower rim is what makes the eye read as wet rather than
+    printed. spark scales all three, so a mood can fade one side's light out
+    entirely - nobody home, without needing a lid to say it.
     """
     o = [f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{ink}"/>']
     if hi and spark > 0.02:
         s = max(0.0, min(1.0, spark))
-        o.append(f'<circle cx="{cx-r*0.32}" cy="{cy-r*0.36}" r="{r*0.34*s}" fill="#fffaf2"/>')
-        o.append(f'<circle cx="{cx+r*0.32}" cy="{cy+r*0.3}" r="{r*0.16*s}" fill="#fffaf2" opacity="{round(0.7*s,3)}"/>')
-        o.append(f'<circle cx="{cx-r*0.08}" cy="{cy+r*0.44}" r="{r*0.1*s}" fill="#fffaf2" opacity="{round(0.45*s,3)}"/>')
+        o.append(f'<circle cx="{cx-r*0.3}" cy="{cy-r*0.34}" r="{r*0.29*s}" fill="#fffaf2"/>')
+        o.append(f'<path d="{star_d(cx+r*0.27, cy+r*0.31, r*0.29*s)}" '
+                 f'fill="#fffaf2" opacity="{round(0.92*s, 3)}"/>')
+        o.append(f'<circle cx="{cx-r*0.14}" cy="{cy+r*0.5}" r="{r*0.09*s}" '
+                 f'fill="#fffaf2" opacity="{round(0.5*s, 3)}"/>')
     return "".join(o)
 
 
@@ -173,26 +223,34 @@ def heart_d(cx, cy, s):
 # left; smaller, dimmer, turned away on the right. Symmetry here would render
 # the exact thing the site argues against.
 #
+# But the gap has to stay NARROW. The first asymmetric pass used a big enough
+# difference in size, lid and light that the right eye read as a lazy squint
+# rather than as a choice, which is the opposite of cute: an eye that looks
+# broken is not endearing, it is a fault in the drawing. The asymmetry now lives
+# mostly in the light and a modest size difference, so the second eye is still
+# round, still open and still catching some light. It is the dimmer side, not
+# the damaged one.
+#
 # HEARTS ARE NOT A DEFAULT. love is the only mood with hearts, and it is the
 # only one that means it. Hearts belong to a specific romantic or affectionate
 # beat, never to the base character and never to a default state - a mascot
 # wearing hearts by default stops reading as a mascot and starts reading as a
 # sticker, and it spends the one expression that carries meaning.
 MOODS = {
-    "watch":  dict(lid=(0.0, 6.0), pr=(13, 9), blush=True, spark=(1.0, 0.3),
-                   pupils=((0, 2), (4, 5)),
+    "watch":  dict(lid=(0.0, 3.5), pr=(16, 13.5), blush=True, spark=(1.0, 0.62),
+                   pupils=((0, 1.5), (3, 3.5)),
                    note="the default. the two sides, unequal. one of them is you."),
-    "hollow": dict(lid=(17, 21), pupils=((0, 6), (4, 8)), pr=(8, 6), spark=(0.5, 0.0),
+    "hollow": dict(lid=(15, 19), pupils=((0, 5), (3, 7)), pr=(12, 10), spark=(0.55, 0.0),
                    note="nobody is home. the joke of the whole site."),
-    "wink":   dict(lid=0.0, pupils=((0, 3), (4, 4)), pr=(12, 10), blush=True,
-                   spark=(1.0, 0.35), shut="r",
+    "wink":   dict(lid=0.0, pupils=((0, 2), (3, 3)), pr=(15, 13), blush=True,
+                   spark=(1.0, 0.55), shut="r",
                    note="pull quotes."),
-    "sad":    dict(lid=(15, 19), pupils=((0, 5), (3, 7)), pr=(11, 8), spark=(0.8, 0.15),
+    "sad":    dict(lid=(13, 17), pupils=((0, 4), (2, 6)), pr=(14, 11.5), spark=(0.85, 0.28),
                    note="grief. the obituary cards."),
-    "panic":  dict(lid=6,    pupils=((0, -5), (3, -6)), pr=(8, 6), spark=(1.0, 0.2),
+    "panic":  dict(lid=5,    pupils=((0, -4), (2, -5)), pr=(11.5, 9.5), spark=(1.0, 0.4),
                    note="the sweep is late and the clock is red."),
     "love":   dict(lid=0.0,  hearts=True, blush=True, note="the club. ONLY for a romantic beat."),
-    "clerk":  dict(lid=5,    pupils=((0, 2), (3, 4)), pr=(12, 9), spark=(1.0, 0.3),
+    "clerk":  dict(lid=4,    pupils=((0, 2), (2, 3)), pr=(15, 13), spark=(1.0, 0.5),
                    note="behind the counter. Enan's own tell."),
     "asleep": dict(shut=True, note="sweeping hourly, seven past."),
 }
@@ -392,10 +450,17 @@ def main():
 
     for m in MOODS:
         (out / f"iyi-{m}.svg").write_text(build(m), encoding="utf-8")
-    if "--flat" in a:
-        for m in ("watch", "hollow", "sad", "love"):
-            (out / f"iyi-{m}-flat.svg").write_text(
-                build(m, flat=INK, ink=INK), encoding="utf-8")
+
+    # The flat single-colour exports are committed assets, so they are written
+    # unconditionally. They used to be behind a --flat flag, which meant a plain
+    # run silently left them stale: the stamp and screen-print versions were
+    # still carrying the previous geometry and the previous pupil radius while
+    # the site showed the new face. Nothing failed, nothing looked wrong, the
+    # files on disk were simply out of date - which is the worst way for an
+    # asset to rot, because a merch export is the one thing nobody re-examines.
+    for m in ("watch", "hollow", "sad", "love"):
+        (out / f"iyi-{m}-flat.svg").write_text(
+            build(m, flat=INK, ink=INK), encoding="utf-8")
     if "--sheet" in a:
         cells = []
         for i, m in enumerate(MOODS):
