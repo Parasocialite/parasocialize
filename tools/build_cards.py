@@ -373,6 +373,11 @@ def build_citations(data, enc):
     todo = sorted((e for e in entries if not is_sourced(e)),
                   key=lambda e: (-deg.get(e["id"], 0), str(e.get("year") or 0)))
     checked = sum(1 for e in entries if is_checked(e))
+    # Entries that are the site's own framework rather than claims about the
+    # world. Counted and shown so the backlog above is a queue of things that can
+    # actually be done, not a queue of arguments waiting for a citation that
+    # could never exist.
+    thesis_n = sum(1 for e in entries if e.get("provenance") == "thesis")
     reached = sum(1 for e in todo if deg.get(e["id"], 0))
     lands = sum(deg.get(e["id"], 0) for e in todo) // 2
 
@@ -431,9 +436,19 @@ def build_citations(data, enc):
     <div><b>{checked}</b><span>citations actually checked</span></div>
     <div><b>{len(done)}</b><span>sourced</span></div>
     <div><b>{len(todo)}</b><span>not yet stood behind</span></div>
+    <div><b>{thesis_n}</b><span>are our own argument, and take no source</span></div>
     <div><b>{lands}</b><span>of {edges} edges land on something unchecked</span></div>
     <div><b>{with_loc}</b><span>of {all_src} sources {'has' if with_loc == 1 else 'have'} a locator</span></div>
   </div>
+
+  <p class="countline" style="margin-top:22px;max-width:62ch">{thesis_n} of these
+  entries are not claims about the world and will never carry a citation. They are
+  the framework this site argues from - the counter, the paradox, the clerk, the
+  card. An argument is not sourced, it is defended, and attaching a reference to
+  one would be decoration dressed as rigour. They are marked
+  <code>provenance: thesis</code> in the data and counted separately, so the
+  number above is a real backlog rather than a queue of things that cannot be
+  done.</p>
 
   <div class="note" style="margin:30px 0 8px"><p>Two words that are not the same
   thing. <b>Sourced</b> means a person read the citation and stood behind it.
