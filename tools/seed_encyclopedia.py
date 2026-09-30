@@ -399,7 +399,12 @@ def main():
             "id": i, "related": [], **row,
         })
         added += 1
-    d["entries"].sort(key=lambda e: (e["year"], e["id"]))
+    # Undated entries carry year=None, and sorting those against an int raises
+    # TypeError. They sort last, by id, so the file order is still deterministic
+    # and re-running is reproducible. A timeline cannot place them, so last is
+    # also the honest position: an entry with no known date belongs after the
+    # dated record rather than at an invented point on it.
+    d["entries"].sort(key=lambda e: (e["year"] is None, e["year"] or 0, e["id"]))
     ENC.write_text(json.dumps(d, indent=2, ensure_ascii=False), encoding="utf-8")
     n = len(d["entries"])
     unv = sum(1 for e in d["entries"] if not e.get("verified"))
