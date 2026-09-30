@@ -353,9 +353,26 @@ def build_citations(data, enc):
             bits.append(f"{u} unchecked")
         return ", ".join(bits) or "complete"
 
-    done = [e for e in entries if e.get("verified")]
-    todo = sorted((e for e in entries if not e.get("verified")),
+    # "done" is DERIVED from the data, not read from the stored `verified` flag.
+    #
+    # The flag was marking 54 entries as sourced when 42 of them carried no
+    # source record whatsoever - it had drifted from the thing it claims to
+    # describe. On a page whose entire purpose is to be the honest number, the
+    # optimistic side being wrong is the one failure that destroys the point, and
+    # a stored boolean can always drift again. Deriving it means the two can
+    # never disagree.
+    def is_sourced(e):
+        return bool(e.get("sources"))
+
+    def is_checked(e):
+        srcs = e.get("sources") or []
+        return bool(srcs) and all(
+            s.get("status") in ("verified", "retrievable") for s in srcs)
+
+    done = [e for e in entries if is_sourced(e)]
+    todo = sorted((e for e in entries if not is_sourced(e)),
                   key=lambda e: (-deg.get(e["id"], 0), str(e.get("year") or 0)))
+    checked = sum(1 for e in entries if is_checked(e))
     reached = sum(1 for e in todo if deg.get(e["id"], 0))
     lands = sum(deg.get(e["id"], 0) for e in todo) // 2
 
@@ -411,6 +428,7 @@ def build_citations(data, enc):
   filtering to the flattering subset.</p>
 
   <div class="cit-stats">
+    <div><b>{checked}</b><span>citations actually checked</span></div>
     <div><b>{len(done)}</b><span>sourced</span></div>
     <div><b>{len(todo)}</b><span>not yet stood behind</span></div>
     <div><b>{lands}</b><span>of {edges} edges land on something unchecked</span></div>
