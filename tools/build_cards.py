@@ -1618,7 +1618,39 @@ def build_timeline(enc, data, section=None):
 </body></html>"""
 
 
-def build_entry(ent, enc, data):
+def entry_hero(ent, manifest, depth=1):
+    """The picture at the top of an entry page.
+
+    A reviewed photograph wins; otherwise the entry's own title plate. The
+    plate is drawn from the record rather than fetched, so it is always about
+    the entry and never carries a licence, which is the only reason it can
+    stand in for a photograph of a show at all.
+    """
+    slug = ent.get("id")
+    photo = img_for(manifest, slug, depth)
+    if photo:
+        src = esc(photo)
+        cap = next((i.get("caption") for i in manifest.get("items", [])
+                    if i.get("slug") == slug and i.get("caption")), "")
+        credit = next((i.get("src") for i in manifest.get("items", [])
+                       if i.get("slug") == slug), None)
+        by = ""
+        if isinstance(credit, dict) and credit.get("author"):
+            by = (f'<span class="ent-by">{esc(credit.get("author", ""))}'
+                  + (f' · {esc(credit.get("licence", ""))}'
+                     if credit.get("licence") else "") + "</span>")
+        return (f'<figure class="ent-hero"><img src="{src}" alt="{esc(ent["title"])}" '
+                f'loading="lazy" decoding="async">'
+                + (f'<figcaption>{esc(cap)} {by}</figcaption>' if cap else "")
+                + "</figure>")
+    plate = f"img/plate/{esc(slug)}.svg"
+    return (f'<figure class="ent-hero plate"><img src="{root(depth)}{plate}" '
+            f'alt="A title plate for {esc(ent["title"])}: the name, the year and '
+            f'a mark drawn from the entry. It is not a photograph." '
+            f'loading="lazy" decoding="async"></figure>')
+
+
+def build_entry(ent, enc, data, manifest=None):
     # NB: the module-level escape helper is also called esc(). Do not shadow it.
     # depth 1, not 2. Entries are written as encyclopedia/<id>.html, so the root
     # is one level up. root(2) put 27-28 over-deep links on all 177 pages; a
@@ -1820,6 +1852,7 @@ def build_entry(ent, enc, data):
         f'href="{r}timeline/{esc(s["id"])}/index.html">in the {esc(s["sign"])} timeline</a>'
         for s in data["sections"] if s["id"] in sec)
 
+    hero = entry_hero(ent, manifest or {"items": []}, 1)
     verified = bool(ent.get("verified"))
     check = ("" if verified else
              '<p class="checknote"><b>Not yet stood behind.</b> The entry is real. '
@@ -1844,6 +1877,7 @@ def build_entry(ent, enc, data):
   <p class="dek">{esc(ent.get('summary',''))}</p>
   <div class="byline" style="margin-bottom:20px">{lane_html}{med_html}</div>
 
+  {hero}
   {graph}
 
   <div class="body">
@@ -2272,7 +2306,8 @@ def main():
         if old.name != "index.html":
             old.unlink()
     for ent in enc["entries"]:
-        (edir / f"{ent['id']}.html").write_text(build_entry(ent, enc, data), encoding="utf-8")
+        (edir / f"{ent['id']}.html").write_text(
+            build_entry(ent, enc, data, manifest), encoding="utf-8")
     (edir / "index.html").write_text(build_encyclopedia(enc, data), encoding="utf-8")
     tdir = ROOT / "timeline"
     tdir.mkdir(exist_ok=True)

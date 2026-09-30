@@ -1225,3 +1225,22 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .tl-era-note b{color:var(--ink);font-weight:600}
 .tl-era-h .tl-era-shape{font-family:var(--label);font-size:.58rem;letter-spacing:.09em;
   text-transform:uppercase;color:var(--dim);font-weight:400}
+
+/* ============================================ the entry hero
+   A reviewed photograph, or the entry's own title plate. Same slot either way,
+   so the 175 pages have a picture without any of them pretending to be a photo
+   of a television show. */
+.ent-hero{margin:26px 0 6px}
+.ent-hero img{display:block;width:100%;height:auto;border-radius:12px;
+  border:1px solid var(--line);background:var(--ink)}
+.ent-hero.plate img{border-color:var(--line2)}
+.ent-hero figcaption{margin-top:9px;font-size:.8rem;line-height:1.6;color:var(--dim);
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between}
+.ent-hero .ent-by{font-family:var(--label);font-size:.58rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--dimmer);white-space:nowrap}
+
+/* A title plate is 16:9 and is the only picture on the page, so it can afford
+   to be large. Below the phone breakpoint it keeps the ratio rather than
+   cropping, because the mark and the year are the composition. */
+@media (max-width:640px){.ent-hero{margin:20px 0 4px}
+  .ent-hero img{border-radius:9px}}
