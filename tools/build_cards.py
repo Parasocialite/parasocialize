@@ -1330,9 +1330,11 @@ def build_brand(data, feat):
              ("sad", "Grief. Used on the obituary cards and the grief section."),
              ("love", "The club. Heart eyes, for when somebody has told you which "
                       "section they are in."),
-             ("panic", "The sweep is late and the clock is red."),
-             ("clerk", "Behind the counter. iYi in the nametag."),
-             ("asleep", "Seven past, and asleep on the job.")]
+              ("panic", "Wide eyes. Held back for the day the site has to admit "
+                        "something is wrong."),
+              ("clerk", "Behind the counter. iYi in the nametag."),
+              ("asleep", "Eyes shut, for the long stretches when there is nothing "
+                         "new. Which is most of them.")]
     cards = "".join(
         f'<figure class="mood"><div class="mood-art">{mascot(120, "", m)}</div>'
         f'<figcaption><b>{m}</b><span>{note}</span></figcaption></figure>'

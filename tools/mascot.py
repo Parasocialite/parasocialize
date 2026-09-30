@@ -252,7 +252,12 @@ MOODS = {
     "love":   dict(lid=0.0,  hearts=True, blush=True, note="the club. ONLY for a romantic beat."),
     "clerk":  dict(lid=4,    pupils=((0, 2), (2, 3)), pr=(15, 13), spark=(1.0, 0.5),
                    note="behind the counter. Enan's own tell."),
-    "asleep": dict(shut=True, note="sweeping hourly, seven past."),
+    # "asleep" is eyes-closed, and the note has to be true as well as funny. It
+    # used to read "sweeping hourly, seven past" - a claim about the sweeper,
+    # rendered in the mood grid on a page whose footer says the site does not
+    # pretend about freshness, when the sweeper has never run once. The honest
+    # version is also the better joke: it is asleep because nothing is sweeping.
+    "asleep": dict(shut=True, note="asleep at the counter. the sweep has not run."),
 }
 
 

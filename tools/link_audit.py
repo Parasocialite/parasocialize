@@ -91,10 +91,22 @@ def main():
     # That tested a pipeline state no reader can see, on a site that no longer
     # claims to be swept hourly, and it would have been red forever. It is now a
     # check on the copy, which is the part a reader can actually observe.
+    # Two failure modes, not one. The original pattern only matched copy that
+    # names a frequency outright ("swept hourly"), so it passed a site whose
+    # mood notes read "the sweep is late and the clock is red" and "seven past,
+    # and asleep on the job" - both of which promise a schedule just as clearly,
+    # and neither of which is true, because the sweeper has never run. An audit
+    # that certifies a lie is worse than no audit, because it gets relied on.
+    # The implied-cadence group below catches claims that assume a running
+    # process without ever stating an interval.
     FRESH_CLAIM = re.compile(
         r"swept\s+hourly|sweep(?:ed|ing)?\s+(?:hourly|every\s+hour)|"
         r"updated\s+(?:hourly|every\s+hour)|refreshed\s+(?:hourly|every\s+hour)|"
-        r"live\s+(?:news|feed|wire)", re.I)
+        r"live\s+(?:news|feed|wire)|"
+        r"seven\s+past|asleep\s+on\s+the\s+job|"
+        r"sweep\s+is\s+(?:late|running|due|overdue)|"
+        r"every\s+hour|each\s+hour|on\s+the\s+hour|"
+        r"constantly\s+updated|always\s+current|never\s+stale", re.I)
     claims = []
     for hp in sorted(ROOT.rglob("*.html")):
         rel = hp.relative_to(ROOT)
