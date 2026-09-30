@@ -809,7 +809,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
     <h1>Parasocialize.</h1>
     <p class="line">One-sided relationships are just easier.
     The news, the argument, the research and the whole history of it — in {len(sections)} places it turns up.</p>
-    <p class="mono-s" style="margin-top:14px">{total} stories · swept hourly · free · signed by a person ·
+    <p class="mono-s" style="margin-top:14px">{total} stories · free · every one signed by a person ·
     <a href="sections/index.html">all of it, searchable →</a></p>
   </div>
 </section>
@@ -1270,7 +1270,7 @@ def build_brand(data, feat):
                       "section they are in."),
              ("panic", "The sweep is late and the clock is red."),
              ("clerk", "Behind the counter. Ayo in the nametag."),
-             ("asleep", "Sweeping hourly, seven past.")]
+             ("asleep", "Seven past, and asleep on the job.")]
     cards = "".join(
         f'<figure class="mood"><div class="mood-art">{mascot(120, "", m)}</div>'
         f'<figcaption><b>{m}</b><span>{note}</span></figcaption></figure>'

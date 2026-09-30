@@ -85,10 +85,38 @@ def main():
             if not target.exists():
                 p(f"{html_file.relative_to(ROOT)} -> {href}  (404)")
 
-    # 4. is the sweeper alive?
+    # 4. does any page claim a freshness the site cannot deliver?
+    #
+    # This used to test whether the sweeper was alive and fail when it was stale.
+    # That tested a pipeline state no reader can see, on a site that no longer
+    # claims to be swept hourly, and it would have been red forever. It is now a
+    # check on the copy, which is the part a reader can actually observe.
+    FRESH_CLAIM = re.compile(
+        r"swept\s+hourly|sweep(?:ed|ing)?\s+(?:hourly|every\s+hour)|"
+        r"updated\s+(?:hourly|every\s+hour)|refreshed\s+(?:hourly|every\s+hour)|"
+        r"live\s+(?:news|feed|wire)", re.I)
+    claims = []
+    for hp in sorted(ROOT.rglob("*.html")):
+        rel = hp.relative_to(ROOT)
+        if rel.parts[0] in {"dist", ".git"} or rel.name == "v1-oxalpha-backup.html":
+            continue
+        body = re.sub(r"<script.*?</script>|<style.*?</style>", " ",
+                      hp.read_text(encoding="utf-8", errors="replace"), flags=re.S)
+        body = re.sub(r"<(nav|footer|header)[^>]*>.*?</\1>", " ", body, flags=re.S)
+        for line in re.sub(r"<[^>]+>", "\n", body).split("\n"):
+            if FRESH_CLAIM.search(line):
+                claims.append(f"{rel.as_posix()}: {line.strip()[:70]}")
+    if claims:
+        p(f"{len(claims)} page(s) claim a sweep or refresh schedule the site does "
+          f"not run: {claims[0]}")
+    else:
+        w("no page claims a refresh schedule. true: the sweeper has never run, so "
+          "the site does not pretend otherwise")
+
     sw_path = ROOT / "data" / "sweep.json"
     if not sw_path.exists():
-        w("no sweep.json yet - the sweeper has never run")
+        w("no sweep.json - the sweeper has never run (a note, not a failure: "
+          "nothing on the site claims otherwise)")
     else:
         sw = json.loads(sw_path.read_text(encoding="utf-8"))
         try:
@@ -97,12 +125,11 @@ def main():
         except Exception:
             age_h = 999
         if age_h > 3:
-            p(f"last sweep was {age_h:.0f}h ago. the site is advertising freshness "
-              f"it does not have.")
+            w(f"last sweep was {age_h:.0f}h ago (a note: no page claims a schedule)")
         if sw.get("feeds_ok", 0) == 0:
-            p("last sweep reached zero feeds")
+            w("last sweep reached zero feeds")
         if sw.get("model", "").startswith("none"):
-            w("no model key set - everything is being filed raw with no lens")
+            w("no model key set - everything is filed raw with no lens")
 
     # 5. queue growing unchecked?
     q_path = ROOT / "data" / "queue.json"
