@@ -1416,6 +1416,33 @@ def _entry_row(x, enc, depth):
             f'</span></li>')
 
 
+# The declared `kinds` values are sentences ("A mechanism or tactic"), which
+# is fine in a filter list and wrong in a count. These are the nouns for the
+# sentence the timeline builds about each era.
+_KIND_NOUN = {
+    "term": "terms", "person": "people", "work": "works", "study": "studies",
+    "event": "events", "mechanism": "mechanisms", "case": "cases",
+    "institution": "institutions",
+}
+_KIND_NOUN_ONE = {
+    "term": "term", "person": "person", "work": "work", "study": "study",
+    "event": "event", "mechanism": "mechanism", "case": "case",
+    "institution": "institution",
+}
+
+
+def _plural(n, one, many):
+    return f"{n} {one if n == 1 else many}"
+
+
+def _join(parts):
+    if len(parts) == 1:
+        return parts[0]
+    if len(parts) == 2:
+        return f"{parts[0]} and {parts[1]}"
+    return ", ".join(parts[:-1]) + f" and {parts[-1]}"
+
+
 def build_timeline(enc, data, section=None):
     # /timeline/ is depth 1; /timeline/<section>/ is depth 2.
     r = root(2) if section else root(1)
@@ -1431,14 +1458,62 @@ def build_timeline(enc, data, section=None):
         buckets.setdefault(_era_bucket(_y(e)), []).append(e)
     order = ["Before 0", "0-499", "500-999", "1000-1499", "1500-1699", "1700-1799",
              "1800-1899", "1900-1949", "1950-1999", "2000-2009", "2010+"]
+    # what each era is actually made of in this database
+    def shape_of(bs):
+        """What this band is actually made of. Counted, not asserted: it is a
+        description of what this database holds for the period, not a claim
+        about the period."""
+        from collections import Counter
+        kc = Counter(str(x.get("kind", "")) for x in bs)
+        lc = Counter(l for x in bs for l in (x.get("lanes") or []))
+        bits = []
+        if kc:
+            top = kc.most_common(3)
+            nouns = [_KIND_NOUN.get(k, k) for k, _ in top]
+            if len(kc) == 1:
+                k, kn = top[0]
+                one, many = _KIND_NOUN_ONE.get(k, k), _KIND_NOUN.get(k, k)
+                bits.append(f"it is a {one}" if kn == 1
+                            else f"all {kn} of them are {many}")
+            else:
+                lead = nouns[0] if top[0][1] == 1 else nouns[0]
+                bits.append("mostly " + _join([f"{kn} {nm}" if kn > 1 else nm
+                                              for (k, kn), nm in zip(top, nouns)]))
+        if lc:
+            ln = lc.most_common(1)[0][0]
+            bits.append("filed as " + enc["lanes"].get(ln, {}).get("name", ln).lower())
+        return ". ".join(bits)
+
     groups = ""
     for b in order:
         if b not in buckets:
             continue
-        items = "".join(_entry_row(e, enc, r) for e in buckets[b])
+        bs = buckets[b]
+        items = "".join(_entry_row(e, enc, r) for e in bs)
+        sh = shape_of(bs)
         groups += (f'<section class="tl-era" id="era-{esc(b.replace(" ","-").replace("+","plus"))}">'
-                   f'<h2 class="tl-era-h">{esc(b)}<span>{len(buckets[b])}</span></h2>'
-                   f'<ul class="tl-list">{items}</ul></section>')
+                   f'<h2 class="tl-era-h">{esc(b)}<span>{len(bs)}</span></h2>'
+                   + (f'<span class="tl-era-note">{sh}.</span>' if sh else "")
+                   + f'<ul class="tl-list">{items}</ul></section>')
+
+    # the density strip: how thick the record is, to scale
+    if not section:
+        peak = max((len(buckets.get(b, [])) for b in order), default=1) or 1
+        dens = "".join(
+            f'<a class="tl-den" href="#era-{esc(b.replace(" ","-").replace("+","plus"))}" '
+            f'title="{esc(b)}: {len(buckets.get(b, []))} entries">'
+            f'<em>{len(buckets[b]) if b in buckets else ""}</em>'
+            f'<i style="height:{len(buckets.get(b, [])) / peak * 100:.0f}%"></i>'
+            f'<b>{esc(b.replace("-", "\u2013"))}</b></a>'
+            for b in order)
+        density = (f'<div class="tl-density" role="img" '
+                   f'aria-label="Entries per era, from antiquity to now">{dens}</div>'
+                   f'<p class="countline" style="margin-top:2px">Entries per era, to scale. '
+                   f'The thin parts are thin because the record is thin, not because '
+                   f'nobody was doing this \u2014 an antiquity entry is a sculpture somebody '
+                   f'wrote down.</p>')
+    else:
+        density = ""
 
     lane_filters = "".join(
         f'<button class="chip" data-lane="{esc(l)}">{esc(v["name"])}</button>'
@@ -1481,6 +1556,7 @@ def build_timeline(enc, data, section=None):
 <main>
 <section class="section" id="tl" style="padding-bottom:20px">
   {head}
+  {density}
 </section>
 <section class="section" style="padding-top:0">
   <div class="bar">
@@ -1794,6 +1870,55 @@ def build_entry(ent, enc, data):
 </body></html>"""
 
 
+# ================================================================= clusters
+# The index had one way in: 175 rows in date order. These are the other axes the
+# data already had, promoted to navigation. See tools/clusters.py.
+from clusters import medium_clusters, subject_clusters  # noqa: E402
+
+
+def _clus(meds, subjs, r):
+    """The two cluster layers, rendered as ways into the database."""
+    top = max(1, meds[0]["n"]) if meds else 1
+    mrow = "".join(
+        f'<a class="medchip" href="#db" data-med="{esc(m["key"])}">'
+        f'<b>{esc(m["name"])}</b>'
+        f'<span class="medchip-bar"><i style="width:{m["n"] / top * 100:.0f}%"></i></span>'
+        f'<span class="medchip-n">{m["n"]}'
+        + (f' \u00b7 {esc(m["span"])}' if m["span"] else "")
+        + "</span></a>"
+        for m in meds)
+
+    blocks = []
+    for s in subjs:
+        if s["n"] < 3:
+            continue
+        seq = " \u2192 ".join(
+            f'<a href="{r}encyclopedia/{esc(x["id"])}.html">'
+            f'{esc(x["title"])}<i>{_fmt_year(x.get("year"))}</i></a>'
+            for x in s["entries"][:8])
+        blocks.append(
+            f'<div class="clus"><p class="clus-h">{esc(s["label"])}'
+            f'<span class="clus-n">{s["n"]} entries'
+            + (f' \u00b7 {esc(s["span"])}' if s["span"] else "")
+            + "</span></p>"
+            f'<p class="clus-seq">{seq}</p></div>')
+
+    return f"""
+  <div class="waysin">
+    <p class="kicker">Ways in that are not the date order</p>
+    <p class="waysin-note">Two axes the data already had and the page never
+      showed. <b>Format</b> is a categorisation, not a citation &mdash; most of
+      it was derived from each entry's era rather than sourced, so treat it as a
+      reading aid and not as a claim. Click one to filter the full list below.</p>
+    <div class="medchips">{mrow}</div>
+    <p class="kicker" style="margin-top:28px">The same story, split across
+      several entries</p>
+    <p class="waysin-note">Replika is four rows in date order and reads as four
+      unrelated things. Grouped, it is one company and one bereavement. These are
+      the groups the database falls into on its own, largest first.</p>
+    {''.join(blocks)}
+  </div>"""
+
 def build_encyclopedia(enc, data):
     r = root(1)
     rows = []
@@ -1805,6 +1930,7 @@ def build_encyclopedia(enc, data):
         rows.append(
             f'<tr data-lanes="{esc(" ".join(e.get("lanes", [])))}" '
             f'data-kind="{esc(e.get("kind", ""))}" '
+            f'data-med="{esc(" ".join(e.get("medium", [])))}" '
             f'data-verified="{esc(str(bool(e.get("verified"))).lower())}" '
             f'data-hay="{esc((e.get("title", "") + " " + e.get("summary", "") + " " + e.get("era", "")).lower())}">'
             f'<td class="db-y">{esc(_fmt_year(e.get("year")))}</td>'
@@ -1818,6 +1944,9 @@ def build_encyclopedia(enc, data):
                     for k, v in enc["kinds"].items())
     n = len(enc["entries"])
     unv = sum(1 for e in enc["entries"] if not e.get("verified"))
+    meds = medium_clusters(enc["entries"])
+    subjs = subject_clusters(enc["entries"])
+    waysin = _clus(meds, subjs, r)
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
@@ -1848,7 +1977,10 @@ def build_encyclopedia(enc, data):
              f'<p>{esc(v["blurb"])}</p></div>' for v in enc['lanes'].values())}
   </div>
 
-  <div class="bar" style="margin-top:26px">
+  {waysin}
+
+  <p class="kicker" style="margin-top:34px">All {n}, in date order</p>
+  <div class="bar" style="margin-top:12px">
     <input class="search" id="q" type="search" placeholder="Search {n} entries…" aria-label="Search">
     <label class="tog"><input type="checkbox" id="onlyunv"> citation check only</label>
   </div>
@@ -1873,19 +2005,22 @@ def build_encyclopedia(enc, data):
       lb=[].slice.call(document.querySelectorAll('#lanes .chip')),
       kb=[].slice.call(document.querySelectorAll('#kinds .chip')),
       unv=document.getElementById('onlyunv'),
-      lane=null,kind=null,total=rows.length;
+      mb=[].slice.call(document.querySelectorAll('.medchip')),
+      lane=null,kind=null,med=null,total=rows.length;
   function run(){{
     var t=(q.value||'').trim().toLowerCase(),n=0;
     rows.forEach(function(r){{
       var okL=!lane||(' '+r.dataset.lanes+' ').indexOf(' '+lane+' ')>-1,
           okK=!kind||r.dataset.kind===kind,
           okV=!unv.checked||r.dataset.verified==='false',
+          okM=!med||(' '+r.dataset.med+' ').indexOf(' '+med+' ')>-1,
           okT=!t||r.dataset.hay.indexOf(t)>-1,
-          on=okL&&okK&&okV&&okT;
+          on=okL&&okK&&okV&&okT&&okM;
       r.style.display=on?'':'none';if(on)n++;
     }});
     c.textContent=n+' / '+total+' ENTRIES'+(lane?' · '+lane.toUpperCase():'')
       +(kind?' · '+kind.toUpperCase():'')+(unv.checked?' · CITATION CHECK':'')
+      +(med?' · '+med.replace(/_/g,' ').toUpperCase():'')
       +(t?' · "'+q.value.toUpperCase()+'"':'');
   }}
   lb.forEach(function(b){{b.addEventListener('click',function(){{
@@ -1894,6 +2029,11 @@ def build_encyclopedia(enc, data):
   kb.forEach(function(b){{b.addEventListener('click',function(){{
     kind=(kind===b.dataset.kind?null:b.dataset.kind);
     kb.forEach(function(x){{x.classList.toggle('on',x.dataset.kind===kind);}});run();}});}});
+  mb.forEach(function(m){{m.addEventListener('click',function(ev){{
+    ev.preventDefault();
+    med=(med===m.dataset.med)?null:m.dataset.med;
+    mb.forEach(function(o){{o.classList.toggle('on',o.dataset.med===med);}});
+    run();}});}});
   q.addEventListener('input',run);unv.addEventListener('change',run);run();
 }})();
 </script>

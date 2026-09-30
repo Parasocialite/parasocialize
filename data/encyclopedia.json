@@ -45,7 +45,7 @@
    "significance": "The original transparasocial relationship, and the only one that has reliably worked. Everything invented since is a worse version with better latency, and the reason it is compared to this constantly is that the comparison is fair.",
    "verified": true,
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [],
@@ -145,7 +145,7 @@
    "significance": "The largest organised parasocial arrangement in history, and the one the field has never taken seriously as one. It has a leader, a schedule, a building, an emotional register, an exegesis tradition and a revenue model.",
    "verified": true,
    "medium": [
-    "ai"
+    "theology"
    ],
    "year_end": null,
    "relations": [
@@ -179,7 +179,7 @@
    "significance": "The most complete parasocial arrangement available and it includes a uniform, a script and a confession. It is also the arrangement the most people are inside of, which is the strongest evidence that the form is universal rather than a symptom.",
    "verified": true,
    "medium": [
-    "ai"
+    "theology"
    ],
    "year_end": null,
    "relations": [
@@ -617,7 +617,7 @@
    "significance": "The first loyalty scheme, and it is already the whole modern mechanism: a discount in exchange for the customer choosing this shop repeatedly. The paper only changed.",
    "verified": true,
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -895,7 +895,7 @@
    "significance": "The first loyalty programme most families would have lived with for a generation, and a physical object in the home. The customer's book of stamps is an account balance that lives in a cupboard, which is a genius piece of interface design that nobody has beaten.",
    "verified": false,
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -928,7 +928,7 @@
     "idol"
    ],
    "medium": [
-    "ai"
+    "literature"
    ],
    "year_end": null,
    "relations": [
@@ -1372,7 +1372,7 @@
     "brand"
    ],
    "medium": [
-    "ai"
+    "literature"
    ],
    "year_end": null,
    "relations": [
@@ -1455,7 +1455,7 @@
    "significance": "The origin of the site mascot and the most parasocial job in retail, which nobody has ever written a paper about. It is also the most useful control condition: the same attention, delivered by a person who gets paid to give it.",
    "verified": true,
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -1565,7 +1565,7 @@
    ],
    "figure_kind": "fictitious",
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -1841,7 +1841,7 @@
     "idol"
    ],
    "medium": [
-    "ai"
+    "literature"
    ],
    "year_end": null,
    "relations": [
@@ -1879,7 +1879,7 @@
    ],
    "figure_kind": "fictitious",
    "medium": [
-    "ai"
+    "literature"
    ],
    "year_end": null,
    "relations": [
@@ -2057,7 +2057,7 @@
     "character"
    ],
    "medium": [
-    "literature"
+    "film"
    ],
    "year_end": null,
    "relations": [],
@@ -2507,7 +2507,7 @@
    "significance": "The loyalty card joins the account to the person. Everything the field calls the attention economy was operational and profitable in supermarkets a decade before anybody named it.",
    "verified": false,
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -2578,7 +2578,7 @@
     "crossover"
    ],
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -2614,7 +2614,7 @@
     "contest"
    ],
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -2697,7 +2697,7 @@
    "significance": "The most parasocial object in the world and nobody has ever said so. It is a small, portable, accumulating record that a person chooses to carry around, which is functionally an anniversary counter for a café.",
    "verified": false,
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -2730,7 +2730,7 @@
     "grief"
    ],
    "medium": [
-    "literature"
+    "film"
    ],
    "year_end": null,
    "relations": [
@@ -3128,7 +3128,7 @@
     "crossover"
    ],
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [],
@@ -3152,7 +3152,7 @@
     "brand"
    ],
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -3762,9 +3762,6 @@
    "summary": "When a service ends or changes, the company sends an apology, sometimes with credit, addressed personally.",
    "significance": "A corporation performing grief at its own users, correctly, because the users are grieving. The apology is not insincere and the technique is nonetheless the most sophisticated parasocial manipulation on this page, and it is free.",
    "verified": false,
-   "medium": [
-    "technology"
-   ],
    "year_end": null,
    "relations": [
     {
@@ -3777,6 +3774,9 @@
     }
    ],
    "sources": [],
+   "medium": [
+    "technology"
+   ],
    "media_inferred": true
   },
   {
@@ -4048,9 +4048,6 @@
    "summary": "Exploiting the sunk cost of an earned balance: expiry, devaluation, tier demotion, and the deliberate design of loss.",
    "significance": "Everything the field calls manipulation, expressed in the vocabulary of retail. The expiry date on a points balance is a grief event with a date on it, and it is engineered to occur annually.",
    "verified": false,
-   "medium": [
-    "technology"
-   ],
    "year_end": null,
    "relations": [
     {
@@ -4067,6 +4064,9 @@
     }
    ],
    "sources": [],
+   "medium": [
+    "technology"
+   ],
    "media_inferred": true
   },
   {
@@ -4234,7 +4234,7 @@
    "significance": "The clerk behind a counter, automated and shipped monthly. The whole appeal is that a person chose this for you, and the whole trick is that the choice was made by a recommendation system.",
    "verified": false,
    "medium": [
-    "ai"
+    "history"
    ],
    "year_end": null,
    "relations": [
@@ -4675,9 +4675,6 @@
    "summary": "A relationship with a competitor offered free while a subscription relationship is locked in behind the same login.",
    "significance": "Platforms discovered that a user will defend the platform they have a relationship with against the platform offering them a better deal. The parasocial bond is now a competitive moat, and it is documented as such in the filings.",
    "verified": false,
-   "medium": [
-    "technology"
-   ],
    "year_end": null,
    "relations": [
     {
@@ -4690,6 +4687,9 @@
     }
    ],
    "sources": [],
+   "medium": [
+    "technology"
+   ],
    "media_inferred": true
   },
   {
@@ -4976,9 +4976,6 @@
    "summary": "A game event causes a physical stampede at a real stadium because players arrived to capture it in person.",
    "significance": "A parasocial bond with software producing a crowd in a physical space, and the first time the parasocial frame had to explain a mass-casualty event rather than a feeling. Everyone in that stadium was a genuine participant, which is the difficulty.",
    "verified": false,
-   "medium": [
-    "games"
-   ],
    "year_end": null,
    "relations": [
     {
@@ -4991,6 +4988,9 @@
     }
    ],
    "sources": [],
+   "medium": [
+    "games"
+   ],
    "media_inferred": true
   },
   {
@@ -5074,9 +5074,6 @@
    "summary": "Public argument about ranking, and the discovery that the ranking was a product decision made by people with objectives.",
    "significance": "A parasocial argument that resolved in the wrong direction. People behaved as though the feed were a property of the world and were corrected by a document.",
    "verified": false,
-   "medium": [
-    "technology"
-   ],
    "year_end": null,
    "relations": [
     {
@@ -5089,6 +5086,9 @@
     }
    ],
    "sources": [],
+   "medium": [
+    "technology"
+   ],
    "media_inferred": true
   },
   {
@@ -6193,7 +6193,7 @@
     "idol"
    ],
    "medium": [
-    "television_scripted"
+    "television_unscripted"
    ],
    "year_end": null,
    "relations": [

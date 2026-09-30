@@ -1166,3 +1166,62 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 /* --- incoming edges marked as such --- */
 .xref-in{border-left:2px dashed var(--line2)}
 .xref-in span::after{content:" → here";color:var(--dim);opacity:.7}
+
+/* ============================================ encyclopedia: ways in
+   The index had one entrance. These are the medium chips and the same-story
+   clusters, so the 175 entries are reachable as "the AI ones" and "the Replika
+   ones" and not only as "everything, by year". */
+
+/* --- medium chips: count as a bar, click to filter the table below --- */
+.medchips{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));
+  gap:8px;margin-top:14px}
+.medchip{display:block;padding:11px 13px;border:1px solid var(--line);border-radius:10px;
+  text-decoration:none;background:rgba(255,255,255,.014);transition:border-color .13s,background .13s}
+.medchip:hover{border-color:var(--line2);background:rgba(255,255,255,.035)}
+.medchip.on{border-color:var(--gold);background:rgba(255,207,92,.09)}
+.medchip b{display:block;color:var(--ink);font-weight:600;font-size:.92rem;line-height:1.25}
+.medchip-bar{display:block;height:2px;background:var(--line);border-radius:2px;
+  margin:8px 0 6px;overflow:hidden}
+.medchip-bar i{display:block;height:100%;background:var(--teal);opacity:.72}
+.medchip-n{font-family:var(--label);font-size:.55rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--dim)}
+
+/* --- same-story clusters --- */
+.waysin{margin:34px 0 6px}
+.waysin-note{max-width:60ch;margin:0 0 16px;font-size:.92rem;line-height:1.7;color:var(--dim)}
+.clus{margin:0 0 12px;padding:13px 15px;border:1px solid var(--line);border-radius:11px;
+  background:linear-gradient(180deg,rgba(255,255,255,.016),transparent)}
+.clus-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 0 8px;
+  font-size:1rem;color:var(--ink)}
+.clus-n{font-family:var(--label);font-size:.55rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--dim)}
+.clus-seq{margin:0;line-height:1.95;font-size:.95rem}
+.clus-seq a{display:inline-block;color:var(--ink);border-bottom:1px solid transparent}
+.clus-seq a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.clus-seq a i{font-style:normal;font-family:var(--label);font-size:.56rem;
+  letter-spacing:.08em;color:var(--dim);margin-left:5px}
+
+/* ============================================ the timeline gets a shape
+   It was a flat list with era headings, which is a list. The density strip
+   shows where the record is thick and thin, and each era is labelled with what
+   that band is actually made of, computed from the data rather than asserted. */
+
+.tl-density{display:grid;grid-template-columns:repeat(11,1fr);gap:3px;
+  align-items:end;height:96px;margin:22px 0 8px;padding:0 2px}
+.tl-den{flex:1;display:flex;flex-direction:column;justify-content:flex-end;
+  align-items:center;height:100%;text-decoration:none;position:relative}
+.tl-den i{display:block;width:100%;background:linear-gradient(180deg,var(--teal),rgba(0,232,192,.22));
+  border-radius:2px 2px 0 0;min-height:2px;transition:background .13s}
+.tl-den:hover i{background:linear-gradient(180deg,var(--gold),rgba(255,207,92,.3))}
+.tl-den b{font-family:var(--label);font-size:.5rem;letter-spacing:.06em;color:var(--dim);
+  margin-top:5px;font-weight:400;white-space:nowrap}
+.tl-den em{position:absolute;top:-15px;font-style:normal;font-family:var(--label);
+  font-size:.55rem;color:var(--teal)}
+.tl-den:hover b{color:var(--gold)}
+
+/* --- era character: what this band is mostly made of --- */
+.tl-era-note{display:block;margin:2px 0 14px;font-size:.88rem;line-height:1.65;
+  color:var(--dim);max-width:74ch}
+.tl-era-note b{color:var(--ink);font-weight:600}
+.tl-era-h .tl-era-shape{font-family:var(--label);font-size:.58rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--dim);font-weight:400}
