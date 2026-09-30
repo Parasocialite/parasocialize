@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" width="118" height="118" role="img" aria-label="Iyi"><title>Iyi - asleep</title><style>.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-lid,.iyi-blush{
+transform-box:fill-box;transform-origin:center}
+@keyframes iyi-breathe{0%,100%{transform:scale(1)}
+50%{transform:scale(1.035)}}
+@keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
+@keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
+.iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+@media (prefers-reduced-motion:reduce){
+.iyi,.iyi-pupil,.iyi-bloom{animation:none}}</style><defs><radialGradient id="iyigasleeph" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6e6" stop-opacity=".85"/><stop offset="1" stop-color="#fff6e6" stop-opacity="0"/></radialGradient><linearGradient id="iyigasleep" x1=".12" y1="0" x2=".88" y2="1"><stop offset="0" stop-color="#ffe7c4"/><stop offset="1" stop-color="#ff8f5e"/></linearGradient><clipPath id="iyigasleepcl"><circle cx="42" cy="42" r="26"/></clipPath><clipPath id="iyigasleepcr"><circle cx="76" cy="42" r="26"/></clipPath><mask id="iyigasleepm"><rect width="118" height="118" fill="#000"/><circle cx="42" cy="42" r="26" fill="#fff"/><circle cx="76" cy="42" r="26" fill="#fff"/></mask></defs><g class="iyi"><circle class="iyi-bloom" cx="48" cy="46" r="35" fill="url(#iyigasleeph)"/><g class="iyi-lobe"><circle cx="42" cy="42" r="26" fill="url(#iyigasleep)"/></g><g class="iyi-lobe"><circle cx="76" cy="42" r="26" fill="url(#iyigasleep)"/></g><g class="iyi-lid"><g clip-path="url(#iyigasleepcl)"><path d="M30.0 40q12.0 9 24 0" stroke="#231009" stroke-width="5.5" stroke-linecap="round" fill="none"/></g></g><g class="iyi-lid"><g clip-path="url(#iyigasleepcr)"><path d="M64.0 40q12.0 9 24 0" stroke="#231009" stroke-width="5.5" stroke-linecap="round" fill="none"/></g></g></g></svg>

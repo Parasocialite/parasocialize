@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" width="118" height="118" role="img" aria-label="Iyi"><title>Iyi - love</title><style>.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-lid,.iyi-blush{
+transform-box:fill-box;transform-origin:center}
+@keyframes iyi-breathe{0%,100%{transform:scale(1)}
+50%{transform:scale(1.035)}}
+@keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
+@keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
+.iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+@media (prefers-reduced-motion:reduce){
+.iyi,.iyi-pupil,.iyi-bloom{animation:none}}</style><defs><radialGradient id="iyigloveh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6e6" stop-opacity=".85"/><stop offset="1" stop-color="#fff6e6" stop-opacity="0"/></radialGradient><linearGradient id="iyiglove" x1=".12" y1="0" x2=".88" y2="1"><stop offset="0" stop-color="#ffe7c4"/><stop offset="1" stop-color="#ff8f5e"/></linearGradient><clipPath id="iyiglovecl"><circle cx="42" cy="42" r="26"/></clipPath><clipPath id="iyiglovecr"><circle cx="76" cy="42" r="26"/></clipPath><mask id="iyiglovem"><rect width="118" height="118" fill="#000"/><circle cx="42" cy="42" r="26" fill="#fff"/><circle cx="76" cy="42" r="26" fill="#fff"/></mask></defs><g class="iyi"><circle class="iyi-bloom" cx="48" cy="46" r="35" fill="url(#iyigloveh)"/><g class="iyi-lobe"><circle cx="42" cy="42" r="26" fill="url(#iyiglove)"/></g><g class="iyi-lobe"><circle cx="76" cy="42" r="26" fill="url(#iyiglove)"/></g><g class="iyi-blush" opacity=".26"><ellipse cx="42" cy="55" rx="8" ry="4.4" fill="#e0533f"/><ellipse cx="76" cy="55" rx="8" ry="4.4" fill="#e0533f"/></g><g class="iyi-pupil"><path d="M42 53.0C29.6 44.4 29.6 31.6 36.4 31.6C40.0 31.6 42 35.2 42 38.0C42 35.2 44.0 31.6 47.6 31.6C54.4 31.6 54.4 44.4 42 53.0Z" fill="#231009"/></g><g class="iyi-pupil"><path d="M76 53.0C63.6 44.4 63.6 31.6 70.4 31.6C74.0 31.6 76 35.2 76 38.0C76 35.2 78.0 31.6 81.6 31.6C88.4 31.6 88.4 44.4 76 53.0Z" fill="#231009"/></g></g></svg>

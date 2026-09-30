@@ -372,8 +372,8 @@ def main():
     results = {k: [v[0], v[1], v[2], v[3]] for k, v in RESULTS.items()}
 
     # The nine mascot expressions are all handed to the client and picked by key,
-    # so the result page can change Ayo's face without a round trip. Building
-    # them here rather than referencing img/mascot/ayo-<mood>.svg keeps the whole
+    # so the result page can change Iyi's face without a round trip. Building
+    # them here rather than referencing img/mascot/iyi-<mood>.svg keeps the whole
     # quiz one file, like the atlas.
     js = (PAGE
           .replace("{{", "{").replace("}}", "}")

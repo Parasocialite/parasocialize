@@ -48,7 +48,7 @@ NAV = """<header class="topbar"><div class="topbar-in">
     <a href="{root}quiz/index.html">Quiz</a>
     <a href="{root}encyclopedia/index.html">Encyclopedia</a>
     <a href="{root}citations/index.html">Citations</a>
-    <a href="{root}brand/index.html">Ayo</a>
+    <a href="{root}brand/index.html">Iyi</a>
     <a href="{root}membership/index.html" class="cta">Support</a>
   </nav>
 </div></header>"""
@@ -922,7 +922,7 @@ def mascot(size=40, cls="", mood="watch", dark=False):
 
 
 def mascot(size=34, cls="", mood="watch", dark=False):
-    """Ayo, the brand mark. An eight on its side: also infinity, also two eyes.
+    """Iyi, the brand mark. An eight on its side: also infinity, also two eyes.
     The lobes are the eyes - no head, so the silhouette survives at 3cm.
     See tools/mascot.py for the full expression set and the merch exports."""
     import sys as _s
@@ -1260,7 +1260,7 @@ def build_brand(data, feat):
     """The mascot page. A 30px mark in a masthead is not somewhere anybody
     reviews a character, so here it is at size, with the expressions and the
     lore."""
-    moods = [("watch", "The default. Ayo looking back at you, which is the whole "
+    moods = [("watch", "The default. Iyi looking back at you, which is the whole "
                        "premise: the eyes belong to the audience."),
              ("hollow", "Nobody home. The one-sided joke, and the thesis of the site "
                         "in one expression."),
@@ -1269,7 +1269,7 @@ def build_brand(data, feat):
              ("love", "The club. Heart eyes, for when somebody has told you which "
                       "section they are in."),
              ("panic", "The sweep is late and the clock is red."),
-             ("clerk", "Behind the counter. Ayo in the nametag."),
+             ("clerk", "Behind the counter. Iyi in the nametag."),
              ("asleep", "Seven past, and asleep on the job.")]
     cards = "".join(
         f'<figure class="mood"><div class="mood-art">{mascot(120, "", m)}</div>'
@@ -1278,10 +1278,10 @@ def build_brand(data, feat):
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayo - the mascot - Parasocialize</title>
-<meta name="description" content="Ayo is an eight lying on its side, which is also infinity, which is also two eyes. The brand mark of Parasocialize.">
+<title>Iyi - the mascot - Parasocialize</title>
+<meta name="description" content="Iyi is an eight lying on its side, which is also infinity, which is also two eyes. The brand mark of Parasocialize.">
 {HEAD.format(site=SITE, path="/brand/", otype="website",
-             title="Ayo - the Parasocialize mascot",
+             title="Iyi - the Parasocialize mascot",
              desc="An eight on its side: also infinity, also two eyes.", root=root(1))}
 </head>
 <body>
@@ -1291,7 +1291,7 @@ def build_brand(data, feat):
 <main>
 <section class="section" style="text-align:center">
   <div style="display:flex;justify-content:center;margin:10px 0 22px">{mascot(200, 'mascot-hero')}</div>
-  <h1 class="h-title" style="font-size:clamp(2.4rem,7vw,4.4rem);margin:0 auto 14px">Ayo</h1>
+  <h1 class="h-title" style="font-size:clamp(2.4rem,7vw,4.4rem);margin:0 auto 14px">Iyi</h1>
   <p class="sec-lede" style="margin:0 auto;max-width:54ch">An eight lying on its side.
   Which is also infinity. Which is also two eyes. The lobes <em>are</em> the eyes —
   there is no head and no face, the whole glyph is doing the work, which is why it
@@ -1300,7 +1300,7 @@ def build_brand(data, feat):
 
 <section class="section" style="padding-top:0">
   <div class="note" style="max-width:64ch;margin:0 auto">
-    <p><b>The eyes are the audience.</b> Ayo watches somebody who does not know Ayo
+    <p><b>The eyes are the audience.</b> Iyi watches somebody who does not know Iyi
     is there, which is the entire premise, so the mascot is not a decoration — it is
     the reader, caught in the act. The joke and the argument are the same thing.</p>
     <p><b>The name is from "eight".</b> Two letters, pronounceable, works on a
@@ -1314,15 +1314,15 @@ def build_brand(data, feat):
   <div class="sec-head"><h2>One silhouette, so it reads as one character.</h2>
   <p class="sec-lede">The two lobes are identical in every expression. That is the
   constraint that makes it a character and not a set of stickers — you know it is
-  Ayo at postage-stamp size because the shape never changes, only the face.</p></div>
+  Iyi at postage-stamp size because the shape never changes, only the face.</p></div>
   <div class="moods" style="margin-top:26px">{cards}</div>
 </section>
 
 <section class="section" style="padding-top:0">
   <p class="kicker">The lore, if you want it</p>
   <div class="note" style="max-width:64ch">
-    <p>Ayo watched a character who was never real for thirty years. One day the
-    character was retired from the show. Nobody told Ayo. Ayo found out the way
+    <p>Iyi watched a character who was never real for thirty years. One day the
+    character was retired from the show. Nobody told Iyi. Iyi found out the way
     everybody finds out.</p>
     <p style="margin-top:14px">That is the origin, it is genuinely the thesis of
     this site, and it leaves about forty years of adventures in it. It is also the

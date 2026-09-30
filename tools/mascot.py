@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-mascot.py - Ayo.
+mascot.py - Iyi.
 
 An eight lying on its side. Which is also infinity. Which is also two eyes.
 
@@ -29,12 +29,12 @@ Built to be animated, because a mascot that cannot move is a sticker. The parts
 are grouped and named so they can be driven from CSS or SMIL without touching
 the geometry:
 
-  .ayo            the whole character        -> breathe, bob, tilt
-  .ayo-bloom      the warm halo behind it    -> pulse
-  .ayo-lobe       an eye                     -> squint
-  .ayo-pupil      the dark pupil             -> blink (scaleY), look (translate)
-  .ayo-lash       the lashes                 -> flutter
-  .ayo-blush      the cheek                  -> glow
+  .iyi            the whole character        -> breathe, bob, tilt
+  .iyi-bloom      the warm halo behind it    -> pulse
+  .iyi-lobe       an eye                     -> squint
+  .iyi-pupil      the dark pupil             -> blink (scaleY), look (translate)
+  .iyi-lash       the lashes                 -> flutter
+  .iyi-blush      the cheek                  -> glow
 
 Every transform origin is its own centre (transform-box: fill-box), so a blink
 is `scaleY(.1)` on the pupil and nothing else. A look-around is `translateX` on
@@ -57,7 +57,7 @@ LX, RX = 42, 76          # lobe centres, 34 apart so they overlap into an eight
 # ---------------------------------------------------------------------------
 # TIMELESS PALETTE
 # Two stops, one warm family, nothing else. The four-stop orange->pink->purple
-# was the single most dated thing about Ayo: a multi-hue gradient is how this
+# was the single most dated thing about Iyi: a multi-hue gradient is how this
 # decade looks, so it ages the character whether or not the rest survives.
 # Apricot into coral is just light falling on a warm surface, which is a much
 # older idea than any particular palette. Saturation and hue trends move; a
@@ -87,18 +87,18 @@ def bloom_grad(gid):
 # is translateX() on the pupils - neither needs keyframes baked into the file.
 # The --d custom property is what desynchronises a page full of mascots; custom
 # properties inherit, animation-delay does not.
-RIG_CSS = """.ayo,.ayo-bloom,.ayo-lobe,.ayo-pupil,.ayo-lid,.ayo-blush{
+RIG_CSS = """.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-lid,.iyi-blush{
 transform-box:fill-box;transform-origin:center}"""
 
-BLINK_CSS = """@keyframes ayo-breathe{0%,100%{transform:scale(1)}
+BLINK_CSS = """@keyframes iyi-breathe{0%,100%{transform:scale(1)}
 50%{transform:scale(1.035)}}
-@keyframes ayo-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
-@keyframes ayo-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
-.ayo{animation:ayo-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
-.ayo-pupil{animation:ayo-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
-.ayo-bloom{animation:ayo-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
+@keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
+.iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){
-.ayo,.ayo-pupil,.ayo-bloom{animation:none}}"""
+.iyi,.iyi-pupil,.iyi-bloom{animation:none}}"""
 
 MASCOT_CSS = RIG_CSS + "\n" + BLINK_CSS
 
@@ -177,12 +177,12 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
     and a screen print are the same drawing rather than two drawings that drift.
     """
     pr = m.get("pr", pr_default)
-    o = [f'<g class="ayo-lobe"{lobe_mask}><circle cx="{LX}" cy="{CY}" r="{R}" fill="{body}"/></g>',
-         f'<g class="ayo-lobe"{lobe_mask}><circle cx="{RX}" cy="{CY}" r="{R}" fill="{body}"/></g>']
+    o = [f'<g class="iyi-lobe"{lobe_mask}><circle cx="{LX}" cy="{CY}" r="{R}" fill="{body}"/></g>',
+         f'<g class="iyi-lobe"{lobe_mask}><circle cx="{RX}" cy="{CY}" r="{R}" fill="{body}"/></g>']
     k = []
 
     if m.get("blush") and not flat:
-        o.append(f'<g class="ayo-blush" opacity=".26">'
+        o.append(f'<g class="iyi-blush" opacity=".26">'
                  f'<ellipse cx="{LX}" cy="{CY+13}" rx="8" ry="4.4" fill="{ACCENT}"/>'
                  f'<ellipse cx="{RX}" cy="{CY+13}" rx="8" ry="4.4" fill="{ACCENT}"/></g>')
 
@@ -194,10 +194,10 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
     if m.get("lid") and not flat:
         d = m["lid"]
         for c, cp in ((LX, clip_l), (RX, clip_r)):
-            o.append(f'<g class="ayo-lid"><g clip-path="url(#{cp})">'
+            o.append(f'<g class="iyi-lid"><g clip-path="url(#{cp})">'
                      f'<path d="{lid_d(c, d)}" fill="{ink}"/></g></g>')
     if m.get("shut") == "r":
-        o.append(f'<g class="ayo-lid"><g clip-path="url(#{clip_r})">'
+        o.append(f'<g class="iyi-lid"><g clip-path="url(#{clip_r})">'
                  f'<path d="{shut_span_d(RX)}" stroke="{ink}" stroke-width="5.5" '
                  f'stroke-linecap="round" fill="none"/></g></g>')
     if m.get("shut") is True:
@@ -206,7 +206,7 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
                 k.append(f'<path d="{shut_span_d(c)}" stroke="#000" stroke-width="5.5" '
                          f'stroke-linecap="round" fill="none"/>')
             else:
-                o.append(f'<g class="ayo-lid"><g clip-path="url(#{cp})">'
+                o.append(f'<g class="iyi-lid"><g clip-path="url(#{cp})">'
                          f'<path d="{shut_span_d(c)}" stroke="{ink}" stroke-width="5.5" '
                          f'stroke-linecap="round" fill="none"/></g></g>')
 
@@ -215,7 +215,7 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
             if flat:
                 k.append(f'<path d="{heart_d(c, CY, 20)}" fill="#000"/>')
             else:
-                o.append(f'<g class="ayo-pupil">'
+                o.append(f'<g class="iyi-pupil">'
                          f'<path d="{heart_d(c, CY, 20)}" fill="{ink}"/></g>')
     elif not m.get("shut"):
         dx, dy = m.get("pupils", (0, 0))
@@ -223,13 +223,13 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
             if flat:
                 k.append(f'<circle cx="{c+dx}" cy="{CY+dy}" r="{pr+1.5}" fill="#000"/>')
             else:
-                o.append(f'<g class="ayo-pupil">{pupil(c + dx, CY + dy, pr, ink)}</g>')
+                o.append(f'<g class="iyi-pupil">{pupil(c + dx, CY + dy, pr, ink)}</g>')
     return "".join(o), "".join(k)
 
 
 
 def build(mood="watch", flat=None, ink=INK, grad=True):
-    """A standalone Ayo, with its own stylesheet so it still animates when the
+    """A standalone Iyi, with its own stylesheet so it still animates when the
     file is opened or dropped in an <img> with no page around it.
 
     flat=colour is the single-colour version for stamps and vinyl. One colour
@@ -238,7 +238,7 @@ def build(mood="watch", flat=None, ink=INK, grad=True):
     same colour as the body they would simply vanish and leave a solid eight.
     """
     m = MOODS[mood]
-    gid = f"ayog{mood}" + ("f" if flat else "")
+    gid = f"iyig{mood}" + ("f" if flat else "")
     cl, cr = gid + "cl", gid + "cr"
     eyes, knock = eyes_mkup(
         flat or (f"url(#{gid})" if grad else SCLERA[0]), ink, cl, cr, m,
@@ -256,15 +256,15 @@ def build(mood="watch", flat=None, ink=INK, grad=True):
          f'<circle cx="{RX}" cy="{CY}" r="{R}" fill="#fff"/>{knock}</mask>'
          f'</defs>']
 
-    o.append('<g class="ayo">')
+    o.append('<g class="iyi">')
     if not flat:
-        o.append(f'<circle class="ayo-bloom" cx="{LX+6}" cy="{CY+4}" r="{R+9}" '
+        o.append(f'<circle class="iyi-bloom" cx="{LX+6}" cy="{CY+4}" r="{R+9}" '
                  f'fill="url(#{gid}h)"/>')
     o.append(eyes)
     o.append('</g>')
     return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" '
-            'width="118" height="118" role="img" aria-label="Ayo">'
-            f'<title>Ayo - {mood}</title>{"".join(o)}</svg>')
+            'width="118" height="118" role="img" aria-label="Iyi">'
+            f'<title>Iyi - {mood}</title>{"".join(o)}</svg>')
 
 
 def inline(mood="watch", size=34, cls="", ink=INK, grad=True):
@@ -279,10 +279,10 @@ def inline(mood="watch", size=34, cls="", ink=INK, grad=True):
     The animation is deliberately NOT inlined. It lives once in css/mascot.css
     (written by this module) because a page carries a dozen of these and the
     keyframes would otherwise ship a dozen times over. --d staggers the copies
-    so a page full of Ayo is not blinking in unison, which is the single
+    so a page full of Iyi is not blinking in unison, which is the single
     fastest way to make a character look like a CSS demo instead of a mascot.
     """
-    gid = f"ayog{zlib.crc32(repr((mood, size, cls, ink, grad)).encode()) % 99991}"
+    gid = f"iyig{zlib.crc32(repr((mood, size, cls, ink, grad)).encode()) % 99991}"
     m = MOODS.get(mood, MOODS["watch"])
     d = (zlib.crc32(gid.encode()) % 1700) / 1000
     cl, cr = gid + "l", gid + "r"
@@ -294,8 +294,8 @@ def inline(mood="watch", size=34, cls="", ink=INK, grad=True):
          f'<clipPath id="{cl}"><circle cx="{LX}" cy="{CY}" r="{R}"/></clipPath>'
          f'<clipPath id="{cr}"><circle cx="{RX}" cy="{CY}" r="{R}"/></clipPath>'
          f'</defs>',
-         f'<g class="ayo" style="--d:{d:.2f}s">',
-         f'<circle class="ayo-bloom" cx="{LX+6}" cy="{CY+4}" r="{R+9}" '
+         f'<g class="iyi" style="--d:{d:.2f}s">',
+         f'<circle class="iyi-bloom" cx="{LX+6}" cy="{CY+4}" r="{R+9}" '
          f'fill="url(#{gid}h)"/>',
          eyes,
          '</g>']
@@ -310,20 +310,20 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     # the site gets the rig from a real stylesheet, emitted here so mascot.py
-    # stays the single source of truth for how Ayo moves
+    # stays the single source of truth for how Iyi moves
     css = ROOT / "css" / "mascot.css"
     css.parent.mkdir(parents=True, exist_ok=True)
     header = ("/* generated by tools/mascot.py - do not edit by hand.\n"
-              "   Ayo's animation rig. Each part is its own group, so a blink is\n"
-              "   scaleY() on .ayo-pupil and a look-around is translateX() on it.\n"
+              "   Iyi's animation rig. Each part is its own group, so a blink is\n"
+              "   scaleY() on .iyi-pupil and a look-around is translateX() on it.\n"
               "   --d staggers the copies; it inherits, animation-delay does not. */\n")
     css.write_text(header + MASCOT_CSS + "\n", encoding="utf-8")
 
     for m in MOODS:
-        (out / f"ayo-{m}.svg").write_text(build(m), encoding="utf-8")
+        (out / f"iyi-{m}.svg").write_text(build(m), encoding="utf-8")
     if "--flat" in a:
         for m in ("watch", "hollow", "sad", "love"):
-            (out / f"ayo-{m}-flat.svg").write_text(
+            (out / f"iyi-{m}-flat.svg").write_text(
                 build(m, flat=INK, ink=INK), encoding="utf-8")
     if "--sheet" in a:
         cells = []
