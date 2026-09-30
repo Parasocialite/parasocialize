@@ -130,6 +130,20 @@ img{max-width:100%;display:block}
 .wm-mascot{margin-right:2px}
 .wordmark b{color:var(--paper);font-weight:700;letter-spacing:.04em}
 
+/* Iyi in the masthead, as a generated plate rather than the vector.
+   Deliberately smaller than the wordmark: at any size near the h1 it reads as a
+   second headline and the page loses its front door. At this size it reads as a
+   look. The edges are feathered because the plate is a square sitting on a
+   square page, and any difference in backdrop tone shows up as a visible box.
+   The picture element swaps in a static frame under prefers-reduced-motion,
+   which CSS cannot do for an animated WebP on its own. */
+.mascot-hero{margin:14px 0 -6px;display:flex;justify-content:center}
+.mascot-hero img{
+  width:clamp(168px,23vw,244px);height:auto;display:block;
+  -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 52%,transparent 74%);
+  mask-image:radial-gradient(circle at 50% 50%,#000 52%,transparent 74%);
+}
+
 /* ---------- the hub: ten tiles ---------- */
 /* Labels were the problem here, not the layout. Four tiers of tiny mono caps
    ("AISLE 01 / IDOL / 6 stories / more in IDOL") read as noise and none of it

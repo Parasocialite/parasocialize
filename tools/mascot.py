@@ -151,13 +151,20 @@ def heart_d(cx, cy, s):
 # mood table. the whole expression vocabulary is lid depth, pupil offset, pupil
 # size, and whether a pupil is a heart - four numbers. every one of them is a
 # transform on a named group, which is why the rig animates without keyframes.
+#
+# HEARTS ARE NOT A DEFAULT. love is the only mood with hearts, and it is the
+# only one that means it. Hearts belong to a specific romantic or affectionate
+# beat, never to the base character, never to a masthead, a wordmark, a plate or
+# a default state - a mascot wearing hearts by default stops reading as a
+# mascot and starts reading as a sticker, and it flattens the one expression
+# that carries meaning. watch is the default and it has round pupils.
 MOODS = {
     "watch":  dict(lid=0.0,  pupils=(0, 3),  pr=12, blush=True, note="the default. the reader looking back."),
     "hollow": dict(lid=17,   pupils=(0, 6),  pr=8,  note="nobody is home. the joke of the whole site."),
     "wink":   dict(lid=0.0,  pupils=(0, 3),  pr=12, blush=True, shut="r", note="pull quotes."),
     "sad":    dict(lid=15,   pupils=(0, 5),  pr=11, note="grief. the obituary cards."),
     "panic":  dict(lid=6,    pupils=(0, -5), pr=8,  note="the sweep is late and the clock is red."),
-    "love":   dict(lid=0.0,  hearts=True, blush=True, note="the club."),
+    "love":   dict(lid=0.0,  hearts=True, blush=True, note="the club. ONLY for a romantic beat."),
     "clerk":  dict(lid=5,    pupils=(0, 2),  pr=12, note="behind the counter. Enan's own tell."),
     "asleep": dict(shut=True, note="sweeping hourly, seven past."),
 }

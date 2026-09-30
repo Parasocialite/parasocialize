@@ -811,6 +811,13 @@ def build_front(data, feat=None, manifest=None, hist=None):
     The news, the argument, the research and the whole history of it — in {len(sections)} places it turns up.</p>
     <p class="mono-s" style="margin-top:14px">{total} stories · free · every one signed by a person ·
     <a href="sections/index.html">all of it, searchable →</a></p>
+    <figure class="mascot-hero">
+      <picture>
+        <source srcset="img/mascot/iyi-hero.webp" media="(prefers-reduced-motion:no-preference)">
+        <img src="img/mascot/iyi-hero-poster.webp" width="768" height="768"
+          alt="Iyi, this site's mascot: two warm amber eyes looking back at you.">
+      </picture>
+    </figure>
   </div>
 </section>
 
