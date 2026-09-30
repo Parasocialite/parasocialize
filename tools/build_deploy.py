@@ -72,8 +72,12 @@ INCLUDE_DIRS = ["css", "js", "img"]
 # lstrip("*.") also ate the dot and matched nothing, which put a dist/ with 116
 # files and no pages in it - see the page-count guard in main().
 EXTS = {g.lstrip("*") for g in INCLUDE_GLOBS}
+# `episode` is a BUILD WORKING DIRECTORY, not part of the site. Three episodes
+# of 1080x1920 frames and narration took the deploy zip from 8.5MB to 71MB and
+# the verifier refused it, which is the check earning its keep: nothing about a
+# 71MB upload looks wrong until something refuses it.
 EXCLUDE_NAMES = {".git", "__pycache__", "tools", "data", "node_modules", "dist",
-                  ".github", "audit_out", "__dist__"}
+                  ".github", "audit_out", "__dist__", "episode"}
 LIMIT = 1000
 
 # only these get re-encoded. the mascot and the logo are vectors, already a few
