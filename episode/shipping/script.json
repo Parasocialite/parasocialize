@@ -1,0 +1,74 @@
+{
+ "id": "shipping",
+ "title": "Shipping",
+ "year": "1990",
+ "lane": "consideration",
+ "accent": "#ffb300",
+ "n": 77,
+ "total": 175,
+ "scenes": [
+  {
+   "kind": "hook",
+   "text": "Fans invented the word, and the fans are not what it means.",
+   "accent": "#ffb300",
+   "sub": "",
+   "title": "Shipping",
+   "year": "1990",
+   "say": "Fans invented the word, and the fans are not what it means."
+  },
+  {
+   "kind": "card",
+   "text": "Shipping",
+   "sub": "CONSIDERATION",
+   "accent": "#ffb300",
+   "year": "1990",
+   "n": 77,
+   "say": "1990. Shipping."
+  },
+  {
+   "kind": "beat",
+   "text": "The word comes from The X-Files. A character in a particular episode was describing a romantic relationship that was not going anywhere.",
+   "accent": "#ffb300",
+   "year": "1990",
+   "say": "The word comes from The X-Files. A character in a particular episode was describing a romantic relationship that was not going anywhere."
+  },
+  {
+   "kind": "beat",
+   "text": "Ship it. Take it further than the other people involved want it to go.",
+   "accent": "#ffb300",
+   "year": "1990",
+   "say": "Ship it. Take it further than the other people involved want it to go."
+  },
+  {
+   "kind": "beat",
+   "text": "On a fan forum, people who were deeply serious about an author who would never reciprocate started calling themselves that.",
+   "accent": "#ffb300",
+   "year": "1990",
+   "say": "On a fan forum, people who were deeply serious about an author who would never reciprocate started calling themselves that."
+  },
+  {
+   "kind": "beat",
+   "text": "The word got attached to people who were in the room, and stayed attached to the people who were not.",
+   "accent": "#ffb300",
+   "year": "1990",
+   "say": "The word got attached to people who were in the room, and stayed attached to the people who were not."
+  },
+  {
+   "kind": "why",
+   "text": "A million people use it about themselves every day, without checking who it was for.",
+   "accent": "#ffb300",
+   "year": "1990",
+   "title": "Shipping",
+   "say": "A million people use it about themselves every day, without checking who it was for."
+  },
+  {
+   "kind": "end",
+   "text": "Shipping",
+   "sub": "ENTRY 77 OF 175",
+   "accent": "#ffb300",
+   "year": "1990",
+   "url": "parasocialize.com",
+   "say": "Entry 77 of 175. Shipping. Full citation at parasocialize dot com."
+  }
+ ]
+}

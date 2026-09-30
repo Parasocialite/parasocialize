@@ -1,0 +1,15 @@
+# The episode as an mp4. This is the only step that needs ffmpeg:
+#     winget install ffmpeg        (or:  choco install ffmpeg)
+#
+ffmpeg -y -framerate 30 -i "C:\Users\paras\Documents\Default Project\parasocialize\episode\eliza\scenes\%02d.png" \
+  -i "C:\Users\paras\Documents\Default Project\parasocialize\episode\eliza\narration.wav" -c:v libx264 -pix_fmt yuv420p \
+  -crf 20 -preset slow -c:a aac -b:a 128k -shortest \
+  -movflags +faststart "C:\Users\paras\Documents\Default Project\parasocialize\episode\eliza\eliza.mp4"
+#
+# horizontal master for youtube, same scenes, same audio:
+ffmpeg -y -framerate 30 -i "C:\Users\paras\Documents\Default Project\parasocialize\episode\eliza\scenes\%02d.png" \
+  -i "C:\Users\paras\Documents\Default Project\parasocialize\episode\eliza\narration.wav" -c:v libx264 -pix_fmt yuv420p -crf 20 \
+  -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" \
+  -c:a aac -b:a 128k -shortest "C:\Users\paras\Documents\Default Project\parasocialize\episode\eliza\eliza-16x9.mp4"
+#
+# runtime of the assembled episode: 46.98s

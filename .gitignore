@@ -8,3 +8,8 @@ dist.zip
 
 dist/
 dist.zip
+episode/*/scenes/*.png
+episode/*/voice/*.wav
+episode/*/voice/*.ps1
+episode/*/.chrome/
+episode/.chrome/

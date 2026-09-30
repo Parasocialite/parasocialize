@@ -1,0 +1,74 @@
+{
+ "id": "vshojo",
+ "title": "The talent agency that is not an agency",
+ "year": "2022",
+ "lane": "manipulation",
+ "accent": "#ff2d6f",
+ "n": 156,
+ "total": 175,
+ "scenes": [
+  {
+   "kind": "hook",
+   "text": "It is a talent agency. Every one of its talents is fictional.",
+   "accent": "#ff2d6f",
+   "sub": "",
+   "title": "The talent agency that is not an agency",
+   "year": "2022",
+   "say": "It is a talent agency. Every one of its talents is fictional."
+  },
+  {
+   "kind": "card",
+   "text": "The talent agency that is not an agency",
+   "sub": "MANIPULATION",
+   "accent": "#ff2d6f",
+   "year": "2022",
+   "n": 156,
+   "say": "2022. The talent agency that is not an agency."
+  },
+  {
+   "kind": "beat",
+   "text": "In 2022 a new agency signed its first cohort of performers. They had auditions, they had a roster, they had a hierarchy.",
+   "accent": "#ff2d6f",
+   "year": "2022",
+   "say": "In 2022 a new agency signed its first cohort of performers. They had auditions, they had a roster, they had a hierarchy."
+  },
+  {
+   "kind": "beat",
+   "text": "None of them exist. The faces are rendered. The companies they appear to work for do not exist either.",
+   "accent": "#ff2d6f",
+   "year": "2022",
+   "say": "None of them exist. The faces are rendered. The companies they appear to work for do not exist either."
+  },
+  {
+   "kind": "beat",
+   "text": "The one thing that was real was the money, and it came from people paying to be in a room with somebody who could not be in the room.",
+   "accent": "#ff2d6f",
+   "year": "2022",
+   "say": "The one thing that was real was the money, and it came from people paying to be in a room with somebody who could not be in the room."
+  },
+  {
+   "kind": "beat",
+   "text": "It is the closest thing to a parasocial bond that has ever been sold as a job.",
+   "accent": "#ff2d6f",
+   "year": "2022",
+   "say": "It is the closest thing to a parasocial bond that has ever been sold as a job."
+  },
+  {
+   "kind": "why",
+   "text": "The bond is the product. The audience is the supply. The supply is being paid in real hours.",
+   "accent": "#ff2d6f",
+   "year": "2022",
+   "title": "The talent agency that is not an agency",
+   "say": "The bond is the product. The audience is the supply. The supply is being paid in real hours."
+  },
+  {
+   "kind": "end",
+   "text": "The talent agency that is not an agency",
+   "sub": "ENTRY 156 OF 175",
+   "accent": "#ff2d6f",
+   "year": "2022",
+   "url": "parasocialize.com",
+   "say": "Entry 156 of 175. The talent agency that is not an agency. Full citation at parasocialize dot com."
+  }
+ ]
+}
