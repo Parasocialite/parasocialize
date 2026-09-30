@@ -73,6 +73,23 @@ LOOP = 21.0
 # the other reason the old hook-only stamp looked like an afterthought.
 SAFE = (64, 230, 872, 1310)
 
+# TWO FORMATS, TWO COMPOSITIONS. The horizontal master used to be made by
+# scaling the vertical to fill 1920x1080 and cropping, which is arithmetic, not
+# design: 1080x1920 scaled to cover 16:9 is 1920x3413, so cropping that to 1080
+# of height keeps the middle 31% of the frame vertically - which is exactly where
+# the type lives. The horizontal master cut the words off. It was never a
+# landscape composition, it was a portrait one with the edges guillotined.
+#
+# Landscape is therefore laid out, not cropped: type takes the left of the frame
+# at a wider measure, and iYi moves out of the bottom band - which on YouTube is
+# under the title bar and the progress bar anyway - and into the right third.
+# Two genuine compositions rather than one image pretending twice.
+LAND = (1920, 1080)
+SAFE_LAND = (96, 150, 1180, 930)
+# where the character stands, per format
+IYI_STAGE = ("left:{x0}px;top:1300px;width:620px;height:520px",   # vertical
+             "left:1290px;top:300px;width:540px;height:560px")    # landscape
+
 INK = "#0b0b0d"
 PAPER = "#f3ece2"
 DIM = "#9a8672"
@@ -213,7 +230,7 @@ def _esc(s) -> str:
 
 
 def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None,
-               t: float = 0.0, i: int = 0) -> str:
+                 t: float = 0.0, i: int = 0, fmt: str = "vertical") -> str:
     """One frame.
 
     `entry` is what makes a frame about its subject rather than about the
@@ -223,6 +240,9 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
     """
     x0, y0, x1, y1 = safe
     w = x1 - x0
+    land = fmt == "landscape"
+    cw, ch = (LAND if land else (VW, VH))
+    stage = IYI_STAGE[1 if land else 0].format(x0=x0)
     ac = s["accent"]
     css, bg_svg, system = ("", "", "plain")
     if entry and enc:
@@ -345,8 +365,8 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
 
     return f"""<!DOCTYPE html><meta charset="utf-8"><style>
 *{{margin:0;padding:0;box-sizing:border-box}}
-html,body{{width:{VW}px;height:{VH}px;background:{INK};overflow:hidden}}
-.wrap{{position:relative;width:{VW}px;height:{VH}px;overflow:hidden}}
+html,body{{width:{cw}px;height:{ch}px;background:{INK};overflow:hidden}}
+.wrap{{position:relative;width:{cw}px;height:{ch}px;overflow:hidden}}
 svg{{position:absolute;inset:0}}
 g.type{{font-family:'Fraunces',Georgia,serif}}
 .safe{{position:absolute;left:{x0}px;top:{y0}px;width:{w}px;height:{y1-y0}px}}
@@ -356,7 +376,7 @@ text{{white-space:pre}}
 /* SAFE stops at 1310, so 1310-1920 is 610px of clear stage under the type.
    iYi is centred in that band and given 480 of it, which is the largest the
    frame allows without the bloom clipping the bottom edge. */
-.iyi-stage{{position:absolute;left:{x0}px;top:1300px;width:620px;height:520px;
+.iyi-stage{{position:absolute;{stage};
   pointer-events:none}}
 .iyi-stage .act{{position:absolute;inset:0}}
 /* 480 in a 500px stage leaves 10px, and the pivot's recoil scales the
@@ -373,7 +393,7 @@ text{{white-space:pre}}
   <div class="bg">{bg_svg}</div>
   <div class="scrim"></div>
   <div class="grain"></div>
-  <svg width="{VW}" height="{VH}" class="type">{''.join(body)}</svg>
+  <svg width="{cw}" height="{ch}" class="type">{''.join(body)}</svg>
   <div class="safe"></div>
   {mascot}
 </div>"""
@@ -424,7 +444,7 @@ def _fit(text, w, sizes, maxlines=4):
 
 
 def render_scenes(script: dict, d: pathlib.Path, entry: dict, enc: dict,
-                  frames: int = 4) -> list[dict]:
+                  frames: int = 4, fmt: str = "vertical") -> list[dict]:
     """Render every scene at `frames` instants of its own animation.
 
     Four unique frames per scene is the deliberate trade. A full 30fps render is
@@ -433,8 +453,10 @@ def render_scenes(script: dict, d: pathlib.Path, entry: dict, enc: dict,
     cannot tell 30fps from 8. ffmpeg's concat demuxer holds each of the four
     frames for its scene's real duration, so the timeline is exact anyway.
     """
-    sd = d / "scenes"
+    sd = d / ("scenes" if fmt != "landscape" else "scenes-land")
     sd.mkdir(parents=True, exist_ok=True)
+    cw, ch = (LAND if fmt == "landscape" else (VW, VH))
+    safe = SAFE_LAND if fmt == "landscape" else SAFE
     out = []
     for i, s in enumerate(script["scenes"]):
         shots = []
@@ -443,7 +465,7 @@ def render_scenes(script: dict, d: pathlib.Path, entry: dict, enc: dict,
             # shows four different places, not four adjacent ones
             t = (k / frames) * LOOP
             hp = sd / f"{i:02d}_{k}.html"
-            hp.write_text(scene_html(s, SAFE, entry, enc, t, i), encoding="utf-8")
+            hp.write_text(scene_html(s, safe, entry, enc, t, i, fmt), encoding="utf-8")
             png = sd / f"{i:02d}_{k}.png"
             if png.exists():
                 png.unlink()
@@ -451,7 +473,7 @@ def render_scenes(script: dict, d: pathlib.Path, entry: dict, enc: dict,
             r = subprocess.run([
                 CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
                 "--no-sandbox", f"--screenshot={png.resolve()}",
-                f"--window-size={VW},{VH}",
+                f"--window-size={cw},{ch}",
                 f"--user-data-dir={(OUT / '.chrome').resolve()}", url,
             ], check=False, capture_output=True, timeout=180)
             if not png.exists():
@@ -465,7 +487,7 @@ def render_scenes(script: dict, d: pathlib.Path, entry: dict, enc: dict,
 
 
 def concat_manifest(script: dict, d: pathlib.Path, scenes: list[dict],
-                    clips: list[dict]) -> pathlib.Path:
+                    clips: list[dict], subdir: str = "scenes") -> pathlib.Path:
     """ffmpeg concat demuxer listing, with each frame held for its real share.
 
     Durations come from the narration, so the visuals change when the voice
@@ -477,7 +499,7 @@ def concat_manifest(script: dict, d: pathlib.Path, scenes: list[dict],
              "# against the episode root too and failed with 'Impossible to",
              "# open 00_0.png' - the storyboard masked it, because the storyboard",
              "# globs the directory directly and never reads the manifest."]
-    rel = "scenes/"
+    rel = subdir.rstrip("/") + "/"
     for sc, c in zip(scenes, clips):
         shots = sc["shots"]
         if not shots:
@@ -490,7 +512,14 @@ def concat_manifest(script: dict, d: pathlib.Path, scenes: list[dict],
     # repeated, so it is
     if scenes and scenes[-1]["shots"]:
         lines.append(f"file '{rel}{scenes[-1]['shots'][-1].name}'")
-    mf = d / "frames.txt"
+    # The filename follows the subdir. It used to be hardcoded frames.txt, which
+    # meant the landscape pass - running second - silently overwrote the
+    # vertical manifest. Both were then called frames.txt, so following the
+    # vertical encode instruction produced a landscape file with a vertical
+    # filename, and nothing said so. A wrong file that looks right is worse than
+    # a missing one, because the missing one stops you.
+    stem = "frames" if subdir == "scenes" else "frames-land"
+    mf = d / f"{stem}.txt"
     mf.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return mf
 
@@ -512,16 +541,42 @@ $s.Dispose()
 """
 
 
-def narrate(script: dict, d: pathlib.Path) -> list[dict]:
+def narrate(script: dict, d: pathlib.Path, force: bool = False) -> list[dict]:
+    """One wav per scene. A human recording wins over the synthetic voice.
+
+    The original version deleted whatever wav was there and re-ran the TTS every
+    time, which quietly made a human voiceover impossible to supply: you could
+    record into voice/ and the next run would overwrite it. The machine voice is
+    the worst thing about these videos - not a matter of taste but a matter of
+    the argument, since a synthetic voice delivering a thesis about a
+    relationship being real is the video committing the thing it argues against.
+    Viewers clock a synthetic voice in seconds and read it as the tell that
+    nobody is there.
+
+    So: if a usable wav is already present it is kept, and the scene takes its
+    duration from it. That is what makes the promise in concat_manifest's
+    docstring true - the visuals follow the voice rather than the other way
+    round, so a slower or more deliberate read retimes the film by itself and
+    nobody edits a timing by hand.
+
+    --retts forces regeneration of every scene, for when the machine voice is
+    genuinely wanted or the script has changed underneath a stale recording.
+    """
     vd = d / "voice"
     vd.mkdir(parents=True, exist_ok=True)
     out = []
     for i, s in enumerate(script["scenes"]):
         wav = vd / f"{i:02d}.wav"
+        if wav.exists() and not force:
+            with wave.open(str(wav), "rb") as w:
+                dur = w.getnframes() / float(w.getframerate())
+            out.append({"i": i, "dur": dur, "human": True, "wav": str(wav),
+                           "kind": s["kind"], "say": s["say"]})
+            continue
         if wav.exists():
             wav.unlink()
         text = (s["say"].replace("'", "''")
-                .replace('"', '').replace("dot com", " dot dot com"))
+                  .replace('"', '').replace("dot com", " dot dot com"))
         # the pivot is read slower than a beat: it is a full stop, and the
         # silence after it is part of why it works
         rate = 1 if s["kind"] in ("hook", "why", "pivot") else 0
@@ -665,12 +720,21 @@ def assemble(script: dict, d: pathlib.Path, clips: list[dict],
             "storyboard": sb, "motion": ms, "cmd": ff}
 
 
+RETTS = False
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("episode", nargs="?")
     ap.add_argument("--set", action="store_true")
     ap.add_argument("--list", action="store_true")
+    ap.add_argument("--retts", action="store_true",
+                    help="overwrite voice/NN.wav with synthetic speech; by "
+                         "default an existing recording is kept and retimes "
+                         "the film to you")
     a = ap.parse_args()
+    global RETTS
+    RETTS = a.retts
 
     enc = json.loads(ENC.read_text(encoding="utf-8"))
     if a.list:
@@ -704,9 +768,11 @@ def main() -> int:
         print(f"\n{eid}  {sc['title']}  ({sc['year']})  entry {sc['n']}/{sc['total']}")
         print(f"  {len(sc['scenes'])} scenes, {words} words, about {secs:.0f}s")
         entry = next(x for x in enc["entries"] if x["id"] == eid)
-        shots = render_scenes(sc, d, entry, enc)
-        clips = narrate(sc, d)
-        mf = concat_manifest(sc, d, shots, clips)
+        shots = render_scenes(sc, d, entry, enc, fmt="vertical")
+        shots_land = render_scenes(sc, d, entry, enc, fmt="landscape")
+        clips = narrate(sc, d, force=RETTS)
+        mf = concat_manifest(sc, d, shots, clips, "scenes")
+        mf_land = concat_manifest(sc, d, shots_land, clips, "scenes-land")
         tot = sum(c["dur"] for c in clips)
         print(f"  narrated {sum(1 for c in clips if c['dur'] > 0)}/{len(clips)} scenes, "
               f"{tot:.1f}s of voice")
@@ -723,3 +789,7 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+
+
