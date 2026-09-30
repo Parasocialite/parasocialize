@@ -13,3 +13,5 @@ episode/*/voice/*.wav
 episode/*/voice/*.ps1
 episode/*/.chrome/
 episode/.chrome/
+episode/*/scenes/*.html
+episode/*/frames.txt

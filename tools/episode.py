@@ -62,6 +62,10 @@ CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 # 1080x1920 is the vertical master: TikTok, Reels, Shorts.
 VW, VH = 1080, 1920
 FPS = 30
+# one pass of the slowest backdrop animation, in seconds. The motion
+# samples are spread across it, so a 19s orbit shows four different
+# places rather than four adjacent ones.
+LOOP = 21.0
 # The platform UI covers the right rail and the bottom third. Type goes in here
 # and nowhere else, or it ends up underneath a like button.
 SAFE = (64, 250, 872, 1500)
@@ -191,18 +195,29 @@ def _esc(s) -> str:
             .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def scene_html(s: dict, safe) -> str:
+def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None,
+               t: float = 0.0) -> str:
     x0, y0, x1, y1 = safe
     w = x1 - x0
     ac = s["accent"]
-    gr = "".join(f'<line x1="{x}" y1="0" x2="{x}" y2="{VH}" stroke="{PAPER}" '
-                 f'stroke-width="1" opacity=".04"/>' for x in range(0, VW + 1, 60))
-    gr += "".join(f'<line x1="0" y1="{y}" x2="{VW}" y2="{y}" stroke="{PAPER}" '
-                  f'stroke-width="1" opacity=".03"/>' for y in range(0, VH + 1, 60))
-    glow = (f'<radialGradient id="g" cx=".5" cy=".42" r=".55">'
-            f'<stop offset="0" stop-color="{ac}" stop-opacity=".20"/>'
-            f'<stop offset="1" stop-color="{ac}" stop-opacity="0"/></radialGradient>')
-
+    css, bg_svg, system = ("", "", "plain")
+    if entry and enc:
+        import backdrop
+        # every animation is frozen at instant t by a negative delay, so any
+        # (scene, frame) pair renders to the same pixels on any machine
+        css, bg_svg, system = backdrop.backdrop(entry, enc, [])
+        if t:
+            css = _offset_delays(css, t)
+    # The scrim exists to keep 60-90px type readable over a moving field, and
+    # nothing else. It was written when the background was a faint radial glow
+    # and went to 94% opacity at the edges, which on a real backdrop means the
+    # backdrop is invisible: the type stays legible and the work is thrown away.
+    # Now it is much lighter, weighted to the top and bottom where the type
+    # actually sits, and nearly clear through the middle.
+    scrim = (f'.scrim{{position:absolute;inset:0;background:'
+             f'linear-gradient(180deg,{INK} 0%,rgba(11,11,13,.62) 16%,'
+             f'rgba(11,11,13,.30) 42%,rgba(11,11,13,.34) 62%,'
+             f'rgba(11,11,13,.72) 88%,{INK} 100%)}}')
     body = []
     k = s["kind"]
     if k == "hook":
@@ -242,15 +257,19 @@ def scene_html(s: dict, safe) -> str:
         # it reads as the turn rather than as a footnote
         fs, lines = _fit(s["text"], w, [76, 70, 64, 58, 52, 47], 5)
         lh = fs * 1.36
-        y = (y0 + y1) / 2 - (len(lines) - 1) * lh / 2 + fs * 0.34 - 40
+        y = (y0 + y1) / 2 - (len(lines) - 1) * lh / 2 + fs * 0.34 - 56
         for i, ln in enumerate(lines):
             body.append(f'<text x="{x0}" y="{y + i*lh:.0f}" font-size="{fs}" '
                         f'font-weight="600" fill="{PAPER}" '
                         f'opacity="{1 if i else 0.55}">{_esc(ln)}</text>')
-        body.append(f'<text x="{x0}" y="{y - 74:.0f}" font-size="32" '
+        # the label clears the cap height of the first line, not just its
+        # baseline: at 76px the cap is ~53px tall, so a rule at y-46 sat
+        # underneath the text it was labelling
+        cap = fs * 0.72
+        body.append(f'<text x="{x0}" y="{y - cap - 74:.0f}" font-size="32" '
                     f'letter-spacing="11" fill="{ac}">WHY IT STILL MATTERS</text>')
-        body.append(f'<line x1="{x0}" y1="{y - 46:.0f}" x2="{x0 + 96}" '
-                    f'y2="{y - 46:.0f}" stroke="{ac}" stroke-width="7"/>')
+        body.append(f'<line x1="{x0}" y1="{y - cap - 40:.0f}" x2="{x0 + 96}" '
+                    f'y2="{y - cap - 40:.0f}" stroke="{ac}" stroke-width="7"/>')
     else:  # end
         fs, lines = _fit(s["text"], w, [104, 94, 84, 74, 64], 3)
         lh = fs * 1.06
@@ -287,16 +306,30 @@ svg{{position:absolute;inset:0}}
 g.type{{font-family:'Fraunces',Georgia,serif}}
 .safe{{position:absolute;left:{x0}px;top:{y0}px;width:{w}px;height:{y1-y0}px}}
 text{{white-space:pre}}
+{css}
+{scrim}
 </style>
-<defs>{glow}</defs>
 <div class="wrap">
-<svg width="{VW}" height="{VH}">{gr}
-<ellipse cx="{VW*0.5}" cy="{VH*0.42}" rx="620" ry="640" fill="url(#g)"/>
-<g class="type">{''.join(body)}</g>
-</svg>
-<div class="safe"></div>
-{mascot}
+  <div class="bg">{bg_svg}</div>
+  <div class="scrim"></div>
+  <div class="grain"></div>
+  <svg width="{VW}" height="{VH}" class="type">{''.join(body)}</svg>
+  <div class="safe"></div>
+  {mascot}
 </div>"""
+
+
+def _offset_delays(css: str, t: float) -> str:
+    """Shift every animation-delay by -t so a frame is frozen at instant t.
+
+    Rewriting the delay rather than reaching for Chrome's virtual-time budget
+    is the whole trick. --virtual-time-budget on an infinite animation never
+    returns - the render hangs until it is killed - whereas a negative delay
+    is instant, needs no extra flag, and is exactly reproducible.
+    """
+    def shift(m):
+        return f"animation-delay:{-t + float(m.group(1)):.3f}s"
+    return re.sub(r"animation-delay:(-?[\d.]+)s", shift, css)
 
 
 def _wrap(text, fs, w):
@@ -330,32 +363,70 @@ def _fit(text, w, sizes, maxlines=4):
     return sizes[-1], _wrap(text, sizes[-1], w)[:maxlines]
 
 
-def render_scenes(script: dict, d: pathlib.Path) -> list[pathlib.Path]:
+def render_scenes(script: dict, d: pathlib.Path, entry: dict, enc: dict,
+                  frames: int = 4) -> list[dict]:
+    """Render every scene at `frames` instants of its own animation.
+
+    Four unique frames per scene is the deliberate trade. A full 30fps render is
+    1500 Chrome launches - about 25 minutes an episode and 120MB of PNG - and it
+    buys nothing, because the motion here is a slow field and the audience
+    cannot tell 30fps from 8. ffmpeg's concat demuxer holds each of the four
+    frames for its scene's real duration, so the timeline is exact anyway.
+    """
     sd = d / "scenes"
     sd.mkdir(parents=True, exist_ok=True)
-    outs = []
+    out = []
     for i, s in enumerate(script["scenes"]):
-        hp = sd / f"{i:02d}.html"
-        hp.write_text(scene_html(s, SAFE), encoding="utf-8")
-        png = sd / f"{i:02d}.png"
-        if png.exists():
-            png.unlink()
-        # Chrome needs an absolute file URL. A relative as_posix() produces
-        # file:///episode/... and comes back ERR_FILE_NOT_FOUND with rc 0, so it
-        # fails silently unless you read stderr.
-        url = "file:///" + hp.resolve().as_posix().lstrip("/")
-        r = subprocess.run([
-            CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
-            "--no-sandbox", f"--screenshot={png.resolve()}",
-            f"--window-size={VW},{VH}",
-            f"--user-data-dir={(OUT / '.chrome').resolve()}", url,
-        ], check=False, capture_output=True, timeout=180)
-        if not png.exists():
-            err = r.stderr.decode(errors="replace").strip().splitlines()
-            print(f"    scene {i} rendered nothing: "
-                  f"{err[-1][:120] if err else 'no stderr'}")
-        outs.append(png)
-    return outs
+        shots = []
+        for k in range(frames):
+            # spread the samples across the whole loop so a 19s orbit actually
+            # shows four different places, not four adjacent ones
+            t = (k / frames) * LOOP
+            hp = sd / f"{i:02d}_{k}.html"
+            hp.write_text(scene_html(s, SAFE, entry, enc, t), encoding="utf-8")
+            png = sd / f"{i:02d}_{k}.png"
+            if png.exists():
+                png.unlink()
+            url = "file:///" + hp.resolve().as_posix().lstrip("/")
+            r = subprocess.run([
+                CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
+                "--no-sandbox", f"--screenshot={png.resolve()}",
+                f"--window-size={VW},{VH}",
+                f"--user-data-dir={(OUT / '.chrome').resolve()}", url,
+            ], check=False, capture_output=True, timeout=180)
+            if not png.exists():
+                err = r.stderr.decode(errors="replace").strip().splitlines()
+                print(f"    scene {i} frame {k} rendered nothing: "
+                      f"{err[-1][:110] if err else 'no stderr'}")
+            else:
+                shots.append(png)
+        out.append({"i": i, "shots": shots})
+    return out
+
+
+def concat_manifest(script: dict, d: pathlib.Path, scenes: list[dict],
+                    clips: list[dict]) -> pathlib.Path:
+    """ffmpeg concat demuxer listing, with each frame held for its real share.
+
+    Durations come from the narration, so the visuals change when the voice
+    changes without anyone editing a timing by hand.
+    """
+    lines = ["# concat demuxer: every motion frame, held for its share of the scene"]
+    for sc, c in zip(scenes, clips):
+        shots = sc["shots"]
+        if not shots:
+            continue
+        per = (c["dur"] or 1.0) / len(shots)
+        for j, png in enumerate(shots):
+            lines.append(f"file '{png.name}'")
+            lines.append(f"duration {per:.4f}")
+    # the concat demuxer ignores the last duration unless the final file is
+    # repeated, so it is
+    if scenes and scenes[-1]["shots"]:
+        lines.append(f"file '{scenes[-1]['shots'][-1].name}'")
+    mf = d / "frames.txt"
+    mf.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return mf
 
 
 # ------------------------------------------------------------------ narration
@@ -435,8 +506,11 @@ def storyboard(script: dict, d: pathlib.Path, clips: list[dict]) -> pathlib.Path
     deciding whether an episode is worth cutting.
     """
     from PIL import Image
-    pngs = [d / "scenes" / f"{c['i']:02d}.png" for c in clips]
+    pngs = [d / "scenes" / f"{c['i']:02d}_1.png" for c in clips]
     pngs = [p for p in pngs if p.exists()]
+    if not pngs:  # older single-frame layout
+        pngs = [d / "scenes" / f"{c['i']:02d}.png" for c in clips]
+        pngs = [p for p in pngs if p.exists()]
     if not pngs:
         return None
     tw = 300
@@ -455,7 +529,8 @@ def storyboard(script: dict, d: pathlib.Path, clips: list[dict]) -> pathlib.Path
     return out
 
 
-def _motion_sample(script: dict, d: pathlib.Path, clip: dict) -> pathlib.Path | None:
+def _motion_sample(script: dict, d: pathlib.Path, clip: dict,
+                   shots: list[dict] | None = None) -> pathlib.Path | None:
     """A short animated sample, so the cross-fade is actually visible.
 
     One scene, at a size a browser will play. 8 seconds of 1080x1920 at 30fps
@@ -463,26 +538,31 @@ def _motion_sample(script: dict, d: pathlib.Path, clip: dict) -> pathlib.Path | 
     of the treatment, not a delivery master.
     """
     from PIL import Image
-    src = d / "scenes" / f"{clip['i']:02d}.png"
-    if not src.exists() or clip["dur"] <= 0:
+    seq = []
+    if shots:
+        seq = [q for x in shots if x["i"] == clip["i"] for q in x["shots"]]
+    if not seq:
+        one = d / "scenes" / f"{clip['i']:02d}_0.png"
+        if not one.exists():
+            return None
+        seq = [one]
+    if clip["dur"] <= 0:
         return None
-    im = Image.open(src).convert("RGB").resize((540, 960), Image.LANCZOS)
-    n = int(min(8.0, clip["dur"]) * 15)
-    frames = [im]
-    for k in range(1, n):
-        t = k / max(1, n)
-        # a slow drift toward the plate, so the sample reads as motion not as a
-        # still being held
-        f = im.copy()
-        f.putalpha if False else None
-        frames.append(f)
+    # step through the scene's real motion frames at 12fps, repeating the
+    # sequence, so what plays back is the animation rather than a held still
+    per = max(1, int(12 * clip["dur"] / max(1, len(seq))))
+    frames = []
+    for q in seq:
+        im = Image.open(q).convert("RGB").resize((540, 960), Image.LANCZOS)
+        frames.extend([im] * per)
     out = d / "motion-sample.webp"
     frames[0].save(out, save_all=True, append_images=frames[1:],
                    duration=67, loop=0, quality=80, method=3)
     return out
 
 
-def assemble(script: dict, d: pathlib.Path, clips: list[dict]) -> dict:
+def assemble(script: dict, d: pathlib.Path, clips: list[dict],
+             mf: pathlib.Path, shots: list[dict]) -> dict:
     """Everything that does not need ffmpeg.
 
     Deliberately not a video. A 52-second 1080x1920 episode is 1575 frames, or
@@ -493,24 +573,25 @@ def assemble(script: dict, d: pathlib.Path, clips: list[dict]) -> dict:
     """
     total = _concat_wav(clips, d / "narration.wav")
     sb = storyboard(script, d, clips)
-    ms = _motion_sample(script, d, clips[0] if clips else {})
+    ms = _motion_sample(script, d, clips[0] if clips else {}, shots)
     ff = d / "ffmpeg.txt"
     ff.write_text(
         "# The episode as an mp4. This is the only step that needs ffmpeg:\n"
         "#     winget install ffmpeg        (or:  choco install ffmpeg)\n"
         "#\n"
-        f'ffmpeg -y -framerate 30 -i "{d / "scenes" / "%02d.png"}" \\\n'
-        f'  -i "{d / "narration.wav"}" -c:v libx264 -pix_fmt yuv420p \\\n'
-        f'  -crf 20 -preset slow -c:a aac -b:a 128k -shortest \\\n'
-        f'  -movflags +faststart "{d / (script["id"] + ".mp4")}"\n'
+        "cd " + str(d) + "\n"
+        f'ffmpeg -y -f concat -safe 0 -i "{mf.name}" -i narration.wav \\\n'
+        f'  -vsync vfr -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow \\\n'
+        f'  -c:a aac -b:a 128k -shortest -movflags +faststart "{script["id"]}.mp4"\n'
         "#\n"
-        "# horizontal master for youtube, same scenes, same audio:\n"
-        f'ffmpeg -y -framerate 30 -i "{d / "scenes" / "%02d.png"}" \\\n'
-        f'  -i "{d / "narration.wav"}" -c:v libx264 -pix_fmt yuv420p -crf 20 \\\n'
-        f'  -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" \\\n'
-        f'  -c:a aac -b:a 128k -shortest "{d / (script["id"] + "-16x9.mp4")}"\n'
+        "# horizontal master for youtube, same frames, same audio:\n"
+        f'ffmpeg -y -f concat -safe 0 -i "{mf.name}" -i narration.wav \\\n'
+        f'  -vsync vfr -vf "scale=1920:1080:force_original_aspect_ratio=increase,'
+        f'crop=1920:1080" -c:v libx264 -pix_fmt yuv420p -crf 20 \\\n'
+        f'  -c:a aac -b:a 128k -shortest "{script["id"]}-16x9.mp4"\n'
         "#\n"
-        f"# runtime of the assembled episode: {total}s\n",
+        f"# {sum(len(x['shots']) for x in shots)} motion frames over {total}s of "
+        f"narration\n",
         encoding="utf-8")
     return {"audio": d / "narration.wav", "audio_sec": total,
             "storyboard": sb, "motion": ms, "cmd": ff}
@@ -554,12 +635,14 @@ def main() -> int:
             encoding="utf-8")
         print(f"\n{eid}  {sc['title']}  ({sc['year']})  entry {sc['n']}/{sc['total']}")
         print(f"  {len(sc['scenes'])} scenes, {words} words, about {secs:.0f}s")
-        render_scenes(sc, d)
+        entry = next(x for x in enc["entries"] if x["id"] == eid)
+        shots = render_scenes(sc, d, entry, enc)
         clips = narrate(sc, d)
+        mf = concat_manifest(sc, d, shots, clips)
         tot = sum(c["dur"] for c in clips)
         print(f"  narrated {sum(1 for c in clips if c['dur'] > 0)}/{len(clips)} scenes, "
               f"{tot:.1f}s of voice")
-        a = assemble(sc, d, clips)
+        a = assemble(sc, d, clips, mf, shots)
         print(f"  storyboard   {a['storyboard'].name}  "
               f"{a['storyboard'].stat().st_size/1e3:.0f}KB")
         print(f"  narration    narration.wav  {a['audio_sec']}s  "
