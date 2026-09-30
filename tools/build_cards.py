@@ -24,6 +24,12 @@ HEAD = """<link rel="canonical" href="{site}{path}">
 <meta property="og:image" content="{site}/img/podcasts/parasocialize.jpg">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{site}/radar.xml">
 <link rel="icon" type="image/svg+xml" href="{site}/favicon.svg">
+<link rel="icon" type="image/x-icon" sizes="48x48" href="{site}/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="{site}/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="{site}/icon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{site}/apple-touch-icon.png">
+<link rel="manifest" href="{site}/site.webmanifest">
+<meta name="theme-color" content="#0b0b0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600;1,9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -1545,25 +1551,204 @@ def build_entry(ent, enc, data):
     # I read as a limitation of the audit rather than as the bug it was.
     r = root(1)
     kinds = enc["kinds"]
-    back = next((s for s in data["sections"] if s["id"] in ent.get("sections", [])), None)
-    rel = [x for x in enc["entries"] if x["id"] in ent.get("related", [])]
-    if not rel:
-        rel = [x for x in enc["entries"]
-               if x["id"] != ent["id"] and set(x.get("lanes", [])) & set(ent.get("lanes", []))][:6]
-    rel_html = "".join(
-        f'<a class="xref" href="{esc(x["id"])}.html"><b>{esc(x["title"])}</b>'
-        f'<span>{esc(_fmt_year(x.get("year")))} · {esc(kinds.get(x.get("kind", ""), ""))}</span></a>'
-        for x in rel)
+    byid = {x["id"]: x for x in enc["entries"]}
+    rels = ent.get("relations") or []
+    srcs = ent.get("sources") or []
+    sec = ent.get("sections") or []
+    lanes = ent.get("lanes") or []
+    med = ent.get("medium") or []
+    year = ent.get("year")
+
+    # ---- outgoing and incoming edges -----------------------------------------
+    out_edges = [(x["to"], x.get("type", "related")) for x in rels
+                 if x.get("to") in byid]
+    incoming = []
+    for x in enc["entries"]:
+        if x["id"] == ent["id"]:
+            continue
+        for e in (x.get("relations") or []):
+            if e.get("to") == ent["id"]:
+                incoming.append((x["id"], e.get("type", "related")))
+    incoming.sort(key=lambda z: -z[0].count(""))
+
+    # ---- the neighbourhood, drawn --------------------------------------------
+    # This is the page's multi-modal core: the same 417 relations the atlas
+    # draws globally, redrawn at entry scale so a reader can see this one thing
+    # in its neighbourhood instead of reading a list of ids.
+    seen, nb = set(), []
+    for tid, _t in out_edges + incoming:
+        if tid != ent["id"] and tid not in seen:
+            seen.add(tid)
+            nb.append(tid)
+    nb = nb[:11]
+    KIND_C = {"person": "#ff2d9e", "work": "#ffb300", "event": "#00e8c0",
+              "term": "#7b8cff", "mechanism": "#ff2d6f", "case": "#ff8a3d",
+              "study": "#5ad1a5", "institution": "#c9a227"}
+
+    def kind_colour(k):
+        return KIND_C.get(k, "#9aa0a6")
+
+    edges_svg, nodes_svg = [], []
+    CX, CY, RAD = 150.0, 150.0, 108.0
+    import math
+    pos = {}
+    for i, tid in enumerate(nb):
+        a = (2 * math.pi * i / max(1, len(nb))) - math.pi / 2
+        pos[tid] = (CX + RAD * math.cos(a) * 1.02, CY + RAD * math.sin(a))
+    for tid, t in out_edges:
+        if tid in pos:
+            x, y = pos[tid]
+            edges_svg.append(
+                f'<line x1="{CX:.1f}" y1="{CY:.1f}" x2="{x:.1f}" y2="{y:.1f}" '
+                f'stroke="var(--line2)" stroke-width="1.1" marker-end="url(#ar)"/>')
+    for tid, t in incoming:
+        if tid in pos:
+            x, y = pos[tid]
+            edges_svg.append(
+                f'<line x1="{x:.1f}" y1="{y:.1f}" x2="{CX:.1f}" y2="{CY:.1f}" '
+                f'stroke="var(--line2)" stroke-width="1.1" stroke-dasharray="2 3" '
+                f'marker-end="url(#ar)"/>')
+    for tid in nb:
+        x, y = pos[tid]
+        k = byid[tid].get("kind", "")
+        nodes_svg.append(
+            f'<a href="{esc(tid)}.html"><circle cx="{x:.1f}" cy="{y:.1f}" r="15" '
+            f'fill="{kind_colour(k)}" opacity=".9"><title>{esc(byid[tid]["title"])}'
+            f' - {esc(kinds.get(k, k))}</title></circle>'
+            f'<text x="{x:.1f}" y="{y + 4.2:.1f}" text-anchor="middle" '
+            f'font-size="7.5" fill="#0b0b0d" font-family="ui-monospace,monospace" '
+            f'font-weight="700">{esc(str(byid[tid].get("year", "")))[-3:] or ""}</text>'
+            f'<text x="{x:.1f}" y="{y + 27:.1f}" text-anchor="middle" font-size="7" '
+            f'fill="var(--dim)">{esc(byid[tid]["title"][:15])}</text></a>')
+    graph = ""
+    if nb:
+        graph = f"""
+  <figure class="ent-graph">
+    <svg viewBox="0 0 300 300" role="img"
+         aria-label="Neighbourhood of {esc(ent['title'])}: {len(nb)} connected entries">
+      <title>{esc(ent['title'])} in its neighbourhood</title>
+      <defs><marker id="ar" viewBox="0 0 8 8" refX="7" refY="4"
+        markerWidth="5" markerHeight="5" orient="auto">
+        <path d="M0 0 L8 4 L0 8 z" fill="var(--line2)"/></marker></defs>
+      {''.join(edges_svg)}
+      <circle cx="{CX}" cy="{CY}" r="24" fill="var(--ink)"/>
+      <text x="{CX}" y="{CY + 4:.1f}" text-anchor="middle" font-size="9"
+            fill="var(--bg)" font-family="ui-monospace,monospace" font-weight="700">HERE</text>
+      {''.join(nodes_svg)}
+    </svg>
+    <figcaption class="ent-graph-cap">
+      <span class="lg"><i class="lg-in"></i>points at this</span>
+      <span class="lg"><i class="lg-out"></i>this points at</span>
+      <span class="lg"><i class="dot" style="background:{kind_colour(ent.get('kind',''))}"></i>colour is what kind of thing it is</span>
+    </figcaption>
+  </figure>"""
+
+    # ---- the same information as text, for anyone not reading the diagram ----
+    xref_rows = []
+    for tid, t in out_edges:
+        x = byid[tid]
+        xref_rows.append(
+            f'<a class="xref" href="{esc(tid)}.html"><b>{esc(x["title"])}</b>'
+            f'<span>{esc(t)} · {_fmt_year(x.get("year"))} · '
+            f'{esc(kinds.get(x.get("kind", ""), ""))}</span></a>')
+    for tid, t in incoming:
+        x = byid[tid]
+        xref_rows.append(
+            f'<a class="xref xref-in" href="{esc(tid)}.html"><b>{esc(x["title"])}</b>'
+            f'<span>{esc(t)} · {_fmt_year(x.get("year"))} · '
+            f'{esc(kinds.get(x.get("kind", ""), ""))}</span></a>')
+    xref_html = "".join(xref_rows[:16])
+
+    # ---- cluster: the entries that tell the same story ------------------------
+    # Replika was five separate entries. Split by year they are one sequence, so
+    # the page says so instead of leaving the reader to work it out.
+    import re as _re
+    words = {w for w in _re.split(r"[-_]", ent["id"]) if len(w) > 3}
+    sibs = [x for x in enc["entries"]
+            if x["id"] != ent["id"]
+            and (words & {w for w in _re.split(r"[-_]", x["id"]) if len(w) > 3})]
+    sibs.sort(key=lambda x: (x.get("year") or 0))
+    sib_html = ""
+    if len(sibs) >= 2:
+        seq = " → ".join(
+            f'<a href="{esc(x["id"])}.html">{esc(x["title"])}</a>'
+            f'<span class="seq-y">{_fmt_year(x.get("year"))}</span>'
+            for x in sibs[:7])
+        sib_html = f"""
+  <div class="ent-seq">
+    <p class="kicker">Same story, {len(sibs)} other entries</p>
+    <p class="seq">{seq}</p>
+  </div>"""
+
+    # ---- provenance ---------------------------------------------------------
+    prov = ""
+    if srcs:
+        items = []
+        for s in srcs:
+            st = str(s.get("status", ""))
+            stl = ("ok" if st.startswith("verified") or st == "sourced"
+                   else "warn" if st in ("retrieved", "needs-source") else "dim")
+            u = s.get("url") or ""
+            cite = esc(s.get("citation") or "—")
+            body = (f'<a href="{esc(u)}" rel="noopener nofollow" target="_blank">{cite} ↗</a>'
+                    if u else cite)
+            items.append(
+                f'<li class="prov-{stl}"><span class="prov-status">{esc(st or "unverified")}</span>'
+                f'<span class="prov-claim">{esc(s.get("claim") or "")}</span>'
+                f'<span class="prov-cite">{body}</span></li>')
+        prov = f"""
+  <div class="ent-prov">
+    <p class="kicker">Provenance · {len(srcs)} source record(s)</p>
+    <ul class="prov">{''.join(items)}</ul>
+  </div>"""
+
+    # ---- where it sits in time ---------------------------------------------
+    # _era_bucket returns the label; the bar needs the span behind it, so map
+    # the label back to its bounds here rather than changing the shared helper.
+    BANDS = {"Before 0": (-3000, -1), "0-499": (0, 499), "500-999": (500, 999),
+             "1000-1499": (1000, 1499), "1500-1699": (1500, 1699),
+             "1700-1799": (1700, 1799), "1800-1899": (1800, 1899),
+             "1900-1949": (1900, 1949), "1950-1999": (1950, 1999),
+             "2000-2009": (2000, 2009), "2010+": (2010, 2026)}
+    name = _era_bucket(year) if year is not None else None
+    era_html = ""
+    if name in BANDS:
+        lo, hi = BANDS[name]
+        pct = 0.0 if hi == lo else max(0.0, min(1.0, (year - lo) / (hi - lo)))
+        era_html = f"""
+  <div class="ent-era">
+    <p class="kicker">Where it sits</p>
+    <div class="era-bar"><span class="era-here" style="left:{pct * 100:.1f}%"></span></div>
+    <p class="era-lab"><span>{esc(_fmt_year(lo))}</span>
+      <b>{esc(name)} · {_fmt_year(year)}</b>
+      <span>{esc(_fmt_year(hi))}</span></p>
+  </div>"""
 
     lane_html = "".join(
-        f'<span class="lane" style="--c:{enc["lanes"][l]["colour"]}">'
-        f'{esc(enc["lanes"][l]["name"])}</span>'
-        for l in ent.get("lanes", []) if l in enc["lanes"])
+        f'<span class="lane" style="--c:{enc["lanes"][l]["colour"]}" '
+        f'title="{esc(enc["lanes"][l]["blurb"])}">{esc(enc["lanes"][l]["name"])}</span>'
+        for l in lanes if l in enc["lanes"])
+    lane_note = "".join(
+        f'<p class="lane-note"><b>{esc(enc["lanes"][l]["name"])}.</b> '
+        f'{esc(enc["lanes"][l]["blurb"])}</p>'
+        for l in lanes if l in enc["lanes"])
 
-    others = "".join(
+    med_html = "".join(f'<span class="chip chip-m">{esc(m.replace("_", " "))}</span>'
+                       for m in med)
+    sec_html = "".join(
         f'<a class="chip" style="--c:{esc(s.get("colour", "#ff5a1f"))}" '
-        f'href="{r}timeline/{esc(s["id"])}/index.html">{esc(s["sign"])}</a>'
-        for s in data["sections"] if s["id"] in ent.get("sections", []))
+        f'href="{r}section/{esc(s["id"])}/index.html">{esc(s["sign"])}</a>'
+        for s in data["sections"] if s["id"] in sec)
+    other_secs = "".join(
+        f'<a class="chip" style="--c:{esc(s.get("colour", "#ff5a1f"))}" '
+        f'href="{r}timeline/{esc(s["id"])}/index.html">in the {esc(s["sign"])} timeline</a>'
+        for s in data["sections"] if s["id"] in sec)
+
+    verified = bool(ent.get("verified"))
+    check = ("" if verified else
+             '<p class="checknote"><b>Not yet stood behind.</b> The entry is real. '
+             'A person has not read the citation and confirmed it, so treat the '
+             'date as approximate until they do.</p>')
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
@@ -1577,32 +1762,35 @@ def build_entry(ent, enc, data):
 <a class="skip" href="#e">Skip to the entry</a>
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root=r, total=len(data['cards']), mk=mascot(30, 'wm-mascot'))}
-<main class="article">
+<main class="article" id="e">
   <p class="kicker">{esc(kinds.get(ent.get('kind',''),''))} · {_fmt_year(ent.get('year'))} · {esc(ent.get('era',''))}</p>
   <h1>{esc(ent['title'])}</h1>
   <p class="dek">{esc(ent.get('summary',''))}</p>
-  <div class="byline" style="margin-bottom:26px">{lane_html}</div>
+  <div class="byline" style="margin-bottom:20px">{lane_html}{med_html}</div>
+
+  {graph}
 
   <div class="body">
     <p class="lede2">{esc(ent.get('significance',''))}</p>
+    {lane_note}
   </div>
 
-  {f'<div class="srcbox" style="margin-top:26px;padding:14px 0;border-top:1px solid var(--line)">'
-   f'<p class="srcline">SOURCE</p><a>{esc(ent.get("source") or "see the article")}</a></div>'
-   if ent.get('source') else ''}
-  {'' if ent.get('verified') else
-   '<p class="checknote">This entry is real. The citation has not been checked by a human yet — '
-   'treat the date as approximate until it is.</p>'}
+  {sib_html}
+  {era_html}
+  {prov}
 
-  {f'<p class="kicker" style="margin-top:40px">Also in this section</p><div class="xrefs">{rel_html}</div>' if rel_html else ''}
+  {check}
 
-  <p class="kicker" style="margin-top:40px">Timelines this appears in</p>
-  <div class="chips">{others}</div>
+  {f'<p class="kicker" style="margin-top:40px">Connected · {len(out_edges)} out, {len(incoming)} in</p><div class="xrefs">{xref_html}</div>' if xref_html else ''}
+
+  <p class="kicker" style="margin-top:40px">It sits in</p>
+  <div class="chips">{sec_html}{other_secs}</div>
   <p class="countline" style="margin-top:20px">
     <a href="{r}timeline/index.html">The full timeline →</a> ·
-    <a href="{r}encyclopedia/index.html">The database →</a></p>
+    <a href="{r}encyclopedia/index.html">The database →</a> ·
+    <a href="{r}atlas/index.html#n={esc(ent['id'])}">See it in the atlas →</a></p>
 </main>
-{FOOT.format(root=r, sweep=MESSY, motto='A DATABASE, NOT A POST.<br>EVERY ENTRY IS LINKED.')}
+{FOOT.format(root=r, sweep=MESSY, motto=f'{len(out_edges) + len(incoming)} CONNECTIONS.<br>ONE OF THEM IS THIS ONE.')}
 </body></html>"""
 
 

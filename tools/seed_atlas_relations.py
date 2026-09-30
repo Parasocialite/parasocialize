@@ -546,20 +546,16 @@ R = {
  "vshojo": [
    ("cites", "vtuber"),
    ("cites", "paid-intimacy")],
- "digital-bereavement": [
-   ("depicts", "replika-closure"),
-   ("cites", "grief")],
- "neighbours-finale": [
-   ("cites", "soap-finale-study"),
-   ("cites", "mourn-a-person-you-met")],
- "replika-closure": [
-   ("succeeded", "replika-update"),
-   ("depicts", "digital-bereavement"),
-   ("cites", "grief")],
- "replika-update": [
-   ("succeeded", "replika-launch"),
-   ("depicts", "replika-closure"),
-   ("cites", "digital-bereavement")],
+  "digital-bereavement": [
+    ("depicts", "replika-update"),
+    ("cites", "grief")],
+  "neighbours-finale": [
+    ("cites", "soap-finale-study"),
+    ("cites", "mourn-a-person-you-met")],
+  "replika-update": [
+    ("succeeded", "replika-launch"),
+    ("depicts", "digital-bereavement"),
+    ("cites", "grief")],
  "stadium-residency": [
    ("cites", "the-atletefan-bond"),
    ("contemporary", "pokemon-go-incident")],
