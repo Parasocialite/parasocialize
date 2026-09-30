@@ -2238,6 +2238,58 @@ def build_sitemap(data):
 
 
 # ------------------------------------------------------------------ run
+def build_404(data):
+    """The page a dead URL gets.
+
+    Without this file Cloudflare Pages answers every unmatched path with
+    index.html and a 200. That is worse than a plain missing page: a soft 404
+    tells a crawler that a typo is a real URL, lets the sitemap imply pages
+    that do not exist, and makes broken links invisible because analytics will
+    report engagement on them. On a site whose entire claim is that it does not
+    pretend, returning a fake success for a page that is not there is precisely
+    the wrong default - so this says plainly that nothing is here, and offers
+    the doors that are.
+
+    Deliberately noindex: it is a dead end, not a page to rank.
+    """
+    r = ""
+    doors = [
+        ("The front page", f"{r}index.html"),
+        (f"All {len(data['sections'])} sections, searchable", f"{r}sections/index.html"),
+        ("The encyclopedia", f"{r}encyclopedia/index.html"),
+        ("The top eight this week", f"{r}top8/index.html"),
+        ("What is still unsourced", f"{r}citations/index.html"),
+    ]
+    lis = "\n".join(f'    <li><a href="{h}">{esc(t)}</a></li>' for t, h in doors)
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nothing here - Parasocialize</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="That address does not exist. Here is what does.">
+<link rel="icon" type="image/svg+xml" href="{SITE}/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{r}css/styles.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data["cards"]), mk=mascot(30, "wm-mascot"))}
+<main class="wrap" style="padding:64px 0 90px">
+  <p class="kicker">404</p>
+  <h1>Nothing here.</h1>
+  <p class="line">That address does not exist. It never moved and it is not coming
+  back, so pretending otherwise would be the one dishonest thing this site does.
+  Here is what does exist.</p>
+  <ul style="list-style:none;padding:0;margin:28px 0 0;display:grid;gap:9px;max-width:32rem">
+{lis}
+  </ul>
+</main>
+</body>
+</html>"""
+
+
 def main():
     data = json.loads(SHOP.read_text(encoding="utf-8"))
     sections, laws, shelf, cards = data["sections"], data["laws"], data["shelf"], data["cards"]
@@ -2304,6 +2356,11 @@ def main():
     (ROOT / "credits").mkdir(exist_ok=True)
     (ROOT / "credits" / "index.html").write_text(
         build_credits(data, manifest), encoding="utf-8")
+
+    # /404.html - without it every unmatched path returns the homepage with a
+    # 200, which is a soft 404: invisible to crawlers as an error, and wrong for
+    # a site that trades on not making things up.
+    (ROOT / "404.html").write_text(build_404(data), encoding="utf-8")
 
     # the encyclopedia: database, entry pages, master timeline, one timeline per section
     enc = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
