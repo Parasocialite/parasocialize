@@ -8,7 +8,7 @@ net and draft a card; a clerk signs them and they go on the shelf.
    finds     reads it,      dedupes    files     signs     published,
    ~100/hr   judges it,      scores     drafts    or bins
              names the      velocity
-             aisle, the
+             section, the
              law, the
              shelf
 ```
@@ -54,7 +54,7 @@ which is what makes the tier table mean anything. Google News gives you
 `news.google.com` for every story, which is precisely the bug that killed the
 old sweeper.
 
-**One query per aisle.** This is the load-bearing idea:
+**One query per section.** This is the load-bearing idea:
 
 ```json
 "crossover": "teacher students parasocial attachment school",
@@ -62,13 +62,13 @@ old sweeper.
 "grief":     "celebrity death fans grief mourning public"
 ```
 
-Each aisle is swept on its own terms instead of hoping one keyword finds
-everything. It is also the only reason **Aisle 07 (CROSSOVER)** is not empty —
+Each section is swept on its own terms instead of hoping one keyword finds
+everything. It is also the only reason **Section 07 (CROSSOVER)** is not empty —
 the attachment to a teacher, a landlord, a local news anchor, an AI assistant
 that knows your name, or a sports coach you've watched for nine years is real,
 happens constantly, and is invisible to a fandom site.
 
-The query's aisle is passed to the model as a **hint**, turning a guess into a
+The query's section is passed to the model as a **hint**, turning a guess into a
 check.
 
 ### Reddit is off, and here's why
@@ -79,7 +79,7 @@ for every subreddit with zero entries, so it looks like it works and isn't.
 
 To switch it on: create a free OAuth app at `reddit.com/prefs/apps` (type:
 script), then add `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET` as repo secrets.
-Until then the aisles lean on the Bing queries, which is why they're broader
+Until then the sections lean on the Bing queries, which is why they're broader
 than the old site was.
 
 ### Other feeds
@@ -115,14 +115,14 @@ site stays up and the queue keeps filling.
 
 | Path | What it is |
 |---|---|
-| `data/shop.json` | **The single source of truth.** aisles, laws, shelf, cards, queue. Hand-edit here. |
+| `data/shop.json` | **The single source of truth.** sections, laws, shelf, cards, queue. Hand-edit here. |
 | `data/queue.json` | Drafts awaiting signoff. Written by the sweeper, read by `/desk/`. |
 | `data/sweep.json` | Run telemetry: feeds ok/failed, candidates, drafted, rejected, model. |
 | `data/seen.json` | URL memory. **Must be written or every run re-does everything.** |
 | `data/binned.json` | Rejection memory. Same reason. |
-| `tools/feeds.json` | Sources, tiers, junk filter, per-aisle Bing queries. Edit here, not in code. |
+| `tools/feeds.json` | Sources, tiers, junk filter, per-section Bing queries. Edit here, not in code. |
 | `tools/counter.py` | The sweeper. Stdlib only, no pip. |
-| `tools/build_cards.py` | Renders `radar/*.html`, `aisle/`, `shelf/`, `radar.xml`, `sitemap.xml`, `data/index.json`. |
+| `tools/build_cards.py` | Renders `radar/*.html`, `section/`, `shelf/`, `radar.xml`, `sitemap.xml`, `data/index.json`. |
 | `tools/link_audit.py` | Fails on 404s, a feed pointing at the homepage, a stale sweep, or a queue nobody is clearing. |
 | `tools/check_css.py` | Catches classes used in HTML that the stylesheet never defines. |
 | `desk/index.html` | The signoff queue. `noindex`. |
@@ -141,7 +141,7 @@ python tools/link_audit.py     # should say "all good"
 
 1. Open `/desk/`.
 2. Edit the object in `data/queue.json`: set `"state": "signed"`, fill in
-   `aisle`, `law`, and `shelf` if the model left them null.
+   `section`, `law`, and `shelf` if the model left them null.
 3. Move it into `cards` in `data/shop.json` with a `slug`, `filed`, `due`
    (≈30 days out), and `state`. Give it a real `sources[0].url` — a card with
    an unresolved link is rendered with a `NEEDS LINK` stamp on purpose, and
@@ -155,7 +155,7 @@ python tools/link_audit.py     # should say "all good"
 | `OUT` | On the rack, `due` date live. |
 | `SHELVED` | Aged out of the rack, still on the shelf. |
 | `RESHELVED` | Evergreen. Case Files, the laws, the research shelf. |
-| `OVERDUE` | **Never decays.** Aisle 10 and hard grief. No due date, big red stamp, torn left edge. |
+| `OVERDUE` | **Never decays.** Section 10 and hard grief. No due date, big red stamp, torn left edge. |
 
 `OVERDUE` is used deliberately and sparingly. The counter's job is partly to
 remember the things that got worse, and a shelf that quietly ages out a sasaeng

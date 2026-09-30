@@ -15,7 +15,7 @@ SHOP = ROOT / "data" / "shop.json"
 
 G = "https://www.theguardian.com/commentisfree/2026/sep/28/celebrity-deaths-parasocial-relationships-grief"
 
-# slug, aisle, law, shelf, filed, state, kicker, headline, oneline, take, (pub, title, url)
+# slug, section, law, shelf, filed, state, kicker, headline, oneline, take, (pub, title, url)
 C = [
 # ---------------------------------------------------------------- THE LEAD
 ("madeonyoutube-spending-on-scoreboard", "brand", 3, "company-dreamer", "2026-09-26", "OUT",
@@ -487,7 +487,7 @@ C = [
  "A fan was convicted of stalking Jungkook. Twenty-two visits. One hundred and thirty-three doorbell rings",
  "Somewhere between the anniversary counter and this doorbell there is a line, and it is not blurry for the person on the other side of it.",
  "I am not going to do the thing where I explain this away, and I notice that every parasocial site quietly routes around "
- "this aisle, which is the single biggest reason those sites are still not taken seriously. I made a video about living "
+ "this section, which is the single biggest reason those sites are still not taken seriously. I made a video about living "
  "with Pennywise because the fictional version of this is genuinely how a shared fear works. The real version has a name "
  "and an address. This card does not have a due-back date and it never will.",
  [("Vitamin E K", "K-Pop's Sasaeng Problem: When Fan Culture Becomes Stalking",
@@ -546,13 +546,13 @@ AISLE_COLOUR = {
 
 def main():
     data = json.loads(SHOP.read_text(encoding="utf-8"))
-    for a in data["aisles"]:
+    for a in data["sections"]:
         a["colour"] = AISLE_COLOUR.get(a["id"], "#f2a93b")
 
     # replace, don't merge - this is the story set, not an accumulator
     data["cards"] = []
 
-    for (slug, aisle, law, shelf, filed, state, kicker, head, one, take,
+    for (slug, section, law, shelf, filed, state, kicker, head, one, take,
          srcs) in C:
         sources = []
         for pub, title, url in srcs:
@@ -561,7 +561,7 @@ def main():
         # deterministic score so ordering is stable and honest
         res = min(99, 55 + len(srcs) * 9 + len(head) // 12 + len(take) // 22)
         data["cards"].append({
-            "slug": slug, "headline": head, "aisle": aisle, "law": law,
+            "slug": slug, "headline": head, "section": section, "law": law,
             "shelf": shelf, "one_line": one, "take": take, "kicker": kicker,
             "sources": sources, "filed": filed,
             "due": None if state == "OVERDUE" else _plus30(filed),
@@ -574,7 +574,7 @@ def main():
     data["cards"].sort(key=lambda c: str(c.get("filed", "")), reverse=True)
     data["cards"].append({
         "slug": "research-shelf", "headline": "The research shelf: two places to go deeper",
-        "aisle": "world", "law": 1, "shelf": "kempe", "kicker": "Evergreen",
+        "section": "world", "law": 1, "shelf": "kempe", "kicker": "Evergreen",
         "one_line": "Stever's 2026 book for scholars, the APA trends report for everyone.",
         "take": "Start with my conference proceedings and you get the argument, which is older and stranger than the "
                 "vocabulary. Seven hundred years before the first stan header, somebody performed a self until it held, "
@@ -591,7 +591,7 @@ def main():
         "Parasocial is when you feel you know someone who has no idea you exist. "
         "This is the news feed for that, and everybody has one.")
     SHOP.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"seeded {len(data['cards'])} cards across {len(data['aisles'])} aisles")
+    print(f"seeded {len(data['cards'])} cards across {len(data['sections'])} sections")
 
 
 def _plus30(iso):

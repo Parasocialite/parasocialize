@@ -15,7 +15,7 @@ Upload whole `parasocialize/` folder to Cloudflare Pages / GitHub Pages. No buil
 
 ## 3. Money (30 min) - SHELVED until the revenue avenue is decided
 - [X] ~~Gumroad product 1: Field Guide $19 PDF~~ **CANCELLED 2026-09-29.** A $19 PDF of writing the reader can already read free in the browser is not a product, it is a toll on the same words. `guide/` is recoverable at commit ad17778 if it ever earns its place back.
-- [ ] Decide the actual revenue avenue *before* building the next thing. The $6/mo index tier and the $18 clinic already stand on their own and do not depend on this.
+- [ ] Decide the actual revenue avenue *before* building the next thing. The $6/mo index tier stands on its own and does not depend on this.
 - [ ] Gumroad product 1 (now the first product): Classroom $49 - worksheet + rubric. No longer a clone of a guide listing, so it needs its own cover, its own proof, and its own reason to exist at $49.
 - [ ] Audit: keep mailto until 2 bookings, then add Stripe payment link
 - [ ] Affiliate: confirm Amazon Associates tag on Company Dreamer links (or keep bare)

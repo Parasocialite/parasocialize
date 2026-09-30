@@ -232,7 +232,12 @@ def assemble(do_optimise=True):
     n += 1
     (DIST / "_redirects").write_text(
         "# Single-page-ish: serve directory indexes the way the site is built.\n"
-        "/index.html  /  301\n", encoding="utf-8")
+        "/index.html  /  301\n"
+        "# The ten categories were called 'aisles' until 2026-09-30. The word was\n"
+        "# doing no work and the nav already said SECTIONS, so the URL followed.\n"
+        "/aisle/       /sections/  301\n"
+        "/aisle/*      /sections/:splat  301\n",
+        encoding="utf-8")
     n += 1
     return n
 

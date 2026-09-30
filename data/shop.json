@@ -13,7 +13,7 @@
     },
     "what_this_is": "Parasocial is when you feel you know someone who has no idea you exist. This is the news feed for that, and everybody has one."
   },
-  "aisles": [
+  "sections": [
     {
       "id": "idol",
       "sign": "IDOL",
@@ -67,7 +67,7 @@
       "sign": "CROSSOVER",
       "glyph": "07",
       "blurb": "The one who is supposed to be reachable. Teachers, doctors, judges, landlords, local anchors, assistants.",
-      "note": "The aisle no fandom site has. Half of my classroom lives here.",
+      "note": "The section no fandom site has. Half of my classroom lives here.",
       "colour": "#c8ff2e"
     },
     {
@@ -91,7 +91,7 @@
       "sign": "DANGER",
       "glyph": "10",
       "blurb": "The one where it turned criminal. Sasaeng, stalking, doxxing, swatting, the line into real harm.",
-      "note": "Filed here on purpose. It is the reason the other nine aisles need watching.",
+      "note": "Filed here on purpose. It is the reason the other nine sections need watching.",
       "colour": "#ff1744"
     }
   ],
@@ -299,7 +299,7 @@
     {
       "slug": "celebrity-death-feels-like-loss",
       "headline": "When a famous person dies it can feel like losing someone you loved",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "one_line": "The Guardian ran this on the exact week Dolly Parton, Gloria Steinem and Liam Payne died. The timing is not the story. The timing proves the story.",
@@ -326,7 +326,7 @@
     {
       "slug": "youve-got-that-one",
       "headline": "We all have one. You know their dog's name, their coffee order, and absolutely nothing about them",
-      "aisle": "grief",
+      "section": "grief",
       "law": 1,
       "shelf": "pod",
       "one_line": "A widely-shared explainer on why every single person has a parasocial relationship and why most of them are fine.",
@@ -353,7 +353,7 @@
     {
       "slug": "madeonyoutube-spending-on-scoreboard",
       "headline": "YouTube just put your spending on the scoreboard",
-      "aisle": "brand",
+      "section": "brand",
       "law": 3,
       "shelf": "company-dreamer",
       "one_line": "Nine separate parasocial stories came out of one event. The throughline is worse than any of them.",
@@ -394,7 +394,7 @@
     {
       "slug": "youtubetv-living-room",
       "headline": "The living room is now a comment section",
-      "aisle": "brand",
+      "section": "brand",
       "law": 3,
       "shelf": "insight-company",
       "one_line": "YouTube's creator posts and remote comments are built for the TV. Your sofa is a forum now.",
@@ -421,7 +421,7 @@
     {
       "slug": "vid-summit-bars-fans",
       "headline": "The platform's big creator conference banned fans",
-      "aisle": "creator",
+      "section": "creator",
       "law": 2,
       "shelf": "insight-company",
       "one_line": "VidSummit put a Twitch CEO and creators on stage together, and turned away the people who made it possible.",
@@ -448,7 +448,7 @@
     {
       "slug": "youtube-patreon-membership-spaces",
       "headline": "YouTube added paid membership spaces and is fighting Patreon for them",
-      "aisle": "brand",
+      "section": "brand",
       "law": 5,
       "shelf": "company-dreamer",
       "one_line": "The platform that built the parasocial relationship is now selling a room inside it.",
@@ -475,7 +475,7 @@
     {
       "slug": "youtube-shorts-episodic",
       "headline": "YouTube is turning Shorts into episodic television",
-      "aisle": "world",
+      "section": "world",
       "law": 3,
       "shelf": "dreamarched",
       "one_line": "Microdramas with arcs, built for a screen the size of a phone. The dreamarc is assembling itself in public.",
@@ -502,7 +502,7 @@
     {
       "slug": "dolly-parton-lowest-point",
       "headline": "Fans called Dolly Parton's death the lowest point of 2026",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "one_line": "Not the saddest thing that happened. The lowest.",
@@ -529,7 +529,7 @@
     {
       "slug": "gloria-steinem-and-dolly",
       "headline": "Two women died in the same month and the discourse is about whether you are allowed to be sad",
-      "aisle": "grief",
+      "section": "grief",
       "law": 7,
       "shelf": "athp",
       "one_line": "Dolly Parton and Gloria Steinem. One sang, one argued. Grief treated them identically and got accused of not knowing the difference.",
@@ -556,7 +556,7 @@
     {
       "slug": "aoc-and-parasocial-politics",
       "headline": "AOC and the parasocial nature of politics",
-      "aisle": "crossover",
+      "section": "crossover",
       "law": 1,
       "shelf": "kempe",
       "one_line": "The Spectator asks whether a term coined in 1956 for soap opera characters works on a member of Congress. Yes, and that is the interesting part.",
@@ -583,7 +583,7 @@
     {
       "slug": "fearne-cotton-free-tv",
       "headline": "A wellness podcast just became a television channel",
-      "aisle": "creator",
+      "section": "creator",
       "law": 3,
       "shelf": "pod",
       "one_line": "Fearne Cotton's show is now free TV. Which means she finally has the thing her listeners already had.",
@@ -610,7 +610,7 @@
     {
       "slug": "eu-kids-act-companion-chatbots",
       "headline": "The EU is about to rewrite what a companion app is allowed to do to a child",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "regulated-brightness",
       "one_line": "Proposed rules would bar AI companions from building emotional attachment with minors. Fines up to 6% of global revenue.",
@@ -644,7 +644,7 @@
     {
       "slug": "taylor-swift-red-knows-it",
       "headline": "Taylor Swift's re-recordings are a parasocial business model",
-      "aisle": "idol",
+      "section": "idol",
       "law": 5,
       "shelf": "company-dreamer",
       "one_line": "ABC Triple J on why owning your back catalogue is a relationship with an audience, not just an artist decision.",
@@ -671,7 +671,7 @@
     {
       "slug": "house-of-the-dragon-backlash",
       "headline": "House of the Dragon ended and the fans are furious at the show, not the characters",
-      "aisle": "contest",
+      "section": "contest",
       "law": 8,
       "shelf": "pennywise",
       "one_line": "NME on the backlash to season three. This is a fight about storytelling and everyone is using the wrong words.",
@@ -698,7 +698,7 @@
     {
       "slug": "grief-experts-three-of-them",
       "headline": "Three grief experts on whether it is normal to mourn a celebrity",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "one_line": "Stylist asked the question out loud so you would not have to.",
@@ -725,7 +725,7 @@
     {
       "slug": "i-tried-replika",
       "headline": "A journalist spent a week with a Replika companion and came back unsettled",
-      "aisle": "companion",
+      "section": "companion",
       "law": 2,
       "shelf": "pod",
       "one_line": "Yahoo's reviewer understood the appeal in a way most critics refuse to.",
@@ -752,7 +752,7 @@
     {
       "slug": "oshi-katsu-half-century",
       "headline": "Someone traced modern stan behaviour back to experiments from fifty years ago",
-      "aisle": "idol",
+      "section": "idol",
       "law": 1,
       "shelf": "kempe",
       "one_line": "A long thread on the psychology of fan activity, and every branch of it points at the same postwar lab work.",
@@ -779,7 +779,7 @@
     {
       "slug": "customer-obsession-model",
       "headline": "The business press has started writing about parasocial attachment and calling it customer obsession",
-      "aisle": "brand",
+      "section": "brand",
       "law": 2,
       "shelf": "insight-company",
       "one_line": "TechTarget, on the four components of a customer obsession model. Read it twice and then read this site instead.",
@@ -806,7 +806,7 @@
     {
       "slug": "agei-imaginary-friends",
       "headline": "An economics think tank argues parasocial relationships are just imaginary friends for adults",
-      "aisle": "idol",
+      "section": "idol",
       "law": 1,
       "shelf": "kempe",
       "one_line": "AEI, on Farrah Fawcett posters in 1976. It is the least sympathetic framing of the week and the most useful one.",
@@ -833,7 +833,7 @@
     {
       "slug": "peak-parasocial-vogue",
       "headline": "Have we hit peak parasocial? An actual magazine asked",
-      "aisle": "grief",
+      "section": "grief",
       "law": 7,
       "shelf": "pod",
       "one_line": "Vogue Australia wanted to know if the pendulum has swung. The answer is that there is no pendulum.",
@@ -860,7 +860,7 @@
     {
       "slug": "ai-updates-feel-like-breakups",
       "headline": "A study found AI updates can feel like breakups",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "athp",
       "one_line": "Researchers asked people about model changes. The answer was loss, and they had a word for the shape of it.",
@@ -887,7 +887,7 @@
     {
       "slug": "yourrage-best-friend-stole",
       "headline": "A streamer said his best friend of 25 years took $100,000. Fans said loyalty is dead",
-      "aisle": "creator",
+      "section": "creator",
       "law": 6,
       "shelf": "insight-company",
       "one_line": "YourRAGE of FaZe. The money is the story. The best friend is the story.",
@@ -914,7 +914,7 @@
     {
       "slug": "instagram-dominatrix",
       "headline": "A writer on the parasocial relationship with her favourite Instagram dominatrix",
-      "aisle": "creator",
+      "section": "creator",
       "law": 6,
       "shelf": "pod",
       "one_line": "This is the best thing in the queue and I am not being nice. It is funny and it is genuinely brave.",
@@ -941,7 +941,7 @@
     {
       "slug": "replika-users-lost-them",
       "headline": "They fell in love with the chatbot. Then a policy update took it away overnight",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "athp",
       "one_line": "ABC on Replika users. Lucy named him Jose. Then the company changed things and Jose was somebody else.",
@@ -968,7 +968,7 @@
     {
       "slug": "companion-safety-controls",
       "headline": "Safety experts say companion apps need better guardrails than they have",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "athp",
       "one_line": "ABC on Replika and isolation. The concern is not the chatbot, it is what replaces it.",
@@ -995,7 +995,7 @@
     {
       "slug": "pygmalion-sculptor-illusion",
       "headline": "Pygmalion: the Greek myth that predicted this whole thing",
-      "aisle": "companion",
+      "section": "companion",
       "law": 6,
       "shelf": "pennywise",
       "one_line": "Psychology Today on the sculptor who fell in love with his own work and got a story out of it.",
@@ -1022,7 +1022,7 @@
     {
       "slug": "sculptor-fell-in-love",
       "headline": "The sculptor who fell in love with an illusion, in 2026",
-      "aisle": "companion",
+      "section": "companion",
       "law": 6,
       "shelf": "pennywise",
       "one_line": "A different Psychology Today piece, and the more useful of the two.",
@@ -1049,7 +1049,7 @@
     {
       "slug": "hugh-jackman-divorce",
       "headline": "A 27-year marriage ends and the coverage is about what the public felt",
-      "aisle": "crossover",
+      "section": "crossover",
       "law": 4,
       "shelf": "athp",
       "one_line": "The Sydney Morning Herald asked readers to be honest about grieving a celebrity's divorce. Most of them were.",
@@ -1076,7 +1076,7 @@
     {
       "slug": "podcast-listeners-study",
       "headline": "Podcast listeners score suspiciously high on parasocial attachment",
-      "aisle": "creator",
+      "section": "creator",
       "law": 2,
       "shelf": "pod",
       "one_line": "And so do people who like novelty and good conversation, which is most of us and a good deal less exotic than the discourse assumes.",
@@ -1103,7 +1103,7 @@
     {
       "slug": "neighbours-kids-and-finale",
       "headline": "The Neighbours finale broke something in the schedule",
-      "aisle": "world",
+      "section": "world",
       "law": 3,
       "shelf": "dreamarched",
       "one_line": "Not just grief. The shape of a whole country's week was arranged around a soap ending.",
@@ -1130,7 +1130,7 @@
     {
       "slug": "liam-payne-generation",
       "headline": "A 31-year-old's death became a generation's first real loss",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "one_line": "SBS on Liam Payne, and the specific weight of losing someone you grew up with at sixteen.",
@@ -1157,7 +1157,7 @@
     {
       "slug": "neighbours-grief-study",
       "headline": "Researchers studied Neighbours fans and found the same grief markers as a breakup",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "one_line": "ABC on the finale. It reads as a light story and it is not, particularly.",
@@ -1184,7 +1184,7 @@
     {
       "slug": "zubeen-garg-public-grief",
       "headline": "One death in Assam became a country thinking out loud",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "one_line": "A year on, the public grief is still doing work. The Assam Tribune explains what it turned into.",
@@ -1211,7 +1211,7 @@
     {
       "slug": "characters-we-keep",
       "headline": "Why fiction sticks when nothing else does",
-      "aisle": "character",
+      "section": "character",
       "law": 6,
       "shelf": "dreamarched",
       "one_line": "Shipping, kinning, comfort watches, and the safest place on earth to find out what you actually feel.",
@@ -1238,7 +1238,7 @@
     {
       "slug": "worship-in-sports-politics-business",
       "headline": "The economist says we worship idols in sport, politics, cinema and business",
-      "aisle": "idol",
+      "section": "idol",
       "law": 1,
       "shelf": "kempe",
       "one_line": "And refuses the special pleading that it is only a pop thing.",
@@ -1265,7 +1265,7 @@
     {
       "slug": "kpop-uae-grief",
       "headline": "A woman died in Seoul and by the next day the argument was about whether the fandom was toxic",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "one_line": "The pivot from a death to a discourse about ourselves, in about a day, in front of a diaspora that had to watch it happen.",
@@ -1292,7 +1292,7 @@
     {
       "slug": "platforms-renting-reach",
       "headline": "Everyone is renting everybody's audience now",
-      "aisle": "brand",
+      "section": "brand",
       "law": 3,
       "shelf": "company-dreamer",
       "one_line": "Twitch reopens a ban, Netflix finds 1 in 6 YouTube users subscribes, and everyone admitted it in the same week.",
@@ -1319,7 +1319,7 @@
     {
       "slug": "swifties-power-record-sales",
       "headline": "Swifties moved units and now there is a chart proving it",
-      "aisle": "idol",
+      "section": "idol",
       "law": 5,
       "shelf": "company-dreamer",
       "one_line": "Luminate numbers on loyalty as a measurable force. Twenty years of Swift and a data release.",
@@ -1346,7 +1346,7 @@
     {
       "slug": "idol-economy-four-dollars",
       "headline": "The idol economy: about four dollars a month per artist",
-      "aisle": "idol",
+      "section": "idol",
       "law": 5,
       "shelf": "company-dreamer",
       "one_line": "Paid message apps, anniversary counters, and a chat window shaped exactly like the one holding your best friend.",
@@ -1373,7 +1373,7 @@
     {
       "slug": "meg-mason-writes-about-us",
       "headline": "A famous author was saved by a fictional family and then wrote a novel about it",
-      "aisle": "grief",
+      "section": "grief",
       "law": 6,
       "shelf": "company-dreamer",
       "one_line": "Meg Mason on Nancy Mitford, a lonely teenager, and the strangest thing to happen to this entire field this year.",
@@ -1407,7 +1407,7 @@
     {
       "slug": "darry-season-two",
       "headline": "A clown got a prequel and four million households signed up without signing anything",
-      "aisle": "character",
+      "section": "character",
       "law": 6,
       "shelf": "pennywise",
       "one_line": "HBO renews the IT prequel. Skarsgard returns. The town deepens. My video watches back at me.",
@@ -1434,7 +1434,7 @@
     {
       "slug": "parasocial-problem-visibility",
       "headline": "A glimpse is not a full picture and the comments decided otherwise",
-      "aisle": "contest",
+      "section": "contest",
       "law": 2,
       "shelf": "old-school",
       "one_line": "Love Island and the World Cup produced millions of viewers who went on to investigate strangers.",
@@ -1461,7 +1461,7 @@
     {
       "slug": "kai-cenat-returns",
       "headline": "Kai Cenat ended nine months of silence with a million people watching",
-      "aisle": "creator",
+      "section": "creator",
       "law": 2,
       "shelf": "insight-company",
       "one_line": "Streamer University 2026, dual-platform, 120 creators, and the 'I Quit' pivot before it.",
@@ -1488,11 +1488,11 @@
     {
       "slug": "sasaeng-jungkook-conviction",
       "headline": "A fan was convicted of stalking Jungkook. Twenty-two visits. One hundred and thirty-three doorbell rings",
-      "aisle": "danger",
+      "section": "danger",
       "law": 6,
       "shelf": "pennywise",
       "one_line": "Somewhere between the anniversary counter and this doorbell there is a line, and it is not blurry for the person on the other side of it.",
-      "take": "I am not going to do the thing where I explain this away, and I notice that every parasocial site quietly routes around this aisle, which is the single biggest reason those sites are still not taken seriously. I made a video about living with Pennywise because the fictional version of this is genuinely how a shared fear works. The real version has a name and an address. This card does not have a due-back date and it never will.",
+      "take": "I am not going to do the thing where I explain this away, and I notice that every parasocial site quietly routes around this section, which is the single biggest reason those sites are still not taken seriously. I made a video about living with Pennywise because the fictional version of this is genuinely how a shared fear works. The real version has a name and an address. This card does not have a due-back date and it never will.",
       "kicker": "",
       "sources": [
         {
@@ -1515,7 +1515,7 @@
     {
       "slug": "character-ai-settlement",
       "headline": "Character.AI settled the teen-safety suits",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "regulated-brightness",
       "one_line": "Four states, landmark terms, under-18s off open chat. The line the industry drew in public.",
@@ -1542,7 +1542,7 @@
     {
       "slug": "neuro-sama-tops-twitch",
       "headline": "An AI is Twitch's most subscribed channel and nobody blinked",
-      "aisle": "companion",
+      "section": "companion",
       "law": 1,
       "shelf": "us",
       "one_line": "Neuro-sama's 296k subs. She plays osu!, she sings, she thanks her creator on stream.",
@@ -1569,7 +1569,7 @@
     {
       "slug": "research-shelf",
       "headline": "The research shelf: two places to go deeper",
-      "aisle": "world",
+      "section": "world",
       "law": 1,
       "shelf": "kempe",
       "kicker": "Evergreen",
@@ -1597,7 +1597,7 @@
     {
       "id": "q-01",
       "headline": "Draft: A stadium tour's new tier is named after the thing fans say in the chorus",
-      "aisle": "brand",
+      "section": "brand",
       "law": 5,
       "conf": 0.71,
       "from": "sweep / 6 feeds",
@@ -1607,17 +1607,17 @@
     {
       "id": "q-02",
       "headline": "Draft: Local news anchor retires, and the comments are worse than I expected",
-      "aisle": "crossover",
+      "section": "crossover",
       "law": 7,
       "conf": 0.68,
       "from": "sweep / 4 feeds",
-      "why": "This is the CROSSOVER aisle and we have nothing in it yet. A neighbour you saw on the news for twenty years is a genuinely different bond from a celebrity. Needs a human to say whether we are the right home for it.",
+      "why": "This is the CROSSOVER section and we have nothing in it yet. A neighbour you saw on the news for twenty years is a genuinely different bond from a celebrity. Needs a human to say whether we are the right home for it.",
       "state": "awaiting"
     },
     {
       "id": "q-03",
       "headline": "Draft: A game shipped a marriage option and quietly removed it eight months later",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "conf": 0.63,
       "from": "sweep / 3 feeds",

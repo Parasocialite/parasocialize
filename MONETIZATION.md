@@ -42,8 +42,7 @@ Aisle 07 (CROSSOVER) and the rejected-drafts archive are the paid tier's
 distinctive draws. Neither is scrapable and both only exist because a person
 maintains them.
 
-- **Price:** $6/mo, $60/yr. A second tier at $15 with the monthly Clinic seat
-  bundled is the only other one. There is no tier four.
+- **Price:** $6/mo, $60/yr. One tier. There is no second tier and no tier four.
 - **Who actually pays:** students, teachers, journalists, researchers, and
   platform/safety people. Not the 18-year-olds. Size the plan for the first
   group; the second group is the funnel.
@@ -53,21 +52,12 @@ maintains them.
 - **Platform:** Stripe or Paddle, one click, cancel from the same place. The
   button is not wired yet and the page says so rather than showing a fake form.
 
-### 2. The Clinic — $18 · highest money per hour
+### 2. ~~The Clinic — $18~~ **CANCELLED.**
 
-Once a month. One hour, live, small group, six people. Bring one attachment,
-we audit it out loud. It's the classroom exercise with adults who have not had
-anybody to say it to.
-
-Why this is second and not institutional licences: **no sales cycle.** You
-advertise to your own list and the room fills. Institutional licences need a
-salesperson — finding principals, PD coordinators, department heads — and
-turning yourself into a vendor is the single most likely way to burn six months
-and get nothing. This is the clerk's counter, in person, at the scale a person
-can actually run.
-
-Recording goes to the whole list, so it earns its slot even for the weeks
-you can't be there.
+A monthly live group session. Removed because it was never actually
+discussed as a plan and the page had outgrown the idea: it needed six real
+people a month, live, with somebody moderating a room where people disclose
+things. It is recoverable at commit 3d6b7a1 if that ever changes.
 
 ### 3. The shelf — multi-door, not a pitch
 
@@ -103,7 +93,7 @@ to the site instead of the site mattering to the work.
 | **Institutional licences** | Correct buyer, wrong motion for one person. It needs a salesperson. If you ever *want* to be one, the $49 pack is still live at `/classroom/` and the pitch is a whole-year program, not a PDF. |
 | **Printed almanac** | A Kickstarter'd printed annual is the natural artifact of this design and would probably fund. It is also a six-month project, not a website change. |
 | **Grants** | Low odds, high value, near-zero time. File two or three a year for journalism/culture and forget about them. |
-| **Paid tier on the Friday email** | Not yet. Sell Renewals and the Clinic first; the email is the funnel, and putting a wall on the funnel before it has flow is how you get a dead list. |
+| **Paid tier on the Friday email** | Not yet. Sell Renewals first; the email is the funnel, and putting a wall on the funnel before it has flow is how you get a dead list. |
 | **Data licensing** | The taxonomy is genuinely licensable to researchers and brands. Revisit when the Index has a few hundred cards. |
 
 ---
@@ -134,7 +124,6 @@ until you're back.
 - Renewals at $6: **17 members pays the domain and the model calls.** That's
   the bar. Hit it and the site runs.
 - 2% of a free list converting to Renewals: 500 subs → 10 members. 2,000 → 40.
-- One Clinic a month at 40 × $18 = **$720**, occasionally, for one evening.
 
 If the list stays under ~1,000, none of this is a living and the honest
 framing is a well-built free thing that costs almost nothing. That's fine.

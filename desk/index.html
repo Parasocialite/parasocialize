@@ -19,7 +19,7 @@
   <nav id="nav" class="nav" aria-label="Main">
     <a href="../index.html">Front page</a>
     <a href="index.html" aria-current="true">Desk</a>
-    <a href="../aisle/index.html">Sections</a>
+    <a href="../sections/index.html">Sections</a>
   </nav>
 </div></header>
 
@@ -41,11 +41,11 @@
 
   <p class="kicker" style="margin-top:44px">The queue</p>
   <div class="bar">
-    <input class="search" id="q" type="search" placeholder="Filter by headline, source or aisle…" aria-label="Filter the queue">
+    <input class="search" id="q" type="search" placeholder="Filter by headline, source or section…" aria-label="Filter the queue">
     <select id="sort" aria-label="Sort" style="padding:11px 14px;border-radius:99px;border:1px solid var(--line);background:var(--bg2);color:var(--paper);font-family:var(--label);font-size:.66rem">
       <option value="conf">Most confident first</option>
       <option value="date">Newest first</option>
-      <option value="aisle">By aisle</option>
+      <option value="section">By section</option>
     </select>
   </div>
   <p class="countline" id="count" aria-live="polite"></p>
@@ -58,7 +58,7 @@
 
   <p class="kicker" style="margin-top:44px">Signing off</p>
   <div class="note">
-    <p>To publish a draft: edit <b>data/queue.json</b> — set <b>"state":"signed"</b>, fill in <b>aisle</b>,
+    <p>To publish a draft: edit <b>data/queue.json</b> — set <b>"state":"signed"</b>, fill in <b>section</b>,
     <b>law</b> and <b>shelf</b> if the model left them null — move the object into <b>cards</b> in
     <b>data/shop.json</b> with a <b>slug</b>, <b>filed</b> and a <b>state</b>, then run
     <b>python tools/build_cards.py</b>. The hourly job picks the commit up.</p>
@@ -76,7 +76,7 @@
     <p class="foot-note">NOINDEX · THIS PAGE IS NOT FOR READERS</p>
   </div>
   <nav class="foot-nav" aria-label="Footer">
-    <a href="../index.html">FRONT PAGE</a><a href="../aisle/index.html">SECTIONS</a><a href="../radar.xml">RSS</a>
+    <a href="../index.html">FRONT PAGE</a><a href="../sections/index.html">SECTIONS</a><a href="../radar.xml">RSS</a>
   </nav>
 </div></footer>
 
@@ -90,11 +90,11 @@
 
   function card(d){
     var unlensed=d.state==="awaiting_lens", conf=Math.round((d.conf||0)*100);
-    var hay=((d.headline||"")+" "+(d.domain||"")+" "+(d.aisle||"")).toLowerCase();
-    var col=d.aisle&&AIS.indexOf(d.aisle)>-1
+    var hay=((d.headline||"")+" "+(d.domain||"")+" "+(d.section||"")).toLowerCase();
+    var col=d.section&&AIS.indexOf(d.section)>-1
       ? getComputedStyle(document.documentElement).getPropertyValue("--warm"):"#ffb454";
     var tags='<span class="tag tag-law">SRC '+(d.domain||"?")+"</span>";
-    if(d.aisle) tags+='<span class="tag tag-aisle">AISLE '+(AIS.indexOf(d.aisle)+1)+' '+esc(d.aisle.toUpperCase())+"</span>";
+    if(d.section) tags+='<span class="tag tag-aisle">SECTION '+(AIS.indexOf(d.section)+1)+' '+esc(d.section.toUpperCase())+"</span>";
     if(d.law) tags+='<span class="tag tag-law">LAW '+d.law+" · "+esc(LAW[d.law]||"")+"</span>";
     if(d.shelf) tags+='<span class="tag tag-law">SHELF '+esc(d.shelf.toUpperCase())+"</span>";
     return '<article class="story story-lg" data-hay="'+esc(hay)+'">'
@@ -113,11 +113,11 @@
     var t=(document.getElementById("q").value||"").trim().toLowerCase();
     var s=document.getElementById("sort").value;
     var list=q2.filter(function(d){
-      return !t||((d.headline||"")+" "+(d.domain||"")+" "+(d.aisle||"")+" "+(d.feed||""))
+      return !t||((d.headline||"")+" "+(d.domain||"")+" "+(d.section||"")+" "+(d.feed||""))
         .toLowerCase().indexOf(t)>-1;});
     list.sort(function(a,b){
       if(s==="conf")return (b.conf||0)-(a.conf||0);
-      if(s==="aisle")return String(a.aisle||"zz").localeCompare(String(b.aisle||"zz"));
+      if(s==="section")return String(a.section||"zz").localeCompare(String(b.section||"zz"));
       return String(b.at||"").localeCompare(String(a.at||""));});
     document.getElementById("queue").innerHTML=list.map(card).join("")
       ||'<p class="countline">Nothing in the queue.</p>';

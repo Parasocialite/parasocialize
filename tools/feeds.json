@@ -2,7 +2,7 @@
   "_comment": "Verified working 2026-09-28. Bing News RSS is the backbone: it returns the REAL publisher url and name, so tiers actually resolve. Google News RSS is deliberately NOT used - it only returns news.google.com redirect urls, which is what killed the old sweeper.",
 
   "bing": {
-    "_note": "One query per aisle. This is how the taxonomy does real work: each aisle is swept on its own terms instead of hoping one keyword finds everything. It is also the only way CROSSOVER ever gets covered.",
+    "_note": "One query per section. This is how the taxonomy does real work: each section is swept on its own terms instead of hoping one keyword finds everything. It is also the only way CROSSOVER ever gets covered.",
     "q": {
       "general":  "parasocial relationships",
       "idol":     "celebrity fans parasocial relationship attachment",
@@ -26,13 +26,13 @@
   ],
 
   "reddit": {
-    "_note": "Reddit blocks datacenter IPs, which is what GitHub Actions runs on - a plain request gets 403, and the .rss endpoint returns an identical ~321KB anti-bot page for every subreddit. Needs a free OAuth app. Set REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET as repo secrets to switch these on. Until then they are off and the aisles lean on the Bing queries.",
+    "_note": "Reddit blocks datacenter IPs, which is what GitHub Actions runs on - a plain request gets 403, and the .rss endpoint returns an identical ~321KB anti-bot page for every subreddit. Needs a free OAuth app. Set REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET as repo secrets to switch these on. Until then they are off and the sections lean on the Bing queries.",
     "_howto": "https://www.reddit.com/prefs/apps -> create app (script) -> put the id in REDDIT_CLIENT_ID and the secret in REDDIT_CLIENT_SECRET",
     "subs": ["parasocial", "Fandom", "kpop", "CharacterAI", "kpophorror", "sports"]
   },
 
   "hn": {
-    "_note": "Optional. Hacker News via Algolia, no key needed. Good for the AI-companion aisle where the discourse is oldest.",
+    "_note": "Optional. Hacker News via Algolia, no key needed. Good for the AI-companion section where the discourse is oldest.",
     "enabled": false,
     "query": "parasocial OR \"AI companion\""
   },

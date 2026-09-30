@@ -3,8 +3,8 @@
 build_cards.py - redraws the whole video store from data/shop.json.
 
   radar/<slug>.html      one page per story
-  section/<aisle>/       a section front per aisle
-  aisle/index.html       every aisle, searchable
+  section/<section>/    a section front per section
+  sections/index.html       every section, searchable
   shelf/index.html       the clerk's own work, multi-door
   index.html             the front page
   radar.xml / sitemap.xml / data/index.json
@@ -35,7 +35,7 @@ NAV = """<header class="topbar"><div class="topbar-in">
   <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   <nav id="nav" class="nav" aria-label="Main">
     <a href="{root}index.html">Home</a>
-    <a href="{root}aisle/index.html">All 47</a>
+    <a href="{root}sections/index.html">All 47</a>
     <a href="{root}top8/index.html">Top 8</a>
     <a href="{root}history/index.html">The history</a>
     <a href="{root}atlas/index.html">The atlas</a>
@@ -54,7 +54,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
     Every card links to its sources. Every card is signed by a person.</p>
   </div>
   <nav class="foot-nav" aria-label="Footer">
-    <a href="{root}index.html">LATEST</a><a href="{root}aisle/index.html">SECTIONS</a>
+    <a href="{root}index.html">LATEST</a><a href="{root}sections/index.html">SECTIONS</a>
     <a href="{root}top8/index.html">TOP 8</a><a href="{root}timeline/index.html">TIMELINE</a>
     <a href="{root}moments/index.html">MOMENTS</a>
     <a href="{root}atlas/index.html">THE ATLAS</a>
@@ -122,8 +122,8 @@ def rel_days(iso):
 
 
 # ------------------------------------------------------------------- posters
-def poster(c, aisles, wide=False):
-    a = next((x for x in aisles if x["id"] == c["aisle"]), {})
+def poster(c, sections, wide=False):
+    a = next((x for x in sections if x["id"] == c["section"]), {})
     col = a.get("colour", "#ffb454")
     h = sum(ord(ch) for ch in c["slug"])
     g = (c["headline"].strip() or "P")[0].upper()
@@ -136,20 +136,20 @@ def poster(c, aisles, wide=False):
     return (f'<div class="poster{" wide" if wide else ""}">'
             f'<span class="stripe" style="background:{esc(stripe)}"></span>'
             f'<span class="glyph">{esc(g)}</span>{lab}'
-            f'<span class="foot"><b>{esc(a.get("sign", c["aisle"].upper()))}</b>'
+            f'<span class="foot"><b>{esc(a.get("sign", c["section"].upper()))}</b>'
             f'<span>{esc(c["headline"][:30])}</span></span></div>')
 
 
-def poster_bg(c, aisles):
+def poster_bg(c, sections):
     """inline gradient for a lead cover"""
-    a = next((x for x in aisles if x["id"] == c["aisle"]), {})
+    a = next((x for x in sections if x["id"] == c["section"]), {})
     col = a.get("colour", "#ffb454")
     h = sum(ord(ch) for ch in c["slug"])
     return (f"background:linear-gradient(155deg,{esc(col)} 0%,"
             f"color-mix(in srgb,{esc(col)} 30%,#1b1410) 55%,#120d0a 100%)")
 
 
-def cover(c, aisles, manifest=None, depth=1, big=False):
+def cover(c, sections, manifest=None, depth=1, big=False):
     """The picture on a card, or the lettered poster if there isn't one.
 
     The order is deliberate: this story's own photograph, then its section's
@@ -166,22 +166,22 @@ def cover(c, aisles, manifest=None, depth=1, big=False):
     and on /credits/ where there is room to be read.
     """
     f = img_for(manifest or {}, c.get("slug"), depth) or \
-        img_aisle(manifest or {}, c.get("aisle"), depth)
+        img_aisle(manifest or {}, c.get("section"), depth)
     if f:
         return (f'<div class="poster shot">'
                 f'<img src="{esc(f["path"])}" alt="" loading="lazy">'
                 f'<span class="veil" style="background:'
                 f'linear-gradient(to top,rgba(12,8,5,.86) 0%,rgba(12,8,5,.12) 46%,'
                 f'rgba(12,8,5,0) 72%)"></span></div>')
-    return poster(c, aisles, wide=big)
+    return poster(c, sections, wide=big)
 
 
-def story(c, aisles, laws, big=False, take=True, root_="", manifest=None, depth=1):
-    a = next((x for x in aisles if x["id"] == c["aisle"]), {})
+def story(c, sections, laws, big=False, take=True, root_="", manifest=None, depth=1):
+    a = next((x for x in sections if x["id"] == c["section"]), {})
     col = a.get("colour", "#ffb454")
     law = next((l for l in laws if l["n"] == c["law"]), {})
     src = (c.get("sources") or [{}])[0]
-    tags = [f'<span class="tag tag-aisle">{esc(a.get("sign", c["aisle"].upper()))}</span>']
+    tags = [f'<span class="tag tag-aisle">{esc(a.get("sign", c["section"].upper()))}</span>']
     if c.get("kicker"):
         tags.append(f'<span class="tag tag-kick">{esc(c["kicker"])}</span>')
     if c.get("state") == "OVERDUE":
@@ -191,7 +191,7 @@ def story(c, aisles, laws, big=False, take=True, root_="", manifest=None, depth=
     tk = f'<p class="take">{esc(c["take"])}</p>' if take and c.get("take") else ""
     return (f'<article class="story{" story-lg" if big else ""}" style="--c:{esc(col)}">'
             f'<a class="cover" href="{root_}radar/{esc(c["slug"])}.html" tabindex="-1" aria-hidden="true">'
-            f'{cover(c, aisles, manifest, depth, big)}</a>'
+            f'{cover(c, sections, manifest, depth, big)}</a>'
             f'<div class="body"><div class="tags">{"".join(tags)}</div>'
             f'<h3><a href="{root_}radar/{esc(c["slug"])}.html">{esc(c["headline"])}</a></h3>'
             f'<p class="dek">{esc(c["one_line"])}</p>{tk}'
@@ -200,18 +200,18 @@ def story(c, aisles, laws, big=False, take=True, root_="", manifest=None, depth=
 
 
 # ------------------------------------------------------------------ article
-def build_card(c, aisles, laws, shelf, data, manifest=None):
+def build_card(c, sections, laws, shelf, data, manifest=None):
     d = 1
     r = root(d)
     manifest = manifest or {"items": []}
-    a = next((x for x in aisles if x["id"] == c["aisle"]), {})
+    a = next((x for x in sections if x["id"] == c["section"]), {})
     law = next((x for x in laws if x["n"] == c["law"]), {})
     col = a.get("colour", "#ffb454")
     sh = next((x for x in shelf if x["id"] == c.get("shelf")), None)
 
     rel = sorted([x for x in data["cards"] if x["slug"] != c["slug"]
-                  and x["aisle"] == c["aisle"]], key=lambda x: -x.get("res", 0))[:4]
-    rel_html = "".join(story(x, aisles, laws, root_=r, manifest=manifest, depth=d) for x in rel)
+                  and x["section"] == c["section"]], key=lambda x: -x.get("res", 0))[:4]
+    rel_html = "".join(story(x, sections, laws, root_=r, manifest=manifest, depth=d) for x in rel)
 
     src_rows = []
     for s in c.get("sources", []):
@@ -260,7 +260,7 @@ def build_card(c, aisles, laws, shelf, data, manifest=None):
     if own:
         article_photo = fig(manifest, c.get("slug"), d, "article-photo")
     else:
-        sec = f"aisle-{c.get('aisle')}"
+        sec = f"section-{c.get('section')}"
         if img_for(manifest, sec, d):
             article_photo = fig(manifest, sec, d, "article-photo borrowed")
     if article_photo and not own:
@@ -504,17 +504,17 @@ def build_section(a, data, manifest=None):
     r = root(2)
     col = a.get("colour", "#ffb454")
     manifest = manifest or {"items": []}
-    mine = sorted([c for c in data["cards"] if c["aisle"] == a["id"]],
+    mine = sorted([c for c in data["cards"] if c["section"] == a["id"]],
                   key=lambda c: str(c.get("filed", "")), reverse=True)
     if not mine:
         return ""
     lead, rest = mine[0], mine[1:]
-    big = "".join(story(c, data["aisles"], data["laws"], big=True, root_=r,
+    big = "".join(story(c, data["sections"], data["laws"], big=True, root_=r,
                         manifest=manifest, depth=2) for c in rest[:6])
-    rest2 = "".join(story(c, data["aisles"], data["laws"], root_=r,
+    rest2 = "".join(story(c, data["sections"], data["laws"], root_=r,
                           manifest=manifest, depth=2) for c in rest[6:12])
 
-    others = [x for x in data["aisles"] if x["id"] != a["id"]]
+    others = [x for x in data["sections"] if x["id"] != a["id"]]
     nav = "".join(
         f'<a class="chip{" on" if x["id"]==a["id"] else ""}" '
         f'style="--c:{esc(x.get("colour","#ffb454"))}" href="{r}section/{esc(x["id"])}/index.html">'
@@ -523,7 +523,7 @@ def build_section(a, data, manifest=None):
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{esc(a['sign'])} - the {esc(a['sign'].lower())} aisle - Parasocialize</title>
+<title>{esc(a['sign'])} - the {esc(a['sign'].lower())} section - Parasocialize</title>
 <meta name="description" content="{esc(a['blurb'])}">
 {HEAD.format(site=SITE, path=f"/section/{a['id']}/", otype="website",
              title=f"{a['sign']} - Parasocialize", desc=esc(a['blurb']), root=r)}
@@ -541,11 +541,11 @@ def build_section(a, data, manifest=None):
     <p class="sec-lede">{esc(a['blurb'])} <em style="color:var(--dim)">{esc(a['note'])}</em></p>
   </div>
 
-  {fig(manifest, f"aisle-{esc(a['id'])}", 2, "sec-mast")}
+  {fig(manifest, f"section-{esc(a['id'])}", 2, "sec-mast")}
 
   <div class="lead" style="margin-top:28px">
     <a class="cover" href="{r}radar/{esc(lead['slug'])}.html" tabindex="-1" aria-hidden="true"
-       style="{poster_bg(lead, data['aisles'])};border-radius:12px;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.6);aspect-ratio:2/3;display:flex;align-items:flex-end;padding:14px">
+       style="{poster_bg(lead, data['sections'])};border-radius:12px;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.6);aspect-ratio:2/3;display:flex;align-items:flex-end;padding:14px">
       <span style="position:relative;z-index:2">
         <b style="display:block;font-family:var(--label);font-size:.5rem;letter-spacing:.2em;color:rgba(255,255,255,.8)">MOST RECENT</b>
         <span style="display:block;font-family:var(--serif);font-size:.9rem;font-weight:700;color:#fff;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.6)">{esc(lead['headline'][:44])}</span>
@@ -562,37 +562,37 @@ def build_section(a, data, manifest=None):
   {f'<div class="front">{big}</div>' if big else ''}
   {f'<div class="front" style="margin-top:20px">{rest2}</div>' if rest2 else ''}
 
-  <p class="kicker" style="margin-top:48px">Other aisles</p>
+  <p class="kicker" style="margin-top:48px">Other sections</p>
   <div class="chips">{nav}</div>
-  <p class="countline"><a href="{r}aisle/index.html">See everything, searchable →</a></p>
+  <p class="countline"><a href="{r}sections/index.html">See everything, searchable →</a></p>
 </section>
 </main>
-{FOOT.format(root=r, sweep=MESSY, motto='TEN AISLES.<br>SEVEN OF THEM ARE NEW HERE.')}
+{FOOT.format(root=r, sweep=MESSY, motto='TEN SECTIONS.<br>SEVEN OF THEM ARE NEW HERE.')}
 </body></html>"""
 
 
-# ------------------------------------------------------------------ all aisles
+# ------------------------------------------------------------------ all sections
 def build_aisle(data, feat=None, manifest=None):
     r = root(1)
-    aisles, cards = data["aisles"], data["cards"]
+    sections, cards = data["sections"], data["cards"]
     feat = feat or {"lists": [], "moments": []}
     manifest = manifest or {"items": []}
     blocks = []
-    for a in aisles:
-        mine = [c for c in cards if c["aisle"] == a["id"]]
+    for a in sections:
+        mine = [c for c in cards if c["section"] == a["id"]]
         col = a.get("colour", "#ffb454")
         n = len(mine)
         blocks.append(
             f'<a class="aisle" style="--c:{esc(col)}" href="{r}section/{esc(a["id"])}/index.html">'
             f'<b>{esc(a["sign"])}</b><p>{esc(a["blurb"])}</p>'
             f'<span class="count"><b>{n}</b> stor{"y" if n==1 else "ies"}</span></a>')
-    latest = "".join(story(c, aisles, data["laws"], take=False, root_=r,
+    latest = "".join(story(c, sections, data["laws"], take=False, root_=r,
                              manifest=manifest, depth=1) for c in cards[:18])
 
     # feature doors at the top: the lists, the history, the moments
     fdoors = []
     for L in (feat.get("lists") or []):
-        f = img_for(manifest, L.get("image"), 1)  # /aisle/ is depth 1
+        f = img_for(manifest, L.get("image"), 1)  # /sections/ is depth 1
         im = f'<img src="{esc(f["path"])}" alt="" loading="lazy">' if f else ""
         fdoors.append(f'<a class="fdoor" href="{r}top8/index.html" style="--c:#ff5a1f">'
                       f'<span class="fdoor-art">{im}</span>'
@@ -603,7 +603,7 @@ def build_aisle(data, feat=None, manifest=None):
              "The whole documented history of one-sided attachment, free.", "history-macy-store"),
             ("moments", "The moments", "The ones that moved it",
              f"{len(feat.get('moments', []))} significant moments across every domain.", "moment-wojak")]:
-        f = img_for(manifest, imslug, 1)  # aisle page: depth 1
+        f = img_for(manifest, imslug, 1)  # sections page: depth 1
         im = f'<img src="{esc(f["path"])}" alt="" loading="lazy">' if f else ""
         fdoors.append(f'<a class="fdoor" href="{r}{esc(slug)}/index.html" style="--c:#a04dff">'
                       f'<span class="fdoor-art">{im}</span>'
@@ -614,10 +614,10 @@ def build_aisle(data, feat=None, manifest=None):
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>All sections - Parasocialize</title>
-<meta name="description" content="Ten aisles of one-sided attachment: idols, creators, characters, companions, worlds, brands, crossers, contests, grief and the ones that turn criminal.">
-{HEAD.format(site=SITE, path="/aisle/", otype="website",
+<meta name="description" content="Ten sections of one-sided attachment: idols, creators, characters, companions, worlds, brands, crossers, contests, grief and the ones that turn criminal.">
+{HEAD.format(site=SITE, path="/sections/", otype="website",
              title="All sections - Parasocialize",
-             desc="Ten aisles of one-sided attachment.", root=r)}
+             desc="Ten sections of one-sided attachment.", root=r)}
 </head>
 <body>
 <a class="skip" href="#a">Skip to sections</a>
@@ -625,12 +625,12 @@ def build_aisle(data, feat=None, manifest=None):
 {NAV.format(root=r, total=len(data["cards"]), mk=mascot(30, "wm-mascot"))}
 <main>
 <section class="section" id="a">
-  <p class="kicker">The whole shop · {len(cards)} stories · {len(aisles)} aisles</p>
+  <p class="kicker">The whole shop · {len(cards)} stories · {len(sections)} sections</p>
   <div class="sec-head">
-    <h1>Pick an aisle. Or don't.</h1>
+    <h1>Pick a section. Or don't.</h1>
     <p class="sec-lede">Parasocial is a relationship where the other end cannot say it back. It is not a genre - it is a
     shape, and it shows up in a stadium and in a court docket and in the teacher at the front of the room exactly as hard as
-    it shows up in a fandom. Ten aisles. Seven of them a fandom site would never build.</p>
+    it shows up in a fandom. Ten sections. Seven of them a fandom site would never build.</p>
   </div>
   {f'<div class="fdoors" style="margin-top:24px">{"".join(fdoors)}</div>' if fdoors else ''}
   <div class="aisles" style="margin-top:16px">{''.join(blocks)}</div>
@@ -662,11 +662,11 @@ def build_aisle(data, feat=None, manifest=None):
 
 
 # ------------------------------------------------------------------ front page
-def pick_top(cards, aisle):
-    """The one story that represents the aisle right now. Ranked by importance,
+def pick_top(cards, section):
+    """The one story that represents the section right now. Ranked by importance,
     with a nudge toward anything that just happened and anything deliberately
     kept as DO-NOT-RETURN."""
-    mine = [c for c in cards if c["aisle"] == aisle]
+    mine = [c for c in cards if c["section"] == section]
     if not mine:
         return None
     def rank(c):
@@ -686,7 +686,7 @@ def pick_top(cards, aisle):
 
 
 def build_front(data, feat=None, manifest=None, hist=None):
-    aisles, laws, shelf, cards = data["aisles"], data["laws"], data["shelf"], data["cards"]
+    sections, laws, shelf, cards = data["sections"], data["laws"], data["shelf"], data["cards"]
     feat = feat or {"lists": [], "moments": [], "figures": []}
     manifest = manifest or {"items": []}
     hist = hist or {"modules": []}
@@ -746,18 +746,18 @@ def build_front(data, feat=None, manifest=None, hist=None):
     for slug, name, kick, blurb, imslug in feats:
         f = img_for(manifest, imslug, 0)  # front page: depth 0
         im = f'<img src="{esc(f["path"])}" alt="" loading="lazy">' if f else ""
-        fcards.append(f"""<a class="fdoor" href="{esc(slug)}/index.html" style="--c:{esc(next((a.get('colour','#ff5a1f') for a in aisles if a['id']=='history'), '#ff5a1f'))}">
+        fcards.append(f"""<a class="fdoor" href="{esc(slug)}/index.html" style="--c:{esc(next((a.get('colour','#ff5a1f') for a in sections if a['id']=='history'), '#ff5a1f'))}">
   <span class="fdoor-art">{im}</span>
   <span class="fdoor-body"><strong>{esc(name)}</strong><span>{esc(blurb)}</span></span>
 </a>""")
 
-    # ten tiles, one per aisle, each showing that aisle's top story. nothing
+    # ten tiles, one per section, each showing that section's top story. nothing
     # else competes for the front page.
     tiles = []
-    for a in aisles:
+    for a in sections:
         col = a.get("colour", "#ff5a1f")
         top = pick_top(cards, a["id"])
-        n = len([c for c in cards if c["aisle"] == a["id"]])
+        n = len([c for c in cards if c["section"] == a["id"]])
         if not top:
             continue
         glyph = (top["headline"].strip() or "P")[0].upper()
@@ -802,9 +802,9 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <div class="wrap">
     <h1>Parasocialize.</h1>
     <p class="line">One-sided relationships are just easier.
-    The news, the argument, the research and the whole history of it — in {len(aisles)} places it turns up.</p>
+    The news, the argument, the research and the whole history of it — in {len(sections)} places it turns up.</p>
     <p class="mono-s" style="margin-top:14px">{total} stories · swept hourly · free · signed by a person ·
-    <a href="aisle/index.html">all of it, searchable →</a></p>
+    <a href="sections/index.html">all of it, searchable →</a></p>
   </div>
 </section>
 
@@ -867,7 +867,7 @@ def img_aisle(manifest, aisle_id, depth=1):
     """The photograph standing in for a whole section. This is what stops the
     front page being ten gradients: every section has a real photograph of its
     subject matter, resolved once and credited."""
-    return img_for(manifest, f"aisle-{aisle_id}", depth)
+    return img_for(manifest, f"section-{aisle_id}", depth)
 
 
 def fig(manifest, slug, depth=1, cls="", wide=False):
@@ -890,7 +890,7 @@ def mascot(size=40, cls="", mood="watch", dark=False):
     mood:
       watch    pupils slightly off-axis, alert (default)
       wink     one pupil shut, for pull quotes
-      sad      pupils low, for the grief aisle
+      sad      pupils low, for the grief section
       hollow   no pupils. the one-sided joke: nobody is home
     """
     pupils = {
@@ -1071,7 +1071,7 @@ def build_top8(data, feat, manifest):
   {shared_law}
   <ol class="t8">{''.join(items)}</ol>
   <p class="countline" style="margin-top:30px">More top 8s coming, rotated weekly.
-  <a href="{r}index.html">Back to the ten aisles →</a></p>
+  <a href="{r}index.html">Back to the ten sections →</a></p>
 </section>
 </main>
 {FOOT.format(root=root(1), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
@@ -1199,7 +1199,7 @@ def build_figures(data, feat, manifest):
   not it can hold anything back. These are the ones that keep turning up, from a sculptor to a face on a webcam.</p>
   <div class="fcards" style="margin-top:28px">{''.join(figs)}</div>
   <p class="countline" style="margin-top:28px">Want the argument for the whole thing?
-  <a href="{r}history/index.html">The history course →</a> · <a href="{r}index.html">The ten aisles →</a></p>
+  <a href="{r}history/index.html">The history course →</a> · <a href="{r}index.html">The ten sections →</a></p>
 </section>
 </main>
 {FOOT.format(root=root(1), sweep=MESSY, motto='ONE-SIDED.<br>NOTHING HAS CHANGED SINCE 600 BC.')}
@@ -1239,7 +1239,7 @@ def build_moments(data, feat, manifest):
 <section class="section" id="m">
   <p class="kicker">Moments · the ones that changed the shape of it</p>
   <h1 class="h-title" style="font-size:clamp(1.9rem,4.6vw,3rem)">The moments that moved it</h1>
-  <p class="sec-lede" style="max-width:60ch">Not the news — the news is ten aisles away. These are the
+  <p class="sec-lede" style="max-width:60ch">Not the news — the news is ten sections away. These are the
   parasocial events that changed what the thing was, across television, music, the internet, games and AI.</p>
   <div class="moments" style="margin-top:28px">{''.join(ms)}</div>
   <p class="countline" style="margin-top:28px">Still a Saturday morning problem?
@@ -1261,7 +1261,7 @@ def build_brand(data, feat):
              ("wink", "For pull quotes and the Friday email."),
              ("sad", "Grief. Used on the obituary cards and the grief section."),
              ("love", "The club. Heart eyes, for when somebody has told you which "
-                      "aisle they are in."),
+                      "section they are in."),
              ("panic", "The sweep is late and the clock is red."),
              ("clerk", "Behind the counter. Ayo in the nametag."),
              ("asleep", "Sweeping hourly, seven past.")]
@@ -1415,7 +1415,7 @@ def build_timeline(enc, data, section=None):
     r = root(2) if section else root(1)
     a = None
     if section:
-        a = next((x for x in data["aisles"] if x["id"] == section), None)
+        a = next((x for x in data["sections"] if x["id"] == section), None)
     pool = [e for e in enc["entries"] if (not section or section in e.get("sections", []))]
     pool.sort(key=lambda e: (_y(e), e.get("title", "")))
 
@@ -1458,7 +1458,7 @@ def build_timeline(enc, data, section=None):
     others = "".join(
         f'<a class="chip" style="--c:{esc(x.get("colour","#ff5a1f"))}" '
         f'href="{r}timeline/{esc(x["id"])}/index.html">{esc(x["sign"])}</a>'
-        for x in data["aisles"])
+        for x in data["sections"])
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
@@ -1545,7 +1545,7 @@ def build_entry(ent, enc, data):
     # I read as a limitation of the audit rather than as the bug it was.
     r = root(1)
     kinds = enc["kinds"]
-    back = next((s for s in data["aisles"] if s["id"] in ent.get("sections", [])), None)
+    back = next((s for s in data["sections"] if s["id"] in ent.get("sections", [])), None)
     rel = [x for x in enc["entries"] if x["id"] in ent.get("related", [])]
     if not rel:
         rel = [x for x in enc["entries"]
@@ -1563,7 +1563,7 @@ def build_entry(ent, enc, data):
     others = "".join(
         f'<a class="chip" style="--c:{esc(s.get("colour", "#ff5a1f"))}" '
         f'href="{r}timeline/{esc(s["id"])}/index.html">{esc(s["sign"])}</a>'
-        for s in data["aisles"] if s["id"] in ent.get("sections", []))
+        for s in data["sections"] if s["id"] in ent.get("sections", []))
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
@@ -1793,7 +1793,7 @@ def build_shelf(data):
   {cited} of {len(shelf)} are cited by something on the site right now. More than one way to buy each.</p>
   {''.join(groups)}
   <p class="countline" style="margin-top:36px">The novels are how a lot of people find this site, and this site is
-  why a lot of people read them. <a href="{r}index.html">Back to the ten aisles →</a></p>
+  why a lot of people read them. <a href="{r}index.html">Back to the ten sections →</a></p>
 </section>
 </main>
 {FOOT.format(root=r, sweep=MESSY, motto='THE EVIDENCE BASE.<br>NOT A SHOP WINDOW.')}
@@ -1816,17 +1816,17 @@ def doors_for(sh):
 def build_rss(data):
     items = []
     for c in sorted(data["cards"], key=lambda c: str(c.get("filed", "")), reverse=True):
-        a = next((x for x in data["aisles"] if x["id"] == c["aisle"]), {})
+        a = next((x for x in data["sections"] if x["id"] == c["section"]), {})
         body = (f'<p><strong>{esc(c["headline"])}</strong></p><p>{esc(c["one_line"])}</p>'
                 f'<p><em>{esc(c["take"])}</em></p>'
-                f'<p>Aisle {esc(a.get("sign",""))}, law {c["law"]}. '
+                f'<p>Section {esc(a.get("sign",""))}, law {c["law"]}. '
                 f'<a href="{SITE}/radar/{esc(c["slug"])}.html">Read the card</a>.</p>')
         items.append(
             f'<item><title>{esc(c["headline"])}</title>'
             f'<link>{SITE}/radar/{esc(c["slug"])}.html</link>'
             f'<guid isPermaLink="true">{SITE}/radar/{esc(c["slug"])}.html</guid>'
             f'<pubDate>{rfc822(c.get("filed"))}</pubDate>'
-            f'<category>{esc(c["aisle"])}</category>'
+            f'<category>{esc(c["section"])}</category>'
             f'<description><![CDATA[{body}]]></description></item>')
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n<channel>\n'
@@ -1841,17 +1841,17 @@ def build_rss(data):
 
 def build_sitemap(data):
     today = str(data.get("meta", {}).get("generated", ""))[:10] or "2026-09-28"
-    urls = [(f"{SITE}/", "1.0", "hourly"), (f"{SITE}/aisle/", "0.9", "daily"),
+    urls = [(f"{SITE}/", "1.0", "hourly"), (f"{SITE}/sections/", "0.9", "daily"),
             (f"{SITE}/history/", "0.9", "monthly"), (f"{SITE}/top8/", "0.9", "weekly"),
             (f"{SITE}/moments/", "0.8", "monthly"), (f"{SITE}/figures/", "0.7", "monthly"),
             (f"{SITE}/shelf/", "0.8", "monthly"), (f"{SITE}/membership/", "0.7", "monthly"),
-            (f"{SITE}/clinic/", "0.6", "monthly"),
+            
             (f"{SITE}/signal/latest.html", "0.5", "weekly"), (f"{SITE}/tip/", "0.4", "monthly")]
     urls.append((f"{SITE}/atlas/", "0.6", "weekly"))
     urls.append((f"{SITE}/quiz/", "0.6", "monthly"))
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
     urls.append((f"{SITE}/citations/", "0.5", "weekly"))
-    for a in data["aisles"]:
+    for a in data["sections"]:
         urls.append((f"{SITE}/section/{a['id']}/", "0.8", "daily"))
         urls.append((f"{SITE}/timeline/{a['id']}/", "0.7", "monthly"))
     for p in ("/timeline/", "/encyclopedia/", "/brand/", "/top8/", "/history/",
@@ -1871,7 +1871,7 @@ def build_sitemap(data):
 # ------------------------------------------------------------------ run
 def main():
     data = json.loads(SHOP.read_text(encoding="utf-8"))
-    aisles, laws, shelf, cards = data["aisles"], data["laws"], data["shelf"], data["cards"]
+    sections, laws, shelf, cards = data["sections"], data["laws"], data["shelf"], data["cards"]
     # loaded up here because the section fronts and /credits/ both need it, and
     # they are written before the encyclopedia block further down
     manifest = json.loads((ROOT / "data" / "images.json").read_text(encoding="utf-8"))
@@ -1884,11 +1884,11 @@ def main():
             old.unlink()
     for c in cards:
         (ROOT / "radar" / f"{c['slug']}.html").write_text(
-            build_card(c, aisles, laws, shelf, data, manifest), encoding="utf-8")
+            build_card(c, sections, laws, shelf, data, manifest), encoding="utf-8")
 
     (ROOT / "section").mkdir(exist_ok=True)
     made = []
-    for a in aisles:
+    for a in sections:
         html_ = build_section(a, data, manifest)
         if not html_:
             continue
@@ -1897,8 +1897,8 @@ def main():
         (d / "index.html").write_text(html_, encoding="utf-8")
         made.append(a["id"])
 
-    (ROOT / "aisle").mkdir(exist_ok=True)
-    (ROOT / "aisle" / "index.html").write_text(build_aisle(data), encoding="utf-8")
+    (ROOT / "sections").mkdir(exist_ok=True)
+    (ROOT / "sections" / "index.html").write_text(build_aisle(data), encoding="utf-8")
     (ROOT / "shelf").mkdir(exist_ok=True)
     (ROOT / "shelf" / "index.html").write_text(build_shelf(data), encoding="utf-8")
     (ROOT / "index.html").write_text(build_front(data), encoding="utf-8")
@@ -1949,14 +1949,14 @@ def main():
     tdir = ROOT / "timeline"
     tdir.mkdir(exist_ok=True)
     (tdir / "index.html").write_text(build_timeline(enc, data, None), encoding="utf-8")
-    for a in data["aisles"]:
+    for a in data["sections"]:
         t = build_timeline(enc, data, a["id"])
         if not t:
             continue
         (tdir / a["id"]).mkdir(exist_ok=True)
         (tdir / a["id"] / "index.html").write_text(t, encoding="utf-8")
     (ROOT / "moments" / "index.html").write_text(build_moments(data, feat, manifest), encoding="utf-8")
-    # expose the features to the front page and aisle index
+    # expose the features to the front page and section index
     (ROOT / "data" / "features-index.json").write_text(json.dumps(
         {"lists": [{"slug": l["slug"], "title": l["title"], "dek": l["dek"],
                     "kicker": l["kicker"]} for l in feat["lists"]],
@@ -1964,15 +1964,15 @@ def main():
         indent=2, ensure_ascii=False), encoding="utf-8")
     # rebuild the front page with the features in
     (ROOT / "index.html").write_text(build_front(data, feat, manifest, hist), encoding="utf-8")
-    # the aisle index gets the moments + top8 teasers too
-    (ROOT / "aisle" / "index.html").write_text(build_aisle(data, feat, manifest), encoding="utf-8")
+    # the section index gets the moments + top8 teasers too
+    (ROOT / "sections" / "index.html").write_text(build_aisle(data, feat, manifest), encoding="utf-8")
     (ROOT / "radar.xml").write_text(build_rss(data), encoding="utf-8")
     (ROOT / "sitemap.xml").write_text(build_sitemap(data), encoding="utf-8")
 
     (ROOT / "data" / "index.json").write_text(json.dumps({
-        "meta": data.get("meta", {}), "aisles": aisles, "laws": laws,
+        "meta": data.get("meta", {}), "sections": sections, "laws": laws,
         "shelf": shelf, "cards": [{
-            "slug": c["slug"], "headline": c["headline"], "aisle": c["aisle"],
+            "slug": c["slug"], "headline": c["headline"], "section": c["section"],
             "law": c["law"], "shelf": c.get("shelf"), "kicker": c.get("kicker"),
             "one_line": c["one_line"], "take": c["take"],
             "sources": c.get("sources", []), "filed": c.get("filed"),

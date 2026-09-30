@@ -364,7 +364,7 @@ YOUR OWN PHOTOS. Drop files in img/mine/ and they take priority over CC.
   img/mine/counter.jpg         the counter itself                 -> the counter plate
   img/mine/manuscript.jpg      pages of a manuscript              -> the guide
   img/mine/cartoon-tv.jpg      a TV on Saturday morning            -> top 8
-  img/mine/phone-charging.jpg  a phone charging next to a bed     -> the companion aisle
+  img/mine/phone-charging.jpg  a phone charging next to a bed     -> the companion section
 
 Why bother: a site with a face and a room reads as a publication. A site with
 only stock reads as an aggregator. The stock is holding the layout together;

@@ -998,7 +998,7 @@
     },
     {
       "slug": "aisle-idol",
-      "for": "aisle",
+      "for": "section",
       "caption": "A crowd watching a band perform",
       "q": "idol",
       "aisle": "idol",
@@ -1016,7 +1016,7 @@
     },
     {
       "slug": "aisle-creator",
-      "for": "aisle",
+      "for": "section",
       "caption": "A speaker addressing a room at a conference",
       "q": "creator",
       "aisle": "creator",
@@ -1034,7 +1034,7 @@
     },
     {
       "slug": "aisle-character",
-      "for": "aisle",
+      "for": "section",
       "caption": "A woman adjusting a vintage television set. Third attempt: the first was a photograph of Saturn captioned as 'a screen, and the person watching it', the second a film-festival award badge. Both passed the must-term test. The caption had been written before the picture was chosen, which is the failure this review exists to catch.",
       "q": "television set room",
       "aisle": "character",
@@ -1054,7 +1054,7 @@
     },
     {
       "slug": "aisle-companion",
-      "for": "aisle",
+      "for": "section",
       "caption": "A hand holding a smartphone, lit by its own screen. Re-fetched twice - the first attempt came back as a map of Belarus and the second as a cropped chatbot reply.",
       "q": "smartphone",
       "aisle": "companion",
@@ -1074,7 +1074,7 @@
     },
     {
       "slug": "aisle-world",
-      "for": "aisle",
+      "for": "section",
       "caption": "A stadium. The oldest version of the thing.",
       "q": "world",
       "aisle": "world",
@@ -1092,7 +1092,7 @@
     },
     {
       "slug": "aisle-brand",
-      "for": "aisle",
+      "for": "section",
       "caption": "A shop window. A shop, which is also a version.",
       "q": "brand",
       "aisle": "brand",
@@ -1110,7 +1110,7 @@
     },
     {
       "slug": "aisle-crossover",
-      "for": "aisle",
+      "for": "section",
       "caption": "A Victorian schoolroom, Blists Hill",
       "q": "crossover",
       "aisle": "crossover",
@@ -1128,7 +1128,7 @@
     },
     {
       "slug": "aisle-contest",
-      "for": "aisle",
+      "for": "section",
       "caption": "A climate protest in Washington DC, 2015. Re-fetched: the previous one was a pilgrimage site in the Philippines captioned as a public argument, which is the same class of error in the other direction.",
       "q": "protest demonstration",
       "aisle": "contest",
@@ -1148,7 +1148,7 @@
     },
     {
       "slug": "aisle-grief",
-      "for": "aisle",
+      "for": "section",
       "caption": "A face in low light",
       "q": "grief",
       "aisle": "grief",
@@ -1166,7 +1166,7 @@
     },
     {
       "slug": "aisle-danger",
-      "for": "aisle",
+      "for": "section",
       "caption": "A mounted police officer",
       "q": "danger",
       "aisle": "danger",

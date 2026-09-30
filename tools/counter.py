@@ -38,7 +38,7 @@ MODEL = os.environ.get("PARASOCIALIZE_MODEL", "claude-sonnet-5" if PROVIDER == "
 BASE = os.environ.get("PARASOCIALIZE_BASE", "").strip()
 DRYRUN = os.environ.get("PARASOCIALIZE_DRYRUN", "") not in ("", "0", "false")
 
-AISLES = ["idol", "creator", "character", "companion", "world", "brand", "crossover", "contest", "grief", "danger"]
+SECTIONS = ["idol", "creator", "character", "companion", "world", "brand", "crossover", "contest", "grief", "danger"]
 LAWS = {
     1: "binding-is-public",
     2: "clerks-beat-algorithms",
@@ -60,7 +60,7 @@ the one nobody writes about and it matters most.
 
 YOUR JOB
 Read a headline and snippet. Decide whether there is genuine one-sided attachment
-in it, which aisle it belongs to, which of the seven laws it trips, and which
+in it, which section it belongs to, which of the seven laws it trips, and which
 piece of the curator's shelf is the evidence that got there first.
 
 SEVEN LAWS
@@ -175,12 +175,12 @@ def unwrap_bing(link):
 
 
 def sweep_bing(cfg, budget):
-    """One query per aisle. This is how the taxonomy earns its keep - each aisle
+    """One query per section. This is how the taxonomy earns its keep - each section
     is swept on its own terms, which is the only reason CROSSOVER gets covered."""
     bing = cfg.get("bing", {})
     found, telemetry = [], []
     ua_hdr = {"User-Agent": UA, "Accept": "application/rss+xml, */*"}
-    for aisle, q in (bing.get("q") or {}).items():
+    for section, q in (bing.get("q") or {}).items():
         url = ("https://www.bing.com/news/search?q="
                + urllib.parse.quote_plus(q) + "&format=RSS")
         t0 = time.time()
@@ -190,7 +190,7 @@ def sweep_bing(cfg, budget):
                                             context=ssl.create_default_context()) as r:
                     text = decode_bytes(r.read())
         except Exception as ex:
-            telemetry.append({"feed": f"bing:{aisle}", "ok": False,
+            telemetry.append({"feed": f"bing:{section}", "ok": False,
                               "error": str(ex)[:140]})
             continue
         kept = 0
@@ -211,9 +211,9 @@ def sweep_bing(cfg, budget):
                 "snippet": strip_tags(de.group(1))[:600] if de else "",
                 "url": real,
                 "at": (dt.group(1).strip()[:10] if dt else ""),
-                "feed": f"bing:{aisle}",
+                "feed": f"bing:{section}",
                 "feed_name": src.group(1).strip() if src else "Bing News",
-                "queried_aisle": aisle,
+                "queried_section": section,
                 "tier": 1 if src else 2,
                 "domain": real_domain(real, {"id": "bing"}),
                 "unresolved": "bing.com" in real or not real.startswith("http"),
@@ -226,7 +226,7 @@ def sweep_bing(cfg, budget):
             kept += 1
             if kept >= 25:
                 break
-        telemetry.append({"feed": f"bing:{aisle}", "ok": True, "items": kept,
+        telemetry.append({"feed": f"bing:{section}", "ok": True, "items": kept,
                           "ms": int((time.time() - t0) * 1000), "query": q})
         time.sleep(0.3)
         if len(found) >= budget:
@@ -327,7 +327,7 @@ def call_model(prompt, want_json=True):
                         "properties": {
                             "is_one_sided": {"type": "boolean"},
                             "why_not": {"type": "string"},
-                            "aisle": {"type": "string", "enum": AISLES},
+                            "section": {"type": "string", "enum": SECTIONS},
                             "law": {"type": "integer", "enum": [1, 2, 3, 4, 5, 6, 7]},
                             "shelf": {"type": "string"},
                             "confidence": {"type": "number"},
@@ -352,7 +352,7 @@ def call_model(prompt, want_json=True):
                 "response_format": {"type": "json_object"},
                 "messages": [
                     {"role": "system", "content": VOICE +
-                     "\n\nReply with JSON only, keys: is_one_sided, why_not, aisle, law, "
+                     "\n\nReply with JSON only, keys: is_one_sided, why_not, section, law, "
                      "shelf, confidence, headline, one_line, take."},
                     {"role": "user", "content": prompt}],
             }
@@ -374,12 +374,12 @@ def call_model(prompt, want_json=True):
 
 
 def classify(it, shelf_ids):
-    # the per-aisle Bing query already told us where it thinks this belongs.
+    # the per-section Bing query already told us where it thinks this belongs.
     # handing that to the model as a hint turns a guess into a check.
-    hint = it.get("queried_aisle")
+    hint = it.get("queried_section")
     hint_line = ""
     if hint and hint != "general":
-        hint_line = (f"\nThis story was found by a search written specifically for aisle "
+        hint_line = (f"\nThis story was found by a search written specifically for section "
                      f"'{hint}'. Strong hint, not gospel - if the attachment is really "
                      f"somewhere else, say so and file it there.")
 
@@ -389,15 +389,15 @@ SNIPPET: {it['snippet'] or '(none)'}{hint_line}
 
 Is there genuine one-sided attachment in this? If yes, file it.
 Shelf ids you may use: {', '.join(shelf_ids)} (or null if none of them are the evidence).
-Remember: the CROSSOVER aisle (7) is for attachment to people you are supposed to be
-able to reach anyway. The DANGER aisle (10) is only for when it turned criminal."""
+Remember: the CROSSOVER section (7) is for attachment to people you are supposed to be
+able to reach anyway. The DANGER section (10) is only for when it turned criminal."""
     out = call_model(prompt)
     if not out:
         return None
     if not out.get("is_one_sided", False):
         return {"ok": False, "why": (out.get("why_not") or "no attachment in it")[:120]}
-    if out.get("aisle") not in AISLES:
-        return {"ok": False, "why": "aisle out of range"}
+    if out.get("section") not in SECTIONS:
+        return {"ok": False, "why": "section out of range"}
     if out.get("law") not in LAWS:
         return {"ok": False, "why": "law out of range"}
     return {"ok": True, "out": out}
@@ -452,14 +452,14 @@ def main():
     print(f"counter: sweep starting, provider={PROVIDER} model={MODEL}"
           + ("  [DRY RUN - no model call]" if (DRYRUN or not KEY) else ""))
 
-    # Bing per-aisle queries first: real publisher urls, real tiers, and the
+    # Bing per-section queries first: real publisher urls, real tiers, and the
     # only way CROSSOVER and DANGER ever get swept at all.
     found, tel_bing = sweep_bing(cfg, budget=160)
     found_r, tel_rss = sweeper(cfg)
     found += found_r
     telemetry = tel_bing + tel_rss
     ok = sum(1 for t in telemetry if t.get("ok"))
-    print(f"  swept {ok}/{len(telemetry)} feeds ({len(tel_bing)} per-aisle queries, "
+    print(f"  swept {ok}/{len(telemetry)} feeds ({len(tel_bing)} per-section queries, "
           f"{len(tel_rss)} publications), {len(found)} candidate items")
 
     # dedupe across feeds by url
@@ -517,10 +517,10 @@ def main():
             drafts.append({
                 "id": f"raw-{it['id'][:8]}", "state": "awaiting_lens",
                 "headline": it["title"], "one_line": it["snippet"][:140] or "(no snippet)",
-                "take": "", "aisle": None, "law": None, "shelf": None,
+                "take": "", "section": None, "law": None, "shelf": None,
                 "conf": 0.0, "domain": it["domain"], "feed": it["feed_name"],
                 "url": it["url"], "at": it["at"],
-                "why": "No model key set. Filed raw. Needs a human to point it at an aisle.",
+                "why": "No model key set. Filed raw. Needs a human to point it at an section.",
             })
             continue
         if not c.get("ok"):
@@ -541,12 +541,12 @@ def main():
             "headline": o.get("headline") or it["title"],
             "one_line": o.get("one_line", ""),
             "take": o.get("take", ""),
-            "aisle": o["aisle"], "law": o["law"], "shelf": o.get("shelf") or None,
+            "section": o["section"], "law": o["law"], "shelf": o.get("shelf") or None,
             "conf": round(float(o.get("confidence", 0)), 2),
             "domain": it["domain"], "feed": it["feed_name"],
             "url": it["url"], "at": it["at"],
             "score": r.get("score"), "independent_domains": r.get("independent_domains"),
-            "why": (f"Aisle {o['aisle']}, law {o['law']}."
+            "why": (f"Section {o['section']}, law {o['law']}."
                     + (f" Shelf evidence: {o['shelf']}." if o.get("shelf") else "")
                     + f" {r.get('independent_domains',0)} independent domain(s) this run."),
         })

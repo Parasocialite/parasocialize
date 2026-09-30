@@ -205,16 +205,16 @@ def build():
         add(slug, "top8", spec)
     for slug, spec in FEATURES.items():
         add(slug, "feature", spec)
-    for slug, a in (man.get("aisles") or {}).items():
-        add("aisle-" + slug, "aisle",
-            (a.get("topic"), None, a.get("caption"), False), aisle=slug,
+    for slug, a in (man.get("sections") or {}).items():
+        add("section-" + slug, "section",
+            (a.get("topic"), None, a.get("caption"), False), section=slug,
             topic=a.get("topic"))
 
     man["items"] = items
     MAN.write_text(json.dumps(man, indent=2, ensure_ascii=False), encoding="utf-8")
     n_null = sum(1 for i in items if not i.get("local"))
     print(f"{len(items)} entries written ({len(STORIES)} stories, {len(TOP8)} top-8, "
-          f"{len(FEATURES)} features, {len(man.get('aisles') or {})} sections), "
+          f"{len(FEATURES)} features, {len(man.get('sections') or {})} sections), "
           f"{n_null} still to resolve")
 
 

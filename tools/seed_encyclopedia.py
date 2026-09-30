@@ -256,7 +256,7 @@ E = [
  "The parasocial bond nobody writes about because the power is unequal and the field has spent fifty years on the unequal-power case while leaving this one alone.", "", True),
 ("the-landlord", "The landlord", "mechanism", 1900, "Housing", ["application","consideration"], ["crossover"],
  "A named individual with access to your home, your deposits and your address, met in person, repeatedly, under stress.",
- "A parasocial relationship with somebody who holds a key and a legal claim. Aisle 07 exists because the feeling and the power are inversely related, which is the definition of the problem.", "", True),
+ "A parasocial relationship with somebody who holds a key and a legal claim. Section 07 exists because the feeling and the power are inversely related, which is the definition of the problem.", "", True),
 ("the-local-anchor", "The local news anchor", "mechanism", 1950, "Broadcast", ["application","grief"], ["crossover"],
  "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset.",
  "Rubin's longitudinal work is on exactly this bond. When a local anchor retires the grief is measurable and there is no word for it, because a parasocial relationship with a local figure is assumed to be about the news rather than about the person.", "Rubin et al., 1985", False),
@@ -277,7 +277,7 @@ E = [
  "Theatre invented the responsestream, and the performer learns to read it. Two thousand years before a chat log, the same feedback loop with worse latency and a room.", "", True),
 ("the-neighbour", "The neighbour", "mechanism", 1950, "Suburbia", ["application"], ["crossover"],
  "Someone whose kitchen light you can see, whose bin day you know, and whose life you have been tracking for years without ever having asked.",
- "A parasocial bond with somebody who is physically present and therefore, apparently, cannot be the subject of one. The reasoning is that proximity disqualifies attachment, which is exactly backwards and is why Aisle 07 was empty for so long.", "", True),
+ "A parasocial bond with somebody who is physically present and therefore, apparently, cannot be the subject of one. The reasoning is that proximity disqualifies attachment, which is exactly backwards and is why Section 07 was empty for so long.", "", True),
 
 # ============================================================ 08 CONTEST
 ("forum-culture", "Forum culture", "event", 1999, "Internet", ["contest"], ["contest","world"],

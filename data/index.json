@@ -13,7 +13,7 @@
     },
     "what_this_is": "Parasocial is when you feel you know someone who has no idea you exist. This is the news feed for that, and everybody has one."
   },
-  "aisles": [
+  "sections": [
     {
       "id": "idol",
       "sign": "IDOL",
@@ -67,7 +67,7 @@
       "sign": "CROSSOVER",
       "glyph": "07",
       "blurb": "The one who is supposed to be reachable. Teachers, doctors, judges, landlords, local anchors, assistants.",
-      "note": "The aisle no fandom site has. Half of my classroom lives here.",
+      "note": "The section no fandom site has. Half of my classroom lives here.",
       "colour": "#c8ff2e"
     },
     {
@@ -91,7 +91,7 @@
       "sign": "DANGER",
       "glyph": "10",
       "blurb": "The one where it turned criminal. Sasaeng, stalking, doxxing, swatting, the line into real harm.",
-      "note": "Filed here on purpose. It is the reason the other nine aisles need watching.",
+      "note": "Filed here on purpose. It is the reason the other nine sections need watching.",
       "colour": "#ff1744"
     }
   ],
@@ -299,7 +299,7 @@
     {
       "slug": "celebrity-death-feels-like-loss",
       "headline": "When a famous person dies it can feel like losing someone you loved",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "kicker": "Yesterday",
@@ -322,7 +322,7 @@
     {
       "slug": "youve-got-that-one",
       "headline": "We all have one. You know their dog's name, their coffee order, and absolutely nothing about them",
-      "aisle": "grief",
+      "section": "grief",
       "law": 1,
       "shelf": "pod",
       "kicker": "Start here if you're new",
@@ -345,7 +345,7 @@
     {
       "slug": "madeonyoutube-spending-on-scoreboard",
       "headline": "YouTube just put your spending on the scoreboard",
-      "aisle": "brand",
+      "section": "brand",
       "law": 3,
       "shelf": "company-dreamer",
       "kicker": "The big one",
@@ -382,7 +382,7 @@
     {
       "slug": "youtubetv-living-room",
       "headline": "The living room is now a comment section",
-      "aisle": "brand",
+      "section": "brand",
       "law": 3,
       "shelf": "insight-company",
       "kicker": "",
@@ -405,7 +405,7 @@
     {
       "slug": "vid-summit-bars-fans",
       "headline": "The platform's big creator conference banned fans",
-      "aisle": "creator",
+      "section": "creator",
       "law": 2,
       "shelf": "insight-company",
       "kicker": "",
@@ -428,7 +428,7 @@
     {
       "slug": "youtube-patreon-membership-spaces",
       "headline": "YouTube added paid membership spaces and is fighting Patreon for them",
-      "aisle": "brand",
+      "section": "brand",
       "law": 5,
       "shelf": "company-dreamer",
       "kicker": "",
@@ -451,7 +451,7 @@
     {
       "slug": "youtube-shorts-episodic",
       "headline": "YouTube is turning Shorts into episodic television",
-      "aisle": "world",
+      "section": "world",
       "law": 3,
       "shelf": "dreamarched",
       "kicker": "",
@@ -474,7 +474,7 @@
     {
       "slug": "dolly-parton-lowest-point",
       "headline": "Fans called Dolly Parton's death the lowest point of 2026",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -497,7 +497,7 @@
     {
       "slug": "gloria-steinem-and-dolly",
       "headline": "Two women died in the same month and the discourse is about whether you are allowed to be sad",
-      "aisle": "grief",
+      "section": "grief",
       "law": 7,
       "shelf": "athp",
       "kicker": "",
@@ -520,7 +520,7 @@
     {
       "slug": "aoc-and-parasocial-politics",
       "headline": "AOC and the parasocial nature of politics",
-      "aisle": "crossover",
+      "section": "crossover",
       "law": 1,
       "shelf": "kempe",
       "kicker": "Politics",
@@ -543,7 +543,7 @@
     {
       "slug": "fearne-cotton-free-tv",
       "headline": "A wellness podcast just became a television channel",
-      "aisle": "creator",
+      "section": "creator",
       "law": 3,
       "shelf": "pod",
       "kicker": "",
@@ -566,7 +566,7 @@
     {
       "slug": "eu-kids-act-companion-chatbots",
       "headline": "The EU is about to rewrite what a companion app is allowed to do to a child",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "regulated-brightness",
       "kicker": "Regulation",
@@ -596,7 +596,7 @@
     {
       "slug": "taylor-swift-red-knows-it",
       "headline": "Taylor Swift's re-recordings are a parasocial business model",
-      "aisle": "idol",
+      "section": "idol",
       "law": 5,
       "shelf": "company-dreamer",
       "kicker": "",
@@ -619,7 +619,7 @@
     {
       "slug": "house-of-the-dragon-backlash",
       "headline": "House of the Dragon ended and the fans are furious at the show, not the characters",
-      "aisle": "contest",
+      "section": "contest",
       "law": 8,
       "shelf": "pennywise",
       "kicker": "",
@@ -642,7 +642,7 @@
     {
       "slug": "grief-experts-three-of-them",
       "headline": "Three grief experts on whether it is normal to mourn a celebrity",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -665,7 +665,7 @@
     {
       "slug": "i-tried-replika",
       "headline": "A journalist spent a week with a Replika companion and came back unsettled",
-      "aisle": "companion",
+      "section": "companion",
       "law": 2,
       "shelf": "pod",
       "kicker": "",
@@ -688,7 +688,7 @@
     {
       "slug": "oshi-katsu-half-century",
       "headline": "Someone traced modern stan behaviour back to experiments from fifty years ago",
-      "aisle": "idol",
+      "section": "idol",
       "law": 1,
       "shelf": "kempe",
       "kicker": "Research",
@@ -711,7 +711,7 @@
     {
       "slug": "customer-obsession-model",
       "headline": "The business press has started writing about parasocial attachment and calling it customer obsession",
-      "aisle": "brand",
+      "section": "brand",
       "law": 2,
       "shelf": "insight-company",
       "kicker": "",
@@ -734,7 +734,7 @@
     {
       "slug": "agei-imaginary-friends",
       "headline": "An economics think tank argues parasocial relationships are just imaginary friends for adults",
-      "aisle": "idol",
+      "section": "idol",
       "law": 1,
       "shelf": "kempe",
       "kicker": "The contrarian read",
@@ -757,7 +757,7 @@
     {
       "slug": "peak-parasocial-vogue",
       "headline": "Have we hit peak parasocial? An actual magazine asked",
-      "aisle": "grief",
+      "section": "grief",
       "law": 7,
       "shelf": "pod",
       "kicker": "",
@@ -780,7 +780,7 @@
     {
       "slug": "ai-updates-feel-like-breakups",
       "headline": "A study found AI updates can feel like breakups",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -803,7 +803,7 @@
     {
       "slug": "yourrage-best-friend-stole",
       "headline": "A streamer said his best friend of 25 years took $100,000. Fans said loyalty is dead",
-      "aisle": "creator",
+      "section": "creator",
       "law": 6,
       "shelf": "insight-company",
       "kicker": "",
@@ -826,7 +826,7 @@
     {
       "slug": "instagram-dominatrix",
       "headline": "A writer on the parasocial relationship with her favourite Instagram dominatrix",
-      "aisle": "creator",
+      "section": "creator",
       "law": 6,
       "shelf": "pod",
       "kicker": "The confessional",
@@ -849,7 +849,7 @@
     {
       "slug": "replika-users-lost-them",
       "headline": "They fell in love with the chatbot. Then a policy update took it away overnight",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -872,7 +872,7 @@
     {
       "slug": "companion-safety-controls",
       "headline": "Safety experts say companion apps need better guardrails than they have",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -895,7 +895,7 @@
     {
       "slug": "pygmalion-sculptor-illusion",
       "headline": "Pygmalion: the Greek myth that predicted this whole thing",
-      "aisle": "companion",
+      "section": "companion",
       "law": 6,
       "shelf": "pennywise",
       "kicker": "",
@@ -918,7 +918,7 @@
     {
       "slug": "sculptor-fell-in-love",
       "headline": "The sculptor who fell in love with an illusion, in 2026",
-      "aisle": "companion",
+      "section": "companion",
       "law": 6,
       "shelf": "pennywise",
       "kicker": "",
@@ -941,7 +941,7 @@
     {
       "slug": "hugh-jackman-divorce",
       "headline": "A 27-year marriage ends and the coverage is about what the public felt",
-      "aisle": "crossover",
+      "section": "crossover",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -964,7 +964,7 @@
     {
       "slug": "podcast-listeners-study",
       "headline": "Podcast listeners score suspiciously high on parasocial attachment",
-      "aisle": "creator",
+      "section": "creator",
       "law": 2,
       "shelf": "pod",
       "kicker": "",
@@ -987,7 +987,7 @@
     {
       "slug": "neighbours-kids-and-finale",
       "headline": "The Neighbours finale broke something in the schedule",
-      "aisle": "world",
+      "section": "world",
       "law": 3,
       "shelf": "dreamarched",
       "kicker": "",
@@ -1010,7 +1010,7 @@
     {
       "slug": "liam-payne-generation",
       "headline": "A 31-year-old's death became a generation's first real loss",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -1033,7 +1033,7 @@
     {
       "slug": "neighbours-grief-study",
       "headline": "Researchers studied Neighbours fans and found the same grief markers as a breakup",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -1056,7 +1056,7 @@
     {
       "slug": "zubeen-garg-public-grief",
       "headline": "One death in Assam became a country thinking out loud",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -1079,7 +1079,7 @@
     {
       "slug": "characters-we-keep",
       "headline": "Why fiction sticks when nothing else does",
-      "aisle": "character",
+      "section": "character",
       "law": 6,
       "shelf": "dreamarched",
       "kicker": "",
@@ -1102,7 +1102,7 @@
     {
       "slug": "worship-in-sports-politics-business",
       "headline": "The economist says we worship idols in sport, politics, cinema and business",
-      "aisle": "idol",
+      "section": "idol",
       "law": 1,
       "shelf": "kempe",
       "kicker": "",
@@ -1125,7 +1125,7 @@
     {
       "slug": "kpop-uae-grief",
       "headline": "A woman died in Seoul and by the next day the argument was about whether the fandom was toxic",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "shelf": "athp",
       "kicker": "",
@@ -1148,7 +1148,7 @@
     {
       "slug": "platforms-renting-reach",
       "headline": "Everyone is renting everybody's audience now",
-      "aisle": "brand",
+      "section": "brand",
       "law": 3,
       "shelf": "company-dreamer",
       "kicker": "",
@@ -1171,7 +1171,7 @@
     {
       "slug": "swifties-power-record-sales",
       "headline": "Swifties moved units and now there is a chart proving it",
-      "aisle": "idol",
+      "section": "idol",
       "law": 5,
       "shelf": "company-dreamer",
       "kicker": "",
@@ -1194,7 +1194,7 @@
     {
       "slug": "idol-economy-four-dollars",
       "headline": "The idol economy: about four dollars a month per artist",
-      "aisle": "idol",
+      "section": "idol",
       "law": 5,
       "shelf": "company-dreamer",
       "kicker": "",
@@ -1217,7 +1217,7 @@
     {
       "slug": "meg-mason-writes-about-us",
       "headline": "A famous author was saved by a fictional family and then wrote a novel about it",
-      "aisle": "grief",
+      "section": "grief",
       "law": 6,
       "shelf": "company-dreamer",
       "kicker": "Worth your time",
@@ -1247,7 +1247,7 @@
     {
       "slug": "darry-season-two",
       "headline": "A clown got a prequel and four million households signed up without signing anything",
-      "aisle": "character",
+      "section": "character",
       "law": 6,
       "shelf": "pennywise",
       "kicker": "",
@@ -1270,7 +1270,7 @@
     {
       "slug": "parasocial-problem-visibility",
       "headline": "A glimpse is not a full picture and the comments decided otherwise",
-      "aisle": "contest",
+      "section": "contest",
       "law": 2,
       "shelf": "old-school",
       "kicker": "",
@@ -1293,7 +1293,7 @@
     {
       "slug": "kai-cenat-returns",
       "headline": "Kai Cenat ended nine months of silence with a million people watching",
-      "aisle": "creator",
+      "section": "creator",
       "law": 2,
       "shelf": "insight-company",
       "kicker": "",
@@ -1316,12 +1316,12 @@
     {
       "slug": "sasaeng-jungkook-conviction",
       "headline": "A fan was convicted of stalking Jungkook. Twenty-two visits. One hundred and thirty-three doorbell rings",
-      "aisle": "danger",
+      "section": "danger",
       "law": 6,
       "shelf": "pennywise",
       "kicker": "",
       "one_line": "Somewhere between the anniversary counter and this doorbell there is a line, and it is not blurry for the person on the other side of it.",
-      "take": "I am not going to do the thing where I explain this away, and I notice that every parasocial site quietly routes around this aisle, which is the single biggest reason those sites are still not taken seriously. I made a video about living with Pennywise because the fictional version of this is genuinely how a shared fear works. The real version has a name and an address. This card does not have a due-back date and it never will.",
+      "take": "I am not going to do the thing where I explain this away, and I notice that every parasocial site quietly routes around this section, which is the single biggest reason those sites are still not taken seriously. I made a video about living with Pennywise because the fictional version of this is genuinely how a shared fear works. The real version has a name and an address. This card does not have a due-back date and it never will.",
       "sources": [
         {
           "publisher": "Vitamin E K",
@@ -1339,7 +1339,7 @@
     {
       "slug": "character-ai-settlement",
       "headline": "Character.AI settled the teen-safety suits",
-      "aisle": "companion",
+      "section": "companion",
       "law": 4,
       "shelf": "regulated-brightness",
       "kicker": "",
@@ -1362,7 +1362,7 @@
     {
       "slug": "neuro-sama-tops-twitch",
       "headline": "An AI is Twitch's most subscribed channel and nobody blinked",
-      "aisle": "companion",
+      "section": "companion",
       "law": 1,
       "shelf": "us",
       "kicker": "",
@@ -1385,7 +1385,7 @@
     {
       "slug": "research-shelf",
       "headline": "The research shelf: two places to go deeper",
-      "aisle": "world",
+      "section": "world",
       "law": 1,
       "shelf": "kempe",
       "kicker": "Evergreen",
@@ -1410,7 +1410,7 @@
     {
       "id": "q-01",
       "headline": "Draft: A stadium tour's new tier is named after the thing fans say in the chorus",
-      "aisle": "brand",
+      "section": "brand",
       "law": 5,
       "conf": 0.71,
       "from": "sweep / 6 feeds",
@@ -1420,17 +1420,17 @@
     {
       "id": "q-02",
       "headline": "Draft: Local news anchor retires, and the comments are worse than I expected",
-      "aisle": "crossover",
+      "section": "crossover",
       "law": 7,
       "conf": 0.68,
       "from": "sweep / 4 feeds",
-      "why": "This is the CROSSOVER aisle and we have nothing in it yet. A neighbour you saw on the news for twenty years is a genuinely different bond from a celebrity. Needs a human to say whether we are the right home for it.",
+      "why": "This is the CROSSOVER section and we have nothing in it yet. A neighbour you saw on the news for twenty years is a genuinely different bond from a celebrity. Needs a human to say whether we are the right home for it.",
       "state": "awaiting"
     },
     {
       "id": "q-03",
       "headline": "Draft: A game shipped a marriage option and quietly removed it eight months later",
-      "aisle": "grief",
+      "section": "grief",
       "law": 4,
       "conf": 0.63,
       "from": "sweep / 3 feeds",
