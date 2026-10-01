@@ -25,6 +25,7 @@ python tools\link_audit.py      # MUST pass before every commit
 python tools\make_zip.py        # reproducible archive -> Desktop
 python tools\add_source.py --apply-provenance
 python tools\citation_audit.py # are the status fields telling the truth
+python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\episode.py eliza   # render episode; preserves voice/*.wav
 python tools\verify_measure.py eliza shipping vshojo   # type vs its measure
 python tools\measure_type.py    # regenerate tools/type_metrics.json
@@ -76,6 +77,16 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
 - **A gate that cannot fail is decoration.** Before trusting any new check,
   break the input on purpose and confirm it goes red. Two of today's tools
   passed their first run while measuring the wrong thing.
+- **A taxonomy built from your own corpus will break on the next thing you
+  find.** The ten sections were reverse-engineered from 47 stories and could not
+  hold 18 entries. Mix the object axis with the register axis and you get a list
+  that cannot be extended, because three of its items are not the same kind of
+  thing as the other seven. When a classification is failing, check whether it
+  is failing on the material you already hold before writing a new category.
+- **Do not fill a hole to make a chart look even.** Five sub-categories have no
+  entry. They are reported as empty. Moving one entry into one of them would
+  make the distribution tidier and the classification a lie, which is the same
+  failure as a plausible-looking citation.
 - `tools/episode.py` writes `ffmpeg.txt` with the `-vsync` note inline on the
   command line, so literal copy-paste truncates the command. Use `HOWTO.txt`.
 - **Naming a font in CSS is not evidence the font loaded.** This bit three
@@ -123,6 +134,24 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
+- `data/taxonomy.json` — **the classification, on two axes.** Eight attachment
+  categories (who or what is on the other end) and six registers (what is
+  happening in the tie), with 38 sub-categories. This replaced the ten sections,
+  which were reverse-engineered from the 47 stories and could not hold 18 of the
+  175 entries, including Margery Kempe. Three of the ten were never attachment
+  targets at all — contest, grief and danger are register — which is precisely
+  why they could not be extended.
+- `data/taxonomy_placements.json` / `data/story_placements.json` — all 175
+  entries and all 47 stories placed, each with a written reason. The reason is
+  printed on the page rather than kept in a commit message, so a placement can
+  be argued with instead of merely trusted.
+- `tools/verify_taxonomy.py` — asserts the structure and reports sub-categories
+  with no entry in them. Five of 38 are empty and are reported rather than
+  filled: forcing an entry in to make a distribution look even is the same move
+  as inventing a plausible-looking source.
+- The ten sections still exist and are **not** to be renumbered. A section is a
+  place to look; a category is a thing to think about. `/taxonomy/` publishes the
+  mapping between them.
 - `tools/mascot.py`, `tools/wordmark.py` — iYi. Asymmetric per-eye rig.
 - `tools/episode.py`, `tools/backdrop.py`, `tools/iyi.py` — video.
 - `COVERAGE-MAP.md` — domain sweep and the 22-entry work queue in three tiers.
