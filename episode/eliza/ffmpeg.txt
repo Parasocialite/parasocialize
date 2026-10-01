@@ -1,24 +1,14 @@
-# The episode as an mp4. This is the only step that needs ffmpeg.
+# The episode as an mp4. This is the only step that needs ffmpeg:
+#     winget install ffmpeg        (or:  choco install ffmpeg)
 #
-# NOTE: ffmpeg is NOT on PATH on this machine. A working copy ships with the
-# Python imageio-ffmpeg package. Either add ffmpeg to PATH (winget install
-# ffmpeg) or use the bundled binary directly:
-#   $FF = "C:\Users\paras\AppData\Roaming\Python\Python313\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe"
+cd C:\Users\paras\Documents\Default Project\parasocialize\episode\eliza
+ffmpeg -y -f concat -safe 0 -i "frames.txt" -i narration.wav \
+  -fps_mode vfr  # -vsync was REMOVED in ffmpeg 9; this is the replacement -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow \
+  -c:a aac -b:a 128k -shortest -movflags +faststart "eliza.mp4"
 #
-# Run these from episode/eliza. Comments are on their own lines on purpose: a
-# '#' mid-command truncates the command when pasted, which previously dropped
-# every codec setting and produced an unplayable file.
-#
-# vertical master - portrait manifest:
-$FF -y -f concat -safe 0 -i "frames.txt" -i narration.wav -fps_mode vfr -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow -c:a aac -b:a 128k -shortest -movflags +faststart "eliza.mp4"
-#
-# landscape master - MUST use frames-land.txt. Encoding this from frames.txt
-# yields a scaled portrait with a hard vertical edge at x=1080, which is not a
-# 16:9 master at all. frames-land.txt holds the real 1920x1080 frames.
-$FF -y -f concat -safe 0 -i "frames-land.txt" -i narration.wav -fps_mode vfr -c:v libx264 -pix_fmt yuv420p -crf 20 -preset slow -c:a aac -b:a 128k -shortest -movflags +faststart "eliza-16x9.mp4"
-#
-# Verify after encoding:
-#   ffprobe -v error -show_entries stream=width,height,duration -of csv eliza.mp4
-#   ffprobe -v error -show_entries stream=width,height,duration -of csv eliza-16x9.mp4
+# horizontal master for youtube, same frames, same audio:
+ffmpeg -y -f concat -safe 0 -i "frames.txt" -i narration.wav \
+  -fps_mode vfr  # -vsync was REMOVED in ffmpeg 9; this is the replacement -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" -c:v libx264 -pix_fmt yuv420p -crf 20 \
+  -c:a aac -b:a 128k -shortest "eliza-16x9.mp4"
 #
 # 36 motion frames over 42.0s of narration

@@ -45,6 +45,7 @@ OUTPUT
 from __future__ import annotations
 
 import argparse
+import array
 import json
 import math
 import pathlib
@@ -616,9 +617,67 @@ def _concat_wav(clips: list[dict], out: pathlib.Path) -> float:
         w.setframerate(22050)
         for c in good:
             with wave.open(c["wav"], "rb") as r:
-                w.writeframes(r.readframes(r.getnframes()))
-                total += r.getnframes() / float(r.getframerate())
+                pcm = _to_canon(r.readframes(r.getnframes()),
+                                r.getnchannels(), r.getsampwidth(),
+                                r.getframerate(), 22050)
+                w.writeframes(pcm)
+                total += len(pcm) / 2.0 / 22050.0
     return round(total, 2)
+
+
+def _to_canon(raw: bytes, ch: int, sw: int, src_rate: int,
+              dst_rate: int = 22050) -> bytes:
+    """Any PCM -> 16-bit mono at dst_rate.
+
+    This exists because a human recording arrives in whatever format the
+    recorder chose. The previous version wrote a 22050/mono/16-bit header and
+    then blitted the raw frames straight through, converting nothing. A 24-bit
+    stereo 44.1kHz recording was therefore interpreted as 16-bit mono 22.05kHz:
+    byte count preserved, meaning destroyed, output 6x too long and pure
+    static. It went unnoticed because the synthetic voice happened to already be
+    in the target format, so the bug could only fire on a real person.
+
+    audioop was removed in Python 3.13 (PEP 594) so this is done by hand.
+    Linear interpolation is adequate for spoken narration.
+    """
+    if sw == 2:
+        a = array.array("h"); a.frombytes(raw[:len(raw) // 2 * 2])
+        if sys.byteorder == "big": a.byteswap()
+        vals = list(a)
+    elif sw == 1:
+        vals = [(b - 128) << 8 for b in raw]
+    elif sw == 3:
+        vals = []
+        for i in range(0, len(raw) - 2, 3):
+            v = raw[i] | (raw[i + 1] << 8) | (raw[i + 2] << 16)
+            if v & 0x800000: v -= 0x1000000
+            vals.append(v >> 8)
+    elif sw == 4:
+        a = array.array("i"); a.frombytes(raw[:len(raw) // 4 * 4])
+        if sys.byteorder == "big": a.byteswap()
+        vals = [v >> 16 for v in a]
+    else:
+        raise ValueError(f"unsupported sample width: {sw} bytes")
+
+    if ch > 1:
+        n = len(vals) // ch
+        vals = [sum(vals[j * ch:(j + 1) * ch]) // ch for j in range(n)]
+
+    if src_rate != dst_rate and vals:
+        ratio = dst_rate / float(src_rate)
+        last = len(vals) - 1
+        out = []
+        for i in range(int(len(vals) * ratio)):
+            pos = i / ratio
+            i0 = int(pos)
+            i1 = min(i0 + 1, last)
+            f = pos - i0
+            out.append(int(vals[i0] * (1 - f) + vals[i1] * f))
+        vals = out
+
+    out = array.array("h", [max(-32768, min(32767, v)) for v in vals])
+    if sys.byteorder == "big": out.byteswap()
+    return out.tobytes()
 
 
 def storyboard(script: dict, d: pathlib.Path, clips: list[dict]) -> pathlib.Path | None:
