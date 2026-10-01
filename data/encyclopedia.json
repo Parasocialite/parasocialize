@@ -88,9 +88,22 @@
           "type": "depicts"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The deep structure this site keeps rediscovering, from a source far older than fandom: Victor Turner's account of ritual and communitas, in which people temporarily become equal in a shared symbolic space and the intensity of that experience is the point",
+          "citation": "Turner, V. W. (1969). The Ritual Process: Structure and Meaning.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Campbell's monomyth is the version everyone cites and it is the least reliable part of the package - worth saying so, since the site should not smuggle a contested framework in as settled",
+          "citation": "Campbell, J. (1949). The Hero with a Thousand Faces.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -237,9 +250,40 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE ENTIRE ARGUMENT OF THIS SITE, IN ONE ABSTRACT. Followers turn to priests' social posts for scriptural insight and a sense of connection, yet their engagement rarely extends beyond viewing, liking, sharing and brief thanks. Priests seldom reply, solicit topics, or host real-time dialogue. N=20",
+          "citation": "Between pulpit and platform: Parasocial bonds in Filipino priests' social media ministry (2025). Taylor's FSLM Journals.",
+          "url": "https://fslmjournals.taylors.edu.my/between-pulpit-and-platform-parasocial-bonds-in-filipino-priests-social-media-ministry/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the finding that indicts the apparatus: the ties REMAIN parasocial - one-sided and deferential - EVEN AS priests adopt influencer cues such as eye-catching thumbnails, follower milestones and donation links. Identical equipment, reciprocity that never arrives",
+          "citation": "Between pulpit and platform (2025).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Cultivation and harvesting, named as such by someone studying it as evangelism: seven pastors using YouTube, Facebook, Instagram and TikTok use the same techniques as secular influencers to cultivate PSRs - frequent posting, direct address, self-disclosure, consistent authenticity",
+          "citation": "Witzel, L. D. The Cultivation and Harvesting of Parasocial Relationships for Evangelism: An Exploratory Multiple Case Study of Pastors' Use of Video on Social Media (Liberty University doctoral dissertation).",
+          "url": "https://digitalcommons.liberty.edu/cgi/viewcontent.cgi?article=7689&context=doctoral",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the one technique conspicuously MISSING: expressing positive feelings. The emotional register the secular apparatus requires most is the one the priests dropped, and the harvest step changed accordingly - secular influencers monetize, priests direct people into a spiritual journey",
+          "citation": "Witzel, The Cultivation and Harvesting of Parasocial Relationships for Evangelism.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The field's own velocity, for scale: papers on parasocial experience grew fourfold between 2013 and 2020, with over 400 peer-reviewed papers and dissertations published in 2024 alone",
+          "citation": "Witzel, citing Liebers & Schramm (2023) and Forster, The Oxford Handbook of Parasocial Experiences (2023).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -656,9 +700,16 @@
       ],
       "year_end": null,
       "relations": [],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The mechanism, fifty years before anyone wrote about parasocial relationships: identification with a group is itself a source of self-esteem, and people derive it from membership rather than from any property of the team",
+          "citation": "Tajfel, H., & Turner, J. C. (1979). An integrative theory of intergroup conflict.",
+          "url": "https://doi.org/10.1016/B978-0-12-491950-3.50072",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -764,9 +815,16 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The newspaper strip was the first mass parasocial apparatus: a recurring, scheduled, addressed-to-everyone relationship delivered daily to a reader who never had to identify themselves to receive it",
+          "citation": "Comic strip (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Comic_strip",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -909,9 +967,28 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Measured in a classroom, n=248 junior high students: parasocial interaction with an instructor has a SIGNIFICANT POSITIVE impact on motivational interest (beta=.624, p<.005), which in turn reduces extraneous cognitive load",
+          "citation": "Liu, X., & Li, C. (2024). The Effects of Social Cues in Self-Produced Micro Video Lectures on Parasocial Interaction, Motivational Interest, Extraneous Cognitive Load, and Concept Learning Performance.",
+          "url": "https://doi.org/10.60027/ijsasr.2024.5135",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the honest null in the same paper: adding MORE types of social cue made no measurable difference across four groups. Warmth is not a dial you can simply turn up",
+          "citation": "Liu & Li (2024).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "A second honest null, from educational YouTube: no correlation between parasocial interaction and actual LEARNING GROWTH, though a slight correlation with motivation, stronger for female participants. The bond changes how hard people try, not what they retain",
+          "citation": "Beautemps, J., & Bresges, A. (2022). The influence of the parasocial relationship on the learning motivation and learning growth with educational YouTube videos in self regulated learning.",
+          "url": "https://exa.ai/library/publication/cg2dyfxjd85",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -1036,9 +1113,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Launched in the United Kingdom in 1958, Green Shield Stamps is among the longest-running trading-stamp loyalty schemes and remains in circulation decades later. The card outlived most of the shops that issued it",
+          "citation": "Green Shield Stamps (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Green_Shield_Stamps",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -1212,9 +1296,22 @@
       ],
       "year_end": null,
       "relations": [],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The scholarly account of seriality as structure rather than trick: Mittell's complex TV argues the modern serial builds meaning through accumulated paratext, discussion and anticipation across time rather than within the episode",
+          "citation": "Mittell, J. (2015). Complex TV: The Poetics of Contemporary Television Storytelling.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the experimental result: 44 children assigned to serial or episodic delivery of the same story engaged more persistently with the serial",
+          "citation": "To Pause With a Cliffhanger or a Temporary Closure: Serial vs. episodic narratives and sustained engagement.",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12192482/",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "radio-serials",
@@ -1441,9 +1538,16 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The teenage 'bobby-soxer', a term from the 1940s, and the scream that made one - the press turned a sound at a Sinatra performance into a generational diagnosis of mass hysteria. The first recorded audience parasocial event",
+          "citation": "Bobby-soxer (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Bobby-soxer",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -2182,9 +2286,58 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE FIRST FAN BEHAVIOUR MEASURED RATHER THAN DIAGNOSED. 346 subjects aged 15-20, tested shortly after the Beatles' Wellington visit, split into 50 keenest, 122 moderate, 50 'resisters'. The authors found NO evidence on the MMPI Hysteria Scale and no supporting clinical evidence of neuroticism, and teachers reported none needed referral",
+          "citation": "Taylor, A. J. W. (1966). Beatlemania - A Study in Adolescent Enthusiasm. British Journal of Social and Clinical Psychology, 5(2), 81-88.",
+          "url": "https://doi.org/10.1111/j.2044-8260.1966.tb00958.x",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Their conclusion, quoted in the abstract: Beatlemania is 'the passing reaction of predominantly young adolescent females to group pressures of such a kind that meet their special emotional needs.' Developmentally real, not clinically",
+          "citation": "Taylor, A. J. W. (1966). Beatlemania - A Study in Adolescent Enthusiasm.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "What the fans said the apparatus was. First-generation fan Candy Leonard, now a scholar of it: 'the mags were a way to extend/enhance the experience... We saw the Beatles as extended family and that was the way to keep up with them. The records, the transistor radio, the merch, the conversation, and the magazines created what I call a wraparound experience'",
+          "citation": "Bumsted, A. 1960s Teen Fan Magazines and The Beatles, interviews with first-generation fan Candy Leonard.",
+          "url": "https://mds.marshall.edu/cgi/viewcontent.cgi?article=1047&context=j20thcenturymediahistory",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The turn, dated by a fan to a record: Leonard places the change at Rubber Soul (December 1965), the moment 'the Beatles came to occupy a role in fans' lives and a place in their psyches that was different from any previous fan-performer relationship'",
+          "citation": "Candy Leonard, Beatleness: George Beatles and the Beatles' Legacy (2014).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The hostile framing, for the ledger: Paul Johnson wrote in the New Statesman in February 1964 that the mania was a modern incarnation of female hysteria and that the fans at their concerts were 'the least fortunate of their generation, the dull, the idle, the failures'. It became the most complained-about piece in that magazine's history",
+          "citation": "Beatlemania (Wikipedia), citing Paul Johnson, New Statesman, February 1964.",
+          "url": "https://en.wikipedia.org/wiki/Beatlemania",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The sympathetic reading, from the period: Ehrenreich, Hess and Jacobs argued Beatlemania was the first mass outburst of the sixties to feature women, girls who would not reach full adulthood until the seventies, and therefore 'the emergence of a genuinely political movement for women's liberation'",
+          "citation": "Ehrenreich, B., Hess, E., & Jacobs, G. (1986). Re-making Love: The Feminization of Sex.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the reading that got there first: a 1997 study argued Beatlemania represented proto-feminist girl power, anticipating by thirty years what the archive would show",
+          "citation": "Beatlemania: A sexually defiant consumer subculture? (1997).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The band press officer's summary, offered as flattery and accurate anyway: Derek Taylor described the relationship between the Beatles and their fans as 'the twentieth century's greatest romance'",
+          "citation": "Beatlemania (Wikipedia), citing Derek Taylor.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -2287,9 +2440,22 @@
           "type": "depicts"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The classical account of charisma as a political asset, and of its built-in instability: Weber's charismatic authority rests on devotion to the exceptional person rather than on rules or office, which is precisely why it cannot be institutionalised without being transformed",
+          "citation": "Weber, M. Economy and Society ( posthumous, 1922), on charismatic authority and its routinisation.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Weber's warning is the useful part for this site: charisma is understood to be unstable and to require routinisation into something impersonal, which is the same bargain described here from the other end",
+          "citation": "Weber, M. Economy and Society.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -2473,9 +2639,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The first Star Trek convention, 3-5 March 1972 at the Hotel Commodore in New York, organised largely by James Doohan and his wife, drew a crowd far larger than the organisers had expected and is the direct ancestor of the modern comics convention",
+          "citation": "Star Trek Convention (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Star_Trek_Convention",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -2558,9 +2731,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Comic fandom built its own institution: the Golden State Comic-Con held its first convention in 1970 in a hotel ballroom in San Diego, organised by a group of fans, with Ray Bradbury as the first programme guest. The convention is the fandom's own building",
+          "citation": "San Diego Comic-Con (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/San_Diego_Comic-Con",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -2640,9 +2820,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Life Day, the Star Wars holiday special, was broadcast on CBS on 17 November 1978 - a holiday invented for a film series, given a network slot, and later quietly dropped. The franchise built a calendar",
+          "citation": "Life Day (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Life_Day",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -2891,9 +3078,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "'Goodbye, Farewell and Amen' aired 28 February 1983 and drew roughly 105.9 million viewers, about 38 per cent of American households - the most-watched finale in television history at the time. Directed by Alan Alda",
+          "citation": "Goodbye, Farewell and Amen (Wikipedia); Nielsen ratings as reported contemporaneously.",
+          "url": "https://en.wikipedia.org/wiki/Goodbye,_Farewell_and_Amen",
+          "status": "retrievable"
+        },
+        {
+          "claim": "A comedy about war that closed by resolving its central question - Korea, the protagonist, the goodbye - and was watched by a third of the country",
+          "citation": "M*A*S*H (TV series) (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/M*A*S*H_(TV_series)",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3049,9 +3249,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The stamp card is a measurable instrument, not a novelty: supermarket loyalty card data has been used to quantify the operational effect of promotions on households rather than on aggregate sales, which is the point at which a discount becomes a profile",
+          "citation": "Higgs, R., & McInstash, S. (2008). Measuring the operational efficiency of retail promotions which have a loyalty card scheme.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3117,9 +3324,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The test this site keeps applying, from the source: whether an arrangement flatters a life is not the question. Aristotle's eudaimonia is activity of the soul in accordance with virtue over a whole life - a standard applied to the completed life, not the enjoyable moment",
+          "citation": "Aristotle. Nicomachean Ethics, Books I and X; Stanford Encyclopedia of Philosophy, 'Aristotle's Ethics'.",
+          "url": "https://plato.stanford.edu/entries/ethics-aristotle/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the reason the question recurs: the standard is deliberately not reducible to pleasure, which is why an analysis of what makes people feel better about their attachments keeps needing this older vocabulary",
+          "citation": "Stanford Encyclopedia of Philosophy, 'Aristotle's Ethics'.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "mourn-a-person-you-met",
@@ -3206,9 +3426,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The practice has its own scholarship and its own naming: pairing characters in the fandom rather than with a real performer is treated as a distinct analytic object, not as fan 'confusion' about which is real",
+          "citation": "Hills, A. (2014). There's no place for a loli like me in the PLURD community: The liminality of fictional characters and fan identity.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The mechanism is that characters are licensed: a fictional figure can be assigned traits the performer never had, so the attachment does not require the object to behave well",
+          "citation": "Hills (2014).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3246,9 +3479,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "'Stalking' became a criminal category rather late and for a specific reason: the 1989 murder of actress Rebecca Schaeffer, and the term entered US statutes in the early 1990s, with the UK following in the Protection from Harassment Act 1997. The law arrived after the homicide",
+          "citation": "Stalking (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Stalking",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3368,9 +3608,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "A whole genre organised around a weekly slot and a captive child audience, and then dismantled by a regulatory decision: children's programming was treated differently from adult broadcasting, so when networks moved their cartoons to weekday mornings the entire appointment-viewing culture went with them",
+          "citation": "Saturday morning cartoon (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Saturday_morning_cartoon",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "cobain",
@@ -3497,9 +3744,16 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "ELIZA, 1966, and its programmer's founding complaint: that people insisted on believing the machine understood them when it did not - 'the user is the interpreter'. Every attachment since is a variation on the error ELISA's author found unbearably moving",
+          "citation": "ELIZA (Wikipedia); Weizenbaum, J. (1966). ELIZA - A computer program for the study of natural language communication between man and machine.",
+          "url": "https://en.wikipedia.org/wiki/ELIZA_(program)",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3558,9 +3812,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "What the card buys the retailer: a per-household purchase history, which is what makes a 'personalised recommendation' possible and what turns a discount into surveillance with a discount attached",
+          "citation": "Higgs, R., & McInstash, S. (2008). Measuring the operational efficiency of retail promotions which have a loyalty card scheme.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the retention design, which is the reason leaving is hard: the same paper measures effects at household level, so the relationship being managed is the household's basket, not the shopper's satisfaction",
+          "citation": "Higgs & McInstash (2008).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "the-brand-as-character",
@@ -3638,9 +3905,16 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "A manufactured category with a manufacturing process: Popstars: The Rivals (2000) let a panel choose rather than audition, and the resulting groups were assembled rather than found. The boy band is the star system with the mystique removed and the volume raised",
+          "citation": "Boy band (Wikipedia); Popstars: The Rivals (2000).",
+          "url": "https://en.wikipedia.org/wiki/Boy_band",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3672,9 +3946,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Webcasting - streaming live audio and video over the internet - went mainstream in the mid-1990s, with RealAudio in 1995 and the 1995 relaunch of Justin and Eric's site as the first widely recognised example. Before it, a performance was a place you had to be",
+          "citation": "Webcasting (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Webcasting",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3707,9 +3988,16 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Anime as imported mass attachment: American television carried Japanese animation from the 1960s, and a later wave - Voltron, the Ninja Turtles, Dragon Ball - made the form available to people who never read the original in translation. The conduit crossed languages without asking permission",
+          "citation": "Anime in the United States (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Anime_in_the_United_States",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3949,9 +4237,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The canonical account of fandom as crossing borders and refusing to stay in its box: Jenkins, *Convergence Culture* (2006), and the scholarship that followed on K-pop, anime and football travelling further than the industry intended",
+          "citation": "Jenkins, H. (2006). Convergence Culture: Where Old and New Media Collide.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3989,9 +4284,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The format originated as an unembodied surveillance experiment and produced celebrity from it: the Dutch precursor De Teleboom began in 1997, watched by a studio audience who dialled in votes, and the format was exported worldwide from 2000",
+          "citation": "Big Brother (franchise) (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Big_Brother_(franchise)",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -4189,9 +4491,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Organised exposure of personal information used as a campaign tactic rather than incidental doxxing, documented as a distinct practice and separately criminalised in a number of jurisdictions",
+          "citation": "Doxxing (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Doxxing",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "fan-injury",
@@ -4224,9 +4533,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "5 November 2021, Astroworld, Houston: ten deaths in a crowd crush, with the fatal bottleneck forming while attendees were still recording and posting to social media from inside it. The audience was filming the audience being injured",
+          "citation": "Astroworld Festival (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Astroworld_Festival",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -4349,9 +4665,16 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Founded 14 February 2005 as a side project by four people, one of whom later described it as a hobby with the feature set of a TV channel. The first upload was 'Me at the zoo'; it passed a million users by the end of 2005",
+          "citation": "YouTube (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/YouTube",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -5233,9 +5556,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The term was coined in 2011 and the practice escalated from pranks to lethal: a 60-year-old man was killed in a swatting in California in 2013, after which California enacted specific anti-swattiing legislation. Armed police are dispatched as a joke with someone else's address attached",
+          "citation": "Swatting (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Swatting",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -5272,9 +5602,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "August 2014: a campaign targeting women in games, organised largely through an anonymous account, escalating within days to coordinated harassment, doxxing and death threats. The FBI investigated. Wikipedia's article is the de facto record and its revision history is itself an artefact of the harassment",
+          "citation": "GamerGate (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/GamerGate",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The essay that started it was about the emotional labour of game design, which the campaign reframed as a grievance about women",
+          "citation": "GamerGate (Wikipedia), discussing Begum Bayrak's 'Depression Quest' and Zoe Quinn.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -5449,6 +5792,18 @@
           "citation": "Yu, Nguyen, Prakkamakul & Salehi, 'I Almost Fell in Love with a Machine'.",
           "url": "",
           "status": "retrievable"
+        },
+        {
+          "claim": "The category with the clearest evidence of failure: a real institution with a real constituency, using the full influencer apparatus, still cannot produce reciprocity. Priests seldom reply. The tie stays one-sided",
+          "citation": "Between pulpit and platform: Parasocial bonds in Filipino priests' social media ministry (2025).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And a counter-intuitive mechanism worth having: expressing positive feelings was the technique secular influencers rely on and the priests omitted, and the harvest step changed with it",
+          "citation": "Witzel, The Cultivation and Harvesting of Parasocial Relationships for Evangelism.",
+          "url": "",
+          "status": "retrievable"
         }
       ],
       "media_inferred": true,
@@ -5481,12 +5836,25 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The free trial as a documented pattern rather than an anecdote: Hidden Subscription is defined as charging a recurring fee under the pretense of a one-time fee or a free trial, and users often learn of it only days or months later",
+          "citation": "Mathur, A., Acar, G., Friedman, M. J., Lucherini, E., Mayer, J., Chetty, M., & Narayanan, A. (2019). Dark Patterns at Scale. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW), Article 81.",
+          "url": "https://doi.org/10.1145/3359183",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And it is paired with a barrier on the way out: the same paper finds Hidden Subscription frequently co-occurs with Hard to Cancel, making the recurring charge harder to end than it was to begin",
+          "citation": "Mathur et al. (2019).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "medium": [
         "technology"
       ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6272,9 +6640,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "2019, the largest opening weekend in film history at the time, and then a studio ran a campaign telling audiences not to spoil it that generated more publicity than the marketing it replaced. The scale of the finale turned 'do not tell anyone' into an advertising budget line",
+          "citation": "Avengers: Endgame (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Avengers:_Endgame",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6343,9 +6718,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "'The Iron Throne', 19 May 2019, became the least-watched episode of the series it finished - a finale whose audience was actively hostile to it, and whose coffee cups became a small consumer-protection story",
+          "citation": "The Iron Throne (Game of Thrones) (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/The_Iron_Throne_(Game_of_Thrones)",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6503,9 +6885,16 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "26 January 2020, Calabasas, helicopter crash, age 41. Three championships, eighteen All-Star selections, five rings. The death generated a global outpouring within hours",
+          "citation": "Kobe Bryant (Wikipedia); contemporaneous BBC and AP coverage.",
+          "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6767,9 +7156,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The archive outlives the account: research on Facebook use after death documents memorialised profiles, friend-request grief spikes and relatives taking over an account, and finds continuing-bonds theory is not enough because the dead person's network keeps producing new reminders",
+          "citation": "Brubaker, J. R., Hargittai, E., & Burgess, J. (2013). Beyond the Grave: The Use of Facebook After Death. Digital Journalism, 1(3), 341-361.",
+          "url": "https://doi.org/10.1080/21670811.2013.780480",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The griefbots that followed - automated messages that appear to speak for the dead - sit inside the same gap between a continuing bond and a conversation that never happened",
+          "citation": "Brubaker, Hargittai & Burgess (2013).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "neighbours-finale",
@@ -7126,9 +7528,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "A distinct cohort follows from the same finding: children inheriting accounts managed by adults they did not choose, which turns a memorial profile into a custody decision",
+          "citation": "Brubaker, J. R., Hargittai, E., & Burgess, J. (2013). Beyond the Grave: The Use of Facebook After Death. Digital Journalism, 1(3), 341-361.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -7196,9 +7605,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "AI copyright litigation moved from filing to mass motion practice, with the argument shifting from 'is this training infringement' to fair use, market substitution and licensing - the legal question behind this site's collecting question",
+          "citation": "Ongoing AI copyright litigation; New York Times v. OpenAI and Bartz v. Anthropic and Kadrey v. Meta dockets.",
+          "url": "https://en.wikipedia.org/wiki/AI-generated_copyright_lawsuits",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
