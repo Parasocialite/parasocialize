@@ -25,7 +25,16 @@ python tools\link_audit.py      # MUST pass before every commit
 python tools\make_zip.py        # reproducible archive -> Desktop
 python tools\add_source.py --apply-provenance
 python tools\episode.py eliza   # render episode; preserves voice/*.wav
+python tools\verify_measure.py eliza shipping vshojo   # type vs its measure
+python tools\measure_type.py    # regenerate tools/type_metrics.json
 ```
+
+`verify_measure.py` is a **gate for anything touching typography**. It renders
+each scene twice, once with a given line removed, and measures the ink of that
+line by differencing the two — so it reads pixels, not the wrap arithmetic. It
+diffs within one document on purpose: differencing two renders of the same file
+lights up on animation noise and measures the wrong thing. Confirm it can still
+fail before believing a clean report.
 
 Cite sources via `tools\add_source.py`, not by hand-editing JSON. It validates,
 de-duplicates, refuses thesis entries, and recomputes provenance. One entry per
@@ -47,6 +56,29 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   verification regex; the arithmetic had been correct throughout.
 - `tools/episode.py` writes `ffmpeg.txt` with the `-vsync` note inline on the
   command line, so literal copy-paste truncates the command. Use `HOWTO.txt`.
+- **Naming a font in CSS is not evidence the font loaded.** This bit three
+  times in one session, each time producing numbers that looked fine. The
+  @font-face pointed at `../../brand/fonts/` from a directory where `../../` is
+  `episode/`, so the path did not exist, Chrome fell back, and the metric tool
+  measured the fallback for a whole run. **The tell was weights 600 and 800
+  measuring identically to four decimals — two different files cannot have
+  identical metrics.** `tools/measure_type.py` now asserts against that, and
+  computes its path rather than hardcoding it. If a measurement ever looks
+  suspiciously clean, the font did not load.
+- **A line count cannot detect an unbreakable word.** `parasocialize.com/e/
+  shipping` is one token, so `_wrap` returns one line at *every* size and any
+  maxlines test passes at every size — including the ones that overflowed by
+  26px. `_fit` now checks line width as well as line count.
+- **Only the weights you have files for.** The end card asked for `font-weight:
+  700`, which is not one of the two declared faces. Chrome *synthesises* it, and
+  synthesised Fraunces measures 3.2% wider than either real weight — so the
+  budget under-estimated, which is the direction that clips. `TYPE_WEIGHTS`
+  records what exists.
+- **Fraunces has an optical-size axis**, so the advance genuinely varies with
+  size: 0.512em at 30px down to 0.448em at 116px. One constant cannot be right
+  at both ends. Two earlier sweeps reported it as flat; both were artefacts —
+  one read a fixed y-band while the type grew, one let large rows wrap and so
+  cancelled the real trend.
 - **The frame sampler was a no-op, and it was silent.** `render_scenes` captures
   four instants per scene by shifting `animation-delay` by `-t`, but it was
   shifting only the backdrop's CSS string — which contains no `animation-delay`
@@ -101,20 +133,19 @@ Board must reconcile to 175. `add_source.py` is authoritative.
 1. **Publish one episode.** Nothing links anywhere until a video is live. Three
    episodes are rendered but unpublished. Blocked on human voice in
    `episode/*/voice/NN.wav` (nine per episode).
-2. **Landscape defects**, both confirmed by measurement, neither yet fixed.
-   - The backdrop stops at x=1080: `backdrop.py` hardcodes `W, H = 1080, 1920`
-     and the CSS pins `.bg svg` to `width:1080px`, so in a 1920x1080 frame it
-     covers the left half and leaves a hard vertical edge.
-   - The type does **not** currently overflow — it *under*-fills. `scene_html`
-     writes `g.type{font-family:...}` but puts `class="type"` on the `<svg>`,
-     so the rule matches nothing and every line renders in the browser's default
-     serif. Measured on one 34-char landscape line: as shipped the ink ends at
-     x=1079; with `g.type`→`.type` it ends at x=1272, i.e. **92px past** the
-     1180 measure. The perceived "clipping" was coincidence — the narrow
-     fallback face happens to end each line where the backdrop edge is. Fixing
-     the selector is what *creates* the overflow, and `_fit` will need
-     re-measuring too: it assumes 0.47em per character and the real face
-     measures 0.523em. Do both in one change, or the landscape gets worse.
+2. **Landscape type and backdrop: fixed.** Both were real and both are closed.
+   - `backdrop.py` took the canvas size and now fills whatever frame it is
+     given; the hard `x=1080` seam is gone (column means run 37.9/38.3/38.2
+     across x=1078–1082, where before it dropped 20.9→10.4 and stayed flat).
+   - The type was never the declared face. `scene_html` wrote
+     `g.type{font-family:...}` with `class="type"` on the `<svg>`, so the rule
+     matched nothing and every line fell back to the browser's default serif.
+     The "clipping" was coincidence: the narrow fallback ended each line near
+     the backdrop's edge. Fraunces is now committed under `brand/fonts/` and
+     referenced by relative URL, because a headless Chrome screenshotting a
+     `file://` page cannot be trusted to have completed a network fetch.
+   - `tools/verify_measure.py` is the gate for all of it, and it is a *pixel*
+     check, not a wrap check. Run it before trusting any typography change.
 3. **Entry Watch label** is hardcoded "fifty-second version" — wrong for 53-64s
    episodes. Make it data-driven or duration-neutral before publishing.
 4. **Tier 1 citations**, resting on inference rather than evidence: `dere`

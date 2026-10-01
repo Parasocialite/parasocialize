@@ -48,6 +48,7 @@ import argparse
 import array
 import json
 import math
+import os
 import pathlib
 import re
 import shutil
@@ -96,6 +97,115 @@ PAPER = "#f3ece2"
 DIM = "#9a8672"
 LANE = {"application": "#00e8c0", "consideration": "#ffb300",
         "manipulation": "#ff2d6f"}
+
+# ------------------------------------------------------------------ the face
+# Fraunces, as static wght 600 and 800 instances under brand/fonts/. These are
+# the same two weights index.html asks Google for, fetched once and committed,
+# because the episode frames are rendered by a headless Chrome that screenshots
+# a file:// page: a <link> to fonts.googleapis.com is a network fetch that may
+# or may not have completed when the shot is taken, and the failure is silent -
+# the page renders in Georgia and looks plausible. A frame that comes out
+# differently depending on whether the network answered is not a frame.
+#
+# This is also the fix for the type never being the intended face at all:
+# scene_html used to write `g.type{font-family:...}` while putting class="type"
+# on the <svg>, so the rule matched nothing and every line fell back to the
+# browser default serif. Naming a font in CSS is not evidence the font loaded.
+TYPE_CSS = """@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;
+src:url('%s') format('woff2')}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:800;
+src:url('%s') format('woff2')}"""
+
+_FONT_DIR = ROOT / "brand" / "fonts"
+
+
+def _type_face_css(scene_dir: pathlib.Path) -> str:
+    """The @font-face block, with URLs relative to the scene's own folder.
+
+    Relative rather than file:// so the same document works when opened from
+    disk, and relative because scene_dir differs per episode. Falls back to an
+    absolute file URL if the fonts are not where we expect.
+    """
+    w600, w800 = _FONT_DIR / "fraunces-600.woff2", _FONT_DIR / "fraunces-800.woff2"
+    if not (w600.exists() and w800.exists()):
+        raise FileNotFoundError(
+            f"episode typeface missing: expected {w600} and {w800}. "
+            "Fetch them once with tools/measure_type.py's sibling note in "
+            "AGENTS.md, or the frames render in Georgia instead.")
+    try:
+        base = os.path.relpath(w600.parent, scene_dir).replace("\\", "/")
+        rel = f"{base}/fraunces-600.woff2"
+        return TYPE_CSS % (rel, rel.replace("600", "800"))
+    except ValueError:                       # different drive on Windows
+        return TYPE_CSS % (w600.as_uri(), w800.as_uri())
+
+
+# The character budget for _wrap, in em, measured per size from the face above
+# by tools/measure_type.py. NOT a guess and not a round number. It was 0.47 for
+# both weights, which is the value for neither.
+#
+# It has to be per size. Fraunces is served with an optical-size axis and the
+# advance genuinely moves - 0.512em at 30px down to 0.448em at 116px, an 8%
+# difference - so a single constant is wrong at both ends. The two
+# configurations are two tables because tracking moves every advance by a fixed
+# fraction of the em.
+#
+# Measured against the real face, which took three attempts and two wrong
+# answers that both looked fine: the metric tool pointed its @font-face at a
+# path that did not exist, so it measured the browser's fallback for a whole
+# run, and a banded sweep cancelled the real size trend by wrapping large rows.
+# The tell in both cases was weights 600 and 800 agreeing to four decimals -
+# two different files cannot have identical metrics. measure_type.py now asserts
+# against that, so the next occurrence stops the tool rather than the video.
+try:
+    _TM = json.loads((ROOT / "tools" / "type_metrics.json").read_text(encoding="utf-8"))
+    EM_TABLES = {k: {int(s): v for s, v in t.items()}
+                 for k, t in _TM["sizes"].items()}
+
+    def _em_budget(fs: int, weight: int) -> float:
+        """The measured advance at or above `fs`, interpolated between samples.
+
+        Interpolated rather than rounded up to the next sample because the table
+        is measured every 6px in the range the scenes use and the budget must
+        not dip between samples: a line set at an unmeasured size would
+        otherwise get whatever the nearest sample happened to say, which can be
+        tighter than the true value. Above the top of the table the last entry
+        is used - Fraunces only gets narrower, so that is the safe direction.
+        """
+        t = EM_TABLES["w800" if weight >= 700 else "w600"]
+        ks = sorted(t)
+        if fs <= ks[0]:
+            return t[ks[0]]
+        if fs >= ks[-1]:
+            return t[ks[-1]]
+        for lo, hi in zip(ks, ks[1:]):
+            if lo <= fs <= hi:
+                span = hi - lo
+                f = 0.0 if span == 0 else (fs - lo) / span
+                return t[lo] + (t[hi] - t[lo]) * f
+        return t[ks[-1]]
+except (OSError, KeyError, ValueError, TypeError):
+    # Render rather than crash. This under-budgets, which is the failure mode
+    # this file already documents, and is better than producing no frames.
+    EM_TABLES = {}
+
+    def _em_budget(fs: int, weight: int) -> float:
+        return 0.52
+
+# Which configuration each scene kind is set in. The beats and the why are
+# lighter and untracked; everything that has to shout is 800 with tight
+# tracking. This is the same distinction the CSS makes, kept in one place so the
+# budget and the rendering cannot drift apart.
+TYPE_SETTING = {"hook": 800, "card": 800, "beat": 600, "pivot": 800,
+                "why": 600, "end": 800}
+
+# Only 600 and 800 exist as files. Asking for 700 does not get you something in
+# between - Chrome SYNTHESISES a weight, and synthesised Fraunces measured 0.5129
+# em per character against 0.4970 for the real 600, i.e. 3.2% wider than either
+# real face. That is the wrong way round for a budget: it under-estimates, so the
+# end-card URL overflowed its measure by 26px while the arithmetic said it fit
+# with 1px to spare. Use a real weight or add the synthesised one to the metrics.
+TYPE_WEIGHTS = (600, 800)
 
 
 # ---------------------------------------------------------------- the scripts
@@ -231,13 +341,18 @@ def _esc(s) -> str:
 
 
 def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None,
-                 t: float = 0.0, i: int = 0, fmt: str = "vertical") -> str:
+              t: float = 0.0, i: int = 0, fmt: str = "vertical",
+              scene_dir: pathlib.Path | None = None) -> str:
     """One frame.
 
     `entry` is what makes a frame about its subject rather than about the
     format: it selects the backdrop system, and it selects how iYi moves. Both
     come from the entry's own record, so neither is a designer's per-episode
     decision.
+
+    `scene_dir` is where this document will be written, and it matters because
+    the @font-face URLs are relative to it - the frames render from file://, and
+    a relative path is the only form that survives being opened off disk.
     """
     x0, y0, x1, y1 = safe
     w = x1 - x0
@@ -245,6 +360,9 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
     cw, ch = (LAND if land else (VW, VH))
     stage = IYI_STAGE[1 if land else 0].format(x0=x0)
     ac = s["accent"]
+    if scene_dir is None:
+        scene_dir = ROOT / "episode" / "_scratch"
+    face = _type_face_css(scene_dir)
     css, bg_svg, system = ("", "", "plain")
     if entry and enc:
         import backdrop
@@ -255,7 +373,7 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
         # iYi's own live in its separate <style>. So the regex matched nothing,
         # all four HTML files per scene came out byte-identical, and the whole
         # rig was rendered once and held for the scene.
-        css, bg_svg, system = backdrop.backdrop(entry, enc, [])
+        css, bg_svg, system = backdrop.backdrop(entry, enc, [], (cw, ch))
     # The scrim exists to keep 60-90px type readable over a moving field, and
     # nothing else. It was written when the background was a faint radial glow
     # and went to 94% opacity at the edges, which on a real backdrop means the
@@ -268,8 +386,9 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
              f'rgba(11,11,13,.72) 88%,{INK} 100%)}}')
     body = []
     k = s["kind"]
+    wt = TYPE_SETTING.get(k, 800)
     if k == "hook":
-        fs, lines = _fit(s["text"], w, [116, 104, 92, 82, 72, 64], 4)
+        fs, lines = _fit(s["text"], w, [116, 104, 92, 82, 72, 64], 4, wt)
         lh = fs * 1.08
         y = (y0 + y1) / 2 - (len(lines) - 1) * lh / 2 + fs * 0.34
         for i, ln in enumerate(lines):
@@ -282,7 +401,7 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
     elif k == "card":
         body.append(f'<text x="{x0}" y="{y0 + 380}" font-size="230" font-weight="800" '
                     f'fill="{PAPER}" opacity=".13" letter-spacing="-9">{_esc(s["year"])}</text>')
-        fs, lines = _fit(s["text"], w, [110, 96, 84, 74, 64], 3)
+        fs, lines = _fit(s["text"], w, [110, 96, 84, 74, 64], 3, wt)
         lh = fs * 1.06
         y = y0 + 640 - (len(lines) - 1) * lh / 2
         for i, ln in enumerate(lines):
@@ -292,7 +411,7 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
         body.append(f'<text x="{x0}" y="{y + len(lines)*lh + 70:.0f}" font-size="42" '
                     f'letter-spacing="13" fill="{ac}">{_esc(s["sub"])}</text>')
     elif k == "beat":
-        fs, lines = _fit(s["text"], w, [66, 60, 55, 50, 46], 5)
+        fs, lines = _fit(s["text"], w, [66, 60, 55, 50, 46], 5, wt)
         lh = fs * 1.42
         y = (y0 + y1) / 2 - (len(lines) - 1) * lh / 2 + fs * 0.34
         for i, ln in enumerate(lines):
@@ -303,7 +422,7 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
     elif k == "pivot":
         # the one scene allowed to be loud. Bigger type, a full-width rule, the
         # year pushed aside, and the word that names the turn set on its own.
-        fs, lines = _fit(s["text"], w, [92, 84, 76, 68, 60, 54], 4)
+        fs, lines = _fit(s["text"], w, [92, 84, 76, 68, 60, 54], 4, wt)
         lh = fs * 1.12
         y = (y0 + y1) / 2 - (len(lines) - 1) * lh / 2 + fs * 0.34
         for i, ln in enumerate(lines):
@@ -319,7 +438,7 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
     elif k == "why":
         # the why gets the same treatment as the beats, at one step larger, so
         # it reads as the turn rather than as a footnote
-        fs, lines = _fit(s["text"], w, [76, 70, 64, 58, 52, 47], 5)
+        fs, lines = _fit(s["text"], w, [76, 70, 64, 58, 52, 47], 5, wt)
         lh = fs * 1.36
         y = (y0 + y1) / 2 - (len(lines) - 1) * lh / 2 + fs * 0.34 - 56
         for i, ln in enumerate(lines):
@@ -335,7 +454,7 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
         body.append(f'<line x1="{x0}" y1="{y - cap - 40:.0f}" x2="{x0 + 96}" '
                     f'y2="{y - cap - 40:.0f}" stroke="{ac}" stroke-width="7"/>')
     else:  # end
-        fs, lines = _fit(s["text"], w, [104, 94, 84, 74, 64], 3)
+        fs, lines = _fit(s["text"], w, [104, 94, 84, 74, 64], 3, wt)
         lh = fs * 1.06
         # centred as a block in the safe area, so the bottom third that TikTok
         # covers is empty on purpose rather than by accident
@@ -349,8 +468,17 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
                     f'stroke="{PAPER}" stroke-width="2" opacity=".14"/>')
         body.append(f'<text x="{x0}" y="{y2 + 46:.0f}" font-size="40" letter-spacing="12" '
                     f'fill="{ac}">{_esc(s["sub"])}</text>')
-        body.append(f'<text x="{x0}" y="{y2 + 150:.0f}" font-size="58" font-weight="700" '
-                    f'fill="{PAPER}" opacity=".55">{_esc(s["url"])}</text>')
+        # The URL was a fixed 58px single line, so it fit only while the slug
+        # happened to be short. "parasocialize.com/e/eliza" came to 794px inside
+        # an 808px measure; "/e/shipping" ran 26px past it and the frame clipped
+        # the last characters - the one line a viewer is most likely to read and
+        # type. It is sized to its own content now, so a longer entry id cannot
+        # break the card.
+        ufs, ulines = _fit(s["url"], w, [58, 52, 46, 42, 38], 1, 600)
+        for i, ln in enumerate(ulines):
+            body.append(f'<text x="{x0}" y="{y2 + 150 + i*ufs*1.1:.0f}" '
+                        f'font-size="{ufs}" font-weight="600" '
+                        f'fill="{PAPER}" opacity=".55">{_esc(ln)}</text>')
         body.append(f'<text x="{x0}" y="{y2 + 236:.0f}" font-size="32" fill="{DIM}" '
                     f'opacity=".9">one-sided relationships are just easier</text>')
 
@@ -376,7 +504,11 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
 html,body{{width:{cw}px;height:{ch}px;background:{INK};overflow:hidden}}
 .wrap{{position:relative;width:{cw}px;height:{ch}px;overflow:hidden}}
 svg{{position:absolute;inset:0}}
-g.type{{font-family:'Fraunces',Georgia,serif}}
+{face}
+/* The class is on this <svg>, so the selector has to match an <svg>. It used
+   to be written g.type, which matches nothing, so the declared family never
+   applied and every line fell back to the browser default serif. */
+.type{{font-family:'Fraunces',Georgia,serif}}
 .safe{{position:absolute;left:{x0}px;top:{y0}px;width:{w}px;height:{y1-y0}px}}
 text{{white-space:pre}}
 {css}
@@ -497,11 +629,21 @@ def _phase_css(t: float) -> str:
             f"*,*::before,*::after{{animation-play-state:paused!important}}\n")
 
 
-def _wrap(text, fs, w):
-    """Greedy word wrap. Every returned line is guaranteed to measure <= w,
-    which is the property the old line-COUNT check was missing."""
+def _wrap(text, fs, w, weight=800):
+    """Greedy word wrap, with the character budget for the face actually in use.
+
+    `weight` selects the measured budget rather than being cosmetic: the scenes
+    are set at 600 or 800 and the tracking differs with them, so the advance
+    differs. Passing the wrong one reintroduces the overrun this was fixed to
+    remove.
+
+    The budget is a per-character average, which is the one thing here that is
+    not exact - a line of wide glyphs sits above the mean. tools/verify_measure.py
+    checks the rendered frames, which is the check that actually binds; this
+    just keeps the starting size sane.
+    """
+    cap = max(6, int(w / (fs * _em_budget(fs, weight))))
     words, lines, cur = str(text).split(), [], []
-    cap = max(6, int(w / (fs * 0.47)))
     for wd in words:
         if cur and len(" ".join(cur + [wd])) > cap:
             lines.append(" ".join(cur))
@@ -513,19 +655,42 @@ def _wrap(text, fs, w):
     return lines or [""]
 
 
-def _fit(text, w, sizes, maxlines=4):
-    """Largest size at which the text wraps to at most `maxlines` inside `w`.
+def _overruns(lines, fs, w, weight) -> bool:
+    """Would any of `lines` be wider than `w` at `fs`?
+
+    This check exists because a line COUNT cannot detect an unbreakable word.
+    "parasocialize.com/e/shipping" is a single token, so _wrap has no way to
+    split it: it returns one line at every size, and any maxlines test therefore
+    passes at every size - including the ones where that line runs off the
+    frame. It did, by 26px, on the end card of every episode with a slug longer
+    than "eliza". And it is the one line a viewer is most likely to read and
+    type by hand.
+
+    The end card now sizes its URL through _fit like everything else, so this is
+    what stops that coming back.
+    """
+    budget = fs * _em_budget(fs, weight)
+    return any(len(ln) * budget > w for ln in lines)
+
+
+def _fit(text, w, sizes, maxlines=4, weight=800):
+    """Largest size at which the text fits `maxlines` AND stays inside `w`.
 
     Counting lines is not sufficient on its own and was the original bug: a
     short hook came back as "one line", which was then rendered as one line at
     116px and ran straight off the frame. So this returns the wrapped lines and
     every caller draws those, not the raw string.
+
+    Counting lines is also not sufficient in the other direction, which is what
+    _overruns is for: a single unbreakable word is always one line and so always
+    "fits" by count. Both conditions have to hold.
     """
     for fs in sizes:
-        lines = _wrap(text, fs, w)
-        if len(lines) <= maxlines:
+        lines = _wrap(text, fs, w, weight)
+        if len(lines) <= maxlines and not _overruns(lines, fs, w, weight):
             return fs, lines
-    return sizes[-1], _wrap(text, sizes[-1], w)[:maxlines]
+    fs = sizes[-1]
+    return fs, _wrap(text, fs, w, weight)[:maxlines]
 
 
 def render_scenes(script: dict, d: pathlib.Path, entry: dict, enc: dict,
@@ -550,7 +715,8 @@ def render_scenes(script: dict, d: pathlib.Path, entry: dict, enc: dict,
             # shows four different places, not four adjacent ones
             t = (k / frames) * LOOP
             hp = sd / f"{i:02d}_{k}.html"
-            hp.write_text(scene_html(s, safe, entry, enc, t, i, fmt), encoding="utf-8")
+            hp.write_text(scene_html(s, safe, entry, enc, t, i, fmt, sd),
+                          encoding="utf-8")
             png = sd / f"{i:02d}_{k}.png"
             if png.exists():
                 png.unlink()

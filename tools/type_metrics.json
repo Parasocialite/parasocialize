@@ -1,0 +1,31 @@
+{
+ "_probe": "In 1966 a programmer called ELIZA asked a woman to type at a keyboard and talk to her.",
+ "_probe_wide": "ELIZA, 1966. Elizabeth?",
+ "_note": "em advance per character, per font size, measured from brand/fonts/*.woff2 by tools/measure_type.py. Fraunces has an optical-size axis so this genuinely varies with fs. Two configurations because tracking shifts every advance. Each entry is max(real prose probe, caps-and-punctuation probe) + margin. Do not hand-edit; regenerate.",
+ "sizes": {
+  "w800": {
+   "30": 0.5121,
+   "40": 0.50739,
+   "46": 0.50555,
+   "52": 0.50162,
+   "60": 0.49543,
+   "66": 0.49063,
+   "76": 0.47724,
+   "92": 0.45215,
+   "104": 0.44936,
+   "116": 0.44753
+  },
+  "w600": {
+   "30": 0.50196,
+   "40": 0.49761,
+   "46": 0.4961,
+   "52": 0.49159,
+   "60": 0.48529,
+   "66": 0.48009,
+   "76": 0.46637,
+   "92": 0.4408,
+   "104": 0.43724,
+   "116": 0.43554
+  }
+ }
+}

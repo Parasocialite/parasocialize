@@ -442,7 +442,8 @@ GRAIN = (
 )
 
 
-def backdrop(entry: dict, enc: dict, extra_rules: list[str] | None = None
+def backdrop(entry: dict, enc: dict, extra_rules: list[str] | None = None,
+             size: tuple[int, int] = (1080, 1920)
              ) -> tuple[str, str, str]:
     """(css, svg markup, system name) for one entry.
 
@@ -451,6 +452,14 @@ def backdrop(entry: dict, enc: dict, extra_rules: list[str] | None = None
     system name is returned because it is worth knowing which one you got, and
     worth being able to assert on: two entries of the same medium should share
     a system, and two entries of different media should not.
+
+    `size` is the canvas the backdrop has to fill. It was hardcoded to 1080x1920,
+    which is the vertical master, and the landscape master inherited that
+    without asking: the CSS pinned .bg svg to width:1080px, so in a 1920x1080
+    frame the backdrop covered the left 56% and stopped at a hard vertical edge
+    at x=1080 - visible as a straight seam down the middle of every horizontal
+    frame. Passing the real size is the whole fix; each system is written
+    against W and H already, so they compose to whatever canvas they are given.
 
     The era palette is then pulled toward the entry's LANE colour. Without that
     the backdrops are era-accurate and brand-blind: ELIZA is 1966 so it comes
@@ -471,13 +480,18 @@ def backdrop(entry: dict, enc: dict, extra_rules: list[str] | None = None
     if system is None:
         y = entry.get("year") or 2000
         system = "theology" if y < 1900 else "technology"
-    W, H = 1080, 1920
-    rng = random.Random(f"{entry['id']}-{system}")
+    W, H = int(size[0]), int(size[1])
+    rng = random.Random(f"{entry['id']}-{system}-{W}x{H}")
     body, keys = SYSTEMS[system](p, W, H, rng)
     rules = list(extra_rules or []) + keys
+    # The svg is sized to the canvas with no viewBox, rather than a viewBox with
+    # preserveAspectRatio="slice". Slice would scale the portrait composition to
+    # cover a landscape frame and crop the middle away, which is the guillotining
+    # this was meant to avoid - and it is how the systems can stay written
+    # against W and H at all. Drawing at the frame's own size means the systems
+    # lay out for the shape they are actually in.
     css = (f".bg{{position:absolute;inset:0;overflow:hidden}}"
            f".bg svg{{position:absolute;inset:0;width:{W}px;height:{H}px;display:block}}"
            + "".join(rules) + GRAIN)
-    svg = (f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
-           f'preserveAspectRatio="xMidYMid slice">{body}</svg>')
+    svg = (f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}">{body}</svg>')
     return css, svg, f"{system} / {p['name']}"
