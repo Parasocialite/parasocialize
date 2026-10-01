@@ -47,6 +47,18 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   verification regex; the arithmetic had been correct throughout.
 - `tools/episode.py` writes `ffmpeg.txt` with the `-vsync` note inline on the
   command line, so literal copy-paste truncates the command. Use `HOWTO.txt`.
+- **The frame sampler was a no-op, and it was silent.** `render_scenes` captures
+  four instants per scene by shifting `animation-delay` by `-t`, but it was
+  shifting only the backdrop's CSS string — which contains no `animation-delay`
+  at all. `backdrop.py` puts all 65 of its delays in inline `style=""`
+  attributes on SVG elements, and `iyi.py` emits three more in its own `<style>`.
+  The regex matched nothing, so all four HTML files per scene hashed *identical*:
+  36 "motion frames" were 9 images. A second, quieter half: a negative delay
+  leaves the animation *running*, so frames drifted by whatever the compositor
+  clock did — ~10,000px between renders of one file. The freeze needs both the
+  offset **and** `animation-play-state:paused`. Verify any change here by
+  hashing the generated HTML, not by looking at the storyboard: the storyboard
+  reads one frame per scene and cannot show this.
 
 ## Architecture
 
@@ -89,8 +101,20 @@ Board must reconcile to 175. `add_source.py` is authoritative.
 1. **Publish one episode.** Nothing links anywhere until a video is live. Three
    episodes are rendered but unpublished. Blocked on human voice in
    `episode/*/voice/NN.wav` (nine per episode).
-2. **Landscape defects** in `tools/episode.py`: backdrop stops at x=1080 leaving a
-   hard edge; text overflows its measure and clips. Only ELIZA was re-rendered.
+2. **Landscape defects**, both confirmed by measurement, neither yet fixed.
+   - The backdrop stops at x=1080: `backdrop.py` hardcodes `W, H = 1080, 1920`
+     and the CSS pins `.bg svg` to `width:1080px`, so in a 1920x1080 frame it
+     covers the left half and leaves a hard vertical edge.
+   - The type does **not** currently overflow — it *under*-fills. `scene_html`
+     writes `g.type{font-family:...}` but puts `class="type"` on the `<svg>`,
+     so the rule matches nothing and every line renders in the browser's default
+     serif. Measured on one 34-char landscape line: as shipped the ink ends at
+     x=1079; with `g.type`→`.type` it ends at x=1272, i.e. **92px past** the
+     1180 measure. The perceived "clipping" was coincidence — the narrow
+     fallback face happens to end each line where the backdrop edge is. Fixing
+     the selector is what *creates* the overflow, and `_fit` will need
+     re-measuring too: it assumes 0.47em per character and the real face
+     measures 0.523em. Do both in one change, or the landscape gets worse.
 3. **Entry Watch label** is hardcoded "fifty-second version" — wrong for 53-64s
    episodes. Make it data-driven or duration-neutral before publishing.
 4. **Tier 1 citations**, resting on inference rather than evidence: `dere`

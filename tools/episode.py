@@ -248,11 +248,14 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
     css, bg_svg, system = ("", "", "plain")
     if entry and enc:
         import backdrop
-        # every animation is frozen at instant t by a negative delay, so any
-        # (scene, frame) pair renders to the same pixels on any machine
+        # The freezing happens on the assembled document at the bottom of this
+        # function, not here. It used to run on this css string alone, which
+        # contains no animation-delay at all - the backdrop puts every one of
+        # its 65 delays in an inline style="" attribute on an SVG element, and
+        # iYi's own live in its separate <style>. So the regex matched nothing,
+        # all four HTML files per scene came out byte-identical, and the whole
+        # rig was rendered once and held for the scene.
         css, bg_svg, system = backdrop.backdrop(entry, enc, [])
-        if t:
-            css = _offset_delays(css, t)
     # The scrim exists to keep 60-90px type readable over a moving field, and
     # nothing else. It was written when the background was a faint radial glow
     # and went to 94% opacity at the edges, which on a real backdrop means the
@@ -364,7 +367,11 @@ def scene_html(s: dict, safe, entry: dict | None = None, enc: dict | None = None
             # never let the character take the frame down
             print(f"    iyi failed on scene {i}: {e}")
 
-    return f"""<!DOCTYPE html><meta charset="utf-8"><style>
+    # Freeze the whole assembled page at instant t. It has to happen here, at the
+    # very end, once every layer - backdrop, scrim, type and character - is in
+    # one string, because the delays are scattered across all four and a
+    # partial offset is what left the rig frozen in the first place.
+    _doc = f"""<!DOCTYPE html><meta charset="utf-8"><style>
 *{{margin:0;padding:0;box-sizing:border-box}}
 html,body{{width:{cw}px;height:{ch}px;background:{INK};overflow:hidden}}
 .wrap{{position:relative;width:{cw}px;height:{ch}px;overflow:hidden}}
@@ -389,6 +396,7 @@ text{{white-space:pre}}
 .iyi-stage .act-ping{{position:absolute;left:50%;top:50%;width:300px;height:300px;
   margin:-150px 0 0 -150px;border-radius:50%;border:2px solid var(--teal, #00e8c0);
   opacity:0}}
+{_phase_css(t)}
 </style>
 <div class="wrap">
   <div class="bg">{bg_svg}</div>
@@ -398,19 +406,95 @@ text{{white-space:pre}}
   <div class="safe"></div>
   {mascot}
 </div>"""
+    return _offset_delays(_doc, t)
 
 
-def _offset_delays(css: str, t: float) -> str:
-    """Shift every animation-delay by -t so a frame is frozen at instant t.
+def _offset_delays(doc: str, t: float) -> str:
+    """Shift every animation-delay in the whole document by -t.
 
     Rewriting the delay rather than reaching for Chrome's virtual-time budget
     is the whole trick. --virtual-time-budget on an infinite animation never
     returns - the render hangs until it is killed - whereas a negative delay
     is instant, needs no extra flag, and is exactly reproducible.
+
+    It takes the ASSEMBLED DOCUMENT, not one CSS string. That distinction was
+    the bug this replaces. It used to be handed the backdrop's css, which
+    contains no animation-delay at all: backdrop.py puts all 65 of its delays in
+    inline style="" attributes on SVG elements, and iyi.py emits its own three
+    in a separate <style> block inside the mascot markup. The regex therefore
+    matched nothing, the shift was silently a no-op, and all four HTML files
+    per scene hashed identical - so 36 "motion frames" were 9 images, and even
+    those drifted only by however much real time Chrome spent before it
+    screenshotted. The whole rig was being rendered at phase 0 and held.
+
+    The regex is deliberately broad and applied to markup as well as style: any
+    animation-delay anywhere in the page gets the same -t, which is precisely
+    what "freeze everything at instant t" means. It reads negative values
+    already present, because the backdrop seeds each element with its own random
+    phase and that seed has to be preserved, not overwritten.
     """
     def shift(m):
         return f"animation-delay:{-t + float(m.group(1)):.3f}s"
-    return re.sub(r"animation-delay:(-?[\d.]+)s", shift, css)
+    return re.sub(r"animation-delay:(-?[\d.]+)s", shift, doc)
+
+
+def _phase_css(t: float) -> str:
+    """A phase channel for animations that carry no literal delay to rewrite.
+
+    Two families in this page cannot be reached by rewriting animation-delay,
+    and were therefore frozen at phase 0 forever even once the backdrop's
+    delays started being shifted:
+
+      mascot.build emits  animation:iyi-breathe 5.4s ...;animation-delay:var(--d,0s)
+      iyi._topic_css emits the `animation` SHORTHAND, e.g.
+          animation:iyi-blink 5.2s linear infinite,iy-drift-a 6.1s ...
+
+    The shorthand resets delay to its initial value, so the literal string
+    "animation-delay:" is simply absent - there is nothing for the regex to
+    match, not a delay that happens to be zero. var(--d,0s) is equally
+    unreachable, since the fallback lives inside a function.
+
+    So the phase is applied as a custom property instead. --ph is consumed by a
+    single rule that hands it to every animated part of the character, which is
+    also how --r already works: one number to set, rather than six timings
+    edited in three files that have to stay in proportion.
+
+    !important is load-bearing here, not laziness. iyi.py emits its selectors
+    already scoped to ".act .iyi-pupil" and that <style> block lives in the
+    BODY, after this one in document order, so at equal specificity it wins and
+    the phase would be dropped again - silently, and in exactly the way the
+    previous version failed. Its t-ai rules add a class and a pseudo-class on
+    top, reaching 0,4,0, so beating them by specificity alone would mean
+    restating their selector structure here and keeping it in step. The
+    declaration is scoped to .iyi-stage, so its reach is the character and
+    nothing else in the page.
+
+    Both eyes get the same delay on purpose. iyi.py gives them different
+    periods - 5.2s and 6.7s of blink, 6.1s and 7.3s of drift - so at t=5.25s
+    one is 1% into its cycle and the other is 78% into its own. The two
+    signals being out of phase comes from the periods differing, not from their
+    starting points, and a shared start is what keeps them from drifting into
+    lockstep if the periods are ever retuned.
+
+    THE PAUSE IS LOAD-BEARING TOO, and this is the second half of the freeze.
+    A negative delay shifts an animation's phase but leaves it RUNNING, so what
+    gets painted still depends on how far the compositor clock advanced between
+    style resolution and the screenshot being taken. Measured over eight renders
+    of one identical document, that race put 9,000-11,000 pixels of noise in the
+    frame and gave a 16,000-pixel spread against the mean - the character was
+    being sampled at an unpredictable moment, which is the exact failure this
+    mechanism exists to prevent. Paused, the same eight renders are pixel-for-
+    pixel identical: 0 drift, every pair. The delay says which phase to hold;
+    the pause says hold it.
+    """
+    return (f".iyi-stage{{--ph:{-t:.3f}s}}\n"
+            f".iyi-stage .iyi,.iyi-stage .iyi-pupil,.iyi-stage .iyi-bloom,"
+            f".iyi-stage .act-body,.iyi-stage .act-ping"
+            f"{{animation-delay:var(--ph)!important}}\n"
+            # universal rather than scoped to the character: the backdrop's 65
+            # elements are the larger source of clock race, and a paused
+            # animation is indistinguishable from a frozen one on screen.
+            f"*,*::before,*::after{{animation-play-state:paused!important}}\n")
 
 
 def _wrap(text, fs, w):
