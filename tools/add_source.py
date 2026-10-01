@@ -43,6 +43,16 @@ THESIS = {
     "macy", "macy-paradox", "the-clerk", "club-card",
     "parasocial-consent", "protagonist-parasocial", "the-audience",
     "will-and-want", "the-counter", "counter",
+    # Added after reading the 30 remaining entries in full rather than
+    # judging by title. Each of these states our own claim with no
+    # external referent to attach a citation to: the entry IS the
+    # argument. Reclassifying them is the honest outcome - it removes
+    # them from the gap list rather than inventing a source for them.
+    "scale-change",          # "nothing about the bond is new... those are new"
+    "clerks-beat-algorithms", # our claim about attention vs. a model of your history
+    "quarterly-audit",       # the site's own exercise, for the reader to do
+    "the-reply-heres-watching", # our framing of fan conflict as public performance
+    "ratio",                 # our characterisation, not a documented incident
 }
 
 

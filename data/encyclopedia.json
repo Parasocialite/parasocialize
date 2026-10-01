@@ -3727,9 +3727,52 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE PARASOCIAL CHANNEL DELIVERED THE DEATH BEFORE THE FAMILY DID. 8 April 1994, around 8:40am, an electrician recognised the body through a window, and called a ROCK RADIO STATION before calling police - because he was a fan. The on-air personality said broadcasting it was 'kind of an eerie decision to make. We're not a news station'",
+          "citation": "Seattle Times, 8 April 1994; and Rolling Stone (Neil Strauss), Flashback: Kurt Cobain's Last Days.",
+          "url": "https://archive.seattletimes.com/archive/19940408/1904521/nirvanas-cobain-dead----suicide-note-shotgun-near-body-of-musician-at-his-seattle-home----mother-now-hes-gone-and-joined-that-stupid-club",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Cobain's mother and his sister both learned of his death from radio reports. She said: 'Now he's gone and joined that stupid club'",
+          "citation": "Seattle Times, 8 April 1994.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "AND THE EXTRACTION, MEASURED IN HOURS. Two hours after the county medical examiner positively identified the body by fingerprints, most local record stores were completely wiped out of all Nirvana product. One store reported selling a few hundred CDs, singles and vinyl by the next morning, including the $100 interview CD",
+          "citation": "Carrie Borzillo, When Kurt Cobain Died, Billboard (2019), reporting her 23 April 1994 article 'Cobain Mourned by Fans, Industryites in Memorials, Music Stores'.",
+          "url": "https://www.billboard.com/music/music-news/when-kurt-cobain-died-former-billboard-editor-recalls-being-on-the-scene-when-6039661/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Which one record store executive said out loud at the time: 'a pathetic scene. Everything is going out the door. If people were really fans, they'd have had this stuff already.' The industry diagnosing the fans while taking their money",
+          "citation": "Tower Records' Chris Simmons, quoted in Billboard (2019), April 1994.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The scale of the assembly: roughly 5,000 people at the public memorial at the Flag Pavilion near the Space Needle on 10 April 1994, at which Courtney Love - by tape - asked the crowd to shout 'asshole' at the man they had just grieved",
+          "citation": "Borzillo, Billboard (2019); Rolling Stone (1994).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And a fan's own account of the mechanism, on the street outside his house: 'Nirvana touched something deep inside me'",
+          "citation": "Seattle Times, 8 April 1994, reporting Laura Mitchell.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The counter-claim, and it is the strongest version of the other side: 'He was his audience' - the songs were written from experience the listeners recognised as their own",
+          "citation": "MTV News Special Report, The Life & Death of Kurt Cobain (1994), reporting Michael Azerrad.",
+          "url": "https://www.youtube.com/watch?v=OV0Ml3hLGuA",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3854,7 +3897,7 @@
       "relations": [],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "thesis"
     },
     {
       "id": "loyalty-counter",
@@ -5173,7 +5216,7 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "thesis"
     },
     {
       "id": "the-mourning-merch",
@@ -5206,9 +5249,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The commercial record of the immediate aftermath, in the trade press, in the same week: Billboard ran 'Cobain Mourned by Fans, Industryites in Memorials, Music Stores' on 23 April 1994 - memorials and merchandise as a single subject",
+          "citation": "Borzen/Borzillo, Billboard (2019), reporting the 23 April 1994 article.",
+          "url": "https://www.billboard.com/music/music-news/when-kurt-cobain-died-former-billboard-editor-recalls-being-on-the-scene-when-6039661/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the deadline in which it must happen: within two hours of positive identification, the retail market for his work was empty. Grief merchandise has a shelf life measured in hours",
+          "citation": "Borzillo, Billboard (2019).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -5248,7 +5304,7 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "thesis",
       "source": ""
     },
     {
@@ -6120,7 +6176,7 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "thesis",
       "source": ""
     },
     {
@@ -6381,9 +6437,52 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "21 April 2016, pronounced dead at 10:07 a.m. at Paisley Park, age 57 - and the announcement carried NO CAUSE OF DEATH. The publicist's statement said only: 'There are no further details as to the cause of death at this time.' The response assembled before anybody knew anything",
+          "citation": "CBS News, Prince dead at 57 (21 April 2016); AP; Reuters.",
+          "url": "https://www.cbsnews.com/news/prince-dead-at-57/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "THE SCALE OF THE ASSEMBLY, AND IT WAS AT HIS HOUSE: fans in purple head to toe, some draped in velvet, laying flowers at the fence in the rain, and a reported TWO-MILE LINEUP to drive past the compound",
+          "citation": "CBS News (2016), citing photographs and CBS Minnesota; NPR, Music Legend Prince Dies At Paisley Park Residence (2016), from Minnesota Public Radio.",
+          "url": "https://www.npr.org/2016/04/21/475161596/music-legend-prince-dies-at-paisley-park-residence",
+          "status": "retrievable"
+        },
+        {
+          "claim": "THE ASSUMPTION OF PERMANENCE, said by a fan on the day: 'I just always felt like he was always going to be here because he's always been here ever since I came here. I mean, he's just been a staple of the city, and I thought this guy's going to be around forever'",
+          "citation": "Melody Chestler, interviewed by Minnesota Public Radio, reported in NPR (2016).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "A journalist on the scene describing the register of the crowd, which is the point of the entry: the news rippled around the gathering and 'we were all just trying to support each other' - with the journalists crying and hugging each other among the fans",
+          "citation": "Andrea Swensson, Minnesota Public Radio, reported in NPR (2016).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The civic layer: a Minneapolis radio station played nothing but Prince from midday onward, running the discography chronologically, and the club where Purple Rain was filmed held an all-night dance in his honour, with people leaving bouquets, balloons and a guitar under the star",
+          "citation": "CBS News (2016), citing The Associated Press.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "AND THE LINE THAT MAKES THE ENTRY: five days before he died, at a dance party at Paisley Park, with his health already being reported, he told the crowd: 'Wait a few days before you waste any prayers.' He addressed his own obituary five days early",
+          "citation": "CBS News (2016).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the announcement arrived as the fans themselves describe it - through hashtags and photographs moving faster than any official channel: #RIPPrince, #paisleypark, 'Doves crying. Thanks, @prince'",
+          "citation": "CBS News (2016), citing contemporaneous tweets.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -7457,7 +7556,7 @@
       ],
       "sources": [],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "thesis"
     },
     {
       "id": "stadium-residency",
