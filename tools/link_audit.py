@@ -100,12 +100,21 @@ def main():
     # The implied-cadence group below catches claims that assume a running
     # process without ever stating an interval.
     FRESH_CLAIM = re.compile(
-        r"swept\s+hourly|sweep(?:ed|ing)?\s+(?:hourly|every\s+hour)|"
+        r"swept\s+hourly|sweep\w*\s+(?:hourly|every\s+(?:an\s+)?hour)|"
         r"updated\s+(?:hourly|every\s+hour)|refreshed\s+(?:hourly|every\s+hour)|"
         r"live\s+(?:news|feed|wire)|"
-        r"seven\s+past|asleep\s+on\s+the\s+job|"
+        # \b matters here: "seven past" must not match "seven pastors",
+        # which is what it did until a citation describing seven clergy on
+        # social media tripped it.
+        #
+        # The interval has to be paired with a process verb. A bare "every
+        # hour" or "each hour" is ordinary English and fired on prose like
+        # "each hour of the climb was harder"; what actually signals a
+        # promise the site cannot keep is a *process* claiming that rate.
+        r"seven\s+past\b|asleep\s+on\s+the\s+job|"
         r"sweep\s+is\s+(?:late|running|due|overdue)|"
-        r"every\s+hour|each\s+hour|on\s+the\s+hour|"
+        r"(?:runs?|reads?|scans?|checks?|polls?|files|filing|"
+        r"updat\w+|refresh\w+)\s+(?:hourly|every\s+(?:an\s+)?hour)\b|"
         r"constantly\s+updated|always\s+current|never\s+stale", re.I)
     claims = []
     for hp in sorted(ROOT.rglob("*.html")):
