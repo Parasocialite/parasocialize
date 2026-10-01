@@ -164,9 +164,46 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "A fan forum is a functioning community, not a comment box: K-pop stan Twitter operates as a Community of Practice - members form interpersonal bonds, communicate regularly, and contribute in their own capacities",
+          "citation": "Malik, Z., & Haidar, S. (2020). Online community development through social interaction - K-Pop stan twitter as a community of practice. Interactive Learning Environments, 31(2).",
+          "url": "https://doi.org/10.1080/10494820.2020.1805773",
+          "status": "retrievable"
+        },
+        {
+          "claim": "AND THE FINDING NOBODY NOTICES: that community has a power hierarchy among its participants - described by the authors as 'usually the least noticed aspect in research on online platforms'. The folklore of equal fans is empirically false",
+          "citation": "Malik, Z., & Haidar, S. (2020). Interactive Learning Environments, 31(2).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Why the congregation forms: PSRs develop because they fulfil a need to belong and are maintained through parasocial interaction and fandom activity; the authors conclude they may need redefining because fans perceive reciprocity. N=126 stan / N=111 non-stan / N=12 interviews",
+          "citation": "Y/N and OOMFs: Development, Maintenance, and Consequences of Parasocial Relationships on Stan Twitter (2024). Asia Social Issues.",
+          "url": "https://so06.tci-thaijo.org/index.php/asi/article/view/265196",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The congregation is not a consolation prize. Some fans attributed the friends they most wanted to be close with to their fanship itself",
+          "citation": "Ascue et al., Annyeong, Saranghae: A Phenomenological Study on the Effects of Parasocial Relationships between Adult Filipino K-pop Fans and their Idols. De La Salle University.",
+          "url": "https://animorepository.dlsu.edu.ph/cgi/viewcontent.cgi?article=1788&context=conf_shsrescon",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Scale and intensity: 63% of adolescent fans (14-18) agreed or strongly agreed with at least 10 of 20 parasocial interaction scale items, 13% strongly agreed with 15 or more, and 52% reported over two hours a day on their idol's content",
+          "citation": "The Psychological Impact of Parasocial Relationships on Adolescent K-pop Fans (explanatory sequential mixed methods, Ontario).",
+          "url": "http://www.theyoungresearcher.com/papers/lhuang.pdf",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The verdict, in the participants' own words: 'You feel as if you've known them for a long time' - said about an idol sharing his feelings on a livestream",
+          "citation": "Ascue et al., Annyeong, Saranghae (De La Salle University).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -681,6 +718,12 @@
           "claim": "The retailer case, with USDA field studies: sustained sales lift, and S&H claiming a 15-20% increase was needed to make stamps pay",
           "citation": "Johnson, C. K. Trading stamps and the retailer. (USDA Marketing Division studies).",
           "url": "https://krex.k-state.edu/server/api/core/bitstreams/1f52d6dd-35ce-4a6f-84c3-e11753b71fab/content",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The trading economy persists in its modern form: fan forums are used for buying, selling and TRADING photocards",
+          "citation": "Ascue et al., Annyeong, Saranghae (De La Salle University).",
+          "url": "",
           "status": "retrievable"
         }
       ],
@@ -3703,9 +3746,16 @@
           "type": "succeeded"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Stan Twitter works as a functioning Community of Practice: members form interpersonal bonds, communicate regularly, and contribute. A fan forum is a real community, not a comment box",
+          "citation": "Malik, Z., & Haidar, S. (2020). Online community development through social interaction - K-Pop stan twitter as a community of practice. Interactive Learning Environments, 31(2).",
+          "url": "https://doi.org/10.1080/10494820.2020.1805773",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3980,9 +4030,46 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Measured on a validated attachment scale with 125 Second Life residents: attachments formed in the virtual world are EQUALLY STRONG as those in real life. The virtual bond is not a diluted version of the real one",
+          "citation": "Quackenbush, D. M., Allen, J. G., & Fowler, J. C. Comparison of Attachments in Real-World and Virtual-World Relationships.",
+          "url": "https://exa.ai/library/publication/ndqf6v70q1b",
+          "status": "retrievable"
+        },
+        {
+          "claim": "AND THE PART THAT IS NOT A DILUTION: attachment anxiety is LOWER in virtual-world relationships than real ones. Emotional wellbeing tracks strength of attachment in the real world and low anxiety in the virtual one",
+          "citation": "Quackenbush, Allen & Fowler, Comparison of Attachments in Real-World and Virtual-World Relationships.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "A regulator's finding on what an avatar is: the avatar is 'a symbol of the self, representing the user's deepest wishes, aspirations, virtues and vices', and for some players becomes a purposeful projection or idealisation of identity, for others an experiment in being someone new",
+          "citation": "Office of the Privacy Commissioner of Canada (2008). Second Life: Privacy in Virtual Worlds.",
+          "url": "https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-privacy-research/2008/sl_080411/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "N=236, recruited inside Second Life, every participant in a committed real-world relationship: 81.7% also had a committed virtual relationship with a DIFFERENT partner, and no real-life relationship was significantly more satisfying than any Second Life relationship in any statistical analysis",
+          "citation": "Kolotkin, R. A., Williams, M. M., Lloyd, C., & Hallford, E. W. Does Loving an Avatar Threaten Real Life Marriage?",
+          "url": "https://exa.ai/library/publication/q7ybgl8mkph",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the asymmetry in how it lands: women tended to define their Second Life relationships as significantly MORE satisfying than their real ones; men as equally satisfying",
+          "citation": "Kolotkin, Williams, Lloyd & Hallford, Does Loving an Avatar Threaten Real Life Marriage?",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The capability this entry describes, treated as an experimental asset by researchers: face-to-face communication with full non-verbal cues while never compromising real-world anonymity",
+          "citation": "The lab versus the virtual lab and virtual field - an experimental investigation of trust games with communication (Second Life).",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0167268109001942",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -4302,9 +4389,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE PHONE AS A PERSON, MEASURED. Idol messaging apps are described in the literature as simulating parasocial interaction by allowing one-to-one texting with a performer, deepening the 'intensification' stage of attachment. Every user who used one said it increased their sense of connection",
+          "citation": "The Psychological Impact of Parasocial Relationships on Adolescent K-pop Fans, citing Aw & Chua (2021), Kim & Song (2016), Bond (2016).",
+          "url": "http://www.theyoungresearcher.com/papers/lhuang.pdf",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Verbatim, from a 14-18 year old: 'It (Weverse) makes me feel like I'm talking to one of my best friends.' That is the whole entry, said by someone who had no vocabulary for it",
+          "citation": "The Psychological Impact of Parasocial Relationships on Adolescent K-pop Fans.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "the-pile-on",
@@ -4968,6 +5068,12 @@
           "citation": "Forcier, E. (2019). When the world ends: Study of #fakewesteros twitter fan community during the final season of Game of Thrones. Proceedings of the Association for Information Science and Technology, 56(1), 654-655.",
           "url": "https://doi.org/10.1002/pra2.122",
           "status": "retrievable"
+        },
+        {
+          "claim": "Fanwars are named by the fans themselves as the reason their own space is toxic - some avoid the app or deactivate their accounts rather than stay",
+          "citation": "Ascue et al., Annyeong, Saranghae (De La Salle University).",
+          "url": "",
+          "status": "retrievable"
         }
       ],
       "media_inferred": true,
@@ -5476,9 +5582,34 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The ownership question, answered by a regulator: Linden Lab logged extent of play, connection location, every move, gesture, purchase and CHOICE OF WHOM TO INTERACT WITH - described as 'avatar profiling over an extended online experience'. Residents could not see that linkage happening",
+          "citation": "Office of the Privacy Commissioner of Canada (2008). Second Life: Privacy in Virtual Worlds.",
+          "url": "https://www.priv.gc.ca/en/opc-actions-and-decisions/research/explore-privacy-research/2008/sl_080411/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "What it charged, and who was in the building: 500,000 active users, 41% female and 59% male, over 100 countries with about 60% from the US, UK, Germany, Japan and France; the largest age group was 25-34 but people over 45 accounted for 20% of all in-world hours; IBM, Sun and Nike had all established a presence",
+          "citation": "Office of the Privacy Commissioner of Canada (2008), citing Linden Lab.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The threshold for scrutiny, in dollars: Linden Lab employees reviewed all transactions over $10, and the CEO testified to Congress that the law is 'likely more enforceable in virtual worlds than the Internet in general'",
+          "citation": "Office of the Privacy Commissioner of Canada (2008), citing testimony of Linden Lab CEO Philip Rosedale to the US Congress.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The identity argument, in the legal scholarship: the virtual person is an important extension of our own privacy and identity, with implications for intimacy and dignity - the same basis as the physical person",
+          "citation": "Office of the Privacy Commissioner of Canada (2008), citing Penney, New Virtualism.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "kpop-parasocial-industry",
@@ -5696,12 +5827,25 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The ranking mechanism, named: social media establishes 'perceived authenticity' and humanises celebrity images, and fans then read that as similarity and closeness. The algorithm supplies the warmth",
+          "citation": "The Psychological Impact of Parasocial Relationships on Adolescent K-pop Fans, citing Aw & Chua (2021).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Fan self-report on humanising effects: social media made idols appear more 'down to earth', which produced stronger emotional connection",
+          "citation": "The Psychological Impact of Parasocial Relationships on Adolescent K-pop Fans.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "medium": [
         "technology"
       ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
