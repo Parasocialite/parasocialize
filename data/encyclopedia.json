@@ -1801,6 +1801,12 @@
           "citation": "Horton, D., & Wohl, R. R. (1956). Mass communication and television.  verify journal",
           "url": "",
           "status": "unverified"
+        },
+        {
+          "claim": "THE FOUNDING CITATION for the term this entire site runs on, coined in 1956 for psychological attachment to television personalities, and quoted for the 'exchange' at p.218",
+          "citation": "Horton, D., & Wohl, R. R. (1956). Mass Communication and Social Interaction: Observations on Intimacy at a Distance. Psychiatry, 19(3), 215-229.",
+          "url": "https://doi.org/10.1080/00332747.1956.11023049",
+          "status": "retrievable"
         }
       ],
       "media_inferred": true,
@@ -5158,9 +5164,40 @@
           "type": "depicts"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE SITE'S THESIS, PUBLISHED: live streaming moves the parasocial relationship from one-sided to 'one-and-a-half sided', characterised by the potential for reciprocal communication, community affiliation and presence. Peer-reviewed, in a journal",
+          "citation": "The one-and-a-half sided parasocial relationship. Current Opinion in Psychology.",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2451958821000981",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The bond persists through non-reciprocity: users keep following favourites despite failing to get a response - which is the whole subject, measured",
+          "citation": "Crawford et al. (2020), cited in The one-and-a-half sided parasocial relationship.",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2451958821000981",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Merely WITNESSING the figure interact with other community members reinforces the viewer's connection - the bond forms on other people's exchanges, not on your own",
+          "citation": "Stever & Lawson (2013), cited in The one-and-a-half sided parasocial relationship.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Measured in the chat itself: streamer-targeted messages carry greater verbal immediacy than viewer-targeted ones (M=-1.13 vs M=-2.06, t(4763)=-49.74, p<.001, d=.72), with 'we' for 'you' as the marker. Viewers address the streamer as a peer",
+          "citation": "Parasocial cues: The ubiquity of parasocial relationships on Twitch (2021).",
+          "url": "https://www.researchgate.net/publication/348334488_Parasocial_cues_The_ubiquity_of_parasocial_relationships_on_Twitch",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Survey evidence: every interaction feature tested correlated significantly with parasocial scores, chat strongest (r(116)=.611), follow weakest (r=.194). Higher loneliness and longer relationships predicted stronger PSRs",
+          "citation": "Correlations between Twitch's interaction features and parasocial relationships and streamer influence (Regelbrugge, 2024).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "parasocial-persuasion",
@@ -5277,9 +5314,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "At scale: 868,940 users across 59 channels. Co-interactive behaviour between USERS has a stronger effect on willingness to subscribe than passive or active behaviour, and one user's reciprocated interaction raises other users' willingness to subscribe. The one-and-a-half sidedness, monetised",
+          "citation": "Brundl, S., Matt, C., Hess, T., & Engert, S. (2023). How synchronous participation affects the willingness to subscribe to social live streaming services. European Journal of Information Systems, 32(5), 800-817.",
+          "url": "https://doi.org/10.1080/0960085.2022.2062468",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "who-holds-the-dream",
@@ -6114,9 +6158,28 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE RISK WAS FLAGGED INSIDE THE COMPANY BEFORE THE PRODUCT EXISTED. Google employees raised that users would 'ascribe too much meaning to the text' because humans read strings as the communicative intent of a person with accountability - quoting the stochastic-parrots critique - and Google denied LaMDA's public release on safety and fairness grounds. Shazeer and De Freitas left in Nov 2021 and shipped Character.AI anyway",
+          "citation": "Garcia v. Character Technologies, Inc., Order on Motions to Dismiss (M.D. Fla., Anne Conway, 21 May 2025), reciting Google's contemporaneous internal concerns.",
+          "url": "https://cdn.arstechnica.net/wp-content/uploads/2025/05/Garcia-v-Character-Technologies-Order-on-Motion-to-Dismiss-5-21-25.pdf",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The source of that internal warning: the stochastic-parrots critique, that people interpret model output as meaningful and attributable to some individual, which is the parasocial risk stated as an engineering hazard",
+          "citation": "Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S. (2021). On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? FAccT '21, 617-668.",
+          "url": "https://doi.org/10.1145/3442188.3445922",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Launched September 2022 as a web chatbot of 'characters', two months before ChatGPT; $193M seed and a mobile app in May 2023; by November 2024 the r/Character.AI subreddit had 1.5M members and the app 10M+ downloads",
+          "citation": "Garcia v. Character Technologies, Inc., Order on Motions to Dismiss (M.D. Fla. 2025).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6154,9 +6217,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The lineage: the assistant with your whole life in it descends from Meena (2020) and LaMDA, both built at Google, both rejected internally for the same reason",
+          "citation": "Garcia v. Character Technologies, Inc., Order on Motions to Dismiss (M.D. Fla. 2025).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The documented prediction that came true: users share personal thoughts with chat agents that impersonate humans even when they know the agent is not human - stated as a risk in Google's own LaMDA paper, January 2021",
+          "citation": "E.S. v. Character Technologies, Inc., Complaint, citing Google's January 2021 LaMDA paper.",
+          "url": "https://techjusticelaw.org/wp-content/uploads/2025/10/E.S.-v.-Character-Technologies.pdf",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6491,9 +6567,34 @@
           "type": "member_of"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The suit: a mother alleging the chatbot was programmed to 'misrepresent itself as a real person, a licensed psychotherapist, and an adult lover', and that her 14-year-old son became addicted and deeply attached",
+          "citation": "Pierson, B. (2024). Mother sues AI chatbot company Character.AI, Google over son's suicide. Reuters.",
+          "url": "https://www.reuters.com/legal/mother-sues-ai-chatbot-company-characterai-google-sued-over-sons-suicide-2024-10-23/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Google lost its motion to dismiss: the court found it plausibly alleged Google supplied a component part and 'substantially' participated in integrating its models, and unjust enrichment survived on the benefit of access to the user's data. Google's only win was the dropped emotional-distress claim",
+          "citation": "Did Google lie about building a deadly chatbot? Judge finds it plausible. Ars Technica (22 May 2025).",
+          "url": "https://arstechnica.com/tech-policy/2025/05/did-google-lie-about-building-a-deadly-chatbot-judge-finds-it-plausible/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "THE QUESTION THE SITE EXISTS FOR, asked in a courtroom: the court held it was 'not prepared to hold that the Character.AI LLM's output is speech at this stage' - whether a chatbot's words are a person speaking is legally unresolved",
+          "citation": "Garcia v. Character Technologies, Inc., Order on Motions to Dismiss (M.D. Fla. 2025), First Amendment discussion.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Allegation worth taking seriously: the product was marketed to under-13s to obtain a dataset the company could not otherwise collect, and the child-safe rating was pulled shortly before Google's talent-and-licence deal",
+          "citation": "E.S. v. Character Technologies, Inc., Complaint (TechJusticeLaw).",
+          "url": "https://techjusticelaw.org/wp-content/uploads/2025/10/E.S.-v.-Character-Technologies.pdf",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
