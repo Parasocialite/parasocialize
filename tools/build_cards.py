@@ -1502,6 +1502,16 @@ def build_taxonomy(enc, data):
         cat_n[v["cat"]] += 1
         sub_n[v["sub"]] += 1
 
+    # the stories, counted against the same taxonomy. Separate file because the
+    # two corpora fail differently: an entry is a claim about a thing, a story
+    # is journalism and the placement has to survive the writer disagreeing.
+    splace = {}
+    sp = ROOT / "data" / "story_placements.json"
+    if sp.exists():
+        splace = json.loads(sp.read_text(encoding="utf-8"))["placements"]
+    story_n = Counter(v["cat"] for v in splace.values())
+    story_total = len(splace)
+
     def entry_rows(sub):
         out = []
         for eid, v in sorted(pla.items()):
@@ -1542,8 +1552,9 @@ def build_taxonomy(enc, data):
       <p class="tx-def">{esc(s['def'])}</p>{note}{anchor}{empty}{body}
     </details>""")
         n = cat_n.get(a["id"], 0)
+        sn = story_n.get(a["id"], 0)
         blocks.append(f"""<section class="tx-cat" id="tx-{esc(a['id'])}" style="--c:{esc(a['colour'])}">
-  <p class="kicker">{esc(a['sign'])} · {n} entries</p>
+  <p class="kicker">{esc(a['sign'])} · {n} entries · {sn} stories</p>
   <h2>{esc(a['blurb'])}</h2>
   <p class="tx-note-big">{esc(a['note'])}</p>
   {''.join(subs)}
@@ -1563,6 +1574,17 @@ def build_taxonomy(enc, data):
                   for k, v in tax["_literature"].items()
                   if k != "note")
     lit_note = esc(tax["_literature"]["note"])
+
+    # the migration table: how the ten sections map onto the new axes, so a
+    # reader comparing the front page to this one is given the mapping rather
+    # than left to infer it
+    mig = tax.get("migration") or {}
+    migrows = ""
+    for m in mig.get("map", []):
+        tos = ", ".join(m["to"])
+        migrows += (f'<details class="tx-migr"><summary><b>{esc(m["from"])}</b>'
+                   f'<span class="tx-arrow">→</span><span>{esc(tos)}</span>'
+                   f'</summary><p class="tx-def">{esc(m["why"])}</p></details>')
 
     total = len(pla)
     return f"""<!DOCTYPE html>
@@ -1585,13 +1607,14 @@ def build_taxonomy(enc, data):
 
 <main>
 <section class="section" id="tx-attachment">
-  <p class="kicker">The taxonomy · {total} entries placed</p>
+  <p class="kicker">The taxonomy · {total} entries and {story_total} stories placed</p>
   <h1 class="h-title" style="font-size:clamp(1.9rem,4.6vw,3rem)">What is on the other end</h1>
   <p class="sec-lede" style="max-width:66ch">A parasocial bond is defined by
   what is on the far side of it. This is that list: eight kinds of object,
   {sum(len(a['sub']) for a in tax['attachment'])} sub-categories beneath them, and
-  a separate axis for what is <em>happening</em> in the tie. Every entry on this
-  site is placed on it, and the reason for each placement is printed.</p>
+  a separate axis for what is <em>happening</em> in the tie. All {total}
+  encyclopedia entries and all {story_total} stories are placed on it, and the
+  reason for each placement is printed rather than kept in a commit message.</p>
   <p class="sec-lede" style="max-width:66ch;margin-top:18px">The previous
   classification was ten sections built from whatever stories existed at the
   time, and it could not hold eighteen of the encyclopedia's own entries —
@@ -1607,6 +1630,13 @@ def build_taxonomy(enc, data):
 <section class="section" style="padding-top:0">
   <p class="kicker">Attachment · who or what is on the other end</p>
   {''.join(blocks)}
+</section>
+
+<section class="section" style="padding-top:0">
+  <p class="kicker">From the ten sections to the eight categories</p>
+  <p class="sec-lede" style="max-width:66ch">{esc(mig["headline"])}</p>
+  <div class="tx-mig">{migrows}</div>
+  <p class="countline" style="max-width:66ch;margin-top:18px">{esc(mig["counts"])}</p>
 </section>
 
 <section class="section" style="padding-top:0">

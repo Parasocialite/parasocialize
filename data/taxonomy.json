@@ -126,6 +126,23 @@
    ]
   }
  ],
+ "migration": {
+  "_note": "The front page still has ten sections and this page has eight attachment categories. Both are live, and a reader who compares them is owed the mapping rather than left to guess. Ten sections is a NEWS organisation; eight categories is a TYPOLOGY. They are not the same axis and were never meant to be.",
+  "headline": "The ten sections are not the eight categories. The sections are how the news is filed; the categories are what a bond is to. Both are needed and neither substitutes for the other, which is why the front page has not been renumbered.",
+  "map": [
+   {"from": "idol",         "to": ["persona", "divine"],        "why": "A head of state was filed under idol because idol was the only slot for a famous person with a job. The new taxonomy separates the performer from the office."},
+   {"from": "creator",      "to": ["persona"],                  "why": "Unchanged in substance, renamed to sit beside the other persona sub-categories rather than as a peer of them."},
+   {"from": "character",    "to": ["character"],                "why":"Unchanged, and now has five sub-categories instead of being a flat box."},
+   {"from": "companion",    "to": ["companion"],                "why": "Unchanged, and now includes the pre-LLM bots the old section had nowhere to put."},
+   {"from": "world",        "to": ["cosmology"],                "why": "Renamed. The old name suggested a place; the attachment is to a system of meaning, which is a different thing and a clearer one."},
+   {"from": "brand",        "to": ["institution"],              "why": "A brand is one kind of institution that learned your name. So are platforms, clubs, fandoms and congregations, and they were all being forced into one box."},
+   {"from": "crossover",    "to": ["officer"],                  "why": "Renamed to name the actual asymmetry: a person with a duty toward you and a door. The old name described the fact of the case rather than what makes it different."},
+   {"from": "contest",      "to": ["predator", "register:contest"], "why": "Split. The part of it that is an argument about a stranger is a register and now lives on that axis. The part of it that is a fandom turning on one of its own is an in-group harm, which is an attachment target."},
+   {"from": "grief",        "to": ["register:archive"],         "why": "Moved wholesale off the category axis. Grief was never what the bond was to - it is what happened to it - and keeping it as a section is what made the old taxonomy impossible to extend."},
+   {"from": "danger",       "to": ["predator", "register:harm"], "why": "Split. Where the object of the attachment is itself a predator, it is a target: stalking, sasaeng, doxxing. Where the harm came out of an ordinary attachment, it is a register and applies to all eight."}
+  ],
+  "counts": "Migrated on the taxonomy page: every one of the 175 encyclopedia entries and all 47 stories are placed on the new axes. The ten sections remain as the news filing, because a section is a place to look and a category is a thing to think about."
+ },
  "register": [
   {"id": "encounter", "name": "Encounter", "def": "The momentary version. Horton and Wohl's original object: the sense of give-and-take inside a single exposure, which they called a simulacrum of conversational give-and-take (1956, p. 215). Real at the time, and not remembered afterwards.", "anchor": "horton-wohl-1956", "note": "Dibble and colleagues (2016) showed the instrument most used to measure this - the PSI-Scale of Rubin and colleagues - may not be measuring it at all. The category is kept because the distinction is real even where the measurement is not."},
   {"id": "bond", "name": "Bond", "def": "The enduring version: an intimacy at a distance that persists across exposures and is organised like a relationship - with a history, an inside, and a claim on the other end's time. The same 1956 paper, the other half.", "anchor": "horton-wohl-1956"},

@@ -1364,3 +1364,12 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .ent-tx b{font-family:var(--label);font-size:.6rem;letter-spacing:.1em;
   color:var(--c);font-weight:500}
 .ent-tx span{font-size:.86rem}
+.tx-mig{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.tx-migr{border:1px solid var(--line);border-radius:8px;background:var(--ink);padding:11px 14px}
+.tx-migr>summary{cursor:pointer;font-size:.88rem;list-style:none;
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tx-migr>summary::-webkit-details-marker{display:none}
+.tx-migr b{font-family:var(--label);font-size:.62rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dimmer);font-weight:500}
+.tx-arrow{color:var(--dimmer)}
+.tx-migr .tx-def{padding:0;margin:9px 0 0;color:var(--dim)}

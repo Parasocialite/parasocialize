@@ -53,6 +53,26 @@ for eid, v in pla["assignments"].items():
         problems.append(f"assignment {eid}: {v['sub']} is in {OWNER[v['sub']]}, "
                         f"not {v['cat']}")
 
+# The stories are placed in a separate file, and they fail differently: an
+# encyclopedia entry is a claim about a thing and can be placed from its own
+# summary, while a story is journalism and the placement has to survive the
+# writer disagreeing with it. They are also the corpus the old ten sections were
+# built from, so an unplaced story is the exact regression this taxonomy was
+# assembled to prevent.
+STORY = ROOT / "data" / "story_placements.json"
+spla = {}
+if STORY.exists():
+    spla = json.loads(STORY.read_text(encoding="utf-8"))["placements"]
+    idx = json.loads((ROOT / "data" / "index.json").read_text(encoding="utf-8"))
+    slugs = {c["slug"] for c in idx["cards"]}
+    for slug in sorted(slugs - set(spla)):
+        problems.append(f"story {slug}: not placed")
+    for slug in sorted(set(spla) - slugs):
+        problems.append(f"story {slug}: placed, but no such story")
+    for slug, v in spla.items():
+        if v["cat"] not in CATS or OWNER.get(v["sub"]) != v["cat"]:
+            problems.append(f"story {slug}: bad placement {v['cat']}/{v['sub']}")
+
 print("=" * 64)
 print("TAXONOMY INTEGRITY")
 print("=" * 64)
@@ -72,6 +92,7 @@ anch = sum(1 for s in SUBS.values() if s.get("anchor")) + \
     sum(1 for r in tax["register"] if r.get("anchor"))
 print(f"  {anch} items carry a verified literature anchor")
 print(f"  {len(pla['assignments'])} entries hand-placed")
+print(f"  {len(spla)} stories hand-placed")
 
 print()
 print("=" * 64)
