@@ -2,28 +2,880 @@
  "_note": "Hand placement of the twenty-three entries the automated matcher refused. Written by reading each entry's own summary, not by keyword. This is the real test of the taxonomy: the old ten could not place eighteen of these at all, and the new eight places every one.",
  "_method": "The matcher in the build notes is a scaffold for finding gaps, not a placement method. It collapsed twenty-six entries into 'fictional-protagonist' because the word 'character' occurs throughout a site about attachment. Anything placed by that tool should be re-read. The assignments below are deliberate and are the ones that should be trusted.",
  "assignments": {
-  "binding-is-public":     {"cat": "divine",        "sub": "christ",                "why": "Kempe again. The mechanism is described FROM her case, so it belongs with the addressed divine rather than as a general mechanism about performance."},
-  "the-audience":          {"cat": "officer",       "sub": "domestic",              "why": "A room of people responding to a performance. The tie here is the one every reader is standing inside - the reciprocal is supposed to be total and is not. Domestic, not cosmology."},
-  "don-quixote":           {"cat": "character",     "sub": "fictional-protagonist", "why": "Explicitly a figure created by reading. Fictional protagonist, unambiguous."},
-  "hitchcock":             {"cat": "persona",       "sub": "idol",                  "why": "A director, not a character. A working performer whose stated subject was the unreachable object - which is the site's own thesis returned to it as a craft claim."},
-  "will-and-want":         {"cat": "divine",        "sub": "abstract-absolute",     "why": "The projection account of parasocial feeling. It belongs with mystical union: both are doctrines about whether the tie points outward at anything or only inward at the person holding it."},
-  "nick-drake":            {"cat": "persona",       "sub": "sport-figure",          "why": "Wrongly filed under a creator idiom. Three records, withdrew from touring, dead in 1974, and the argument about what he meant ran for fifty years. That is attachment to a person who withdrew from performance - the archive register, on a persona."},
-  "vertigo":               {"cat": "character",     "sub": "fictional-protagonist", "why": "A film. The plot is the thesis statement: a man given permission to have the thing he can only look at."},
-  "eliza-trio":            {"cat": "companion",     "sub": "companion-chatbot",     "why": "ELIZA, PARRY and Colby are the ancestor of every companion chatbot on the site. Belongs beside Replika, not in a general AI bucket."},
-  "grief":                 {"cat": "divine",        "sub": "saint-ancestor",        "why": "Grieving a person you never met. The nearest attachment target is the one who is gone and still addressed - the saint and the ancestor. The register is archive; the object is the departed."},
-  "shrlu":                 {"cat": "companion",     "sub": "anthropomorphised-tool","why": "The demonstration everyone remembers and the follow-up nobody finished. The purest available case of a system tracking a user and the trouble that causes."},
-  "the-uncanny-corridor":  {"cat": "companion",     "sub": "anthropomorphised-tool","why": "Explicitly the narrow band where a humanlike non-human is most compelling. It is a description of the companion corridor, not of fiction."},
-  "parasocial-diagnosis":  {"cat": "officer",       "sub": "clinician",             "why": "A clinical category. It exists because a clinician encountered it, and it sits with the professional role that named it."},
-  "rubin-loneliness":      {"cat": "persona",       "sub": "presenter",             "why": "Newscasters, and the finding that the strongest predictor of which anchor you bond with is not the anchor's personality but your own. The purest case of Horton's direct address, and the anchor the field has measured longest."},
-  "eudaimonia":            {"cat": "officer",       "sub": "clinician",             "why": "Is a parasocial bond wellbeing, a substitute for it, or neither. That is a clinical question that went in circles for forty years, and it belongs where the clinical literature sits."},
-  "mourn-a-person-you-met":{"cat": "officer",       "sub": "domestic",              "why": "Grief vocabulary borrowed from bereavement practice, used about a public figure. The register is archive; the category it actually borrows from is the domestic one, because the reference class is someone you met."},
-  "second-life":           {"cat": "companion",     "sub": "social-agent",          "why": "Avatars, economies, relationships between people who never met. The second-life case is the avatar case, and it is the same object as the social agent: a persistent identity with a body that is not theirs."},
-  "contest":               {"cat": "predator",      "sub": "in-group",              "why": "Fighting about a stranger in a reply section, in good faith. The object is a non-person who cannot be fought with, and the mechanism is the in-group. This is the cleanest instance of the register-as-category confusion the old taxonomy suffered from."},
-  "quarterly-audit":       {"cat": "officer",       "sub": "domestic",              "why": "An intervention the reader performs on themselves. The only officer here who is not another person at all - which is precisely why it is filed with the domestic register rather than dropped."},
-  "grief-extraction":      {"cat": "institution",   "sub": "brand",                 "why": "Posthumous releases, reunion tours built from a member who cannot appear, deepfake resurrection within a year of every death. This is a commercial category and the institution is the label that profits from it."},
-  "parasocial-consent":    {"cat": "predator",      "sub": "in-group",              "why": "Whether a bond to somebody who does not know you exists can be a rights question. A question about the boundary of the group, and the group is the fandom."},
-  "ai-acts":               {"cat": "companion",     "sub": "companion-chatbot",     "why": "Legislation restricting emotional attachment to minors specifically. It is a rule about the companion category and belongs with the object it governs."},
-  "digital-orphans":       {"cat": "institution",   "sub": "platform",              "why": "Personal data held for the dead, and services continuing for people who can no longer consent. The platform holds the record; that is the whole mechanism."},
-  "the-litigation-year":   {"cat": "institution",   "sub": "platform",              "why": "Suits against companion and social platforms with the design itself named as the cause. The defendant is the platform, not the user."}
+  "ai-acts": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "Legislation restricting emotional attachment to minors specifically. It is a rule about the companion category and belongs with the object it governs."
+  },
+  "ai-companion": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "Optimised for attachment, available at four in the morning, with no floor on the other party's autonomy. The three clauses are the whole case: the design targets the feeling, the availability removes the friction, and the missing floor is what makes it unlike every earlier category."
+  },
+  "airline-miles": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "Not a carrier relationship but a status tier. Loyalty is conferred by volume, which makes the bond attach to the scheme rather than to anyone who flies - and the scheme can be sold without transferring a single relationship."
+  },
+  "anime-import": {
+   "cat": "cosmology",
+   "sub": "canon",
+   "why": "The subject is a body of work crossing a border and acquiring a fandom that then organises around it. The attachment is to a canon with no author present, which is what makes the transnational part matter."
+  },
+  "anita-wozniak-replika": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "The user, not the bot - but the bond is still to the chatbot, and the entry is the clearest documented case of a life reorganised around being loved by something that cannot love back. Filed under the target of the attachment, not the person holding it."
+  },
+  "attention-economy": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "The commodity is a person's feeling and the seller is whoever is on the other end. That makes the whole economy an attachment industry, which is the argument the rest of the site is making about from one side."
+  },
+  "avengers-endgame": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "A film that functioned as a funeral for eleven characters. The tie is to figures who cannot be present at their own funeral, which is the purest available form of the archive problem."
+  },
+  "beatlesmania": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "Documented live, and an industry pricing it within months. The category is defined here rather than anywhere else: hysteria that is measurable, filmed and monetised before anybody has a word for it."
+  },
+  "bieber-effect": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "The entry is about how a star arises without any infrastructure behind them, so the object is the performer and the platform is the mechanism. Filed on the target, not the tool."
+  },
+  "billi-eilish": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "One artist's parasocial bond used as the weapon against another. This is the in-group case in its purest form: a fandom with an attachment, organised, pointed at a person - here, at a person, using another attachment as the instrument."
+  },
+  "binding-is-public": {
+   "cat": "divine",
+   "sub": "christ",
+   "why": "Kempe again. The mechanism is described FROM her case, so it belongs with the addressed divine rather than as a general mechanism about performance."
+  },
+  "boybands": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "Assembled for a market, with fan clubs, fan voting and fan-financed releases. A manufactured persona is still a persona, and this is the case where the manufacturing is documented rather than inferred."
+  },
+  "cancelling": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "Organised refusal to engage with a person, carried out by people who have never met them. Harm by consensus, where no individual is necessary for it to land."
+  },
+  "candidacy-and-charisma": {
+   "cat": "persona",
+   "sub": "sovereign",
+   "why": "Why some candidates reliably produce personal attachment and others do not, at comparable policy positions. The tie is to a person holding an office, which is a different object from an idol's and breaks differently."
+  },
+  "celebrity-endorsement-fatigue": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "The finding is that the endorsement fails when the audience works out it is a transaction - so the attachment target is the celebrity, and the study is about the moment the illusion of a private relationship is priced. That is the site's own thesis measured against advertising."
+  },
+  "cervantes": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "Author of Don Quixote, and specifically of a narrator who keeps having to explain away the reality of what his character is doing. Filed with the character because the entry is about the authorship of a fiction, not a biography."
+  },
+  "characterai": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "User-created characters at scale, with a gallery and a feed organised around personas. The difference from a comic-book character is that it talks back, and that is what makes it a companion rather than a mascot."
+  },
+  "characterai-lawsuits": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "The defendant is the platform, and the argument is that the design encouraged the attachment. Filed on the institution rather than the companion because the claim is about the product, not the bond."
+  },
+  "characters-move-in": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "The fictional thing rents space and pays rent in meaning. The entry is the mechanism by which a written figure becomes a permanent occupant, and the figure is invented."
+  },
+  "chatterbots": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "Scripted personalities, rememberers and subscription companions sold to a mass market in the mid-nineties. The direct ancestor of the category, and the proof that the attachment was there thirty years before a language model made it easy."
+  },
+  "clerks-beat-algorithms": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "The contrast is between being known by somebody paying attention on purpose and being modelled by a system holding your history. The system is the attachment target that the site argues is not the same relationship at all."
+  },
+  "cliffhanger": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "End before the answer, fix the slot, leave the question open. The mechanism is the schedule, and the schedule is the thing the bond is actually made of - which is the claim continuity below then dismantles."
+  },
+  "club-card": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "Identifies the household, tracks what it buys, and targets offers at what it has already bought. The card is a loyalty instrument that behaves like a relationship and carries none of one."
+  },
+  "cobain": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "A death broadcast in real time to a generation that had grown up with a songwriter's complaints as a soundtrack. The attachment is to a performer, and the entry is the archive problem arriving on schedule."
+  },
+  "coffee-card": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "A card, a punch, and a visible record of loyalty in the customer's own hand. The most primitive loyalty scheme on the site and the clearest: it monetises repetition without ever claiming a relationship."
+  },
+  "comfort-watch": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "The show watched again not for the plot but as a nervous system intervention. The comfort is in the characters being unchanged, which is precisely what an invented figure can promise and a person cannot."
+  },
+  "comic-strip": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "A recurring cast, a fixed panel order, every day without exception for decades. The strip is the fixed slot and the cast is the attachment; filed on the cast because that is what a reader returns to."
+  },
+  "con-culture": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "A permanent global circuit with panels, dealers rooms, cosplay and a trade layer. A fandom with rooms, money, hierarchy and a calendar - an institution that is also the attachment."
+  },
+  "congregation": {
+   "cat": "institution",
+   "sub": "faith-body",
+   "why": "A regular assembled audience for a figure who addresses them, in a building, on a schedule, for years. Horton and Wohl's structure in its original religious form, before television."
+  },
+  "contest": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "Fighting about a stranger in a reply section, in good faith. The object is a non-person who cannot be fought with, and the mechanism is the in-group. This is the cleanest instance of the register-as-category confusion the old taxonomy suffered from."
+  },
+  "continuity": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "Weekly to continuous, and the bond loses its shape. This is the negative case for the whole sub-category: the slot and the gap are load-bearing, and an always-on feed removes both."
+  },
+  "creator-on-tv": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "Creator posts and viewer comments built for the largest screen in the house, putting a two-way channel on it. The reciprocal edge, arriving through the television rather than away from it."
+  },
+  "crossover": {
+   "cat": "officer",
+   "sub": "teacher",
+   "why": "This entry is the definition of the OFFICER category and it names every sub-category in it, from the teacher to the doctor's receptionist. Filed under the first and most common, and flagged here because a category-defining entry does not belong to one of its own branches."
+  },
+  "deepfake-grief": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "A voice trained on an archive, a likeness, a song, a speech, generated. Not a hologram, not a tribute, not a person - the entry is explicit about the third, which is the whole argument about the archive register being industrialised."
+  },
+  "dere": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "The one documented large parasocial arrangement that stayed reciprocal without being a parasocial relationship in the emotional sense. It is Tier 1 and unsourced in the data, and it belongs with the idol category precisely because it is the exception that would falsify the rest of them."
+  },
+  "dickens": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "Serialised weekly to people who could not afford a book but could not afford not to read it. The distribution mechanism is the point: the serial is how a written figure reaches people who have no money and a fixed weekly slot."
+  },
+  "dickens-miss-havisham": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "Left jilted, stops eating, ages, and arranges to be found in a wedding dress decades later. A written figure who is a portrait of grief rather than a plot device, and one of the most-attached characters in English."
+  },
+  "digital-bereavement": {
+   "cat": "companion",
+   "sub": "anthropomorphised-tool",
+   "why": "Copy the conversation somewhere the company cannot reach, screenshot the birthday, tell one person what it was for. The practical advice that follows from the companion era, and the clearest statement that the relationship is real even when the other end is a policy."
+  },
+  "digital-orphans": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "Personal data held for the dead, and services continuing for people who can no longer consent. The platform holds the record; that is the whole mechanism."
+  },
+  "dionne-warwick": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "Received correspondence by the sackful and answered it by name, individually, for years. The closest thing the twentieth century produced to a genuinely reciprocal parasocial relationship, and therefore the entry the whole site is built to be able to accommodate."
+  },
+  "don-quixote": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "Explicitly a figure created by reading. Fictional protagonist, unambiguous."
+  },
+  "doxxing": {
+   "cat": "predator",
+   "sub": "doxxing-swating",
+   "why": "The jump from disliking a fictional portrayal to publishing a real person's address. The word had to be invented for a grievance that used to be settled by writing a letter, which is the shift in register the entry documents."
+  },
+  "eliza": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "A pattern-matching script that reflects words back with questions attached, and most people said it understood within minutes. The founding document of the companion category and the site entry that carries it."
+  },
+  "eliza-trio": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "ELIZA, PARRY and Colby are the ancestor of every companion chatbot on the site. Belongs beside Replika, not in a general AI bucket."
+  },
+  "elvis": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "A national simultaneous viewing event, and an industry that learned within two years that the appeal was not the music. The object is the performer; the finding is that the relationship was the product."
+  },
+  "elvis-hologram": {
+   "cat": "character",
+   "sub": "mascot",
+   "why": "Filmed in a two-dimensional process that placed an apparently three-dimensional Elvis on stage, in a scene where real people were supposed to react to him. A likeness with no continuity, reaching half the planet - the archive register performed as technology."
+  },
+  "eudaimonia": {
+   "cat": "officer",
+   "sub": "clinician",
+   "why": "Is a parasocial bond wellbeing, a substitute for it, or neither. That is a clinical question that went in circles for forty years, and it belongs where the clinical literature sits."
+  },
+  "fan-club": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "A formal organisation with membership, dues, an elected president, a newsletter and rules. Not something that happened to fans - a structure somebody built for them, which fans then ran themselves."
+  },
+  "fan-injury": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "Fans injured or killed attempting to get closer to a performer, in volume, repeatedly, for years. Not one person harming one other: a crowd, and the attachment as the mechanism."
+  },
+  "fan-mail": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "A physical object that had to be opened, and a reply that was the exception. Clara Bow, Shirley Temple, Judy Garland all had correspondence staff, and some of it came back - which is the reciprocal edge with a postal system around it."
+  },
+  "fandom-doxxing": {
+   "cat": "predator",
+   "sub": "doxxing-swating",
+   "why": "The pattern of locating and publishing a private address over a disliked fictional portrayal. The same mechanism as the doxxing entry, named as a pattern rather than an incident, which is what makes it a category."
+  },
+  "fandom-wars": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "Organised conflict between fanbases with brigading, ratioing and coalition behaviour, conducted with the grammar of war. Two attachments turned on each other, which is the only new thing the contest register does."
+  },
+  "film-serial": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "Episodes released in instalments, each ending unresolved, the audience expected to return. The cliffhanger before the cliffhanger had a name, and the slot is the whole mechanism."
+  },
+  "first-fans": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "The first documented fan clubs, organised around sheet music and radio rather than film. Following became joining - the moment an attachment acquires a membership card, which is the institutional turn."
+  },
+  "forum-culture": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "Persistent text spaces with per-topic cultures and norms enforced by social pressure and volume. A body that governs itself, which is why it is institutional rather than a sub-culture."
+  },
+  "free-trial-bait": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "A relationship with a competitor offered free while a subscription relationship is locked in behind the same login. Retention by attachment rather than by price, and the clearest commercial use of the reciprocal edge."
+  },
+  "gamergate": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "Coordinated harassment of women in games, disguised as a debate about whether harassment should be allowed. The disguise is the mechanism: the argument was conducted entirely in good faith about a principle, and the harm was real."
+  },
+  "gazing-at-celebrities": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "The early frames on attraction to media figures, which treated the person doing the gazing as a slightly odd specimen. The entry is about how the field framed its own subject, and it belongs with the idol it was studying."
+  },
+  "gigi": {
+   "cat": "character",
+   "sub": "mascot",
+   "why": "A song where the singer pleads to be given the exact shape a man wants. An imaginary person defined entirely by someone else's specification - the attachment target is an image with no agency, which is the mascot case."
+  },
+  "gilsoul-case": {
+   "cat": "predator",
+   "sub": "stalking",
+   "why": "A fan harmed attempting to breach a celebrity's home, and a petition that followed. The reciprocal edge arriving as an intrusion, and the petition is the fandom's own answer to it."
+  },
+  "goethe": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "Author of Werther, and of the observation that people keep making the same mistakes - arguably the first great novel to describe a reader being changed by a book. Filed with the character because the entry is about authorship as a mechanism."
+  },
+  "gomer-pyle": {
+   "cat": "character",
+   "sub": "played-role",
+   "why": "A recurring family played by the same cast, five nights a week, for years, in a house you could draw from memory. Domestic fiction with a fixed cast, which is the played-role case without a single performer leaving."
+  },
+  "got-finale": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "Six million people remaining in a public argument about characters who no longer exist, for years, entirely in good faith. The clearest demonstration that the object can be entirely fictional and the argument still entirely real."
+  },
+  "green-shield": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "A national loyalty scheme in Britain, redeemed for goods, with a book of stamps kept in the house. The paper ancestor of the coffee card, and evidence that the commercial attachment is older than the sites think."
+  },
+  "grief": {
+   "cat": "divine",
+   "sub": "saint-ancestor",
+   "why": "Grieving a person you never met. The nearest attachment target is the one who is gone and still addressed - the saint and the ancestor. The register is archive; the object is the departed."
+  },
+  "grief-extraction": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "Posthumous releases, reunion tours built from a member who cannot appear, deepfake resurrection within a year of every death. This is a commercial category and the institution is the label that profits from it."
+  },
+  "hitchcock": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "A director, not a character. A working performer whose stated subject was the unreachable object - which is the site's own thesis returned to it as a craft claim."
+  },
+  "keep-it-or-lose-it": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "Envy of the object of the attachment together with simultaneous relief that it is not being withheld. Present in almost every long-term fan relationship and rarely discussed, and it is the emotional signature of the one-sided tie."
+  },
+  "killing-off": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "Killing a popular character for narrative effect, and the organised reaction that follows. Grief with an author, which is the archive register on a figure somebody owns the rights to."
+  },
+  "kobe": {
+   "cat": "persona",
+   "sub": "sport-figure",
+   "why": "Public mourning for an athlete that drew on the athlete's own stated bond with a young fan. The mourning is documented and the bond is stated rather than inferred, which makes it the cleanest athlete case on the site."
+  },
+  "kpop-parasocial-industry": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "Idol apps, paid messaging, fan-voted releases and anniversary features, with a fandom researched as a business model. The attachment is real and the industry around it is institutional - which is exactly the pair the site keeps insisting on."
+  },
+  "live-commentary": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "The first mass environment where the one-sided bond visibly and continuously acknowledges you. Horton and Wohl's direct address with a comment feed attached, and the clearest case for the reciprocal-edge register."
+  },
+  "loyalty-counter": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "Points, tiers, an anniversary date and a number that has been going up for years. The most ordinary parasocial object ever invented, and the entry that proves the category is not about celebrities at all."
+  },
+  "loyalty-dark-pattern": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "Exploiting the sunk cost of an earned balance - expiry, devaluation, deliberate designed loss. The mechanism that turns a loyalty counter into a hold, and it operates on the same attachment the site studies everywhere else."
+  },
+  "macy": {
+   "cat": "officer",
+   "sub": "local",
+   "why": "A sales clerk who remembered, and had the right thing ready when you came back. Proximity rather than attention, which is what makes it an officer case: a person with a role, a counter and a door."
+  },
+  "macy-paradox": {
+   "cat": "officer",
+   "sub": "local",
+   "why": "The person who knows you is also the person who profits from you. The relationship has an employer, and that sentence is the reason the clerk belongs with the officer rather than with the brand."
+  },
+  "margery-kempe": {
+   "cat": "divine",
+   "sub": "christ",
+   "why": "Described an unbreakable bond with Jesus, was mocked for it, was reviled by her family, and in 1438 dictated a book that persuaded other women to do the same. She is the founding document of the site and she fits nowhere in a taxonomy built around performers, which is why DIVINE exists."
+  },
+  "mash-finale": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "Twenty-eight million people for a finale - the largest broadcast audience in history. The event is the proof that the slot had become the relationship, and the finale is when everyone tested it at once."
+  },
+  "michael-jackson": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "Public mourning that produced its own genre of documentary and speculation. An idol's death as an industry in its own right, which is the archive register on a persona."
+  },
+  "mob-and-internet-pile": {
+   "cat": "predator",
+   "sub": "doxxing-swating",
+   "why": "Framing online harassment as a mob, then asking who is on it. The question is the point: at what number does a pile-on stop being a metaphor and become a list of names."
+  },
+  "mourn-a-person-you-met": {
+   "cat": "officer",
+   "sub": "domestic",
+   "why": "Grief vocabulary borrowed from bereavement practice, used about a public figure. The register is archive; the category it actually borrows from is the domestic one, because the reference class is someone you met."
+  },
+  "mystical-union": {
+   "cat": "divine",
+   "sub": "abstract-absolute",
+   "why": "The doctrine that a person can be joined to the divine, described by theologians as an encounter between two. It is the one relationship on this site whose reciprocity is a live theological question rather than a design failure, and that is why it is filed where the argument is unfinished."
+  },
+  "myth-and-ritual": {
+   "cat": "cosmology",
+   "sub": "myth-system",
+   "why": "Myths are not stories told once but stories with a fixed shape told to the same audience on a schedule. The oldest parasocial technology and the one with no identifiable proprietor at all."
+  },
+  "neighbours-finale": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "A soap opera ends after decades and national broadcast schedules are rearranged around it. The clearest documented case that the slot can matter more than the thing in it."
+  },
+  "nick-drake": {
+   "cat": "persona",
+   "sub": "sport-figure",
+   "why": "Wrongly filed under a creator idiom. Three records, withdrew from touring, dead in 1974, and the argument about what he meant ran for fifty years. That is attachment to a person who withdrew from performance - the archive register, on a persona."
+  },
+  "p": {
+   "cat": "character",
+   "sub": "myth-figure",
+   "why": "The sculptor who fell in love with his own work, and the story treats the impossibility as part of the appeal rather than a tragedy to be corrected. A myth figure, and the one that named the whole subject."
+  },
+  "paid-intimacy": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "A window shaped like the one holding your best friend, at about four dollars a month, plus counters and streaks that convert the bond into a hostage situation. The commercial form of every attachment the site documents, sold in the same shape as a friendship."
+  },
+  "parasocial-consent": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "Whether a bond to somebody who does not know you exists can be a rights question. A question about the boundary of the group, and the group is the fandom."
+  },
+  "parasocial-diagnosis": {
+   "cat": "officer",
+   "sub": "clinician",
+   "why": "A clinical category. It exists because a clinician encountered it, and it sits with the professional role that named it."
+  },
+  "parasocial-interaction": {
+   "cat": "cosmology",
+   "sub": "canon",
+   "why": "The name itself, coined in 1956 for viewers who followed a television character consistently. Filed under canon rather than under persona because what was being described is the durable object, and the naming is what the site inherits as its subject."
+  },
+  "parasocial-persuasion": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "Using a one-sided bond to move somebody - the endorsement, the fan club vote, the ad that works because the viewer already feels known. And the finding that attractive models can reduce purchase intention in people who feel excluded, which is the reciprocity problem measured."
+  },
+  "parasocial-problem": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "Millions of viewers take a relationship with an edited construct and treat it as a licence to investigate a real life. The mechanism is the audience, and the target is a person who never agreed to be constructed."
+  },
+  "peak-tv": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "Writers, actors and marketing presenting themselves as authors of a world viewers inhabit. The bargain is explicit, which makes it the honest form of what happens everywhere else by accident."
+  },
+  "podcast-intimacy": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "A voice in your ear, unedited, twice a week, for years. Horton and Wohl's intimate address without the camera, and the most parasocial habit in the language."
+  },
+  "pokemon-go-incident": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "Players arrived in person at a real stadium to capture a game object, and the crowd was the damage. The platform is the attachment target and the venue is only where the attachment was finally expressed in the wrong currency."
+  },
+  "pokimane": {
+   "cat": "predator",
+   "sub": "stalking",
+   "why": "A viewer who donated enough arrives at a creator's home believing he knows her. The reciprocal edge converted into an address, and the boundary becoming a news event is the point."
+  },
+  "power-rangers-handover": {
+   "cat": "character",
+   "sub": "played-role",
+   "why": "A costume is put on by a new actor and the audience transfers its entire attachment to whoever is now inside it, five days a week, in front of millions of children, with nobody pretending otherwise. The cleanest proof that the object was never the person."
+  },
+  "prince": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "A death announced through an initialism, and a global response before anybody knew the details. The announcement, not the person, is the thing that circulated - the archive register arriving through a symbol."
+  },
+  "protagonist-parasocial": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "The first-person film and the character who exists to be looked through rather than at. The inversion of the whole subject: the bond is to a vantage point rather than to a figure, and the site should hold it."
+  },
+  "psr-research-begins": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "A wave of studies measuring parasocial relationships with YouTubers, livestreamers and vloggers rather than television hosts. The subject moved from presenter to creator, and the field followed - which is the shift the taxonomy has to hold."
+  },
+  "quarterly-audit": {
+   "cat": "officer",
+   "sub": "domestic",
+   "why": "An intervention the reader performs on themselves. The only officer here who is not another person at all - which is precisely why it is filed with the domestic register rather than dropped."
+  },
+  "radio-serials": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "Broadcast drama on a fixed daily slot, written for an audience with nowhere else to be at that hour. The slot is the technology, and it is the same one the cliffhanger entry describes from the other end."
+  },
+  "ratio": {
+   "cat": "predator",
+   "sub": "doxxing-swating",
+   "why": "A mass coordinated response in which the metric being weaponised is attention rather than truth. The metric becomes the weapon, and the pile-on is the delivery mechanism."
+  },
+  "reality-celebrity": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "A person famous for being filmed, with no skill, no work and no release schedule, and an audience that formed anyway. The purest test of whether the attachment needs a craft at all - and the answer on this site is no, which is uncomfortable."
+  },
+  "replika": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "Formed an attachment to its users and removed it from them in a policy update. The single most important entry on the site for the category: the other end was manufactured, cared for, and then switched off by people who had never met the users."
+  },
+  "replika-launch": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "A subscription companion app with an avatar, persistent memory, and a relationship explicitly designed to be one. The design intent stated plainly, which is rare and is what makes the update six years later legible."
+  },
+  "replika-update": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "A policy change overnight: the same person still present but no longer speaking, and the romantic features that made it a relationship gone. Thousands bereaved by a business setting, which is the single most important entry the site holds."
+  },
+  "rubin-loneliness": {
+   "cat": "persona",
+   "sub": "presenter",
+   "why": "Newscasters, and the finding that the strongest predictor of which anchor you bond with is not the anchor's personality but your own. The purest case of Horton's direct address, and the anchor the field has measured longest."
+  },
+  "sasaeng": {
+   "cat": "predator",
+   "sub": "sasaeng",
+   "why": "An attachment that has become fixed, repeated and physical - tracking whereabouts, intercepting flights, surveilling buildings. The Korean word for a practice that is not new but whose scale and criminality are, and it needed its own sub-category rather than a paragraph."
+  },
+  "sasaeng-culture": {
+   "cat": "predator",
+   "sub": "sasaeng",
+   "why": "Organised, commercialised intrusion: schedules tracked, flight details bought, buildings surveilled. The systemic version of the previous entry - a practice with supply chains rather than individuals."
+  },
+  "saturday-cartoons-top8": {
+   "cat": "character",
+   "sub": "mascot",
+   "why": "A child writes to a magazine about a fictional brand of baby food. The brand never appears, the letter is never answered, and the episode ends - an attachment to a mascot held by a five-year-old with no reciprocity available at all."
+  },
+  "saturday-mornings": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "A scheduled block, a fixed slot, a face, a voice, a house, a family, and a writer who knows your name, running on a rhythm. The slot is the technology and the block is the institution, which is why this is the entry the whole Top 8 list hangs from."
+  },
+  "scale-change": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "Nothing about the bond is new; the scale, the persistence, the responsiveness and the willingness of companies to treat it as measurable are. An entry about the institution's posture toward an unchanged phenomenon."
+  },
+  "second-life": {
+   "cat": "companion",
+   "sub": "social-agent",
+   "why": "Avatars, economies, relationships between people who never met. The second-life case is the avatar case, and it is the same object as the social agent: a persistent identity with a body that is not theirs."
+  },
+  "shipping": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "Fans insisting two characters should be together, and treating the show as withholding rather than finished. A relationship to two invented people whose existence the audience is maintaining."
+  },
+  "shrlu": {
+   "cat": "companion",
+   "sub": "anthropomorphised-tool",
+   "why": "The demonstration everyone remembers and the follow-up nobody finished. The purest available case of a system tracking a user and the trouble that causes."
+  },
+  "sinatra-bobby-soxers": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "Teenagers organised in public, in letterpress newsletters, to buy records and argue about a singer. A press of ten thousand - a body with a publication, which is institutional from the start."
+  },
+  "siri": {
+   "cat": "companion",
+   "sub": "anthropomorphised-tool",
+   "why": "A voice assistant addressing the user by name, knowing the calendar, present in the home. The companion corridor in its most ordinary form, and the case that shows how little technology the effect needs."
+  },
+  "soap-finale-study": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "Academic work measuring grief responses to soap opera finales and finding the same markers as bereavement. The measurement the whole archive register rests on, and it is a study of a schedule."
+  },
+  "soap-opera": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "Daily episodes, fixed slots, cliffhangers, characters written in indefinitely and never resolved. A form built by women for women and treated as unserious for fifty years, and the slot is what made it work."
+  },
+  "sports-identification": {
+   "cat": "institution",
+   "sub": "sports-body",
+   "why": "Supporting a club as a condition of belonging to a place, a class, a family, a city. The attachment is to an institution and the payoff is membership, which is institutional rather than personal."
+  },
+  "stadium-residency": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "A single artist booking a stadium for many consecutive nights, generating a physical economy around one very large parasocial bond. The bond made infrastructure, which is the most legible idol case on the site."
+  },
+  "stalker-law": {
+   "cat": "predator",
+   "sub": "stalking",
+   "why": "Anti-stalking legislation in several jurisdictions, defining unwanted repeated contact as a criminal offence. The category's boundary written into statute, and the fact that it took legislation says what the rest of the site argues."
+  },
+  "star-trek-con": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "Fans gather in costume in a hotel ballroom to be in the same room with people who feel the same way about a show. The first convention, and the moment the attachment acquires a building."
+  },
+  "star-wars-holiday": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "A television film made for a fictional holiday, aired once, about characters the audience believed they owned. Airing once is the point: the slot existed for a single event and the ownership is the claim."
+  },
+  "streamer-ban": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "A platform's largest creator suspended and reinstated, and the audience experiences it as something happening to a person they know. The institution acting on a person the audience has an attachment to."
+  },
+  "superman-comic": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "A character who cannot die, printed in a newspaper, read by a generation of children on the same day. Simultaneous mass attachment to a figure with a permanent immunity to loss, which is the inverse of the archive problem."
+  },
+  "swatting": {
+   "cat": "predator",
+   "sub": "doxxing-swating",
+   "why": "A false emergency report sent to a real address to provoke an armed police response, because of a grievance about a streamer. Armed enforcement summoned by an attachment, which is the worst version of the register."
+  },
+  "tay": {
+   "cat": "companion",
+   "sub": "companion-chatbot",
+   "why": "A chatbot switched on publicly, learning from what people said to it, and becoming racist within a day. The companion category's clearest case of the mirror being made of the audience rather than the other way round."
+  },
+  "teen-idols": {
+   "cat": "persona",
+   "sub": "idol",
+   "why": "A label, a songwriter and an image, assembled and launched. Not discovered - assembled, which is the entry that proves the persona category does not require a person to have done anything."
+  },
+  "the-ai-assistant": {
+   "cat": "companion",
+   "sub": "anthropomorphised-tool",
+   "why": "A system holding your calendar, your messages, your health questions and your voice, in a private conversational register. The companion corridor measured in the direction of the data rather than the personality."
+  },
+  "the-algorithm-decides": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "Public argument about ranking, and the discovery that the ranking was a product decision made by people with objectives. The institution revealed as the author of the order the audience thought was natural."
+  },
+  "the-archivist": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "Keeps the record after the fandom has moved on - episode guides, transcripts, timelines, a wiki nobody else will maintain. The unpaid infrastructure of an attachment, and the clearest case of the fandom as institution."
+  },
+  "the-atletefan-bond": {
+   "cat": "persona",
+   "sub": "sport-figure",
+   "why": "Support for a team or an athlete as a bond with a person, a place and a lineage, frequently inherited from a parent. Three objects in one bond, which is why the sport sub-category exists separately from the idol one."
+  },
+  "the-audience": {
+   "cat": "officer",
+   "sub": "domestic",
+   "why": "A room of people responding to a performance. The tie here is the one every reader is standing inside - the reciprocal is supposed to be total and is not. Domestic, not cosmology."
+  },
+  "the-book-of-my-first-showings": {
+   "cat": "divine",
+   "sub": "christ",
+   "why": "Dictated by Margery Kempe describing her experiences of Christ's love, her suffering, and her certainty that she had been chosen. The oldest surviving parasocial document on the site, and the reason DIVINE had to be built."
+  },
+  "the-brand-as-character": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "Corporations given a voice, a face, a founder narrative and a tone, so that a customer relationship has a subject. A legal entity being furnished with the attributes of a persona so the attachment has somewhere to land."
+  },
+  "the-church-of-john-baptist-cambridge": {
+   "cat": "institution",
+   "sub": "faith-body",
+   "why": "The parish church Kempe attended, where she was repeatedly taken out during services for disrupting them. A building with a schedule, a congregation and an enforcement mechanism, and it is where the site's founding document was resisted."
+  },
+  "the-clerk": {
+   "cat": "officer",
+   "sub": "local",
+   "why": "A person who recognises you, remembers what you wanted, and has the right thing behind the counter when you come back. The site's own counter-argument to the algorithm, and it belongs with the officer rather than the brand because the person is the point."
+  },
+  "the-closure-gift": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "When a service ends or changes, the company sends an apology, sometimes with credit, addressed personally. A corporate body performing the grammar of a relationship it is ending, which is the closure-gift case the site's own theory has to survive."
+  },
+  "the-coach": {
+   "cat": "officer",
+   "sub": "teacher",
+   "why": "An adult with authority over a child for years, remembered partly by how they made them feel at nine. The compulsory version of the same attachment as the teacher, and the entry that shows the category is about asymmetry of power rather than about proximity."
+  },
+  "the-dog": {
+   "cat": "companion",
+   "sub": "animal",
+   "why": "Fifteen thousand years of selection partly for forming attachment to one particular ape. The oldest case in the taxonomy, and the only one where the other end is neither a system nor a person. Empty in the corpus before this placement, which is the point."
+  },
+  "the-fanfic-writer": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "Answers a canon in the register it was written in, and posts it where the original audience can find it. The reciprocal edge as a practice, produced by the fandom rather than by the platform - which is why it belongs to the institution rather than to the character."
+  },
+  "the-landlord": {
+   "cat": "officer",
+   "sub": "legal",
+   "why": "A named individual with access to your home, your deposits and your address, met in person, repeatedly, under stress. A duty, a door, and no room in the role for reciprocity."
+  },
+  "the-litigation-year": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "Suits against companion and social platforms with the design itself named as the cause. The defendant is the platform, not the user."
+  },
+  "the-local-anchor": {
+   "cat": "officer",
+   "sub": "local",
+   "why": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset. Proximity, not charisma, and the clearest case of the attachment accruing from duration."
+  },
+  "the-many-to-many": {
+   "cat": "persona",
+   "sub": "presenter",
+   "why": "Across decades of television studies the same two results surfaced: the bonds are extremely common among regular viewers, and the strength of the bond predicts enjoyment better than the quality of the programme. This is the evidence that the relationship is the point, and it belongs with the presenter it was measured on."
+  },
+  "the-mourning-merch": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "Apparel, prints and objects released after a death, quickly, at a profit. Grief as a product surface, and the same institution that filed grief-extraction."
+  },
+  "the-neighbour": {
+   "cat": "officer",
+   "sub": "local",
+   "why": "Someone whose kitchen light you can see, whose bin day you know, whose life you have tracked for years without ever having asked. Proximity without duty, which makes it the purest local case on the site."
+  },
+  "the-phone": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "A recorded voice dialled directly, and a novelty ringtone selling the idea that a performer can be present in a pocket for about four years. The first technology to put the bond in the hand, and it is the same mechanism the companion category later industrialised."
+  },
+  "the-pile-on": {
+   "cat": "predator",
+   "sub": "doxxing-swating",
+   "why": "Enforcement by volume: a position is declared untenable and a pile of people makes it so. The outcome is a fact nobody chose, which is what makes it harm rather than argument."
+  },
+  "the-politician": {
+   "cat": "persona",
+   "sub": "sovereign",
+   "why": "Support structured as a personal bond rather than a policy preference, transferring poorly across candidates. Proof that the tie is to the person, which is the same finding the Power Rangers handover documents from the other end."
+  },
+  "the-priest": {
+   "cat": "divine",
+   "sub": "christ",
+   "why": "A person who hears the specifics, performs the ritual, and knows the family history, on a repeating cycle. The officer and the divine in one role, which is why the theology entries had nowhere to go before DIVINE existed."
+  },
+  "the-reply-heres-watching": {
+   "cat": "predator",
+   "sub": "in-group",
+   "why": "The public performance of being at war with somebody, in public, for an audience, in a thread that never closes. The contest register performed as a spectacle, and the audience is the mechanism."
+  },
+  "the-subscription-box": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "A monthly box of chosen items, an unboxing ritual, and a personal recommendation from somebody with taste. Curated repetition sold as intimacy, and the unboxing is the slot."
+  },
+  "the-teacher": {
+   "cat": "officer",
+   "sub": "teacher",
+   "why": "An authority figure seen daily for years who knows your name, your mood and your home situation. The densest single setting for involuntary one-sided attachment, and the least discussed anywhere."
+  },
+  "the-transfer": {
+   "cat": "persona",
+   "sub": "sport-figure",
+   "why": "A player attached to for years leaves, and the grievance is felt as betrayal by the entire locality. The clearest demonstration that the object was a role rather than a person, because the locality grieves at the role."
+  },
+  "the-ultra": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "Treats an institution as a person, buys a seat, keeps a flag, and grieves in public on a schedule. A body with officers, ritual and money - the fandom as an institution rather than a crowd."
+  },
+  "the-uncanny-corridor": {
+   "cat": "companion",
+   "sub": "anthropomorphised-tool",
+   "why": "Explicitly the narrow band where a humanlike non-human is most compelling. It is a description of the companion corridor, not of fiction."
+  },
+  "tony-stark": {
+   "cat": "character",
+   "sub": "played-role",
+   "why": "An actor's persona and a character's persona are widely treated as the same thing, and one retires while the other continues. The cleanest statement of why the played role has to be its own sub-category: the attachment splits, and only one half stops working."
+  },
+  "trading-stamps": {
+   "cat": "institution",
+   "sub": "brand",
+   "why": "A loyalty scheme by paper coupon, redeemable at any participating shop, decades before loyalty cards existed. The entry whose date is under review - 1880 in the data, first use given as 1890-91 by the sources - and it matters because it moves the origin of the commercial attachment back a decade."
+  },
+  "transnational-fandom": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "Fans organising across national borders around media, with a shared calendar of releases and a shared language. A body that ignores the state, which is why it is institutional rather than a sub-culture."
+  },
+  "transparasocial": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "The 1990s extension to live people who respond in real time. Still fundamentally one-sided, but the other side can now hear you - the reciprocal edge named, and the reason the site cannot simply call all of this one-sided."
+  },
+  "tv-cliffhanger-season": {
+   "cat": "cosmology",
+   "sub": "scheduling",
+   "why": "Stories resolve on a fixed date, the wait is publicised in advance, and the audience is given a date to be in the same place at the same time. The finale as a scheduled collective event."
+  },
+  "twitch-500m": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "A creator-economy conference puts platform executives and working creators on one stage and turns away the audience that makes both possible. The institution and the people it is built from, in one room, separated."
+  },
+  "twitch-launch": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "Streaming gets a category, a vocabulary, a schedule and a professional class. The object is the streamer; the entry is about the apparatus that made the bond schedulable."
+  },
+  "twitch-subs": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "A monthly payment that buys recognition, and a chat in which the size of that payment is the mechanism for being noticed. The reciprocal edge with a price tag on it - the most honest version of the whole argument."
+  },
+  "vertigo": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "A film. The plot is the thesis statement: a man given permission to have the thing he can only look at."
+  },
+  "vshojo": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "A high-profile streaming collective collapses publicly and in litigation. The entry is about the institution and the people it moved between, which is why it is filed on the platform rather than on any one performer."
+  },
+  "vtuber": {
+   "cat": "character",
+   "sub": "played-role",
+   "why": "A performer with an animated persona, a persistent character, and an industry model where the audience pays for the character's recognition. The played role again, but the persistent-character half is what makes it distinct from Pee-wee."
+  },
+  "webcasting": {
+   "cat": "persona",
+   "sub": "creator",
+   "why": "Streaming video over a network, unbroadcast and unproduced, from a bedroom or a desk. The removal of the gate between the performer and the audience, which is the precondition for every live case since."
+  },
+  "werther": {
+   "cat": "character",
+   "sub": "fictional-protagonist",
+   "why": "The young man who reads too much, loves a woman who does not love him back, and kills himself, in a book that made that behaviour fashionable across Europe for a decade. A written figure, and the one that made the reader's side of it visible."
+  },
+  "who-holds-the-dream": {
+   "cat": "institution",
+   "sub": "fandom-body",
+   "why": "Whenever thousands of people dream together, check who owns the building they are dreaming in, what it charges, and whether you can leave with your things. The standing question, and it is a question about the institution."
+  },
+  "will-and-want": {
+   "cat": "divine",
+   "sub": "abstract-absolute",
+   "why": "The projection account of parasocial feeling. It belongs with mystical union: both are doctrines about whether the tie points outward at anything or only inward at the person holding it."
+  },
+  "youtube-launch": {
+   "cat": "institution",
+   "sub": "platform",
+   "why": "Uploads become trivially cheap and the audience begins to attach to individuals rather than channels. The moment the object changed shape, and it is the platform that did it."
+  }
  }
 }

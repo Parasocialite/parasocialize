@@ -92,10 +92,18 @@ print()
 print(f"  {covered} of {nsub} sub-categories hold at least one hand-placed entry.")
 
 print()
-print("  DELIBERATELY EMPTY (recorded, not hidden):")
+print("  DELIBERATELY EMPTY - no entry in the corpus fits:")
 for sid, s in SUBS.items():
-    if not (s.get("examples") or []) and not handsub.get(sid):
-        print(f"    {sid:<26} {s.get('note','no corpus coverage yet')[:70]}")
+    if not handsub.get(sid):
+        print(f"    {sid:<26} {s.get('note', 'no corpus coverage yet')[:66]}")
+print()
+print("  These are reported by placement count, not by whether the file")
+print("  listed examples for them, because an example list is a claim about")
+print("  the category while a placement is a claim about the corpus. Five of")
+print("  38 have no entry. That is the taxonomy admitting the gap rather than")
+print("  quietly dropping its own weak parts, and it is also the list of")
+print("  writing still owed. Nothing should be forced into them to make a")
+print("  chart look even.")
 
 print()
 print("  EITHER the corpus is thin here, or the category does not earn its")
