@@ -4956,9 +4956,52 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE PAPER'S OWN FRAMING IS THIS ENTRY. 'After an accusation of wrongdoing, an outrage mob appears. Initially, just a few condemn the accused. But before long, more and more people pile on, hastily meting out punishment with little regard for evidence or opposing perspectives.' Four studies, n=10,343",
+          "citation": "Kteily, N., & Jordan, J. How reputation does (and does not) drive people to punish without looking.",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10334795/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "AND THE FINDING THAT CUTS AGAINST THE MORAL READING: there is NO reputational reward for not looking. Non-lookers were rated more loyal to the cause, but that was outweighed by a larger hit to perceived competence and fairness - evaluators rewarded punishers who LOOKED more generously",
+          "citation": "Kteily & Jordan, How reputation does (and does not) drive people to punish without looking.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The mechanism, named by the people in it: 'brigading, dogpiling, or calling out'. Amplification is the trigger - content moral-outrage spreads faster within like-minded networks, and 'drama' is consumed as entertainment in front of an audience",
+          "citation": "Marwick, A. E. (2021). Morally Motivated Networked Harassment as Normative Reinforcement. Social Media Society, 7(2).",
+          "url": "https://doi.org/10.1177/20563051211021378",
+          "status": "retrievable"
+        },
+        {
+          "claim": "What it actually achieves: harassment frequently results in the ACCUSED SELF-CENSORING, so the pile-on functions as a regulating force that removes speech from the public sphere. Neither platforms nor legal regulation protects against it. Interviews with 28 targets and 9 Trust and Safety workers",
+          "citation": "Marwick, A. E. (2021). Social Media Society, 7(2).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Not a partisan tactic, which is the part usually left out: this is used across the ideological spectrum, and the amplification runs in both directions depending on which network node shares it",
+          "citation": "Marwick, A. E. (2021), Social Media Society, 7(2).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "WHY IT ESCALATES: analysis of 231 threads finds networked harassment runs in three phases - target introduction, network decision, network response - and that the crowd added narrative elements in at least 80% of threads, producing Continuous Narrative Escalation. The crowd is not reacting to the story. It is writing it",
+          "citation": "Stoking the Flames: Understanding Escalation in an Online Harassment Community. Proceedings of the ACM on Human-Computer Interaction (2024).",
+          "url": "https://doi.org/10.1145/3641015",
+          "status": "retrievable"
+        },
+        {
+          "claim": "AND THE PART THAT MADE ME STOP: takedown requests are misused by the community and repurposed as ELEMENTS TO FURTHER FUEL THE NARRATIVE. Reporting abuse is itself harvested as content",
+          "citation": "Stoking the Flames: Understanding Escalation in an Online Harassment Community (ACM CSCW 2024), analysis of 100 takedown request threads.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -4997,9 +5040,46 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE TITLE OF THE PAPER IS A PARTICIPANT'S SENTENCE. The study is titled 'I Almost Fell in Love with a Machine' after a subject's own private Instagram post about the conversational agent Lee. The authors state they did not expect any participant to develop a personal attachment",
+          "citation": "Yu, Q., Nguyen, T., Prakkamakul, S., & Salehi, N. 'I Almost Fell in Love with a Machine': Speaking with Computers Affects Self-disclosure (UC Berkeley, X Lab).",
+          "url": "https://xlab.berkeley.edu/connect/Yu.Quin.pdf",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The mechanism, measured: people skipped FEWER invasive questions when listening and speaking than when reading and typing. It is the combination of both, not either alone, that triggers the social-actor response. The authors flag this as a new factor in user privacy concerns",
+          "citation": "Yu, Nguyen, Prakkamakul & Salehi, 'I Almost Fell in Love with a Machine'.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The warmth channel is where the work happens: emotional and opinion-based self-disclosure significantly increased perceived warmth over both normal conversation and factual disclosure, and high-intimacy disclosure fostered closer psychological connection, perceived empathy, friendliness and trustworthiness",
+          "citation": "Sun, X., Shen, T., Jiang, Q., & Jiang, B. (2025). Research on the Impact of an AI Voice Assistant's Gender and Self-Disclosure Strategies.",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11851647/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And why disclosure strategy has to be chosen rather than defaulted: research finds users who perceive an assistant as human-like form greater intimacy from PERSONAL disclosure, while users who perceive it as a machine form it from FACTUAL disclosure. The same utterance works only if you have already been read as a person",
+          "citation": "Sun et al. (2025), citing Saffarizadeh et al. (2024).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Gender is a dial on the conduit, not a decoration: a randomized experiment with 120 participants found a female voice produces higher perceived ANTHROPOMORPHISM, which in turn raises the credibility of the information it gives. Female voices also raised intended self-disclosure",
+          "citation": "Do People Trust Female more than Male as a Voice Assistant? (Tampere University).",
+          "url": "https://researchportal.tuni.fi/en/publications/do-people-trust-female-more-than-male-as-a-voice-assistant/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The honest counterweight: warmth is the cheap channel and competence is not. Fiske et al. (2006) hold that warmth is the primary dimension while competence requires substantially more evidence to change - and disclosure strategy moved warmth but NOT competence. Reciprocal self-disclosure can also backfire entirely when users suspect manipulation, producing loss of trust, service cessation, and false answers in future disclosures",
+          "citation": "Sun et al. (2025), citing Fiske et al. (2006) and Collins & Miller (1994).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -5357,9 +5437,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE CATEGORY NO FANDOM SITE WILL ADMIT TO, demonstrated in a controlled experiment on people who were not asked to develop an attachment: one did, and said so publicly about the agent. Attachment to a machine is not a subculture. It is the default failure mode",
+          "citation": "Yu, Nguyen, Prakkamakul & Salehi, 'I Almost Fell in Love with a Machine' (UC Berkeley, X Lab).",
+          "url": "https://xlab.berkeley.edu/connect/Yu.Quin.pdf",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Scale of what gets volunteered: on average participants skipped only 3 of 21 closeness-generating questions, responses were honest and conversational, most disclosed family life and values, some shared sensitive information, and one answered a question about their greatest accomplishment with 'Recovering from my mental illness'",
+          "citation": "Yu, Nguyen, Prakkamakul & Salehi, 'I Almost Fell in Love with a Machine'.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "free-trial-bait",
@@ -6038,9 +6131,28 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The etymological source, and the argument that the term is contested rather than descriptive: 'callout culture' functions in much the same way as harassment to punish individuals for moral transgressions - though the authors note this is sometimes a more sympathetic proposition, and participants believed harassing neo-Nazis and racists was justified",
+          "citation": "Clark, M. (2020). DRAG THEM: A brief etymology of so-called 'cancel culture'. Communication and the Public, 5(3-4), 88-92.",
+          "url": "https://doi.org/10.1177/2057047320961562",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The reputational mechanics of signing: across four studies, n=10,343, people signed punitive petitions far more when the decision was observable by like-minded evaluators - 30% versus 19% unobserved. Being watched is what converts an individual judgement into a pile-on",
+          "citation": "Kteily, N., & Jordan, J. How reputation does (and does not) drive people to punish without looking.",
+          "url": "https://insight.kellogg.northwestern.edu/article/whats-behind-the-rush-to-join-an-internet-pile-on",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the design proposal, which is the constructive version of the whole argument: make the deliberation visible. A tested Twitter prompt asks 'Hey, did you read the article? Do you still want to post it?' The authors suggest requiring reasons - 'if I struggle to come up with reasons for the other side, then that's a signal I haven't really engaged with the other side at all'",
+          "citation": "Kteily & Jordan, reporting on their research, Northwestern Kellogg Insight.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
