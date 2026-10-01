@@ -64,6 +64,20 @@ def validate(rec: dict, where: str) -> list[str]:
         errs.append(f"{where}: status {rec.get('status')!r} not in {sorted(VALID_STATUS)}")
     if not str(rec.get("claim") or "").strip():
         errs.append(f"{where}: claim is empty")
+    # A record that claims a reader can open it has to carry somewhere to open.
+    # "retrievable" is defined as exactly that, so claiming it without a URL is
+    # a false statement about the source rather than a missing nicety - and it is
+    # the field a reader would most reasonably act on.
+    #
+    # 94 records in the encyclopedia are already in this state, which is why
+    # this is refused on the way IN rather than enforced across the file. Adding
+    # a 95th is a decision; this is where to stop it being a decision by accident.
+    # The existing ones are an editorial question for the site to settle, and
+    # tools/citation_audit.py tracks the count so it can only fall.
+    if rec.get("status") in ("retrievable", "verified") and not has_locator(rec):
+        errs.append(f"{where}: status {rec.get('status')!r} claims a reader can "
+                    "open this, but there is no url. Add the url, or use "
+                    "'unverified' - which means looked at, not yet locatable.")
     return errs
 
 
@@ -126,6 +140,14 @@ def report(d) -> dict:
     sourced = [x for x in e if x.get("provenance") == "sourced"]
     todo = [x for x in e if not x.get("provenance")]
     allrec = [s for x in e for s in (x.get("sources") or [])]
+    # "sourced" here counts entries carrying at least one record, which is what
+    # provenance means. It is NOT a claim that those records are all locatable,
+    # and the two numbers below are why that distinction matters: 140 entries are
+    # counted as sourced while 94 records in that set claim to be openable and
+    # are not. tools/citation_audit.py tracks that gap.
+    unopenable = sum(1 for s in allrec
+                     if s.get("status") in ("retrievable", "verified")
+                     and not has_locator(s))
     return {
         "entries": len(e),
         "thesis (our own framework, not a gap)": len(thesis),
@@ -133,6 +155,7 @@ def report(d) -> dict:
         "still needing a source": len(todo),
         "source records": len(allrec),
         "records with a locator": sum(1 for s in allrec if has_locator(s)),
+        "claiming openable but has no url": unopenable,
     }
 
 

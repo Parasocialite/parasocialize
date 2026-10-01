@@ -1,0 +1,4 @@
+{
+ "_note": "Ceiling on records claiming retrievable/verified with no URL. Lower tools/citation_audit_baseline.json by hand, or with --ratchet, only when the count genuinely falls. Do not raise it to silence a failure - that is the one move that makes this tool useless.",
+ "max_unopenable_claiming_open": 94
+}

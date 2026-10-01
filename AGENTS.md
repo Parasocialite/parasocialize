@@ -24,6 +24,7 @@ python tools\build_deploy.py    # build dist/ incl. _redirects and 404.html
 python tools\link_audit.py      # MUST pass before every commit
 python tools\make_zip.py        # reproducible archive -> Desktop
 python tools\add_source.py --apply-provenance
+python tools\citation_audit.py # are the status fields telling the truth
 python tools\episode.py eliza   # render episode; preserves voice/*.wav
 python tools\verify_measure.py eliza shipping vshojo   # type vs its measure
 python tools\measure_type.py    # regenerate tools/type_metrics.json
@@ -52,8 +53,29 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   unsourced** and inflated the backlog by 13. The board now excludes them. If the
   three numbers ever stop reconciling to 175, suspect this class of bug first.
 - **Report a defect once, verified.** A claimed arithmetic mismatch was reported
-  twice before being checked against the data. It was a misparse of my own
+  twice before it was checked against the data. It was a misparse of my own
   verification regex; the arithmetic had been correct throughout.
+- **A status field is a promise. Check what it promises.** `retrievable` means
+  "a reader can open this and find it" — so it requires a `url`. 94 of the 292
+  records claimed it with an empty `url`, and because `build_cards.is_checked()`
+  reads only `status`, they rendered as standing behind their entry. This is the
+  `is_sourced()` thesis trap's twin and worse: those were inflated into the
+  *backlog* (visible, if mislabelled); these were inflated into the *credits*.
+  Same class of bug: a field that reads as a promise it does not keep.
+  `tools/citation_audit.py` tracks it and is wired into `link_audit.py`;
+  `add_source.py` now refuses a new one outright. **The 94 are an editorial
+  decision, not a lint fix** — either find the URLs or downgrade them to
+  `unverified`. Until then `sourced` means "has at least one record", not "every
+  record is locatable".
+- **`--ratchet`, not a hard failure, when a gate starts life behind.** 94
+  records already violated the rule above. Failing every build until someone
+  sourced 94 works is a laundry list, and it gets disabled inside a week. So the
+  committed baseline is a ceiling that can only fall; raising it needs
+  `--ratchet`, which puts it in a commit. `verify_measure.py` and the sampler
+  check are the same shape.
+- **A gate that cannot fail is decoration.** Before trusting any new check,
+  break the input on purpose and confirm it goes red. Two of today's tools
+  passed their first run while measuring the wrong thing.
 - `tools/episode.py` writes `ffmpeg.txt` with the `-vsync` note inline on the
   command line, so literal copy-paste truncates the command. Use `HOWTO.txt`.
 - **Naming a font in CSS is not evidence the font loaded.** This bit three
@@ -99,6 +121,8 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   fronts, and the entry Watch block (renders only when a real `video` URL exists).
 - `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 175 entries.
 - `tools/add_source.py` — citation insertion + the THESIS set.
+- `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
+  wired into `link_audit.py`.
 - `tools/mascot.py`, `tools/wordmark.py` — iYi. Asymmetric per-eye rig.
 - `tools/episode.py`, `tools/backdrop.py`, `tools/iyi.py` — video.
 - `COVERAGE-MAP.md` — domain sweep and the 22-entry work queue in three tiers.
@@ -147,16 +171,30 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    - `tools/verify_measure.py` is the gate for all of it, and it is a *pixel*
      check, not a wrap check. Run it before trusting any typography change.
 3. **Entry Watch label** is hardcoded "fifty-second version" — wrong for 53-64s
-   episodes. Make it data-driven or duration-neutral before publishing.
+   episodes. Make it data-driven or duration-neutral before publishing. Note the
+   block still renders nowhere: **no entry has a `video` field**, and `episode/`
+   is in `build_deploy.EXCLUDE_NAMES`, so nothing serves video. Uploads go to
+   YouTube by hand from the local drive; the channel is **@Parasocialdude**
+   (long-standing, keep it) while the site is Parasocialize and IG/TikTok are
+   parasocialite. **No social links exist anywhere** — not in `index.html`, not
+   in `build_cards.py`, not in `build_deploy.py`.
 4. **Tier 1 citations**, resting on inference rather than evidence: `dere`
    (Dionne Warwick, reciprocal fan mail — the counter-example the site needs),
    `the-neighbour`, `the-transfer`, `the-coach`, `the-dog`.
-5. **Lane re-seed** analysed, unapplied: 30 additions, 17 corrections, 0 removals.
+5. **The 94 unopenable `retrievable` records** (see Traps). Decide whether to
+   find the URLs or downgrade them to `unverified` — that choice changes what
+   "140 sourced" means on the board.
+6. **Lane re-seed** analysed, unapplied: 30 additions, 17 corrections, 0 removals.
    Needs approval.
-6. **`trading-stamps`** dated 1880; sources give first use 1890-91. Needs a
+7. **`trading-stamps`** dated 1880; sources give first use 1890-91. Needs a
    decision.
-7. **Membership tier** has no payment processor and no authentication. Do not
+8. **Membership tier** has no payment processor and no authentication. Do not
    describe it as an automated service — the sweeper has never run.
+9. **The other 172 episodes.** All 175 entries carry `summary` and
+   `significance`, so an episode exists for each and only the hand-written
+   `hook` is missing. `tools/episode.py DRAFTS` has 3. Mechanically derivable,
+   but a hook is the one line that makes a stranger stop scrolling, so it wants
+   editorial judgement per entry rather than a template.
 
 ## Deploy note
 

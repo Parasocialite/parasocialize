@@ -160,6 +160,36 @@ def main():
             w(f"{len(q)} drafts waiting for signoff. "
               f"set PARASOCIALIZE_BUDGET=0 or clear some.")
 
+    # 6. does any source record mean what its status says?
+    #
+    # A record marked `retrievable` promises a reader can open it; one with no
+    # URL cannot be opened. build_cards.is_checked() reads only `status`, so
+    # these render as standing behind their entry - the gap is in the CREDITS
+    # rather than the backlog, which is the one place this project's central
+    # claim would do real damage. Run here rather than separately because this
+    # is the gate AGENTS.md says to read before every commit, and a check
+    # nobody runs is not a check.
+    #
+    # Fails only on a regression, not on the standing count - 94 records are
+    # already in this state and failing the build until someone sourced 94
+    # works is a laundry list, not a gate. See tools/citation_audit.py.
+    import citation_audit
+    res = citation_audit.audit(citation_audit.load())
+    base_path = citation_audit.BASELINE
+    base = 0
+    if base_path.exists():
+        base = json.loads(base_path.read_text(encoding="utf-8")).get(
+            "max_unopenable_claiming_open", 0)
+    got = res["unopenable_claiming_open"]
+    if got > base:
+        p(f"{got} source records claim retrievable/verified with no url, "
+          f"baseline allows {base}. A citation was added or promoted without "
+          f"somewhere to open it. See tools/citation_audit.py --list")
+    else:
+        w(f"{got} source records claim retrievable/verified with no url "
+          f"(baseline {base}, can only fall). 'sourced' counts an entry with "
+          f"at least one record; it does not mean every record is locatable")
+
     print(f"link audit: {checked} internal links across "
           f"{len(list(ROOT.rglob('*.html')))} pages")
     for m in warnings:

@@ -187,11 +187,18 @@ Twenty-two entries remain unsourced. Ordered by degree in the relationship graph
 
 ## Open defects
 
-- **The citation board's arithmetic does not close.** `add_source.py` reports
-  140 sourced / 22 needing / 13 thesis = 175, which is exact. The built board
-  reports a `todo` figure running consistently higher. Likely cause: a legacy
-  singular `source` field on some entries that `build_cards.is_sourced()` does
-  not read. Not fixed. Until it is, trust `add_source.py`, not the board.
+- **SOLVED, and the earlier theory was wrong.** The board's arithmetic closes
+  exactly: 175 − 140 sourced − 13 thesis = 22. The suspicion below was that a
+  legacy singular `source` field on some entries inflated the `todo` figure
+  because `build_cards.is_sourced()` does not read it. **That is not the cause.**
+  17 entries carry the legacy field; the overlap with the 35 unsourced entries is
+  **zero**, so it cannot inflate anything. Do not re-investigate this.
+- **The real gap is in the credits, not the backlog.** 94 of 292 source records
+  claim `status: retrievable` with no `url`, which by the site's own definition
+  means nobody can open them — yet they render as standing behind their entry.
+  `tools/citation_audit.py` tracks this and `add_source.py` now refuses new
+  instances; the existing 94 need an editorial decision (find the URLs, or
+  downgrade to `unverified`).
 - **`trading-stamps`** is dated 1880; sources give first use 1890–91. Needs a
   decision.
 - **The lane re-seed** (30 additions, 17 corrections) is analysed and unapplied.
