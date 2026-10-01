@@ -99,16 +99,16 @@
       "lane": "history"
     },
     {
-      "name": "Dorothea",
-      "when": "1997",
-      "what": "Several hundred children, all of them calling one girl by one name, none of whom knew she was a machine. She was the most parasocial figure in cinema and she was never real.",
-      "lane": "film"
+     "name": "The Maschinenmensch",
+     "when": "1927",
+     "what": "The robot in Metropolis, built to look like a woman called Maria and set loose among the workers. The children cannot tell the difference, and neither can the men she is sent to inflame. A machine played a person to a room full of people and was believed, which is the whole problem in one scene.",
+     "lane": "film"
     },
     {
-      "name": "Pee-wee Herman",
-      "when": "1980",
-      "what": "A man in a red bow tie who knew the audience's names better than they did, and who could switch it off completely. Proof the bond is a performance and the performance is a skill.",
-      "lane": "tv"
+     "name": "Pee-wee Herman",
+     "when": "1981",
+     "what": "Paul Reubens built the character, and the character's whole point was that you could tell when it was off. A children's TV host who is a performed self, performed by a person who could stop.",
+     "lane": "tv"
     },
     {
       "name": "Dionne Warwick",
@@ -117,10 +117,10 @@
       "lane": "music"
     },
     {
-      "name": "Charlie Kaufman",
-      "when": "1999",
-      "what": "Sat in a chair on a talk show and told the whole country he was worried about people. Millions of people believed him completely, immediately, about nothing.",
-      "lane": "film"
+     "name": "Charlie Kaufman",
+     "when": "1999",
+     "what": "Sat in a chair on a talk show and said he was worried that people could not tell the difference between television and their own life. He was describing the mechanism, on television, to the audience of the mechanism.",
+     "lane": "film"
     },
     {
       "name": "A Twitch emote",
