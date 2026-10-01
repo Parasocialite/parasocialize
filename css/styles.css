@@ -1312,3 +1312,55 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
    cropping, because the mark and the year are the composition. */
 @media (max-width:640px){.ent-hero{margin:20px 0 4px}
   .ent-hero img{border-radius:9px}}
+
+/* ------------------------------------------------------------- the taxonomy
+   A generated page with no hand-written layout, so everything here is generic
+   enough to survive the taxonomy changing: cards, summaries, and a list of
+   entries with the reason for the placement underneath. --c is supplied per
+   category by the generator, same convention as the story cards. */
+.tx-cat{margin:0 0 30px;padding-left:14px;border-left:3px solid var(--c)}
+.tx-cat h2{font-size:clamp(1.15rem,2.6vw,1.6rem);line-height:1.2;margin:0 0 8px;
+  max-width:34ch;font-weight:800}
+.tx-note-big{color:var(--dim);font-size:.92rem;line-height:1.6;margin:0 0 16px;max-width:60ch}
+.tx-sub{border:1px solid var(--line);border-radius:8px;margin:0 0 8px;
+  background:var(--ink)}
+.tx-sub>summary{display:flex;align-items:baseline;gap:10px;padding:11px 14px;
+  cursor:pointer;list-style:none}
+.tx-sub>summary::-webkit-details-marker{display:none}
+.tx-sub[open]>summary{border-bottom:1px solid var(--line)}
+.tx-name{font-weight:700;font-size:.98rem;flex:1}
+.tx-n{font-family:var(--label);font-size:.62rem;letter-spacing:.1em;
+  color:var(--c);background:color-mix(in srgb,var(--c) 15%,transparent);
+  padding:2px 7px;border-radius:2px;min-width:26px;text-align:center}
+.tx-def,.tx-note,.tx-empty,.tx-anchor{padding:0 14px;margin:12px 0 0;
+  font-size:.88rem;line-height:1.62;max-width:66ch}
+.tx-note{color:var(--dim)}
+.tx-anchor{display:inline-block;font-family:var(--label);font-size:.6rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--dimmer)}
+.tx-empty{color:var(--dimmer);font-style:italic}
+.tx-entries{list-style:none;margin:12px 0 0;padding:0 0 4px}
+.tx-entries li{border-top:1px solid var(--line2)}
+.tx-entries a{display:block;padding:9px 14px;text-decoration:none;color:inherit}
+.tx-entries a:hover{background:var(--ink2)}
+.tx-entries b{font-weight:600;margin-right:10px}
+.tx-why{font-family:var(--label);font-size:.6rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--dimmer)}
+.tx-r{display:block;margin-top:3px;color:var(--dim);font-size:.82rem;line-height:1.5}
+.tx-regs{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.tx-reg{border:1px solid var(--line);border-radius:8px;background:var(--ink);
+  padding:12px 14px}
+.tx-reg>summary{cursor:pointer;font-size:.95rem;list-style:none}
+.tx-reg>summary::-webkit-details-marker{display:none}
+.tx-reg .tx-def,.tx-reg .tx-note,.tx-reg .tx-anchor{padding:0;margin:8px 0 0}
+.tx-lit{list-style:none;margin:12px 0 0;padding:0;max-width:78ch}
+.tx-lit li{border-top:1px solid var(--line2);padding:10px 0;
+  font-size:.84rem;line-height:1.6;color:var(--dim)}
+.tx-lit b{color:var(--ink)}
+.ent-tx{margin:22px 0 0}
+.ent-tx a{display:inline-flex;align-items:baseline;gap:10px;padding:7px 13px;
+  border:1px solid var(--line);border-left:3px solid var(--c);border-radius:6px;
+  text-decoration:none;color:var(--ink);background:var(--ink)}
+.ent-tx a:hover{background:var(--ink2)}
+.ent-tx b{font-family:var(--label);font-size:.6rem;letter-spacing:.1em;
+  color:var(--c);font-weight:500}
+.ent-tx span{font-size:.86rem}

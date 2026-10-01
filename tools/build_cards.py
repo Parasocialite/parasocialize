@@ -12,6 +12,7 @@ build_cards.py - redraws the whole video store from data/shop.json.
 Run:  python tools/build_cards.py
 """
 import json, html, datetime, pathlib, urllib.parse, hashlib
+from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SHOP = ROOT / "data" / "shop.json"
@@ -63,6 +64,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
     <a href="{root}index.html">LATEST</a><a href="{root}sections/index.html">SECTIONS</a>
     <a href="{root}top8/index.html">TOP 8</a><a href="{root}timeline/index.html">TIMELINE</a>
     <a href="{root}moments/index.html">MOMENTS</a>
+    <a href="{root}taxonomy/index.html">TAXONOMY</a>
     <a href="{root}atlas/index.html">THE ATLAS</a>
     <a href="{root}quiz/index.html">QUIZ</a>
     <a href="{root}citations/index.html">CITATIONS</a><a href="{root}credits/index.html">CREDITS</a>
@@ -1473,6 +1475,170 @@ def _era_key(e):
     return _y(e)
 
 
+# ------------------------------------------------------------------ taxonomy
+def build_taxonomy(enc, data):
+    """The classification itself, as a page.
+
+    Built from data/taxonomy.json and data/taxonomy_placements.json rather than
+    written out, because a taxonomy page that can drift from the taxonomy is
+    worse than no page: it would be a second, wrong set of facts about the same
+    subject, published. Every count on this page is counted from the placements
+    that exist, and every entry listed is one somebody placed by reading it.
+
+    A sub-category with no entry is shown empty and says so. It is not hidden,
+    because the gap is the useful part - it is the list of writing still owed,
+    and a taxonomy that quietly prunes itself is one that can be believed when
+    it should not be.
+    """
+    tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+    pla = json.loads((ROOT / "data" / "taxonomy_placements.json")
+                     .read_text(encoding="utf-8"))["assignments"]
+    byid = {e["id"]: e for e in enc["entries"]}
+    r = root(1)
+
+    # counts, from the placements rather than from anything declared
+    cat_n, sub_n = Counter(), Counter()
+    for v in pla.values():
+        cat_n[v["cat"]] += 1
+        sub_n[v["sub"]] += 1
+
+    def entry_rows(sub):
+        out = []
+        for eid, v in sorted(pla.items()):
+            if v["sub"] != sub:
+                continue
+            e = byid.get(eid)
+            if not e:
+                continue
+            out.append(
+                f'<li><a href="{r}encyclopedia/{esc(eid)}.html">'
+                f'<b>{esc(e.get("title"))}</b>'
+                f'<span class="tx-why">{esc(e.get("year") or "")} · '
+                f'{esc(enc["kinds"].get(e.get("kind", ""), ""))}</span>'
+                f'<span class="tx-r">{esc(v["why"])}</span></a></li>')
+        return "".join(out)
+
+    blocks = []
+    for a in tax["attachment"]:
+        subs = []
+        for s in a["sub"]:
+            n = sub_n.get(s["id"], 0)
+            anchor = ""
+            if s.get("anchor"):
+                anchor = (f'<span class="tx-anchor">'
+                          f'anchored · {esc(s["anchor"])}</span>')
+            note = f'<p class="tx-note">{esc(s["note"])}</p>' if s.get("note") else ""
+            empty = ""
+            if n == 0:
+                empty = ('<p class="tx-empty">Nothing in the corpus sits here '
+                         'yet. Recorded rather than hidden: it is either a hole '
+                         'in the encyclopedia or a category that does not earn '
+                         'its place, and both are worth knowing.</p>')
+            rows = entry_rows(s["id"])
+            body = (f'<ul class="tx-entries">{rows}</ul>' if rows else "")
+            subs.append(f"""<details class="tx-sub" id="tx-{esc(s['id'])}">
+      <summary><span class="tx-name">{esc(s['name'])}</span>
+        <span class="tx-n">{n}</span></summary>
+      <p class="tx-def">{esc(s['def'])}</p>{note}{anchor}{empty}{body}
+    </details>""")
+        n = cat_n.get(a["id"], 0)
+        blocks.append(f"""<section class="tx-cat" id="tx-{esc(a['id'])}" style="--c:{esc(a['colour'])}">
+  <p class="kicker">{esc(a['sign'])} · {n} entries</p>
+  <h2>{esc(a['blurb'])}</h2>
+  <p class="tx-note-big">{esc(a['note'])}</p>
+  {''.join(subs)}
+</section>""")
+
+    regs = []
+    for g in tax["register"]:
+        note = f'<p class="tx-note">{esc(g["note"])}</p>' if g.get("note") else ""
+        anchor = (f'<span class="tx-anchor">anchored · {esc(g["anchor"])}</span>'
+                  if g.get("anchor") else "")
+        regs.append(f"""<details class="tx-reg" id="tx-{esc(g['id'])}">
+  <summary><b>{esc(g['name'])}</b></summary>
+  <p class="tx-def">{esc(g['def'])}</p>{note}{anchor}
+</details>""")
+
+    lit = "".join(f'<li><b>{esc(k)}</b> — {esc(v)}</li>'
+                  for k, v in tax["_literature"].items()
+                  if k != "note")
+    lit_note = esc(tax["_literature"]["note"])
+
+    total = len(pla)
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The taxonomy - Parasocialize</title>
+<meta name="description" content="How one-sided attachment is classified: eight kinds of object, thirty-eight sub-categories and six registers, with every entry placed and the reasoning shown.">
+<link rel="canonical" href="https://www.parasocialize.com/taxonomy/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The taxonomy - Parasocialize">
+<meta property="og:description" content="Eight kinds of object, thirty-eight sub-categories, six registers. {total} entries placed.">
+{HEAD.format(site=SITE, path="/taxonomy/", otype="website",
+             title="The taxonomy - Parasocialize",
+             desc="How one-sided attachment is classified.", root=r)}
+</head>
+<body>
+<a class="skip" href="#tx-attachment">Skip to the categories</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
+
+<main>
+<section class="section" id="tx-attachment">
+  <p class="kicker">The taxonomy · {total} entries placed</p>
+  <h1 class="h-title" style="font-size:clamp(1.9rem,4.6vw,3rem)">What is on the other end</h1>
+  <p class="sec-lede" style="max-width:66ch">A parasocial bond is defined by
+  what is on the far side of it. This is that list: eight kinds of object,
+  {sum(len(a['sub']) for a in tax['attachment'])} sub-categories beneath them, and
+  a separate axis for what is <em>happening</em> in the tie. Every entry on this
+  site is placed on it, and the reason for each placement is printed.</p>
+  <p class="sec-lede" style="max-width:66ch;margin-top:18px">The previous
+  classification was ten sections built from whatever stories existed at the
+  time, and it could not hold eighteen of the encyclopedia's own entries —
+  including the founding document of this site. Three of the ten were not
+  objects at all. That is why this is two axes.</p>
+</section>
+
+<section class="section" style="padding-top:0">
+  <p class="kicker">Register · what is happening in the tie</p>
+  <div class="tx-regs">{''.join(regs)}</div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <p class="kicker">Attachment · who or what is on the other end</p>
+  {''.join(blocks)}
+</section>
+
+<section class="section" style="padding-top:0">
+  <p class="kicker">Sources</p>
+  <p class="countline" style="max-width:66ch">{lit_note}</p>
+  <ul class="tx-lit">{lit}</ul>
+</section>
+</main>
+<footer class="footer"><div class="foot-grid">
+  <div>
+    <p class="wordmark foot-mark"><img class="logo-img" src="{r}img/logo.svg" alt="" width="24" height="24">PARA<b>SOCIALIZE</b></p>
+    <p class="foot-note">{MESSY}<br>Kept by Enan Joe Heneghan - video store clerk, M.A., teacher in Australia.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="{r}index.html">LATEST</a><a href="{r}sections/index.html">SECTIONS</a>
+    <a href="{r}taxonomy/index.html">TAXONOMY</a><a href="{r}encyclopedia/index.html">ENCYCLOPEDIA</a>
+    <a href="{r}citations/index.html">CITATIONS</a><a href="{r}credits/index.html">CREDITS</a>
+  </nav>
+  <p class="foot-tag">ONE-SIDED.<br>NOTHING HAS CHANGED SINCE 600 BC.</p>
+</div></footer>
+<script>
+(function(){{
+  var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
+  if(b)b.addEventListener('click',function(){{
+    var o=document.body.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded',String(o));
+  }});
+}})();
+</script>
+</body></html>"""
+
+
 def _fmt_year(y):
     if y is None:
         return "—"
@@ -1904,6 +2070,29 @@ def build_entry(ent, enc, data, manifest=None):
             f'<span>{" · ".join(b for b in map(esc, bits) if b)}</span></a>')
     xref_html = "".join(xref_rows[:16])
 
+    # ---- where this sits in the taxonomy -------------------------------------
+    # One line, linking to the sub-category, so the classification is reachable
+    # from the thing being classified and not only from the page that holds the
+    # classification. Read from the placements rather than inferred here, because
+    # a placement is a judgement somebody made by reading the entry and this
+    # function is not in a position to make it.
+    tx_html = ""
+    try:
+        _pla = json.loads((ROOT / "data" / "taxonomy_placements.json")
+                          .read_text(encoding="utf-8"))["assignments"]
+        _place = _pla.get(ent["id"])
+        if _place:
+            _tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+            _cat = next((a for a in _tax["attachment"] if a["id"] == _place["cat"]), None)
+            _sub = next((s for s in (_cat or {}).get("sub", [])
+                         if s["id"] == _place["sub"]), None)
+            if _cat and _sub:
+                tx_html = f"""<p class="ent-tx"><a href="../taxonomy/index.html#tx-{esc(_place['sub'])}"
+    style="--c:{esc(_cat['colour'])}"><b>{esc(_cat['sign'])}</b>
+    <span>{esc(_sub['name'])}</span></a></p>"""
+    except (OSError, KeyError, ValueError, StopIteration):
+        tx_html = ""
+
     # ---- cluster: the entries that tell the same story ------------------------
     # Replika was five separate entries. Split by year they are one sequence, so
     # the page says so instead of leaving the reader to work it out.
@@ -2049,6 +2238,8 @@ def build_entry(ent, enc, data, manifest=None):
   {prov}
 
   {check}
+
+  {tx_html}
 
   {f'<p class="kicker" style="margin-top:40px">Connected · {len(out_edges)} out, {len(incoming)} in</p><div class="xrefs">{xref_html}</div>' if xref_html else ''}
 
@@ -2376,7 +2567,7 @@ def build_sitemap(data):
         urls.append((f"{SITE}/section/{a['id']}/", "0.8", "daily"))
         urls.append((f"{SITE}/timeline/{a['id']}/", "0.7", "monthly"))
     for p in ("/timeline/", "/encyclopedia/", "/brand/", "/top8/", "/history/",
-              "/moments/", "/figures/"):
+              "/moments/", "/figures/", "/taxonomy/"):
         urls.append((f"{SITE}{p}", "0.9", "monthly"))
     enc_urls = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
     for ent in enc_urls["entries"]:
@@ -2516,6 +2707,14 @@ def main():
 
     # the encyclopedia: database, entry pages, master timeline, one timeline per section
     enc = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
+
+    # /taxonomy/ - the classification itself, generated from the data so the
+    # page cannot drift from the taxonomy it describes. After the encyclopedia is
+    # loaded, because it counts the placements against the real entry set.
+    (ROOT / "taxonomy").mkdir(exist_ok=True)
+    (ROOT / "taxonomy" / "index.html").write_text(
+        build_taxonomy(enc, data), encoding="utf-8")
+
     edir = ROOT / "encyclopedia"
     edir.mkdir(exist_ok=True)
     for old in edir.glob("*.html"):
