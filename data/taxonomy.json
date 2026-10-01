@@ -1,0 +1,137 @@
+{
+ "_note": "THE TAXONOMY. Two orthogonal axes, because the previous one was a single axis pretending to be everything.",
+ "_why_one_axis_failed": "The ten sections were reverse-engineered from the 47 stories that happened to exist, so the taxonomy was a function of the corpus rather than of the phenomenon, and it broke on contact with new material. Eighteen of the 175 encyclopedia entries - including Margery Kempe, Replika, Don Quixote and the Replika user - fitted into none of them. The three sections called contest, grief and danger are not attachment targets at all: they are register, not object. That is why the whole thing had to be pulled apart and rebuilt rather than extended.",
+ "_axes": {
+  "attachment": "WHO OR WHAT is on the other end. Eight categories. This is the site's voice: 'the one who...'. Purely a taxonomy of attachment targets, so every one of them can be inhabited by a story, an entry, a work, a person or a mechanism.",
+  "register": "WHAT IS HAPPENING in the tie. Five, and orthogonal to attachment: any attachment can be in any register. This is where the old contest/grief/danger went, and it is also where the field's own PSI/PSR distinction lives."
+ },
+ "_literature": {
+  "note": "Only anchors that were checked are listed. A claim with no anchor below is the site's own argument and is marked as such rather than dressed in a citation. See AGENTS.md: never invent a citation, a date or an attribution.",
+  "horton-wohl-1956": "Horton, D., & Wohl, R. R. (1956). Mass communication and para-social interaction: observations on intimacy at a distance. Psychiatry, 19(3), 215-229. PMID 13359569. doi:10.1080/00332747.1956.11023049. Coined parasocial interaction as a 'simulacrum of conversational give-and-take' (p. 215) and separately the enduring intimacy at a distance. Every distinction on the register axis descends from the two halves of this paper.",
+  "dibble-2016": "Dibble, J. L., et al. (2016). Parasocial interaction and parasocial relationship: conceptual clarification and a critical assessment of measures. Human Communication Research, 42(1), 21-44. doi:10.1111/hcre.12063. Establishes that PSI is a within-viewing experience of mutual awareness while the commonly used PSI-Scale may in fact be measuring liking or something else. The reason the register axis separates encounter from bond rather than treating them as one thing.",
+  "rubin-1985": "Rubin, A. M., Perse, E. M., Powell, R. A., & Powell, R. A. (1985). Loneliness, parasocial interaction, and local television news viewing. In Rosengren, Kahn & Rubin (Eds.), Media, cognition, and pathology. Vol. 40, 389-402. Origin of the Parasocial Interaction Scale and of the finding that PSRs can reduce loneliness rather than only cause it.",
+  "one-and-a-half": "The one-and-a-half sided parasocial relationship: the curious case of live streaming. Current Opinion in Psychology, 2021. Argues that livestreaming produces a tie that is not one-way: the streamer addresses the audience in real time, so reciprocity is structurally possible even when it is unevenly distributed. This is the hinge the whole site turns on, and the reason COMPANION and PERSONA cannot be treated as the same category.",
+  "pentina-2023": "Pentina, I., Hancock, T., & Xie, T. (2023). Exploring relationship development with social chatbots: a mixed-method study of Replika. Computers in Human Behavior, 131, 107535. Finds AI anthropomorphism and AI authenticity as antecedents, social interaction as mediator, and attachment to AI as the outcome - moderated by the user's motivation, with the dominant social motivation predicting attachment.",
+  "guingrich-2025": "Guingrich, R. E., & Graziano, M. S. A. (2025). A longitudinal randomized control study of companion chatbot use: anthropomorphism and its mediating role on social impacts. Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society, 8(2), 1153. doi:10.1609/aies.v8i2.36618. N=183 over 21 days. Found social health and relationships were NOT significantly impacted, while anthropomorphism of the chatbot did mediate effects on human relationships. Cited here because it complicates the easy story: the harm was not found, and the finding that did matter was about how much the person was willing to treat the thing as a person."
+ },
+ "attachment": [
+  {
+   "id": "persona",
+   "sign": "PERSONA",
+   "blurb": "The one who performs at you. A real person, doing a job, in front of you.",
+   "note": "Real, and working. Which is what makes it complicated - the asymmetry is manufactured by somebody who is paid to produce it.",
+   "colour": "#ff5a1f",
+   "sub": [
+    {"id": "idol", "name": "The idol", "def": "A performer at enough distance that the work is mostly finished before you arrive. Musicians, film stars, athletes, heads of state. The tie is to a body of work and a public image that the person is not required to maintain for you.", "examples": ["taylor-swift-red-knows-it", "idol-economy-four-dollars", "worship-in-sports-politics-business"], "was": "section:idol"},
+    {"id": "creator", "name": "The daily creator", "def": "A person whose output is regular enough to have a schedule in your week, and who is visible in real time. Streamers, podcasters, YouTubers, talk hosts. The tie is to the schedule before it is to the person.", "examples": ["vid-summit-bars-fans", "kai-cenat-returns", "yourrage-best-friend-stole"], "was": "section:creator"},
+    {"id": "presenter", "name": "The presenter", "def": "The one who addresses you directly, by name, in second person. Newsreaders, weathermen, game show hosts, telethon appeals. The purest case of Horton's direct address: the illusion is engineered, and it works because it is engineered.", "examples": ["have-i-got-news-for-you"], "anchor": "horton-wohl-1956"},
+    {"id": "sport-figure", "name": "The athlete", "def": "Attachment to performance rather than to a person. You follow the sport and the person arrives attached to it. Transfer, retirement and injury are the recurring breaks, which is why this sits so close to the register called archive.", "examples": ["the-transfer"], "was": "entries:sport"},
+    {"id": "sovereign", "name": "The head of state", "def": "Someone addressed as a collective rather than as an individual. The parasocial tie is to a role that outlives the person holding it, which is a different object from an idol's and breaks differently.", "examples": ["aoc-and-parasocial-politics"]}
+   ]
+  },
+  {
+   "id": "character",
+   "sign": "CHARACTER",
+   "blurb": "The one who was never real. Fictional, played, myth, or real enough to have become a character.",
+   "note": "A room we rehearse feeling in. The rent is cheap and the landlord is imagination.",
+   "colour": "#a04dff",
+   "sub": [
+    {"id": "fictional-protagonist", "name": "The written character", "def": "Somebody described in a book and therefore available to an unlimited number of people at once, none of whom can be contradicted. The largest parasocial population on this site and the one with the longest memory: Werther, Don Quixote, Miss Havisham.", "examples": ["werther", "don-quixote", "dickens-miss-havisham"], "was": "orphans"},
+    {"id": "played-role", "name": "The played role", "def": "An actor inside a character, where the audience's tie splits between the two and the split is itself the subject. Pee-wee Herman is the clean case: a performed self with a person performing it, and a show built on being able to switch it off.", "examples": ["characters-we-keep", "darry-season-two"]},
+    {"id": "myth-figure", "name": "The myth", "def": "Figures predating any surviving text, carried by retelling. Pygmalion, the myth that named this entire subject two thousand years before anybody had a word for it.", "examples": ["pygmalion-sculptor-illusion", "sculptor-fell-in-love"]},
+    {"id": "mascot", "name": "The mascot", "def": "A figure with no body, no biography and no intention: an emote, a logo-person, a face given a name. The purest parasocial object on the site, because nothing can disappoint it.", "examples": ["i-tried-replika"], "was": "figures:A Twitch emote"},
+    {"id": "historic-as-character", "name": "The historic as character", "def": "A real person who has been flattened into a type - the long-suffering husband, the tragic wife - and is now met in the type rather than in the life. The flattens are the problem, not the person.", "examples": ["margery-kempe"]}
+   ]
+  },
+  {
+   "id": "companion",
+   "sign": "COMPANION",
+   "blurb": "The one who answers back. A system built to reply, and the person who wrote it.",
+   "note": "This is the category that breaks the field's vocabulary, because the reply is real even when the relationship is not.",
+   "colour": "#00e8c0",
+   "sub": [
+    {"id": "companion-chatbot", "name": "The companion chatbot", "def": "A language model deployed specifically to be a companion, which people report forming friendships, mentorships and romantic partnerships with. The tie is unprecedented because the other end is not pretending not to be there: it answers, and it is still one-sided, because the answer is generated rather than felt.", "examples": ["replika", "anita-wozniak-replika", "i-tried-replika"], "was": "orphans", "anchor": "pentina-2023"},
+    {"id": "social-agent", "name": "The social agent", "def": "A streamer-shaped entity with a persistent identity, a viewer count and an audience that gathers under a name. Neuro-sama is the case that matters: a parasocial audience that formed around something with no continuity of its own.", "examples": ["neuro-sama-tops-twitch"]},
+    {"id": "anthropomorphised-tool", "name": "The assistant you talk to", "def": "A tool that accumulates a name, a history and a tone, and becomes addressed as a person long before anyone designed it to be. The Replika policy change is the test case: users grieved a system update the way they would grieve a person leaving.", "examples": ["ai-updates-feel-like-breakups", "replika-users-lost-them"], "anchor": "guingrich-2025"},
+    {"id": "animal", "name": "The animal", "def": "The oldest companion category and the only one where the other end is not a system. A dog that knows your schedule is the original one-sided attachment with a body on the other end.", "examples": [], "note": "Empty in this corpus. Flagged rather than deleted: a hole in the data, not a judgement about importance."},
+    {"id": "object", "name": "The object", "def": "Attachment to a thing with no agency at all - a car, a guitar, a childhood house, a brand's physical product. Common, under-discussed, and absent from this site entirely.", "examples": [], "note": "Also empty. Recorded so the taxonomy admits the gap instead of pretending the eight categories are exhaustive of the phenomenon when the corpus happens not to cover them."}
+   ]
+  },
+  {
+   "id": "divine",
+   "sign": "DIVINE",
+   "blurb": "The one who is addressed and cannot answer, and is not supposed to.",
+   "note": "The oldest documented case on this site, and the one the previous ten sections had no room for. Margery Kempe is the founding document and she was in none of them.",
+   "colour": "#e8c98a",
+   "sub": [
+    {"id": "christ", "name": "The addressed divine", "def": "Prayer as a one-sided relationship with a being who is understood to hear and not to reply. Kempe's certainty that Christ's love had entered her is a parasocial claim in every structural respect except that the other end is supposed to be real.", "examples": ["margery-kempe", "the-book-of-my-first-showings", "the-priest"], "was": "orphans"},
+    {"id": "saint-ancestor", "name": "The saint and the ancestor", "def": "The dead who are addressed because they are available, and who are petitioned precisely because they cannot answer. A relationship maintained in one direction by design.", "examples": ["macy", "the-book-of-my-first-showings"]},
+    {"id": "myth-deity", "name": "The deity of a system", "def": "A figure inside a coherent body of myth, met in ritual rather than in narrative. Gods are the original parasocial object: consistently characterised, never reachable.", "examples": ["myth-and-ritual", "macy-paradox"]},
+    {"id": "abstract-absolute", "name": "The abstract absolute", "def": "Mystical union as doctrine: the claim that a person can be joined to something total, and the problem that no available theology has settled what happens on the other side. Theology's own admission that this is a relationship whose reciprocity is contested.", "examples": ["mystical-union", "will-and-want"], "was": "orphans", "anchor": "horton-wohl-1956"}
+   ]
+  },
+  {
+   "id": "institution",
+   "sign": "INSTITUTION",
+   "blurb": "The one that learned your name. A body with a policy, a roster and a billing relationship.",
+   "note": "It knows you. It knows ten million people the same way, and the sameness is the product.",
+   "colour": "#ff2d9e",
+   "sub": [
+    {"id": "platform", "name": "The platform", "def": "The intermediary that is also the relationship. YouTube, TikTok, Twitch: where the tie is with the performer but the billing, the algorithm and the record of what you watched are all held by a third party. The section's densest content because the platform is where the asymmetry is manufactured at scale.", "examples": ["madeonyoutube-spending-on-scoreboard", "youtube-shorts-episodic", "platforms-renting-reach"]},
+    {"id": "sports-body", "name": "The club and the league", "def": "Attachment to an institution that outlives every person in it. Ties to a team transfer wholesale between holders, which makes them the clearest demonstration that the object was never a person.", "examples": ["loyalty-dark-pattern", "the-subscription-box"]},
+    {"id": "brand", "name": "The brand", "def": "Customer-obsession reporting, membership spaces, the anniversary counter. A tie to a commercial entity that behaves recognisably like a person and can be replaced by a competitor without the t transferring.", "examples": ["customer-obsession-model", "youtube-patreon-membership-spaces"]},
+    {"id": "fandom-body", "name": "The fandom as institution", "def": "A self-governing body with canons, rules, officers and schism. The archivist who maintains the wiki nobody else will; the writer who answers in the register the original was written in; the ultra who buys a seat and grieves on a schedule.", "examples": ["the-archivist", "the-fanfic-writer", "the-ultra"], "was": "orphans"},
+    {"id": "faith-body", "name": "The congregation", "def": "An institution that is also the attachment. A parish you are in rather than a figure you follow, where the tie is enforced by attendance and the asymmetry is denominational.", "examples": ["congregation", "the-church-of-john-baptist-cambridge"], "was": "orphans"}
+   ]
+  },
+  {
+   "id": "cosmology",
+   "sign": "COSMOLOGY",
+   "blurb": "The one you live inside and cannot reach. A system of meaning with no one at the far end of it.",
+   "note": "Somewhere to put a feeling that has no person attached to it - which is the point of the category, not a defect in it.",
+   "colour": "#2d8bff",
+   "sub": [
+    {"id": "canon", "name": "The canon", "def": "An internally consistent fictional world that outlasts everyone who built it. Neighbours ran fifty years and outlasted its cast; the attachment is to the world, and the cast turn over inside it.", "examples": ["neighbours-kids-and-finale", "neighbours-grief-study"]},
+    {"id": "myth-system", "name": "The myth system", "def": "A body of story that answers questions collectively rather than individually. The oldest parasocial technology and the one with no identifiable proprietor at all.", "examples": ["myth-and-ritual", "binding-is-public"]},
+    {"id": "faith-as-structure", "name": "The faith as structure", "def": "Where the object is a whole of beliefs rather than a person within them, and the tie is to the system of meaning. Distinct from the divine category: one addresses a being, the other inhabits a structure.", "examples": ["macy-paradox", "scale-change"]},
+    {"id": "league-world", "name": "The league as world", "def": "Sport and competition organised so thoroughly that it functions as a cosmology: rules, seasons, standings, rivalries, and a calendar that structures the year.", "examples": ["the-audience", "contest"], "was": "entries:sport"},
+    {"id": "scheduling", "name": "The schedule", "def": "A repeated slot that becomes a container for the tie. The slot is more reliable than the thing in it, which is why a finale can break something in the schedule even when nothing about the character changes.", "examples": ["neighbours-kids-and-finale"]}
+   ]
+  },
+  {
+   "id": "officer",
+   "sign": "OFFICER",
+   "blurb": "The one who is supposed to be reachable. A person with a duty toward you and a door.",
+   "note": "The section no fandom site has. Half of a classroom lives here, and none of it is because anybody chose it.",
+   "colour": "#c8ff2e",
+   "sub": [
+    {"id": "teacher", "name": "The teacher", "def": "Authority that is compulsory and attention that is not reciprocated. The school is the densest single setting for involuntary one-sided attachment on this site and the least discussed anywhere.", "examples": ["the-teacher", "the-classroom"]},
+    {"id": "clinician", "name": "The clinician", "def": "A person you attend on purpose, repeatedly, with something at stake, who is professionally obliged to be unavailable in the way you need.", "examples": ["the-neighbour", "grief-experts-three-of-them"]},
+    {"id": "legal", "name": "The court", "def": "Judges, landlords, employers, the state: a person holding a decision about you and a routine that leaves no room for a relationship. The asymmetry is the entire design of the role.", "examples": ["the-landlord"]},
+    {"id": "local", "name": "The local anchor", "def": "The person who has been in the same place for a very long time and is therefore part of the furniture of your life. Attachment accrues from proximity rather than from attention.", "examples": ["hugh-jackman-divorce", "aoc-and-parasocial-politics"]},
+    {"id": "domestic", "name": "The household", "def": "Where the asymmetry is supposed to be reciprocal and is not. The site treats this as a category because it is the case every reader is standing inside and therefore the hardest to see.", "examples": ["the-audience", "will-and-want"]}
+   ]
+  },
+  {
+   "id": "predator",
+   "sign": "PREDATOR",
+   "blurb": "The one where it turned criminal. Stalking, doxxing, swatting, the line into real harm.",
+   "note": "Filed on purpose, and kept as a category rather than a register, because it is the one place where the attachment has an address. It is the reason the other seven need watching.",
+   "colour": "#ff1744",
+   "sub": [
+    {"id": "stalking", "name": "The stalker", "def": "The tie continued past the point where the other end could not consent, and the address becomes physical. Twenty-two visits and a hundred and thirty-three doorbell rings is a documented conviction, not a complaint.", "examples": ["sasaeng-jungkook-conviction"], "was": "section:danger"},
+    {"id": "sasaeng", "name": "The sasaeng", "def": "The Korean-language category with its own literature: a fan practice organised around surveillance, intrusion and material acquisition, distinguished from ordinary intensity by being a method rather than a feeling.", "examples": ["sasaeng-culture"]},
+    {"id": "doxxing-swating", "name": "The doxxer", "def": "A crowd acting on a person it has decided something about. The collective case, where no individual is necessary for the harm and diffusion is the mechanism.", "examples": ["mob-and-internet-pile"]},
+    {"id": "in-group", "name": "The one inside the group", "def": "A peer rather than an idol: a fandom member, a class, a community that cultivates the same attachment and then turns it on somebody in the room. The case the previous taxonomy could not file at all, because the object is not a public figure.", "examples": ["cancelling", "gamergate"]}
+   ]
+  }
+ ],
+ "register": [
+  {"id": "encounter", "name": "Encounter", "def": "The momentary version. Horton and Wohl's original object: the sense of give-and-take inside a single exposure, which they called a simulacrum of conversational give-and-take (1956, p. 215). Real at the time, and not remembered afterwards.", "anchor": "horton-wohl-1956", "note": "Dibble and colleagues (2016) showed the instrument most used to measure this - the PSI-Scale of Rubin and colleagues - may not be measuring it at all. The category is kept because the distinction is real even where the measurement is not."},
+  {"id": "bond", "name": "Bond", "def": "The enduring version: an intimacy at a distance that persists across exposures and is organised like a relationship - with a history, an inside, and a claim on the other end's time. The same 1956 paper, the other half.", "anchor": "horton-wohl-1956"},
+  {"id": "reciprocal-edge", "name": "The reciprocal edge", "def": "Where the one-sidedness is structural but not total. Livestreaming puts the performer and the audience in the same second, so reciprocity is possible and unevenly distributed. The current hinge of the subject, and the reason the site cannot simply call all of this one-sided.", "anchor": "one-and-a-half"},
+  {"id": "archive", "name": "Archive", "def": "The object is gone: dead, retired, cancelled, disbanded, or removed by a policy change. Grief for a person and grief for a version are the same structure with different evidence, and the site argues they should be treated the same way.", "note": "Absorbs the old grief section. It was never an attachment target; it is what happens to one.", "was": "section:grief"},
+  {"id": "contest", "name": "Contest", "def": "The tie is being argued about in public, usually by people who have never met. Fandom wars, backlash, being publicly wrong. The argument is about a stranger and is never really about the stranger.", "note": "Absorbs the old contest section.", "was": "section:contest"},
+  {"id": "harm", "name": "Harm", "def": "The tie has produced a documented cost to somebody, whether that somebody consented to it or not. Distinct from PREDATOR, which is an attachment target: harm is a register that any of the eight can be in.", "note": "Absorbs the danger material by register rather than by category, while PREDATOR keeps the cases where the object itself is a predator."}
+ ]
+}
