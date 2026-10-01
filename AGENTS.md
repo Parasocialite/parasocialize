@@ -98,7 +98,7 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   records what exists.
 - **Fraunces has an optical-size axis**, so the advance genuinely varies with
   size: 0.512em at 30px down to 0.448em at 116px. One constant cannot be right
-  at both ends. Two earlier sweeps reported it as flat; both were artefacts —
+  at both ends. Two earlier sweeps reported it as flat; both were artifacts —
   one read a fixed y-band while the type grew, one let large rows wrap and so
   cancelled the real trend.
 - **The frame sampler was a no-op, and it was silent.** `render_scenes` captures

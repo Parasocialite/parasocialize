@@ -92,6 +92,28 @@ FOOT = """<footer class="footer"><div class="foot-grid">
 MESSY = ("No replies. The connection stays one-sided either way. "
          "Nobody here is going to tell you to log off.")
 
+# How to say an edge to a reader. The keys are the values in the `type` field of
+# a relation, which is graph vocabulary, not English: "bond_with" is a Python
+# identifier and it was being printed verbatim next to entry titles.
+#
+# Underscored types are joined with a space if they are missing here rather than
+# left as-is, so a new edge type added to the data degrades to readable words
+# instead of leaking a field name. That fallback is the reason this is a map and
+# not a validation step: a new type should not be able to break the build.
+RELWORD = {
+    "cites": "cites",
+    "depicts": "depicts",
+    "contemporary": "of the same time as",
+    "succeeded": "came after",
+    "preceded": "came before",
+    "member_of": "part of",
+    "instance_of": "an example of",
+    "wrote": "wrote",
+    "bond_with": "a bond with",
+    "occurred_in": "happened in",
+    "related": "related to",
+}
+
 
 def esc(s):
     return html.escape(str(s if s is not None else ""), quote=True)
@@ -879,7 +901,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <div class="wrap">
     <h1>Parasocialize.</h1>
     <p class="line">One-sided relationships are just easier.
-    The news, the argument, the research and the whole history of it — in {len(sections)} places it turns up.</p>
+     The news, the argument, the research and the whole history of it — tracking it for you.</p>
     <p class="mono-s" style="margin-top:14px">{total} stories · free · every one signed by a person ·
     <a href="sections/index.html">all of it, searchable →</a></p>
     <div class="masthead-mark">{wordmark("hero")}</div>
@@ -1843,19 +1865,40 @@ def build_entry(ent, enc, data, manifest=None):
   </figure>"""
 
     # ---- the same information as text, for anyone not reading the diagram ----
+    #
+    # The edge TYPE has to be written in words. These lines are the only place a
+    # reader meets the graph's own vocabulary, and it was printing it verbatim:
+    # "bond_with · — · A person" is a field name and an em dash, on a page about
+    # one-sided relationships, in the same 12px row as the entry's title. Every
+    # one of the 417 edges carried it, on both the outgoing and incoming side.
+    #
+    # The year printed "-" for a year-less entry, and with the middot separators
+    # that reads as a third datum that happens to be missing rather than as "this
+    # entry has no date because it is a mechanism, not an event". Omitted
+    # instead: two facts beat three where one of the three is nothing.
+    # The year is omitted rather than shown as a dash. Comparing the formatted
+    # string was the obvious way to test this and it is wrong: _fmt_year returns
+    # an em dash for a missing year, which reads as a hyphen at a glance and
+    # looks like a bug the moment the comparison silently stops matching. Test
+    # the value.
+    def yr(x):
+        return "" if x.get("year") is None else _fmt_year(x.get("year"))
+
     xref_rows = []
     for tid, t in out_edges:
         x = byid[tid]
+        bits = [RELWORD.get(t, t.replace("_", " ")), yr(x),
+                kinds.get(x.get("kind", ""), "")]
         xref_rows.append(
             f'<a class="xref" href="{esc(tid)}.html"><b>{esc(x["title"])}</b>'
-            f'<span>{esc(t)} · {_fmt_year(x.get("year"))} · '
-            f'{esc(kinds.get(x.get("kind", ""), ""))}</span></a>')
+            f'<span>{" · ".join(b for b in map(esc, bits) if b)}</span></a>')
     for tid, t in incoming:
         x = byid[tid]
+        bits = [RELWORD.get(t, t.replace("_", " ")), yr(x),
+                kinds.get(x.get("kind", ""), "")]
         xref_rows.append(
             f'<a class="xref xref-in" href="{esc(tid)}.html"><b>{esc(x["title"])}</b>'
-            f'<span>{esc(t)} · {_fmt_year(x.get("year"))} · '
-            f'{esc(kinds.get(x.get("kind", ""), ""))}</span></a>')
+            f'<span>{" · ".join(b for b in map(esc, bits) if b)}</span></a>')
     xref_html = "".join(xref_rows[:16])
 
     # ---- cluster: the entries that tell the same story ------------------------

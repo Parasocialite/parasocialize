@@ -21,7 +21,7 @@ WHAT IS IN, AND WHY
     img/        95 cached photographs and 16 svg
     *.txt *.xml robots.txt, sitemap.xml, radar.xml - radar.xml is linked from
                 all 260 pages as the autodiscovery feed, so it is load-bearing
-                and not a build artefact
+                and not a build artifact
 
 WHAT IS OUT
     .git/       the entire problem: 1511 files of history

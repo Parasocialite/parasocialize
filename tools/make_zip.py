@@ -2,8 +2,8 @@
 
 This was being done by hand, which is how the last archive ended up five hours
 stale and missing the entire masthead change: nothing recorded that the upload
-artefact had to be rebuilt after a commit, so nothing prompted it. The site
-builds from tools/, so the deploy artefact should too.
+artifact had to be rebuilt after a commit, so nothing prompted it. The site
+builds from tools/, so the deploy artifact should too.
 
 Two details that are easy to get wrong and expensive to debug on Pages:
 

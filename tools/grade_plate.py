@@ -15,7 +15,7 @@ colour, because the ramp is what carries the sense of volume. Flattening to
 
 Deliberately NOT done: sharpening the catchlights or restoring heart-shaped
 pupils. Both are real drift from the SVG, but they are geometry, not colour,
-and faking them with filters produces artefacts that read worse than the
+and faking them with filters produces artifacts that read worse than the
 original softness. That is a prompt or design fix, not a grade.
 
 Writes a lossless animated webp, so the plate stays a first-class asset rather

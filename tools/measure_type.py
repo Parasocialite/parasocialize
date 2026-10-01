@@ -26,7 +26,7 @@ measuring the wrong face:
   3. A banded sweep let large rows wrap onto several visual lines, so wide sizes
      were measured as wrapped text and read as narrower - which cancelled the
      real optical-size trend and made the result look flat again. A flat table
-     was the artefact.
+     was the artifact.
 
 The lesson is in the assertions below: if the two weights agree to four decimal
 places, or if the spread is implausibly small, the font is not loading and the
