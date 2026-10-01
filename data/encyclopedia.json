@@ -1078,9 +1078,16 @@
           "type": "depicts"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "'Fan' entered English usage for baseball spectators in the eighteenth century - the athlete-and-city bond predates the film star by a century",
+          "citation": "Fan Culture. EBSCO Research Starters, Social Sciences and Humanities.",
+          "url": "https://www.ebsco.com/research-starters/social-sciences-and-humanities/fan-culture/",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -1116,9 +1123,28 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Verified, not assumed: 1920-30-40 US census records were used to establish which letters in Picture Play's fan-mail pages were written by real, existing fans - so the first fandom is documented as actual people, not as a later projection",
+          "citation": "Lanckman, L. (2020). Fans, community, and conflict in the pages of 'Picture Play'. Transformative Works and Culture.",
+          "url": "https://journal.transformativeworks.org/index.php/twc/article/view/1745/2203",
+          "status": "retrievable"
+        },
+        {
+          "claim": "THE CONDUIT, DEFINED BY SUPPLY FAILURE. Clara Bow's fans asked her fan magazine what colour her hair and eyes were - in a black-and-white medium. The magazine supplied what the film could not. Henna sales tripled because her hair was red",
+          "citation": "Gordon, M. Making It in Hollywood: Clara Bow, Fandom, and Consumer Culture.",
+          "url": "https://www.marshagordon.org/_files/ugd/26d671_d3034709d88f4f249bd9a93ffbf78aaf.pdf",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Scale of the first fandom: 45,000 fan letters a week to Clara Bow at her 1929 peak, and 500,000 circulation fan magazines at 5-25 cents",
+          "citation": "Gordon, M. Making It in Hollywood: Clara Bow, Fandom, and Consumer Culture, citing Stenn, Clara Bow Runnin' Wild (1988) and St. Johns, Love, Laughter, and Tears (1978).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -1181,9 +1207,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Fan mail as perceived interactivity in the 1920s-30s: listeners experienced two-way communication through letters even though radio had no interactive technology. The conclusion - that interactivity may depend on media content rather than media technology - is this site's thesis, in 2009",
+          "citation": "Simmons, C. (2009). Dear Radio Broadcaster: Fan Mail as a Form of Perceived Interactivity.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The finding that fans negotiated and policed their own codes of behaviour in fan magazines - a community regulating itself without a platform",
+          "citation": "Lanckman, L. (2020). Fans, community, and conflict in the pages of 'Picture Play'. Transformative Works and Culture.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -1922,9 +1961,22 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "N=840: appreciation and enjoyment are separate responses. Appreciation is being moved; enjoyment is pleasure. Tragic outcomes still produce appreciation even where enjoyment is absent - the family you miss was never the fun one",
+          "citation": "Krakowiak, K. M. (2024). How It Ends: Exploring How Narrative Closure and Character Outcomes in Series Finales Relate to Viewer Responses and Coping Behaviors.",
+          "url": "https://exa.ai/library/publication/s74jwzksblz",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the mechanism that makes loss social: appreciation INCREASED coping behaviours - seeking more information, reading analyses, discussing with other viewers - while enjoyment decreased them. Feeling moved makes you go and talk to someone",
+          "citation": "Krakowiak, K. M. (2024). How It Ends.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -2670,9 +2722,28 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "A randomized trial: 44 children assigned to serial (cliffhanger) or episodic delivery of the same story. Serial held engagement across visits; episodic's 'temporary relief' REDUCED long-term play. Unresolved tension beat temporary resolution",
+          "citation": "To Pause With a Cliffhanger or a Temporary Closure: Serial vs. episodic narratives and sustained engagement.",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12192482/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "A cliffhanger is defined in the literature as unresolved tension created specifically to motivate audiences to return to the next episode - the seasonal form of the conduit's promise",
+          "citation": "To Pause With a Cliffhanger or a Temporary Closure (citing Baranowski et al. 2008; Wirz et al. 2022).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Even failing shows gain viewers for the finale; people who had already stopped watching tune in to find out how it ends. Series finales and Super Bowls are the most-watched broadcasts in US TV history",
+          "citation": "McCormick, C. TV finales and the meaning of endings (doctoral dissertation).",
+          "url": "https://exa.ai/library/publication/6hqp1vqpj7f",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3038,9 +3109,28 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The scale of the first known mass grief for a stranger: an estimated 750,000 people at Rudolph Valentino's funeral in 1926 caused destruction at the funeral home",
+          "citation": "Fan Culture. EBSCO Research Starters, Social Sciences and Humanities.",
+          "url": "https://www.ebsco.com/research-starters/social-sciences-and-humanities/fan-culture/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "'Cofactuality': viewers manage narrative loss by working through and sharing multiple versions of the ending they would have preferred. Grief gets socialised through arguing about what should have happened",
+          "citation": "McCormick, C. TV finales and the meaning of endings (doctoral dissertation).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The scale of the loss, from the same study: so many viewers equated a presidential farewell address to saying goodbye to a television show that the comparison was drawn in the scholarship",
+          "citation": "McCormick, C. TV finales and the meaning of endings, citing Peter Brooks.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3313,9 +3403,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "n=840: both the positivity of a main character's outcome and perceived narrative closure were associated with reduced emotional distress - depression, anger, anxiety. Ending well measurably lowers the damage",
+          "citation": "Krakowiak, K. M. (2024). How It Ends.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Produced for finale-hype: producers craft a deliberate path to closure, and the anticipation of the end then shapes the entire final season retroactively",
+          "citation": "McCormick, C. TV finales and the meaning of endings (doctoral dissertation).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -3450,9 +3553,16 @@
           "type": "depicts"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE CITATION THIS ENTRY WAS WAITING FOR. A peer-reviewed study of what happens when a narrative brand ends: narrative closure and 'consumption sociality' on loss accommodation. A character that is also a brand does not get to die quietly",
+          "citation": "Russell, C. A., & Schau, H. J. (2013). When Narrative Brands End: The Impact of Narrative Closure and Consumption Sociality on Loss Accommodation. Journal of Consumer Research, 40(6), 1039-1062.",
+          "url": "https://doi.org/10.1086/673959",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -4852,9 +4962,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "Documented case: the #fakewesteros Twitter community during the final season of Game of Thrones - fans of a character declared dead fighting fans who knew otherwise, over leaks",
+          "citation": "Forcier, E. (2019). When the world ends: Study of #fakewesteros twitter fan community during the final season of Game of Thrones. Proceedings of the Association for Information Science and Technology, 56(1), 654-655.",
+          "url": "https://doi.org/10.1002/pra2.122",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
