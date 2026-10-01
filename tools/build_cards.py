@@ -370,14 +370,22 @@ def build_citations(data, enc):
             s.get("status") in ("verified", "retrievable") for s in srcs)
 
     done = [e for e in entries if is_sourced(e)]
-    todo = sorted((e for e in entries if not is_sourced(e)),
+    # Thesis entries carry no sources BY DESIGN - they are the site's own
+    # argument. is_sourced() is therefore False for them, which put all 13 into
+    # the backlog and made "not yet stood behind" count our own arguments as
+    # things awaiting a citation that could never exist. That is precisely what
+    # the comment below says this number must not do, so they are excluded here
+    # and counted separately instead. Board backlog now agrees with
+    # tools/add_source.py: 140 + 22 + 13 = 175.
+    thesis_n = sum(1 for e in entries if e.get("provenance") == "thesis")
+    todo = sorted((e for e in entries
+                   if not is_sourced(e) and e.get("provenance") != "thesis"),
                   key=lambda e: (-deg.get(e["id"], 0), str(e.get("year") or 0)))
     checked = sum(1 for e in entries if is_checked(e))
     # Entries that are the site's own framework rather than claims about the
     # world. Counted and shown so the backlog above is a queue of things that can
     # actually be done, not a queue of arguments waiting for a citation that
     # could never exist.
-    thesis_n = sum(1 for e in entries if e.get("provenance") == "thesis")
     reached = sum(1 for e in todo if deg.get(e["id"], 0))
     lands = sum(deg.get(e["id"], 0) for e in todo) // 2
 
