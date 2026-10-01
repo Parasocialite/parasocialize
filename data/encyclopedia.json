@@ -1861,9 +1861,22 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "The canonical account of why proximity without contact produces a relationship at all: weak ties carry information and feelings that strong ties cannot, and the value of an acquaintance is precisely that it is un-demanded",
+          "citation": "Granovetter, M. S. (1973). The Strength of Weak Ties. American Journal of Sociology, 78(6), 1360-1380.",
+          "url": "https://doi.org/10.1086/225469",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The city's price for that: the essay tradition on urban indifference describes exactly the condition this entry describes - you can know a person's habits from their kitchen light without ever having been introduced, and the arrangement suits both parties",
+          "citation": "Sennett, R. The Conscience of the Eye: The Architecture and Morality of Public Space.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -2479,9 +2492,70 @@
       ],
       "year_end": null,
       "relations": [],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "A fictional character who moves into your home and stays: Mr. Belvedere, an English butler employed as a live-in housekeeper by an American family, 1985-1990, 117 episodes. He is nursemaid, cook, cleaner, confidant and conscience, and he never leaves until the finale",
+          "citation": "Mr. Belvedere (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Mr._Belvedere",
+          "status": "retrievable"
+        },
+        {
+          "claim": "AND THE DEVICE THAT MAKES IT PARASOCIAL RATHER THAN SITCOM: every episode ends with Belvedere writing in his journal, giving the moral and putting the week's events in perspective. The character keeps a diary about the family - and about the audience watching him keep it",
+          "citation": "Mr. Belvedere - Plot (IMDb).",
+          "url": "https://www.imdb.com/title/tt0088576/plotsummary/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The setting was fabricated wholesale: the producers had never visited Pittsburgh, worked from a promotional calendar, and shot no scenes there. The household is a set of rooms in a place that does not exist",
+          "citation": "Mr. Belvedere (Wikipedia), reporting Dungan and Stein.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the exit, which is the point: in the two-part finale he marries and moves to Africa, leaving the family. The character that moved in eventually has to leave, and the audience is not consulted",
+          "citation": "Mr. Belvedere - Premise (Liquisearch).",
+          "url": "https://www.liquisearch.com/mr_belvedere/premise",
+          "status": "retrievable"
+        },
+        {
+          "claim": "THE MECHANISM, STATED PLAINLY BY SOMEONE MEASURING IT: stories and story characters provide interpersonal intimacy WITHOUT THE THREAT OF REJECTION. That is the whole reason a fictional figure can be safer than a person",
+          "citation": "Rain, M., & Mar, R. A. (2021). Adult attachment and engagement with fictional characters.",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8419286/",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And it is conditional, which is the uncomfortable part: attachment anxiety and avoidance DIFFERENTIALLY predict character identification and parasocial interaction, and a high-powered pre-registered follow-up found attachment orientation predicts which characters people are drawn to. Some characters are wanted because they are unavailable",
+          "citation": "Rain & Mar (2021).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Sometimes you are not watching the character, you ARE it - and the literature distinguishes the two. A player-avatar relationship can be MONADIC, where the player identifies with the avatar to the point of being the same being, or DYADIC, where a separation makes it closer to a parasocial relationship. Same apparatus, opposite structure",
+          "citation": "Ferchaud, A. (2024). Identification and Parasocial Relationships With Video Game Characters. Oxford Research Encyclopedia of Communication.",
+          "url": "https://doi.org/10.1093/acrefore/9780190228613.013.1469",
+          "status": "retrievable"
+        },
+        {
+          "claim": "What it takes linguistically, from interviews with MMO players: SELF-DIFFERENTIATION and ANTHROPOMORPHIZATION together suspend disbelief enough for the figure to be taken as a fully social agent. You have to make it different from you and also human, at the same time",
+          "citation": "Avatars are (sometimes) people too: Linguistic indicators of parasocial and social ties in player-avatar relationships. New Media & Society.",
+          "url": "https://doi.org/10.1177/1461444814554898",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The bond once mistaken for pathology is ordinary attachment style: research on intimate television viewing shows people forming relationships parasocially and insecurely, and treats it as a predictable outcome of disposition rather than a malfunction",
+          "citation": "Cole, T., & Leets, L. (1999). Attachment Styles and Intimate Television Viewing: Insecurely Forming Relationships in a Parasocial Way. Journal of Social and Personal Relationships, 16(4), 495-511.",
+          "url": "https://doi.org/10.1177/0265407599164005",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the predictable ending, named in the literature: parasocial break-up from favourite television characters is studied as its own phenomenon, driven by attachment style and relationship intensity rather than by anything the character did",
+          "citation": "Cohen, J. (2004). Parasocial Break-Up from Favorite Television Characters: The Role of Attachment Styles and Relationship Intensity. Journal of Social and Personal Relationships, 21(2), 187-202.",
+          "url": "https://doi.org/10.1177/0265407504041374",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "grief",
@@ -5206,9 +5280,52 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE ENTRY'S MECHANISM, MEASURED. A controlled experiment (n=144) found unboxing COMPLEXITY has a main effect on positive affect (beta=.53, p=.020), and that positive affect in turn significantly increases willingness to share, online and off. The ritual is the product",
+          "citation": "Berden, C. Thinking inside the box: the effect of the unboxing experience on positive affect and willingness to share (University of Twente MSc thesis).",
+          "url": "https://essay.utwente.nl/fileshare/file/81023/Berden_MA_BMS.pdf",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The scale of the ritual: an estimated 2.35 MILLION unboxing videos of the iPhone 6 were uploaded to YouTube in 2014, and about a quarter of a million were dedicated to a single subscription box brand. Unboxing became a genre with an audience",
+          "citation": "Berden, Thinking inside the box, citing Bayston (2016).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And it is treated as engineering, not whimsy: Apple designer Jonathan Ives on the practice - 'You design a ritual of unpacking to make the product feel special. Packaging can be theatre, it can create a story' - and the company tests hundreds of package designs in a dedicated unboxing room",
+          "citation": "Berden, Thinking inside the box, citing Forbes (2014) and Mashable (2012).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "THE PART THAT IS ACTUALLY DISTURBING. An eye-tracking lab experiment found personalization improves the customer experience EVEN WHEN THE CUSTOMER DOES NOT PERCEIVE IT. Actual personalization shifts objective behaviour - attention concentrates on favoured products and they are more likely to be selected - while only perceived personalization moves subjective feelings",
+          "citation": "Personalization and playful customer experience, with eye-tracking (Universite catholique de Louvain).",
+          "url": "https://dial.uclouvain.be/pr/boreal/object/boreal%3A260648/datastream/PDF_01/view",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The recommendation is the relationship: participants in a 2025 study emphasised the stylist or curator as the thing delivering the value, with algorithms used in the stylist's absence. Stylists keep notes, reference past purchases, and are trusted with items the subscriber says they would never have chosen",
+          "citation": "Bhatt, D. (2025). Consumers' perceptions towards subscription retail: a focus on online fashion box services.",
+          "url": "https://exa.ai/library/publication/d2zz82mp3bs",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And what participants named as the risks, unprompted: inability to opt out when not using the service, the time cost of interacting with a stylist, and the environmental cost of packaging and shipping. The convenience and the exit are the same design decision",
+          "citation": "Bhatt (2025), citing Tao & Xu (2017).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The shape of the relationship, named from 26 in-depth interviews: a subscription box journey has three stages - INITIATION, IMMERSION and EGRESS - each adding to or subtracting from utilitarian and hedonic value. Renewal and cancellation are stages of the same stream, not opposite decisions",
+          "citation": "Alba, J. W. Navigating consumption streams: Toward a utilitarian-hedonic perspective on subscription box customer journeys. Journal of Consumer Behaviour.",
+          "url": "https://doi.org/10.1002/cb.2369",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6421,9 +6538,34 @@
       ],
       "year_end": null,
       "relations": [],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE DEFINITION HAD TO CHANGE. The Cambridge Dictionary's entry for 'parasocial' was updated in September 2025 to explicitly include artificial intelligence: 'relating to or about a person who feels a connection with a celebrity (or characters in books, films, TV shows, or artificial intelligence) whom they do not actually know'",
+          "citation": "From virtual attachments to real-world fertility desires (Frontiers in Psychology), discussing the September 2025 Cambridge Dictionary update.",
+          "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1743080/full",
+          "status": "retrievable"
+        },
+        {
+          "claim": "A century-old definition quietly had to be extended by one word. The entry had named celebrities since 1956; the thing it was named for now talks back",
+          "citation": "From virtual attachments to real-world fertility desires (Frontiers in Psychology).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And the framing that resists the deficit reading, which this site has argued for on other grounds: scholars argue parasocial relationships are EXTENSIONS of social relationships rather than SUBSTITUTES for social deficiencies, associating them with homogeneity, identification and narrative immersion",
+          "citation": "From virtual attachments to real-world fertility desires (Frontiers in Psychology), citing Tukachinsky et al. (2020).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The measurement the field uses, and its three parts: parasocial relationships with characters are scored on emotional investment (affection, empathy), cognitive processing (understanding their motivations, recognising similarities), and perceived interaction - the sense that the character is 'responding'. That last dimension is why a chatbot scores differently from a script",
+          "citation": "From virtual attachments to real-world fertility desires (Frontiers in Psychology), citing Horton & Wohl (1956) on perceived one-way interaction.",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "anita-wozniak-replika",
