@@ -4646,12 +4646,55 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE SUNK COST FALLACY, NAMED AS A DESIGN TECHNIQUE. 'Hidden Costs' reveals new charges immediately before purchase; the paper states this exploits the sunk cost fallacy - users feel so invested they justify the extra charge to avoid wasting their effort. The loyalty card is this",
+          "citation": "Mathur, A., Acar, G., Friedman, M. J., Lucherini, E., Mayer, J., Chetty, M., & Narayanan, A. (2019). Dark Patterns at Scale: Findings from a Crawl of 11K Shopping Websites. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW), Article 81.",
+          "url": "https://doi.org/10.1145/3359183",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The asymmetry, stated as a category: it is easy to sign up for recurring subscriptions and memberships, but hard to cancel. 'Hard to Cancel' found on 31 websites",
+          "citation": "Mathur et al. (2019), citing Gray et al. (2018) taxonomy; pattern originally Brignull's Roach Motel.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Scale, and the part that indicts the industry: 1,818 dark pattern instances across 15 types and 7 categories on 1,254 of ~11,000 shopping websites (11.1%), with 234 instances on 183 websites exhibiting deceptive behaviour. More popular sites were MORE likely to feature them. And 22 third-party entities sell dark patterns as a turnkey solution",
+          "citation": "Mathur et al. (2019). Dark Patterns at Scale.",
+          "url": "https://arxiv.org/html/1907.07032v2",
+          "status": "retrievable"
+        },
+        {
+          "claim": "How hard: unsubscribing from Bloomberg took TEN clicks and required launching and conversing with a closed-domain chatbot first. Cancelling required entering first and last name into the chatbot welcome page, declining discount offers, answering a question to confirm, and completing a mandatory exit survey",
+          "citation": "Staying at the Roach Motel: Cross-Country Analysis of Manipulative Subscription and Cancellation Flows (2024).",
+          "url": "https://arxiv.org/html/2309.17145",
+          "status": "retrievable"
+        },
+        {
+          "claim": "Confirmation as a toll: The Daily Wire required a three-question mandatory survey AND typing the word 'CONFIRM' to cancel. The authors concede some friction prevents accidents, and note that requiring a typed phrase appears unnecessary",
+          "citation": "Staying at the Roach Motel (2024).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The harm is process harm: study of 53 Indian apps found 52 carried at least one deceptive pattern and e-commerce ran 5.3 per app against 2.7 across sectors, and argues the resulting regret is PROCESS regret from a bad decision procedure, not outcome regret from a bad product - which is why satisfaction metrics miss it",
+          "citation": "Dark Patterns in Indian E-Commerce Interfaces and Consumer Purchase Regret. Research Review Journal of Social Science.",
+          "url": "https://rrjournals.co.in/index.php/rrjss/article/view/286",
+          "status": "retrievable"
+        },
+        {
+          "claim": "It is now law, not preference: India's CCPA notified Guidelines for Prevention and Regulation of Dark Patterns on 30 November 2023, declaring thirteen practices unfair trade practices under the Consumer Protection Act 2019. The EU Digital Services Act uses the term 'dark patterns' officially",
+          "citation": "Dark Patterns in Indian E-Commerce Interfaces and Consumer Purchase Regret, citing CCPA (2023) and DSA (2022).",
+          "url": "",
+          "status": "retrievable"
+        }
+      ],
       "medium": [
         "technology"
       ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6227,9 +6270,52 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "claim": "THE FINDING. Asked about the Whitney hologram, a researcher who studies the human-technology relationship answered: 'Yes, we know that [a hologram of] Whitney Houston is not the real Whitney Houston. But it's a chance for us to engage in some of that fan behaviour, something that binds us to one another.' That is this site's entire subject, named by someone studying it",
+          "citation": "Dead celebrities are being digitally resurrected. CBC News (2021), reporting Richard Lachman, associate professor at Ryerson University.",
+          "url": "https://www.cbc.ca/news/entertainment/dead-celebrities-digital-resurrection-1.6132738",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The vocabulary already exists and it is hostile: 'musical necrophilia', Simon Reynolds on holographic performance as 'ghost slavery', and Catherine Shoard in the Guardian on inserting a dead actor as a 'digital indignity'",
+          "citation": "Dead celebrities are being digitally resurrected. CBC News (2021).",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The legal position, stated by scholarship: the digital right to be dead is NOT yet recognised as an important legal right. AI can recreate appearance, voice, emotion and memory indistinguishably, and the resulting chatbot DYNAMICALLY LEARNS with further communication. There is no legal or regulatory landscape against which to estate plan to avoid digital resurrection",
+          "citation": "Haneman, V. J. The Law of Digital Resurrection (University of Georgia School of Law).",
+          "url": "https://digitalcommons.law.uga.edu/cgi/viewcontent.cgi?article=2719&context=fac_artchop",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And what the scholars propose instead: a right of DELETION for the deceased over the source data, rather than testamentary control over the outcome. Refusing the raw material is the only control point that works",
+          "citation": "Haneman, V. J. The Law of Digital Resurrection.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "WHY there is no contract: the common thread among artists whose likenesses get used is unexpected or accidental death, so the image-use clauses were never written. Prince left no will at all, and without one an estate can exploit or license the rights at will. Robin Williams restricted use of his image for 25 years after his death because he foresaw this",
+          "citation": "Dead celebrities are being digitally resurrected. CBC News (2021), reporting Lachman and media lawyer Iain MacKinnon.",
+          "url": "",
+          "status": "retrievable"
+        },
+        {
+          "claim": "And that the grief is the asset: Pat Houston, estate executor, on the marketing push - 'Before she passed, there was so much negativity around the name; it wasn't about the music anymore... they let all the personal things about their life outweigh why they fell in love with them in the first place.' Monetising the legacy and redeeming the reputation are the same project",
+          "citation": "7 Years After Her Death, Whitney Houston Estate Unveils Slew Of New Projects. NPR (2019), reporting Pat Houston.",
+          "url": "https://www.npr.org/2019/05/20/725064362/whitney-houston-hologram-tour-and-new-album-in-the-works-7-years-after-her-death",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The rights are patchier than the audiences assume: fewer than half of US states grant a post-mortem right of publicity, and New York's lasts only forty years. The 2014 Michael Jackson hologram led to Hologram USA suing Pulse Evolution in Nevada, settled",
+          "citation": "Singing Holograms: The Legal Landscape of Posthumous Holographic Performance. Columbia Journal of Law & the Arts.",
+          "url": "https://journals.library.columbia.edu/index.php/lawandarts/announcement/view/700",
+          "status": "retrievable"
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "keep-it-or-lose-it",
