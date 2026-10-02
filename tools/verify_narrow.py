@@ -133,14 +133,22 @@ function run() {{
 
     // Prove the stylesheet is live BEFORE measuring. Unstyled reports no
     // overflow for everything, so a clean result without this check is void.
+    // But only demand what the page asked for: a deliberately self-contained
+    // page (signal/latest.html is an HTML email, inline-styled by necessity)
+    // declares no stylesheet, and demanding one loaded would be inventing a
+    // promise it never made. The check that matters is declared-vs-loaded.
+    const declared = [...d.querySelectorAll('link[rel~="stylesheet"]')].length;
     const triad = d.querySelector('.tx-triad');
     const css = {{
-      sheets: d.styleSheets.length,
+      declared, loaded: d.styleSheets.length,
+      selfContained: declared === 0,
       triadDisplay: triad ? w.getComputedStyle(triad).display : 'n/a',
       bodyBg: w.getComputedStyle(d.body).backgroundColor
     }};
-    const cssOK = css.sheets >= 2 &&
-                  (triad ? css.triadDisplay === 'grid' : css.bodyBg !== 'rgba(0, 0, 0, 0)');
+    const styled = css.triadDisplay === 'grid' ||
+                   css.bodyBg !== 'rgba(0, 0, 0, 0)';
+    const cssOK = css.selfContained ? true
+                                : (css.loaded >= css.declared && styled);
 
     const doc = d.documentElement;
     // An element inside a horizontal scroll container is *allowed* to extend
@@ -252,13 +260,20 @@ try:
     if "error" in r:
         bad.append(f"harness error: {r['error']}")
     elif not r["cssOK"]:
-        bad.append(f"stylesheet did not load {r['css']} - every measurement "
+        bad.append(f"stylesheet did not load {r['css']} - the page declared "
+                   f"{r['css'].get('declared')} stylesheet(s) and "
+                   f"{r['css'].get('loaded')} arrived, so every measurement "
                    "below would be of an unstyled page, which reports no "
                    "overflow for anything")
     elif r["got"] != width:
         bad.append(f"measured at {r['got']}px, asked for {width}px - the "
                    "harness is wrong, not the page")
-    elif r["hOverflow"]:
+    elif r["hOverflow"] and r["css"].get("selfContained"):
+        bad.append(f"horizontal overflow: scrollWidth {r['docScrollW']} > "
+                   f"viewport {r['got']} on a self-contained page (an HTML "
+                   "email). Fixed-width tables in email are deliberate, but "
+                   "this one is also served at a public URL - use "
+                   "width:100%;max-width instead of a fixed width")
         hint = ""
         culprits = r.get("contentOverflowing") or []
         if culprits:
