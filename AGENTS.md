@@ -113,6 +113,15 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   output looks right and means less than it appears to. When editing any
   hand-maintained corpus file, assert the count before and after and refuse to
   write if it fell.
+- **Correct the false claims first, then restore the accuracy.** 94 records
+  claimed `retrievable` — defined here as "a reader can open this" — with no
+  URL. Resolving URLs before downgrading would have meant leaving 90 published
+  falsehoods live while chasing locators. A citation with no locator *is*
+  `unverified` by that definition, so the downgrade costs no information, and
+  the baseline then ratchets to 0 and the class is closed for good. The 83
+  sources still needing a locator became a work queue instead of a lie on the
+  page. This is the `--ratchet` pattern applied to content rather than to a
+  gate: fix the claim, keep the debt visible.
 - **Measuring a page can fail in the direction that looks like a pass.** Three
   separate harness bugs produced clean "no overflow at 390px" results, and all
   three were wrong: Windows clamps Chrome's `--window-size` to ~500px so 390
@@ -261,7 +270,8 @@ Human voice only; no dataset sale.
 ```
 140 sourced | 22 not yet stood behind | 13 thesis   = 175
 34 of 417 edges land on something unchecked
-137 of 292 sources have a locator
+141 of 292 sources have a locator
+0 of 292 claim to be openable without one   (ratcheted; was 94)
 ```
 
 Board must reconcile to 175. `add_source.py` is authoritative.
@@ -295,9 +305,25 @@ Board must reconcile to 175. `add_source.py` is authoritative.
 4. **Tier 1 citations**, resting on inference rather than evidence: `dere`
    (Dionne Warwick, reciprocal fan mail — the counter-example the site needs),
    `the-neighbour`, `the-transfer`, `the-coach`, `the-dog`.
-5. **The 94 unopenable `retrievable` records** (see Traps). Decide whether to
-   find the URLs or downgrade them to `unverified` — that choice changes what
-   "140 sourced" means on the board.
+5. **The 94 unopenable `retrievable` records — closed, with a queue.** The
+   false claims are gone: 4 records reused a URL that a sibling record in the
+   same corpus already carried for the identical citation (verifiable by
+   construction — accepted here, not found by search), and the remaining **90
+   were downgraded to `unverified`**, which is what that status means: looked
+   at, not yet locatable. `citation_audit.py --ratchet` has moved the baseline
+   from 94 to **0**, so this can never regress, and the gate is confirmed red
+   on a single false claim.
+   - The remaining work is **83 unique sources with no locator** — the 94
+     records were only 83 sources, because the same paper is cited on several
+     entries. Notable clusters: the McCormick dissertation, Witzel, Marwick
+     2021, Ahn/Lelkes/Levendusky 2024, Higgs & McInstash 2008, the
+     `characters-move-in` Werther trio, the `prince` NPR cluster, and the
+     `cobain` 1994 newspaper cluster. Book-length works with publisher pages
+     and anything with a DOI are the cheap wins; the student papers, the
+     1994 newspaper items and the paywalled dissertations are not.
+   - Note `exa.ai` is already an accepted locator class here (6 records,
+     against 29 doi.org). That is a separate editorial question about what a
+     stable locator is, and it was not widened here.
 6. **Lane re-seed** analysed, unapplied: 30 additions, 17 corrections, 0 removals.
    Needs approval.
 7. **~~`trading-stamps` dated 1880~~ — resolved.** It is now 1890–1891. Every
