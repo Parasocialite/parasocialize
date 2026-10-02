@@ -61,13 +61,29 @@ while i < len(argv):
     else:
         raise SystemExit(__doc__)
 
-if not (DIST / page.lstrip("/") / "index.html").exists():
-    raise SystemExit(f"{page} is not in dist/. Run tools\\build_deploy.py first - "
-                     "measuring the source tree measures nothing.")
+# A page can be named as a directory ("/taxonomy/") or as a file ("/index.html").
+# Both forms have to work: the front door is a file, and a gate that cannot
+# check the most-visited page on the site has a hole shaped like it.
+p = page.lstrip("/") or "index.html"
+if p.endswith(".html"):
+    rel_file = p
+    owner = pathlib.Path(p).parent              # "." for the front door
+else:
+    if not p.endswith("/"):
+        p += "/"
+    rel_file = p + "index.html"
+    owner = pathlib.Path(p.rstrip("/"))         # taxonomy/ or "." for /
 
-rel = page.strip("/") + "/"                      # taxonomy/
-wrapper_rel = rel + "_narrow_probe.html"
-open_rel = rel + "_narrow_open.html"
+target = DIST / rel_file
+if not target.is_file():
+    raise SystemExit(f"{page} is not in dist/ ({rel_file}). Run "
+                     "tools\\build_deploy.py first - measuring the source "
+                     "tree measures nothing.")
+
+# The probe files go in the same directory as the page, so that a page's
+# relative stylesheet URLs still resolve for the copy the iframe loads.
+wrapper_rel = str(owner / "_narrow_probe.html")
+open_rel = str(owner / "_narrow_open.html")
 png = (ROOT / "episode" / ".chrome" / shot) if shot else None
 
 
@@ -92,7 +108,7 @@ BASE = f"http://127.0.0.1:{srv.server_address[1]}/"
 # A copy with the <details> already open. The probe opens them from script, but
 # --screenshot fires at load and captures them closed - and collapsed is the
 # state nobody is reading, so a screenshot of it says nothing about the layout.
-src_html = (DIST / rel / "index.html").read_text(encoding="utf-8")
+src_html = target.read_text(encoding="utf-8")
 opened_html = re.sub(r'<details class="([^"]+)" id="([^"]+)">',
                      lambda m: f'<details open class="{m.group(1)}" id="{m.group(2)}">',
                      src_html)
@@ -127,15 +143,56 @@ function run() {{
                   (triad ? css.triadDisplay === 'grid' : css.bodyBg !== 'rgba(0, 0, 0, 0)');
 
     const doc = d.documentElement;
+    // An element inside a horizontal scroll container is *allowed* to extend
+    // past the viewport - that is what the container is for, and .dbwrap on
+    // /encyclopedia/ is a 530px table in a 337px scroller by design. Flagging
+    // those is how a layout gate ends up ignored. Only elements with no
+    // scrolling ancestor count as overflow.
+    const inScroller = e => {{
+      for (let p = e.parentElement; p && p.tagName !== 'HTML'; p = p.parentElement) {{
+        const o = w.getComputedStyle(p).overflowX;
+        if (o === 'auto' || o === 'scroll') return true;
+      }}
+      return false;
+    }};
     // skip links are positioned off-screen on purpose; that is not an overflow
     const over = [...d.querySelectorAll('body *')].filter(e => {{
       if (e.classList && e.classList.contains('skip')) return false;
+      if (inScroller(e)) return false;
       const r = e.getBoundingClientRect();
       return r.width > 0 && r.height > 0 &&
              (r.right > w.innerWidth + 1 || r.left < -1);
     }}).slice(0, 10).map(e => e.tagName.toLowerCase() + '.' +
                    (e.className || '').toString().split(' ')[0] +
                    ' right=' + Math.round(e.getBoundingClientRect().right));
+    // smallest element whose content is wider than it can show, and which is
+    // not itself a scroller: getBoundingClientRect misses these, scrollWidth
+    // does not, and a bare `1fr` grid track is exactly this bug.
+    // overflow-x:hidden is excluded - clipping is a legitimate technique for a
+    // decorative layer (.hub-art loses 10px of art on purpose), and a gate that
+    // reports decoration as a defect is a gate whose output gets skimmed.
+    const candidates = [...d.querySelectorAll('body *')].filter(e => {{
+      const o = w.getComputedStyle(e).overflowX;
+      return o === 'visible' && e.scrollWidth > e.clientWidth + 1;
+    }});
+    // Report only the INNERMOST offenders. Every wrapper of the real culprit
+    // is also over-wide, so sorting by size names main and section rather than
+    // the grid that caused it - a diagnostic that points at the wrapper is a
+    // diagnostic that sends you to the wrong file.
+    const inner = candidates.filter(e => !candidates.some(o => o !== e &&
+        e.contains(o))).sort((a, b) => a.getBoundingClientRect().width -
+        b.getBoundingClientRect().width).slice(0, 6).map(e => ({{
+      tag: e.tagName.toLowerCase(),
+      cls: (e.className || '').toString().split(' ').slice(0, 2).join('.'),
+      over: e.scrollWidth - e.clientWidth,
+      width: w.getComputedStyle(e).width,
+      minWidth: w.getComputedStyle(e).minWidth,
+      display: w.getComputedStyle(e).display,
+      parentCls: (e.parentElement && e.parentElement.className || '')
+        .toString().split(' ')[0],
+      // the innermost offender is often a wrapper; show what is inside it
+      text: (e.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 90)
+    }}));
 
     const triads = [...d.querySelectorAll('.tx-triad')];
     const cells = [...d.querySelectorAll('.tx-triad-c')];
@@ -160,7 +217,7 @@ function run() {{
       minCellW: widths.length ? Math.min(...widths) : 0,
       maxCellW: widths.length ? Math.max(...widths) : 0,
       rowsPerTriad: uniq('rows'), colsPerTriad: uniq('cols'),
-      overflowing: over
+      overflowing: over, contentOverflowing: inner
     }});
   }} catch (e) {{ report({{error: String(e && e.stack || e)}}); }}
 }}
@@ -173,6 +230,7 @@ setTimeout(run, 2000);
 url = BASE + wrapper_rel
 
 bad = []
+note = ""
 try:
     dom = subprocess.run([
         CHROME, "--headless=new", "--disable-gpu",
@@ -201,10 +259,41 @@ try:
         bad.append(f"measured at {r['got']}px, asked for {width}px - the "
                    "harness is wrong, not the page")
     elif r["hOverflow"]:
+        hint = ""
+        culprits = r.get("contentOverflowing") or []
+        if culprits:
+            hint = " - likely " + ", ".join(
+                f"{c['tag']}.{c['cls']} (content {c['over']}px too wide, "
+                f"width:{c.get('width')}, min-width:{c.get('minWidth')}, "
+                f"in .{c.get('parentCls')}: {c.get('text','')[:60]!r})"
+                for c in culprits[:2])
         bad.append(f"horizontal overflow: scrollWidth {r['docScrollW']} > "
-                   f"viewport {r['got']}")
+                   f"viewport {r['got']}{hint}."
+                   # The cause differs, so do not assert one cause. A grid
+                   # track refuses to shrink below its widest child; a long
+                   # token has no break opportunity in it at all; a table's
+                   # automatic layout cannot go below the sum of its cells.
+                   + (" A bare 1fr track has an automatic minimum of its "
+                      "min-content, so it will not shrink below its widest "
+                      "child - use minmax(0,1fr), or auto-fit with a floor."
+                      if culprits and culprits[0].get("display") in ("grid", "flex")
+                      else " If it is text, look for a token with no break "
+                           "opportunity in it (a slash-separated list is one) "
+                           "and add overflow-wrap:break-word."
+                      if culprits and culprits[0]["tag"] in ("p", "li", "span", "td", "th")
+                      else " A table with width:100% cannot shrink below the sum "
+                           "of its cells' min-content widths - it needs a "
+                           "horizontal scroll wrapper."))
     elif r["overflowing"]:
         bad.append("elements past the right edge: " + "; ".join(r["overflowing"]))
+    elif r.get("contentOverflowing"):
+        # Not causing document overflow, so not a failure - but it is the same
+        # defect one change away from being one, so say so rather than swallow
+        # it. Printed as a note, never as a problem: a gate that fails on
+        # decoration is a gate whose output stops being read.
+        note = ("note: content wider than its box (not causing page overflow): "
+                + "; ".join(f"{c['tag']}.{c['cls']} +{c['over']}px"
+                            for c in r["contentOverflowing"]))
 
     if png:
         png.parent.mkdir(parents=True, exist_ok=True)
@@ -225,6 +314,8 @@ finally:
     srv.shutdown()
 
 print()
+if note:
+    print(" ", note)
 if bad:
     for b in bad:
         print("  PROBLEM:", b)

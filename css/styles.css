@@ -424,7 +424,12 @@ img{max-width:100%;display:block}
 .mood figcaption span{font-size:.82rem;color:var(--dim);line-height:1.42;display:block}
 
 /* ---------- THE ENCYCLOPEDIA ---------- */
-.lanecards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+/* Three across on desktop, one on a phone. repeat(3,1fr) cannot do that on its
+   own: a bare 1fr track's automatic minimum is its min-content, so three cards
+   held a 412px floor inside a 339px column and pushed the page 55px past a
+   390px viewport. auto-fit with a floor is what actually responds. */
+.lanecards{display:grid;gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,232px),1fr))}
 .lanecard{background:var(--bg2);border:1px solid var(--line);
   border-top:3px solid var(--c);border-radius:10px;padding:16px 18px}
 .lanecard b{font-family:var(--label);font-size:.58rem;letter-spacing:.2em;
@@ -931,6 +936,15 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .reveal.in{opacity:1;transform:none}
 
 /* long-form reading blocks */
+/* A slash-separated enumeration is one unbreakable token to a browser:
+   (idol/character/creator/companion/brand/universe) is 47 characters with no
+   break opportunity anywhere in it. In a 273px column on a phone that is 80px
+   too wide, and because body carries overflow-x:hidden the excess is *clipped*
+   rather than scrolled - the reader loses the end of the sentence and never
+   finds out. overflow-wrap:break-word only breaks a word that would otherwise
+   overflow, so ordinary prose is untouched. Set on the containers because the
+   property inherits. */
+.page,.ws,.try,.chap,.buybox,.ref,.tier{overflow-wrap:break-word}
 .page> p:first-of-type::first-letter{font-family:var(--serif);font-size:3em;line-height:.82;
   float:left;padding:.06em .09em 0 0;color:var(--warm);font-weight:700}
 .chap{font-family:var(--serif);font-size:clamp(1.25rem,2.5vw,1.7rem);font-weight:700;
@@ -1274,15 +1288,20 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
    shows where the record is thick and thin, and each era is labelled with what
    that band is actually made of, computed from the data rather than asserted. */
 
-.tl-density{display:grid;grid-template-columns:repeat(11,1fr);gap:3px;
+/* minmax(0,1fr), not 1fr: a bare 1fr track has an automatic minimum of
+   min-content, so the nowrap decade labels below set the floor and 11 of them
+   overflowed a 390px viewport by 125px. The labels wrap to two lines instead,
+   which keeps the decade range readable rather than hiding it. */
+.tl-density{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:3px;
   align-items:end;height:96px;margin:22px 0 8px;padding:0 2px}
 .tl-den{flex:1;display:flex;flex-direction:column;justify-content:flex-end;
-  align-items:center;height:100%;text-decoration:none;position:relative}
+  align-items:center;height:100%;text-decoration:none;position:relative;
+  min-width:0}
 .tl-den i{display:block;width:100%;background:linear-gradient(180deg,var(--teal),rgba(0,232,192,.22));
   border-radius:2px 2px 0 0;min-height:2px;transition:background .13s}
 .tl-den:hover i{background:linear-gradient(180deg,var(--gold),rgba(255,207,92,.3))}
 .tl-den b{font-family:var(--label);font-size:.5rem;letter-spacing:.06em;color:var(--dim);
-  margin-top:5px;font-weight:400;white-space:nowrap}
+  margin-top:5px;font-weight:400;line-height:1.2;text-align:center;overflow-wrap:anywhere}
 .tl-den em{position:absolute;top:-15px;font-style:normal;font-family:var(--label);
   font-size:.55rem;color:var(--teal)}
 .tl-den:hover b{color:var(--gold)}

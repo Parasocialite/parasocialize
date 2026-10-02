@@ -110,6 +110,13 @@ HEADERS = """\
 
 def wanted(p: pathlib.Path):
     rel = p.relative_to(ROOT)
+    # A backup of an earlier version is not a page. Nothing links to it, and
+    # shipping it puts a second, stale copy of the site's front page at a live
+    # URL - two versions of the same content, which is exactly what a reader or
+    # a search engine cannot tell apart. It stays in the repository; it just
+    # does not get deployed.
+    if rel.name == "v1-oxalpha-backup.html":
+        return False
     if any(part in EXCLUDE_NAMES for part in rel.parts):
         return False
     if rel.parts and rel.parts[0] in INCLUDE_DIRS:

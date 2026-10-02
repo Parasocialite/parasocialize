@@ -97,6 +97,11 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   entry. They are reported as empty. Moving one entry into one of them would
   make the distribution tidier and the classification a lie, which is the same
   failure as a plausible-looking citation.
+- **Do not deploy a backup.** `v1-oxalpha-backup.html` sat in the deploy tree
+  for a while: nothing linked to it, and shipping it put a second, stale copy
+  of the site's front page at a live URL. Two versions of the same content at
+  two addresses is exactly what a reader and a search engine cannot tell apart.
+  `build_deploy.wanted()` now refuses it by name.
 - **A JSON file containing half the categories is still valid JSON containing
   half the categories.** Expanding the 38 sub-categories was done by writing
   `data/taxonomy.json` wholesale from a template, which silently dropped four of
@@ -125,6 +130,25 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   column, because it was counting unique `top` offsets. The names were wrong in
   the direction that flattered the result. Read what a metric counts before
   believing what it says it counts.
+- **`body{overflow-x:hidden}` does not remove a layout bug, it hides it.**
+  Every overflow found on this site was *clipped*, not scrollable: the reader
+  lost the end of a sentence and never found out, which is worse than a
+  scrollbar. This also breaks the obvious diagnostic — an element inside any
+  `overflow:hidden` ancestor looks fine to a walk that treats clipping as an
+  escape hatch, so `/audit/` reported *zero* real offenders while the document
+  still measured 17px too wide. Treat `hidden` on the page as the reason to
+  look harder, not as an explanation.
+- **Four layout bugs, one shape: something that refuses to shrink.** A bare
+  `1fr` grid track has an automatic minimum of its min-content, so it will not
+  go below its widest child (`repeat(3,1fr)` on `.lanecards` reached 412px
+  inside a 339px column; `repeat(11,1fr)` on `.tl-density` reached 515px at a
+  390px viewport). A slash-separated list is one unbreakable token
+  (`(idol/character/creator/companion/brand/universe)`, 47 chars). A table with
+  `width:100%` cannot go below the sum of its cells' min-content widths. None of
+  them is a text problem and all of them read as one to a screenshot.
+  `verify_narrow.py` reports the *innermost* offender and picks the advice to
+  match — a diagnostic that names `main` instead of the grid sends you to the
+  wrong file.
 - **An identifier printed where a reference belongs reads as a citation.** The
   anchors were keys into `_literature` — `horton-wohl-1956` — and the page
   uppercased them, so readers saw `ANCHORED · HORTON-WOHL-1956`: shaped exactly
