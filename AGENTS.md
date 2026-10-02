@@ -205,6 +205,21 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   fetches anything at all — baking data in at build time is the only shape that
   cannot silently arrive empty. Confirmed red on the original defect
   reintroduced verbatim.
+- **`verified: true` was a third instance of the promise defect, and the
+  worst-placed.** It suppresses the "Not yet stood behind" notice, so an entry
+  setting it with no citation records asserted that a person had read a source
+  that does not exist — and the only visible consequence was that the honest
+  notice disappeared. Six entries were in that state. The first two instances
+  of this family inflated numbers (the backlog counted thesis entries; the
+  credits counted a status without reading the URL); this one *removed a gap
+  from the page*, so it is the only one a reader is directly misled by.
+  `citation_audit.py` now fails on it, and thesis entries are exempt because
+  they carry no sources by design.
+- **A gate placed after the early return is decoration.** The new
+  verified-with-no-source check initially sat below `if not violations: return 0`
+  — and that branch is always taken now that the baseline is 0. So it reported
+  nothing at all until the early return was changed. **When a check goes green,
+  find out which branch it ran in.**
 - **A string that only runs after the thing it describes changes is a string
   nobody checks.** The Watch block called every episode "the fifty-second
   version" — and the three rendered episodes are 42.0s, 53.7s and 63.4s, so it
@@ -381,9 +396,25 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    is **@Parasocialdude** while the site is Parasocialize and IG/TikTok are
    parasocialite. **No social links exist anywhere** — not in `index.html`, not
    in `build_cards.py`, not in `build_deploy.py`.
-4. **Tier 1 citations**, resting on inference rather than evidence: `dere`
-   (Dionne Warwick, reciprocal fan mail — the counter-example the site needs),
-   `the-neighbour`, `the-transfer`, `the-coach`, `the-dog`.
+4. **Tier 1 citations** — six entries were claiming to be verified with nothing
+   behind them. `the-coach` and `the-dog` rendered a confident claim with **no
+   gap notice at all**, because `verified: true` is what suppresses the "Not yet
+   stood behind" notice and both carried zero citation records. Four more were
+   in the same state: `the-landlord`, `comfort-watch`, `continuity`,
+   `deepfake-grief`. All six are now `verified: false`, so the notice appears,
+   and `citation_audit.py` fails on the class.
+   - This is the **third instance of the same defect**, and the worst-placed.
+     The first inflated the backlog by counting thesis entries; the second
+     inflated the credits by reading `status` without reading `url`. This one
+     *removes a gap from the page* rather than adding a number to a chart, so
+     it is the only one a reader is directly misled by.
+   - **The sourcing work is still owed.** All six are real claims with a
+     sourceable spine — `the-dog` on domestication, `the-coach` on coaching
+     effects, `comfort-watch` on rewatching, `continuity` on the streaming
+     schedule change, `deepfake-grief` on griefbots. Flipping the flag is the
+     honest interim state, not the fix.
+   - `the-neighbour` was already sound (Granovetter 1973 with a DOI). `dere`
+     and `the-transfer` correctly showed the gap already.
 5. **The 94 unopenable `retrievable` records — closed, with a queue.** The
    false claims are gone: 4 records reused a URL that a sibling record in the
    same corpus already carried for the identical citation (verifiable by
