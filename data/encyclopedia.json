@@ -41,7 +41,7 @@
         "companion",
         "crossover"
       ],
-      "summary": "A species that has spent fifteen thousand years being selected partly for forming attachment to one particular ape.",
+      "summary": "The first domesticated animal, attached to one particular ape for at least fifteen thousand years and probably rather longer: how long ago exactly is not settled, and the genomic estimates disagree by a factor of two.",
       "significance": "The original transparasocial relationship, and the only one that has reliably worked. Everything invented since is a worse version with better latency, and the reason it is compared to this constantly is that the comparison is fair.",
       "verified": false,
       "medium": [
@@ -49,9 +49,16 @@
       ],
       "year_end": null,
       "relations": [],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Parker, H. G., & Gilbert, S. F. (2015). From caveman companion to medical innovator: genomic insights into the origin and evolution of domestic dogs. Advances in Genomics and Genetics, 5, 239-255. doi:10.2147/AGG.S57678",
+          "status": "retrievable",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5421102",
+          "claim": "The timing is genuinely unsettled and the paper says so rather than rounding it. Fossils more similar to modern dogs date to 14,000-17,000 years ago; whole-genome divergence estimates run 13,000-32,000 years ago and mtDNA anywhere from 5,400 to over 100,000; the authors place the actual domestication 'somewhere in between 15,000 and 30,000 ya'. On what was selected for: the behavioural genes under selection are response to stress, fear and defence, and a reduced fear response is offered as a candidate driver of domestication - not attachment itself. Fox selection experiments are cited as showing phenotypic change is achievable within twenty generations under selection for tameness."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {

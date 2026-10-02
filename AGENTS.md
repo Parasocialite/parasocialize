@@ -409,10 +409,20 @@ Board must reconcile to 175. `add_source.py` is authoritative.
      *removes a gap from the page* rather than adding a number to a chart, so
      it is the only one a reader is directly misled by.
    - **The sourcing work is still owed.** All six are real claims with a
-     sourceable spine — `the-dog` on domestication, `the-coach` on coaching
-     effects, `comfort-watch` on rewatching, `continuity` on the streaming
-     schedule change, `deepfake-grief` on griefbots. Flipping the flag is the
-     honest interim state, not the fix.
+     sourceable spine. **`the-dog` is done**: Parker & Gilbert (2015),
+     *Advances in Genomics and Genetics* 5, 239–255, PMC5421102 — verified by
+     fetching it, not from a search snippet. It carries two findings the entry
+     did not have. First, the date is genuinely unsettled: fossils closer to
+     modern dogs run 14,000–17,000 ya, whole-genome divergence 13,000–32,000,
+     mtDNA 5,400 to over 100,000, and the authors place domestication "somewhere
+     in between 15,000 and 30,000 ya". Second — and this corrected the entry —
+     the genes under selection are **response to stress, fear and defence**,
+     with a reduced fear response offered as the candidate driver. The entry had
+     claimed the species was "selected partly for forming attachment", which is
+     the stronger and less supported thing; the summary now says what the source
+     says and the argument stays in `significance`.
+     **Still owed**: `the-coach`, `the-landlord`, `comfort-watch`,
+     `continuity`, `deepfake-grief`, plus `dere` and `the-transfer`.
    - `the-neighbour` was already sound (Granovetter 1973 with a DOI). `dere`
      and `the-transfer` correctly showed the gap already.
 5. **The 94 unopenable `retrievable` records — closed, with a queue.** The
