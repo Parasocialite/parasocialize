@@ -1528,15 +1528,25 @@ def build_taxonomy(enc, data):
                 f'<span class="tx-r">{esc(v["why"])}</span></a></li>')
         return "".join(out)
 
+    # The anchor was stored as a key into _literature and the page was printing
+    # the key, so the reader saw "ANCHORED - HORTON-WOHL-1956": something shaped
+    # like a citation that cannot be followed. It now prints a human label and
+    # links to the full reference in the Sources section.
+    labels = tax.get("_anchor_labels") or {}
+
+    def anchor_span(key, cls="tx-anchor"):
+        if not key:
+            return ""
+        label = labels.get(key, key)
+        return (f'<span class="{cls}">anchored · '
+                f'<a href="#tx-src-{esc(key)}">{esc(label)}</a></span>')
+
     blocks = []
     for a in tax["attachment"]:
         subs = []
         for s in a["sub"]:
             n = sub_n.get(s["id"], 0)
-            anchor = ""
-            if s.get("anchor"):
-                anchor = (f'<span class="tx-anchor">'
-                          f'anchored · {esc(s["anchor"])}</span>')
+            anchor = anchor_span(s.get("anchor"))
             note = f'<p class="tx-note">{esc(s["note"])}</p>' if s.get("note") else ""
             empty = ""
             if n == 0:
@@ -1546,10 +1556,25 @@ def build_taxonomy(enc, data):
                          'its place, and both are worth knowing.</p>')
             rows = entry_rows(s["id"])
             body = (f'<ul class="tx-entries">{rows}</ul>' if rows else "")
+            # The four fields are the classification doing work, not a
+            # gloss on it. A definition cannot be applied to anything; the
+            # test is what a person needs at 2am deciding where a new entry
+            # goes, and `not` is what stops the list growing sideways.
+            triad = ""
+            if s.get("test") or s.get("not") or s.get("mechanism"):
+                cells = ""
+                for label, key, cls in (("Test", "test", "tx-test"),
+                                        ("Not", "not", "tx-not"),
+                                        ("Mechanism", "mechanism", "tx-mech")):
+                    if s.get(key):
+                        cells += (f'<div class="tx-triad-c {cls}">'
+                                  f'<span class="tx-triad-k">{label}</span>'
+                                  f'<p>{esc(s[key])}</p></div>')
+                triad = f'<div class="tx-triad">{cells}</div>'
             subs.append(f"""<details class="tx-sub" id="tx-{esc(s['id'])}">
       <summary><span class="tx-name">{esc(s['name'])}</span>
         <span class="tx-n">{n}</span></summary>
-      <p class="tx-def">{esc(s['def'])}</p>{note}{anchor}{empty}{body}
+      <p class="tx-def">{esc(s['def'])}</p>{triad}{note}{anchor}{empty}{body}
     </details>""")
         n = cat_n.get(a["id"], 0)
         sn = story_n.get(a["id"], 0)
@@ -1563,14 +1588,13 @@ def build_taxonomy(enc, data):
     regs = []
     for g in tax["register"]:
         note = f'<p class="tx-note">{esc(g["note"])}</p>' if g.get("note") else ""
-        anchor = (f'<span class="tx-anchor">anchored · {esc(g["anchor"])}</span>'
-                  if g.get("anchor") else "")
         regs.append(f"""<details class="tx-reg" id="tx-{esc(g['id'])}">
   <summary><b>{esc(g['name'])}</b></summary>
-  <p class="tx-def">{esc(g['def'])}</p>{note}{anchor}
+  <p class="tx-def">{esc(g['def'])}</p>{note}{anchor_span(g.get('anchor'))}
 </details>""")
 
-    lit = "".join(f'<li><b>{esc(k)}</b> — {esc(v)}</li>'
+    lit = "".join(f'<li id="tx-src-{esc(k)}"><b>{esc(labels.get(k, k))}</b> '
+                  f'<span class="tx-lit-full">{esc(v)}</span></li>'
                   for k, v in tax["_literature"].items()
                   if k != "note")
     lit_note = esc(tax["_literature"]["note"])

@@ -87,6 +87,25 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   entry. They are reported as empty. Moving one entry into one of them would
   make the distribution tidier and the classification a lie, which is the same
   failure as a plausible-looking citation.
+- **A JSON file containing half the categories is still valid JSON containing
+  half the categories.** Expanding the 38 sub-categories was done by writing
+  `data/taxonomy.json` wholesale from a template, which silently dropped four of
+  the eight categories and 19 sub-categories. Nothing errored, the build would
+  have gone green on a taxonomy page missing a third of itself, and the only
+  reason it was caught is that the category count was checked against the
+  previous value immediately afterwards. **Merge into the committed file; never
+  regenerate it from a template.** Same family as the 94 unopenable records: the
+  output looks right and means less than it appears to. When editing any
+  hand-maintained corpus file, assert the count before and after and refuse to
+  write if it fell.
+- **An identifier printed where a reference belongs reads as a citation.** The
+  anchors were keys into `_literature` — `horton-wohl-1956` — and the page
+  uppercased them, so readers saw `ANCHORED · HORTON-WOHL-1956`: shaped exactly
+  like a source, impossible to follow. `_anchor_labels` now gives each one a
+  human label and links to the full reference, and `verify_taxonomy.py` refuses
+  an anchor that does not resolve. **Whenever a key is shown to a reader, ask
+  what it would mean to somebody who has never seen the database.** Third
+  instance of the "field that promises more than it keeps" family.
 - `tools/episode.py` writes `ffmpeg.txt` with the `-vsync` note inline on the
   command line, so literal copy-paste truncates the command. Use `HOWTO.txt`.
 - **Naming a font in CSS is not evidence the font loaded.** This bit three
@@ -146,9 +165,13 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   printed on the page rather than kept in a commit message, so a placement can
   be argued with instead of merely trusted.
 - `tools/verify_taxonomy.py` — asserts the structure and reports sub-categories
-  with no entry in them. Five of 38 are empty and are reported rather than
-  filled: forcing an entry in to make a distribution look even is the same move
-  as inventing a plausible-looking source.
+  with no entry in them. It also requires every sub-category to carry a `test`
+  and a `not` of real length, and every anchor to resolve to a labelled
+  reference: a definition can be read but cannot be used to classify anything,
+  so the field that does the work is the question a person asks at 2am when
+  deciding where a new entry goes. Five of 38 are empty and are reported rather
+  than filled: forcing an entry in to make a distribution look even is the same
+  move as inventing a plausible-looking source.
 - The ten sections still exist and are **not** to be renumbered. A section is a
   place to look; a category is a thing to think about. `/taxonomy/` publishes the
   mapping between them.

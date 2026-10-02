@@ -1,15 +1,24 @@
 """Check the taxonomy is internally sound and say what it covers.
 
-Three things worth asserting rather than assuming:
+Four things worth asserting rather than assuming:
   1. every category and every sub-category is actually defined
-  2. every hand assignment points at a real entry and a real sub-category,
+  2. every sub-category can actually be *applied* - which means it has a test
+     and a `not`, not just a definition
+  3. every hand assignment points at a real entry and a real sub-category,
      and the sub-category belongs to the category claimed
-  3. no sub-category is empty without that being recorded deliberately
+  4. no sub-category is empty without that being recorded deliberately
 
 The third is the one that matters. An empty sub-category is a hole in the corpus
 or a category that does not earn its place, and both need to be visible. A
 taxonomy that quietly drops its own weak parts is a taxonomy that will be
 believed when it should not be.
+
+On the second: a definition cannot be used to classify anything. It can only be
+read. The field that does the work is the test - the question a person actually
+needs answered when deciding where a new entry goes - and the `not`, which is
+what stops the list growing sideways as more things get added. Requiring them by
+name, and requiring them to be longer than a label, is what stops the taxonomy
+regressing into eight category blurbs with thirty-eight decorative captions.
 """
 import json
 import pathlib
@@ -33,13 +42,48 @@ for a in tax["attachment"]:
         if k not in a or (k != "sub" and not str(a[k]).strip()):
             problems.append(f"{a.get('id')}: missing {k}")
 for sid, s in SUBS.items():
-    for k in ("id", "name", "def"):
+    for k in ("id", "name", "def", "test", "not", "mechanism"):
         if k not in s or not str(s[k]).strip():
             problems.append(f"{sid}: missing {k}")
+    # A test shorter than a sentence is a label, not a test. It is the same
+    # failure as a citation that only sounds like one, so it is checked by
+    # length rather than trusted.
+    for k, floor in (("def", 80), ("test", 80), ("not", 80), ("mechanism", 80)):
+        if len(str(s.get(k, ""))) < floor:
+            problems.append(f"{sid}: {k} is under {floor} chars "
+                            f"({len(str(s.get(k, '')))}) - a label, not a test")
 for r in tax["register"]:
     for k in ("id", "name", "def"):
         if k not in r or not str(r[k]).strip():
             problems.append(f"register/{r.get('id')}: missing {k}")
+
+# An anchor is a promise that a source exists. It is stored as a key into
+# _literature and the page prints a label and links to the reference, so a key
+# with no entry renders as something shaped like a citation that cannot be
+# followed - the same defect as a `retrievable` status with no URL, which is
+# how 94 records ended up claiming to be locatable.
+LIT = tax["_literature"]
+LABELS = tax.get("_anchor_labels") or {}
+anchored = []
+for sid, s in SUBS.items():
+    k = s.get("anchor")
+    if k:
+        anchored.append(sid)
+        if k not in LIT:
+            problems.append(f"{sid}: anchored to {k!r}, which is not in _literature")
+        if k not in LABELS:
+            problems.append(f"{sid}: anchored to {k!r}, which has no human label")
+for r in tax["register"]:
+    k = r.get("anchor")
+    if k:
+        anchored.append("register/" + r["id"])
+        if k not in LIT:
+            problems.append(f"register/{r['id']}: anchored to {k!r}, not in _literature")
+        if k not in LABELS:
+            problems.append(f"register/{r['id']}: anchored to {k!r}, no human label")
+for k in LABELS:
+    if k not in LIT:
+        problems.append(f"_anchor_labels has {k!r}, which has no _literature entry")
 
 byid = {e["id"]: e for e in enc["entries"]}
 for eid, v in pla["assignments"].items():
@@ -79,8 +123,11 @@ print("=" * 64)
 if problems:
     for p in problems:
         print("  PROBLEM:", p)
+    raise SystemExit(f"taxonomy: {len(problems)} problems")
 else:
     print("  every category, sub-category and register is defined")
+    print("  every sub-category has a test and a 'not' that can exclude something")
+    print("  every anchor resolves to a real reference and prints a label")
     print("  every hand assignment points at a real entry and a real place")
 
 nsub = len(SUBS)
