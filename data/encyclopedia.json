@@ -2384,7 +2384,8 @@
       ],
       "source": "Weizenbaum, 1966",
       "media_inferred": true,
-      "provenance": "sourced"
+      "provenance": "sourced",
+      "video_seconds": 42.0
     },
     {
       "id": "eliza-trio",
@@ -3546,7 +3547,8 @@
       ],
       "media_inferred": true,
       "provenance": "sourced",
-      "source": ""
+      "source": "",
+      "video_seconds": 53.7
     },
     {
       "id": "stalker-law",
@@ -7394,7 +7396,8 @@
       ],
       "source": "VShojo, 2022",
       "media_inferred": true,
-      "provenance": "sourced"
+      "provenance": "sourced",
+      "video_seconds": 63.4
     },
     {
       "id": "digital-bereavement",

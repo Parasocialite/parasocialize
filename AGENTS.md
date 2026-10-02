@@ -205,6 +205,20 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   fetches anything at all — baking data in at build time is the only shape that
   cannot silently arrive empty. Confirmed red on the original defect
   reintroduced verbatim.
+- **A string that only runs after the thing it describes changes is a string
+  nobody checks.** The Watch block called every episode "the fifty-second
+  version" — and the three rendered episodes are 42.0s, 53.7s and 63.4s, so it
+  was wrong for all of them. It survived because the block only renders once a
+  `video` URL exists on an entry, and none does. AGENTS had recorded the bug as
+  "wrong for 53-64s episodes", which was itself wrong: it missed the short one.
+  **Read the artefact, not the intent** — the mp4 header had the answer the
+  whole time. Durations now come from `tools/set_video_seconds.py` reading that
+  header, and the audit refuses a published video that cannot state a length.
+- **A test that restores its own data must assert it did.** Testing the Watch
+  block means writing fake `video` URLs into `data/encyclopedia.json`, building,
+  reading the pages, and putting the data back. The teardown is the part that
+  gets skipped, so it checks the file afterwards rather than trusting it — and
+  rebuilds, because the generated pages outlive the data that made them.
 - **A filter that has nothing to filter still works.** The old desk's sort and
   search ran correctly over an empty array, so the script was never broken and
   never wrong-looking. Rewritten JS has to be driven against the real generated
@@ -349,12 +363,22 @@ Board must reconcile to 175. `add_source.py` is authoritative.
      `file://` page cannot be trusted to have completed a network fetch.
    - `tools/verify_measure.py` is the gate for all of it, and it is a *pixel*
      check, not a wrap check. Run it before trusting any typography change.
-3. **Entry Watch label** is hardcoded "fifty-second version" — wrong for 53-64s
-   episodes. Make it data-driven or duration-neutral before publishing. Note the
-   block still renders nowhere: **no entry has a `video` field**, and `episode/`
-   is in `build_deploy.EXCLUDE_NAMES`, so nothing serves video. Uploads go to
-   YouTube by hand from the local drive; the channel is **@Parasocialdude**
-   (long-standing, keep it) while the site is Parasocialize and IG/TikTok are
+3. **~~Entry Watch label~~ — done, and it was worse than recorded.** The block
+   was hardcoded `"fifty-second version"`. Reading the rendered files (an mp4
+   carries its duration in its `mvhd` atom — no codec, no ffmpeg needed) shows
+   the three episodes are **42.0s, 53.7s and 63.4s**, so the label was wrong for
+   *all three*, not just the 53–64s pair this item used to describe. Nothing
+   noticed because no entry carries a `video` yet, so the string had never
+   executed.
+   Now: `video_seconds` per entry, filled by `tools/set_video_seconds.py`
+   reading the actual file; the wording rounds to what a reader can hold in
+   their head ("The 42-second version", "The one-minute version") rather than to
+   the second, which would go stale on the next re-cut; and `link_audit.py`
+   **fails** on a published video with no stated length. Also fixed: a stray
+   "The The" produced by the article living in both the label and the template.
+   Still true: **no entry has a `video` field**, `episode/` is excluded from the
+   deploy, and uploads go to YouTube by hand from the local drive; the channel
+   is **@Parasocialdude** while the site is Parasocialize and IG/TikTok are
    parasocialite. **No social links exist anywhere** — not in `index.html`, not
    in `build_cards.py`, not in `build_deploy.py`.
 4. **Tier 1 citations**, resting on inference rather than evidence: `dere`

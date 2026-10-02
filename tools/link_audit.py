@@ -226,7 +226,28 @@ def main():
         if sw.get("model", "").startswith("none"):
             w("no model key set - everything is filed raw with no lens")
 
-    # 5. queue growing unchecked?
+    # 6. does a published video state its own length?
+    #
+    # The Watch block used to call every episode "the fifty-second version".
+    # The three that exist run 42.0s, 53.7s and 63.4s, so it was wrong for all
+    # of them and nothing noticed, because the block only renders once a URL is
+    # pasted into an entry and none had one. A published video that cannot say
+    # how long it is is the same shape of problem: a label that is not tied to
+    # the thing it describes.
+    _enc = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
+    vids = [e for e in _enc["entries"] if (e.get("video") or "").strip()]
+    nostated = [e["id"] for e in vids if not e.get("video_seconds")]
+    for eid in nostated:
+        p(f"{eid}: a published video with no video_seconds - the Watch block "
+          "cannot say how long it is. Run tools\\set_video_seconds.py --apply")
+    # and the reverse: a duration recorded against a video that does not exist
+    orphan = [e["id"] for e in _enc["entries"]
+              if e.get("video_seconds") and not (e.get("video") or "").strip()]
+    if orphan:
+        w(f"{len(orphan)} entries record a video_seconds but have no video url "
+          f"({', '.join(orphan[:4])}) - the cut exists, it is just not published")
+
+    # 7. queue growing unchecked?
     q_path = ROOT / "data" / "queue.json"
     if q_path.exists():
         q = json.loads(q_path.read_text(encoding="utf-8"))

@@ -2241,6 +2241,39 @@ def entry_hero(ent, manifest, depth=1):
             f'loading="lazy" decoding="async"></figure>')
 
 
+def _runtime_words(secs):
+    """Describe a video's length truthfully, or admit it is not known.
+
+    The old Watch block called every episode "the fifty-second version". The
+    three that exist run 42.0s, 53.7s and 63.4s, so the label was wrong for all
+    of them - it was a string that only executes once somebody pastes in a
+    YouTube URL, which is precisely why nobody had caught it. AGENTS had recorded
+    it as "wrong for 53-64s episodes", which forgot the short one.
+
+    Rounds to something a reader can hold in their head rather than to the
+    second: the exact figure belongs in the metadata, and a per-second claim
+    goes stale the moment the narration is re-cut. Under fifty seconds the
+    seconds are worth naming, because "42 seconds" tells a reader whether to
+    commit. Past that it is "about a minute", which is true of both 53 and 63.
+    """
+    if not secs:
+        return ("The short version",
+                "Vertical. The short version of this entry, and the way most "
+                "people meet it.")
+    s = int(round(float(secs)))
+    if s < 50:
+        return (f"The {s}-second version",
+                f"{s} seconds, vertical. The short version of this entry, and "
+                f"the way most people meet it.")
+    if s < 75:
+        return ("The one-minute version",
+                "About a minute, vertical. The short version of this entry, "
+                "and the way most people meet it.")
+    m = max(1, round(s / 60))
+    return (f"The {m}-minute version",
+            f"About {m} minutes, vertical.")
+
+
 def build_entry(ent, enc, data, manifest=None):
     # NB: the module-level escape helper is also called esc(). Do not shadow it.
     # depth 1, not 2. Entries are written as encyclopedia/<id>.html, so the root
@@ -2257,10 +2290,21 @@ def build_entry(ent, enc, data, manifest=None):
     lanes = ent.get("lanes") or []
     med = ent.get("medium") or []
     year = ent.get("year")
-    # What to call the video in the link text. Taken from the entry's own title
-    # rather than hardcoded, so an entry that gets an episode of a different
-    # shape does not end up labelled "the ELIZA" next to something unrelated.
-    vid_label = "fifty-second version"
+    # What to call the video. This was hardcoded "fifty-second version", and
+    # that was wrong for *every* episode that exists: the rendered mp4s are
+    # 42.0s (eliza), 53.7s (shipping) and 63.4s (vshojo). AGENTS had recorded it
+    # as "wrong for 53-64s episodes", which understated it by forgetting the
+    # short one. Nothing rendered, so nothing looked wrong - a false claim in a
+    # string that only executes once somebody pastes in a YouTube URL.
+    #
+    # So the length comes from the entry's own `video_seconds`, which
+    # `tools/set_video_seconds.py` fills by reading the rendered file's mvhd
+    # atom. Data rather than prose, because prose drifts the moment the narration
+    # is re-cut. With no duration recorded the block says so rather than
+    # guessing, and `link_audit.py` refuses a published video that has no
+    # duration to state.
+    vsec = ent.get("video_seconds")
+    vid_label, vid_note = _runtime_words(vsec)
 
     # ---- outgoing and incoming edges -----------------------------------------
     out_edges = [(x["to"], x.get("type", "related")) for x in rels
@@ -2466,9 +2510,8 @@ def build_entry(ent, enc, data, manifest=None):
         prov += f"""
   <div class="ent-video">
     <p class="kicker">Watch</p>
-    <p><a class="btn btn-solid" href="{esc(vid)}">The {esc(vid_label)}</a></p>
-    <p class="countline">Fifty seconds, vertical. The short version of this entry,
-    and the way most people meet it.</p>
+    <p><a class="btn btn-solid" href="{esc(vid)}">{esc(vid_label)}</a></p>
+    <p class="countline">{esc(vid_note)}</p>
   </div>"""
 
     # ---- where it sits in time ---------------------------------------------
