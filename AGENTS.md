@@ -149,6 +149,17 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   `verify_narrow.py` reports the *innermost* offender and picks the advice to
   match — a diagnostic that names `main` instead of the grid sends you to the
   wrong file.
+- **A flex row will happily lay out three paragraphs side by side.**
+  `.sec-head` is a two-column row (text block + mascot), and six pages put
+  block elements straight into it without the `.sec-head-txt` wrapper. Flex did
+  what flex does: `/credits/` put its kicker, its heading and its standfirst
+  shoulder to shoulder and overflowed a 320px viewport. It now stacks by
+  default and only goes two-column when it actually contains a `.sec-head-txt`,
+  so the mistake is survivable rather than silent — and a browser without
+  `:has()` gets the stack, which is the right reading anyway. **The five pages
+  that only had two children were wrong at desktop width too** and did not know
+  it; fixing the narrow case revealed it. Check that a layout fix did not just
+  move the problem, and check the width that was never broken as well.
 - **An identifier printed where a reference belongs reads as a citation.** The
   anchors were keys into `_literature` — `horton-wohl-1956` — and the page
   uppercased them, so readers saw `ANCHORED · HORTON-WOHL-1956`: shaped exactly

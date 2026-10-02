@@ -189,7 +189,16 @@ img{max-width:100%;display:block}
 }
 
 /* Iyi in a section head: the section's own expression, at a size that reads */
-.sec-head{display:flex;align-items:flex-start;justify-content:space-between;gap:26px}
+/* .sec-head is a two-column row: a text block and the mascot. Six pages put
+   three block elements straight into it - kicker, h1, standfirst - and flex
+   then laid them out side by side in a row. On /credits/ that put three pieces
+   of prose shoulder to shoulder and pushed the document 33px past a 320px
+   viewport, where body's overflow-x:hidden clipped it.
+   So: stack by default, and go two-column only when there is actually a text
+   block and a mascot to sit beside. A browser without :has() gets the stack,
+   which is the sensible reading of those three elements anyway. */
+.sec-head{display:block}
+.sec-head:has(.sec-head-txt){display:flex;align-items:flex-start;justify-content:space-between;gap:26px}
 .sec-head-txt{min-width:0;flex:1}
 .sec-head-iyi{flex:none;opacity:.9;margin-top:2px}
 @media (max-width:640px){
@@ -621,10 +630,16 @@ table.db a:hover{color:var(--hot)}
 .story-lg h3{font-size:1.2rem}
 
 /* tags */
+/* Not nowrap. The short labels (GRIEF, WORTH YOUR TIME) stay on one line and
+   the pill looks identical, but a tag that also carries a headline runs ~48
+   characters, and at 320px nowrap meant the pill was clipped by body's
+   overflow-x:hidden with the reader none the wiser. Wrapping keeps the
+   information, which is the whole point of the pill. */
 .tag{
   display:inline-flex;align-items:center;gap:5px;font-family:var(--label);
   font-size:.53rem;letter-spacing:.16em;text-transform:uppercase;
-  padding:3px 8px;border-radius:99px;white-space:nowrap;
+  padding:3px 8px;border-radius:99px;
+  white-space:normal;max-width:100%;overflow-wrap:break-word;
 }
 .tag-aisle{background:color-mix(in srgb,var(--c,var(--warm)) 20%,transparent);
   color:var(--c,var(--warm));border:1px solid color-mix(in srgb,var(--c,var(--warm)) 42%,transparent)}
