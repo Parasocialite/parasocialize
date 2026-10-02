@@ -324,8 +324,13 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    - Note `exa.ai` is already an accepted locator class here (6 records,
      against 29 doi.org). That is a separate editorial question about what a
      stable locator is, and it was not widened here.
-6. **Lane re-seed** analysed, unapplied: 30 additions, 17 corrections, 0 removals.
-   Needs approval.
+6. **Lane re-seed — the analysis does not exist.** "30 additions, 17
+   corrections, 0 removals" is recorded here and in `COVERAGE-MAP.md` as
+   analysed and unapplied, but there is no script, no data file and no commit
+   in the whole history containing it — only those sentences. `lanes` is also a
+   legacy facet (9128ece dropped "aisle" for "section"). **Not reconstructed**,
+   because inventing 30 additions to a curated editorial list is worse than
+   the gap. Either redo it and commit the diff, or delete the claim.
 7. **~~`trading-stamps` dated 1880~~ — resolved.** It is now 1890–1891. Every
    source the entry carried said so, including its own first citation, whose
    title spans *1891–2008*; the sources genuinely split between 1890

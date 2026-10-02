@@ -193,13 +193,32 @@ Twenty-two entries remain unsourced. Ordered by degree in the relationship graph
   because `build_cards.is_sourced()` does not read it. **That is not the cause.**
   17 entries carry the legacy field; the overlap with the 35 unsourced entries is
   **zero**, so it cannot inflate anything. Do not re-investigate this.
-- **The real gap is in the credits, not the backlog.** 94 of 292 source records
-  claim `status: retrievable` with no `url`, which by the site's own definition
-  means nobody can open them — yet they render as standing behind their entry.
-  `tools/citation_audit.py` tracks this and `add_source.py` now refuses new
-  instances; the existing 94 need an editorial decision (find the URLs, or
-  downgrade to `unverified`).
-- **`trading-stamps`** is dated 1880; sources give first use 1890–91. Needs a
-  decision.
-- **The lane re-seed** (30 additions, 17 corrections) is analysed and unapplied.
+- **The real gap was in the credits, not the backlog — now closed.** 94 of 292
+  source records claimed `status: retrievable` with no `url`, which by the
+  site's own definition means nobody can open them — yet they rendered as
+   standing behind their entry. Resolved by correcting the claims before
+   chasing accuracy: 4 records reused a locator the corpus already accepted for
+  the identical citation, and the remaining **90 were downgraded to
+  `unverified`**, which is what that status means. The baseline is ratcheted
+  from 94 to **0** and confirmed still red on a single false claim.
+   The remaining debt is **83 unique sources with no locator** (the 94 records
+  were only 83 sources — the same paper is cited on several entries). Cheap
+  wins are books with publisher pages and anything with a DOI; the student
+  papers, 1994 newspaper items and paywalled dissertations are not.
+- **`trading-stamps` — resolved.** Was dated 1880; every source it carried said
+  1890–91, including its own first citation, whose title spans *1891–2008*.
+  Now 1890–1891, because the sources genuinely split between 1890 and 1891 and
+  a single year would be a precision nobody has. Its first citation had also
+  had a review note written over its `claim`, which is why the wrong date
+  survived review.
+- **The lane re-seed cannot be applied: the analysis does not exist.** Both this
+  file and `AGENTS.md` record "30 additions, 17 corrections, 0 removals" as
+  analysed and unapplied, but there is no script, no data file and no commit
+  anywhere in the history containing it — only the two sentences. `lanes` is
+  also a legacy facet (commit 9128ece dropped "aisle" for "section"), so part
+  of the vocabulary has moved on. This is now a record making a claim that
+  cannot be checked, which is the failure mode this file exists to catch. Either
+  redo the analysis and commit it as a diff, or delete the claim. **Not
+  reconstructed here**, because inventing 30 additions to a curated editorial
+  list is the wrong kind of help.
 - **`dist` is well ahead of production.**
