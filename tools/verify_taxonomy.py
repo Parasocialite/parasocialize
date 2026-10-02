@@ -165,15 +165,19 @@ print()
 print(f"  {covered} of {nsub} sub-categories hold at least one hand-placed entry.")
 
 print()
+empty = [sid for sid in SUBS if not handsub.get(sid)]
 print("  DELIBERATELY EMPTY - no entry in the corpus fits:")
-for sid, s in SUBS.items():
-    if not handsub.get(sid):
-        print(f"    {sid:<26} {s.get('note', 'no corpus coverage yet')[:66]}")
+for sid in empty:
+    print(f"    {sid:<26} {SUBS[sid].get('note', 'no corpus coverage yet')[:66]}")
 print()
 print("  These are reported by placement count, not by whether the file")
 print("  listed examples for them, because an example list is a claim about")
-print("  the category while a placement is a claim about the corpus. Five of")
-print("  38 have no entry. That is the taxonomy admitting the gap rather than")
+# counted, not typed. This paragraph used to say "Five of 38" as a literal and
+# would have kept saying it after a sub-category emptied or a new one arrived -
+# a report about the data that does not move when the data moves, which is the
+# defect this file exists to catch.
+print(f"  the category while a placement is a claim about the corpus. {len(empty)} of")
+print(f"  {nsub} have no entry. That is the taxonomy admitting the gap rather than")
 print("  quietly dropping its own weak parts, and it is also the list of")
 print("  writing still owed. Nothing should be forced into them to make a")
 print("  chart look even.")
