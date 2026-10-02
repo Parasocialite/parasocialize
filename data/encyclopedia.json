@@ -716,7 +716,7 @@
       "id": "trading-stamps",
       "title": "The trading stamp",
       "kind": "mechanism",
-      "year": 1880,
+      "year": 1890,
       "era": "Retail",
       "lanes": [
         "application",
@@ -731,7 +731,7 @@
       "medium": [
         "history"
       ],
-      "year_end": null,
+      "year_end": 1891,
       "relations": [
         {
           "to": "green-shield",
@@ -748,7 +748,7 @@
       ],
       "sources": [
         {
-          "claim": "DATE PROBLEM: the entry says 1880. The first US issue is Schuster's Department Store, Milwaukee, 1890-91, and S&H Green Stamps launched 1896. Peer-reviewed history runs 1891-2008. The 1880 date looks a decade early",
+          "claim": "A peer-reviewed history of the mechanism in the United States, covering 1891-2008. The title's own span is what dates the entry: the documented run of trading stamps begins in 1891, not the decade earlier this entry previously claimed.",
           "citation": "Elnahla, N., & Neilson, L. C. Getting something for nothing: the history of trading stamps in the United States of America (1891-2008).",
           "url": "",
           "status": "retrievable"

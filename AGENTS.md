@@ -300,8 +300,15 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    "140 sourced" means on the board.
 6. **Lane re-seed** analysed, unapplied: 30 additions, 17 corrections, 0 removals.
    Needs approval.
-7. **`trading-stamps`** dated 1880; sources give first use 1890-91. Needs a
-   decision.
+7. **~~`trading-stamps` dated 1880~~ — resolved.** It is now 1890–1891. Every
+   source the entry carried said so, including its own first citation, whose
+   title spans *1891–2008*; the sources genuinely split between 1890
+   (Encyclopedia.com) and 1891 (Clapp, *Ohio State Law Journal* 23(1), 1962),
+   which is the case where a single year would be a precision nobody has. The
+   entry had also had a review note written **over** that citation's `claim`,
+   so the entry no longer said what its own source supported — the reason the
+   wrong date survived review. `citation_audit.py` counts did not move: the
+   empty URL on that record is one of the 94 in item 5.
 8. **Membership tier** has no payment processor and no authentication. Do not
    describe it as an automated service — the sweeper has never run.
 9. **The other 172 episodes.** All 175 entries carry `summary` and
