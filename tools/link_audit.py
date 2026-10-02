@@ -94,11 +94,17 @@ def main():
     # Two failure modes, not one. The original pattern only matched copy that
     # names a frequency outright ("swept hourly"), so it passed a site whose
     # mood notes read "the sweep is late and the clock is red" and "seven past,
-    # and asleep on the job" - both of which promise a schedule just as clearly,
-    # and neither of which is true, because the sweeper has never run. An audit
-    # that certifies a lie is worse than no audit, because it gets relied on.
+    # and asleep on the job" - both of which promise a schedule just as clearly.
     # The implied-cadence group below catches claims that assume a running
     # process without ever stating an interval.
+    #
+    # What this check must NOT do is assert a fact about the sweeper. It used to
+    # print "the sweeper has never run" in the clean case - and the sweep.json
+    # check twenty lines below reads that same file and reported an age, so one
+    # run printed both "has never run" and "last run 70h ago". A hardcoded belief
+    # about the pipeline is wrong the moment the pipeline changes, and a gate
+    # that states a falsehood is worse than no gate, because it gets relied on.
+    # Say what was observed; let the reader of the output judge it.
     FRESH_CLAIM = re.compile(
         r"swept\s+hourly|sweep\w*\s+(?:hourly|every\s+(?:an\s+)?hour)|"
         r"updated\s+(?:hourly|every\s+hour)|refreshed\s+(?:hourly|every\s+hour)|"
@@ -115,6 +121,25 @@ def main():
         r"sweep\s+is\s+(?:late|running|due|overdue)|"
         r"(?:runs?|reads?|scans?|checks?|polls?|files|filing|"
         r"updat\w+|refresh\w+)\s+(?:hourly|every\s+(?:an\s+)?hour)\b|"
+        # ...and the same verb may be separated from the interval by a stated
+        # quantity. Without this the check missed the site's own paid page,
+        # which sells "a machine that reads a hundred sources an hour": the
+        # verb and "an hour" are not adjacent, so the pattern above sailed
+        # straight past the one sentence that most needed catching.
+        #
+        # Requiring a number-like token in the gap is what keeps this from
+        # becoming another "seven pastors": "she reads to the child an hour
+        # every evening" has a verb and an interval and is not a promise
+        # about the site. Measured across all 534 published pages, this adds
+        # exactly one flagged line - the membership claim - and no false
+        # positives.
+        r"(?:runs?|reads?|scans?|checks?|polls?|files|filing|updat\w+|"
+        r"refresh\w+|pulls?|fetches?|collects?)\s+"
+        r"(?:\d[\d,.]*|a\s+hundred|hundreds?|thousands?|scores?|millions?|"
+        r"dozens?|two|three|four|five|six|seven|eight|nine|ten|couple|"
+        r"hundred|thousand|dozen|score|\w+\s+sources?|\w+\s+feeds?|"
+        r"\w+\s+items?|\w+\s+pages?|\w+\s+links?)\s+"
+        r"(?:[\w-]+\s+){0,2}?an\s+hour\b|"
         r"constantly\s+updated|always\s+current|never\s+stale", re.I)
     claims = []
     for hp in sorted(ROOT.rglob("*.html")):
@@ -131,13 +156,13 @@ def main():
         p(f"{len(claims)} page(s) claim a sweep or refresh schedule the site does "
           f"not run: {claims[0]}")
     else:
-        w("no page claims a refresh schedule. true: the sweeper has never run, so "
-          "the site does not pretend otherwise")
+        w("no page claims a refresh schedule, so nothing published promises a "
+          "cadence. The pipeline's own state is reported separately below and "
+          "is not assumed here")
 
     sw_path = ROOT / "data" / "sweep.json"
     if not sw_path.exists():
-        w("no sweep.json - the sweeper has never run (a note, not a failure: "
-          "nothing on the site claims otherwise)")
+        w("no data/sweep.json - no sweep has ever been recorded")
     else:
         sw = json.loads(sw_path.read_text(encoding="utf-8"))
         try:

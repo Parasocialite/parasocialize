@@ -309,9 +309,25 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    so the entry no longer said what its own source supported — the reason the
    wrong date survived review. `citation_audit.py` counts did not move: the
    empty URL on that record is one of the 94 in item 5.
-8. **Membership tier** has no payment processor and no authentication. Do not
-   describe it as an automated service — the sweeper has never run.
-9. **The other 172 episodes.** All 175 entries carry `summary` and
+8. **Membership tier** has no payment processor and no authentication. The page
+   says so itself and is right to. Two claims on it were not true and have been
+   corrected against `data/`: it sold "a machine that reads a hundred sources
+   an hour and throws out ninety-four of them" (the last sweep was 70h ago,
+   15 feeds, 88 candidates, **0 rejected**) and "every rejected draft, and why
+   it was rejected" (`data/binned.json` is empty `{}` — nothing has ever been
+   rejected). Now it sells the queue that does exist: 60 items awaiting
+   signoff. Note the premise in the old version of this item was wrong — the
+   sweeper *has* run; `data/sweep.json` records it, and `link_audit.py` was
+   asserting "the sweeper has never run" in its own output while reading that
+   file.
+9. **`/desk/` is an empty room.** It is in the nav as "CLERK'S DESK" and
+   renders dashes for every stat and **zero** queue items: no headline from
+   `data/queue.json` appears anywhere in `dist/`. `data/` is excluded from the
+   deploy, so a client-side fetch cannot fill it — the queue has to be rendered
+   at build time from `queue.json` + `sweep.json`. It also says "What the
+   machine turned down", which is 0. Until this is built, the membership page
+   no longer claims the queue is visible.
+10. **The other 172 episodes.** All 175 entries carry `summary` and
    `significance`, so an episode exists for each and only the hand-written
    `hook` is missing. `tools/episode.py DRAFTS` has 3. Mechanically derivable,
    but a hook is the one line that makes a stranger stop scrolling, so it wants
