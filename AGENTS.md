@@ -26,6 +26,7 @@ python tools\make_zip.py        # reproducible archive -> Desktop
 python tools\add_source.py --apply-provenance
 python tools\citation_audit.py # are the status fields telling the truth
 python tools\verify_taxonomy.py  # is the classification sound and complete
+python tools\verify_narrow.py    # does a generated page overflow at 390px
 python tools\episode.py eliza   # render episode; preserves voice/*.wav
 python tools\verify_measure.py eliza shipping vshojo   # type vs its measure
 python tools\measure_type.py    # regenerate tools/type_metrics.json
@@ -37,6 +38,15 @@ line by differencing the two — so it reads pixels, not the wrap arithmetic. It
 diffs within one document on purpose: differencing two renders of the same file
 lights up on animation noise and measures the wrong thing. Confirm it can still
 fail before believing a clean report.
+
+`verify_narrow.py` is the **gate for anything touching CSS layout**. It measures
+a generated page inside a 390px iframe and fails on horizontal overflow. Getting
+that one number right took three attempts, each of which reported success while
+measuring nothing (see Traps), which is why it asserts its own preconditions
+before it will report anything at all. It needs `build_deploy.py` to have run,
+because it measures `dist/` and measuring the source tree measures nothing. It
+is deliberately not wired into `link_audit.py` — it needs a build and Chrome,
+and a gate that runs on every commit is a gate that eventually gets disabled.
 
 Cite sources via `tools\add_source.py`, not by hand-editing JSON. It validates,
 de-duplicates, refuses thesis entries, and recomputes provenance. One entry per
@@ -98,6 +108,23 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   output looks right and means less than it appears to. When editing any
   hand-maintained corpus file, assert the count before and after and refuse to
   write if it fell.
+- **Measuring a page can fail in the direction that looks like a pass.** Three
+  separate harness bugs produced clean "no overflow at 390px" results, and all
+  three were wrong: Windows clamps Chrome's `--window-size` to ~500px so 390
+  silently measured 500; `--virtual-time-budget` with `--screenshot` returns a
+  blank 5KB PNG that looks like a successful capture; and serving the preview
+  from `dist/<subdir>/` 404'd every stylesheet, because Chrome normalises
+  `../css/styles.css` to `/css/styles.css` *before sending*. **An unstyled page
+  has no grid, so it reports no overflow for arbitrary content** — a pass
+  manufactured by a missing file. `tools/verify_narrow.py` therefore asserts its
+  own preconditions before reporting: it prints the viewport it actually got and
+  refuses to produce a result unless it has read a computed style proving the
+  stylesheet is live. A measurement is only worth its preconditions.
+- **Distinct vertical offsets are rows, not columns.** The narrow harness
+  initially reported `colsPerTriad: 3` for a layout that was stacked in one
+  column, because it was counting unique `top` offsets. The names were wrong in
+  the direction that flattered the result. Read what a metric counts before
+  believing what it says it counts.
 - **An identifier printed where a reference belongs reads as a citation.** The
   anchors were keys into `_literature` — `horton-wohl-1956` — and the page
   uppercased them, so readers saw `ANCHORED · HORTON-WOHL-1956`: shaped exactly
