@@ -1369,6 +1369,14 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .tx-reg>summary{cursor:pointer;font-size:.95rem;list-style:none}
 .tx-reg>summary::-webkit-details-marker{display:none}
 .tx-reg .tx-def,.tx-reg .tx-note,.tx-reg .tx-anchor{padding:0;margin:8px 0 0}
+/* inside a register card the cells must line up with the card's own text.
+   The attachment axis wants the 14px gutter; here it would indent the triad
+   away from the definition it belongs to. The grid also collapses to one
+   column at this width, which is correct - three narrow columns of prose
+   would be worse. */
+.tx-reg .tx-triad{padding:0;margin:11px 0 0}
+.tx-reg .tx-triad-c{padding:9px 11px}
+.tx-reg .tx-triad-c p{font-size:.82rem}
 .tx-lit{list-style:none;margin:12px 0 0;padding:0;max-width:78ch}
 .tx-lit li{border-top:1px solid var(--line2);padding:10px 0;
   font-size:.84rem;line-height:1.6;color:var(--dim)}

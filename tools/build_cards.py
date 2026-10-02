@@ -1588,9 +1588,21 @@ def build_taxonomy(enc, data):
     regs = []
     for g in tax["register"]:
         note = f'<p class="tx-note">{esc(g["note"])}</p>' if g.get("note") else ""
+        # same four fields as the attachment axis: a register you cannot test
+        # is a heading, and a heading cannot be assigned to
+        cells = ""
+        if g.get("test") or g.get("not") or g.get("mechanism"):
+            for label, key, cls in (("Test", "test", "tx-test"),
+                                    ("Not", "not", "tx-not"),
+                                    ("Mechanism", "mechanism", "tx-mech")):
+                if g.get(key):
+                    cells += (f'<div class="tx-triad-c {cls}">'
+                              f'<span class="tx-triad-k">{label}</span>'
+                              f'<p>{esc(g[key])}</p></div>')
+        triad = f'<div class="tx-triad">{cells}</div>' if cells else ""
         regs.append(f"""<details class="tx-reg" id="tx-{esc(g['id'])}">
   <summary><b>{esc(g['name'])}</b></summary>
-  <p class="tx-def">{esc(g['def'])}</p>{note}{anchor_span(g.get('anchor'))}
+  <p class="tx-def">{esc(g['def'])}</p>{triad}{note}{anchor_span(g.get('anchor'))}
 </details>""")
 
     lit = "".join(f'<li id="tx-src-{esc(k)}"><b>{esc(labels.get(k, k))}</b> '
@@ -1611,15 +1623,31 @@ def build_taxonomy(enc, data):
                    f'</summary><p class="tx-def">{esc(m["why"])}</p></details>')
 
     total = len(pla)
+    # Counted from the taxonomy, never typed in. The meta description used to
+    # say "thirty-eight sub-categories and six registers" as literals, which is
+    # a claim about the data that goes stale the moment a sub-category is added
+    # and is invisible when it does. Same defect as a hardcoded count in a
+    # chart legend.
+    n_cat = len(tax["attachment"])
+    n_sub = sum(len(a["sub"]) for a in tax["attachment"])
+    n_reg = len(tax["register"])
+    WORDS = {3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight",
+             9: "nine", 10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen",
+             14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen",
+             18: "eighteen", 19: "nineteen", 20: "twenty", 30: "thirty",
+             38: "thirty-eight", 40: "forty"}
+    words = lambda n: WORDS.get(n, str(n))
+    shape = (f"{words(n_cat)} kinds of object, "
+             f"{words(n_sub)} sub-categories and {words(n_reg)} registers")
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The taxonomy - Parasocialize</title>
-<meta name="description" content="How one-sided attachment is classified: eight kinds of object, thirty-eight sub-categories and six registers, with every entry placed and the reasoning shown.">
+<meta name="description" content="How one-sided attachment is classified: {shape}, with every entry placed and the reasoning shown.">
 <link rel="canonical" href="https://www.parasocialize.com/taxonomy/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The taxonomy - Parasocialize">
-<meta property="og:description" content="Eight kinds of object, thirty-eight sub-categories, six registers. {total} entries placed.">
+<meta property="og:description" content="{words(n_cat).capitalize()} kinds of object, {n_sub} sub-categories, {n_reg} registers. {total} entries placed.">
 {HEAD.format(site=SITE, path="/taxonomy/", otype="website",
              title="The taxonomy - Parasocialize",
              desc="How one-sided attachment is classified.", root=r)}
@@ -1634,9 +1662,9 @@ def build_taxonomy(enc, data):
   <p class="kicker">The taxonomy · {total} entries and {story_total} stories placed</p>
   <h1 class="h-title" style="font-size:clamp(1.9rem,4.6vw,3rem)">What is on the other end</h1>
   <p class="sec-lede" style="max-width:66ch">A parasocial bond is defined by
-  what is on the far side of it. This is that list: eight kinds of object,
-  {sum(len(a['sub']) for a in tax['attachment'])} sub-categories beneath them, and
-  a separate axis for what is <em>happening</em> in the tie. All {total}
+  what is on the far side of it. This is that list: {words(n_cat)} kinds of
+  object, {n_sub} sub-categories beneath them, and {n_reg} registers for what
+  is <em>happening</em> in the tie. All {total}
   encyclopedia entries and all {story_total} stories are placed on it, and the
   reason for each placement is printed rather than kept in a commit message.</p>
   <p class="sec-lede" style="max-width:66ch;margin-top:18px">The previous
@@ -1647,17 +1675,17 @@ def build_taxonomy(enc, data):
 </section>
 
 <section class="section" style="padding-top:0">
-  <p class="kicker">Register · what is happening in the tie</p>
+  <p class="kicker">Register · what is happening in the tie · {n_reg}</p>
   <div class="tx-regs">{''.join(regs)}</div>
 </section>
 
 <section class="section" style="padding-top:0">
-  <p class="kicker">Attachment · who or what is on the other end</p>
+  <p class="kicker">Attachment · who or what is on the other end · {n_cat}</p>
   {''.join(blocks)}
 </section>
 
 <section class="section" style="padding-top:0">
-  <p class="kicker">From the ten sections to the eight categories</p>
+  <p class="kicker">From the ten sections to the {words(n_cat)} categories</p>
   <p class="sec-lede" style="max-width:66ch">{esc(mig["headline"])}</p>
   <div class="tx-mig">{migrows}</div>
   <p class="countline" style="max-width:66ch;margin-top:18px">{esc(mig["counts"])}</p>

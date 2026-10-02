@@ -53,9 +53,13 @@ for sid, s in SUBS.items():
             problems.append(f"{sid}: {k} is under {floor} chars "
                             f"({len(str(s.get(k, '')))}) - a label, not a test")
 for r in tax["register"]:
-    for k in ("id", "name", "def"):
+    for k in ("id", "name", "def", "test", "not", "mechanism"):
         if k not in r or not str(r[k]).strip():
             problems.append(f"register/{r.get('id')}: missing {k}")
+    for k, floor in (("test", 80), ("not", 80), ("mechanism", 80)):
+        if len(str(r.get(k, ""))) < floor:
+            problems.append(f"register/{r.get('id')}: {k} is under {floor} chars "
+                            f"({len(str(r.get(k, '')))}) - a label, not a test")
 
 # An anchor is a promise that a source exists. It is stored as a key into
 # _literature and the page prints a label and links to the reference, so a key
@@ -126,7 +130,8 @@ if problems:
     raise SystemExit(f"taxonomy: {len(problems)} problems")
 else:
     print("  every category, sub-category and register is defined")
-    print("  every sub-category has a test and a 'not' that can exclude something")
+    print("  every sub-category and register has a test and a 'not' that can "
+          "exclude something")
     print("  every anchor resolves to a real reference and prints a label")
     print("  every hand assignment points at a real entry and a real place")
 
