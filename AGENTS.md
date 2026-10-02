@@ -66,6 +66,31 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
 - **Report a defect once, verified.** A claimed arithmetic mismatch was reported
   twice before it was checked against the data. It was a misparse of my own
   verification regex; the arithmetic had been correct throughout.
+- **A missing layer in a drawing ships, because nothing raises.** iYi's iris was
+  defined, given a gradient, and never emitted — the argument was threaded
+  through `pupil()` and then dropped on the floor when the iris moved out to its
+  own group. The eye still rendered, the page still built, and the mood sheet
+  still looked plausible: a bright sclera reads as "fine" whether or not there
+  is an iris behind the pupil. It was found by printing the emitted SVG's
+  circles in paint order, not by looking. `eyes_mkup()` now raises if a
+  non-flat build is called without an iris. **In a character, verify the parts
+  exist, not that the picture looks right.**
+- **Look at the drawing; do not reason about the geometry.** Four successive
+  attempts at the eyelid arc failed on angle direction, and one painted a dark
+  bar across the pupil. Each was geometrically defensible and visually wrong.
+  Render it and look. The same applies to the palette: the old sclera ramp was
+  chosen for a stated reason (warm monochrome ages better than multi-hue) and
+  the reason was sound while the outcome was a pair of breasts — warm mid-value
+  on two large round masses with a low centred dark pupil and a specular above
+  it. **A correct argument can still land on a wrong picture.**
+- **A measurement can be right about the wrong layer.** The eye check failed
+  five times before it was trustworthy, each time confidently: sampling the
+  sclera as a percentile band of the whole eye (caught the lid), using the
+  module's default pupil radius when the mood set its own, averaging a ring
+  that clipped the pupil, treating the pupil as the iris, and reading the wrong
+  tuple index so it printed `panic` six times. Every failure was a confident
+  number about a layer it never sampled. **Print the profile, read the paint
+  order, and confirm the check goes red before believing a green one.**
 - **A status field is a promise. Check what it promises.** `retrievable` means
   "a reader can open this and find it" — so it requires a `url`. 94 of the 292
   records claimed it with an empty `url`, and because `build_cards.is_checked()`
@@ -259,6 +284,19 @@ deliberately excluded from the deploy tree.
 Always **iYi**, lowercase `i` on both sides. Cute first. Reactive but restrained.
 No text bubbles. Heart eyes only for an affectionate beat, never the base
 character — this is why the episode end card uses `watch`, not `love`.
+
+**The eye must never read as flesh.** The lobes are *sclera*, not skin: cool,
+luminous, low-saturation (`SCLERA` is white into a blue-grey). The warmth lives
+*inside* the eye as the iris (`IRIS`, a deep amber ring at a constant
+`IRIS_RIM`) and in the catchlight, never on the surface. Four cues carry it, and
+all four are load-bearing: the **limbal ring** (`LIMBUS`, the dark rim of the
+eye), the **eyelid arc** (`lid_arc`, stroked not filled — a crescent hugging the
+rim merges into the limbus and the eye has no opening), the **iris**, and the
+**white itself**, which is why `WHITE_MIN` clamps every mood's pupil radius
+against what the 25-unit lobe can actually spare. Blush is gone: ACCENT ellipses
+inside the eye were areola shading. The life is in the pupil, the light and the
+movement — `.iyi-gaze` drifts the gaze (added here; the comment above the rig
+had claimed a look-around for years without implementing one).
 
 Video strategy: the bond comes from **continuity, not surveillance**. iYi is
 "the clerk", admits it has a job, carries state across episodes, and must never

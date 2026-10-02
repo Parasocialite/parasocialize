@@ -2,14 +2,19 @@
    iYi's animation rig. Each part is its own group, so a blink is
    scaleY() on .iyi-pupil and a look-around is translateX() on it.
    --d staggers the copies; it inherits, animation-delay does not. */
-.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-lid,.iyi-blush{
-transform-box:fill-box;transform-origin:center}
+.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-gaze,.iyi-lid,.iyi-iris{
+ transform-box:fill-box;transform-origin:center}
+@keyframes iyi-look{0%,100%{transform:translate(0,0)}
+ 22%{transform:translate(.7px,.2px)}
+ 46%{transform:translate(-.5px,.35px)}
+ 71%{transform:translate(.45px,-.15px)}}
 @keyframes iyi-breathe{0%,100%{transform:scale(1)}
-50%{transform:scale(1.035)}}
+ 50%{transform:scale(1.035)}}
 @keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
 @keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
 .iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
 .iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-gaze{animation:iyi-look 13s ease-in-out infinite;animation-delay:var(--d,0s)}
 .iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){
-.iyi,.iyi-pupil,.iyi-bloom{animation:none}}
+ .iyi,.iyi-pupil,.iyi-gaze,.iyi-bloom{animation:none}}

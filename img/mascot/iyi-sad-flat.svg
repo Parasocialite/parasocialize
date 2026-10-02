@@ -1,11 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" width="118" height="118" role="img" aria-label="iYi"><title>iYi - sad</title><style>.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-lid,.iyi-blush{
-transform-box:fill-box;transform-origin:center}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" width="118" height="118" role="img" aria-label="iYi"><title>iYi - sad</title><style>.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-gaze,.iyi-lid,.iyi-iris{
+ transform-box:fill-box;transform-origin:center}
+@keyframes iyi-look{0%,100%{transform:translate(0,0)}
+ 22%{transform:translate(.7px,.2px)}
+ 46%{transform:translate(-.5px,.35px)}
+ 71%{transform:translate(.45px,-.15px)}}
 @keyframes iyi-breathe{0%,100%{transform:scale(1)}
-50%{transform:scale(1.035)}}
+ 50%{transform:scale(1.035)}}
 @keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
 @keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
 .iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
 .iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-gaze{animation:iyi-look 13s ease-in-out infinite;animation-delay:var(--d,0s)}
 .iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){
-.iyi,.iyi-pupil,.iyi-bloom{animation:none}}</style><defs><clipPath id="iyigsadfcl"><circle cx="40" cy="42" r="25"/></clipPath><clipPath id="iyigsadfcr"><circle cx="84" cy="42" r="25"/></clipPath><mask id="iyigsadfm"><rect width="118" height="118" fill="#000"/><circle cx="40" cy="42" r="25" fill="#fff"/><circle cx="84" cy="42" r="25" fill="#fff"/><circle cx="40" cy="46" r="15.5" fill="#000"/><circle cx="86" cy="48" r="13.0" fill="#000"/></mask></defs><g class="iyi"><g class="iyi-lobe" mask="url(#iyigsadfm)"><circle cx="40" cy="42" r="25" fill="#231009"/></g><g class="iyi-lobe" mask="url(#iyigsadfm)"><circle cx="84" cy="42" r="25" fill="#231009"/></g></g></svg>
+ .iyi,.iyi-pupil,.iyi-gaze,.iyi-bloom{animation:none}}</style><defs><clipPath id="iyigsadfcl"><circle cx="40" cy="42" r="25"/></clipPath><clipPath id="iyigsadfcr"><circle cx="84" cy="42" r="25"/></clipPath><mask id="iyigsadfm"><rect width="118" height="118" fill="#000"/><circle cx="40" cy="42" r="25" fill="#fff"/><circle cx="84" cy="42" r="25" fill="#fff"/><circle cx="40" cy="46" r="11.0" fill="#000"/><circle cx="86" cy="48" r="9.0" fill="#000"/></mask></defs><g class="iyi"><g class="iyi-lobe" mask="url(#iyigsadfm)"><circle cx="40" cy="42" r="25" fill="#231009"/></g><g class="iyi-lobe" mask="url(#iyigsadfm)"><circle cx="84" cy="42" r="25" fill="#231009"/></g></g></svg>

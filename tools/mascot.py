@@ -62,14 +62,55 @@ LX, RX = 40, 84
 
 # ---------------------------------------------------------------------------
 # TIMELESS PALETTE
-# Two stops, one warm family, nothing else. The four-stop orange->pink->purple
-# was the single most dated thing about iYi: a multi-hue gradient is how this
-# decade looks, so it ages the character whether or not the rest survives.
-# Apricot into coral is just light falling on a warm surface, which is a much
-# older idea than any particular palette. Saturation and hue trends move; a
-# face lit from the front does not.
+#
+# This used to be two stops of warm apricot into coral, on the reasoning that a
+# warm monochrome ages better than a multi-hue gradient. The gradient argument
+# was right and the colour was catastrophically wrong.
+#
+# A warm mid-value ramp on two large round masses is a ramp on SKIN. Rendered,
+# iYi read as a pair of breasts: the domes were flesh-coloured, the dark pupil
+# sat low and centred like a nipple with a specular highlight above it, the
+# bottom-weighted third stop gave the mass weight, and the blush ellipses were
+# areola shading. Nothing about the geometry said body. The palette said it.
+#
+# So the fix is not a smaller tweak to the hue - it is to move the warmth
+# INSIDE the eye and let the surface be what an eye surface is: bright, cool,
+# low-saturation. Warmth now lives in the iris and the catchlight, which is
+# where warmth reads as life in a face rather than as skin on a shape.
+#
+# Saturation and hue trends move; the fact that an eye is not a breast does not.
 # ---------------------------------------------------------------------------
-SCLERA = ("#ffe7c4", "#ff8f5e")
+# Sclera. Cool and luminous, not warm and fleshy. #ffffff at the light, falling
+# to a soft blue-grey at the shadowed edge - the same three-stop construction as
+# before, but on the other side of neutral, so it reads as wet and lit.
+SCLERA = ("#ffffff", "#dbe3ee")
+# The dark rim of the eye. Every drawn eye has one and no lump of flesh does.
+# Cool near-black rather than warm brown, so the ring belongs to the eye.
+LIMBUS = "#141a24"
+# Iris. The warm accent, relocated. An amber ring around the pupil is where a
+# warm colour reads as somebody being there; the same warm on the sclera reads
+# as a body.
+# Amber, but a dark amber. The first attempt was #e08b1e / #8a4409, and the
+# size ladder showed what that costs: the iris is only IRIS_RIM units wide, so
+# a bright warm ring at 16px is four saturated pixels and the eye reads as
+# brown all over - the old warm problem returning one layer down. Deepened so
+# the warm survives as a ring at every size the site uses, and still reads as
+# iris rather than as pupil. Verified at 16/24/34/48/96px.
+IRIS = ("#d9a441", "#8a5a12")
+# How wide the iris ring is, in units. Constant rather than proportional, so a
+# bigger pupil eats the white instead of swallowing its own iris.
+IRIS_RIM = 3.2
+# The pupil has to leave room for the white. This is the number the redesign
+# turned on: at pr=16 against a 25 lobe, minus a 3.2 iris and a 3-wide limbus
+# stroke and a 3-wide lid, the white was left a 5-unit ring with three dark
+# bands crowding it. A radial luminance profile showed the sclera's 90th
+# percentile at 250 and its mean at 65 - i.e. the brightest thing in the eye was
+# the lid, not the white, which is precisely the "dark mass with a shine on it"
+# problem wearing a new costume. The white is what makes a shape read as an eye,
+# so it gets the room. Pupil radii in the mood table are set against this.
+PUPIL_R = 17.5
+# Base eyelid. Every eye has an upper lid; without one a circle is just a circle.
+LID_BASE = 4.4
 ACCENT = "#e0533f"
 INK = "#231009"
 # The pupil is large on purpose. It used to be 12 against a 26 lobe, which left
@@ -80,22 +121,37 @@ PUPIL_R = 17.5
 
 
 def sclera_grad(gid):
-    """Light falling on a warm surface, in three stops rather than two.
+    """Light falling on a wet surface, in three stops.
 
-    The two-stop version was too shallow to read as a rounded form at small
-    sizes - the lobes came out as flat discs, which is the difference between a
-    character and a shape. The middle stop is what turns the gradient into a
-    volume: pale where the light lands, saturated through the body, and a deeper
-    coral at the bottom edge so the form turns away from the light instead of
-    stopping flat.
+    Same three-stop construction as the warm version it replaces - pale where
+    the light lands, through the body, and a deeper tone at the far edge so the
+    form turns away from the light instead of stopping flat. What changed is the
+    side of neutral it sits on. A warm three-stop ramp made the lobes read as
+    volume of flesh; a cool one reads as the wet convex surface of an eye,
+    which is what it is supposed to be.
     """
     a, b = SCLERA
-    deep = "#f2703f"
-    return (f'<linearGradient id="{gid}" x1=".18" y1="0" x2=".82" y2="1">'
+    deep = "#c2cddd"
+    return (f'<linearGradient id="{gid}" x1=".22" y1=".06" x2=".8" y2=".96">'
             f'<stop offset="0" stop-color="{a}"/>'
-            f'<stop offset=".52" stop-color="{b}"/>'
+            f'<stop offset=".5" stop-color="#eef2f8"/>'
             f'<stop offset="1" stop-color="{deep}"/>'
             f'</linearGradient>')
+
+
+def iris_grad(gid):
+    """The iris ring: warm, and small.
+
+    The warmth the lobes used to carry, moved to the one place it reads as life
+    rather than skin. It is an annulus around the pupil, so it is also the layer
+    that gives the eye its four-step depth - white, iris, pupil, glint - which
+    is what a flat disc with a dark middle does not have.
+    """
+    a, b = IRIS
+    return (f'<radialGradient id="{gid}" cx=".42" cy=".36" r=".68">'
+            f'<stop offset="0" stop-color="{a}"/>'
+            f'<stop offset="1" stop-color="{b}"/>'
+            f'</radialGradient>')
 
 
 def bloom_grad(gid):
@@ -118,20 +174,37 @@ def bloom_grad(gid):
 # is translateX() on the pupils - neither needs keyframes baked into the file.
 # The --d custom property is what desynchronises a page full of mascots; custom
 # properties inherit, animation-delay does not.
-RIG_CSS = """.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-lid,.iyi-blush{
-transform-box:fill-box;transform-origin:center}"""
+RIG_CSS = """.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-gaze,.iyi-lid,.iyi-iris{
+ transform-box:fill-box;transform-origin:center}"""
+
+# The life is in the pupil, the light and the movement. Breathing and blinking
+# were there; a gaze was not, even though the comment above claimed one - so a
+# character whose whole argument is about attention never moved its attention.
+#
+# A separate .iyi-gaze wrapper rather than a second animation on .iyi-pupil:
+# two animations both writing `transform` means the last one wins, so the blink
+# would have eaten the look. Nested groups, one transform each.
+#
+# The drift is small and slow on purpose. iYi is reactive but restrained, and
+# the gaze must never read as tracking the reader - the character is a conduit,
+# not a camera pointed at whoever is nearest.
+GAZE_CSS = """@keyframes iyi-look{0%,100%{transform:translate(0,0)}
+ 22%{transform:translate(.7px,.2px)}
+ 46%{transform:translate(-.5px,.35px)}
+ 71%{transform:translate(.45px,-.15px)}}"""
 
 BLINK_CSS = """@keyframes iyi-breathe{0%,100%{transform:scale(1)}
-50%{transform:scale(1.035)}}
+ 50%{transform:scale(1.035)}}
 @keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
 @keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
 .iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
 .iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-gaze{animation:iyi-look 13s ease-in-out infinite;animation-delay:var(--d,0s)}
 .iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){
-.iyi,.iyi-pupil,.iyi-bloom{animation:none}}"""
+ .iyi,.iyi-pupil,.iyi-gaze,.iyi-bloom{animation:none}}"""
 
-MASCOT_CSS = RIG_CSS + "\n" + BLINK_CSS
+MASCOT_CSS = RIG_CSS + "\n" + GAZE_CSS + "\n" + BLINK_CSS
 
 
 def star_d(cx, cy, r, waist=0.3):
@@ -151,25 +224,65 @@ def star_d(cx, cy, r, waist=0.3):
 
 
 def pupil(cx, cy, r, ink, hi=True, spark=1.0):
-    """Big warm pupil. Deliberately not a tiny dot in a big pale lobe - that
-    reads as a googly eye and looks startled. A large dark pupil with a soft
-    highlight reads as warm, and warmth is the entire brief for this character.
+    """The dark pupil, its iris, and the light on it.
 
-    The highlights are a big round catchlight plus a small four-point sparkle
-    plus a low rim light. The pairing is the point: a lone circle looks like a
-    sticker, and the lower rim is what makes the eye read as wet rather than
-    printed. spark scales all three, so a mood can fade one side's light out
-    entirely - nobody home, without needing a lid to say it.
+    Deliberately not a tiny dot in a big pale lobe - that reads as a googly eye
+    and looks startled. A large dark pupil with a soft highlight reads as warm,
+    and warmth is the brief for this character.
+
+    The life the brief asks for lives in three layers here, and in the rig:
+
+      - the iris annulus around the pupil, warm, which is the warmth moved off
+        the sclera and into the eye
+      - the big round catchlight, which is a reflection of a light source and
+        not a highlight painted on
+      - the four-point sparkle, which is the shape every eye animation uses to
+        say somebody is in there, and the concave waist is what makes it read
+        as a sparkle rather than a diamond
+
+    The pairing is the point: a lone circle looks like a sticker. The lower rim
+    is what makes the eye read as wet rather than printed, and spark scales all
+    three so a mood can fade one side's light out entirely - nobody home,
+    without needing a lid to say it.
     """
     o = [f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{ink}"/>']
     if hi and spark > 0.02:
         s = max(0.0, min(1.0, spark))
-        o.append(f'<circle cx="{cx-r*0.3}" cy="{cy-r*0.34}" r="{r*0.29*s}" fill="#fffaf2"/>')
+        o.append(f'<circle cx="{cx-r*0.3}" cy="{cy-r*0.34}" r="{r*0.29*s}" fill="#ffffff"/>')
         o.append(f'<path d="{star_d(cx+r*0.27, cy+r*0.31, r*0.29*s)}" '
-                 f'fill="#fffaf2" opacity="{round(0.92*s, 3)}"/>')
+                 f'fill="#ffffff" opacity="{round(0.92*s, 3)}"/>')
         o.append(f'<circle cx="{cx-r*0.14}" cy="{cy+r*0.5}" r="{r*0.09*s}" '
-                 f'fill="#fffaf2" opacity="{round(0.5*s, 3)}"/>')
+                 f'fill="#ffffff" opacity="{round(0.5*s, 3)}"/>')
     return "".join(o)
+
+
+def lid_arc(cx, inset=4.2, width=3.0, a0=154, a1=26):
+    """The upper eyelid: a thick stroke arcing over the top of the eye.
+
+    Drawn as a stroke rather than the filled crescent below because a crescent
+    hugging the rim is indistinguishable from the limbal ring - the two merge
+    into one grey edge and the eye has no opening.
+
+    Angles are degrees measured from twelve o'clock, so `a0` is how far round
+    the LEFT the stroke starts and `a1` how far round the right it ends. Getting
+    these the wrong way round is not a subtle error: a stroke that runs from 12
+    degrees round to 168 crosses straight over the middle of the eye and paints
+    a dark bar across the pupil. It did, and the mood sheet is what showed it -
+    which is the argument for looking at the drawing rather than reasoning about
+    the geometry.
+
+    Swept 168 to 12 means it wraps the whole top and dies just past the widest
+    point of the eye on each side, which is where a real upper lid ends.
+    """
+    import math
+    r = R - inset
+    pt = lambda a: (cx + r * math.sin(math.radians(a)),
+                    CY - r * math.cos(math.radians(a)))
+    x0, y0 = pt(a0)
+    x1, y1 = pt(a1)
+    large = 1 if (a1 - a0) % 360 > 180 else 0
+    return (f"M{x0:.2f} {y0:.2f}"
+            f"A{r:.2f} {r:.2f} 0 {large} 1 {x1:.2f} {y1:.2f}")
 
 
 def lid_d(cx, depth):
@@ -237,20 +350,20 @@ def heart_d(cx, cy, s):
 # wearing hearts by default stops reading as a mascot and starts reading as a
 # sticker, and it spends the one expression that carries meaning.
 MOODS = {
-    "watch":  dict(lid=(0.0, 3.5), pr=(16, 13.5), blush=True, spark=(1.0, 0.62),
+    "watch":  dict(lid=(0.0, 3.5), pr=(12.5, 10.5), spark=(1.0, 0.62),
                    pupils=((0, 1.5), (3, 3.5)),
                    note="the default. the two sides, unequal. one of them is you."),
-    "hollow": dict(lid=(15, 19), pupils=((0, 5), (3, 7)), pr=(12, 10), spark=(0.55, 0.0),
+    "hollow": dict(lid=(15, 19), pupils=((0, 5), (3, 7)), pr=(9.5, 8), spark=(0.55, 0.0),
                    note="nobody is home. the joke of the whole site."),
-    "wink":   dict(lid=0.0, pupils=((0, 2), (3, 3)), pr=(15, 13), blush=True,
+    "wink":   dict(lid=0.0, pupils=((0, 2), (3, 3)), pr=(12, 10),
                    spark=(1.0, 0.55), shut="r",
                    note="pull quotes."),
-    "sad":    dict(lid=(13, 17), pupils=((0, 4), (2, 6)), pr=(14, 11.5), spark=(0.85, 0.28),
+    "sad":    dict(lid=(13, 17), pupils=((0, 4), (2, 6)), pr=(11, 9), spark=(0.85, 0.28),
                    note="grief. the obituary cards."),
-    "panic":  dict(lid=5,    pupils=((0, -4), (2, -5)), pr=(11.5, 9.5), spark=(1.0, 0.4),
+    "panic":  dict(lid=5,    pupils=((0, -4), (2, -5)), pr=(9, 7.5), spark=(1.0, 0.4),
                    note="the sweep is late and the clock is red."),
-    "love":   dict(lid=0.0,  hearts=True, blush=True, note="the club. ONLY for a romantic beat."),
-    "clerk":  dict(lid=4,    pupils=((0, 2), (2, 3)), pr=(15, 13), spark=(1.0, 0.5),
+    "love":   dict(lid=0.0,  hearts=True, note="the club. ONLY for a romantic beat."),
+    "clerk":  dict(lid=4,    pupils=((0, 2), (2, 3)), pr=(12, 10), spark=(1.0, 0.5),
                    note="behind the counter. Enan's own tell."),
     # "asleep" is eyes-closed, and the note has to be true as well as funny. It
     # used to read "sweeping hourly, seven past" - a claim about the sweeper,
@@ -291,11 +404,11 @@ def per_num(v, i, default=0):
 
 
 def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
-              lobe_mask=""):
+              lobe_mask="", iris="none"):
     """The two lobes and everything that lives inside them.
 
     Clipping is what makes this safe: the lobes are the clip paths, so the lid,
-    the pupil and the blush are all guaranteed to stay within the silhouette
+    the iris and the pupil are all guaranteed to stay within the silhouette
     whatever the mood asks for. That guarantee is the whole reason the
     character stopped looking like a bug.
 
@@ -304,28 +417,60 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
     and a screen print are the same drawing rather than two drawings that drift.
     """
     prs = m.get("pr", pr_default)
-    o = [f'<g class="iyi-lobe"{lobe_mask}><circle cx="{LX}" cy="{CY}" r="{R}" fill="{body}"/></g>',
-         f'<g class="iyi-lobe"{lobe_mask}><circle cx="{RX}" cy="{CY}" r="{R}" fill="{body}"/></g>']
+    # The pupil has to leave room for the white, and this is a geometric floor
+    # rather than a taste call: the iris needs IRIS_RIM, the limbal stroke needs
+    # 1.5, and whatever is left over is the white that makes the shape read as an
+    # eye. At pr=16 against a 25 lobe the white was 5.4 units with three dark
+    # bands crowding it - the sclera's 90th percentile was 250 while its mean was
+    # 65, which means the brightest thing in the eye was the lid, not the white.
+    #
+    # Moods that ask for a pupil big enough to swallow the white get clamped to
+    # the largest that leaves WHITE_MIN of it, so the geometry cannot be undone
+    # by editing the mood table.
+    WHITE_MIN = 5.0
+    max_pr = R - 1.5 - IRIS_RIM - WHITE_MIN
+    # Defensive: the iris has silently not been drawn once already, and a
+    # missing layer is invisible in every aggregate - the eye still renders, the
+    # page still builds, the mood sheet still looks plausible. Assert the caller
+    # actually supplied one when this is not the flat build.
+    if not flat and iris == "none":
+        raise ValueError(
+            "eyes_mkup called without an iris. Pass iris=..., or flat=... - a "
+            "missing layer in a character is the kind of defect that ships "
+            "because nothing raises.")
+    # The limbal ring and the sclera, in that order: the ring is the dark rim of
+    # the eye, drawn as a stroke on the lobe itself so it cannot drift outside
+    # the silhouette. It is the single strongest cue that a circle is an eye -
+    # a lump of flesh has no rim, and the drawing read as flesh until it had one.
+    lobe = (f'<g class="iyi-lobe"{lobe_mask}>'
+            f'<circle cx="{{c}}" cy="{CY}" r="{R}" fill="{{body}}"/>'
+            + ("" if flat else
+               f'<circle cx="{{c}}" cy="{CY}" r="{R - 1.5}" fill="none" '
+               f'stroke="{LIMBUS}" stroke-width="3" stroke-opacity=".92"/>')
+            + '</g>')
+    o = [lobe.format(c=LX, body=body), lobe.format(c=RX, body=body)]
     k = []
 
-    if m.get("blush") and not flat:
-        o.append(f'<g class="iyi-blush" opacity=".26">'
-                 f'<ellipse cx="{LX}" cy="{CY+13}" rx="8" ry="4.4" fill="{ACCENT}"/>'
-                 f'<ellipse cx="{RX}" cy="{CY+13}" rx="8" ry="4.4" fill="{ACCENT}"/></g>')
+    # Blush is gone. It was ACCENT-coloured ellipses sitting on the lower part of
+    # each lobe, which on a warm ramp read as areola shading and was most of why
+    # the whole thing read as a body. Expression now comes from where it should:
+    # lid depth, pupil offset, iris size and the light on the pupil.
 
-    # lids sit above the pupils, so a heavy lid crops them rather than the
-    # pupil being drawn smaller for a heavy-lid mood - same result, but the lid
-    # animates as its own transform.
-    # flat skips them: a lid is a crescent, and a crescent punched out of the top
-    # of a one-colour eight reads as a chip broken off it rather than a lid.
-    if m.get("lid") and not flat:
+    # A permanent eyelid line on both eyes, so every circle has an upper lid and
+    # reads as an opening rather than a disc. Mood depth is drawn on top of it
+    # as a filled crescent, which is what crops the pupil - the stroke says
+    # "eye", the crescent says "how much of it is showing".
+    if not flat:
+        for c, cp in ((LX, clip_l), (RX, clip_r)):
+            o.append(f'<g class="iyi-lid"><g clip-path="url(#{cp})">'
+                     f'<path d="{lid_arc(c)}" stroke="{ink}" stroke-width="3" '
+                     f'stroke-linecap="round" fill="none"/></g></g>')
         for i, (c, cp) in enumerate(((LX, clip_l), (RX, clip_r))):
-            d = per_num(m["lid"], i, 0)
+            d = per_num(m.get("lid"), i, 0)
             if not d:
                 continue
             o.append(f'<g class="iyi-lid"><g clip-path="url(#{cp})">'
                      f'<path d="{lid_d(c, d)}" fill="{ink}"/></g></g>')
-    if m.get("shut") == "r":
         o.append(f'<g class="iyi-lid"><g clip-path="url(#{clip_r})">'
                  f'<path d="{shut_span_d(RX)}" stroke="{ink}" stroke-width="5.5" '
                  f'stroke-linecap="round" fill="none"/></g></g>')
@@ -346,18 +491,47 @@ def eyes_mkup(body, ink, clip_l, clip_r, m, pr_default=PUPIL_R, flat=False,
             else:
                 o.append(f'<g class="iyi-pupil">'
                          f'<path d="{heart_d(c, CY, 20)}" fill="{ink}"/></g>')
-    elif not m.get("shut"):
+    elif not m.get("shut") or m.get("shut") == "r":
         po = m.get("pupils", (0, 0))
         spark = m.get("spark", 1.0)
         for i, c in enumerate((LX, RX)):
+            # shut="r" means shut the RIGHT eye. The guard used to be
+            # `elif not m.get("shut")`, and "r" is truthy - so both eyes skipped
+            # the pupil and wink, the mood used for pull quotes, shipped with a
+            # blank white disc where its open eye should have been. Verified in
+            # the committed module, not introduced here.
+            if m.get("shut") == "r" and c == RX:
+                continue
             dx, dy = per_pair(po, i)
-            pr = per_num(prs, i, pr_default)
+            pr = min(float(per_num(prs, i, pr_default)), max_pr)
             sp = per_num(spark, i, 1.0)
             if flat:
-                k.append(f'<circle cx="{c+dx}" cy="{CY+dy}" r="{pr+1.5}" fill="#000"/>')
+                # The pupil and the iris both get knocked out of the mask, and
+                # they are drawn pupil-last in the real build, so the knockout
+                # has to punch the larger iris first or the two would fight over
+                # the same ring. Painted order is the same as the site.
+                if iris != "none":
+                    k.append(f'<circle cx="{c+dx}" cy="{CY+dy}" '
+                             f'r="{pr + IRIS_RIM:.2f}" fill="#000"/>')
+                k.append(f'<circle cx="{c+dx}" cy="{CY+dy}" r="{pr}" fill="#000"/>')
             else:
-                o.append(f'<g class="iyi-pupil">'
-                         f'{pupil(c + dx, CY + dy, pr, ink, spark=sp)}</g>')
+                # The iris is its own group, OUTSIDE .iyi-gaze and .iyi-pupil, so
+                # the gaze drift and the blink cannot carry it off the eye with
+                # the pupil. It had been drawn inside .iyi-pupil as the pupil's
+                # first child, which meant a blink scaleY() squashed the iris
+                # too - and a gaze translate slid the iris bodily off the sclera.
+                # Both were invisible in a still and obvious in motion, which is
+                # the reason the rig draws these parts separately at all.
+                # .iyi-gaze wraps .iyi-pupil: one transform each, so the blink
+                # and the look cannot cancel out
+                if iris != "none":
+                    o.append(f'<circle class="iyi-iris" cx="{c+dx}" '
+                             f'cy="{CY+dy}" r="{pr + IRIS_RIM:.2f}" '
+                             f'fill="{iris}" stroke="{ink}" '
+                             f'stroke-width="1.1"/>')
+                o.append(f'<g class="iyi-gaze"><g class="iyi-pupil">'
+                         f'{pupil(c + dx, CY + dy, pr, ink, spark=sp)}'
+                         f'</g></g>')
     return "".join(o), "".join(k)
 
 
@@ -374,13 +548,15 @@ def build(mood="watch", flat=None, ink=INK, grad=True):
     m = MOODS[mood]
     gid = f"iyig{mood}" + ("f" if flat else "")
     cl, cr = gid + "cl", gid + "cr"
+    iris = "none" if flat else (f"url(#{gid}i)" if grad else IRIS[0])
     eyes, knock = eyes_mkup(
         flat or (f"url(#{gid})" if grad else SCLERA[0]), ink, cl, cr, m,
-        flat=bool(flat),
+        flat=bool(flat), iris=iris,
         lobe_mask=f' mask="url(#{gid}m)"' if flat else "")
     o = [f"<style>{MASCOT_CSS}</style>",
          f'<defs>{"" if flat else bloom_grad(gid + "h")}'
          f'{"" if (flat or not grad) else sclera_grad(gid)}'
+         f'{"" if (flat or not grad) else iris_grad(gid + "i")}'
          # the clips are the lobes themselves: nothing drawn inside can ever
          # escape them, which is the guarantee the character depends on
          f'<clipPath id="{cl}"><circle cx="{LX}" cy="{CY}" r="{R}"/></clipPath>'
@@ -421,10 +597,12 @@ def inline(mood="watch", size=34, cls="", ink=INK, grad=True):
     d = (zlib.crc32(gid.encode()) % 1700) / 1000
     cl, cr = gid + "l", gid + "r"
     eyes, _ = eyes_mkup(f"url(#{gid})" if grad else SCLERA[0], ink, cl, cr, m,
-                        pr_default=13)
+                        pr_default=13,
+                        iris=(f"url(#{gid}i)" if grad else IRIS[0]))
 
     o = [f'<defs>{bloom_grad(gid + "h")}'
          f'{"" if not grad else sclera_grad(gid)}'
+         f'{"" if not grad else iris_grad(gid + "i")}'
          f'<clipPath id="{cl}"><circle cx="{LX}" cy="{CY}" r="{R}"/></clipPath>'
          f'<clipPath id="{cr}"><circle cx="{RX}" cy="{CY}" r="{R}"/></clipPath>'
          f'</defs>',
