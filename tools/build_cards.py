@@ -510,6 +510,237 @@ def build_citations(data, enc):
 </body></html>"""
 
 
+# ---------------------------------------------------------------------------
+# /desk/ - the signoff queue, rendered at build time
+#
+# This page used to be hand-written and client-fetched: it asked for
+# ../data/queue.json and ../data/sweep.json at runtime. `data/` is in
+# EXCLUDE_NAMES and never deployed, so both requests 404'd, the .catch() on each
+# swallowed the failure into [] and {}, and the page rendered as an empty room -
+# dashes for every stat, no queue, no rejections. It is linked as CLERK'S DESK in
+# the footer of every generated page, so this was a working link to nothing,
+# and the membership page used to promise a reader that the queue was visible.
+#
+# It is generated now, from queue.json and sweep.json, with the cards written
+# into the HTML rather than fetched. Three reasons that is the right shape:
+#   - it works with JavaScript off, which is the only way to be sure it works
+#   - the data cannot silently disappear into a failed fetch again; if the file
+#     is missing the build says so instead of the page quietly going blank
+#   - filtering and sorting become DOM operations over already-rendered nodes,
+#     so there is no second copy of the queue to fall out of step
+# ---------------------------------------------------------------------------
+
+AISLES = ["idol", "creator", "character", "companion", "world", "brand",
+          "crossover", "contest", "grief", "danger"]
+LAWS = {1: "Binding is public", 2: "Clerks beat algorithms",
+        3: "Someone holds the dream", 4: "Grief when the companion changes",
+        5: "Pay for proximity with open eyes", 6: "Characters move in",
+        7: "Audit quarterly"}
+
+
+def _since(iso):
+    """How long ago, in words. Plain, because the page is read by one person."""
+    try:
+        mins = int((datetime.datetime.now(datetime.timezone.utc)
+                    - datetime.datetime.fromisoformat(iso)).total_seconds() // 60)
+    except Exception:
+        return "at an unknown time"
+    if mins < 60:
+        return f"{mins}m ago"
+    if mins < 60 * 48:
+        return f"{mins // 60}h ago"
+    return f"{mins // 1440}d ago"
+
+
+def build_desk(data):
+    qp = ROOT / "data" / "queue.json"
+    sp = ROOT / "data" / "sweep.json"
+    if not qp.exists():
+        raise SystemExit("desk: data/queue.json is missing - the page would "
+                         "render empty, which is the bug this replaced")
+    queue = json.loads(qp.read_text(encoding="utf-8"))
+    sweep = json.loads(sp.read_text(encoding="utf-8")) if sp.exists() else {}
+    r = root(1)
+
+    unlensed = sum(1 for d in queue if d.get("state") == "awaiting_lens")
+    rejected = sweep.get("rejected", 0)
+
+    cards = []
+    for d in queue:
+        conf = round((d.get("conf") or 0) * 100)
+        hay = " ".join(str(d.get(k) or "") for k in
+                       ("headline", "domain", "section", "feed", "why")).lower()
+        tags = []
+        if d.get("state") == "awaiting_lens":
+            tags.append('<span class="tag tag-od">NO LENS</span>')
+        else:
+            tags.append(f'<span class="tag tag-aisle">{conf}% CONFIDENCE</span>')
+        if d.get("domain"):
+            tags.append(f'<span class="tag tag-law">SRC {esc(d["domain"])}</span>')
+        if d.get("section") and d["section"] in AISLES:
+            tags.append(f'<span class="tag tag-aisle">SECTION '
+                        f'{AISLES.index(d["section"]) + 1} '
+                        f'{esc(d["section"].upper())}</span>')
+        if d.get("law"):
+            tags.append(f'<span class="tag tag-law">LAW {d["law"]} &middot; '
+                        f'{esc(LAWS.get(d["law"], ""))}</span>')
+        if d.get("shelf"):
+            tags.append(f'<span class="tag tag-law">SHELF '
+                        f'{esc(str(d["shelf"]).upper())}</span>')
+        link = (f'<a href="{esc(d["url"])}" target="_blank" rel="noopener">'
+                f'Read the source &rarr;</a>' if d.get("url")
+                else '<span class="src">no source url</span>')
+        cards.append(
+            f'<article class="story story-lg" data-hay="{esc(hay)}" '
+            f'data-conf="{conf}" data-at="{esc(str(d.get("at") or ""))}" '
+            f'data-section="{esc(str(d.get("section") or ""))}">'
+            f'<div class="body"><div class="tags">{"".join(tags)}</div>'
+            f'<h3>{esc(d.get("headline") or "(untitled)")}</h3>'
+            + (f'<p class="dek">{esc(d["one_line"])}</p>' if d.get("one_line") else "")
+            + (f'<p class="take">{esc(d["take"])}</p>' if d.get("take") else "")
+            + f'<p class="dek" style="font-style:italic">{esc(d.get("why") or "")}</p>'
+            f'<div class="foot">{link}<span class="src">'
+            f'{esc(d.get("feed") or "")}</span></div></div></article>')
+
+    if not cards:
+        cards.append('<p class="countline">The queue is empty.</p>')
+
+    # What the machine turned down. Rendered from the sweep's own
+    # rejected_sample, and when that is empty the page says so - the old
+    # version had a heading promising rejections the data has never contained.
+    rej = []
+    for row in (sweep.get("rejected_sample") or [])[:20]:
+        rej.append(f'<div class="log-row"><span class="tick" style="--c:#e63946">'
+                   f'</span><span><b>{esc(row.get("title"))}</b>'
+                   f'<span class="meta">{esc(row.get("why"))}</span></span>'
+                   f'<span class="tag tag-od">no</span></div>')
+    if not rej:
+        rej.append('<div class="log-row"><span class="tick" style="--c:#3d2e23">'
+                   '</span><span><b style="color:var(--dimmer)">Nothing has been '
+                   'rejected yet.</b><span class="meta">The filter files what it '
+                   'finds and leaves the rest for a person. It has turned '
+                   'nothing down in the history of this pipeline, so this '
+                   'section is a promise rather than a record.</span></span></div>')
+
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The clerk's desk - Parasocialize</title>
+<meta name="description" content="The signoff queue. A filter files, a person signs.">
+{HEAD.format(site=SITE, path="/desk/", otype="website",
+             title="The clerk's desk - Parasocialize",
+             desc="The signoff queue.", root=r)}
+</head>
+<body>
+<a class="skip" href="#desk">Skip to the queue</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
+<main>
+<section class="section" id="desk">
+  <p class="kicker" style="color:var(--neon)">Back office &middot; noindex &middot; swept {_since(sweep.get("last_run", ""))}</p>
+  <div class="sec-head">
+    <h1 style="color:var(--neon)">The desk</h1>
+    <p class="sec-lede">A filter files. A person signs. <b style="color:var(--paper)">
+    Nothing reaches the front page without a person deciding it should.</b> A
+    model that gets this wrong is a nuisance. A model that gets this wrong
+    <em>published</em> is why everyone stops trusting a site like this, and trust
+    is the only thing here that matters.</p>
+  </div>
+
+  <div class="front front-3" style="margin-top:28px">
+    <div class="price" style="gap:4px"><p class="flag">Last sweep</p>
+      <div class="amt" style="font-size:1.4rem">{_since(sweep.get("last_run", ""))}</div>
+      <p style="color:var(--dim);font-size:.84rem">{sweep.get("duration_s", 0)}s &middot;
+      {sweep.get("candidates", 0)} candidates seen</p></div>
+    <div class="price" style="gap:4px"><p class="flag">Feeds reached</p>
+      <div class="amt" style="font-size:1.4rem">{sweep.get("feeds_ok", 0)} / {sweep.get("feeds_total", 0)}</div>
+      <p style="color:var(--dim);font-size:.84rem">{esc(sweep.get("model") or "")}</p></div>
+    <div class="price hot" style="gap:4px"><p class="flag">Waiting on a human</p>
+      <div class="amt" style="font-size:1.4rem">{len(queue)}</div>
+      <p style="color:var(--dim);font-size:.84rem">{rejected} turned down this sweep</p></div>
+  </div>
+
+  <p class="kicker" style="margin-top:44px">The queue</p>
+  <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Filter by headline, source or section&hellip;" aria-label="Filter the queue">
+    <select id="sort" aria-label="Sort" style="padding:11px 14px;border-radius:99px;border:1px solid var(--line);background:var(--bg2);color:var(--paper);font-family:var(--label);font-size:.66rem">
+      <option value="conf">Most confident first</option>
+      <option value="date">Newest first</option>
+      <option value="section">By section</option>
+    </select>
+  </div>
+  <p class="countline" id="count" aria-live="polite">{len(queue)} IN THE QUEUE{(" &middot; %d WITH NO LENS (no model key set)" % unlensed) if unlensed else ""}</p>
+  <div class="front front-2" style="margin-top:18px" id="queue">{"".join(cards)}</div>
+
+  <p class="kicker" style="margin-top:44px">What the filter turned down, and why</p>
+  <p class="sec-lede" style="margin-bottom:14px;font-size:.96rem">Kept on purpose. A
+  filter that only shows you what it likes is a filter you cannot audit, and the
+  entire claim of this site is that the line is deliberate.</p>
+  <div class="ledger">{"".join(rej)}</div>
+
+  <p class="kicker" style="margin-top:44px">Signing off</p>
+  <div class="note">
+    <p>To publish a draft: edit <b>data/queue.json</b> &mdash; set
+    <b>"state":"signed"</b>, fill in <b>section</b>, <b>law</b> and <b>shelf</b>
+    if the filter left them null &mdash; then run
+    <b>python tools/build_cards.py</b>. <b>This page is generated from that
+    file</b>, so it cannot be edited by hand; an edit here is overwritten on the
+    next build.</p>
+    <p>Give it a real <b>sources[0].url</b>. A card with an unresolved link is
+    rendered with a <em>treat with suspicion</em> note on purpose, and that is a
+    thing to fix rather than leave.</p>
+    <p>Going away? Set <b>PARASOCIALIZE_BUDGET=0</b> and the queue stops
+    growing. Note that <b>the filter is not running on a schedule</b> &mdash; it
+    runs when it is run, and the last sweep was {_since(sweep.get("last_run", ""))}.
+    Nothing here claims a cadence the site does not keep.</p>
+  </div>
+</section>
+</main>
+<footer class="footer"><div class="foot-grid">
+  <div>
+    <p class="wordmark foot-mark"><img class="logo-img lg" src="{r}img/logo.svg" alt="">PARA<b>SOCIALIZE</b></p>
+    <p class="foot-note">NOINDEX &middot; THIS PAGE IS NOT FOR READERS</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <a href="{r}index.html">FRONT PAGE</a><a href="{r}sections/index.html">SECTIONS</a><a href="{r}radar.xml">RSS</a>
+  </nav>
+</div></footer>
+<script>
+(function(){{
+  // Filtering and sorting over cards the build already wrote. No fetch, no
+  // embedded copy of the queue - the page and the data cannot disagree.
+  var box=document.getElementById("queue"),
+      q=document.getElementById("q"),
+      sort=document.getElementById("sort"),
+      count=document.getElementById("count"),
+      all=Array.prototype.slice.call(box.querySelectorAll("article"));
+  if(!all.length)return;
+  var total=all.length, base=count.textContent.split(" IN THE QUEUE")[0];
+  function apply(){{
+    var t=(q.value||"").trim().toLowerCase(), shown=[];
+    all.forEach(function(el){{
+      var hit=!t||(el.getAttribute("data-hay")||"").indexOf(t)>-1;
+      el.style.display=hit?"":"none";
+      if(hit)shown.push(el);
+    }});
+    shown.sort(function(a,b){{
+      var s=sort.value;
+      if(s==="conf")return (+b.getAttribute("data-conf"))-(+a.getAttribute("data-conf"));
+      if(s==="section")return (a.getAttribute("data-section")||"zz")
+        .localeCompare(b.getAttribute("data-section")||"zz");
+      return (b.getAttribute("data-at")||"").localeCompare(a.getAttribute("data-at")||"");
+    }});
+    shown.forEach(function(el){{box.appendChild(el);}});
+    count.textContent=shown.length+" / "+total+" IN THE QUEUE";
+  }}
+  q.addEventListener("input",apply);
+  sort.addEventListener("change",apply);
+}})();
+</script>
+</body></html>"""
+
+
 def build_credits(data, manifest):
     """Every photograph on the site, once, with who made it and under what terms.
 
@@ -2781,6 +3012,12 @@ def main():
     (ROOT / "credits").mkdir(exist_ok=True)
     (ROOT / "credits" / "index.html").write_text(
         build_credits(data, manifest), encoding="utf-8")
+
+    # /desk/ - the signoff queue, from queue.json + sweep.json. Was a
+    # client-fetched page pointed at a data/ directory that is never deployed,
+    # so it rendered as an empty room behind a footer link on every page.
+    (ROOT / "desk").mkdir(exist_ok=True)
+    (ROOT / "desk" / "index.html").write_text(build_desk(data), encoding="utf-8")
 
     # /404.html - without it every unmatched path returns the homepage with a
     # 200, which is a soft 404: invisible to crawlers as an error, and wrong for

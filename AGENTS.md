@@ -194,6 +194,23 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   that only had two children were wrong at desktop width too** and did not know
   it; fixing the narrow case revealed it. Check that a layout fix did not just
   move the problem, and check the width that was never broken as well.
+- **`link_audit` only read markup, so a page could fetch nothing and pass.**
+  `/desk/` fetched `../data/queue.json` and `../data/sweep.json`; `data/` is
+  excluded from the deploy; both 404'd; each had a `.catch()` that returned an
+  empty value; and the page rendered as an empty room behind a footer link on
+  every page. The audit stripped `<script>` before checking hrefs, so the
+  requests were invisible to it. **A page whose data never arrives is still a
+  page, and a `.catch()` converts a 404 into silence.** The audit now checks
+  `fetch()` targets against what is actually served, and notes when no page
+  fetches anything at all — baking data in at build time is the only shape that
+  cannot silently arrive empty. Confirmed red on the original defect
+  reintroduced verbatim.
+- **A filter that has nothing to filter still works.** The old desk's sort and
+  search ran correctly over an empty array, so the script was never broken and
+  never wrong-looking. Rewritten JS has to be driven against the real generated
+  page — typing a term, reading back the visible count, and checking that a
+  no-match term shows zero and that clearing restores all 60 — or it has only
+  been proven to run.
 - **An identifier printed where a reference belongs reads as a citation.** The
   anchors were keys into `_literature` — `horton-wohl-1956` — and the page
   uppercased them, so readers saw `ANCHORED · HORTON-WOHL-1956`: shaped exactly
@@ -389,13 +406,18 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    sweeper *has* run; `data/sweep.json` records it, and `link_audit.py` was
    asserting "the sweeper has never run" in its own output while reading that
    file.
-9. **`/desk/` is an empty room.** It is in the nav as "CLERK'S DESK" and
-   renders dashes for every stat and **zero** queue items: no headline from
-   `data/queue.json` appears anywhere in `dist/`. `data/` is excluded from the
-   deploy, so a client-side fetch cannot fill it — the queue has to be rendered
-   at build time from `queue.json` + `sweep.json`. It also says "What the
-   machine turned down", which is 0. Until this is built, the membership page
-   no longer claims the queue is visible.
+9. **~~`/desk/` is an empty room~~ — built.** It was a hand-written page that
+   fetched `../data/queue.json` and `../data/sweep.json` at runtime;
+   `data/` is in `build_deploy.EXCLUDE_NAMES` and never deployed, so both
+   requests 404'd, each `.catch()` quietly produced an empty result, and the
+   page rendered as dashes and nothing — behind a **CLERK'S DESK** link in the
+   footer of every generated page. It is generated now from `queue.json` +
+   `sweep.json`, with the 60 cards written into the HTML. Two further unkept
+   claims lived on it and are gone: "the hourly job picks the commit up" and
+   "the sweeper keeps running and the queue keeps filling" — it runs when it is
+   run, and the page now says how long ago that was.
+   `link_audit.py` now checks what scripts `fetch()` against what is actually
+   deployed, which is the general form of this bug.
 10. **The other 172 episodes.** All 175 entries carry `summary` and
    `significance`, so an episode exists for each and only the hand-written
    `hook` is missing. `tools/episode.py DRAFTS` has 3. Mechanically derivable,

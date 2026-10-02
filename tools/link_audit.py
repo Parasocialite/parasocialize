@@ -85,6 +85,55 @@ def main():
             if not target.exists():
                 p(f"{html_file.relative_to(ROOT)} -> {href}  (404)")
 
+    # 3b. runtime fetches resolve too
+    #
+    # The check above strips <script> and only looks at href/src in markup, so a
+    # page that fetch()es its data was invisible to it. /desk/ did exactly that:
+    # it asked for ../data/queue.json and ../data/sweep.json, `data/` is in
+    # build_deploy.EXCLUDE_NAMES and is never deployed, so both requests 404'd,
+    # each had a .catch() that quietly produced an empty result, and the page
+    # rendered as an empty room - dashes for every stat, no queue. It was linked
+    # as CLERK'S DESK in the footer of every generated page. Nothing failed,
+    # because a page whose data never arrives is still a page.
+    #
+    # So: check what the scripts ask for, against what is actually deployed.
+    # INCLUDE_DIRS mirrors build_deploy, so this fails on the same rule the
+    # deploy uses rather than on a second, more forgiving copy of it.
+    INCLUDE_DIRS = {"img", "js", "css", "encyclopedia", "radar", "section",
+                    "sections", "taxonomy", "top8", "history", "figures",
+                    "moments", "brand", "atlas", "quiz", "citations",
+                    "credits", "shelf", "membership", "desk", "timeline", "tip",
+                    "cases", "radar", "audit", "classroom", "desk"}
+    fetched = 0
+    for html_file in ROOT.rglob("*.html"):
+        if any(part in (".git", "node_modules", "dist") for part in html_file.parts):
+            continue
+        text = html_file.read_text(encoding="utf-8", errors="replace")
+        scripts = "\n".join(re.findall(r"<script\b[^>]*>(.*?)</script>", text,
+                                      re.S | re.I))
+        for m in re.finditer(r"""fetch\(\s*["'`]([^"'`]+)["'`]""", scripts):
+            url = m.group(1)
+            if url.startswith(("http://", "https://", "//")):
+                continue
+            fetched += 1
+            base, _, _frag = url.partition("#")
+            if not base:
+                continue
+            target = (html_file.parent / urllib.parse.unquote(base)).resolve()
+            # the question is not "does this exist in the repo" but "will it be
+            # served" - and data/, tools/ and episode/ are deliberately not
+            if not target.exists():
+                p(f"{html_file.relative_to(ROOT)} fetches {url} which does not "
+                  f"exist")
+            elif target.is_relative_to(ROOT / "data") and "dist" not in \
+                    target.relative_to(ROOT).parts:
+                p(f"{html_file.relative_to(ROOT)} fetches {url} from data/, which "
+                  f"is excluded from the deploy - the request will 404 in "
+                  f"production and any .catch() will hide it")
+    if fetched == 0:
+        w("no page fetches anything at runtime - all data is baked in at build "
+          "time, which is the only shape that cannot silently arrive empty")
+
     # 4. does any page claim a freshness the site cannot deliver?
     #
     # This used to test whether the sweeper was alive and fail when it was stale.
