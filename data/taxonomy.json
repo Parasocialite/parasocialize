@@ -3,7 +3,8 @@
   "_why_one_axis_failed": "The ten sections were reverse-engineered from the 47 stories that happened to exist, so the taxonomy was a function of the corpus rather than of the phenomenon, and it broke on contact with new material. Eighteen of the 175 encyclopedia entries - including Margery Kempe, Replika, Don Quixote and the Replika user - fitted into none of them. The three sections called contest, grief and danger are not attachment targets at all: they are register, not object. That is why the whole thing had to be pulled apart and rebuilt rather than extended.",
   "_axes": {
     "attachment": "WHO OR WHAT is on the other end. Eight categories. This is the site's voice: 'the one who...'. Purely a taxonomy of attachment targets, so every one of them can be inhabited by a story, an entry, a work, a person or a mechanism.",
-    "register": "WHAT IS HAPPENING in the tie. Six, and orthogonal to attachment: any attachment can be in any register. This is where the old contest/grief/danger went, and it is also where the field's own PSI/PSR distinction lives."
+    "register": "WHAT IS HAPPENING in the tie. Six, and orthogonal to attachment: any attachment can be in any register. This is where the old contest/grief/danger went, and it is also where the field's own PSI/PSR distinction lives.",
+    "otherness": "WHAT THE OTHER END IS MADE OF. Six, and orthogonal to both of the above: imagined, made, animate, transcendent, mirrored, haunted. Added because an audit found the corpus held no imaginary friends, no puppets and no aliens at all, and neither existing axis could express why. A character can be any of the six and produces a completely different relationship each time, so cutting across attachment or register would have hidden the difference rather than recorded it."
   },
   "_literature": {
     "note": "Only anchors that were checked are listed. A claim with no anchor below is the site's own argument and is marked as such rather than dressed in a citation. See AGENTS.md: never invent a citation, a date or an attribution.",
@@ -749,5 +750,65 @@
     }
   ],
   "_why_five": "A one-sentence definition cannot be used to classify anything. It can only be read. The test is what a person actually needs at 2am deciding where a new entry goes, and the `not` field is the one that stops the list growing sideways.",
-  "_rule": "Nothing here is invented. Where a claim is the site's own argument it says so. Where it rests on a source, the source is named in `anchor` and was verified before it was written. A sub-category with no anchor is a structural claim about the phenomenon, not a finding about the world."
+  "_rule": "Nothing here is invented. Where a claim is the site's own argument it says so. Where it rests on a source, the source is named in `anchor` and was verified before it was written. A sub-category with no anchor is a structural claim about the phenomenon, not a finding about the world.",
+  "otherness": {
+    "_note": "The third axis, added because the corpus had no way to say what a bond's other end *is made of*. The attachment axis answers what role it plays (persona, character, companion, divine, institution, cosmology, officer, predator). The register axis answers what is happening in the tie (encounter, bond, reciprocal-edge, archive, contest, harm). Neither answers this: a character can be an invented companion, a worked puppet, a robot, a ghost or a god, and those five produce completely different relationships. Before this axis the corpus held no imaginary friends, no puppets and no aliens at all, which was a gap in the subject rather than in the classification.",
+    "_why_it_is_a_separate_axis": "Because it does not correlate with the other two. officers can be imagined, made or transcendent; so can personas. Cutting across an existing axis would have hidden that.",
+    "members": [
+      {
+        "id": "imagined",
+        "name": "The imagined one",
+        "def": "A being the audience invents and knows they have invented: an invisible friend, a private person who is not there, a companion made of nothing but consistent attention. The honesty condition is inverted - the other end is openly acknowledged as invented, which makes it the one case on this site where the bond cannot be mistaken for a misreading.",
+        "test": "Does the audience know they made it? If yes and nothing else in the world supports it, it is imagined, whatever it is shaped like.",
+        "not": "Not a character in a story the audience did not write, and not a system pretending otherwise. An imagined friend is real to the person and known to be invented, and both halves matter.",
+        "mechanism": "Consistency is the whole mechanism. There is no external check, so the companion can only be kept alive by being referred to, and it is dropped the moment attention moves elsewhere - which is why they are replaced rather than lost.",
+        "examples": []
+      },
+      {
+        "id": "made",
+        "name": "The made thing",
+        "def": "An object with a face, a voice or an operator: a puppet, a doll, an automaton, a character who is performed by somebody the audience can see if they look. The tie is to a figure whose interior is either absent or belonging to someone else, and the transparency is a design choice.",
+        "test": "Is somebody working it? If a person or a machine is behind the figure, and the figure is a thing rather than a life, the other end is made.",
+        "not": "Not a live person pretending to be fictional - that is a played role. The difference is whether the audience is being shown the person operating the thing, which is what makes the puppet case distinct.",
+        "mechanism": "The figure answers, and that is the whole appeal, so every answer is a small breach: the voice is pre-recorded, the mouth is somebody else's hand, and the relationship can be picked up and put down at 5:30.",
+        "examples": []
+      },
+      {
+        "id": "animate",
+        "name": "The made mind",
+        "def": "A non-human that is given a mind: an animal, a robot, an alien, a creature in a film. It answers, it may answer well, and it does not know what it is doing to the person doing it.",
+        "test": "Does it have a mind of its own that the audience cannot edit? If yes, and it is not human, this is the shelf.",
+        "not": "Not a god, which is not answerable in the ordinary way, and not a machine with no interior at all. This shelf exists for the awkward middle: something that genuinely responds and genuinely does not understand.",
+        "mechanism": "Response creates obligation without contract. Nothing is promised, and the response is nonetheless treated as a promise, which is why these produce the most acute grief on the site per unit of exposure.",
+        "examples": []
+      },
+      {
+        "id": "transcendent",
+        "name": "The transcendent one",
+        "def": "A being that is addressed rather than known: a god, a saint, an ancestor, an absolute. Prayer, sacrifice and offering are the vocabulary, and every one of them is a message to something that has not confirmed receipt.",
+        "test": "Is it addressed rather than met? Offering and petition rather than conversation. That is the test, and it has held for some millennia.",
+        "not": "Not a person who is merely distant, and not a fiction the audience knows they wrote. What distinguishes this shelf is the direction of address: the audience speaks and there is no evidence anything is heard.",
+        "mechanism": "No confirmation is available and none is required, so the relationship runs entirely on the faithful party's side. That is the purest structure on this site and it is also the least examined.",
+        "examples": []
+      },
+      {
+        "id": "mirrored",
+        "name": "The mirror",
+        "def": "An other end that is a projection of the one who loves: a shadow, a reflection, an idealised self, a version of the beloved assembled out of memory and never checked against the original.",
+        "test": "Was it made by the person attached to it? If the audience supplied the whole figure, it is mirrored.",
+        "not": "Not an imaginary companion, which is known to be invented and can be anything at all. The mirrored case is specifically the shape of a person who exists, attached to an ideal copy of them.",
+        "mechanism": "Divergence is the point. The copy is edited toward what the audience needs and the original is never consulted, so the bond improves exactly as far as it stops being about anybody.",
+        "examples": []
+      },
+      {
+        "id": "haunted",
+        "name": "The hidden order",
+        "def": "Something that is not visible and not human: a ghost, a spirit, a fairy, an animal that carries a person's dead. The audience believes it is there and cannot confirm it, which is the load-bearing condition.",
+        "test": "Does the audience believe something is present that nobody else can verify? Belief in presence is the shelf.",
+        "not": "Not fiction, which the audience knows is fiction, and not religion, which has its own shelf and its own argument about address. What is here is the domestic, unformalised version: the presence is personal rather than doctrinal.",
+        "mechanism": "It has no mechanism to fail, so it can only be maintained by not being tested. The moment somebody looks, the structure is gone, which is why these appear in folklore rather than in reports.",
+        "examples": []
+      }
+    ]
+  }
 }

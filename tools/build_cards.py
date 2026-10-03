@@ -1836,6 +1836,36 @@ def build_taxonomy(enc, data):
   <p class="tx-def">{esc(g['def'])}</p>{triad}{note}{anchor_span(g.get('anchor'))}
 </details>""")
 
+    # The third axis is rendered with the same four fields as the other two, for
+    # the same reason: a member you cannot test is a heading. It carries a count
+    # of placements, and a member with none says so on the page rather than
+    # printing as though it were populated - a shelf shown to a reader with
+    # nothing on it has to admit it, or the axis is a promise the page does not
+    # keep.
+    others = []
+    oth_counts = Counter(v["other"] for v in pla.values() if v.get("other"))
+    OTH = tax.get("otherness") or {}
+    for m in OTH.get("members", []):
+        n = oth_counts.get(m["id"], 0)
+        cells = ""
+        for label, key, cls in (("Test", "test", "tx-test"),
+                                ("Not", "not", "tx-not"),
+                                ("Mechanism", "mechanism", "tx-mech")):
+            if m.get(key):
+                cells += (f'<div class="tx-triad-c {cls}">'
+                          f'<span class="tx-triad-k">{label}</span>'
+                          f'<p>{esc(m[key])}</p></div>')
+        # Counted from the placements, never typed. Zero is printed as a gap.
+        tally = (f'<span class="tx-count">{n}</span>' if n else
+                 '<span class="tx-count tx-count-0">nothing placed yet</span>')
+        others.append(f"""<details class="tx-reg" id="tx-o-{esc(m['id'])}">
+  <summary><b>{esc(m['name'])}</b>{tally}</summary>
+  <p class="tx-def">{esc(m['def'])}</p><div class="tx-triad">{cells}</div>
+</details>""")
+    oth_html = "".join(others)
+    n_oth = len(OTH.get("members", []))
+    n_oth_stated = sum(1 for v in pla.values() if v.get("other"))
+
     lit = "".join(f'<li id="tx-src-{esc(k)}"><b>{esc(labels.get(k, k))}</b> '
                   f'<span class="tx-lit-full">{esc(v)}</span></li>'
                   for k, v in tax["_literature"].items()
@@ -1862,6 +1892,7 @@ def build_taxonomy(enc, data):
     n_cat = len(tax["attachment"])
     n_sub = sum(len(a["sub"]) for a in tax["attachment"])
     n_reg = len(tax["register"])
+    n_oth_meta = len((tax.get("otherness") or {}).get("members", []))
     WORDS = {3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight",
              9: "nine", 10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen",
              14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen",
@@ -1869,7 +1900,8 @@ def build_taxonomy(enc, data):
              38: "thirty-eight", 40: "forty"}
     words = lambda n: WORDS.get(n, str(n))
     shape = (f"{words(n_cat)} kinds of object, "
-             f"{words(n_sub)} sub-categories and {words(n_reg)} registers")
+             f"{words(n_sub)} sub-categories, {words(n_reg)} registers and "
+             f"{words(n_oth_meta)} kinds of otherness")
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1878,7 +1910,7 @@ def build_taxonomy(enc, data):
 <link rel="canonical" href="https://www.parasocialize.com/taxonomy/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The taxonomy - Parasocialize">
-<meta property="og:description" content="{words(n_cat).capitalize()} kinds of object, {n_sub} sub-categories, {n_reg} registers. {total} entries placed.">
+<meta property="og:description" content="{words(n_cat).capitalize()} kinds of object, {n_sub} sub-categories, {n_reg} registers, {n_oth_meta} kinds of otherness. {total} entries placed.">
 {HEAD.format(site=SITE, path="/taxonomy/", otype="website",
              title="The taxonomy - Parasocialize",
              desc="How one-sided attachment is classified.", root=r)}
@@ -1894,15 +1926,39 @@ def build_taxonomy(enc, data):
   <h1 class="h-title" style="font-size:clamp(1.9rem,4.6vw,3rem)">What is on the other end</h1>
   <p class="sec-lede" style="max-width:66ch">A parasocial bond is defined by
   what is on the far side of it. This is that list: {words(n_cat)} kinds of
-  object, {n_sub} sub-categories beneath them, and {n_reg} registers for what
-  is <em>happening</em> in the tie. All {total}
+  object, {words(n_sub)} sub-categories beneath them, {words(n_reg)} registers for
+  what is <em>happening</em> in the tie, and {words(n_oth_meta)} kinds of
+  <em>otherness</em> for what the far side is made of. All {total}
   encyclopedia entries and all {story_total} stories are placed on it, and the
   reason for each placement is printed rather than kept in a commit message.</p>
   <p class="sec-lede" style="max-width:66ch;margin-top:18px">The previous
   classification was ten sections built from whatever stories existed at the
   time, and it could not hold eighteen of the encyclopedia's own entries —
   including the founding document of this site. Three of the ten were not
-  objects at all. That is why this is two axes.</p>
+  objects at all. That is why this is more than two axes.</p>
+</section>
+
+<section class="section" style="padding-top:0">
+  <p class="kicker">Register · what is happening in the tie · {n_reg}</p>
+  <div class="tx-regs">{''.join(regs)}</div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <p class="kicker">Attachment · who or what is on the other end · {n_cat}</p>
+  {''.join(blocks)}
+</section>
+
+<section class="section" style="padding-top:0" id="tx-otherness">
+  <p class="kicker">Otherness · what the other end is made of · {n_oth}</p>
+  <p class="sec-lede" style="max-width:66ch">{esc(OTH.get("_note", ""))}</p>
+  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{esc(OTH.get("_why_it_is_a_separate_axis", ""))}</p>
+  <div class="tx-regs" style="margin-top:22px">{oth_html}</div>
+  <p class="countline" style="max-width:66ch;margin-top:20px">{n_oth_stated} of
+  {total} entries carry a kind of otherness. It is optional, because it is a
+  third cut rather than a requirement: forcing every entry to state one would be
+  the same move as filling a hole to make a chart look even. A member with
+  nothing placed against it is printed as an empty shelf on purpose — that list
+  is the writing still owed.</p>
 </section>
 
 <section class="section" style="padding-top:0">

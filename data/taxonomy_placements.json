@@ -916,6 +916,18 @@
       "cat": "officer",
       "sub": "senior",
       "why": "A sage whose teaching reaches a reader intact and whose person never does - standing without a role and without a meeting. The same gap that produced this shelf for the Greek erastes produces it again here, two centuries earlier and in writing rather than in life."
+    },
+    "the-imaginary-friend": {
+      "cat": "companion",
+      "sub": "social-agent",
+      "why": "social-agent rather than companion-chatbot because nothing is running it - the agent is the child. Recorded here because the attachment axis alone cannot express the difference: a self-invented companion and a live chatbot both 'meet a social need' and are opposites, and only the third axis tells them apart.",
+      "other": "imagined"
+    },
+    "howdy-doody": {
+      "cat": "companion",
+      "sub": "anthropomorphised-tool",
+      "why": "A puppet is the purest case on the whole site of a figure made by somebody else and delivered from tape, and the toy sales are the reason it matters: the tie moved from something you cannot touch to something in your hands.",
+      "other": "made"
     }
   }
 }

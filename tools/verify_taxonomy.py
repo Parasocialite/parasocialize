@@ -58,8 +58,36 @@ for r in tax["register"]:
             problems.append(f"register/{r.get('id')}: missing {k}")
     for k, floor in (("test", 80), ("not", 80), ("mechanism", 80)):
         if len(str(r.get(k, ""))) < floor:
-            problems.append(f"register/{r.get('id')}: {k} is under {floor} chars "
+            problems.append(f"register/{r['id']}: {k} is under {floor} chars "
                             f"({len(str(r.get(k, '')))}) - a label, not a test")
+
+# The third axis is checked the same way and for the same reason. It is the axis
+# that records what the other end is *made of*, and it was added after an audit
+# found the corpus holding no imaginary friends, no puppets and no aliens - a hole
+# in the subject, not in the classification. Validating it only structurally would
+# let it rot the way the corpus did: six members that are defined, testable and
+# empty are an honest gap; six that are defined and never checked are decoration.
+OTH = tax.get("otherness")
+if not isinstance(OTH, dict) or not isinstance(OTH.get("members"), list):
+    problems.append("taxonomy has no otherness axis with members")
+    OTH_MEMBERS = []
+else:
+    OTH_MEMBERS = OTH["members"]
+    ids = [m.get("id") for m in OTH_MEMBERS]
+    if len(ids) != len(set(ids)):
+        problems.append("otherness: duplicate member ids")
+    if not OTH.get("_why_it_is_a_separate_axis"):
+        problems.append("otherness: no _why_it_is_a_separate_axis - an axis "
+                        "added to an existing classification has to say what it "
+                        "would have hidden by being a cut across the others")
+    for m in OTH_MEMBERS:
+        for k in ("id", "name", "def", "test", "not", "mechanism"):
+            if k not in m or not str(m[k]).strip():
+                problems.append(f"otherness/{m.get('id')}: missing {k}")
+        for k, floor in (("def", 80), ("test", 80), ("not", 80), ("mechanism", 80)):
+            if len(str(m.get(k, ""))) < floor:
+                problems.append(f"otherness/{m.get('id')}: {k} is under {floor} "
+                                f"chars ({len(str(m.get(k, '')))}) - a label, not a test")
 
 # An anchor is a promise that a source exists. It is stored as a key into
 # _literature and the page prints a label and links to the reference, so a key
@@ -100,6 +128,14 @@ for eid, v in pla["assignments"].items():
     elif OWNER[v["sub"]] != v["cat"]:
         problems.append(f"assignment {eid}: {v['sub']} is in {OWNER[v['sub']]}, "
                         f"not {v['cat']}")
+    # The otherness axis is optional per entry, because it is a third cut and
+    # forcing every placement to state it would be the same error as filling a
+    # hole to make a chart look even. What is checked is that when it IS stated
+    # it names a real member - a dangling axis value is worse than an absent one,
+    # because it reads on the page as a classification that was performed.
+    if OTH_MEMBERS and v.get("other") and v["other"] not in {
+            m["id"] for m in OTH_MEMBERS}:
+        problems.append(f"assignment {eid}: unknown otherness {v['other']!r}")
 
 # The stories are placed in a separate file, and they fail differently: an
 # encyclopedia entry is a claim about a thing and can be placed from its own
@@ -143,6 +179,7 @@ print(f"  {len(tax['register'])} registers")
 anch = sum(1 for s in SUBS.values() if s.get("anchor")) + \
     sum(1 for r in tax["register"] if r.get("anchor"))
 print(f"  {anch} items carry a verified literature anchor")
+print(f"  {len(OTH_MEMBERS)} otherness members (the third axis)")
 print(f"  {len(pla['assignments'])} entries hand-placed")
 print(f"  {len(spla)} stories hand-placed")
 
@@ -186,3 +223,27 @@ print()
 print("  EITHER the corpus is thin here, or the category does not earn its")
 print("  place. Both are worth knowing; neither is a reason to delete it")
 print("  quietly.")
+
+if OTH_MEMBERS:
+    print()
+    print("=" * 64)
+    print("THE THIRD AXIS AGAINST THE CORPUS")
+    print("=" * 64)
+    othercount = Counter(v["other"] for v in pla["assignments"].values()
+                         if v.get("other"))
+    for m in OTH_MEMBERS:
+        n = othercount.get(m["id"], 0)
+        print(f"  {m['id']:<14} {m['name']:<22} entries placed: {n}")
+    stated = sum(1 for v in pla["assignments"].values() if v.get("other"))
+    print()
+    print(f"  {stated} of {len(pla['assignments'])} placements state a "
+          f"kind of otherness. Optional by design: it is a third cut, and")
+    print("  requiring it everywhere would be the same move as filling a")
+    print("  hole to make a chart look even. A member with nothing placed")
+    print("  against it is an honest gap, and is where the writing is owed.")
+    emptyoth = [m["id"] for m in OTH_MEMBERS if not othercount.get(m["id"])]
+    if emptyoth:
+        print()
+        print("  NO ENTRY PLACED YET:")
+        for k in emptyoth:
+            print(f"    {k}")

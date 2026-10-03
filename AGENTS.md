@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 183 entries, 441 relations, 269 generated pages.
+relationships. 185 entries, 445 relations, 271 generated pages.
 
 ## The rule that outranks everything
 
@@ -498,6 +498,27 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   ```
   Up from six when this work began. Sixty-two of the 183 are dated 2010 or later,
   so the skew is real but the floor is no longer a footnote to 1956.
+- **A boolean can be used two ways in one corpus, and the gate cannot tell
+  which.** `the-imaginary-friend` and `howdy-doody` were written with
+  `verified: true` because their claims had been checked against sources that
+  were actually fetched and read. Checking the corpus before committing showed
+  that **42 of the 59 `verified: true` entries also hold at least one
+  `unverified` or `needs-source` record** — the entire archaeology batch included
+  (`neanderthal-burial`, `sunghir`, `lewis-chessmen`, `gobekli-tepe`,
+  `the-clay-army`), so the loose reading is the corpus's actual practice, not a
+  one-off. `AGENTS.md` item 4 documents the *strict* reading ("nobody has read
+  these yet"), which means the field and its documentation disagreed before this
+  was looked at. The two new entries were set to `false`, which is the reading
+  the documentation states and the safer of the two — but that is an editorial
+  decision about what the word means, and it is **not settled here**. Do not
+  ratchet it without answering the question first: is `verified` a claim about
+  the *entry* (its assertions were checked against at least one source that was
+  read) or about every *record* (nothing on it is unverified)? The first is
+  what the data does; the second is what this file says. Same family as the
+  other three instances of a field promising more than it keeps — and the first
+  one found by reading the field's own documentation against its own values
+  rather than by a gate, because the gate has no way to ask which meaning is
+  intended.
 - **HTTP 429 is not the same failure as 403.** Both Met Museum pages on the Lewis
   chessmen returned 429 - rate limiting - on two attempts a minute apart. The text
   was read via a search index rather than fetched, so both records are `unverified`
@@ -522,13 +543,21 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
-- `data/taxonomy.json` — **the classification, on two axes.** Eight attachment
-  categories (who or what is on the other end) and six registers (what is
-  happening in the tie), with 38 sub-categories. This replaced the ten sections,
-  which were reverse-engineered from the 47 stories and could not hold 18 of the
-  175 entries, including Margery Kempe. Three of the ten were never attachment
-  targets at all — contest, grief and danger are register — which is precisely
-  why they could not be extended.
+- `data/taxonomy.json` — **the classification, on three axes.** Eight attachment
+  categories (who or what is on the other end), six registers (what is happening
+  in the tie), and — added 2026-10-03 — six **otherness** members (what the other
+  end is *made of*), with 38 attachment sub-categories. This replaced the ten
+  sections, which were reverse-engineered from the 47 stories and could not hold
+  18 of the entries, including Margery Kempe. Three of the ten were never
+  attachment targets at all — contest, grief and danger are register — which is
+  precisely why they could not be extended. The third axis was added because an
+  audit of the corpus against the user's requested categories found **zero**
+  entries for imaginary friends, zero for conscious non-human minds, zero for
+  puppets as such, and only incidental mentions of shadows and projections. That
+  is a hole in the subject, not in the classification, and neither of the two
+  existing axes could express the difference: a companion can be invented,
+  worked, alive, worshipped, mirrored or haunted, and each produces a different
+  relationship.
 - `data/taxonomy_placements.json` / `data/story_placements.json` — all 175
   entries and all 47 stories placed, each with a written reason. The reason is
   printed on the page rather than kept in a commit message, so a placement can
@@ -579,16 +608,17 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-166 sourced | 4 not yet stood behind | 13 thesis   = 183
+168 sourced | 4 not yet stood behind | 13 thesis   = 185
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-211 of 360 sources have a locator
-0 of 360 claim to be openable without one   (ratcheted; was 94)
+219 of 368 sources have a locator
+0 of 368 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
 39 sub-categories, up from 38
+6 otherness members, on a third axis
 ```
 
-Board must reconcile to 175. `add_source.py` is authoritative.
+Board must reconcile to 185. `add_source.py` is authoritative.
 
 ## Open work
 
@@ -828,3 +858,66 @@ Board must reconcile to 175. `add_source.py` is authoritative.
 
 `dist/` must be re-uploaded after each build. It is routinely ahead of
 production.
+
+12. **The corpus had no imaginary friends, no puppets and no aliens, and the
+   taxonomy had no way to say so.** Asked to check whether named instances had
+   been researched across literature, music, TV and film and sorted by kind of
+   otherness, the honest answer was no. A scan of all 183 entries found the kind
+   split running `mechanism=64, event=45, term=25, work=20, person=17, study=8,
+   case=3, institution=1` — that is, a corpus of *categories and formats*, not of
+   *instances*. `work` covered media formats; `case` covered three events. Named
+   fictional characters were essentially absent. A keyword scan found `imaginary
+   friend` 0, `conscious non-human` 0, `stuffed object` 0, puppet/doll 2
+   (incidental), shadow/projection 3 (incidental), supernatural 16 and divine 7.
+   Both of the existing axes turn out to be blind to this, and for the same
+   reason: `attachment` asks what role the other end plays and `register` asks
+   what is happening in the tie, so an invented friend, a worked puppet, a
+   chatbot, a ghost and a god all file identically. A third axis was added
+   rather than an entry moved.
+   - **`otherness` has six members**, each with the same def/test/not/mechanism
+     every attachment sub-category carries, and `verify_taxonomy.py` checks them
+     structurally so the axis cannot rot the way the corpus did:
+     `imagined` (the audience knows they invented it), `made` (somebody or
+     something is operating it), `animate` (a non-human given a mind),
+     `transcendent` (addressed rather than met), `mirrored` (supplied by the
+     person attached to it), `haunted` (believed present and unverifiable).
+   - The value is the `test`, not the caption. Each is a question a person
+     actually has to answer when filing something new: *does the audience know
+     they made it; is somebody working it; does it have a mind they cannot
+     edit; is it addressed rather than met; did they supply the whole figure; do
+     they believe something is there.*
+   - **Placing the axis is optional per entry**, and the audit reports how many
+     do: 2 of 185. Requiring it everywhere would be the same move as filling a
+     hole to make a chart look even. A member with nothing placed against it is
+     an honest gap, and `verify_taxonomy.py` prints them by name: `animate`,
+     `transcendent`, `mirrored` and `haunted` are all currently empty. **That
+     list is the writing still owed**, and it is the same discipline as the
+     four empty attachment sub-categories.
+   - Two entries were added at the same time, from the two ends of the new axis.
+     **`the-imaginary-friend`** (1934, `companion/social-agent`, `imagined`):
+     Pearson et al. 2001, 829 children, 46.2% reporting imaginary companions;
+     Carlson & Taylor, 65% by age seven, 52% of preschool companions being props
+     and 67% of school-age ones invisible, 57% human and 41% animal, and **27%
+     describing a friend their parents did not know about**. Its mechanism is the
+     inverse of every other entry here — the child *knows* they invented it, so
+     it is the one relationship on the site that cannot be mistaken for a
+     misreading. Davis et al. supplies the consequence: children with an
+     imaginary companion described their *real* best friend in mental terms 29.6%
+     of the time against 12.6%. The foster-care sample was included precisely
+     because it reports a **negative** — prevalence did not differ by maltreatment
+     history — and a common behaviour must not be filed as a marker of damage.
+     **`howdy-doody`** (1947–1960, `companion/anthropomorphised-tool`, `made`):
+     the first television character answered by name, thirteen years and ~2,500
+     episodes of "Say, kids, what time is it?" / "It's Howdy Doody time!", with
+     the voice usually **recorded before the broadcast** — the parasocial
+     condition engineered rather than suffered. Clarabell the Clown never spoke
+     for twelve years and said one line, "Good-bye, kids.", in the final episode.
+     And the puppets were sold as toys through the 1950s, so the tie moved from
+     something you cannot touch to an object in your hands, which is this site's
+     whole thesis inside one commercial decision.
+   - Eight records were added and six of the eight are `retrievable`. Two
+     Smithsonian records are `unverified` because both `si.edu` and
+     `americanhistory.si.edu` return **403** to an unauthenticated request — and
+     per item on HTTP codes, that is a different failure from the Met's 429 and
+     gets the same treatment: the claim is recorded, the status says this agent
+     did not open it.
