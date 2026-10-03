@@ -82,12 +82,6 @@ E = [
 ("psr-research-begins", "Parasocial research on creators begins", "study", 2014, "Live", ["consideration"], ["creator"],
  "A wave of studies measuring parasocial relationships with YouTubers, livestreamers and vloggers rather than with television hosts.",
  "The literature caught up with the medium about a decade late, and then discovered that the newer bonds are not the same shape. Livestreamers can see the room. That changes the theory, not just the population.", "Gerrath & Usrey, 2014", False),
-("pokimane", "The doorstep", "event", 2021, "Live", ["danger","consideration"], ["creator"],
- "A viewer who donated enough arrives at a creator's home believing he knows her, and the boundary is a news event.",
- "The canonical parasocial boundary case and the reason the term entered general vocabulary. Nothing was wrong with the feeling. The problem was structural, and it was the structure's fault.", "", False),
-("streamer-ban", "The two-year ban", "event", 2024, "Live", ["danger"], ["creator"],
- "A platform's largest creator is suspended and reinstated. The audience experiences it as something happening to a person they know.",
- "The clearest demonstration that a platform behaves to its audience as a friend, and that suspension reads as betrayal rather than moderation. The parasocial frame predicted this exact failure mode.", "", False),
 ("vtuber", "The virtual creator", "mechanism", 2016, "Live", ["application","manipulation"], ["creator","companion"],
  "A performer with an animated persona, a persistent character and an industry-standard model where the audience pays for the character's recognition.",
  "Character and person separated, and the character commercialised. It is the first format where the parasocial object is explicitly a designed asset, and it is also the format with the healthiest documented fan boundaries.", "Kizuna AI, 2016", False),
@@ -338,15 +332,9 @@ E = [
 ("sasaeng-culture", "Sasaeng culture", "term", 2000, "Korean fandom", ["danger","manipulation"], ["danger","idol"],
  "Organised, commercialised intrusion: tracking schedules, buying flight details, intercepting travel, surveilling buildings.",
  "Attachment scaled past the point where it is a private feeling and became an industry with staff and infrastructure. The escalation is not emotional, it is logistical - which is why it emerged as fandom became globally coordinated.", "", False),
-("gilsoul-case", "The lobby", "event", 2010, "Korean fandom", ["danger"], ["danger","idol"],
- "A fan harmed in an attempt to breach a celebrity's home, and a petition that followed.",
- "The moment international fandom organised as an advocacy body, and the moment it was clear that a fandom can be a political actor with a legal strategy. The petition was both a moral position and an extremely effective piece of marketing for the industry.", "", False),
 ("pokemon-go-incident", "The stadium", "event", 2016, "Games", ["danger","manipulation"], ["danger","brand"],
  "A game event causes a physical stampede at a real stadium because players arrived to capture it in person.",
  "A parasocial bond with software producing a crowd in a physical space, and the first time the parasocial frame had to explain a mass-casualty event rather than a feeling. Everyone in that stadium was a genuine participant, which is the difficulty.", "", False),
-("billi-eilish", "The hashtag", "event", 2019, "Music", ["danger","contest"], ["danger","idol"],
- "Fans of one artist are organised into mass harassment of another, using the first artist's parasocial bond as the weapon.",
- "A parasocial bond deployed as directed energy against a named individual. Both artists were defended by the same mechanism that caused the harm, which is the most parasocial thing about it: the defence was an expression of attachment.", "", False),
 ("swatting", "Swatting", "mechanism", 2013, "Gaming", ["danger"], ["danger","creator"],
  "Sending a false emergency report to a real address to provoke an armed police response, because of a grievance about a streamer.",
  "The final boundary. A parasocial grievance aimed at a public figure lands on an innocent third party with a weapon, and no amount of the bond being sincere changes the outcome for the person who is shot.", "", False),
@@ -375,15 +363,83 @@ def main():
     vpath = pathlib.Path(__file__).resolve().parent.parent / "data" / "atlas_verified.json"
     extra = set(json.loads(vpath.read_text(encoding="utf-8")).get("ids", [])) \
         if vpath.exists() else set()
+    # `source` is deliberately NOT written into the entry any more, though the column
+    # still exists above. For sixteen of its seventeen rows it holds a real
+    # citation — Weizenbaum 1966 for `eliza`, Winograd 1970 for `shrlu` — which is
+    # redundant, because every one of those entries has a proper `sources[]`
+    # record. For three rows it held something else entirely, and those three
+    # rendered:
+    #     vshojo             "VShojo, 2022"
+    #     stadium-residency  "Eras Tour"
+    #     elvis              "The Colonel Parker apparatus"
+    # Each is the entry's own subject cited as the entry's own reference: the
+    # identifier-printed-where-a-bibliography-belongs trap, live on three pages.
+    # Writing this column into the entry is what put it there.
+    #
+    # Deleting the field from the corpus while leaving this write in place did
+    # nothing at all: the first seeder run afterwards put all seventeen straight
+    # back, which is why the diff looked enormous and had to be undone. **A field
+    # cannot be deleted from the data while the code that writes it still runs**,
+    # and the same is true of the four dropped entries below — removing them from
+    # `encyclopedia.json` would have let this table recreate them on the next run.
+    # That is why the rows were removed from the table and not from the data
+    # alone.
     authored = ("title", "kind", "year", "era", "lanes", "sections",
-                "summary", "significance", "source", "verified")
+                "summary", "significance", "verified")
+    # An empty `source` here is only acceptable when the entry has a reason to have
+    # no citation. There are two, and both have to be checked against the corpus
+    # rather than inferred from this table:
+    #
+    #   1. it already has real records in `sources[]`, because then the sourcing
+    #      happened later through `add_source.py` and this column is only stale;
+    #   2. it is `provenance: thesis` - the site's own framework, which takes no
+    #      citation by design. "That is not a gap" is written in AGENTS.md and it
+    #      means it: `the-clerk` and `the-audience` have no source because they
+    #      are the argument, not a claim about something in the world.
+    #
+    # The first version of this check refused *every* empty `source`, which
+    # blocked the whole seeder: **85 of the remaining 102 rows have an empty seed
+    # source** because they were properly sourced afterwards, one at a time, by
+    # hand. Adding the thesis exemption brought it to 7, and all 7 are thesis. A
+    # guard that cannot tell "not yet sourced" from "sourced the long way round"
+    # or from "deliberately unsourced" is not strict, it is just broken, and the
+    # first two runs of it took the tool out of use entirely.
+    by_id = {e["id"]: e for e in d["entries"]}
+    nosrc = []
+    for r in E:
+        if str(r[9]).strip():
+            continue
+        e = by_id.get(r[0])
+        if e is None:
+            # A row that is not in the corpus yet is about to CREATE an entry,
+            # and an empty `source` means it will create one with no citation at
+            # all. That is precisely the shape being guarded against, so a new
+            # row must carry its source here. An earlier version of this check
+            # skipped unknown rows on the grounds that there was nothing to
+            # inspect - which is the one case where there is most to refuse, and
+            # it wrote a test entry straight into the corpus to prove it.
+            nosrc.append(r[0] + " (new row)")
+            continue
+        if (e.get("sources") or []) or e.get("provenance") == "thesis":
+            continue
+        nosrc.append(r[0])
+    if nosrc:
+        raise SystemExit(
+            f"seed_encyclopedia: {len(nosrc)} row(s) have neither a seed source "
+            f"nor any citation record, which is how four unsourceable claims "
+            f"about named people got in: {', '.join(nosrc)}\n"
+            f"Cite the work in the `source` column, add it with add_source.py, or "
+            f"drop the row. An entry whose whole content is an incident needs "
+            f"the incident's reporting behind it; 'a visible gap is correct' "
+            f"covers a missing photograph and a thesis entry, not a missing "
+            f"event.")
     added = updated = 0
     for (i, t, k, y, era, lanes, secs, summary, sig, src, ver) in E:
         ver = bool(ver) or i in extra
         row = {"title": t, "kind": k, "year": y, "era": era,
                "lanes": lanes, "sections": secs,
                "summary": summary, "significance": sig,
-               "source": src, "verified": ver}
+               "verified": ver}
         if i in have:
             # this table is the authoring source for these fields, so re-running
             # must restore them rather than skip. It used to skip, which meant a

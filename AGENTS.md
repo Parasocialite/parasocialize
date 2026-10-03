@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 193 entries, 467 relations, 279 generated pages.
+relationships. 189 entries, 465 relations, 275 generated pages.
 
 ## The rule that outranks everything
 
@@ -684,7 +684,7 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-176 sourced | 4 not yet stood behind | 13 thesis   = 193
+176 sourced | 0 not yet stood behind | 13 thesis   = 189
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
 231 of 380 sources have a locator
 0 of 380 claim to be openable without one   (ratcheted; was 94)
@@ -693,13 +693,14 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 0 relations claim an order neither end can support
 0 citation strings are notes to self
 0 entries assert the far side perceives the reader   (tools/cull_audit.py)
+0 entries carry an unsourced claim                    (tools/add_source.py report)
 39 attachment sub-categories, up from 38
 6 otherness members, on a third axis
 3 reciprocity members, on a fourth axis recovered from the 2019 chart
 13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 193. `add_source.py` is authoritative.
+Board must reconcile to 189. `add_source.py` is authoritative.
 
 **Gate order matters.** `plate.py` draws from the data, so it must run *after*
 `build_cards.py` and *before* `build_deploy.py`:
@@ -1213,6 +1214,85 @@ the project.
      --slots` already asks for exactly this from the author: *"Real photographs
      of the real shelf, the real classroom and the real person will do more for
      this site's credibility than any stock library."*
+
+18. **The corpus could write an entry with no source at all, and four of them
+   were claims about named living people that nobody could source.** The four
+   that had been flagged unsourced since the Tier 1 pass are **gone**, and the
+   reason is not that they were found and fixed.
+   - Fetching the subjects' encyclopaedic articles settled what four rounds of
+     searching could not:
+     | entry | claimed | what the article actually records |
+     |---|---|---|
+     | `pokimane` | a viewer arrives at a creator's home | a 48-hour DMCA suspension (8 Jan 2022) and a hate raid by JiDion's viewers. **No SWAT, no police, no doorstep, no "Physical Evidence".** |
+     | `streamer-ban` | a two-year ban, suspended then reinstated | **no two-year ban.** Its one "two-year" is a **$100m two-year Kick deal (June 2023)**. No December 2024, no "reinstated", no Kassian. |
+     | `billi-eilish` | fans of one artist mass-harass another | **"Cyrus" 0 hits, "harassment" 0 hits.** The single "Noah" is Noah Centineo in a Calvin Klein ad. |
+     | `gilsoul-case` | a fan harmed breaching a home, and a petition | **"Gilsoul" 0, "petition" 0, "fans" 0.** Only her memoir and her post-2011 advocacy. |
+   - **Absence from an article is not absence from the world**, and none of these
+     is claimed to be fabricated. What is established is that after four
+     separate attempts the claims could not be sourced, and that each names a
+     living, identifiable person. That is not the same as an entry with a missing
+     photograph. `AGENTS.md` says "a visible gap is correct", and that is right
+     for a gap — this was not a gap, it was a specific incident asserted with
+     nothing behind it. **Removed: rows from `seed_encyclopedia.py`, entries,
+     placements, plates, pages, dist, redirects and sitemap.** Zero inbound
+     relations, so nothing broke.
+   - **The real find was the process, not the four.** `seed_encyclopedia.py` has
+     a `source` column, and **89 of its 106 rows were written with `""`.** It
+     accepted an empty source silently. Eighty-five were later sourced by hand,
+     one at a time, by somebody else, which is exactly why nobody noticed — the
+     debt was paid quietly and the mechanism that created it was never touched.
+     The four that were never paid are the visible symptom of a path that could
+     write a sourceless entry at will.
+   - **The guard took three attempts, and each failure was instructive:**
+     - **v1 refused every empty `source`** and blocked the seeder outright: 85
+       rows have an empty seed column *because they were properly sourced
+       afterwards*. A guard that cannot tell "not yet sourced" from "sourced the
+       long way round" is not strict, it is broken, and it took the tool out of
+       use. Added the corpus check.
+     - **v2 refused 7 rows that are all `provenance: thesis`** — `the-clerk`,
+       `the-audience`, `ratio`, `club-card`, `protagonist-parasocial`,
+       `parasocial-consent`, `the-reply-heres-watching`. Thesis entries take no
+       citation *by design*; AGENTS says so and it means it. Added the exemption.
+     - **v3 skipped rows not yet in the corpus** "because there is nothing to
+       inspect" — which is precisely backwards, since a new row is the case that
+       *creates* a sourceless entry. Testing it wrote a stray `probe-gap` entry
+       straight into `encyclopedia.json` (190 entries), which is how it was found,
+       and the entry was removed and the corpus re-verified at 189.
+     All four cases are now exercised deliberately: real table passes, a
+     genuinely sourceless row fails, a thesis row passes, a stale column on an
+     entry with real records passes.
+   - **A field cannot be deleted from the data while the code that writes it
+     still runs.** Seventeen entries carried a legacy top-level `source` field
+     that duplicated `sources[]`, and three of them **rendered the entry's own
+     subject as its own reference**: `vshojo` → "VShojo, 2022",
+     `stadium-residency` → "Eras Tour", `elvis` → "The Colonel Parker
+     apparatus". That is the identifier-printed-where-a-bibliography-belongs trap
+     live on three pages. Clearing the field changed nothing — the first seeder
+     run put all seventeen straight back. The fix was to stop the seeder writing
+     it, and the field was cleared from the corpus only after that.
+     - **A first pass at this also removed only the legacy field and reported the
+       job done while the false credit survived**, because the same three strings
+       were *also* sitting in `sources[]`, which is where the page renders them
+       from. Those three records are now `needs-source` and say why: the seed
+       note named the entry's own subject rather than a reference.
+     - And the sixteen non-false rows were **redundant, not wrong** — `eliza` →
+       "Weizenbaum, 1966", `shrlu` → "Winograd, 1970" are real citations, and
+       the field duplicated records that already existed. My first count said "16
+       of 17 were rendering their own subject as a citation", which was false; the
+       check was only testing whether the string duplicated the record, and for
+       real authors it does. Sixteen duplicated, three were false, one was a
+       placeholder already replaced in the record.
+   - **`add_source.py report` now reads `0 not yet stood behind` for the first
+     time**: 176 sourced + 13 thesis = 189. Not because the corpus grew, but
+     because the only four entries asserting something unsourceable are no longer
+     asserting it.
+   - Cost of getting here, recorded because the pattern is the lesson: this
+     session damaged `data/encyclopedia.json` by rewriting it as
+     `{"entries": [...]}` and dropping `_note`, `lanes` and `kinds`, which made
+     the seeder crash on `KeyError: 'lanes'`. Recovered with `git checkout` and
+     redone preserving every top-level key. **Assert the top-level keys before
+     and after writing a hand-maintained corpus file** — which is already the
+     rule for taxonomy.json, and now has a second instance.
 
 ## Deploy note
 

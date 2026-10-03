@@ -47,11 +47,6 @@
       "sub": "idol",
       "why": "The entry is about how a star arises without any infrastructure behind them, so the object is the performer and the platform is the mechanism. Filed on the target, not the tool."
     },
-    "billi-eilish": {
-      "cat": "predator",
-      "sub": "in-group",
-      "why": "One artist's parasocial bond used as the weapon against another. This is the in-group case in its purest form: a fandom with an attachment, organised, pointed at a person - here, at a person, using another attachment as the instrument."
-    },
     "binding-is-public": {
       "cat": "divine",
       "sub": "christ",
@@ -293,11 +288,6 @@
       "sub": "mascot",
       "why": "A song where the singer pleads to be given the exact shape a man wants. An imaginary person defined entirely by someone else's specification - the attachment target is an image with no agency, which is the mascot case."
     },
-    "gilsoul-case": {
-      "cat": "predator",
-      "sub": "stalking",
-      "why": "A fan harmed attempting to breach a celebrity's home, and a petition that followed. The reciprocal edge arriving as an intrusion, and the petition is the fandom's own answer to it."
-    },
     "goethe": {
       "cat": "character",
       "sub": "fictional-protagonist",
@@ -478,11 +468,6 @@
       "sub": "platform",
       "why": "Players arrived in person at a real stadium to capture a game object, and the crowd was the damage. The platform is the attachment target and the venue is only where the attachment was finally expressed in the wrong currency."
     },
-    "pokimane": {
-      "cat": "predator",
-      "sub": "stalking",
-      "why": "A viewer who donated enough arrives at a creator's home believing he knows her. The reciprocal edge converted into an address, and the boundary becoming a news event is the point."
-    },
     "power-rangers-handover": {
       "cat": "character",
       "sub": "played-role",
@@ -627,11 +612,6 @@
       "cat": "character",
       "sub": "fictional-protagonist",
       "why": "A television film made for a fictional holiday, aired once, about characters the audience believed they owned. Airing once is the point: the slot existed for a single event and the ownership is the claim."
-    },
-    "streamer-ban": {
-      "cat": "institution",
-      "sub": "platform",
-      "why": "A platform's largest creator suspended and reinstated, and the audience experiences it as something happening to a person they know. The institution acting on a person the audience has an attachment to."
     },
     "superman-comic": {
       "cat": "character",
