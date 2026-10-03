@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 178 entries, 424 relations, 269 generated pages.
+relationships. 177 entries, 419 relations, 269 generated pages.
 
 ## The rule that outranks everything
 
@@ -402,10 +402,10 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-144 sourced | 21 not yet stood behind | 13 thesis   = 178
-34 of 424 edges land on something unchecked
-150 of 299 sources have a locator
-0 of 299 claim to be openable without one   (ratcheted; was 94)
+150 sourced | 14 not yet stood behind | 13 thesis   = 177
+34 of 419 edges land on something unchecked
+166 of 315 sources have a locator
+0 of 315 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
 ```
@@ -448,47 +448,51 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    is **@Parasocialdude** while the site is Parasocialize and IG/TikTok are
    parasocialite. **No social links exist anywhere** — not in `index.html`, not
    in `build_cards.py`, not in `build_deploy.py`.
-4. **Tier 1 citations** — six entries were claiming to be verified with nothing
-   behind them. `the-coach` and `the-dog` rendered a confident claim with **no
-   gap notice at all**, because `verified: true` is what suppresses the "Not yet
-   stood behind" notice and both carried zero citation records. Four more were
-   in the same state: `the-landlord`, `comfort-watch`, `continuity`,
-   `deepfake-grief`. All six are now `verified: false`, so the notice appears,
-   and `citation_audit.py` fails on the class.
-   - This is the **third instance of the same defect**, and the worst-placed.
-     The first inflated the backlog by counting thesis entries; the second
-     inflated the credits by reading `status` without reading `url`. This one
-     *removes a gap from the page* rather than adding a number to a chart, so
-     it is the only one a reader is directly misled by.
-   - **The sourcing work is still owed.** All six are real claims with a
-     sourceable spine. **`the-dog` is done**: Parker & Gilbert (2015),
-     *Advances in Genomics and Genetics* 5, 239–255, PMC5421102 — verified by
-     fetching it, not from a search snippet. It carries two findings the entry
-     did not have. First, the date is genuinely unsettled: fossils closer to
-     modern dogs run 14,000–17,000 ya, whole-genome divergence 13,000–32,000,
-     mtDNA 5,400 to over 100,000, and the authors place domestication "somewhere
-     in between 15,000 and 30,000 ya". Second — and this corrected the entry —
-     the genes under selection are **response to stress, fear and defence**,
-     with a reduced fear response offered as the candidate driver. The entry had
-     claimed the species was "selected partly for forming attachment", which is
-     the stronger and less supported thing; the summary now says what the source
-     says and the argument stays in `significance`.
-     **Still owed**: `the-coach`, `the-landlord`, `comfort-watch`,
-     `continuity`, `deepfake-grief`, plus `dere` and `the-transfer`.
-   - **`the-dog`'s central claim was false against this site's own data, and has
-     been rewritten.** It said the dog was "the original transparasocial
-     relationship, and the only one that has reliably worked". It is not
-     *transparasocial* (that term means live people who can hear you, and a dog
-     cannot read a comment), it is not *one-sided* (a dog answers back), and it
-     is not the *original*. The defensible claim is narrower and better: it is
-     the one bond on the site that was **bred** — selected for rather than
-     invented — which is why every later version is compared to it.
-     The date is also honestly uncertain and now says so: Parker & Gilbert place
-     domestication "somewhere in between 15,000 and 30,000 ya".
-   - **The record goes back much further than the dog, and two entries now say
-     so** (see item 11).
-   - `the-neighbour` was already sound (Granovetter 1973 with a DOI). `dere`
-     and `the-transfer` correctly showed the gap already.
+4. **~~Tier 1 citations~~ — closed, and three of the six were wrong.** The six
+   entries that claimed to be verified with nothing behind them are all now
+   sourced, and the entry text changed in four cases because the literature did
+   not say what the entries said. They all stay `verified: false`, so the "Not
+   yet stood behind" notice stays: nobody has read these yet.
+   - **`the-coach` claimed nobody had asked about it.** False in this repo's
+     signature way. Holt et al.'s meta-synthesis of 63 qualitative studies puts
+     "adult relationships" inside the developmental climate it models; "positive
+     and sustained adult–youth relations" is one of the Big 3 programme
+     characteristics; and Côté & Gilbert's four Cs include **Connection, defined
+     as "positive bonds and social relationships with people inside and outside
+     of sport"** — so the relational bond is one of the four things a coach is
+     judged on producing. The real gap is narrower and better: the relationship is
+     studied as developmental and **never as one-sided**, and `connection` is
+     scored as an outcome rather than described as a structure.
+   - **`continuity` claimed the bond loses its shape without the weekly rhythm.**
+     Erickson, Dal Cin & Byl (2019) manipulated binge watching experimentally and
+     found it *increased* parasocial relationship strength and narrative
+     transportation. The claim is the site's argument, not a finding, and the
+     page now says so. What the evidence does support is the *gap*: the
+     parasocial scales of the period ask directly whether you miss characters
+     between seasons.
+   - **`deepfake-grief` claimed it was deployed "mostly without anyone who loved
+     the person having agreed."** The documented 2024 cases are licensed — Jones
+     signed his voice rights to Lucasfilm in 2022 while alive, and ElevenLabs
+     dealt with the Garland, Dean, Reynolds and Olivier estates. Consent has
+     moved to the *licensor*, which is a sharper problem than the one claimed.
+   - `comfort-watch` and `the-landlord` needed sourcing but no correction; both
+     are better evidenced than they claimed. `the-transfer` likewise, and its
+     mechanism turned out to be the reverse of the cliche: fans identify more
+     with the **club** than with any individual, and that identification survives
+     the pairing being dissolved, which is why the departing player absorbs it.
+   - **`dere` was removed.** Its summary read "See 'Dionne Warwick's fan mail'",
+     which already existed as its own entry dated the same year; the two pointed
+     at each other in a circle and its id was a fragment of the other one. A
+     pointer that got promoted to an entry, with a page, a plate, a redirect and a
+     taxonomy placement. 178 → 177 entries.
+   - **The 14 entries still with zero citation records are a different queue**,
+     not the end of this one: `teen-idols`, `airline-miles`, `michael-jackson`,
+     `the-closure-gift`, `tony-stark`, `bieber-effect`, `gilsoul-case`,
+     `peak-tv`, `pokemon-go-incident`, `replika-launch`, `billi-eilish`,
+     `pokimane`, `ai-acts`, `streamer-ban`. Several are specific, checkable
+     events (the Gilsoul case, the Replika launch, Twitch's two-year ban, the
+     Pokémon Go stadium) and should be easier than the six just closed, not
+     harder. None of them is flagged `verified`.
 5. **The 94 unopenable `retrievable` records — closed, with a queue.** The
    false claims are gone: 4 records reused a URL that a sibling record in the
    same corpus already carried for the identical citation (verifiable by
@@ -620,7 +624,7 @@ Board must reconcile to 175. `add_source.py` is authoritative.
      above a summary saying the practice continued into the fourth and sixth
      centuries AD. `_fmt_span()` now includes `year_end`. Positive years still
      print bare (no "AD") on purpose — the era label carries that, and adding it
-     would restyle 178 entries.
+     would restyle every entry.
 
 ## Deploy note
 

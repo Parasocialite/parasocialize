@@ -936,7 +936,7 @@
         "crossover"
       ],
       "summary": "A named individual with access to your home, your deposits and your address, met in person, repeatedly, under stress.",
-      "significance": "A parasocial relationship with somebody who holds a key and a legal claim. Section 07 exists because the feeling and the power are inversely related, which is the definition of the problem.",
+      "significance": "A parasocial relationship with somebody who holds a key and a legal claim, and the only entry on this site where the two are the same person rather than a system. Section 07 exists because the feeling and the power are inversely related, which is the definition of the problem. The housing literature has actually found the mechanism, without using this site's vocabulary: renters describe landlords warmly, and then decline to raise legitimate complaints because escalating might damage the relationship - including in the cases they describe as positive. What keeps a bad tenancy in place is not the lease and not the law but the prospect of the next landlord being worse, which is an attachment to a named individual, formed under stress, with no way to leave without losing the address.",
       "verified": false,
       "medium": [
         "history"
@@ -952,9 +952,28 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Byrne, M., & McArdle, R. (2020). Secure occupancy, power and the landlord-tenant relation: a qualitative exploration of the Irish private rental sector. Housing Studies, 37(1), 124-142.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1080/02673037.2020.1803801",
+          "claim": "States the relationship in the terms this entry has been arguing for: tenant and landlord are 'not merely equal parties to a contract, nor are they atomised market actors. They are tied together in a relationship which is both a social relationship and a power relationship' (quoted at p. 139 in McKee & Harris below). A social relationship and a power relationship in the same clause is the whole problem, and it is in the abstract of record for the subject. Publisher returns 403 to an unauthenticated request; volume, issue and pages confirmed against Crossref."
+        },
+        {
+          "citation": "McKee, K., & Harris, J. (2023). The role of landlords in shaping private renters' uneven experiences of home: towards a relational approach. International Journal of Housing Policy, 25(1), 101-118.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1080/19491247.2023.2268349",
+          "claim": "Documents the mechanism this entry asserts. Renter interviews: tenants praised landlords who communicated well and were responsive, and yet, on further probing, 'some tenants simply did not want to raise legitimate issues or escalate complaints where issues remained unaddressed because of the risk of damaging the relationship with their landlord' - which the authors note persisted even where the relationship was described positively. The 'imagined alternative' of a negative relationship in the next tenancy was the powerful driver for accepting the status quo. A tenant staying silent to protect a relationship with someone who holds the keys and the deposit is a one-sided attachment, described here entirely in the language of housing policy. Publisher returns 403."
+        },
+        {
+          "citation": "Soaita, A. M. (2024). The social vibe of the tenant/landlord relationship in a 'tenant market': the case of Romania. Housing Studies, 40(11), 2428-2449.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1080/02673037.2024.2404065",
+          "claim": "Frames the gap this entry sits in: while interest in private rental housing has grown, 'few studies have addressed the tenant/landlord relationship as lived' - as a relationship rather than a contract. Examines narratives of risk and the repertoires of risk mitigation that renters build. Publisher returns 403; bibliographic record confirmed against Crossref."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -1026,7 +1045,7 @@
         "idol"
       ],
       "summary": "A player who has been attached to for years leaves, and the grievance is felt as betrayal by the entire locality.",
-      "significance": "The standard parasocial grievance story, and the one nobody frames as parasocial. The word for the feeling is betrayal, which is a relationship word, applied to a person who never signed anything.",
+      "significance": "The standard parasocial grievance story, and the one nobody frames as parasocial. The word for the feeling is betrayal, which is a relationship word, applied to a person who never signed anything - and the research says that is not sentiment, it is structure. Fans identify more strongly with the club than with any individual who plays for it, identification transfers between the two, and it survives the pairing being dissolved. Which is why the departing player absorbs an attachment that was never really his. Both sides also treat the transfer as carrying a real obligation: players talk about a pledge to supporters that appears in no contract, which is the whole trouble with a relationship word applied to a commercial transaction.",
       "verified": false,
       "medium": [
         "sport"
@@ -1042,9 +1061,34 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Merten, S., Reuland, N., Winand, M., & Marlier, M. (2020). Fan identification in football: professional football players and clubs competing for fan loyalty. Sport, Business and Management: An International Journal, 14(2), 169-187.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1108/SBM-05-2023-0063",
+          "claim": "The mechanism, and it runs opposite to the usual account. Measured with a fan identification scale: fans identify MORE strongly with their favourite team than with their favourite individual player, and connection to a player is weaker if he never played for that team. Identification therefore transfers between team and player and remains 'long-lasting, even after the combination of both actors has been dissolved' - compared in the paper to research on supporters of relocated clubs. So the grievance lands on the departing individual because the durable attachment is to the club. Publisher returns 403; Crossref-confirmed."
+        },
+        {
+          "citation": "Herd, K. (2023). Transfer patterns in the Swedish football clubs - a gift economy of loyalties and emotions. Soccer & Society, 25(3), 257-271.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1080/14660970.2023.2247350",
+          "claim": "Interview study in which players and fans treat a transfer as simultaneously an investment, a step in a career and 'a pledge to supporters' - players describing real obligations and expectations of supporters, and supporters describing attachment to players. The pledge is understood as binding by both sides and documented in no contract, which is what makes the word 'betrayal' available. Concludes that the market may be described as an emotional economy in which money is a means rather than a goal. Publisher returns 403."
+        },
+        {
+          "citation": "Kaden, M., Brandt, C., Bauers, S. B., Bunar, J., & Hovemann, G. (2023). \"I don't watch that anymore\": an analysis of online comments by German soccer fans on their relationship to their favored clubs. Frontiers in Psychology, 14.",
+          "status": "retrievable",
+          "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1289436/full",
+          "claim": "The other side of the same bond: supporters' exits, analysed through Hirschman's exit-voice-loyalty framework. Finds German soccer fans inclined to voice rather than exit, but with demonstrable limits - some supporting a non-league club instead - and quotes the finding that consumption of professional soccer 'cannot be ceased altogether'. Notes the commercialisation critique that players are transferred 'like assets' without regard to the local fan community, producing alienation between players and fans. Open access."
+        },
+        {
+          "citation": "Fillis, I., & Mackay, C. (2014). Moving beyond fan typologies: the impact of social integration on team loyalty in football. Journal of Marketing Management, 30(3-4), 334-363.",
+          "status": "retrievable",
+          "url": "https://dspace.stir.ac.uk/bitstream/1893/20038/1/Moving%20beyond%20fan%20typologies.pdf",
+          "claim": "Moves past tiered fan typologies to argue that devotion is best explained through social integration and a religious frame - religiosity and sacred consumption accounting for committed supporters of a single club, who see themselves as members of it and are unlikely to transfer allegiance. Case study of a Scottish club and its supporters. Author accepted manuscript in the University of Stirling repository."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
