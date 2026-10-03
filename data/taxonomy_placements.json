@@ -380,7 +380,8 @@
     "margery-kempe": {
       "cat": "divine",
       "sub": "christ",
-      "why": "Described an unbreakable bond with Jesus, was mocked for it, was reviled by her family, and in 1438 dictated a book that persuaded other women to do the same. She is the founding document of the site and she fits nowhere in a taxonomy built around performers, which is why DIVINE exists."
+      "why": "Described an unbreakable bond with Jesus, was mocked for it, was reviled by her family, and in 1438 dictated a book that persuaded other women to do the same. She is the founding document of the site and she fits nowhere in a taxonomy built around performers, which is why DIVINE exists. [otherness: She addresses God directly, in writing, for years, and receives no confirmation. Placed here as well as under officer, because the whole manuscript is one long unsolicited message to somebody who has never answered.]",
+      "other": "transcendent"
     },
     "mash-finale": {
       "cat": "cosmology",
@@ -405,7 +406,8 @@
     "mystical-union": {
       "cat": "divine",
       "sub": "abstract-absolute",
-      "why": "The doctrine that a person can be joined to the divine, described by theologians as an encounter between two. It is the one relationship on this site whose reciprocity is a live theological question rather than a design failure, and that is why it is filed where the argument is unfinished."
+      "why": "The doctrine that a person can be joined to the divine, described by theologians as an encounter between two. It is the one relationship on this site whose reciprocity is a live theological question rather than a design failure, and that is why it is filed where the argument is unfinished. [otherness: Union with the divine is the address case with no candidate for reciprocity in it at all: the test asks whether it is addressed rather than met, and nothing in the structure offers a reply.]",
+      "other": "transcendent"
     },
     "myth-and-ritual": {
       "cat": "cosmology",
@@ -675,7 +677,8 @@
     "the-book-of-my-first-showings": {
       "cat": "divine",
       "sub": "christ",
-      "why": "Dictated by Margery Kempe describing her experiences of Christ's love, her suffering, and her certainty that she had been chosen. The oldest surviving parasocial document on the site, and the reason DIVINE had to be built."
+      "why": "Dictated by Margery Kempe describing her experiences of Christ's love, her suffering, and her certainty that she had been chosen. The oldest surviving parasocial document on the site, and the reason DIVINE had to be built. [otherness: Visions are received, not met. The figure on the far side never speaks back, which is what makes the record of them possible.]",
+      "other": "transcendent"
     },
     "the-brand-as-character": {
       "cat": "institution",
@@ -875,7 +878,8 @@
     "neanderthal-burial": {
       "cat": "divine",
       "sub": "saint-ancestor",
-      "why": "The dead treated as somewhere you go rather than something you leave. Placed under the ancestor shelf rather than the myth shelf because nobody wrote the myth down: there is a pit, a scoop, stones, and a repeated return - the address is in the archaeology."
+      "why": "The dead treated as somewhere you go rather than something you leave. Placed under the ancestor shelf rather than the myth shelf because nobody wrote the myth down: there is a pit, a scoop, stones, and a repeated return - the address is in the archaeology. [otherness: Not transcendent, which was the previous reading: nobody addresses the dead here. The dead are kept within reach and treated as somewhere you go, which is belief in presence with nothing to verify it. Re-reading it changes the claim, so the reason is printed rather than swapped silently.]",
+      "other": "haunted"
     },
     "paleolithic-figures": {
       "cat": "companion",
@@ -885,12 +889,14 @@
     "roman-imagines": {
       "cat": "divine",
       "sub": "saint-ancestor",
-      "why": "A wax likeness of a specific dead relative, kept in the house and never able to answer. Same shelf as neanderthal-burial, and that is deliberate: burying a relative you intend to keep within reach and casting one are the same act at 70,000 years' remove. What the Roman adds is the paperwork - the titulus, the stemma, the law that let a bride carry them to a new house."
+      "why": "A wax likeness of a specific dead relative, kept in the house and never able to answer. Same shelf as neanderthal-burial, and that is deliberate: burying a relative you intend to keep within reach and casting one are the same act at 70,000 years' remove. What the Roman adds is the paperwork - the titulus, the stemma, the law that let a bride carry them to a new house. [otherness: An actor walks the mask in the funeral procession and the titulus does the conversing - the eye-holes and lip gap were cut so the *actor* could see and speak. That is the `made` test exactly: somebody is working it. It also explains why the entry could never be about divine address, which is what the divine shelf had implied.]",
+      "other": "made"
     },
     "sunghir": {
       "cat": "divine",
       "sub": "saint-ancestor",
-      "why": "Same shelf as neanderthal-burial, deliberately, and the pair is the argument: a pit you keep coming back to is one thing, and a site where the rich burials and the plain ones sit side by side for thirty thousand years is a different claim. The one uniting detail is the beads, and the analysis says they were about life, not death - which is the site declining to convert archaeology into a single relationship."
+      "why": "Same shelf as neanderthal-burial, deliberately, and the pair is the argument: a pit you keep coming back to is one thing, and a site where the rich burials and the plain ones sit side by side for thirty thousand years is a different claim. The one uniting detail is the beads, and the analysis says they were about life, not death - which is the site declining to convert archaeology into a single relationship. [otherness: Beads, a bull's scapula and a grave good. Presence maintained by deposit, not by petition - the same structure as the Shanidar burial and for the same reason: nothing is addressed, somebody is kept.]",
+      "other": "haunted"
     },
     "lewis-chessmen": {
       "cat": "character",
@@ -900,7 +906,8 @@
     "gobekli-tepe": {
       "cat": "divine",
       "sub": "abstract-absolute",
-      "why": "Provisional, and deliberately so. The pillars are anthropomorphic and the UNESCO nomination reads them as 'ancestors, perhaps even incipient deities', but nobody has settled it and other readings make them protective or totemic figures. abstract-absolute is the shelf for a represented being whose identity is exactly what is in dispute - put them under saint-ancestor and the entry would be arguing for one side of a live debate by filing it."
+      "why": "Provisional, and deliberately so. The pillars are anthropomorphic and the UNESCO nomination reads them as 'ancestors, perhaps even incipient deities', but nobody has settled it and other readings make them protective or totemic figures. abstract-absolute is the shelf for a represented being whose identity is exactly what is in dispute - put them under saint-ancestor and the entry would be arguing for one side of a live debate by filing it. [otherness: Represented beings whose identity *is* the dispute. UNESCO's own wording is 'believed to be', and that is exactly the axis: addressed, not confirmed. Filed here rather than under saint-ancestor so the file does not argue one side of an open debate.]",
+      "other": "transcendent"
     },
     "the-deaf-beloved": {
       "cat": "officer",
@@ -928,6 +935,30 @@
       "sub": "anthropomorphised-tool",
       "why": "A puppet is the purest case on the whole site of a figure made by somebody else and delivered from tape, and the toy sales are the reason it matters: the tie moved from something you cannot touch to something in your hands.",
       "other": "made"
+    },
+    "dorian-gray": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "other": "mirrored",
+      "why": "A portrait rather than a person, and the one entry in the corpus where the figure is literally an image of the person attached to it. Placed under character, not companion: nobody lives with the portrait. The third axis is what separates it from every other fictional-protagonist here."
+    },
+    "the-shadow": {
+      "cat": "companion",
+      "sub": "anthropomorphised-tool",
+      "other": "made",
+      "why": "A voice with a name attached, assembled by a publisher and an advertising agency. `made` rather than `mirrored` because the listener did not supply the figure; this is the same structure as howdy-doody, which is why they are related."
+    },
+    "alf": {
+      "cat": "companion",
+      "sub": "social-agent",
+      "other": "animate",
+      "why": "A non-human with a mind of his own living in a kitchen. Filed `animate` on the evidence of the character, with the caveat stated on the entry that the performer is a puppeteer and the axis has no rule yet for a figure that is both - which is why the caveat is on the entry rather than resolved by fiat here."
+    },
+    "casper": {
+      "cat": "companion",
+      "sub": "social-agent",
+      "other": "haunted",
+      "why": "A ghost, and the reason the `haunted` member exists: belief in presence with nothing to verify it. Filed social-agent rather than object because he is addressed, not used."
     }
   }
 }

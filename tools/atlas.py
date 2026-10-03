@@ -42,14 +42,27 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 ENC = ROOT / "data" / "encyclopedia.json"
 
 MEDIA = ["theology", "literature", "film", "music", "television_scripted",
-         "television_unscripted", "sport", "technology", "ai", "history", "games"]
+         "television_unscripted", "sport", "technology", "ai", "history", "games",
+         "radio", "comics"]
 
+# `radio` and `comics` were added because the corpus has held instances of both
+# all along and the axis had nowhere to put them: `cliffhanger` is dated 1930, and
+# the medium that produced one-sided bonds by the million for forty years had no
+# name here. A closed list validated by this file means an entry cannot be filed
+# honestly unless the medium exists, so a missing medium is not an inconvenience
+# - it is a hole in the classification that shows up as a gap in the corpus.
+# Both renderers degrade gracefully on an unknown key (`backdrop.SYSTEMS` and
+# `iyi._system()` both fall back by year), so adding a medium here cannot break
+# episode rendering; what it does mean is that a radio entry draws the theatre
+# backdrop until somebody writes a radio system, which is the honest artefact of
+# a real hole rather than a silent one.
 MEDIA_LABEL = {
     "theology": "Theology", "literature": "Literature", "film": "Film",
     "music": "Music", "television_scripted": "Scripted television",
     "television_unscripted": "Unscripted television", "sport": "Sport",
     "technology": "Technology", "ai": "Artificial intelligence",
     "history": "History", "games": "Games",
+    "radio": "Radio", "comics": "Comics",
 }
 
 KINDS = ["figure", "work", "mechanism", "event", "institution", "term", "study"]

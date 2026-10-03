@@ -19,10 +19,11 @@ MEDIUM_NAME = {
     "film": "Film", "music": "Music", "sport": "Sport",
     "technology": "Technology", "theology": "Theology and religion",
     "history": "History",
+    "radio": "Radio", "comics": "Comics",
 }
 MEDIUM_ORDER = ["ai", "television_scripted", "television_unscripted", "music",
                 "film", "literature", "games", "sport", "technology",
-                "theology", "history"]
+                "theology", "history", "radio", "comics"]
 
 # A subject cluster is a word that appears in three or more entry ids. The word
 # is the cluster's name because it is the thing the reader is looking for, and

@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 185 entries, 445 relations, 271 generated pages.
+relationships. 189 entries, 455 relations, 275 generated pages.
 
 ## The rule that outranks everything
 
@@ -519,6 +519,27 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   one found by reading the field's own documentation against its own values
   rather than by a gate, because the gate has no way to ask which meaning is
   intended.
+- **A probe that finds nothing is not evidence, and the usual reason is the
+  probe.** Chasing quotes out of the Gutenberg text of *Dorian Gray* took four
+  rounds, and the failure was mine each time rather than the corpus's. First
+  failure: the HTML edition decodes its smart quotes as `cp1252`, so `’` arrives
+  as three bytes and every quote containing an apostrophe fails to match. Second:
+  the fix applied entity replacement *after* stripping tags and still produced
+  `U+FFFD`, which looked like corruption in the source. Third — and this is the
+  one that actually cost the time — `re.findall("It will never alter", text)`
+  returned **0 hits on a passage that verifiably exists**, because the novel
+  reads *"But **it** will never alter"* with a lowercase *it*, and the search
+  was case-sensitive. Every probe reported "0 hits" and none of them said why.
+  The lesson generalises past regex: **`0 results` is the one output a tool can
+  produce by being wrong in seven different ways**, and the honest response is
+  to print the surrounding window and read it rather than to mutate the pattern.
+  Two things that fixed it and are now the default: probe with
+  `re.I` and a whitespace-flexible join (Gutenberg hard-wraps at ~72 columns, so
+  `"It\\s+will\\s+never\\s+alter"` is the correct form and `"It will never
+  alter"` is not), and fetch `cache/epub/<n>/pg<n>.txt` rather than the `-h.htm`
+  so there is no tag-stripping question at all. Same family as
+  `seven\s+past` matching "seven pastors", and the same remedy: **probe both
+  directions before believing a null.**
 - **HTTP 429 is not the same failure as 403.** Both Met Museum pages on the Lewis
   chessmen returned 429 - rate limiting - on two attempts a minute apart. The text
   was read via a search index rather than fetched, so both records are `unverified`
@@ -608,17 +629,18 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-168 sourced | 4 not yet stood behind | 13 thesis   = 185
+172 sourced | 4 not yet stood behind | 13 thesis   = 189
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-219 of 368 sources have a locator
-0 of 368 claim to be openable without one   (ratcheted; was 94)
+226 of 375 sources have a locator
+0 of 375 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
-39 sub-categories, up from 38
+39 attachment sub-categories, up from 38
 6 otherness members, on a third axis
+13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 185. `add_source.py` is authoritative.
+Board must reconcile to 189. `add_source.py` is authoritative.
 
 ## Open work
 
@@ -881,19 +903,117 @@ production.
      something is operating it), `animate` (a non-human given a mind),
      `transcendent` (addressed rather than met), `mirrored` (supplied by the
      person attached to it), `haunted` (believed present and unverifiable).
-   - The value is the `test`, not the caption. Each is a question a person
-     actually has to answer when filing something new: *does the audience know
-     they made it; is somebody working it; does it have a mind they cannot
-     edit; is it addressed rather than met; did they supply the whole figure; do
-     they believe something is there.*
+- The value is the `test`, not the caption. Each is a question a person
+       actually has to answer when filing something new: *does the audience
+       know they made it; is somebody working it; does it have a mind they
+       cannot edit; is it addressed rather than met; did they supply the whole
+       figure; do they believe something is there.*
    - **Placing the axis is optional per entry**, and the audit reports how many
-     do: 2 of 185. Requiring it everywhere would be the same move as filling a
-     hole to make a chart look even. A member with nothing placed against it is
-     an honest gap, and `verify_taxonomy.py` prints them by name: `animate`,
-     `transcendent`, `mirrored` and `haunted` are all currently empty. **That
-     list is the writing still owed**, and it is the same discipline as the
-     four empty attachment sub-categories.
-   - Two entries were added at the same time, from the two ends of the new axis.
+     do: 13 of 189. Requiring it everywhere would be the same move as filling a
+     hole to make a chart look even. `verify_taxonomy.py` prints the count per
+     member and names any that hold nothing.
+   - **Two different things are now true and the difference matters.** Four of
+     the six shelves are held by a *new entry written for the shelf* —
+     `mirrored` by `dorian-gray`, `haunted` by `casper`, `animate` by `alf`,
+     and `made` by `the-shadow` alongside `howdy-doody`. `transcendent` is
+     held by four **re-readings of entries that already existed**
+     (`mystical-union`, `margery-kempe`, `the-book-of-my-first-showings`,
+     `gobekli-tepe`), where the test answers cleanly and the entry was already
+     about address. That is classification of material in hand, not gap-filling,
+     but it is a weaker kind of coverage and the page does not claim otherwise:
+     the shelf has no named instance yet. **Populated and exemplified are
+     different states, and the audit only counts the first.**
+   - Three of those re-readings changed what the entries claim, which is why
+     the reasons are appended to the existing `why` and printed:
+     `neanderthal-burial` and `sunghir` are **`haunted`, not `transcendent`** —
+     nobody addresses the dead there, they are kept within reach and treated as
+     somewhere you go, which is belief in presence with nothing to verify it.
+     `roman-imagines` is **`made`** — an actor walks the mask in the funeral
+     procession and the *titulus* does the conversing, with the eye-holes and
+     lip gap cut so the **actor** could see and speak. Filing it as
+     `divine/saint-ancestor` had implied address; the entry's own evidence says
+     somebody is working it.
+   - Four entries were added from the user's requested categories, one per
+     shelf, and each is a specific instance rather than a format:
+     - **`dorian-gray`** (1890, `character/fictional-protagonist`, `mirrored`) —
+       `companion/social-agent` would be wrong, nobody lives with the picture.
+       The evidence is four lines of dialogue read from the Project Gutenberg
+       full text, not a summary: Hallward, who loves the man he has painted,
+       answers the original's question — *"Am I really like that?"* / *"Yes;
+       you are just like that."* / *"At least you are like it in appearance.
+       But it will never alter."* The real man is standing right there and is
+       also the wrong one. And the mirror: having seen cruelty in the painted
+       mouth he looks at his own red lips to check, and *"No line like that
+       warped his red lips"* — the one witness that could have settled it
+       exonerates him, and he is not permitted to be the evidence about
+       himself. First published July 1890 in *Lippincott's Monthly Magazine*,
+       the only novel Wilde wrote.
+     - **`the-shadow`** (1930, `companion/anthropomorphised-tool`, `made`) —
+       Street & Smith hired an ad agency and a writer-director to sell a pulp
+       magazine on the radio. Their plan was "a mysterious storyteller with a
+       sinister voice" and then they needed a name for him, which a scriptwriter
+       supplied. **Listeners found the announcer far more compelling than the
+       unrelated stories and began asking newsdealers for "that Shadow
+       detective magazine, even though it did not exist."** A one-sided bond
+       that generated demand for a physical object nobody had manufactured. Two
+       honesty notes kept: in the *magazine* stories the Shadow did not become
+       literally invisible at all, and the famous line is a radio adaptation's,
+       spoken by Frank Readick Jr. His power set is built around this site's own
+       subject — he can turn invisible *"except for his shadow, which cannot be
+       hidden, for unknown reasons."*
+     - **`alf`** (1986–90, `companion/social-agent`, `animate`) — filed
+       `animate` on the evidence of the character, with the caveat **on the
+       entry** rather than resolved by fiat: he is performed by Paul Fusco
+       inside a fur suit, and full-body shots by Michu Meszaros, uncredited.
+       **The axis has no rule yet for a figure that is simultaneously animated
+       and operated, and this entry is the case that proves it.** What makes it
+       more than a technique note is that the withholding was deliberate and
+       stated as method: *"Fusco insists that many people believe in Alf just
+       as they believe in Santa Claus, and he is not about to spoil the
+       illusion. So many people want to believe he's real... When you know how
+       it's done, it's just not as fascinating anymore."* The evidence it
+       worked, from the same 1987 piece: he *"gets invited to birthday parties
+       nearly every day"*, and *"mothers have told cast members that their
+       children cry every Monday night when Alf ends."*
+     - **`casper`** (1945, `companion/social-agent`, `haunted`) — made to
+       answer a four-year-old's fear of the dark: according to Joe Oriolo, a
+       cardboard cutout of a friendly ghost hung in a backyard tree to show his
+       daughter Joan *that not all ghosts are bad*. A ghost built as an
+       intervention against a specific fear, for one named child — the most
+       parasocial brief a supernatural figure has ever had, and the only part of
+       it that is checkable. **The origin is genuinely disputed** and both
+       sides are recorded: Oriolo's cutout, corroborated by Joan, against
+       Seymour Reit's claim to a short story he wrote alone and handed over to
+       illustrate. Filing contested authorship under one name would be lying.
+       And the detail nobody chose: the Apollo 16 command module's call sign was
+       Casper, its pilot explaining that *"there are enough serious things in
+       this flight, so I picked a non-serious name."*
+   - Seven records were added and six are `retrievable`. One is `unverified` —
+     the Chicago Tribune obituary corroborating Oriolo's side of the Casper
+     dispute returns 403, so this agent did not read it, and the claim records
+     that it is cited by Wikipedia for the same statement rather than verified
+     here. Project Gutenberg's full text, the *Los Angeles Times* ALF piece
+     (23 December 1987) and four Wikipedia articles were fetched and read.
+   - **Two media had to be added before any of this could be filed honestly.**
+     `MEDIA` in `tools/atlas.py` was a closed list of eleven, validated per
+     entry, so a radio serial or a comic could not be recorded without lying
+     about its medium — and `radio-serials` was sitting in the corpus dated 1930
+     with `medium: history`, the value 57 entries use as a catch-all. A missing
+     medium in a validated closed list is not an inconvenience: it is a hole in
+     the classification that surfaces as a gap in the corpus. `radio` and
+     `comics` were added to `MEDIA`, `MEDIA_LABEL`, `MEDIUM_NAME` and
+     `MEDIUM_ORDER`, and `radio-serials` was re-filed from `history` to
+     `radio`. Both renderers degrade safely on an unknown key — `backdrop.SYSTEMS`
+     and `iyi._system()` each fall back by year — so this cannot break episode
+     rendering; what it does mean is that a radio entry draws the theatre
+     backdrop until somebody writes a radio system, which is the honest artefact
+     of a real hole.
+   - **`cliffhanger` is dated 1930 with `medium: television_scripted`**, which
+     cannot both be right — television broadcasting had not begun. The same
+     year as `the-shadow`, which suggests a seeded or copied date. **Not
+     changed here**, because correcting it needs a source rather than a
+plausibility argument, and it is on the list for a date check.
+   - The first two entries came from the two ends of the new axis in one pass.
      **`the-imaginary-friend`** (1934, `companion/social-agent`, `imagined`):
      Pearson et al. 2001, 829 children, 46.2% reporting imaginary companions;
      Carlson & Taylor, 65% by age seven, 52% of preschool companions being props
@@ -914,10 +1034,10 @@ production.
      for twelve years and said one line, "Good-bye, kids.", in the final episode.
      And the puppets were sold as toys through the 1950s, so the tie moved from
      something you cannot touch to an object in your hands, which is this site's
-     whole thesis inside one commercial decision.
-   - Eight records were added and six of the eight are `retrievable`. Two
-     Smithsonian records are `unverified` because both `si.edu` and
-     `americanhistory.si.edu` return **403** to an unauthenticated request — and
-     per item on HTTP codes, that is a different failure from the Met's 429 and
-     gets the same treatment: the claim is recorded, the status says this agent
+whole thesis inside one commercial decision.
+   - Those first eight records are six `retrievable`. Two
+      Smithsonian records are `unverified` because both `si.edu` and
+      `americanhistory.si.edu` return **403** to an unauthenticated request — and
+      per item on HTTP codes, that is a different failure from the Met's 429 and
+      gets the same treatment: the claim is recorded, the status says this agent
      did not open it.

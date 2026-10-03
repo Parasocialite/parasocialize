@@ -1390,7 +1390,7 @@
       "significance": "The audience and the medium are the same thing. A radio serial is a routine, and the routine is the relationship.",
       "verified": false,
       "medium": [
-        "history"
+        "radio"
       ],
       "year_end": null,
       "relations": [
@@ -9067,6 +9067,193 @@
         }
       ],
       "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "dorian-gray",
+      "title": "Am I really like that?",
+      "kind": "work",
+      "year": 1890,
+      "era": "Modern",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "The painter stands in front of the figure he made and asks whether the man is really like it. He is. And it will never alter, which is the only thing about it anybody wanted.",
+      "significance": "The purest statement of the mirrored case ever written, and it is four lines of dialogue rather than an argument. Basil Hallward has painted the man he loves and the painting will not age, and when the original walks over to the canvas and asks the only question that matters - 'Am I really like that?' - the painter answers 'Yes; you are just like that' and then, 'At least you are like it in appearance. But it will never alter.' The real man is standing right there. He is also the wrong one. Wilde's book is about a portrait that takes the ruin instead, and the two sentences above are why anybody wants it: every bond on this site wants the other end to be permanent, and here is a version where permanence is available and it is attached to the wrong object. Dorian's own side of it is the jealousy that names the mechanism exactly - 'I am jealous of everything whose beauty does not die. I am jealous of the portrait you have painted of me. Why should it keep what I must lose? Every moment that passes takes something from me and gives something to it.' He wants to be the copy. The most damning detail is a mirror. Having seen the cruelty in the painted mouth, he takes up a glass and looks at his own red lips to check, and they are fine: 'No line like that warped his red lips.' The mirror is the one witness that could have settled it and it exonerates him. He is not permitted to be the evidence about himself. That is what the third axis calls mirrored - the figure supplied by the person attached to it, edited toward what the attachment needs, with the original never consulted - and Wilde wrote it in 1890, a hundred and thirty years before anybody had a word for it. First published in the July 1890 issue of Lippincott's Monthly Magazine, the only novel Wilde ever wrote.",
+      "verified": false,
+      "medium": [
+        "literature"
+      ],
+      "relations": [
+        {
+          "to": "the-imaginary-friend",
+          "type": "preceded"
+        },
+        {
+          "to": "howdy-doody",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Wilde, O. The Picture of Dorian Gray. Project Gutenberg eBook 174 (full text).",
+          "status": "retrievable",
+          "url": "https://www.gutenberg.org/cache/epub/174/pg174.txt",
+          "claim": "The dialogue, quoted exactly from the full text. Hallward: 'I shall stay with the real Dorian,' he said, sadly. 'Is it the real Dorian?' cried the original of the portrait, strolling across to him. 'Am I really like that?' 'Yes; you are just like that.' 'How wonderful, Basil!' 'At least you are like it in appearance. But it will never alter,' sighed Hallward. 'That is something.' Dorian: 'I am jealous of everything whose beauty does not die. I am jealous of the portrait you have painted of me. Why should it keep what I must lose? Every moment that passes takes something from me and gives something to it. Oh, if it were only the other way! If the picture could change, and I could be always what I am now!' And the mirror, in the same book: 'the lines of cruelty round the mouth as clearly as if he had been looking into a mirror after he had done some dreadful thing. He winced and, taking up from the table an oval glass framed in ivory Cupids, one of Lord Henry's many presents to him, glanced hurriedly into its polished depths. No line like that warped his red lips.'"
+        },
+        {
+          "citation": "The Picture of Dorian Gray. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray",
+          "claim": "Publication history: an 1890 philosophical fiction and Gothic horror novel by Oscar Wilde; a shorter novella-length version was published in the July 1890 issue of Lippincott's Monthly Magazine, the novel-length version in April 1891. It is the only novel Wilde wrote. The story concerns a portrait of Dorian Gray painted by Basil Hallward, 'a friend of Dorian's and an artist infatuated with Dorian's beauty' - the description is the bond, stated by the encyclopedia's own lead."
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "the-shadow",
+      "title": "A magazine that did not exist",
+      "kind": "work",
+      "year": 1930,
+      "era": "Radio",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "Street & Smith hired two men to sell a magazine on the radio. They invented a voice instead, and the listeners went asking newsdealers for the magazine that voice implied.",
+      "significance": "The best-documented case in this corpus of a one-sided bond producing demand for a physical object that was never manufactured, and it is the origin of the shadow as a mass medium. Street & Smith wanted to sell Detective Story Magazine, so they hired David Chrisman of an advertising agency and the writer-director William Sweets to turn the stories into a serial. Their actual plan was modest: a mysterious storyteller with a sinister voice, and then they needed a name for him. One scriptwriter, Harry Engman Charlot, proposed The Shadow. First broadcast 31 July 1930 as the narrator of the Detective Story Hour, voiced at first by James LaCurto and, four months later, by Frank Readick Jr. The stories were unrelated to the voice, and that turned out to be the whole business. Listeners found the announcer far more compelling than the fiction he was attached to, and began asking newsdealers for 'that Shadow detective magazine, even though it did not exist.' A bond with a voice generated a market for a book series that Street & Smith had to then commission, and the character's own power set is built around the axis this site is about: in radio and film he can turn himself invisible - except for his shadow, which cannot be hidden, for reasons nobody in the stories explains. A figure whose one unhidable property is the thing that gives him away. Two honesty notes kept on the entry: in the magazine stories the Shadow did not become literally invisible at all, and the famous opening line is a radio adaptation's, spoken by Readick, not the print character's. And the honest placement is `made`, not `mirrored`. The Shadow is not supplied by the person who loves him; he is assembled by a publisher, an advertising agency, a writer-director and a scriptwriter, which is the same structure as `howdy-doody` eight years later - a voice first, and a figure only once somebody needs one.",
+      "verified": false,
+      "medium": [
+        "radio"
+      ],
+      "relations": [
+        {
+          "to": "howdy-doody",
+          "type": "preceded"
+        },
+        {
+          "to": "cliffhanger",
+          "type": "succeeded"
+        },
+        {
+          "to": "saturday-mornings",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "The Shadow. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/The_Shadow",
+          "claim": "The origin, the invented name and the magazine that never existed: Street & Smith Publications hired David Chrisman, of the Ruthrauff & Ryan advertising agency, and writer-director William Sweets to adapt Detective Story Magazine's stories into a radio series; they 'thought the upcoming series should be narrated by a mysterious storyteller with a sinister voice and began searching for a suitable name'; scriptwriter Harry Engman Charlot proposed the alternatives 'The Inspector' and 'The Sleuth' and then The Shadow, which was 'the name given to the mysterious narrator of the Detective Story Hour radio program' beginning 31 July 1930, first voiced by James LaCurto and replaced after four months by Frank Readick Jr. 'Although the latter company had hoped the radio broadcasts would boost the declining sales of Detective Story Magazine, the result was quite different. Listeners found the sinister announcer much more compelling than the unrelated stories. They soon began asking newsdealers for copies of \"that Shadow detective magazine\", even though it did not exist.' Also: in the magazine stories the Shadow did not become literally invisible, and the radio opening line - 'Who knows what evil lurks in the hearts of men? The Shadow knows!' - has earned a place in the American idiom. Powers in radio and film include turning himself invisible 'except for his shadow, which cannot be hidden, for unknown reasons'."
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "alf",
+      "title": "So many people want to believe he's real",
+      "kind": "work",
+      "year": 1986,
+      "year_end": 1990,
+      "era": "Television",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "An alien with a kitchen and a family, performed by a man who refused for four years to say how. Children cried when it ended, and the character was invited to birthday parties.",
+      "significance": "The case that proves the third axis needs a rule, because ALF is on two shelves at once and pretending otherwise would be the exact error the axis was built to stop. On the evidence he is `animate`: he has a mind the audience cannot edit, he wants things for himself (the cat), he is stated to be over two hundred and twenty years old, and he crash-lands because he followed a radio signal. On the evidence of his body he is `made`. Paul Fusco performed him inside a fur suit and guardianship of the mechanism so total that the Los Angeles Times described it as a magician refusing to reveal how his tricks work - 'When Alf walks, he looks like a 3-year-old in a bear costume toddling down the hallway', and in close-up 'it looks as if he could have several human hands stuck up his backside, mechanically moving his mouth, arms and body.' Full-body shots were performed by Michu Meszaros, uncredited. What makes it more than a technique note is that the withholding was deliberate and stated as method: 'Fusco insists that many people believe in Alf just as they believe in Santa Claus, and he is not about to spoil the illusion. So many people want to believe he's real. Alf is in fact very real to me. He has his own dressing room. He speaks for himself. I prefer to preserve that. When you know how it's done, it's just not as fascinating anymore.' That is this site's thesis in a performer talking about his own job: the audience's belief is the asset, and explaining the mechanism destroys it. The evidence that it worked is in the same piece: ALF 'is so fascinating and so realistic, in fact, that he gets invited to birthday parties nearly every day. And mothers have told cast members that their children cry every Monday night when Alf ends.' A character invented on paper in 1982, turned down for four years, then given a family, a pet to want and a government to hide from - and the one-sidedness is asymmetric on purpose. The Tanners are reciprocated; the cat is not; and ALF's own arc is the only one in the corpus that is about being afraid of being sent home.",
+      "verified": false,
+      "medium": [
+        "television_scripted"
+      ],
+      "relations": [
+        {
+          "to": "howdy-doody",
+          "type": "succeeded"
+        },
+        {
+          "to": "ai-companion",
+          "type": "preceded"
+        },
+        {
+          "to": "the-imaginary-friend",
+          "type": "succeeded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Weinstein, S. 'Alf: The Star Trek of NBC's Furry Resident Alien: How a Wisecracking Puppet Toddled Into the Hearts of Viewers.' Los Angeles Times, 23 December 1987.",
+          "status": "retrievable",
+          "url": "https://www.latimes.com/archives/la-xpm-1987-12-23-ca-20780-story.html",
+          "claim": "The performance and the deliberate withholding, quoted: Fusco 'guards the secret of how Alf walks and talks and moves around a desk or a television set like a magician refusing to reveal the secret of his magic tricks. When Alf walks, he looks like a 3-year-old in a bear costume toddling down the hallway. When he sits around spouting his brash opinions like a teen-age Archie Bunker, it looks as if he could have several human hands stuck up his backside, mechanically moving his mouth, arms and body.' And: 'Fusco insists that many people believe in Alf just as they believe in Santa Claus, and he is not about to spoil the illusion. \"So many people want to believe he's real,\" Fusco says. \"Alf is in fact very real to me. He has his own dressing room. He speaks for himself. I prefer to preserve that. When you know how it's done, it's just not as fascinating anymore.\"' Plus the evidence it worked: 'Alf is so fascinating and so realistic, in fact, that he gets invited to birthday parties nearly every day. And mothers have told cast members that their children cry every Monday night when \"Alf\" ends.' Also the origin: Fusco, a former high school teacher who had produced children's specials for PBS, 'created Alf in 1982 but had trouble getting a deal off the ground', and took the character to Tom Patchett."
+        },
+        {
+          "citation": "ALF (TV series). Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/ALF_(TV_series)",
+          "claim": "Dates, structure and the second performer: ALF aired on NBC from 22 September 1986 to 24 March 1990; the title character is an acronym for 'Alien Life Form' whose real name is Gordon Shumway, an alien from the planet Melmac who follows an amateur radio signal to Earth and crash-lands into the garage of the suburban California Tanner family, who take him in to hide him from the Alien Task Force; the family is social worker Willie, Kate, Lynn, Brian and a cat named Lucky 'whom ALF wishes to consume'. 'ALF was performed by puppeteer Paul Fusco, who co-created the show with Tom Patchett. However, in scenes where he appeared in full body, he was performed by Michu Meszaros, who was uncredited in the role.' Four seasons, 97 episodes. And the age: Willie and ALF's relationship is 'akin to a mix of siblings and surrogate father and son, with Willie playing the father role despite being much younger than Alf, who was stated to be over two hundred and twenty years old by the time of the series.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "casper",
+      "title": "Not all ghosts are bad",
+      "kind": "work",
+      "year": 1945,
+      "era": "Postwar",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "Made to answer a four-year-old's fear of the dark, by a man who made a cardboard cutout and hung it in a tree. Two men then claimed to have invented him.",
+      "significance": "The `haunted` shelf opened by the reason the shelf exists. Casper is a ghost whose entire design brief was to be verifiable-in-principle and safe in fact: according to Joe Oriolo, he was made on a Halloween night to assuage his four-year-old daughter Joan's fear of the dark, as a cardboard cutout of a friendly ghost hung in the backyard tree to show her that not all ghosts are bad. A ghost built as an intervention against a specific fear, for one named child, is the most parasocial brief a supernatural figure has ever had - and the child's side of it is checkable, which is the only part of the story that is. Then the commercial part. Casper ran from 1945, and the character ended up in Harvey Comics, in television and in feature films, which means the figure that answered one girl's fear of the dark became a property that could be licensed. The site keeps two honesty notes. The first is that **the origin is genuinely disputed**: Oriolo claims the cardboard cutout, his daughter has corroborated it, and Seymour Reit maintains Casper was born with a short story he conceived and wrote entirely himself and handed to Oriolo to illustrate - 'Joe created the actual cartoon of the character - but the concept, series, idea and plotline were mine, prior to Joe's involvement.' A corpus that files contested authorship under a single name would be lying, so both are recorded. The second is that `haunted` is defined on belief in presence, not on the supernatural: Casper is not filed as a ghost story but as a figure a child was prepared to believe in, which is a different and more useful thing. The most parasocial detail is the one nobody chose: the Apollo 16 command and service module was given the call sign Casper, because its pilot Ken Mattingly thought 'there are enough serious things in this flight, so I picked a non-serious name.' A friendly dead child's ghost ended up naming a spacecraft in orbit.",
+      "verified": false,
+      "medium": [
+        "comics"
+      ],
+      "relations": [
+        {
+          "to": "howdy-doody",
+          "type": "preceded"
+        },
+        {
+          "to": "the-shadow",
+          "type": "succeeded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Casper the Friendly Ghost. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Casper_the_Friendly_Ghost",
+          "claim": "First appearance as 'The Friendly Ghost', 16 November 1945; creators credited as Seymour Reit, Joe Oriolo and Vincent E. Valentine II. On the disputed origin: 'The origins of Casper are disputed, with both Seymour Reit and Joe Oriolo claiming to be the character's creator. According to Oriolo, Casper was created on a Halloween night to assuage his four-year-old daughter Joan's fear of the dark. He made a cardboard cutout of a friendly ghost and hung it in the backyard tree to show her that not all ghosts are bad.' 'Though Joan has corroborated this story, Seymour Reit maintains that Casper was born with a short story which he conceived and wrote entirely by himself and gave to Oriolo to illustrate. Reit concluded, \"Joe created the actual cartoon of the character - but the concept, series, idea and plotline were mine, prior to Joe's involvement.\"' And the call sign: 'The Apollo 16 Command and Service Module was given the call sign \"Casper\", since its pilot Ken Mattingly thought, \"there are enough serious things in this flight, so I picked a non-serious name.\"'"
+        },
+        {
+          "citation": "Orlando, J. D. 'Cartoonist Joseph D. Oriolo, Creator of Casper the Ghost.' Chicago Tribune, 27 December 1985.",
+          "status": "unverified",
+          "url": "https://www.chicagotribune.com/1985/12/27/cartoonist-joseph-d-oriolo-creator-of-casper-the-ghost/",
+          "claim": "Obituary corroborating Oriolo's side of the authorship dispute. The publisher returns 403 to an unauthenticated request, so this agent did not read it; the citation is recorded because Wikipedia cites it for the same claim, not because the text was verified here."
+        }
+      ],
+      "media_inferred": false,
       "provenance": "sourced"
     }
   ]
