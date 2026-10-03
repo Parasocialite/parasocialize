@@ -2125,8 +2125,8 @@
       "sections": [
         "idol"
       ],
-      "summary": "A label, a songwriter and an image, assembled and launched. Not discovered - assembled.",
-      "significance": "The first documented case of a parasocial attachment being designed as a manufacturing process. The product is the bond, and it has a launch date.",
+      "summary": "A television family show repurposed as a launchpad: the first rock-and-roll teen idol was on screen from birth, and his parents edited his episodes into the earliest music videos. Assembled, yes - by television.",
+      "significance": "The first documented case of an attachment being designed as a manufacturing process, and the supply chain ran through television rather than through a label - which is this site's argument arriving eighty years early. Rick Nelson was a character in his parents' weekly sitcom from birth, and the series was then used to sell records: he was the first teen idol to promote hit records on television, and his father had the idea of cutting episode footage into music videos. The attachment came first and the product was attached to it, which is the reverse of the usual story about a star being promoted. One caveat on the entry's own vocabulary: the practice is early 1950s, but the word is later - Nelson's 1962 record helped universalise 'teen idol', so the term names the phenomenon a few years after the thing existed. That lag is itself the pattern: the bond is always there before anyone has words for it.",
       "verified": false,
       "medium": [
         "history"
@@ -2146,9 +2146,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Ricky Nelson. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Ricky_Nelson",
+          "claim": "The manufacturing plant was a television family show, not a record label: 'Nelson was the first teen idol to use television to promote hit records. Ozzie Nelson even had the idea to edit footage together to create some of the first music videos', the edit being visible in the video for 'Travelin' Man'. He had been a screen presence since birth playing himself in his parents' weekly series, which is the whole supply chain: the attachment preceded the product and was then monetised through it."
+        },
+        {
+          "citation": "Ricky Nelson. EBSCO Research Starters (History).",
+          "status": "retrievable",
+          "url": "https://www.ebsco.com/research-starters/history/ricky-nelson",
+          "claim": "Called 'the first rock-and-roll teen idol', and Nelson parlayed his visibility in the weekly sitcom into a pop career - which is the entry's claim, sourced. Also dates the vocabulary: his 1962 hit 'Teenage Idol' helped universalise the term, so the phrase postdates the practice by several years. Notes the contemporary fan-orientated paperback that captured the phenomenon as it happened, and cites Joel Selvin, Ricky Nelson: Idol for a Generation (Contemporary Books, 1990)."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6472,7 +6485,7 @@
         "character"
       ],
       "summary": "Prestige television as a sustained parasocial bargain: writers, actors and marketing presenting themselves as authors of a world viewers inhabit.",
-      "significance": "The high-water mark of the writer as parasocial object. Showrunners were discussed with the intimacy previously reserved for characters, and the parasocial frame explains the intensity better than any account of television as art does.",
+      "significance": "The high-water mark of the writer as parasocial object - with one correction that makes the entry more accurate rather than less. 'Peak TV' was not a critical category; it was coined by FX's chief executive John Landgraf, which is a piece of industry positioning by the people selling the thing. And the term was coined to solve a problem this site has an entry about: when audiences found themselves overwhelmed, the providers changed the release schedule, putting the weekly episode back after years of whole-season drops, explicitly to address burnout. The bond's rhythm was being managed by its seller. A critic called the result 'a Spotified relationship to art' and a parasocial media with a faux-participatory aspect, which is the claim this entry was making, arriving from the wrong direction.",
       "verified": false,
       "medium": [
         "television_scripted"
@@ -6488,9 +6501,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Golden Age of Television (2000s-2023). Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Golden_Age_of_Television_(2000s%E2%80%932023)",
+          "claim": "'Peak TV' was not a critic's category or a scholarly one: it was coined by FX chief executive John Landgraf, and Wikipedia names him as such. Which matters, because the phrase was positioning - and the same entry records the corrective: streaming providers returned to releasing one episode a week in the early 2020s 'to address burnout from binge watching and concerns that the practice of releasing full seasons at once makes television more disposable and forgettable', with Landgraf among those worried the era had produced 'peak redundancy'. The schedule of the bond was being managed by the people selling it."
+        },
+        {
+          "citation": "Colman, E. (2024, April 1). Who Killed Prestige TV? Toward a 'Good Fan' Theory of Television. Literary Hub.",
+          "status": "retrievable",
+          "url": "https://lithub.com/who-killed-prestige-tv-toward-a-good-fan-theory-of-television",
+          "claim": "A critic naming the mechanism in this site's terms: prestige TV 'draws its audience in to a Spotified relationship to art', offering 'personalization in lieu of experimentation', so that 'shows are shows. Niches are blockbusters are nichebusters. It's all television. This time with a faux-participatory aspect - a parasocial media.' Supports the entry's claim that showrunners and writers became parasocial objects, from the critical side."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
