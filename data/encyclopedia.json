@@ -4843,7 +4843,7 @@
         "brand"
       ],
       "summary": "When a service ends or changes, the company sends an apology, sometimes with credit, addressed personally.",
-      "significance": "A corporation performing grief at its own users, correctly, because the users are grieving. The apology is not insincere and the technique is nonetheless the most sophisticated parasocial manipulation on this page, and it is free.",
+      "significance": "A corporation performing grief at its own users, correctly, because the users are grieving - and the best-documented case says so back. Google Reader launched in 2005, which is where this entry's date comes from; Google retired it on 1 July 2013 with 'Thanks for 8 great years', and an engineer added that Reader had a devoted following who would be very sad to see it go and that Google was sad too. Forty-six thousand people signed a petition within hours, and its author had already found the grammar: 'This isn't just about our data in Reader. This is about us using your product because we love it, because it makes our lives better, and because we trust you not to nuke it.' One user grieved not the product but himself: 'I won't miss Reader when it shuts down. But I will miss the old me - the person I described in Google Reader, without knowing it.' The reason the technique is free, and the reason it works, is the same and it is in the record: Reader was never monetised. No ads, no charge, feeds that were hard to make money from. The apology cost nothing because the relationship it was performed for was one Google had never sold anything to.",
       "verified": false,
       "year_end": null,
       "relations": [
@@ -4856,12 +4856,31 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Gross, D. (2013, March 14). Google Reader shutting down on July 1. CNN Business.",
+          "status": "retrievable",
+          "url": "https://www.cnn.com/2013/03/14/tech/web/google-reader-discontinued",
+          "claim": "The mechanism, its vocabulary, and the detail the entry's argument depends on. Google's line: 'We know Reader has a devoted following who will be very sad to see it go. We're sad too.' Within hours more than 46,000 people had signed a Change.org petition, and its author stated the entry's thesis outright: 'This isn't just about our data in Reader. This is about us using your product because we love it, because it makes our lives better, and because we trust you not to nuke it.' And the commercial fact underneath it: 'The feeds are also difficult to make money from, and Google never tried to place ads on Reader or charge for its use.'"
+        },
+        {
+          "citation": "Rothman, J. (2013, March 15). Farewell, Dear Reader. The New Yanker's Page-Turner.",
+          "status": "retrievable",
+          "url": "https://www.newyorker.com/books/page-turner/farewell-dear-reader",
+          "claim": "The grief, and its object. A user describes Reader as the first site he saw each morning and the last before bed, likens losing it to a favourite old bookshop closing, and then locates the real loss precisely: 'I won't miss Reader when it shuts down. But I will miss the old me - the person I described in Google Reader, without knowing it.' Which is this site's grief entry turned inside out: what was mourned was not the company but a version of the person who had used it."
+        },
+        {
+          "citation": "Sottek, T. (2013, March 13). Google Closes The Book On Google Reader On July 1. TechCrunch.",
+          "status": "retrievable",
+          "url": "https://techcrunch.com/2013/03/13/rip-google-reader",
+          "claim": "The service's own send-off and the reason given: Reader launched in 2005, would be retired on 1 July 2013, and Google told users 'Thanks for 8 great years!' - which is where this entry's 2005 date comes from. Usage had declined while other services were cut in the same spring cleaning, and Reader had been left without significant updates."
+        }
+      ],
       "medium": [
         "technology"
       ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -5076,7 +5095,7 @@
         "creator"
       ],
       "summary": "A performer with no media infrastructure becomes a global star through a video-sharing platform alone.",
-      "significance": "The first and clearest demonstration that a parasocial bond could be formed and monetised with no gatekeeper whatsoever. The platform was fourteen years old and the attachment was five.",
+      "significance": "This entry used to call it a parasocial bond formed with no gatekeeper whatsoever, and there were three. Scooter Braun found the videos by accidentally clicking one while looking for another singer; Usher signed him to Island Def Jam after a bidding war; and he was crowned in the same stroke in the venerable line of Tiger Beat's Leifs and Shauns, with his own mother uploading the videos to his channel. What the case actually marks is the discovery layer coming apart - a twelve-year-old's bedroom covers reaching a promoter with no audition, no A&R, and no gate - while the business immediately reassembled around him. The honest version is more interesting than the myth: for one window the middle of the old machine was missing, and the attachments of that window were adopted wholesale. The proof is not a chart position but a cancelled booking - a November 2009 mall appearance called off because of an out-of-control crowd of teenage girls, which is the point at scale. Two numbers in the old version were also wrong: the platform was two to four years old, not fourteen, and the attachment was a year or two, with the record that carried him everywhere arriving in January 2010, just after the entry's date.",
       "verified": false,
       "medium": [
         "television_unscripted"
@@ -5092,9 +5111,22 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Justin Bieber Fast Facts. CNN.",
+          "status": "retrievable",
+          "url": "https://www.cnn.com/us/justin-bieber-fast-facts",
+          "claim": "The sequence, which is three gatekeepers rather than none. 2007-2008: 'Bieber's mother begins posting videos of her son performing on YouTube. Record executive Scooter Braun sees the videos and flies Bieber and his mother to Atlanta and signs the teen to a contract.' 2008: auditions for Usher and is signed to Island/Def Jam. May 2009: 'One Time'. November 2009: the My World EP. Also the detail the entry was missing: in November 2009 an appearance at Roosevelt Field Mall in New York 'must be canceled due to an out-of-control crowd of teen girls' - a parasocial mass event inside the entry's own year, rather than a chart position."
+        },
+        {
+          "citation": "Adib, D. (2009, November 14). Pop Star Justin Bieber Is on the Brink of Superstardom. ABC News.",
+          "status": "retrievable",
+          "url": "https://abcnews.com/GMA/Weekend/teen-pop-star-justin-bieber-discovered-youtube/story?id=9068403",
+          "claim": "Bieber's own account of the discovery layer, and the part that bypassed it: posting homemade covers from the age of twelve, 'It had a hundred views, then a thousand views, then ten thousand views, so I just kept posting more videos and more videos'. The piece also makes the chain explicit by comparison - 'Usher had \"Star Search\" to launch him out of obscurity at age 13. His new protege, Justin Bieber, had YouTube' - and records a bidding war, with Timberlake also interested before Usher won him for Island Def Jam."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
