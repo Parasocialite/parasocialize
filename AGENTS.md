@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 175 entries, 417 relations, 267 generated pages.
+relationships. 177 entries, 421 relations, 269 generated pages.
 
 ## The rule that outranks everything
 
@@ -27,10 +27,15 @@ python tools\add_source.py --apply-provenance
 python tools\citation_audit.py # are the status fields telling the truth
 python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\verify_narrow.py    # does a generated page overflow at 390px
+python tools\plate.py --check    # does every title plate match its entry
 python tools\episode.py eliza   # render episode; preserves voice/*.wav
 python tools\verify_measure.py eliza shipping vshojo   # type vs its measure
 python tools\measure_type.py    # regenerate tools/type_metrics.json
 ```
+
+`plate.py --check` is checked by `link_audit.py` rather than run separately,
+because a plate is a rendered claim about its entry and the one time it was not
+a gate, 25 of them silently stopped describing their entry (see Traps).
 
 `verify_measure.py` is a **gate for anything touching typography**. It renders
 each scene twice, once with a given line removed, and measures the ink of that
@@ -248,6 +253,51 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   an anchor that does not resolve. **Whenever a key is shown to a reader, ask
   what it would mean to somebody who has never seen the database.** Third
   instance of the "field that promises more than it keeps" family.
+- **Two entries can each be plausible and still contradict each other.** The
+  dog entry called itself "the original transparasocial relationship, and the
+  only one that has reliably worked". Both halves were false against this site's
+  own data. *Transparasocial* is defined by this site's `transparasocial` entry
+  as live people who respond in real time — "the other side can now hear you" —
+  so a dog is the wrong kind of thing entirely; and a dog's bond **reciprocates**,
+  so it is not one-sided. "Original" was worse: `myth-and-ritual` already sat
+  14,200 years later in the same timeline and claimed to be "the oldest
+  parasocial structure there is", and the archaeological record goes back
+  tens of thousands of years before the dog. Two entries, each defensible alone,
+  producing a false pair. **No single-record gate can see this; it took reading
+  them side by side.** An automated version was written and deleted — it also
+  fired on `sasaeng-culture` and `siri`, which are both correct, because using a
+  defined word in prose is not claiming to define it.
+- **A relation is a sentence about time, so its verb has to agree with the
+  years.** `build_cards.py` renders `preceded` as "came before" and `succeeded`
+  as "came after". Fourteen of them disagreed with the `year` fields, including
+  a pair inverted in *both* directions at once — so the site told one reader that
+  club cards came before trading stamps and another that trading stamps came
+  after club cards. The semantics were read out of the renderer before any verb
+  was flipped, because "preceded" could have meant lineage and the fix would have
+  been thirteen new falsehoods. `citation_audit.py` now checks it.
+- **Fifteen strings in the credits were not citations.** `transparasocial`
+  carried `"Schramm, P., & Hartmann, D. (1997).  verify"` — the literal word
+  "verify", no URL — and the entry still counted as `sourced`, so a to-do was
+  rendered to a reader as a reference. A sweep found fourteen more
+  (`"various;  verify"`, `"KpopWave; verify"`, `"Jussila et al. (2020);  verify"`).
+  This is the site's central claim failing inside the site's own credit list.
+  Two classes, two fixes: a real work with an editorial tail gets the tail
+  stripped and stays `unverified`, and a record that was never a citation at all
+  becomes `needs-source` and says so. One of them was also a *wrong title* —
+  Horton & Wohl 1956 was recorded as "Mass communication and television".
+  `citation_audit.py` now rejects a citation string containing verify/todo/tbd/
+  fixme/xxx. **`de Vries & Gilovich (2015)` was left as an attribution alone**,
+  because the title is not recorded here and writing a plausible one is the
+  exact failure the sweep exists to remove.
+- **A generated artefact is a claim until something checks it.** Every entry has
+  a title plate, and the plate is drawn *from the data* — lane, category colour,
+  kind, and whether the entry is citation-checked. `plate.py --check` was not in
+  the gate list, so **25 plates had silently drifted**: `kobe`'s data said lane
+  `grief` while its committed plate said APPLICATION. Nothing was broken and
+  nothing looked broken; the plates were just describing an older version of the
+  database. Same shape as the desk that fetched nothing — a generated page that
+  quietly stopped describing its source. `link_audit.py` now rebuilds every plate
+  in memory and compares, confirmed red by corrupting one deliberately.
 - `tools/episode.py` writes `ffmpeg.txt` with the `-vsync` note inline on the
   command line, so literal copy-paste truncates the command. Use `HOWTO.txt`.
 - **Naming a font in CSS is not evidence the font loaded.** This bit three
@@ -352,10 +402,12 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-140 sourced | 22 not yet stood behind | 13 thesis   = 175
-34 of 417 edges land on something unchecked
-141 of 292 sources have a locator
-0 of 292 claim to be openable without one   (ratcheted; was 94)
+143 sourced | 21 not yet stood behind | 13 thesis   = 177
+34 of 421 edges land on something unchecked
+147 of 297 sources have a locator
+0 of 297 claim to be openable without one   (ratcheted; was 94)
+0 relations contradict the years they point at
+0 citation strings are notes to self
 ```
 
 Board must reconcile to 175. `add_source.py` is authoritative.
@@ -423,6 +475,18 @@ Board must reconcile to 175. `add_source.py` is authoritative.
      says and the argument stays in `significance`.
      **Still owed**: `the-coach`, `the-landlord`, `comfort-watch`,
      `continuity`, `deepfake-grief`, plus `dere` and `the-transfer`.
+   - **`the-dog`'s central claim was false against this site's own data, and has
+     been rewritten.** It said the dog was "the original transparasocial
+     relationship, and the only one that has reliably worked". It is not
+     *transparasocial* (that term means live people who can hear you, and a dog
+     cannot read a comment), it is not *one-sided* (a dog answers back), and it
+     is not the *original*. The defensible claim is narrower and better: it is
+     the one bond on the site that was **bred** — selected for rather than
+     invented — which is why every later version is compared to it.
+     The date is also honestly uncertain and now says so: Parker & Gilbert place
+     domestication "somewhere in between 15,000 and 30,000 ya".
+   - **The record goes back much further than the dog, and two entries now say
+     so** (see item 11).
    - `the-neighbour` was already sound (Granovetter 1973 with a DOI). `dere`
      and `the-transfer` correctly showed the gap already.
 5. **The 94 unopenable `retrievable` records — closed, with a queue.** The
@@ -483,11 +547,40 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    run, and the page now says how long ago that was.
    `link_audit.py` now checks what scripts `fetch()` against what is actually
    deployed, which is the general form of this bug.
-10. **The other 172 episodes.** All 175 entries carry `summary` and
+10. **The other 175 episodes.** All 177 entries carry `summary` and
    `significance`, so an episode exists for each and only the hand-written
    `hook` is missing. `tools/episode.py DRAFTS` has 3. Mechanically derivable,
    but a hook is the one line that makes a stranger stop scrolling, so it wants
    editorial judgement per entry rather than a template.
+11. **The timeline was wrong at the bottom, and the dog was the symptom.** The
+   site dated one-sided attachment from −800 (`myth-and-ritual`) and had
+   `the-dog` at −15000 claiming to be "the original". Two entries were added
+   from the archaeological record, which is the earliest evidence available:
+   - **`neanderthal-burial`, −70,000.** Neanderthals repeatedly carried their
+     dead into Shanidar Cave in northern Iraq and put them down in the floor —
+     Shanidar Z in a hollow gouged out to fit her, with a stone under her head.
+     Dated 70,000–75,000 ya. This is the oldest evidence of treating the dead
+     as *somewhere you go* rather than something you leave.
+   - **`paleolithic-figures`, −40,000.** Upper Paleolithic figures from mammoth
+     ivory: Vogelherd's cave lion, bison, horse, bear, mammoth and the
+     lion-man, plus the La Madeleine bison carved mid-grooming — licking its own
+     side, a specifically human gesture put in antler on purpose.
+   - The correction to `the-dog` is the interesting part. The claim "the dog is
+     the origin" was never defensible; what was defensible is "the dog is the
+     one bond that was bred". The dog also turns out to be the **control
+     condition** for the whole site — the only entry whose other end is a real
+     body that reciprocates — which is a better argument than the one it was
+     making.
+   - Note the evidence discipline held: the famous Shanidar **"flower burial"
+     is a debunk** (the pollen came from burrowing rodents), and the entry says
+     so. The *burials* survived the debunk; only the flowers did not.
+   - **Roman wax `imagines` are the obvious next entry** and are not written
+     yet. The evidence is excellent and openable: wax ancestor masks kept in the
+     atrium beside a painted `stemma`, actors wearing them in funeral
+     processions (Polybius 6.53–4, Tacitus *Ann.* 4.9), the *Parentalia* and
+     *Feralia*. Two locators verified open and unused:
+     `penn.museum/sites/expedition/recreating-roman-wax-masks` and the
+     peer-reviewed `peren-revues.fr/eugesta/550`.
 
 ## Deploy note
 

@@ -42,7 +42,7 @@
         "crossover"
       ],
       "summary": "The first domesticated animal, attached to one particular ape for at least fifteen thousand years and probably rather longer: how long ago exactly is not settled, and the genomic estimates disagree by a factor of two.",
-      "significance": "The original transparasocial relationship, and the only one that has reliably worked. Everything invented since is a worse version with better latency, and the reason it is compared to this constantly is that the comparison is fair.",
+      "significance": "Not the origin, and not one-sided: a dog is not a figure and it answers back. What is unique here is that this is the one bond on this site that was bred - the first relationship humans built by selecting for it rather than inventing it, which is why every later version is compared to it and why the comparison keeps being fair. Everything invented since either copies the deal (attention on a schedule, an unchanging face, a fixed voice) or breaks the only clause the dog kept: that the other end is actually there. The people who came before it - the dead kept within reach, the animals carved with human gestures - are not weaker versions of this. They are a different fact, and this site had the order wrong.",
       "verified": false,
       "medium": [
         "history"
@@ -75,7 +75,7 @@
         "world"
       ],
       "summary": "Myths are not stories people tell once. They are stories with a fixed shape that get told to the same audience on a schedule.",
-      "significance": "The oldest parasocial structure there is: fixed, repeatable, known in advance, and useless for anything except the purpose it was made for. Everything after is a variant.",
+      "significance": "The oldest *written-down* schedule in this catalogue: fixed, repeatable, known in advance, and useless for anything except the purpose it was made for. Everything after is a variant. It is not the oldest attachment here - neanderthal-burial and paleolithic-figures sit tens of thousands of years earlier - but it is the earliest one we can read, which is a different and lesser claim than the one this entry used to make.",
       "verified": true,
       "medium": [
         "history"
@@ -746,11 +746,11 @@
         },
         {
           "to": "club-card",
-          "type": "succeeded"
+          "type": "preceded"
         },
         {
           "to": "coffee-card",
-          "type": "succeeded"
+          "type": "preceded"
         }
       ],
       "sources": [
@@ -1169,9 +1169,9 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "various;  verify",
+          "citation": "No single source identified yet; this entry needs its sources added.",
           "url": "",
-          "status": "unverified"
+          "status": "needs-source"
         }
       ],
       "media_inferred": true,
@@ -1343,11 +1343,11 @@
       "relations": [
         {
           "to": "film-serial",
-          "type": "preceded"
+          "type": "succeeded"
         },
         {
           "to": "soap-opera",
-          "type": "succeeded"
+          "type": "preceded"
         },
         {
           "to": "protagonist-parasocial",
@@ -1395,7 +1395,7 @@
       "relations": [
         {
           "to": "radio-serials",
-          "type": "preceded"
+          "type": "succeeded"
         },
         {
           "to": "protagonist-parasocial",
@@ -1439,7 +1439,7 @@
       "relations": [
         {
           "to": "comic-strip",
-          "type": "preceded"
+          "type": "succeeded"
         },
         {
           "to": "tony-stark",
@@ -1706,9 +1706,9 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "various;  verify",
+          "citation": "No single source identified yet; this entry needs its sources added.",
           "url": "",
-          "status": "unverified"
+          "status": "needs-source"
         }
       ],
       "media_inferred": true,
@@ -1750,9 +1750,9 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "various;  verify",
+          "citation": "No single source identified yet; this entry needs its sources added.",
           "url": "",
-          "status": "unverified"
+          "status": "needs-source"
         }
       ],
       "media_inferred": true,
@@ -2004,7 +2004,7 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "Horton, D., & Wohl, R. R. (1956). Mass communication and television.  verify journal",
+          "citation": "Horton, D., & Wohl, R. R. (1956). Mass communication and para-social interaction: Observations on intimacy at a distance. Psychiatry, 19(3), 215-229.",
           "url": "",
           "status": "unverified"
         },
@@ -2046,7 +2046,7 @@
         },
         {
           "to": "werther",
-          "type": "preceded"
+          "type": "succeeded"
         }
       ],
       "sources": [
@@ -2264,7 +2264,7 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "Warwick, D. (1994). Memories of a lifetime.  verify edition",
+          "citation": "Warwick, D. (1994). Memories of a lifetime.",
           "url": "",
           "status": "unverified"
         }
@@ -2795,7 +2795,7 @@
         },
         {
           "to": "michael-jackson",
-          "type": "succeeded"
+          "type": "preceded"
         }
       ],
       "sources": [
@@ -2894,9 +2894,9 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "multiple;  verify individual studies",
+          "citation": "No single source identified yet; this entry needs its individual studies added.",
           "url": "",
-          "status": "unverified"
+          "status": "needs-source"
         }
       ],
       "media_inferred": true,
@@ -3144,7 +3144,7 @@
       "relations": [
         {
           "to": "trading-stamps",
-          "type": "preceded"
+          "type": "succeeded"
         },
         {
           "to": "loyalty-dark-pattern",
@@ -3283,7 +3283,7 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "Rubin, A. M., McVoy, S. M., & Brannan, D. (1985).  verify citation",
+          "citation": "Rubin, A. M., McVoy, S. M., & Brannan, D. (1985).",
           "url": "",
           "status": "unverified"
         }
@@ -4187,7 +4187,7 @@
         },
         {
           "to": "fandom-wars",
-          "type": "succeeded"
+          "type": "preceded"
         }
       ],
       "sources": [
@@ -4238,9 +4238,9 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "various;  verify",
+          "citation": "No single source identified yet; this entry needs its sources added.",
           "url": "",
-          "status": "unverified"
+          "status": "needs-source"
         }
       ],
       "media_inferred": true,
@@ -4350,9 +4350,9 @@
       ],
       "sources": [
         {
-          "claim": "the entry as a whole",
-          "citation": "Schramm, P., & Hartmann, D. (1997).  verify",
-          "url": "",
+          "claim": "The entry as a whole: transparasocial interaction as it is actually used in the literature - a one-sided bond with a live performer whose audience can be heard in real time, studied on Twitch. The DOI is confirmed against Crossref metadata, but the publisher returns 403 to an unauthenticated request, so this is recorded as unverified rather than pretending the text was read.",
+          "citation": "Carter, A. E., & Hoy, M. G. (2024). We're All Friends Here: Examining Transparasocial Interaction on Twitch and Its Effects on Strategic Communications. Journal of Interactive Advertising, 24(2), 127-142.",
+          "url": "https://doi.org/10.1080/15252019.2024.2320343",
           "status": "unverified"
         }
       ],
@@ -5052,7 +5052,7 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "Wu, T. (2016). The Attention Merchants.  verify",
+          "citation": "Wu, T. (2016). The Attention Merchants.",
           "url": "",
           "status": "unverified"
         }
@@ -5214,9 +5214,9 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "KpopWave intimacy-economy series;  verify",
+          "citation": "No single source identified yet; this entry needs its series added.",
           "url": "",
-          "status": "unverified"
+          "status": "needs-source"
         }
       ],
       "media_inferred": true,
@@ -6174,7 +6174,7 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "de Vries, L., & Gilovich, T. (2015).  verify",
+          "citation": "de Vries, L., & Gilovich, T. (2015). Title and venue not yet recorded.",
           "url": "",
           "status": "unverified"
         }
@@ -6365,9 +6365,9 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "KpopWave; verify",
+          "citation": "No single source identified yet; this entry needs its series added.",
           "url": "",
-          "status": "unverified"
+          "status": "needs-source"
         }
       ],
       "source": "KpopWave; verify",
@@ -6836,7 +6836,7 @@
         },
         {
           "to": "eliza",
-          "type": "preceded"
+          "type": "succeeded"
         }
       ],
       "sources": [
@@ -6873,11 +6873,11 @@
       "relations": [
         {
           "to": "chatterbots",
-          "type": "preceded"
+          "type": "succeeded"
         },
         {
           "to": "replika-update",
-          "type": "succeeded"
+          "type": "preceded"
         },
         {
           "to": "eliza",
@@ -7127,7 +7127,7 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "Jussila et al. (2020);  verify",
+          "citation": "Jussila et al. (2020).",
           "url": "",
           "status": "unverified"
         }
@@ -7534,10 +7534,6 @@
           "type": "cites"
         },
         {
-          "to": "replika-update",
-          "type": "succeeded"
-        },
-        {
           "to": "digital-bereavement",
           "type": "depicts"
         },
@@ -7549,7 +7545,7 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "ABC News (Australia), 2023;  verify date",
+          "citation": "ABC News (Australia), 2023.",
           "url": "",
           "status": "unverified"
         },
@@ -8226,6 +8222,104 @@
         }
       ],
       "verified": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "neanderthal-burial",
+      "title": "The dead kept in the cave",
+      "kind": "work",
+      "year": -70000,
+      "era": "Deep prehistory",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "idol",
+        "grief"
+      ],
+      "summary": "Neanderthals repeatedly carried their dead into one cave in northern Iraq and put them down in the floor. Shanidar 4 was found on his side with his arm under his head; Shanidar Z lay in a hollow gouged out to fit her, with a stone under her head. The cluster dates to roughly seventy to seventy-five thousand years ago.",
+      "significance": "The oldest evidence on this site of people treating the dead as somewhere you go, rather than something you leave behind. It sits about fifty-five thousand years before the dog, which settles an argument this site was getting wrong: one-sided attachment to a non-human does not begin with a domesticated animal. It is also the discipline case. The famous flowers were a mistake - the pollen turned out to come from burrowing rodents - and the burials survived the debunk anyway. That is what a real claim looks like after someone has been wrong about part of it.",
+      "verified": true,
+      "medium": [
+        "history"
+      ],
+      "year_end": null,
+      "relations": [
+        {
+          "to": "paleolithic-figures",
+          "type": "preceded"
+        },
+        {
+          "to": "the-dog",
+          "type": "preceded"
+        },
+        {
+          "to": "p",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Dates and method: repeated interment in the same cave; the most recent individual found in a shallow scoop partly covered by rocks that appear to have been placed, dated to around 70,000-75,000 years ago, with an earlier cluster at 70,000-60,000 and others at 45,000-50,000.",
+          "citation": "University of Cambridge, Department of Archaeology. Shanidar Cave Project. Date of access recorded in tools/citation_audit_baseline.json run.",
+          "url": "https://www.arch.cam.ac.uk/research/projects/current-projects/shanidar-cave-project",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The peer-reviewed report of the new articulated remains. Recorded because it is the primary source, and marked unverified because Cambridge Core returns 403 to an unauthenticated request.",
+          "citation": "Pomeroy, E., Bennett, P., & Hunt, C. O. (2020). New Neanderthal remains associated with the 'flower burial' at Shanidar Cave. Antiquity, 94(373), 11-26. doi:10.15184/aqy.2019.207",
+          "url": "https://www.cambridge.org/core/journals/antiquity/article/new-neanderthal-remains-associated-with-the-flower-burial-at-shanidar-cave/E7E94F650FF5488680829048FA72E32A",
+          "status": "unverified"
+        }
+      ],
+      "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "paleolithic-figures",
+      "title": "The carved animals",
+      "kind": "work",
+      "year": -40000,
+      "era": "Deep prehistory",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "character",
+        "companion"
+      ],
+      "summary": "Upper Paleolithic carvers in Europe made small figures of animals and people from mammoth ivory from about forty thousand years ago. The Vogelherd set includes a cave lion, a bison, a horse, a bear, a mammoth, and a lion-man - a body with a human face on a lion's. At La Madeleine in France a bison carved from antler is caught mid-grooming, turning its head to lick its own side.",
+      "significance": "This is what the dog entry used to deny. Animals carrying human qualities were being made, kept and shown to other people tens of thousands of years before the dog: the grooming gesture is specifically human, and somebody carved it in antler on purpose. It also puts an anthropomorphised animal on the same taxonomy shelf as the dog roughly twenty-five thousand years ahead of it, which is the honest shape of the argument. The dog is not the first animal to be given human shape in the imagination. It is the first animal to be bred into living alongside us.",
+      "verified": true,
+      "medium": [
+        "history"
+      ],
+      "year_end": null,
+      "relations": [
+        {
+          "to": "the-dog",
+          "type": "preceded"
+        },
+        {
+          "to": "p",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Animal, human and hybrid figurines made by modern humans beginning at least 35,000 years ago, across a broad area of Europe, in a spread of sizes, shapes and styles made by different groups - including the Vogelherd cave lion, mammoth, bison and horse, and the lion-man.",
+          "citation": "Smithsonian Institution, Human Origins Program. Figurines. Human Evolution Evidence: Behavior, Art & Music.",
+          "url": "https://humanorigins.si.edu/evidence/behavior/art-music/figurines",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The La Madeleine 'bison licking its side', Magdalenian, c. 14,000 years old, carved from the palmate section of a reindeer antler, shown turning to lick its own flank - a self-grooming gesture rendered in a portable object.",
+          "citation": "Bradshaw Foundation. La Madeleine Bison Licking its Side. Ice Age Art. (Catalogue entry for the carving held at the Musee d'Archéologie Nationale, Saint-Germain-en-Laye.)",
+          "url": "https://www.bradshawfoundation.com/sculpture/bison_licking_side.php",
+          "status": "retrievable"
+        }
+      ],
+      "media_inferred": true,
       "provenance": "sourced"
     }
   ]

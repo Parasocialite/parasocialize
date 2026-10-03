@@ -285,6 +285,36 @@ def main():
           f"(baseline {base}, can only fall). 'sourced' counts an entry with "
           f"at least one record; it does not mean every record is locatable")
 
+    # Every entry has a title plate, and the plate is DRAWN FROM THE DATA - lane,
+    # category colour, kind, and whether the entry is citation-checked. It is
+    # therefore a rendered claim about the entry, generated into a committed
+    # artefact. Nothing regenerated it, because `plate.py --check` was not a
+    # gate, and 25 plates had drifted: kobe's data says lane `grief` while its
+    # committed plate said APPLICATION. Same class as the desk that fetched
+    # nothing - a generated page that quietly stopped describing its source.
+    # Cheap to check: rebuild each plate in memory and compare.
+    try:
+        import plate
+        stale = []
+        for ent in _enc["entries"]:
+            pth = plate.OUT / f"{ent['id']}.svg"
+            try:
+                want = plate.build(ent, _enc)
+            except Exception:
+                continue
+            if not pth.exists():
+                stale.append(f"{ent['id']} (missing)")
+            elif pth.read_text(encoding="utf-8") != want:
+                stale.append(ent["id"])
+        if stale:
+            p(f"{len(stale)} title plates no longer match their entry "
+              f"(first: {', '.join(stale[:6])}). Run: python tools\\plate.py")
+        else:
+            w("every title plate matches its entry (regenerate with "
+              "tools\\plate.py)")
+    except Exception as exc:
+        w(f"could not check title plates ({exc.__class__.__name__})")
+
     print(f"link audit: {checked} internal links across "
           f"{len(list(ROOT.rglob('*.html')))} pages")
     for m in warnings:
