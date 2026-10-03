@@ -1421,6 +1421,55 @@ the project.
      Each is a measurement confidently reporting on the wrong layer, and the
      first would have put a paper about dogs behind a claim about parasocial
      persuasion while looking thoroughly verified.
+   - **A second index did not rescue the five, and that is the finding.** OpenAlex
+     has Mori's **1970 Japanese original** ("Bukimi no tani", 1,457 citations, no
+     DOI) and the **2012 IEEE English reprint** (`10.1109/mra.2012.2192811`) — and
+     **nothing dated 1979 at all.** Crossref 404s the DOI that a plausible
+     reading of the literature suggests for the 1979 English version, so it was
+     **not written**. `the-uncanny-corridor` still cites "Mori, 1979" and the
+     work queue records which three versions exist so somebody can read one.
+     One index that cannot see the work is a fact about the index.
+
+21. **A placeholder in `claim` is a to-do rendered to a reader, and the gate that
+   catches placeholder citations never looked at the field next to it.** 41
+   records across 40 entries carried **`claim: "the entry as a whole"`**. `claim`
+   is what the page prints beside each citation as the substance of it, so in a
+   provenance list that string reads like a reference supporting the whole entry.
+   It supports nothing in particular. This is the citation-placeholder defect
+   **one field over** — `citation_audit.py` checked `citation` and never inspected
+   `claim` — and 41 of 384 records is 11% of all citation records.
+   - All 41 were replaced with a sentence that states what the record actually is:
+     *"No specific claim is recorded against this source. The record is a pointer
+     to the work in general; the entry's own prose is the argument and is not
+     sourced line by line."* That is **information** — "nothing specific is checked
+     here" tells a reader something true — where "the entry as a whole" is a shrug
+     wearing the grammar of a reference.
+   - **The pattern is anchored, and deliberately so.** `transparasocial` has a
+     claim *beginning* "The entry as a whole: transparasocial interaction as it is
+     actually used in the literature…" and it is a good, specific claim. An
+     unanchored match would have destroyed it. Confirmed by test: injecting the
+     placeholder fails, injecting a three-character claim fails, and
+     `transparasocial` survives untouched. **Using a phrase is not the same as
+     being nothing but that phrase** — the same lesson as the `sasaeng`
+     terminology check and the `kind: exact` record, and the third time this
+     project has had to relearn it.
+   - **And the corpus had a date contradicting its own source.** `green-shield`
+     was dated **1912** while its own record's claim read "Launched in the United
+     Kingdom in 1958" — a contradiction sitting inside one entry, in a corpus
+     with a standing rule about dates disagreeing with their sources. Wikipedia
+     settles it: Green Shield Trading Stamp Co was founded in **1958** by Richard
+     Tompkins, who bought the name from a luggage manufacturer and copied S&H
+     Green Stamps in America, and **the article contains no occurrence of 1912 at
+     all**. Corrected. The 1912 appears to have been placed by analogy with
+     `trading-stamps` at 1890 — the same mistake the *first-fans* entry made by
+     association with an earlier era, and worth watching for.
+   - Read by hand first: eight records whose citation overlaps their entry's own
+     title were candidates, and **five were legitimate** — the Shanidar Cave
+     *project* page, a scholarly article on Roman masks, a Canadian privacy
+     report *about* Second Life, a named journalist's obituary piece, and Kempe's
+     own primary text. Only three were circular, and two of those were the ones
+     already fixed. **An overlap scan produces candidates, and a candidate is not
+     a defect.**
    - **And relaxing the check produced an immediate false positive, which is the
      finding worth keeping.** Letting author+year be sufficient made
      `keep-it-or-lose-it` MATCH: the corpus cites `Jussila et al. (2020)` with no

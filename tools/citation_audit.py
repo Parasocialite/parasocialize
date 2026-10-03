@@ -129,6 +129,43 @@ DESCRIBES_A_SOURCE = [
 NOTE_WORDS = ("verify", "todo", "tbd", "fixme", "xxx", "???", "placeholder")
 
 
+def placeholder_claims(enc: dict) -> list[dict]:
+    """Records whose `claim` is a shrug rather than a claim.
+
+    `claim` is what the page prints beside each citation as the substance of it,
+    so a placeholder there is a to-do rendered to a reader - **the same defect as
+    the citation placeholders, one field over.** `citation_audit.py` checked
+    `citation` and never looked at `claim`, and 41 records across 40 entries read
+    `the entry as a whole`, which in a provenance list reads like a reference that
+    supports everything on the page. It does not support anything in particular.
+
+    All 41 were replaced with a sentence that says what the record actually is: a
+    pointer to the work in general, with nothing specific checked against it.
+    That is *information* - "nothing specific is checked here" tells a reader
+    something true - where "the entry as a whole" is a shrug wearing the grammar
+    of a reference.
+
+    The pattern is anchored deliberately. `transparasocial` has a claim beginning
+    "The entry as a whole: transparasocial interaction as it is actually used in
+    the literature..." and it is a good, specific claim. An unanchored match would
+    have destroyed it, which is the same lesson as the `kind: exact` record and
+    the `sasaeng` terminology check: **using a phrase is not the same as being
+    nothing but that phrase.**
+    """
+    out = []
+    for eid, s in records(enc):
+        cl = re.sub(r"\s+", " ", str(s.get("claim") or "")).strip()
+        if re.match(r"^the entry as a whole:?\s*$", cl, re.I):
+            out.append({"entry": eid, "citation": cl[:70],
+                        "status": s.get("status"),
+                        "detail": "claim is a placeholder, not a claim"})
+        elif len(cl) < 12:
+            out.append({"entry": eid, "citation": cl[:70],
+                        "status": s.get("status"),
+                        "detail": f"claim is {len(cl)} characters"})
+    return out
+
+
 def contradictory_relations(enc: dict) -> list[dict]:
     """Relations whose chronology contradicts the years they point at.
 
@@ -256,6 +293,18 @@ def extra_checks(enc: dict) -> int:
         for p in ph:
             print(f"    FAIL {p['entry']:<26} {p['citation']!r}")
         print(f"\n  FAIL {len(ph)} placeholder(s) rendered in the credits.")
+        rc = 1
+
+    pc = placeholder_claims(enc)
+    print()
+    print("  claim fields that are a shrug rather than a claim:")
+    if not pc:
+        print("    none. every record says what its source is checked against.")
+    else:
+        for p in pc:
+            print(f"    FAIL {p['entry']:<26} {p['citation']!r}  {p['detail']}")
+        print(f"\n  FAIL {len(pc)} record(s) print a placeholder where a claim "
+              f"should be.")
         rc = 1
 
     cr = contradictory_relations(enc)
