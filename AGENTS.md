@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 177 entries, 419 relations, 269 generated pages.
+relationships. 179 entries, 425 relations, 269 generated pages.
 
 ## The rule that outranks everything
 
@@ -393,13 +393,34 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   being cross-references the prose explicitly explains. No entry's prose
   contradicts its own date - but five fields contradicted their *sources*, which
   is the check that matters and which no script can do.
-- **Coverage is skewed to the present, and now measurably so.** Of 177 entries, 62
-  are dated 2010 or later, and there are **six** entries before the year 1000 -
-  three in deep prehistory (`neanderthal-burial`, `paleolithic-figures`,
-  `the-dog`) and three in antiquity (`myth-and-ritual`, `roman-imagines`,
-  `congregation`). Five millennia of record are covered by six entries. That is
-  the honest shape of the corpus after the deep-prehistory pass, and it is the next
-  editorial priority if the history is ever to be more than a postscript to 1956.
+- **Coverage is skewed to the present, and now measurably so.** Of 179 entries, 62
+  are dated 2010 or later, and **ten** now sit before the year 1000:
+  `neanderthal-burial` (-70,000), `paleolithic-figures` (-40,000), `sunghir`
+  (-34,000), `the-dog` (-15,000), `myth-and-ritual` (-800), `roman-imagines`
+  (-250), `congregation` (-200), `p` (AD 8), `the-priest` (AD 100) and
+  `lewis-chessmen` (c. 1150). Five millennia of record are carried by ten entries,
+  up from six when this pass began. The deep past is still thin relative to the
+  recent past, and it is the next editorial priority - but it is no longer a
+  footnote to 1956. **`sunghir` and `lewis-chessmen` are the model for what a
+  good addition here looks like**: each one is sourced to a primary or
+  institutional record, each one *corrects or complicates* an existing entry, and
+  neither was added to improve a distribution.
+- **A source that complicates a sibling entry is worth more than a source that
+  confirms it.** `sunghir` exists partly to disagree with `neanderthal-burial`:
+  the Antiquity analysis finds four individuals intentionally buried, two
+  manipulated and one with no formal treatment, and reads the beads as "social
+  behaviour in life, rather than in death" - so the Shanidar entry now says that
+  what it documents is the earliest *instance* of something that varied a great
+  deal. Two of the Lewis chessmen are probably replacements from a different
+  workshop, made to replace lost pieces, and nobody looking at them can tell. A
+  taxonomy is supposed to hold things that disagree, and so is a corpus.
+- **HTTP 429 is not the same failure as 403.** Both Met Museum pages on the Lewis
+  chessmen returned 429 - rate limiting - on two attempts a minute apart. The text
+  was read via a search index rather than fetched, so both records are `unverified`
+  with the status reason stated in the claim. A reader will get those pages; this
+  agent did not, and `retrievable` means a reader can open it *and this was
+  checked*. Marking a throttle as verified would be the same error as marking an
+  unread PDF.
 - **Scratch files in the shared Windows temp directory collide.** Commit messages
   are written to `$env:TEMP\opencode\msg<N>.txt`, and that directory holds files
   from other projects on this machine — including a `msg12.txt` from an unrelated
@@ -474,10 +495,10 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-160 sourced | 4 not yet stood behind | 13 thesis   = 177
-34 of 419 edges land on something unchecked
-189 of 338 sources have a locator
-0 of 338 claim to be openable without one   (ratcheted; was 94)
+162 sourced | 4 not yet stood behind | 13 thesis   = 179
+59 of 425 edges land on an entry with no source
+196 of 345 sources have a locator
+0 of 345 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
 ```

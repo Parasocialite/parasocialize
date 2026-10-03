@@ -212,6 +212,20 @@ def extra_checks(enc: dict) -> int:
               "calling itself 'the original transparasocial relationship' - was "
               "found by reading two entries side by side, and no regex can "
               "tell misapplying a term from using it.)")
+    # Reported, not gated. AGENTS.md carried "34 of 423 edges land on something
+    # unchecked" for weeks while the true figure was 59, because it was a typed
+    # number rather than a computed one and nobody recomputed it. The quantity
+    # matters: it is how much of the corpus's connective tissue runs through
+    # entries with no citation behind them. Printed on every run so it cannot go
+    # stale silently, and never hand-copied into the state block.
+    by_id = {e["id"]: e for e in enc["entries"]}
+    edges = sum(len(e.get("relations") or []) for e in enc["entries"])
+    unsourced_targets = sum(
+        1 for e in enc["entries"] for r in (e.get("relations") or [])
+        if r.get("to") in by_id and not (by_id[r["to"]].get("sources") or []))
+    print()
+    print(f"  {unsourced_targets} of {edges} edges land on an entry with no "
+          f"citation record")
     return rc
 
 
