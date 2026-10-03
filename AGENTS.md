@@ -520,6 +520,29 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   one found by reading the field's own documentation against its own values
   rather than by a gate, because the gate has no way to ask which meaning is
   intended.
+- **Filtering a gate's output is not the same as running it.** `the-shadow`
+  (1930) was given a relation to `cliffhanger` (1930) by a script that derives
+  the verb from the years with `preceded if a < b else succeeded` — so **equal
+  years silently became `succeeded`**, and the site told a reader The Shadow
+  came after the cliffhanger. `citation_audit.py` caught it and has always
+  caught this class. What actually happened is worse: I ran the audit *through*
+  `Select-String -Pattern "records |with a URL|statuses|none\.|edges land"`, that
+  pattern did not include the word FAIL, **the failure scrolled past unread,
+  and the entry was committed.** Two lessons, and the first is the general one:
+  - **Do not pipe a gate through a filter.** `| Select-String` on a gate is how
+    a red gate gets committed. Read exit codes instead — `$LASTEXITCODE` after
+    `python tools\x.py > $null` is unmissable, whereas grepping the output is
+    only as complete as the pattern. This is the same defect as the "gate
+    placed after the early return" item, one level out: both are about a check
+    that cannot be *seen* failing, rather than one that cannot fail.
+  - **Equal years have no derived verb.** Of 45 same-year relations, 44 already
+    used a non-chronological type and assert no order; exactly one used a
+    chronological one, and it was the false one. `contemporary` renders as
+    "of the same time as" and is the right answer whenever two entries share a
+    year. **When two things share a date, the honest relation is that they were
+    contemporaneous — not that one came after the other.** Any future script
+    deriving relation verbs from `year` must handle the tie explicitly, because
+    a `<` that fails open turns a coincidence into a chronology.
 - **A probe that finds nothing is not evidence, and the usual reason is the
   probe.** Chasing quotes out of the Gutenberg text of *Dorian Gray* took four
   rounds, and the failure was mine each time rather than the corpus's. First
