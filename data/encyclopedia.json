@@ -8696,6 +8696,137 @@
       ],
       "media_inferred": true,
       "provenance": "sourced"
+    },
+    {
+      "id": "gobekli-tepe",
+      "title": "Eleven thousand years of pillars",
+      "kind": "work",
+      "year": -9500,
+      "year_end": -8200,
+      "era": "Deep prehistory",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "Round enclosures on a hillside in Anatolia holding T-shaped pillars carved to suggest human figures, built by people who had not yet domesticated a single animal - used for over a thousand years, then deliberately filled in and built over.",
+      "significance": "The oldest thing on this site with a claim to be about figures, and the interpretation is genuinely open, which is the point. What is not in dispute: hunter-gatherers cut limestone into anthropomorphic forms with stone and bone tools, set them upright in circles, carved them with foxes, scorpions, lions and vultures, returned to them for fourteen hundred years, and then filled the enclosures in on purpose. There is no hearth, no rubbish pit and no sign that anyone lived there - people travelled to the place. UNESCO's own nomination describes the pillars as believed to represent 'ancestors, perhaps even incipient deities', and other readings have them as totemic or protective figures. Nobody has settled it, and the carvings include a great many frightening animals: the dominant imagery is not a kind face but lions, spiders, snakes and scorpions. What this site can claim is narrow and still large: for at least a millennium, people made representations of beings, went out of their way to be near them, and eventually chose to close the place where they stood. Whether the beings were ancestors is the question this entry cannot answer, and saying so is more useful here than guessing.",
+      "verified": true,
+      "medium": [
+        "history"
+      ],
+      "relations": [
+        {
+          "to": "sunghir",
+          "type": "succeeded"
+        },
+        {
+          "to": "paleolithic-figures",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-dog",
+          "type": "succeeded"
+        },
+        {
+          "to": "roman-imagines",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Dating, construction and the absence of settlement: the structures are among the earliest evidence worldwide for human-made megalithic buildings constructed specifically for the ritual requirements of their prehistoric population, erected between approximately 9600 and 8200 BC in the Pre-Pottery Neolithic, some 6,000 years before Stonehenge. The T-shaped pillars 'embodying a schematised anthropomorphic figure' were carved from the adjacent limestone plateau with stone and bone tools. The enclosures were probably used for public rituals, possibly of a funerary nature, and feasting.",
+          "citation": "Göbekli Tepe (Turkey), No 1572: nomination and evaluation. UNESCO World Heritage Centre, 2018.",
+          "status": "unverified",
+          "url": "https://whc.unesco.org/document/168743"
+        },
+        {
+          "claim": "The interpretive status, in the words of the nominating body, and the deliberate closure: 'The anthropomorphic T-shaped pillars are believed to be representations of ancestors, perhaps even incipient deities.' The enclosures of Layer III were then 'intentionally backfilled', the fills containing numerous animal bones 'probably the result of large feasts'.",
+          "citation": "Executive Summary, Göbekli Tepe (Turkey), No 1572. UNESCO World Heritage Centre.",
+          "status": "unverified",
+          "url": "https://whc.unesco.org/document/160485"
+        },
+        {
+          "claim": "That it was a place people travelled to rather than lived: the remains of undomesticated plant material and tens of thousands of wild animal bones - chiefly gazelle - were recovered, 'but the lack of trash pits, hearths, or other signals of domestic life indicates that it was most likely not a permanent settlement'; most experts identify it as a ritual site 'that may have attracted worshipers from great distances'. First investigated in the 1960s and dismissed as a medieval cemetery before its true age was established in the 1990s.",
+          "citation": "Gobekli Tepe. Encyclopaedia Britannica.",
+          "status": "unverified",
+          "url": "https://www.britannica.com/place/Gobekli-Tepe"
+        },
+        {
+          "claim": "Site description and the imagery: circular enclosures each containing two large T-shaped pillars ringed by smaller stones facing inward, the tallest around 16 feet and up to 50 tons; carvings including foxes, scorpions, lions, vultures and other wild animals; site known by the Turkish name meaning 'belly hill'.",
+          "citation": "Göbekli Tepe. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
+        }
+      ],
+      "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "the-deaf-beloved",
+      "title": "Shag-eared and deaf",
+      "kind": "work",
+      "year": -370,
+      "era": "Antiquity",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "character"
+      ],
+      "summary": "Plato describes an older man in love with a boy who is compared, in the text, to a hunting animal that is deaf. The animal's ears are the point: the love is addressed to someone who cannot hear it, and the whole scene turns on that.",
+      "significance": "The earliest surviving description of this site's subject written down by someone who was inside the institution rather than looking at it from outside, and it is startling how modern the anatomy is. In the Phaedrus the lover hunts a beast that is 'shag-eared and deaf', and the closing image is the one nobody expects: having finally got what he chased, the lover finds himself running away and the *beast* pursuing him, because it never understood the terms. The one-sided party was not withholding. It was deaf. And in the First Alcibiades, Alcibiades tells Socrates that he is the only lover who has not abandoned the suit and that the others 'pestered you with their conversation' while he stayed silent for years - so the same structure is described from both ends, which almost nothing else on this site manages. It is also the first entry here where the power asymmetry is institutional rather than accidental, and the first where a written text tells you that role reversals were constant: the beloved could become the lover. Whether that is friendship or something else was never settled, which is why it belongs here.",
+      "verified": true,
+      "medium": [
+        "literature"
+      ],
+      "relations": [
+        {
+          "to": "myth-and-ritual",
+          "type": "succeeded"
+        },
+        {
+          "to": "roman-imagines",
+          "type": "preceded"
+        },
+        {
+          "to": "congregation",
+          "type": "preceded"
+        },
+        {
+          "to": "p",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The figure, from the primary text. The Phaedrus compares the beloved to a beast 'put together anyhow; he has a short thick neck; he is flat-faced and of a dark colour, with grey eyes and blood-red complexion; the mate of insolence and pride, shag-eared and deaf, hardly yielding to whip and spur'. And the reversal: 'he changes pursuit into flight, while the other is compelled to follow him with passion and imprecation not knowing that he ought never from the first to have accepted a demented lover instead of a sensible non-lover'.",
+          "citation": "Plato. Phaedrus. Translated by Benjamin Jowett. Internet Classics Archive.",
+          "status": "retrievable",
+          "url": "https://classics.mit.edu/Plato/phaedrus.html"
+        },
+        {
+          "claim": "The other end of it, from the primary text: 'Socrates, son of Cleinias, I think it must surprise you that I, the first of all your lovers, am the only one of them who has not given up his suit and thrown you over, and whereas they have all pestered you with their conversation I have not spoken one word to you for so many years.'",
+          "citation": "Plato. Alcibiades I, 103a. Perseus Digital Library, Tufts University.",
+          "status": "retrievable",
+          "url": "http://www.perseus.tufts.edu/hopper/text?doc=plat.%2Balc.%2B1%2B103a"
+        },
+        {
+          "claim": "That role reversals were normal rather than exceptional - 'role reversals between lover and beloved are constant, as they are in the Symposium' - and that the dialogue was composed around 370 BC, alongside the Republic and the Symposium.",
+          "citation": "Phaedrus (dialogue). Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Phaedrus_(dialogue)"
+        },
+        {
+          "claim": "The setting that makes the entry's structural point: in the Symposium the speeches are given at Agathon's house by a company including Phaedrus, Aristophanes, Agathon, Socrates and - arriving drunk and late - Alcibiades, who insists on singing 'the praises of Socrates' in the character of 'a disappointed lover'.",
+          "citation": "Plato. Symposium. Translated by Benjamin Jowett. Project Gutenberg, e-text 1600.",
+          "status": "retrievable",
+          "url": "https://www.gutenberg.org/files/1600/1600-h/1600-h.htm"
+        }
+      ],
+      "media_inferred": true,
+      "provenance": "sourced"
     }
   ]
 }

@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 179 entries, 425 relations, 269 generated pages.
+relationships. 181 entries, 433 relations, 269 generated pages.
 
 ## The rule that outranks everything
 
@@ -393,27 +393,67 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   being cross-references the prose explicitly explains. No entry's prose
   contradicts its own date - but five fields contradicted their *sources*, which
   is the check that matters and which no script can do.
-- **Coverage is skewed to the present, and now measurably so.** Of 179 entries, 62
-  are dated 2010 or later, and **ten** now sit before the year 1000:
-  `neanderthal-burial` (-70,000), `paleolithic-figures` (-40,000), `sunghir`
-  (-34,000), `the-dog` (-15,000), `myth-and-ritual` (-800), `roman-imagines`
-  (-250), `congregation` (-200), `p` (AD 8), `the-priest` (AD 100) and
-  `lewis-chessmen` (c. 1150). Five millennia of record are carried by ten entries,
-  up from six when this pass began. The deep past is still thin relative to the
-  recent past, and it is the next editorial priority - but it is no longer a
-  footnote to 1956. **`sunghir` and `lewis-chessmen` are the model for what a
-  good addition here looks like**: each one is sourced to a primary or
-  institutional record, each one *corrects or complicates* an existing entry, and
-  neither was added to improve a distribution.
-- **A source that complicates a sibling entry is worth more than a source that
-  confirms it.** `sunghir` exists partly to disagree with `neanderthal-burial`:
-  the Antiquity analysis finds four individuals intentionally buried, two
-  manipulated and one with no formal treatment, and reads the beads as "social
-  behaviour in life, rather than in death" - so the Shanidar entry now says that
-  what it documents is the earliest *instance* of something that varied a great
-  deal. Two of the Lewis chessmen are probably replacements from a different
-  workshop, made to replace lost pieces, and nobody looking at them can tell. A
-  taxonomy is supposed to hold things that disagree, and so is a corpus.
+- **The corpus found a hole in the taxonomy and the honest fix was to open a
+  shelf, not to force an entry.** `officer` held teacher, clinician, legal, local
+  and domestic - all *institutional* power. `persona` held idol, creator,
+  presenter, sport-figure and sovereign - all distant or performed figures.
+  Neither had a home for the Greek erastes: a private individual, personally
+  known, older and more established, holding no office at all, whom a younger
+  person attaches to and who is under no obligation to notice. Filing that under
+  `officer/teacher` would have kept the distribution tidy and been false, because
+  a teacher has duties. So `officer/senior` was added with the def, test, not and
+  mechanism every other shelf carries: standing rather than role. It opens a real
+  space - mentors, senior colleagues, older figures - and it is now 39
+  sub-categories. `verify_taxonomy.py` asserts structure rather than a typed
+  count, so extending was always possible; the question was only whether we would.
+  `gobekli-tepe` is the parallel case on the other side: its interpretation is
+  genuinely unsettled, so it is filed `divine/abstract-absolute` - the shelf for a
+  represented being whose identity *is* the dispute - rather than under
+  `saint-ancestor`, which would have argued one side of a live debate by filing it.
+- **The earliest written description of this site's subject is 2,300 years older
+  than the site claimed, and its anatomy is modern.** `the-deaf-beloved`, c.370
+  BC, is Plato. In the *Phaedrus* the beloved is a hunting beast that is "shag-eared
+  and deaf", and the closing image inverts everything: having got what he chased,
+  the lover turns to flee and the *beast* pursues him, because it never
+  understood the terms. The one-sided party was not withholding - it was deaf.
+  And in the *First Alcibiades*, Alcibiades tells Socrates that he is the only
+  lover who has not abandoned the suit, while the others "pestered you with their
+  conversation" and he stayed silent for years. So the same structure is described
+  from both ends, which almost nothing else on this site manages, and the Phaedrus
+  records that role reversals between lover and beloved were constant. Four
+  primary-text locators, all openable: Perseus, the Internet Classics Archive,
+  Project Gutenberg and Wikipedia for the dating.
+- **Göbekli Tepe is the oldest thing here with a claim to be about figures, and
+  its interpretation is open.** c.9500-8200 BC: hunter-gatherers who had not yet
+  domesticated anything cut limestone into anthropomorphic T-shaped pillars,
+  carved them with foxes, scorpions, lions and vultures, returned for fourteen
+  hundred years, then deliberately backfilled the enclosures. No hearth, no
+  rubbish pit, no sign anyone lived there - people travelled to the place. UNESCO's
+  own nomination reads the pillars as "ancestors, perhaps even incipient deities"
+  and that "believed to be" is the honest state of the evidence, so the dispute is
+  carried in the significance rather than resolved. Note the dominant imagery is
+  not a kind face: the commonest carvings are lions, spiders, snakes and
+  scorpions. What the entry claims is narrow and still large - for at least a
+  millennium people made representations of beings, went out of their way to be
+  near them, and eventually chose to close the place where they stood.
+- **The relation-direction gate is now earning its keep.** Five inverted verbs were
+  caught across two new entries in one sitting, three of them caught *before* the
+  files were written by an in-script assertion rather than after by the audit. Every
+  fresh batch of relations is now asserted against the years before save, because
+  the failure mode is always the same: writing `preceded` from memory in the
+  direction the sentence reads rather than the direction the dates run.
+- **Coverage before the year 1000, measured**: 11 entries.
+   -70000  neanderthal-burial
+   -40000  paleolithic-figures
+   -34000  sunghir
+   -15000  the-dog
+    -9500  gobekli-tepe
+     -800  myth-and-ritual
+     -370  the-deaf-beloved
+     -250  roman-imagines
+     -200  congregation
+        8  p
+      100  the-priest
 - **HTTP 429 is not the same failure as 403.** Both Met Museum pages on the Lewis
   chessmen returned 429 - rate limiting - on two attempts a minute apart. The text
   was read via a search index rather than fetched, so both records are `unverified`
@@ -495,12 +535,13 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-162 sourced | 4 not yet stood behind | 13 thesis   = 179
-59 of 425 edges land on an entry with no source
-196 of 345 sources have a locator
-0 of 345 claim to be openable without one   (ratcheted; was 94)
+164 sourced | 4 not yet stood behind | 13 thesis   = 181
+edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
+204 of 353 sources have a locator
+0 of 353 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
+39 sub-categories, up from 38
 ```
 
 Board must reconcile to 175. `add_source.py` is authoritative.

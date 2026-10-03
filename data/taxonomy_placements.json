@@ -896,6 +896,16 @@
       "cat": "character",
       "sub": "historic-as-character",
       "why": "Carved mythological types rather than portraits, so the face you attach to was an idea made in walrus ivory - and at least two of them are replacements, from another workshop, that nobody can identify on sight. The clearest case on this site of a bond forming on an object in full view of the people who keep it."
+    },
+    "gobekli-tepe": {
+      "cat": "divine",
+      "sub": "abstract-absolute",
+      "why": "Provisional, and deliberately so. The pillars are anthropomorphic and the UNESCO nomination reads them as 'ancestors, perhaps even incipient deities', but nobody has settled it and other readings make them protective or totemic figures. abstract-absolute is the shelf for a represented being whose identity is exactly what is in dispute - put them under saint-ancestor and the entry would be arguing for one side of a live debate by filing it."
+    },
+    "the-deaf-beloved": {
+      "cat": "officer",
+      "sub": "senior",
+      "why": "The shelf this entry opened. The erastes holds no office and runs no institution: his authority is personal, age-based and wholly unaccountable, which is why the tie is unprotected. Filed under officer/teacher it would have looked tidier and been false, because a teacher has duties and he has none."
     }
   }
 }
