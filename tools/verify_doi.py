@@ -38,11 +38,40 @@ import json
 import pathlib
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 UA = {"User-Agent": "parasocialize-source-check/1.0 (identity check, not a crawler)"}
+
+# Crossref rate-limited a batch of eleven queries with HTTP 429 partway through,
+# which lost a result silently - the job printed an ERR and moved on, so the
+# batch looked like "nothing found" rather than "not all of it ran". One request
+# every 400ms and three retries with a real backoff.
+_LAST = [0.0]
+
+
+def _get(url, tries=3):
+    for attempt in range(tries):
+        gap = time.time() - _LAST[0]
+        if gap < 0.4:
+            time.sleep(0.4 - gap)
+        try:
+            body = urllib.request.urlopen(
+                urllib.request.Request(url, headers=UA), timeout=45).read()
+            _LAST[0] = time.time()
+            return body
+        except urllib.error.HTTPError as e:
+            _LAST[0] = time.time()
+            if e.code == 429 and attempt < tries - 1:
+                time.sleep(2.0 * (attempt + 1))
+                continue
+            raise
+        except Exception:
+            _LAST[0] = time.time()
+            raise
+    raise RuntimeError("unreachable")
 
 STOP = {"the", "a", "an", "of", "and", "in", "on", "for", "to", "is", "as",
         "with", "from", "at", "by", "its", "their", "his", "her",
@@ -60,8 +89,7 @@ def clean(s):
 
 def fetch(doi):
     u = "https://api.crossref.org/works/" + urllib.parse.quote(doi)
-    d = json.loads(urllib.request.urlopen(
-        urllib.request.Request(u, headers=UA), timeout=45).read())
+    d = json.loads(_get(u))
     m = d.get("message") or {}
     auth = m.get("author") or []
     return {
@@ -163,22 +191,38 @@ def verdict(meta, expect=None, expect_year=None):
     # Crawl of 11K Shopping Websites" against "Dark Patterns at Scale"), or the
     # record uses the running head rather than the full title.
     if author_ok and (year_ok or not want_year):
-        v = "MATCH"
-        want = tokens(got["title"] or expect)
+        want = tokens(got["title"])
         seen = tokens(meta["title"])
-        if want and not want <= seen:
-            v = "UNCHECKED"
-            notes.append(f"author and year agree but the title differs "
-                         f"(missing {sorted(want - seen)[:4]}) - often a "
-                         f"subtitle, but read it")
-        return v, "; ".join(notes)
+        if not want:
+            # **Author and year alone can never be a MATCH.** Making it one
+            # created a false positive immediately: the corpus cites
+            # "Jussila et al. (2020)" with no title, and the search returned
+            # `10.1007/978-981-15-0069-5_13`, "Sensory Technologies for Improving
+            # Employee Experience and Strengthening Customer Loyalty" - a
+            # different paper, same first author, same year, matched and accepted.
+            # An author and a year are a *pair of coordinates*, not a work: any
+            # prolific author has dozens of papers in any given year, so the
+            # combination narrows the field and does not identify anything in it.
+            # It is enough to make a candidate worth reading. It is not enough
+            # to record a locator on.
+            return "UNCHECKED", "; ".join(notes + [
+                "author and year agree, but the citation carries no title, so "
+                "nothing distinguishes this from another paper by the same "
+                "author in the same year - read it before it becomes a locator"])
+        if not want <= seen:
+            return "UNCHECKED", "; ".join(notes + [
+                f"author and year agree but the title differs (missing "
+                f"{sorted(want - seen)[:4]}) - often a subtitle, but read it"])
+        return "MATCH", "; ".join(notes + [
+            f"author, year and all {len(want)} title words agree"])
 
     if year_ok is False or author_ok is False:
         return "MISMATCH", "; ".join(notes)
 
-    want = tokens(got["title"] or expect)
+    want = tokens(got["title"])
     if not want:
-        return "UNCHECKED", "the citation has no comparable title"
+        return "UNCHECKED", ("; ".join(notes) +
+                             "; the citation carries no title to compare")
     seen = tokens(meta["title"])
     missing = sorted(want - seen)
     if not missing:
@@ -208,6 +252,51 @@ def show(doi, expect=None, expect_year=None):
     return meta, v
 
 
+def search(title, author=None, rows=5):
+    """Crossref candidates for a title, optionally narrowed by author.
+
+    `query.bibliographic` alone is a fuzzy search that returns something for
+    everything - it produced a paper about dogs for a query about parasocial
+    persuasion. Splitting the query into `query.title` and `query.author` narrows
+    it, and every candidate still comes back through `verdict()` rather than
+    being accepted because it was returned.
+    """
+    u = ("https://api.crossref.org/works?rows=%d&select=DOI,title,author,"
+         "container-title,issued,type&query.title=%s"
+         % (rows, urllib.parse.quote(title)))
+    if author:
+        u += "&query.author=" + urllib.parse.quote(author)
+    d = json.loads(_get(u))
+    out = []
+    for it in (d.get("message") or {}).get("items") or []:
+        auth = it.get("author") or []
+        out.append({
+            "doi": it.get("DOI"),
+            "title": clean((it.get("title") or [""])[0]),
+            "authors": [clean(f"{a.get('family','')} {a.get('given','')}").strip()
+                        for a in auth],
+            "container": clean((it.get("container-title") or [""])[0]),
+            "year": ((it.get("issued") or {}).get("date-parts") or [[None]])[0][0],
+        })
+    return out
+
+
+def find(doi_expect, title=None, author=None):
+    """Print candidates with a verdict against the citation being located."""
+    expect = doi_expect
+    for c in search(title or expect, author):
+        v, why = verdict(c, expect=expect)
+        mark = {"MATCH": "  MATCH  ", "MISMATCH": "  reject ", "UNCHECKED":
+                "  ?      "}[v]
+        print(f"{mark}{c['doi']}")
+        print(f"          {c['title'][:86]}")
+        print(f"          {', '.join(c['authors'][:3]) or '(none)'} "
+              f"{c['year']}"
+              + (f"  |  {c['container'][:44]}" if c["container"] else ""))
+        print(f"          {why[:140]}")
+        print()
+
+
 def main():
     args = sys.argv[1:]
     if not args:
@@ -224,14 +313,25 @@ def main():
                 if m:
                     rows.append((e["id"], s.get("citation"), m.group(1)))
         print(f"{len(rows)} DOI-bearing records in the corpus\n")
-        tally = {"MATCH": 0, "MISMATCH": 0, "UNCHECKED": 0, "UNRESOLVED": 0}
+        tally = {"MATCH": 0, "MISMATCH": 0, "UNCHECKED": 0}
+        unresolved = 0
         for eid, cit, doi in rows:
             print(f"  {eid:<26} {doi}")
             print(f"      citing   : {str(cit)[:84]}")
             got = show(doi, expect=cit)
             if got:
                 tally[got[1]] += 1
+            else:
+                unresolved += 1
+        tally["UNRESOLVED"] = unresolved
         print("  ", tally)
+        return
+    if args[0] == "--find":
+        expect = args[1]
+        title = args[args.index("--title") + 1] if "--title" in args else None
+        author = args[args.index("--author") + 1] if "--author" in args else None
+        print(f"locating: {expect}\n")
+        find(expect, title, author)
         return
     expect = None
     year = None

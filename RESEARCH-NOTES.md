@@ -148,6 +148,49 @@ matter, both dated:
   ending in **Parasocial Movies** and, in the TV block, **Para Series**.
 - `CatchingandWeaving_Character Chart.jpg`, **2019-04-12** — node border colour
   is studio tier, and **edge type is Directed Affection vs Mutual Love**.
+### The real blocker on the 63 entries with no locator is not the DOIs
+
+Twenty-four of those entries were investigated for a locator. The finding is that
+**the DOI was never the missing piece — the citation is too thin to verify one
+against.**
+
+| citation in the corpus | what a locator search needs |
+|---|---|
+| `Rubin, A. M., Perse, E. M., McVoy, S. M., & Brannan, D. (1985).` | a title. There is none. |
+| `Jussila et al. (2020).` | a title. There is none. |
+| `Higgs & McInstash (2008).` | a title. There is none. |
+| `de Vries, L., & Gilovich, T. (2015). **Title and venue not yet recorded.**` | the corpus says so itself |
+
+So `verify_doi.py --find` was run against eleven of them with author-plus-title
+queries, and the honest result was **0 verified** — not because no DOI exists,
+but because a candidate cannot be told apart from its neighbours. The searches
+did find the right works in some cases; the point is that nothing in the corpus
+distinguishes them from the wrong ones.
+
+**And the attempt to relax the check made that concrete.** Allowing author+year
+to be sufficient produced an immediate false positive: the corpus cites
+`Jussila et al. (2020)` with no title, and the search returned
+`10.1007/978-981-15-0069-5_13` — *"Sensory Technologies for Improving Employee
+Experience and Strengthening Customer Loyalty"* — a different paper, same first
+author, same year, matched and accepted. **An author and a year are a pair of
+coordinates, not a work.** Any prolific author has dozens of papers in any given
+year, so the pair narrows a search and identifies nothing in it. It is enough to
+make a candidate worth reading. It is not enough to write down as a locator, and
+`verify_doi.py` now refuses to return MATCH without title evidence.
+
+`parasocial-persuasion` is the clearest case in the corpus of the whole
+problem: its citation field literally reads *"Title and venue not yet
+recorded."* That is an honest admission and it is also the whole diagnosis — the
+entry is not missing a URL, it is missing the information a URL would be checked
+against.
+
+**The order of work therefore matters more than the searching.** Completing the
+citation first — author, year, title, venue — makes the locator mechanically
+checkable. Searching first produces candidates that cannot be confirmed, and a
+candidate that cannot be confirmed is how `kind: exact` happened.
+
+---
+
 ## 2026-10-03 — DOI identity audit: 5 real discrepancies, 3 that were the tool's fault
 
 `tools/verify_doi.py --from-citations` checked all 44 DOI-bearing records against Crossref by **author and year**, not by whether the DOI loads. Results: 25 MATCH, 8 MISMATCH, 5 UNCHECKED.

@@ -1421,6 +1421,27 @@ the project.
      Each is a measurement confidently reporting on the wrong layer, and the
      first would have put a paper about dogs behind a claim about parasocial
      persuasion while looking thoroughly verified.
+   - **And relaxing the check produced an immediate false positive, which is the
+     finding worth keeping.** Letting author+year be sufficient made
+     `keep-it-or-lose-it` MATCH: the corpus cites `Jussila et al. (2020)` with no
+     title, and the search returned *"Sensory Technologies for Improving Employee
+     Experience and Strengthening Customer Loyalty"* — a different paper, same
+     first author, same year, accepted. **An author and a year are a pair of
+     coordinates, not a work.** Any prolific author has dozens of papers in any
+     year, so the pair narrows a search and identifies nothing in it. It is
+     enough to make a candidate worth reading; it is not enough to write down as a
+     locator. `verify_doi.py` now refuses to return MATCH without title evidence.
+   - **The blocker on the 63 entries with no locator is not the DOIs — the
+     citations are too thin to verify a DOI against.** `verify_doi.py --find` ran
+     against eleven of them; **0 verified**, not because no DOI exists but because
+     nothing in the corpus distinguishes the right candidate from its neighbours.
+     `parasocial-persuasion` states the diagnosis in its own citation field:
+     **"Title and venue not yet recorded."** The entries are not missing a URL,
+     they are missing the information a URL would be checked against.
+     **So the order of work is: complete the citation first — author, year, title,
+     venue — and the locator then becomes mechanically checkable.** Searching
+     first produces candidates that cannot be confirmed, and a candidate that
+     cannot be confirmed is exactly how `kind: exact` happened.
 
 ## Deploy note
 
