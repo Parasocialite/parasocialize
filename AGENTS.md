@@ -25,6 +25,7 @@ python tools\link_audit.py      # MUST pass before every commit
 python tools\make_zip.py        # reproducible archive -> Desktop
 python tools\add_source.py --apply-provenance
 python tools\citation_audit.py # are the status fields telling the truth
+python tools\cull_audit.py    # does any entry claim the far side perceives the reader
 python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\verify_narrow.py    # does a generated page overflow at 390px
 python tools\plate.py --check    # does every title plate match its entry
@@ -880,6 +881,56 @@ Board must reconcile to 189. `add_source.py` is authoritative.
 
 `dist/` must be re-uploaded after each build. It is routinely ahead of
 production.
+
+13. **Asked to cull the extra-sensory references, the honest answer was that
+   there are none — and the check that looked like it found thirty was wrong.**
+   The instruction was to "cull all the extra-sensory, even seemingly one-sided
+   references". What the scan actually found, of 189 entries:
+   - **Zero** assert that the far side perceives the reader, the viewer or the
+     listener by non-ordinary means. A wider sweep — séance, spiritualism,
+     mediumship, channeling, possession, reincarnation, astral projection,
+     psychokinesis, clairvoyance, precognition, premonition, tarot, oracle,
+     guardian angel, third eye, aura — returned **1 of 189**, matching on the
+     word *personified* in `the-imaginary-friend`, where a child personifies a
+     toy. That is not extra-sensory.
+   - The two entries that first looked like hits are both correct and were
+     checked in context. `the-teacher`: an authority figure "who knows your
+     name, your mood and your home situation" — he sees you every day, in a
+     room. `saturday-mornings`: "a writer who knows your name" — the
+     Saturday-morning show *asking* its audience for their names, which is
+     ordinary interaction in the cheapest possible register.
+   - **Nothing was culled.** There is nothing to cull.
+   - The important part is the trap the request nearly walked into. An earlier
+     sweep matched **30 entries** on `one-sided`, `does not respond`,
+     `no reciprocity` — and that is **this site's own name for the thing it is
+     about**, 220 uses of it across the corpus. A cull driven off that list would
+     have deleted `the-dog`, `myth-and-ritual`, `parasocial-interaction`,
+     `transparasocial` and 26 others, i.e. the subject. **Using the phrase is
+     not making the claim.** This is the borrowed-terminology diagnostic one
+     level up — that one fired on `sasaeng` and `crossover`, both correct — and
+     it is now a standing rule for any future "remove all the X" instruction:
+     *count how many of the hits are the definition before removing any of them.*
+   - The distinction that makes the property checkable at all, and it is the
+     thing most likely to be got wrong again: **a figure answering somebody
+     inside the story is two-way in the fiction and one-sided for the reader.**
+     Harvey answers Elwood and is the clearest case of the phenomenon on this
+     site; culling on in-fiction response would cull the best entries in the
+     corpus. The test is narrower than it looks: has the far side perceived
+     *this* reader?
+   - `tools/cull_audit.py` now holds the check, so the claim is testable rather
+     than asserted. It has three tiers — fails on audience perception, reports
+     ordinary perception and in-fiction response, and **never** flags the
+     site's definitional vocabulary. Confirmed red by injecting a real
+     audience-perception claim into two different entries and checking the exit
+     code, and confirmed green on the corpus as committed. The first version
+     did **not** go red on that injection, which is how four more patterns
+     (`knows-individual`, `sees-into-room`, `watches-in-private`,
+     `seen-only-by-one`) are in the file: a gate that cannot fail is decoration,
+     and one that fails too little is worse, because it reads as clearance.
+   - **What it cannot do:** this property is contextual and no regex is complete
+     for it. The gate catches unambiguous phrasings; the claim that the corpus
+     is clean also rests on having read the hits. Same reason the terminology
+     check is report-only.
 
 12. **The corpus had no imaginary friends, no puppets and no aliens, and the
    taxonomy had no way to say so.** Asked to check whether named instances had
