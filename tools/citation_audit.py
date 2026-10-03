@@ -113,6 +113,18 @@ def contradictory_relations(enc: dict) -> list[dict]:
     is `contemporary`, which asserts no order. That is not a hypothetical - a
     script deriving verbs as `preceded if a < b else succeeded` fails open on
     equality and did exactly that.
+
+    Third, a chronological verb whose endpoint has **no year at all** is a claim
+    printed to a reader that nothing in the data can support, so it is caught
+    rather than skipped for want of a date. Two existed. `the-ultra` (undated)
+    claimed to have come `preceded` **`margery-kempe`, 1373** - not merely
+    unbacked but false, since the organised supporter who buys a seat and keeps a
+    flag is a modern phenomenon. `mystical-union` (undated) claimed to precede
+    `eliza`, 1966, which is probably true and is printed anyway, which is the
+    problem: an era label is not a date. Both relations were dropped rather than
+    the entries given invented years, because five entries in this corpus
+    legitimately have no year and a fabricated one reads exactly like a sourced
+    one.
     """
     by = {e["id"]: e for e in enc["entries"]}
     out = []
@@ -130,9 +142,14 @@ def contradictory_relations(enc: dict) -> list[dict]:
                 continue
             o = by.get(tgt)
             if not o:
+                out.append({"entry": e["id"], "rel": t, "to": tgt,
+                            "detail": "relation points at no entry"})
                 continue
             a, b = e.get("year"), o.get("year")
             if not isinstance(a, int) or not isinstance(b, int):
+                out.append({"entry": e["id"], "rel": t, "to": tgt,
+                            "detail": f"claims an order, but it is dated "
+                                      f"{a!r} and {tgt} {b!r}"})
                 continue
             if t == "preceded" and a >= b:
                 out.append({"entry": e["id"], "rel": t, "to": tgt,

@@ -959,6 +959,30 @@
       "sub": "social-agent",
       "other": "haunted",
       "why": "A ghost, and the reason the `haunted` member exists: belief in presence with nothing to verify it. Filed social-agent rather than object because he is addressed, not used."
+    },
+    "the-fourth-wall": {
+      "cat": "character",
+      "sub": "played-role",
+      "other": "made",
+      "why": "Direct address is performed, and the wall is the seam where the performing shows. Filed `made` deliberately: the test for that member is 'is somebody working it', and a played role is the clearest case in the corpus. The breach is the one moment the operator is half-visible."
+    },
+    "harvey": {
+      "cat": "companion",
+      "sub": "social-agent",
+      "other": "haunted",
+      "why": "Believed present and unverifiable, which is the `haunted` test exactly - and the film's own mechanism is that nobody who could check declines to. Filed social-agent because he is addressed, not used."
+    },
+    "fight-club": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "other": "mirrored",
+      "why": "The figure is supplied by the person attached to it, and there is no second person to check against. Sharper than dorian-gray, where the split is between an image and a man; here it is inside one voice."
+    },
+    "deadpool": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "other": "animate",
+      "why": "A non-human mind the audience cannot edit, and the direct address is a property of the character rather than of the staging. `animate` rather than `made` because the relationship is to who he is, not to the person in the suit - which is the distinction `the-fourth-wall` draws from the other side."
     }
   }
 }

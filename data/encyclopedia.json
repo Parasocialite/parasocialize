@@ -7699,10 +7699,6 @@
           "type": "succeeded"
         },
         {
-          "to": "replika-update",
-          "type": "depicts"
-        },
-        {
           "to": "digital-bereavement",
           "type": "cites"
         },
@@ -8247,10 +8243,6 @@
           "type": "depicts"
         },
         {
-          "to": "eliza",
-          "type": "preceded"
-        },
-        {
           "to": "the-audience",
           "type": "contemporary"
         }
@@ -8412,10 +8404,6 @@
         {
           "to": "sports-identification",
           "type": "instance_of"
-        },
-        {
-          "to": "margery-kempe",
-          "type": "preceded"
         }
       ],
       "sources": [
@@ -9251,6 +9239,201 @@
           "status": "unverified",
           "url": "https://www.chicagotribune.com/1985/12/27/cartoonist-joseph-d-oriolo-creator-of-casper-the-ghost/",
           "claim": "Obituary corroborating Oriolo's side of the authorship dispute. The publisher returns 403 to an unauthenticated request, so this agent did not read it; the citation is recorded because Wikipedia cites it for the same claim, not because the text was verified here."
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "the-fourth-wall",
+      "title": "The wall exists to keep you out",
+      "kind": "mechanism",
+      "year": 1758,
+      "era": "Enlightenment",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "Diderot invented the wall in 1758 for the purpose of stopping the audience noticing. Every breach since - a wink, a clap, a lecture - is that convention failing on purpose, and it is the only time the far side admits you are there.",
+      "significance": "The convention is an engineering specification for invisibility, and this entire site is about what happens on the far side of it. Diderot put it exactly where it belongs in 1758: actors and writers should \"imagine a huge wall across the front of the stage, separating you from the audience, and behave exactly as if the curtain had never risen\". The wall is not a description of the stage. It is a condition of it, and the condition is that you are not supposed to know. What happened to the phrase afterwards is the small, exact history of the idea. Diderot's *un grand mur* became **the fourth wall** to Leigh Hunt in 1807, writing about the actor Mr. Bannister: \"No actor enters so well into the spirit of his audience as well as his author, for he engages your attention immediately by seeming to care nothing about you; the stage appears to be his own room, of which the audience compose the fourth wall.\" Henry Irving wrote in February 1879 that \"the stage has four walls, though the fourth is only theoretical\", and the first known use of **fourth wall theory** follows later that month in a comment on that article in the British periodical *Truth*. Vincent Canby called it \"that invisible scrim that forever separates the audience from the stage\" in 1987. Two hundred and forty years to get from a wall that keeps you out to a scrim that does the same job more honestly. Breaking it matters here because it is the **only** moment the figure admits that an audience exists - and the strongest version is not a wink. In *Peter Pan* the breach is an instruction the audience obeys: \"If you believe in fairies, clap your hands!\" said to revive Tinker Bell, who lives or dies according to whether strangers in the dark choose to believe. That is the parasocial condition with the volume turned up, because the fiction's survival is now a real person's decision rather than a fiction's. Bugs Bunny and the Warner Bros. characters broke it regularly, per the reference, in shorts like *Daffy Duck and Egghead* (1938) and *Thugs with Dirty Mugs* (1939) - which is the rabbit that talks to the audience, and he is documented, unlike anything called Harvey. **Two honesty notes, and the second is the reason this is an entry and not a sub-category.** First, in mockumentary the camera may be *inside* the fiction, so looking into it is not a breach at all - a convention only counts if the audience knows it is one. Second, and this is the boundary the whole site turns on: **a fictional figure acknowledging that an audience exists is not a real person acknowledging you.** Deadpool looks at the lens and cannot hear you. A streamer reads your comment aloud and the far side can hear you, which is what `transparasocial` means here. Same gesture, opposite structure, and a taxonomy that could not tell them apart would be a taxonomy that could not classify the thing it exists to classify.",
+      "verified": false,
+      "medium": [
+        "film",
+        "literature"
+      ],
+      "relations": [
+        {
+          "to": "the-shadow",
+          "type": "preceded"
+        },
+        {
+          "to": "howdy-doody",
+          "type": "preceded"
+        },
+        {
+          "to": "harvey",
+          "type": "preceded"
+        },
+        {
+          "to": "fight-club",
+          "type": "preceded"
+        },
+        {
+          "to": "deadpool",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Fourth wall. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Fourth_wall",
+          "claim": "The definition and the whole etymology: 'Breaking the fourth wall in a narrative, particularly in drama, is the action of characters violating the convention of the fourth wall, for instance when performers in a play speak directly to or even interact with the audience, when movie or television characters speak directly into the camera, when protagonists in a novel acknowledge the artificiality of the story they are in, or generally whenever fictional characters openly refer to themselves as such.' The concept 'is often attributed to philosopher, critic and dramatist Denis Diderot, who wrote in 1758 that actors and writers should \"imagine a huge wall across the front of the stage, separating you from the audience, and behave exactly as if the curtain had never risen\"'. Diderot's 'un grand mur' 'became \"the fourth wall\" to Leigh Hunt when in 1807 referring to Mr. Bannister': 'No actor enters so well into the spirit of his audience as well as his author, for he engages your attention immediately by seeming to care nothing about you; the stage appears to be his own room, of which the audience compose the fourth wall.' Henry Irving, February 1879: 'It should never be forgotten that the stage has four walls, though the fourth is only theoretical.' 'The first known use of \"fourth wall theory\" follows later that month in a comment on that article in the British periodical Truth.' Vincent Canby 1987: 'that invisible scrim that forever separates the audience from the stage.' Also: 'Breaking the fourth wall is especially common in pantomime and children's theater where - for example, a character might ask the children for help, as when Peter Pan appeals to the audience to applaud in an effort to revive the fading Tinker Bell (\"If you believe in fairies, clap your hands!\")'. Cinema: Mary MacLane's 1918 Men Who Have Made Love to Me, 'the enigmatic author - who portrays herself - interrupts the vignettes onscreen to address the audience directly'; Reefer Madness (1936), Josef Forte as Dr. Alfred Carroll; Groucho Marx in Animal Crackers (1930) and Horse Feathers (1932), the latter advising viewers to 'go out to the lobby'; 'Characters in theatrical animated cartoons, particularly Bugs Bunny and other characters in Warner Bros.' Looney Tunes and Merrie Melodies shorts, regularly broke the fourth wall', with Tex Avery's Daffy Duck and Egghead (1938) and Thugs with Dirty Mugs (1939) named. Woody Allen on Annie Hall (1977): 'I felt many of the people in the audience had the same feelings and the same problems. I wanted to talk to them directly and confront them.' Jerry Lewis, The Total Filmmaker (1971): 'Some film-makers believe you should never have an actor look directly into the camera... I think that is nonsense, and usually I have my actors, in a single, look direct into the camera at least once in a film, if a point is to be served.' And the mockumentary exemption, which is the important one: 'because the camera crew and interview situation may be part of the fictional documentary frame, looking at or speaking to the camera does not always function as a convention.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "harvey",
+      "title": "Nobody in that room argues with him",
+      "kind": "work",
+      "year": 1950,
+      "era": "Cinema",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "A man nobody else can see kept drinking with him for years, and it worked because nobody in his life would say the sentence that ended it. It stops when two doctors who cannot see the rabbit go looking for him in it.",
+      "significance": "The purest `haunted` case in film, and the clearest demonstration of the thing the whole film is actually about, which is not the rabbit. Elwood P. Dowd has an invisible companion six foot three and a half inches tall, and takes him drinking and introduces him to almost everyone he meets. The mechanism that keeps this intact is **not** the animal. It is the **complicity of the people around him**, and the film is unusually honest about how cheap that complicity is. His sister Veta \"in exasperation, admits to the attending psychiatrist, Dr. Sanderson, that she sees Harvey once in a while herself\" - which is not the same as seeing him, and is not meant to be, and is enough for her to be committed in Elwood's place while he walks out free. Dr. Chumley, the head of the sanatorium, discovers the mistake, convinced that Elwood is insane, searches the town for him, finds him at his favourite bar - and then, four hours later, \"Chumley had wandered off with Harvey after several rounds of drinks.\" The professional sent to certify the delusion goes off with the delusion. Every bond in this corpus needs somebody to maintain it, and this one is maintained by the fact that **nobody will say the sentence.** Elwood's belief costs nothing as long as everyone around him declines to price it. Three more things make it the right entry and not merely a nice one. The rabbit is not a rabbit: Elwood describes Harvey as a **puca**, a creature of Celtic mythology, and the play spells it *pookah* (p-o-o-k-a) with the character Wilson reading the definition aloud from a dictionary on page 33 of Chase's playbook - so even the ontology is a thing somebody made up and passed on. Wikipedia's own summary of the source hedges exactly as an encyclopedia should: Elwood \"claims to have an unseen (and presumably imaginary) friend\", and a neutral reference hedging is worth more than a confident one. And the performance is layered further than most people notice: a real man playing a man who is trusted, who converses with a thing nobody else in the room can see, while the audience half-believes him because James Stewart's face is doing work no script controls. Two corrections to the record while we are here, because they were nearly got wrong: the 1950 film was directed by **Henry Koster**, not Cukor, and Mary Chase's play is **1944**, premiered 1 November 1944 at the 48th Street Theatre, with the Pulitzer Prize for Drama awarded 1945 - not 1946, which several sources imply.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "casper",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-fourth-wall",
+          "type": "succeeded"
+        },
+        {
+          "to": "fight-club",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Harvey (1950 film). Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Harvey_(1950_film)",
+          "claim": "Director, cast and the whole premise: 'Harvey is a 1950 American fantasy comedy-drama film directed by Henry Koster, based on the 1944 play by Mary Chase. It stars James Stewart, Josephine Hull, Charles Drake, Cecil Kellaway, Jesse White, Victoria Horne, Wallace Ford, and Peggy Dow.' Elwood P. Dowd 'is an amiable but eccentric man whose best friend is an invisible, 6 ft 3 1/2 in-tall (1.92 m) white rabbit named Harvey. As described by Elwood, Harvey is a puca, a benign but mischievous creature from Celtic mythology.' Elwood 'spends most of his time taking Harvey around town, drinking at various bars and introducing Harvey to almost everyone he meets, much to the puzzlement of strangers although Elwood's friends have accepted Harvey's (supposed) existence.' Veta 'finally tries to have him committed to a local sanatorium. In exasperation, she admits to the attending psychiatrist, Dr. Sanderson, that she sees Harvey once in a while herself. Mistaking Veta for the real mental case, Sanderson has Elwood released and Veta locked up.' Chumley 'eventually tracks Elwood to his favorite bar, Charlie's, and confronts him. Four hours later, Wilson returns to the sanatorium and learns from Sanderson and nurse Kelly that Chumley and Elwood had not returned... they all go to Charlie's and find Elwood alone; he explains that Chumley wandered off with Harvey after several rounds of drinks.'"
+        },
+        {
+          "citation": "Harvey (play). Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Harvey_(play)",
+          "claim": "The play's dates and its hedge: 'Harvey is a 1944 play by the American playwright Mary Chase, who received the Pulitzer Prize for Drama for the work in 1945', Broadway premiere 1 November 1944 at the 48th Street Theatre, settings 'The library of the Old Dowd Mansion' and 'The Reception Room at Chumley's Rest'. And the spelling, which is the detail that makes the ontology deliberate: Elwood 'claims to have an unseen (and presumably imaginary) friend Harvey - whom Elwood describes as a six foot, three-and-one-half inch pookah (Chase uses the spelling p-o-o-k-a as noted especially by the character Wilson who is reading the definition from a dictionary on page 33 of Chase's playbook)'."
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "fight-club",
+      "title": "The narrator is Tyler Durden, and he is not told",
+      "kind": "work",
+      "year": 1999,
+      "era": "Cinema",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "Two hours of a man telling you about his best friend. The friend does not exist, the man telling you does not know it, and you are being addressed by somebody who is also being lied to.",
+      "significance": "The sharper version of the mirrored case, and sharper than Dorian Gray because the split is not between an image and a man but **inside a single voice**. For the whole film the audience attaches to Tyler Durden, and Tyler Durden is supplied entirely by the person narrating: \"The Narrator, an unreliable narrator, is not immediately aware that he is mentally projecting Tyler.\" There is no second person to check him against, which is the condition every other entry on this site has and this one has inverted. The physical evidence is better than the script notes, because the actor supplied it: Edward Norton said \"We decided early on that I would start to starve myself as the film went on, while Brad Pitt would lift and go to tanning beds; he would become more and more idealized as I wasted away.\" One body, two figures, and the divergence was made physically rather than written. What ties it to `the-imaginary-friend` is the mechanism, which is the same mechanism in two epistemic states. An unreliable narrator is a person who knows and maintains anyway. A child with an imaginary companion knows the friend is invented. The Narrator does not know Tyler is invented. **One mechanism, two states of knowing, and the film conceals the difference on purpose** - the reveal is the last ten minutes, by which point the audience has been holding a bond for nearly two hours without knowing there was anything to hold on to. The commercial story is the same story told in money. Studio executives disliked the film and restructured Fincher's intended marketing campaign to cut expected losses; it opened to about $102.4 million and then found its actual audience in home video. The bond is with the narrator. The money followed the bond and ignored the premise.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "harvey",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-fourth-wall",
+          "type": "succeeded"
+        },
+        {
+          "to": "dorian-gray",
+          "type": "succeeded"
+        },
+        {
+          "to": "deadpool",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Fight Club. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Fight_Club",
+          "claim": "Production and the load-bearing sentence: 'Fight Club is a 1999 American film directed by David Fincher starring Brad Pitt, Edward Norton, and Helena Bonham Carter. It is based on the 1996 novel Fight Club by Chuck Palahniuk.' 'It was filmed in and around Los Angeles from July to December 1998.' 'Studio executives did not like the film and restructured Fincher's intended marketing campaign to try to reduce anticipated losses.' Gross $102.4 million. Norton as 'the unnamed narrator, an insomniac automobile recall specialist dissatisfied with his consumerist lifestyle', Pitt as 'Tyler Durden, a charismatic soap salesman who forms Fight Club with the narrator'. And the mechanism: 'The Narrator, an unreliable narrator, is not immediately aware that he is mentally projecting Tyler. He also mistakenly promotes the fight clubs as a way to feel powerful, though the Narrator's physical condition worsens while Tyler Durden's appearance improves.' Norton on the production: 'We decided early on that I would start to starve myself as the film went on, while [Brad Pitt] would lift and go to tanning beds; he would become more and more idealized as I wasted away.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "deadpool",
+      "title": "He knows you are there and it is not in the script",
+      "kind": "work",
+      "year": 2016,
+      "era": "Contemporary",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "A character whose defining trait is looking at you, taken from the comics rather than invented for the film - and on a fifty-eight million dollar budget the address turned out to be the marketing.",
+      "significance": "The fourth-wall breach here is not a director's device, and that is what makes it worth an entry. The film \"was set to ignore the Wolverine version of Deadpool and return to the character's roots with a slapstick tone and a 'propensity to break the fourth wall'\" - so the looking-at-you is **in the characterization**, carried over from the comics, and it cannot be separated from who he is. Everything else about him is damage: scarred, immortal, in constant pain, dealing with a man who gave it to him. The one intact thing is his relationship to you. That is a different shape from a wink in a gag, and the film earns it by never asking the audience to forget that he is looking. The economics are the argument and they are unusually clean: greenlit by 20th Century Fox in 2014 after test footage leaked, $58 million budget, **$782.6 million** grossed. A hard-R character who addresses you directly is a marketing instrument, because he cannot be sold as anything other than what he is. It also inverts the usual censor problem - a film that talks back at the audience is a film nobody can confuse for something respectable, which is a benefit at a lower budget rather than a liability. And the line from the mechanism entry holds exactly: **he looks at the lens and cannot hear you.** That single sentence is the difference between `animate` and `transparasocial`, between a fictional figure that acknowledges an audience and a real person acknowledging you. The gesture is identical to a streamer reading out a comment and the structure is opposite, and an entry that blurred those two would be the same error as a citation with no locator - a promise the thing does not keep.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "the-fourth-wall",
+          "type": "succeeded"
+        },
+        {
+          "to": "fight-club",
+          "type": "succeeded"
+        },
+        {
+          "to": "tay",
+          "type": "contemporary"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Deadpool (film). Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Deadpool_(film)",
+          "claim": "The fourth wall as a character property rather than a director's choice, and the numbers: 'Deadpool is a 2016 American superhero film based on the Marvel Comics character Wade Wilson / Deadpool. Directed by Tim Miller, in his feature directorial debut, and written by Rhett Reese and Paul Wernick, it is a spin-off of the X-Men film series and its overall eighth installment. Ryan Reynolds stars as the titular character.' Following a greenlight from 20th Century Fox in 2014 after test footage for a potential film was leaked, principal photography took place; budget $58 million, gross $782.6 million, runtime 108 minutes. And: 'The spinoff was set to ignore the Wolverine version of Deadpool and return to the character's roots with a slapstick tone and a \"propensity to break the fourth wall\". Rhett Reese and Paul Wernick were hired to write the script in January 2010. Reynolds, who worked closely with them, said they were chosen because, \"Tonally, they got it. They just [understood Deadpool] right off the bat.\"'"
         }
       ],
       "media_inferred": false,

@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 189 entries, 455 relations, 275 generated pages.
+relationships. 193 entries, 467 relations, 279 generated pages.
 
 ## The rule that outranks everything
 
@@ -683,18 +683,32 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-172 sourced | 4 not yet stood behind | 13 thesis   = 189
+176 sourced | 4 not yet stood behind | 13 thesis   = 193
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-226 of 375 sources have a locator
-0 of 375 claim to be openable without one   (ratcheted; was 94)
+231 of 380 sources have a locator
+0 of 380 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
+0 relations point at themselves
+0 relations claim an order neither end can support
 0 citation strings are notes to self
+0 entries assert the far side perceives the reader   (tools/cull_audit.py)
 39 attachment sub-categories, up from 38
 6 otherness members, on a third axis
 13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 189. `add_source.py` is authoritative.
+Board must reconcile to 193. `add_source.py` is authoritative.
+
+**Gate order matters.** `plate.py` draws from the data, so it must run *after*
+`build_cards.py` and *before* `build_deploy.py`:
+
+```powershell
+python tools\build_cards.py; python tools\plate.py; python tools\build_deploy.py
+```
+
+Run the other way round and `build_deploy` reports 404s on plates that do not
+exist yet, which is a true report of the tree it was given and a false report of
+the project.
 
 ## Open work
 
@@ -929,6 +943,146 @@ Board must reconcile to 189. `add_source.py` is authoritative.
      centuries AD. `_fmt_span()` now includes `year_end`. Positive years still
      print bare (no "AD") on purpose — the era label carries that, and adding it
      would restyle every entry.
+
+14. **The origin of the site exists on a drive and nowhere in the repository.**
+   `K:\EnanInc\parasocialite` is an 801-file, 277.7MB asset and reference
+   library — not a site backup. Two documents in it are the origin, and both are
+   dated:
+   - **`Key20\TwentyYums_Script.docx` + `twentyums.xlsx`, 2015-07-28.** The text
+     is extracted to `research-cache/`. It opens "Hello and welcome to the
+     Parasocialize channel – I'm your host **ParaosocialDude** and in this Key
+     20 we unlock" and then runs a *Night of the Living Dead* radio broadcast
+     cold open — *"broadcasting on all AM frequencies… if anyone is out there…
+     please. You are not alone."* **That is this site's thesis, written in 2015
+     as a zombie-film transmission to someone who may not be listening.**
+     After it, ~50 columns of film genres, the last two being **Parasocial
+     Movies** and, in the TV block, **Para Series** — the author's own subject,
+     appended to an inherited genre list. This corroborates the note already
+     here about **@Parasocialdude** and the `parasocialite` folder name with a
+     primary document.
+   - **`CatchingandWeaving_Character Chart.jpg`, 2019-04-12** — *Catching and
+     Weaving*, based on the author's novel **Company Dreamer**. Node border
+     colour is studio tier (dream studio / Mygdala public / Insize theistic /
+     Phasic private / Family); edge type is **Directed Affection vs Mutual
+     Love**. `Recast_Character_Chart.jpg`, same date, is the real school
+     production of it with a named cast, director Jean Balinger and coordinator
+     Jay Gustafson.
+   - **`MASTER_CAST.jpg`, 2023-02-10** is a Patreon for **All the Horrible
+     Things**: ~40 genre-film episode covers, each carrying the circular emblem
+     that became **iYi**.
+   - **The gap this exposes is the interesting part.** The published work is
+     documented (`company dreamer` appears in 32 repo files); the *creative
+     process* is not. `catching and weaving`, `key 20` and `key20` return **0
+     files** in the repo.
+   - **And a dimension the data model does not have.** The 2019 chart encodes
+     affection **direction** as an edge type. `encyclopedia.json` relations are
+     `preceded`/`succeeded` and *chronological only* — "directed" vs "mutual",
+     the exact distinction between a parasocial bond and a reciprocal one, and
+     the thing `the-dog` exists to isolate, is **absent from the schema**. Node
+     colour is the ancestor of the `medium` axis; the affection axis was dropped
+     and never rebuilt.
+   - **Images: 0 of 193 encyclopedia entries have one.** All 73 records in
+     `data/images.json` are `for: story` (47), `section` (10), `top8` (8),
+     `feature` (8). Encyclopedia pages get generated SVG plates only. K: has ~340
+     show-named JPGs (`reality/` one per show — Big Brother, American Idol, The
+     Bachelor, The Apprentice; `tvage/` one per scripted show).
+   - **But do not import them.** `images.json`'s own `_note` sets the rule —
+     "Wikimedia Commons, cached locally… a candidate missing a `must` term is
+     the wrong picture, not a worse choice… An entry with `local:null` and no
+     available photograph **is a real answer**." All 48 fetched images carry
+     `licence`, `author` and a Commons `page`. K: is overwhelmingly
+     **unattributed Google Images downloads** — the filenames *are* download
+     hashes: `_1418892.jpg`, `1416867494_2.png`, `5167032_orig.jpg`,
+     `Screenshot 2019-10-30 23.06.55.png`. Dropping those in would put
+     unlicensed third-party stills live and break the site's own stated
+     standard. The safe subset is the author's own work: 16 logo/brand files,
+     13 section-art pieces, 39 `7most` series thumbnails (`paracom1-7`,
+     `paradude1-7`, `paraho1-7`, `paraVO1-7`, `para4th`), both character charts,
+     and `margery-kempe-statue13_5.jpg` — which maps to the existing
+     `margery-kempe` entry *and* to the published essay *The Binding of
+     Margery Kempe*.
+
+15. **The corpus had no entry for the one mechanism all three of the user's
+   examples shared.** Asked about Harvey, Tyler Durden and Deadpool *talking
+   directly to the audience*, the audit found `fourth wall` **0** entries,
+   `camera` 2, `direct address` 1 — a hole in the subject, not in the
+   classification. It is also the boundary the site turns on: a **fictional**
+   figure acknowledging that an audience exists is not a **real** person
+   acknowledging *you*, and `transparasocial` is defined here as "the other side
+   can now hear you". Same gesture, opposite structure. Four entries:
+   - **`the-fourth-wall`** (1758, `character/played-role`, `made`) — and the
+     etymology is the good part. The concept is attributed to **Diderot, 1758**:
+     actors and writers should "imagine a huge wall across the front of the
+     stage, separating you from the audience, and behave exactly as if the
+     curtain had never risen." Diderot's *un grand mur* **became "the fourth
+     wall" to Leigh Hunt in 1807**, writing about the actor Mr. Bannister:
+     "No actor enters so well into the spirit of his audience as well as his
+     author, for he engages your attention immediately by seeming to care nothing
+     about you; the stage appears to be his own room, of which the audience
+     compose the fourth wall." **Henry Irving, February 1879**: "the stage has
+     four walls, though the fourth is only theoretical", and the **first known
+     use of "fourth wall theory"** follows *later that month* in a comment on
+     that article in the British periodical **Truth**. Vincent Canby, 1987:
+     "that invisible scrim that forever separates the audience from the stage."
+     **No coinage year was sourced**, so the entry is dated to the concept and
+     says so rather than picking whichever of 1758/1807/1879 suits.
+     The mechanism argument: the wall is a specification for *invisibility* and
+     the whole site is about the far side of it. The strongest breach is not a
+     wink — in **Peter Pan** it is an instruction the audience obeys, "If you
+     believe in fairies, clap your hands!", to revive Tinker Bell, who lives or
+     dies on whether strangers in the dark choose to believe. **That is the
+     parasocial condition with the volume up: the fiction's survival is now a
+     real person's decision.**
+     Two honesty notes, the second being why this is an entry and not a
+     sub-category. In **mockumentary** the camera may be *inside* the fiction, so
+     looking into it is not a breach — a convention only counts if the audience
+     knows it is one. And see the `transparasocial` boundary above.
+     **Also: the user's "bunny talking to the audience" is real and it is
+     documented — it is Bugs Bunny.** "Characters in theatrical animated
+     cartoons, particularly Bugs Bunny and other characters in Warner Bros.'
+     Looney Tunes and Merrie Melodies shorts, regularly broke the fourth wall",
+     with Tex Avery's *Daffy Duck and Egghead* (1938) and *Thugs with Dirty
+     Mugs* (1939) named. There is no character called Harvey Rabbit doing this.
+   - **`harvey`** (1950, `companion/social-agent`, `haunted`) — and the film is
+     not about the rabbit, it is about **complicity**. Directed by **Henry
+     Koster**, not Cukor, which was assumed before checking. Elwood's invisible
+     companion is 6 ft 3½ in and described as a **púca**; the play spells it
+     *pookah* (p-o-o-k-a) and the character Wilson reads the definition from a
+     dictionary on page 33 of Chase's playbook. The play is **1944**, premiered
+     1 November 1944 at the 48th Street Theatre, Pulitzer awarded **1945** — not
+     1946, which several sources imply. The plot is the thesis: Veta "in
+     exasperation, admits to the attending psychiatrist, Dr. Sanderson, that she
+     sees Harvey once in a while herself" and is committed in Elwood's place,
+     and Dr. Chumley, convinced Elwood is insane, "wandered off with Harvey after
+     several rounds of drinks." **Every bond here needs somebody to maintain it,
+     and this one is maintained by nobody saying the sentence.** Wikipedia's own
+     hedge is quoted as the honest register: Elwood "claims to have an unseen
+     (and presumably imaginary) friend".
+   - **`fight-club`** (1999, `character/fictional-protagonist`, `mirrored`) —
+     sharper than `dorian-gray` because the split is **inside one voice**: "The
+     Narrator, an unreliable narrator, is not immediately aware that he is
+     mentally projecting Tyler." No second person exists to check him against.
+     Norton on the production: "We decided early on that I would start to starve
+     myself as the film went on, while Brad Pitt would lift and go to tanning
+     beds; he would become more and more idealized as I wasted away." One body,
+     two figures, divergence made physically. And the tie to
+     `the-imaginary-friend`: an unreliable narrator is a person who **knows and
+     maintains anyway**, and the Narrator does not know Tyler is invented — one
+     mechanism, two states of knowing, concealed deliberately until the last ten
+     minutes.
+   - **`deadpool`** (2016, `character/fictional-protagonist`, `animate`) — the
+     breach is a **character trait licensed from the comics**, not a director's
+     device: the film "was set to ignore the Wolverine version of Deadpool and
+     return to the character's roots with a slapstick tone and a 'propensity to
+     break the fourth wall'". So the wall is *in the characterization*.
+     Everything else about him is damage; the one intact thing is his
+     relationship to you. Greenlit 2014 after test footage leaked, **$58M budget,
+     $782.6M gross** — the address is the marketing, and a hard-R character who
+     talks back cannot be sold as anything other than what he is.
+   - Five records, five `retrievable`, four of them Wikipedia read in full. The
+     **AFI catalog entry `moviedetails/50671` returns the wrong film** (*The
+     Stooke*, 1953) and TCM returned nav chrome only — neither is citable, and
+     both rejections are written down in `RESEARCH-NOTES.md`.
 
 ## Deploy note
 
