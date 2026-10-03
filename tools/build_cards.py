@@ -1866,6 +1866,36 @@ def build_taxonomy(enc, data):
     n_oth = len(OTH.get("members", []))
     n_oth_stated = sum(1 for v in pla.values() if v.get("other"))
 
+    # The fourth axis, rendered identically. Recovered from the 2019 character
+    # chart, which drew affection direction as an edge type (Directed Affection
+    # against Mutual Love) - a distinction the schema could not express, since
+    # every relation in `encyclopedia.json` is chronological or bibliographic.
+    # It has three members rather than the chart's two, because the corpus found
+    # a third the chart could not have: reciprocity that is performed rather than
+    # felt. Counted from the placements, never typed.
+    recs = []
+    rec_counts = Counter(v["rec"] for v in pla.values() if v.get("rec"))
+    REC = tax.get("reciprocity") or {}
+    for m in REC.get("members", []):
+        n = rec_counts.get(m["id"], 0)
+        cells = ""
+        for label, key, cls in (("Test", "test", "tx-test"),
+                                ("Not", "not", "tx-not"),
+                                ("Mechanism", "mechanism", "tx-mech")):
+            if m.get(key):
+                cells += (f'<div class="tx-triad-c {cls}">'
+                          f'<span class="tx-triad-k">{label}</span>'
+                          f'<p>{esc(m[key])}</p></div>')
+        tally = (f'<span class="tx-count">{n}</span>' if n else
+                 '<span class="tx-count tx-count-0">nothing placed yet</span>')
+        recs.append(f"""<details class="tx-reg" id="tx-r-{esc(m['id'])}">
+  <summary><b>{esc(m['name'])}</b>{tally}</summary>
+  <p class="tx-def">{esc(m['def'])}</p><div class="tx-triad">{cells}</div>
+</details>""")
+    rec_html = "".join(recs)
+    n_rec = len(REC.get("members", []))
+    n_rec_stated = sum(1 for v in pla.values() if v.get("rec"))
+
     lit = "".join(f'<li id="tx-src-{esc(k)}"><b>{esc(labels.get(k, k))}</b> '
                   f'<span class="tx-lit-full">{esc(v)}</span></li>'
                   for k, v in tax["_literature"].items()
@@ -1893,6 +1923,7 @@ def build_taxonomy(enc, data):
     n_sub = sum(len(a["sub"]) for a in tax["attachment"])
     n_reg = len(tax["register"])
     n_oth_meta = len((tax.get("otherness") or {}).get("members", []))
+    n_rec_meta = len((tax.get("reciprocity") or {}).get("members", []))
     WORDS = {3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight",
              9: "nine", 10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen",
              14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen",
@@ -1900,8 +1931,9 @@ def build_taxonomy(enc, data):
              38: "thirty-eight", 40: "forty"}
     words = lambda n: WORDS.get(n, str(n))
     shape = (f"{words(n_cat)} kinds of object, "
-             f"{words(n_sub)} sub-categories, {words(n_reg)} registers and "
-             f"{words(n_oth_meta)} kinds of otherness")
+             f"{words(n_sub)} sub-categories, {words(n_reg)} registers, "
+             f"{words(n_oth_meta)} kinds of otherness and "
+             f"{words(n_rec_meta)} states of reciprocity")
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1969,6 +2001,22 @@ def build_taxonomy(enc, data):
 <section class="section" style="padding-top:0">
   <p class="kicker">Attachment · who or what is on the other end · {n_cat}</p>
   {''.join(blocks)}
+</section>
+
+<section class="section" style="padding-top:0" id="tx-reciprocity">
+  <p class="kicker">Reciprocity · whether the other end attaches back · {n_rec}</p>
+  <p class="sec-lede" style="max-width:66ch">{esc(REC.get("_note", ""))}</p>
+  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{esc(REC.get("_why_it_is_a_separate_axis", ""))}</p>
+  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{esc(REC.get("_relation_to_the_2019_chart", ""))}</p>
+  <div class="tx-regs" style="margin-top:22px">{rec_html}</div>
+  <p class="countline" style="max-width:66ch;margin-top:20px">{n_rec_stated} of
+  {total} entries state whether the bond attaches back, and the number is
+  small on purpose. <em>Directed</em> is the default condition of the entire
+  site, so stating it everywhere would print a hundred and eighty identical
+  labels and bury the handful that are not. The two worth watching are
+  <em>reciprocated</em> and <em>simulated</em>: a corpus named after
+  one-sided attachment that cannot count its own exceptions is not measuring
+  the thing it is named after.</p>
 </section>
 
 <section class="section" style="padding-top:0">

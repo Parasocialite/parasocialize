@@ -694,6 +694,7 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 0 entries assert the far side perceives the reader   (tools/cull_audit.py)
 39 attachment sub-categories, up from 38
 6 otherness members, on a third axis
+3 reciprocity members, on a fourth axis recovered from the 2019 chart
 13 media values, up from 11 (radio and comics added)
 ```
 
@@ -1083,6 +1084,59 @@ the project.
      **AFI catalog entry `moviedetails/50671` returns the wrong film** (*The
      Stooke*, 1953) and TCM returned nav chrome only — neither is citable, and
      both rejections are written down in `RESEARCH-NOTES.md`.
+
+16. **The affection axis the 2019 character chart had and the schema lost is
+   back, with a member the chart could not have had.** `reciprocity` is the
+   fourth axis: *directed*, *reciprocated*, *simulated*. The chart drew affection
+   **direction** as an edge type — Directed Affection against Mutual Love — and
+   nothing in `encyclopedia.json` could express it, because all 467 relations
+   are chronological or bibliographic: cites 217, depicts 70, preceded 52,
+   contemporary 46, succeeded 46, member_of 12, instance_of 9, wrote 7,
+   bond_with 5, occurred_in 3. **Only five edges in the corpus are affection
+   edges at all.** A site named after one-sided attachment had no field for
+   saying a bond was one-sided.
+   - **The chart had two states; this has three.** The corpus found a third the
+     chart could not have, and it is the site's actual subject:
+     `live-commentary` and `twitch-subs` both "solved a problem nobody had been
+     able to solve: making the one-sided bond **feel** reciprocal without the
+     labour of a real relationship". Solved is the operative word. That is
+     **simulated** — reciprocity manufactured on one side and sold as the
+     product — and it is not a weaker version of reciprocated. It is a
+     different thing wearing its clothes, and the clothing is the point. The
+     `not` is drawn carefully: simulated is **not fraud**, which is a separate
+     charge needing separate evidence, and not deception, since a host reading
+     a comment aloud usually believes the warmth. The test is whether anything
+     is felt on the far side, not whether the near side is honest.
+   - **The `reciprocated` test is deliberately hard to pass.** "Would the other
+     end be missed if it stopped?" — not "would it notice", which is the
+     question a figure with no interior cannot answer. The far end must be
+     acting on its own initiative. That is what admits `dionne-warwick`, who
+     wrote back, and excludes a talk-show host reading a caller-out, who
+     replied once and would not be mourned.
+   - **Six entries carry a value, each quoting its own prose as the reason**, so
+     a reader can check the classification against the entry: `the-dog`
+     reciprocated ("a dog is not a figure and **it answers back**" — the site's
+     control condition, and the only reason the term exists), `p` directed (the
+     entry applies the test to itself: "entirely structured around the other
+     party's inability to reciprocate"), `dionne-warwick` and `kobe`
+     reciprocated, `live-commentary` and `twitch-subs` simulated.
+   - **`alf` was deliberately left unset.** Its entry says "The Tanners are
+     reciprocated; the cat is not" — and that reciprocity happens *inside the
+     fiction*, between ALF and a family who can hear him. The axis is about the
+     bond between the audience and the other end, and an audience cannot be
+     reciprocated by a character. Setting it would answer a different question,
+     which is how a fourth axis becomes a source of confident noise.
+   - The axis is **optional per entry and stays that way**: `directed` is the
+     default condition of the whole site, so requiring it everywhere would print
+     187 identical labels and bury the five that are not. The audit prints
+     `reciprocated` and `simulated` separately for exactly that reason — *a
+     corpus about one-sided attachment that cannot count its own exceptions is
+     not measuring the thing it is named after.*
+   - That printed paragraph first said "hide the seven that are not" — a typed
+     literal in a report about the data, which is the defect
+     `verify_taxonomy.py` already documents about the "Five of 38" sentence it
+     replaced. It now counts. A number inside a paragraph is not obviously a
+     claim, which is what makes it the dangerous kind.
 
 ## Deploy note
 

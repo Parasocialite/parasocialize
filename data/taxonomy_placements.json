@@ -195,7 +195,8 @@
     "dionne-warwick": {
       "cat": "persona",
       "sub": "idol",
-      "why": "Received correspondence by the sackful and answered it by name, individually, for years. The closest thing the twentieth century produced to a genuinely reciprocal parasocial relationship, and therefore the entry the whole site is built to be able to accommodate."
+      "why": "Received correspondence by the sackful and answered it by name, individually, for years. The closest thing the twentieth century produced to a genuinely reciprocal parasocial relationship, and therefore the entry the whole site is built to be able to accommodate. [reciprocity: 'The closest thing the twentieth century produced to a genuinely reciprocal parasocial relationship.' She wrote back, which is the `reciprocated` test - the far end acting on its own initiative and missed if it stopped.]",
+      "rec": "reciprocated"
     },
     "don-quixote": {
       "cat": "character",
@@ -345,7 +346,8 @@
     "kobe": {
       "cat": "persona",
       "sub": "sport-figure",
-      "why": "Public mourning for an athlete that drew on the athlete's own stated bond with a young fan. The mourning is documented and the bond is stated rather than inferred, which makes it the cleanest athlete case on the site."
+      "why": "Public mourning for an athlete that drew on the athlete's own stated bond with a young fan. The mourning is documented and the bond is stated rather than inferred, which makes it the cleanest athlete case on the site. [reciprocity: 'The clearest documented case of a parasocial bond being reciprocated deliberately for decades and then cashed in publicly after death.' Deliberately, and for decades: the far end was acting on its own initiative throughout.]",
+      "rec": "reciprocated"
     },
     "kpop-parasocial-industry": {
       "cat": "institution",
@@ -355,7 +357,8 @@
     "live-commentary": {
       "cat": "persona",
       "sub": "creator",
-      "why": "The first mass environment where the one-sided bond visibly and continuously acknowledges you. Horton and Wohl's direct address with a comment feed attached, and the clearest case for the reciprocal-edge register."
+      "why": "The first mass environment where the one-sided bond visibly and continuously acknowledges you. Horton and Wohl's direct address with a comment feed attached, and the clearest case for the reciprocal-edge register. [reciprocity: 'It solved a problem nobody had been able to solve: making the one-sided bond feel reciprocal without the labour of a real relationship.' Solved is the operative word. The reciprocity is the product.]",
+      "rec": "simulated"
     },
     "loyalty-counter": {
       "cat": "institution",
@@ -427,7 +430,8 @@
     "p": {
       "cat": "character",
       "sub": "myth-figure",
-      "why": "The sculptor who fell in love with his own work, and the story treats the impossibility as part of the appeal rather than a tragedy to be corrected. A myth figure, and the one that named the whole subject."
+      "why": "The sculptor who fell in love with his own work, and the story treats the impossibility as part of the appeal rather than a tragedy to be corrected. A myth figure, and the one that named the whole subject. [reciprocity: The entry states the condition in its own words: 'The feeling is real and entirely structured around the other party's inability to reciprocate.' That is the `directed` test applied by the entry to itself, which is why it is here rather than inferred.]",
+      "rec": "directed"
     },
     "paid-intimacy": {
       "cat": "institution",
@@ -708,7 +712,8 @@
     "the-dog": {
       "cat": "companion",
       "sub": "animal",
-      "why": "Selection for living near one particular ape, for at least fifteen thousand years and possibly as long as thirty. Not the oldest case on the site, and not the first one-sided bond: paleolithic-figures puts an anthropomorphised animal in this same sub-category about twenty-five thousand years earlier, and neanderthal-burial puts the dead within reach of the living far earlier than either. What is unique is not one-sidedness - a dog is not a figure and it answers back. What is unique is that this is the one bond here that was bred."
+      "why": "Selection for living near one particular ape, for at least fifteen thousand years and possibly as long as thirty. Not the oldest case on the site, and not the first one-sided bond: paleolithic-figures puts an anthropomorphised animal in this same sub-category about twenty-five thousand years earlier, and neanderthal-burial puts the dead within reach of the living far earlier than either. What is unique is not one-sidedness - a dog is not a figure and it answers back. What is unique is that this is the one bond here that was bred. [reciprocity: The site's control condition, and the entry says so: 'a dog is not a figure and it answers back.' Reciprocated, and the only reason the term is even available.]",
+      "rec": "reciprocated"
     },
     "the-fanfic-writer": {
       "cat": "institution",
@@ -833,7 +838,8 @@
     "twitch-subs": {
       "cat": "institution",
       "sub": "platform",
-      "why": "A monthly payment that buys recognition, and a chat in which the size of that payment is the mechanism for being noticed. The reciprocal edge with a price tag on it - the most honest version of the whole argument."
+      "why": "A monthly payment that buys recognition, and a chat in which the size of that payment is the mechanism for being noticed. The reciprocal edge with a price tag on it - the most honest version of the whole argument. [reciprocity: The same sentence as live-commentary - 'making the one-sided bond feel reciprocal without the labour of an actual relationship' - and the two are recorded together because they are the same mechanism at two price points.]",
+      "rec": "simulated"
     },
     "vertigo": {
       "cat": "character",

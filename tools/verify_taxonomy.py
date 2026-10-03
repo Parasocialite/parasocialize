@@ -89,6 +89,38 @@ else:
                 problems.append(f"otherness/{m.get('id')}: {k} is under {floor} "
                                 f"chars ({len(str(m.get(k, '')))}) - a label, not a test")
 
+# The fourth axis, validated the same way. It exists because the 2019 character
+# chart this project grew out of drew affection direction as an edge type, and
+# the schema lost it: nothing in the data could say a bond was one-sided, which
+# is the one property the site is named after. Validated structurally so it
+# cannot rot the way the corpus did - three members that are defined, testable
+# and empty are an honest gap; three that are never checked are decoration.
+REC = tax.get("reciprocity")
+if not isinstance(REC, dict) or not isinstance(REC.get("members"), list):
+    problems.append("taxonomy has no reciprocity axis with members")
+    REC_MEMBERS = []
+else:
+    REC_MEMBERS = REC["members"]
+    rids = [m.get("id") for m in REC_MEMBERS]
+    if len(rids) != len(set(rids)):
+        problems.append("reciprocity: duplicate member ids")
+    for k in ("_why_it_is_a_separate_axis", "_relation_to_the_2019_chart"):
+        if not REC.get(k):
+            problems.append(f"reciprocity: no {k} - an axis recovered from an "
+                            f"older artefact has to say how it relates to it")
+    for m in REC_MEMBERS:
+        for k in ("id", "name", "def", "test", "not", "mechanism"):
+            if k not in m or not str(m[k]).strip():
+                problems.append(f"reciprocity/{m.get('id')}: missing {k}")
+        for k, floor in (("def", 80), ("test", 80), ("not", 80), ("mechanism", 80)):
+            if len(str(m.get(k, ""))) < floor:
+                problems.append(f"reciprocity/{m.get('id')}: {k} is under {floor} "
+                                f"chars ({len(str(m.get(k, '')))}) - a label, not a test")
+    if "directed" not in rids:
+        problems.append("reciprocity: no `directed` member - the axis exists to "
+                        "name the default condition, and a default that is not "
+                        "listed is a default that will be mislabelled as special")
+
 # An anchor is a promise that a source exists. It is stored as a key into
 # _literature and the page prints a label and links to the reference, so a key
 # with no entry renders as something shaped like a citation that cannot be
@@ -136,6 +168,9 @@ for eid, v in pla["assignments"].items():
     if OTH_MEMBERS and v.get("other") and v["other"] not in {
             m["id"] for m in OTH_MEMBERS}:
         problems.append(f"assignment {eid}: unknown otherness {v['other']!r}")
+    if REC_MEMBERS and v.get("rec") and v["rec"] not in {
+            m["id"] for m in REC_MEMBERS}:
+        problems.append(f"assignment {eid}: unknown reciprocity {v['rec']!r}")
 
 # The stories are placed in a separate file, and they fail differently: an
 # encyclopedia entry is a claim about a thing and can be placed from its own
@@ -180,6 +215,7 @@ anch = sum(1 for s in SUBS.values() if s.get("anchor")) + \
     sum(1 for r in tax["register"] if r.get("anchor"))
 print(f"  {anch} items carry a verified literature anchor")
 print(f"  {len(OTH_MEMBERS)} otherness members (the third axis)")
+print(f"  {len(REC_MEMBERS)} reciprocity members (the fourth axis)")
 print(f"  {len(pla['assignments'])} entries hand-placed")
 print(f"  {len(spla)} stories hand-placed")
 
@@ -223,6 +259,37 @@ print()
 print("  EITHER the corpus is thin here, or the category does not earn its")
 print("  place. Both are worth knowing; neither is a reason to delete it")
 print("  quietly.")
+
+if REC_MEMBERS:
+    print()
+    print("=" * 64)
+    print("THE FOURTH AXIS AGAINST THE CORPUS")
+    print("=" * 64)
+    reccount = Counter(v["rec"] for v in pla["assignments"].values()
+                       if v.get("rec"))
+    for m in REC_MEMBERS:
+        n = reccount.get(m["id"], 0)
+        print(f"  {m['id']:<14} {m['name']:<32} entries placed: {n}")
+    stated = sum(1 for v in pla["assignments"].values() if v.get("rec"))
+    # Counted, not typed. This sentence used to say "the seven that are not",
+    # which was a literal in a report about the data - it would have kept saying
+    # seven after the corpus moved, and nobody would have noticed, because a
+    # number in a paragraph is not obviously a claim.
+    exceptions = sum(n for k, n in reccount.items() if k != "directed")
+    print()
+    print(f"  {stated} of {len(pla['assignments'])} placements state whether the")
+    print("  bond attaches back. Optional, and deliberately so: `directed` is the")
+    print("  default condition of the whole site, so requiring it on every entry")
+    print(f"  would print {len(pla['assignments']) - stated} identical labels and hide")
+    print(f"  the {exceptions} that are not. What is worth watching is `reciprocated`")
+    print("  and `simulated` - a corpus about one-sided attachment that cannot count")
+    print("  its own exceptions is not measuring the thing it is named after.")
+    emptyrec = [m["id"] for m in REC_MEMBERS if not reccount.get(m["id"])]
+    if emptyrec:
+        print()
+        print("  NO ENTRY PLACED YET:")
+        for k in emptyrec:
+            print(f"    {k}")
 
 if OTH_MEMBERS:
     print()

@@ -4,7 +4,8 @@
   "_axes": {
     "attachment": "WHO OR WHAT is on the other end. Eight categories. This is the site's voice: 'the one who...'. Purely a taxonomy of attachment targets, so every one of them can be inhabited by a story, an entry, a work, a person or a mechanism.",
     "register": "WHAT IS HAPPENING in the tie. Six, and orthogonal to attachment: any attachment can be in any register. This is where the old contest/grief/danger went, and it is also where the field's own PSI/PSR distinction lives.",
-    "otherness": "WHAT THE OTHER END IS MADE OF. Six, and orthogonal to both of the above: imagined, made, animate, transcendent, mirrored, haunted. Added because an audit found the corpus held no imaginary friends, no puppets and no aliens at all, and neither existing axis could express why. A character can be any of the six and produces a completely different relationship each time, so cutting across attachment or register would have hidden the difference rather than recorded it."
+    "otherness": "WHAT THE OTHER END IS MADE OF. Six, and orthogonal to both of the above: imagined, made, animate, transcendent, mirrored, haunted. Added because an audit found the corpus held no imaginary friends, no puppets and no aliens at all, and neither existing axis could express why. A character can be any of the six and produces a completely different relationship each time, so cutting across attachment or register would have hidden the difference rather than recorded it.",
+    "reciprocity": "WHETHER THE OTHER END ATTACHES BACK. Three: directed, reciprocated, simulated. Orthogonal to all three above. Added because the affection direction the 2019 character chart drew as an edge type does not exist anywhere in the schema, and 'one-sided' is the word the whole site is named after."
   },
   "_literature": {
     "note": "Only anchors that were checked are listed. A claim with no anchor below is the site's own argument and is marked as such rather than dressed in a citation. See AGENTS.md: never invent a citation, a date or an attribution.",
@@ -807,6 +808,40 @@
         "test": "Does the audience believe something is present that nobody else can verify? Belief in presence is the shelf.",
         "not": "Not fiction, which the audience knows is fiction, and not religion, which has its own shelf and its own argument about address. What is here is the domestic, unformalised version: the presence is personal rather than doctrinal.",
         "mechanism": "It has no mechanism to fail, so it can only be maintained by not being tested. The moment somebody looks, the structure is gone, which is why these appear in folklore rather than in reports.",
+        "examples": []
+      }
+    ]
+  },
+  "reciprocity": {
+    "_note": "The fourth axis, added because the 2019 character chart this project grew out of encoded affection DIRECTION as an edge type - Directed Affection against Mutual Love - and the schema lost it. `encyclopedia.json` relations are chronological and bibliographic: cites, depicts, preceded, member_of. Nothing in the data could say that a bond was one-sided, which is the one property the entire site is named after. The chart had two states. This has three, because the corpus found a third the chart could not have: reciprocity that is performed rather than felt, and sold as the product.",
+    "_why_it_is_a_separate_axis": "Because it is orthogonal to the other three. Any attachment category can be directed, reciprocated or simulated; so can any otherness member. The dog is an animate reciprocated bond and a workshop is a directed one. Cutting across an existing axis would have hidden that rather than recorded it.",
+    "_relation_to_the_2019_chart": "The chart's `Mutual Love` heart arrow is this axis's `reciprocated`, and its `Directed Affection` block arrow covers both `directed` and `simulated`. The simulated case is the site's own finding and postdates the chart by years.",
+    "members": [
+      {
+        "id": "directed",
+        "name": "The one-way one",
+        "def": "The other end does not attach back - not because it is refusing, but because there is no interior to attach with. A portrait, a broadcast, an invented friend, a god who does not answer. This is the site's default condition and the one every other shelf assumes.",
+        "test": "Does the other end have an interior that could attach and does not? If the thing cannot want you, the bond is directed and no amount of feeling on your side changes that.",
+        "not": "Not a bond that is going badly, and not a bond withheld. A refusal is still two-sided - somebody decided. This member is specifically the case where there is nobody home to decide.",
+        "mechanism": "Attention is the only thing holding it up, and attention is finite and yours. Nothing on the other end is doing anything, which is why every otherness member has to be checked against this one before it means anything.",
+        "examples": []
+      },
+      {
+        "id": "reciprocated",
+        "name": "The two-way one",
+        "def": "The other end genuinely attaches back. It writes, it appears, it signs, it answers, it grieves in public - and it would be missed if it stopped. The relationship is still unequal in almost every case that matters; what has changed is that there is somebody at the other end of it.",
+        "test": "Would the other end be missed if it stopped? Not 'would it notice' - it has no capacity to notice. Would *its absence* register? If the far side is doing something on its own initiative and would be mourned, this is the member.",
+        "not": "Not 'they replied once'. A single response is still a broadcast that happened to be addressed. This is for the cases where the far end is acting independently of the audience's attention - which is the actual test, and the reason `dionne-warwick` qualifies and a talk-show host reading a caller-out does not.",
+        "mechanism": "Both ends are spending something, which is what makes it rare. The attachment is still built by one person's attention and can still be withdrawn, so the asymmetry of origin survives the reciprocity of outcome - and that is the whole difficulty of the `the-dog` case, recorded as the site's control condition because a dog is the one relationship here that cannot be one-sided.",
+        "examples": []
+      },
+      {
+        "id": "simulated",
+        "name": "The one that only looks two-way",
+        "def": "The other end does not attach, and the design makes it feel as though it does. A comment feed read aloud, a greeting by name, a pause that looks like listening, a subscription tier that behaves like recognition. The feeling of reciprocity is manufactured on one side and sold as the product.",
+        "test": "Is the reciprocity performed rather than felt? If the far side is doing something whose *purpose* is to produce the appearance of a bond, and the person behind it has no interior in the matter, this is the member even when the performance is convincing.",
+        "not": "Not fraud, which is a separate charge with separate evidence, and not deception - a host reading a comment aloud usually believes the warmth they are performing. The distinction that matters is whether anything is felt on the far side, not whether the near side is being honest.",
+        "mechanism": "This is the member the field has the least language for, because its whole product is the absence of the thing being measured. `live-commentary` and `twitch-subs` both solved what they describe as an unsolved problem - making the one-sided bond *feel* reciprocal - and solving it is the event. Note that `simulated` is not a weaker version of `reciprocated`: it is a different thing wearing its clothes, and the clothing is the point.",
         "examples": []
       }
     ]
