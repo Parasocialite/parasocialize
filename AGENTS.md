@@ -27,6 +27,7 @@ python tools\add_source.py --apply-provenance
 python tools\citation_audit.py # are the status fields telling the truth
 python tools\cull_audit.py    # does any entry claim the far side perceives the reader
 python tools\image_audit.py   # does any image claim what its photograph shows, unopened
+python tools\verify_doi.py --from-citations  # does every DOI resolve to the work cited
 python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\verify_narrow.py    # does a generated page overflow at 390px
 python tools\plate.py --check    # does every title plate match its entry
@@ -1371,6 +1372,55 @@ the project.
    - Two coincidences are recorded rather than conflated: Mickey was named by
      Disney's wife **Lillian**, and Lugosi's burial was decided by his son and
      **his** mother **Lillian**. Two different women, twenty-eight years apart.
+
+20. **A resolving DOI is not evidence of identity, and Crossref will hand you a
+   confident wrong answer.** Asked for thirteen titles, Crossref's bibliographic
+   query returned a DOI for **all thirteen** and only **two** were the work being
+   looked for. One of the eleven that were not resolved to
+   `10.64628/aa.ketwakysr`, **"Man's stressed friend: how your mental health can
+   affect your dog"** — for a citation about parasocial persuasion. Another to a
+   2025 chapter called "Attention merchants" rather than Wu's 2016 book. **Every
+   one of those URLs loads.** Attaching a DOI is therefore *not* verification,
+   and it is the citation equivalent of `kind: exact` derived from a filename:
+   `tools/verify_doi.py` exists so identity is checked, not assumed.
+   - `--from-citations` audited all **44** DOI-bearing records by **author and
+     year**: 25 MATCH, 8 MISMATCH, 5 UNCHECKED.
+   - **Three of the eight were the tool's fault and reading them by hand is the
+     only reason that is known.** Crossref stores one author as `C⌠Θ`, which is
+     mojibake for **Côté**, so a correct DOI failed a name comparison; and two
+     corpus citations **begin with the title and carry no author**, so the
+     surname extractor read "Avatars" and "Stoking" as family names. The DOIs
+     are right; the citations are incomplete, which is its own problem.
+   - **Five are real and are recorded in `RESEARCH-NOTES.md` rather than fixed**,
+     because each is a choice between a wrong date and a wrong locator and the
+     corpus does not contain enough to decide. Four are year disagreements
+     (`merten-identification` 2020 vs a 2023 DOI, `psr-grief-kutner` 2018 vs
+     2015, `klastrup-facebook-mourning` 2015 vs 2014, `narrative-brands-end`
+     2013 vs 2014). The fifth, `subscription-streams`, cites **"Alba, J. W." for
+     a paper whose DOI lists Banerji, Gupta and Ketron** — the only one where the
+     work itself may be wrong rather than the date. **None was corrected:
+     choosing between "the year is wrong" and "the locator is wrong" without
+     evidence is exactly the move this corpus exists to refuse.**
+   - **The tool was wrong three times before it was right**, and each failure is
+     the same defect this site keeps meeting:
+     1. It compared the **whole citation** — eight authors, a journal, a volume
+        and the words "Article 81" — against a bare title. All 44 came back
+        MISMATCH, including `10.1145/3359183`, which *is* "Dark Patterns at
+        Scale" by Mathur, Acar and Friedman, exactly what `loyalty-dark-pattern`
+        cites. **Zero of forty-four is not a plausible result**, which is the only
+        reason it was caught before anyone believed it.
+     2. It compared surnames by trailing token, so an author Crossref stores
+        given-name-first (`family: "Arunesh"` for Mathur Arunesh) compared a given
+        name. Now every token of every name is tried.
+     3. It let a title mismatch **override** a matching author and year, so a
+        citation carrying a subtitle Crossref truncates read as a different
+        paper. **Author and year decide; the title corroborates.** A citation and
+        a registry routinely disagree about titles for reasons that are not
+        errors — `11K Shopping Websites` against `Dark Patterns at Scale`, or
+        `245-268` against `On the Dangers of Stochastic Parrots`.
+     Each is a measurement confidently reporting on the wrong layer, and the
+     first would have put a paper about dogs behind a claim about parasocial
+     persuasion while looking thoroughly verified.
 
 ## Deploy note
 

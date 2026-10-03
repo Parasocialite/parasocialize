@@ -148,3 +148,45 @@ matter, both dated:
   ending in **Parasocial Movies** and, in the TV block, **Para Series**.
 - `CatchingandWeaving_Character Chart.jpg`, **2019-04-12** — node border colour
   is studio tier, and **edge type is Directed Affection vs Mutual Love**.
+## 2026-10-03 — DOI identity audit: 5 real discrepancies, 3 that were the tool's fault
+
+`tools/verify_doi.py --from-citations` checked all 44 DOI-bearing records against Crossref by **author and year**, not by whether the DOI loads. Results: 25 MATCH, 8 MISMATCH, 5 UNCHECKED.
+
+**A resolving DOI is not evidence of identity.** Crossref's bibliographic query is a fuzzy search that always returns something: asked for thirteen titles it returned a DOI for all thirteen, and two were the work being looked for. One of the eleven that were not resolved `10.64628/aa.ketwakysr`, **"Man's stressed friend: how your mental health can affect your dog"** — for a citation about parasocial persuasion. Attaching that DOI would have looked like verification and been a lie.
+
+**Three of the eight mismatches were the tool's fault, and reading them by hand is the only reason that is known:**
+
+- Crossref stores one author as `C<t>` — mojibake for **Côté**, so a correct DOI read as a mismatch on a name comparison.
+- Two corpus citations **begin with the title and carry no author** (`Avatars are (sometimes) people too...`, `Stoking the Flames: ...`), so the surname extractor read the first word as a family name. The DOIs are correct; the citations are incomplete, which is its own problem and is listed below.
+
+**Five are real and are recorded rather than fixed**, because each is a choice between a wrong date and a wrong locator, and the corpus does not contain enough to decide:
+
+| entry | DOI | corpus says | DOI registers | 
+|---|---|---|---|
+| `merten-identification` | `10.1108/SBM-05-2023-0063` | 2020 | 2023 |
+
+  - **Same authors, near-identical title: 'Fan identification in football: professional football players and clubs competing for fans'. The DOI resolves to the 2023 version. Either the corpus year is wrong, or a 2020 version exists and the locator points at a later one.**
+| `psr-grief-kutner` | `10.1177/0030222815600450` | 2018 | 2015 |
+
+  - **'R.I.P. Kutner: Parasocial Grief Following the Death of a Television Character'. The DOI is registered to 2015. The corpus year may be a later print or a different item.**
+| `klastrup-facebook-mourning` | `10.1080/13614568.2014.983564` | 2015 | 2014 |
+
+  - **'I didn't know her, but': parasocial mourning of mediated deaths on Facebook RIP pages. The DOI is registered to 2014; a 2015 print or another version is plausible.**
+| `narrative-brands-end` | `10.1086/673959` | 2013 | 2014 |
+
+  - **'When Narrative Brands End: The Impact of Narrative Closure and Consumption Sociality'. The DOI is registered to 2014.**
+| `subscription-streams` | `10.1002/cb.2369` | Alba | Banerji, Gupta & Ketron (2024) |
+
+  - **'Navigating consumption streams: Toward a utilitarian-hedonic perspective on subscription consumption'. **The named author does not appear among the DOI's authors at all.** Either the citation names the wrong person or the locator points at a different paper with the same title. This is the only one of the five where the work itself may be wrong, rather than the date.**
+
+Not one of these was corrected, because correcting either end would mean choosing between "the year is wrong" and "the locator is wrong" without evidence, and this corpus does not invent the smaller of two uncertainties to make the page tidy. **They are a work queue of five, and the fifth is the only one where the cited work itself may be wrong.**
+
+Two further citation-quality problems the audit exposed, both benign but both real: citations that carry a **title and no author**, and citations whose title includes the journal's own metadata (`11K Shopping Websites` where Crossref truncates to `Dark Patterns at Scale`, or `245-268` where the title is `On the Dangers of Stochastic Parrots`). The latter is why `verify_doi.py` treats an author-and-year agreement as decisive and the title as corroborating: a citation and a registry routinely disagree about titles for reasons that are not errors.
+
+### What the tool got wrong on the way, in order
+
+1. It compared the **whole citation** — eight authors, a journal, a volume and the words `Article 81` — against a bare title. All 44 records came back MISMATCH, including `10.1145/3359183`, which is *Dark Patterns at Scale* by Mathur, Acar and Friedman, exactly what `loyalty-dark-pattern` cites. **Zero of forty-four is not a plausible result**, which is the only reason it was caught.
+2. It compared surnames by trailing token, so an author Crossref stores given-name-first (`family: "Arunesh"` for Mathur Arunesh) compared against a given name. Now every token of every name is tried.
+3. It let a title mismatch **override** a matching author and year, so a citation carrying a subtitle that Crossref truncates read as a different paper. Author and year now decide; the title corroborates.
+
+Each of those is the same defect the site keeps meeting in another place: a measurement that is confidently reporting on the wrong layer.
