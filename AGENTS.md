@@ -61,6 +61,25 @@ call is fine; batches of 8-20 are normal.
 **`link_audit.py` is a gate, not advice.** Read its output before committing.
 Chaining it with `;` and committing anyway once put a failing commit in history.
 
+**Run gates on their exit code, never through a pipe.** `| Select-String` on a
+gate is how a red gate gets committed — see the `the-shadow` chronology item in
+Traps for the round that actually happened. In PowerShell:
+
+```powershell
+foreach ($g in @('build_cards','build_deploy','citation_audit','cull_audit',
+                 'verify_taxonomy','verify_narrow','link_audit')) {
+  python "tools\$g.py" > $null 2>&1
+  if ($LASTEXITCODE -ne 0) { Write-Output "RED: $g" }
+}
+python tools\plate.py --check > $null 2>&1
+if ($LASTEXITCODE -ne 0) { Write-Output "RED: plate" }
+```
+
+`$LASTEXITCODE` after a pipeline reads the *pipeline's* last command, so
+`| Select-Object -Last 10` measures `Select-Object` and reports 0 while the gate
+is red. Redirect to `$null` instead. This is the single most reliable way to
+ship a falsehood on this site and it was done once already.
+
 ## Traps we have already hit
 
 - **`seven\s+past` matched "seven pastors."** Cadence patterns need `\b` and need
@@ -588,6 +607,17 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
+- `RESEARCH-NOTES.md` + `research-cache/` — **the evidence trail behind the
+  citations, kept because two sessions were interrupted mid-batch and the
+  extracted quotations existed only in context while the fetched pages did
+  not.** `RESEARCH-NOTES.md` is *not* a citation: `encyclopedia.json` holds
+  those. It holds what was read, what was extracted, and — the part worth more
+  — **what was rejected and why** (the AFI catalog entry that returns the wrong
+  film, Britannica and Sage at 403, the Met at 429). `research-cache/` holds
+  the plain-text extractions the quotations were taken from, so a claim can be
+  re-checked without re-fetching. Raw HTML is deliberately not cached: it is
+  reproducible from the URL in the citation, and 1.7MB of Wikipedia markup is
+  not worth carrying.
 - `data/taxonomy.json` — **the classification, on three axes.** Eight attachment
   categories (who or what is on the other end), six registers (what is happening
   in the tie), and — added 2026-10-03 — six **otherness** members (what the other
