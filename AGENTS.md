@@ -26,6 +26,7 @@ python tools\make_zip.py        # reproducible archive -> Desktop
 python tools\add_source.py --apply-provenance
 python tools\citation_audit.py # are the status fields telling the truth
 python tools\cull_audit.py    # does any entry claim the far side perceives the reader
+python tools\image_audit.py   # does any image claim what its photograph shows, unopened
 python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\verify_narrow.py    # does a generated page overflow at 390px
 python tools\plate.py --check    # does every title plate match its entry
@@ -1137,6 +1138,81 @@ the project.
      `verify_taxonomy.py` already documents about the "Five of 38" sentence it
      replaced. It now counts. A number inside a paragraph is not obviously a
      claim, which is what makes it the dangerous kind.
+
+17. **The image pipeline's `kind: exact` was a promise nobody had kept, and it is
+   the fourth instance of that family.** Found while trying to build the
+   encyclopedia image layer — which has **zero records**, because all 73 records
+   in `images.json` are `for: story` (47), `section` (10), `top8` (8), `feature`
+   (8). The layer could not be built on the existing pipeline, and the reason is
+   one line:
+
+   ```python
+   tools/images.py:306    src, kind = None, "exact"
+   ```
+
+   `kind` defaults to `"exact"` and is only downgraded to `"illustrative"` when
+   the query falls through to the Flickr topic fallback. **Nothing in that path
+   ever looks at the picture.** So `kind` — which means *the photograph shows the
+   thing itself* — was derived entirely from a must-term appearing somewhere in
+   a filename, and **40 live records claimed it**.
+   - Probed four encyclopedia subjects, all of which passed the must-term filter,
+     then **looked at the files** rather than the titles:
+     | entry | Commons returned | what it actually shows |
+     |---|---|---|
+     | `elvis` | "Elvis Presley, Bob Neal, and Sam Phillips in 1955" | correct |
+     | `prince` | "Prince, People au Défilé Channel, Printemps-Été 2010" | **correct** — judged wrong from the title, and looking corrected it. The only right one of four. |
+     | `cobain` | "Courtney Love Frances Bean Cobain 2015" | Courtney Love and Dave Grohl. "Cobain" is the **daughter's** name. |
+     | `nick-drake` | "Drake1" | a **churchyard** |
+     | `p` | "Pygmalion, Alan Thornhill" | a **Putney Sculpture Trail plaque**; a sculpture there happens to be named Pygmalion |
+     | `cervantes` | "pila bautismal de Miguel de Cervantes" | his **baptismal font** — a real artefact, not a portrait |
+     **Three of four wrong, after passing the filter whose stated job is to
+     exclude exactly that.** The must-term test is necessary and nowhere near
+     sufficient: it establishes that a word is in the filename, not that the
+     file shows the subject.
+   - **`prince` is the part worth keeping.** My first judgement, from the
+     filename, was that it was an Egyptian television channel. It is Prince the
+     musician, photographed from a car in 2010, and "People au Défilé" is a
+     paparazzi agency. **I was wrong, and only looking at the picture caught
+     it** — the same lesson as the eyelid arc, arriving from the opposite
+     direction. Do not judge an image from its filename, and do not report a
+     defect you have not looked at.
+   - **Corrected the claim first, then restored the accuracy**, which is the
+     order already used for the 94 unopenable `retrievable` records. All 73
+     records are now `kind: "unchecked"`, which promises nothing, and **no image
+     file was deleted** — `img/editorial` still holds all 84. What changed is
+     that the records stop asserting something nobody checked. A record only
+     becomes `exact` or `illustrative` again once somebody has opened the file
+     and written down the date in `looked`. **The 73 are now an explicit,
+     numbered work queue**, the same treatment the 83 missing locators get.
+   - **The judgement was also in the wrong field.** `kind` was stored *inside*
+     `src` — the provenance block — so a human judgement about a picture read as
+     though Commons had supplied it. Commons cannot tell you whether a
+     photograph is `exact` for this site's purposes. Moved to the record level.
+   - **Two captions were describing the story rather than the frame**, which is
+     the one thing a caption must not do, because a caption is the only place a
+     reader can check a picture against a sentence. Both turned out to be
+     *honest* — `character-ai-settlement` said "A real courtroom, standing in
+     for a litigation that did not happen there - captioned as a courtroom and
+     not as the hearing", and `t8-3-grouch` said "Fans in costume is what
+     Commons actually holds, and on this site that is the better picture". Both
+     disclosures were kept verbatim and moved to a new `note` field; the caption
+     now says only what is in the frame. **A caption that discloses its own
+     substitution is doing this right**, and the fix was the field, not the
+     sentence.
+   - `tools/image_audit.py` gates it: `exact`/`illustrative` require a `looked`
+     date, every `local` must exist on disk, every cached file needs
+     `licence` + `page` + `credit`, and no caption may contain story-language.
+     Confirmed red twice by promoting an unverified record to `exact` and by
+     pointing a `local` at a missing file, and green after restoring each.
+     Its docstring also states what it **cannot** do: a gate can hold a field to
+     its promise, it cannot make the promise true.
+   - **Still owed:** the encyclopedia image layer itself, and the eye-check on the
+     73 existing records. Nothing about that is blocked by licensing — the
+     Commons route is clean and `must` works — it is blocked on somebody looking
+     at the pictures, which is the part no script can do. `tools/images.py
+     --slots` already asks for exactly this from the author: *"Real photographs
+     of the real shelf, the real classroom and the real person will do more for
+     this site's credibility than any stock library."*
 
 ## Deploy note
 
