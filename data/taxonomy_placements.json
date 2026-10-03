@@ -906,6 +906,16 @@
       "cat": "officer",
       "sub": "senior",
       "why": "The shelf this entry opened. The erastes holds no office and runs no institution: his authority is personal, age-based and wholly unaccountable, which is why the tie is unprotected. Filed under officer/teacher it would have looked tidier and been false, because a teacher has duties and he has none."
+    },
+    "the-clay-army": {
+      "cat": "persona",
+      "sub": "sovereign",
+      "why": "The object of the attachment is the emperor, and the direction is reversed: eight thousand distinct individuals made to serve one absent man, each facing away from him. Sovereign rather than idol because Qin Shi Huang is an office-holder being preserved as though still in it, which is what the office means."
+    },
+    "the-absent-sage": {
+      "cat": "officer",
+      "sub": "senior",
+      "why": "A sage whose teaching reaches a reader intact and whose person never does - standing without a role and without a meeting. The same gap that produced this shelf for the Greek erastes produces it again here, two centuries earlier and in writing rather than in life."
     }
   }
 }

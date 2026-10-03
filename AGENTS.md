@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 181 entries, 433 relations, 269 generated pages.
+relationships. 183 entries, 441 relations, 269 generated pages.
 
 ## The rule that outranks everything
 
@@ -454,6 +454,50 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
      -200  congregation
         8  p
       100  the-priest
+- **Two more from the ancient world, both reversing the site's usual shape.**
+  `the-clay-army` (210-209 BCE): 8,099 life-size soldiers, every one individually
+  distinct, buried facing enemy territory with the emperor at their backs. The
+  *npj Heritage Science* analysis (2022) found the facial features "highly resemble
+  those of contemporary Chinese people" and concluded they "were crafted from
+  real portraits and intended to constitute a real army to protect the Emperor
+  Qin Shihuang in the afterlife, as if he was alive", the constructed army being
+  the substitution of his real one. Everywhere else here one person attaches to
+  another who cannot answer; here eight thousand specific likenesses were made to
+  serve one absent man, each facing away from him. Placed `persona/sovereign`,
+  because the object of the tie is an office-holder preserved as though still in
+  office. The cost is carried in the entry rather than as a footnote to it: young
+  women of the court were buried with him, some apparently dismembered and laid
+  outside the passageways, and facial reconstructions have since been made of two
+  of them.
+  `the-absent-sage` (c.660 BCE): a tablet in the voice of Ashurbanipal listing
+  what he was taught and by whom - "I learned [the c]raft of the sage Adapa" - and
+  then what he did with it: "I have placed them in my palace for the instruction
+  of my subjects." A named sage reached entirely through writing. Two details stop
+  it being a parable. Babylonian scribes were taken captive during the campaigns
+  and set to work in the royal libraries, so the archive that taught the world was
+  built by people who did not choose to be in it. And when Nineveh fell in 612 BC
+  the fire baked the clay tablets, so the library survives only because it was
+  destroyed. Placed `officer/senior` - the shelf `the-deaf-beloved` opened three
+  days earlier, filled again from the other direction.
+- **Relations should be computed from the dates, not typed.** This error class has
+  now cost seven wrong edges across three entries: writing `succeeded` because the
+  sentence reads that way rather than because the numbers do. `citation_audit.py`
+  catches it after the fact, and an assertion inside the build script catches it
+  before the write - four of the seven would otherwise have needed a follow-up
+  commit. Deriving the verb from `year` is the fix, not remembering harder.
+- **Coverage before the year 1000, measured: 13 entries.**
+  ```
+    -70000  neanderthal-burial      -9500  gobekli-tepe
+    -40000  paleolithic-figures      -800  myth-and-ritual
+    -34000  sunghir                  -660  the-absent-sage
+    -15000  the-dog                 -370  the-deaf-beloved
+                                   -250  roman-imagines
+                                   -210  the-clay-army
+                                   -200  congregation
+        8  p                         100  the-priest
+  ```
+  Up from six when this work began. Sixty-two of the 183 are dated 2010 or later,
+  so the skew is real but the floor is no longer a footnote to 1956.
 - **HTTP 429 is not the same failure as 403.** Both Met Museum pages on the Lewis
   chessmen returned 429 - rate limiting - on two attempts a minute apart. The text
   was read via a search index rather than fetched, so both records are `unverified`
@@ -535,10 +579,10 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-164 sourced | 4 not yet stood behind | 13 thesis   = 181
+166 sourced | 4 not yet stood behind | 13 thesis   = 183
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-204 of 353 sources have a locator
-0 of 353 claim to be openable without one   (ratcheted; was 94)
+211 of 360 sources have a locator
+0 of 360 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
 39 sub-categories, up from 38

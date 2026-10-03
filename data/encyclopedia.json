@@ -8827,6 +8827,131 @@
       ],
       "media_inferred": true,
       "provenance": "sourced"
+    },
+    {
+      "id": "the-clay-army",
+      "title": "Eight thousand faces, all facing outward",
+      "kind": "mechanism",
+      "year": -210,
+      "era": "Antiquity",
+      "lanes": [
+        "application",
+        "manipulation"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "Eight thousand life-size soldiers, each with a face and ears no other has, buried in battle order facing the enemy with the emperor behind them - made from the likenesses of real men so the substitute army would stand where the real one could not.",
+      "significance": "This site's structure with the arrow turned round. Everywhere else here, one person attaches to another who cannot answer. Here eight thousand specific likenesses were manufactured so that a single man would never be without an army, and every figure faces away from him. The 2022 analysis in npj Heritage Science found the features highly resemble those of contemporary Chinese people and concluded the figures were crafted from real portraits and intended to constitute a real army to protect the emperor in the afterlife, as if he was alive, the artificial army being the substitution of his real one. A substituted army of individuals, each one somebody, each one distinct enough to be identified by ear. That is more intimate than anything the twentieth century built and nobody chose it. The cost belongs in the entry rather than in a footnote to it: young women of the court were buried with him, some apparently dismembered and laid outside the passageways, and reconstructions have since been made of two of their faces. An entry about eight thousand distinct faces should not be allowed to be charming.",
+      "verified": true,
+      "medium": [
+        "history"
+      ],
+      "relations": [
+        {
+          "to": "roman-imagines",
+          "type": "succeeded"
+        },
+        {
+          "to": "gobekli-tepe",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-deaf-beloved",
+          "type": "succeeded"
+        },
+        {
+          "to": "lewis-chessmen",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Measurement and analysis of facial features of terracotta warriors based on high-precision 3D point clouds. npj Heritage Science, 10, 2022. DOI: 10.1038/s40494-022-00662-0",
+          "status": "retrievable",
+          "url": "https://www.nature.com/articles/s40494-022-00662-0",
+          "claim": "The finding the entry rests on: facial features highly resemble those of contemporary Chinese people, indicating that the figures were crafted from real portraits and intended to constitute a real army to protect the emperor in the afterlife, as if he was alive, the constructed army being more likely the substitution of his real army. Quantitative 3D point-cloud and anthropometric work found the scatter of measured features random, no two identical, each figure having distinct features which seem like real humans. Notes that it was still debated whether the figures were based on individual people or standardised models."
+        },
+        {
+          "citation": "Qin Mausoleum and Terra Cotta Army. Exploring Chinese History: Culture, Archaeology, ibiblio.",
+          "status": "retrievable",
+          "url": "https://www.ibiblio.org/chinesehistory/contents/02cul/c03s01.html",
+          "claim": "Number, disposition and intention: 8,099 life-size figures of warriors and horses, buried with the first emperor in 210-209 BCE; all 8,099 soldiers are unique and distinguishable with different height and facial features; each figure's head appears to be unique, showing a variety of facial features, expressions and hair styles. The army was built facing enemy territory, between those enemies and the emperor's tomb, and was created in the belief that it would protect him after his death."
+        },
+        {
+          "citation": "Chen, S. (2018, July 13). Could these be the faces of the murdered wife and son of China's first emperor Qin Shi Huang? South China Morning Post.",
+          "status": "unverified",
+          "url": "https://www.scmp.com/news/china/society/article/2155189/could-these-be-faces-murdered-wife-and-son-chinas-first-emperor",
+          "claim": "The cost the entry carries: young women from the emperor's court who had not borne children were buried with him, some historians believing they were buried alive; the dismembered body of a woman of about twenty was found among around a hundred tombs, with bodies dismembered and placed outside passageways leading to the burial chambers. Chinese researchers have since reconstructed the faces of a young woman and a young man from these tombs. Publisher returns 403 to an unauthenticated request."
+        }
+      ],
+      "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "the-absent-sage",
+      "title": "The craft of the sage Adapa",
+      "kind": "mechanism",
+      "year": -660,
+      "era": "Antiquity",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "creator"
+      ],
+      "summary": "A tablet from Nineveh written in the voice of Ashurbanipal, listing what he had been taught and by whom - a named sage he never met - and then what he did with it, which was to put the tablets in his palace for the instruction of his subjects.",
+      "significance": "A named individual, dead or legendary, reached entirely through writing, and a resume of the arrangement. The School Days Inscription reads: I learned the craft of the sage Adapa, the secret hidden lore, all of the scribal arts; I am able to recognise celestial and terrestrial omens and can discuss them in an assembly of scholars; I have read cunningly written texts in obscure Sumerian and Akkadian that are difficult to interpret. Everything the tie required was on one side of it. The teacher never appears, and the whole apparatus existed so that what he had absorbed could be performed in a room full of other people. Then the sentence that is this site in one line: I have written upon tablets the noble products of the work of the scribe, and I have placed them in my palace for the instruction of my subjects. A clerk's counter that serves everybody, built by the only man in Assyria who could read the stock his own nobles could not. Two things keep it from being a parable. The collection was assembled partly by coercion - Babylonian scribes were taken captive during the campaigns and set to work in the royal libraries, so the archive that taught the world was built by people who did not choose to be in it. And when Nineveh fell in 612 BC the fire that destroyed the palace baked the tablets into ceramic: the destruction is the only reason the library can be read now. It survived by being destroyed, which is this site's argument about archives in one accident.",
+      "verified": true,
+      "medium": [
+        "history"
+      ],
+      "relations": [
+        {
+          "to": "roman-imagines",
+          "type": "preceded"
+        },
+        {
+          "to": "the-clay-army",
+          "type": "preceded"
+        },
+        {
+          "to": "gobekli-tepe",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-deaf-beloved",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Finkel, I., & Taylor, J. Cuneiform. The British Museum. Quoted in Missed History, The Lost Library of Ashurbanipal.",
+          "status": "retrievable",
+          "url": "https://www.missedhistory.com/article/the-lost-library-of-ashurbanipal",
+          "claim": "Both quotations. The School Days Inscription, described as reading almost like a modern-day resume: I learned the craft of the sage Adapa, the secret hidden lore, all of the scribal arts; I am able to recognise celestial and terrestrial omens and can discuss them in an assembly of scholars; I have read cunningly written texts in obscure Sumerian and Akkadian that are difficult to interpret. And Ashurbanipal's statement of purpose: I have written upon tablets the noble products of the work of the scribe, and I have placed them in my palace for the instruction of my subjects."
+        },
+        {
+          "citation": "Ashurbanipal Library Project, A royal collection. ORACC, University of Pennsylvania Museum, with the British Museum.",
+          "status": "retrievable",
+          "url": "https://oracc.museum.upenn.edu/asbp/whatisthelibrary/aroyalcollection/index.html",
+          "claim": "Scale and standing: a combination of dedicated scholar and supremely powerful ruler, he gathered at Nineveh an unrivalled wealth of specialist knowledge accumulated over many centuries; the largest, broadest and most important library ever assembled over 3,500 years of cuneiform culture, and until the Library of Alexandria the most significant library of antiquity, with almost 32,000 tablets and fragments surviving."
+        },
+        {
+          "citation": "Ashurbanipal Library Project, Assembling the Library and Library colophons. ORACC and the British Museum.",
+          "status": "retrievable",
+          "url": "https://oracc.museum.upenn.edu/asbp/rlasb/assemblingthelibrary/index.html",
+          "claim": "How the collection was assembled and who was in it: tablets bear colophons naming Ashurbanipal, and around a quarter record individual scribes, most appearing only once; acquisition lists from 648 BC show many individuals donating only a tablet or a handful. Separately, that Babylonian scribes were taken captive during the campaigns and forced to work in the royal libraries."
+        },
+        {
+          "citation": "Library of Ashurbanipal. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Library_of_Ashurbanipal",
+          "claim": "The destruction as preservation: Nineveh was destroyed in 612 BCE and a great fire during the burning of the palace is believed to have baked the clay cuneiform tablets, which is why so much Mesopotamian literature survives at all."
+        }
+      ],
+      "media_inferred": true,
+      "provenance": "sourced"
     }
   ]
 }
