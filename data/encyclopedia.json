@@ -1158,10 +1158,6 @@
           "type": "depicts"
         },
         {
-          "to": "dere",
-          "type": "cites"
-        },
-        {
           "to": "the-clerk",
           "type": "contemporary"
         }
@@ -2194,43 +2190,6 @@
       "provenance": "sourced"
     },
     {
-      "id": "dere",
-      "title": "Dionne Warwick and reciprocal fan mail",
-      "kind": "case",
-      "year": 1963,
-      "era": "Fan mail",
-      "lanes": [
-        "application"
-      ],
-      "summary": "See 'Dionne Warwick's fan mail'. Kept as a case because it is the one documented example of a large parasocial arrangement that stayed reciprocal without being a parasocial relationship in the emotional sense.",
-      "significance": "A reply is a cost, and paying it voluntarily is a different act from receiving attention. Warwick made a different object with the same name.",
-      "verified": false,
-      "sections": [
-        "idol"
-      ],
-      "medium": [
-        "literature"
-      ],
-      "year_end": null,
-      "relations": [
-        {
-          "to": "dionne-warwick",
-          "type": "depicts"
-        },
-        {
-          "to": "fan-mail",
-          "type": "cites"
-        },
-        {
-          "to": "parasocial-interaction",
-          "type": "cites"
-        }
-      ],
-      "sources": [],
-      "media_inferred": true,
-      "provenance": ""
-    },
-    {
       "id": "dionne-warwick",
       "title": "Dionne Warwick's fan mail",
       "kind": "person",
@@ -2252,10 +2211,6 @@
       ],
       "year_end": null,
       "relations": [
-        {
-          "to": "dere",
-          "type": "cites"
-        },
         {
           "to": "fan-mail",
           "type": "depicts"
@@ -3403,9 +3358,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Grady, S. M., Eden, A., & Wolfers, L. N. (2025). Examining Comfort Media: A Tool for Self-Regulation and Refuge? Mass Communication and Society, 29(2), 245-268.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1080/15205436.2025.2519191",
+          "claim": "Comfort media treated as a regulatory instrument rather than a guilty pleasure: the paper builds from media-based coping and recovery research, on the argument that comforting experiences reduce distress the way comfort food does. Supports the summary's 'familiarity as a nervous system intervention', and supports it as a studied effect rather than a received opinion. Publisher returns 403 to an unauthenticated request, so marked unverified; volume, issue, pages and authors confirmed against Crossref."
+        },
+        {
+          "citation": "Castle, K. (2019). Comfort TV: Considering Everyday Television Use as a Mode of Self-Care [Data Collection]. University of Glasgow. Datacite DOI: 10.5525/gla.researchdata.798",
+          "status": "retrievable",
+          "url": "https://researchdata.gla.ac.uk/798",
+          "claim": "An audience study of comfort viewing as a mode of self-care, with hospital patients, family units and first-year undergraduates, collecting surveys, two rounds of qualitative interviews and viewing journals (minimum seven entries), collected Oct 2016 - Mar 2017 and released under CC BY 4.0. Establishes that rewatching for comfort has been treated as a coping practice worth a dedicated study including hospital patients - i.e. not pathologised, and taken seriously enough to build a dataset about. Note this record is the data, not the write-up: the findings belong to the thesis and are not claimed here."
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "eudaimonia",
@@ -5434,7 +5402,7 @@
         "consideration"
       ],
       "summary": "The schedule goes from weekly to continuous and the bond loses its shape. A serial gives you a slot and a cliffhanger; an always-on feed has no slot and no gap to miss anybody in.",
-      "significance": "The rhythm was doing the work and the rhythm was removed. What replaced it is a permanent low-grade availability, which is a very different emotional object: a person is not more present, they are just never finished.",
+      "significance": "The rhythm was doing work nobody had measured. What replaced it is a permanent low-grade availability, which is a different emotional object: not a person who is more present, but one who is never finished, so there is no gap and therefore nothing to miss anybody in. The half of this the evidence supports is the gap - parasocial scales built in this period ask directly whether you miss characters when a show is between seasons, which is the thing an always-on feed removes. The other half it does not: where this entry's argument used to be that the bond loses its shape, the one controlled test of that mechanism found the bond getting *stronger*. Removing the slot does not obviously weaken the tie. It removes the absence, and the site has no evidence about what that costs.",
       "verified": false,
       "sections": [
         "creator"
@@ -5453,9 +5421,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Erickson, S., Dal Cin, S., & Byl, H. (2019). An Experimental Examination of Binge Watching and Narrative Engagement. Social Sciences, 8(1), 19.",
+          "status": "unverified",
+          "url": "https://doi.org/10.3390/socsci8010019",
+          "claim": "Binge watching was experimentally manipulated, not merely correlated, and the reported result runs the OPPOSITE way to this entry's argument: it increased the strength of parasocial relationships and the intensity of narrative transportation. So the claim that the bond 'loses its shape' when the weekly rhythm is removed is this site's position, and the one controlled test of it found the bond getting stronger. Recorded rather than smoothed over. Publisher returns 403 to an unauthenticated request; authors, volume, issue and article number confirmed against Crossref."
+        },
+        {
+          "citation": "Anghelcev, G., Sar, S., Martin, J. D., & Moultrie, J. L. (2020). Binge-Watching Serial Video Content: Exploring the Subjective Phenomenology of the Binge-Watching Experience. Mass Communication and Society, 24(1), 130-154.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1080/15205436.2020.1811346",
+          "claim": "Documents the gap at the centre of this entry as a measured thing rather than an impression: the parasocial scale items used include 'I miss my favorite characters when the show is on break between seasons', and the paper notes these bonds form in proportion to time spent with the characters. That is the missing-slot effect the summary describes - the thing a continuous feed removes is not the intensity but the absence. Publisher returns 403 to an unauthenticated request; bibliographic record confirmed against Crossref."
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "mob-and-internet-pile",
