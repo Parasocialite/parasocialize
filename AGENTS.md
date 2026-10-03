@@ -369,6 +369,45 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   entry said so. The entry's title also named an "AI Age Act" that nothing found
   here corroborates; the title now says what the law is called.
 
+- **A strong negative is the cheapest thing to write and the first thing a source
+  disproves.** Seven entries in this corpus asserted something emphatic and were
+  wrong, and the shape is consistent enough to be a rule for review:
+  `the-coach` said nobody had asked about the coach (it is one of the most-studied
+  relationships in developmental psychology); `continuity` said the bond loses its
+  shape without a weekly rhythm (the one controlled test found it *stronger*);
+  `deepfake-grief` said it ran without anyone's agreement (the 2024 cases are
+  licensed); `pokemon-go-incident` claimed a mass-casualty stadium stampede (it was
+  a park, then a server outage); `bieber-effect` said "no gatekeeper whatsoever"
+  (there were three, one of whom clicked by accident); `michael-jackson` was dated
+  five years before the death it was about; and `the-dog` called itself the origin.
+  **Read every "nobody", "never", "first", "only" and "no one" as a claim awaiting a
+  source**, because that is what each of these turned out to be.
+- **Five entries were misdated, so dates get checked against something external.**
+  `michael-jackson` 2004 -> 2009; `airline-miles` 1981 -> 1979 (Texas International
+  had the first frequent flyer programme, AAdvantage was the second, and American's
+  newsroom still calls itself first); `p` -600 -> 8 (Ovid's *Metamorphoses* is ca.
+  AD 8); `ai-acts` 2024 -> 2025 (SB 243 was signed 13 October 2025); and the
+  `the-dog`/timeline pair described in item 11. A mechanical sweep was run across
+  all 177 entries comparing each `year` field against any year mentioned in that
+  entry's own prose: **no pre-existing contradiction found**, the only six hits
+  being cross-references the prose explicitly explains. No entry's prose
+  contradicts its own date - but five fields contradicted their *sources*, which
+  is the check that matters and which no script can do.
+- **Coverage is skewed to the present, and now measurably so.** Of 177 entries, 62
+  are dated 2010 or later, and there are **six** entries before the year 1000 -
+  three in deep prehistory (`neanderthal-burial`, `paleolithic-figures`,
+  `the-dog`) and three in antiquity (`myth-and-ritual`, `roman-imagines`,
+  `congregation`). Five millennia of record are covered by six entries. That is
+  the honest shape of the corpus after the deep-prehistory pass, and it is the next
+  editorial priority if the history is ever to be more than a postscript to 1956.
+- **Scratch files in the shared Windows temp directory collide.** Commit messages
+  are written to `$env:TEMP\opencode\msg<N>.txt`, and that directory holds files
+  from other projects on this machine — including a `msg12.txt` from an unrelated
+  karaoke site, which briefly became this repo's commit message and had to be
+  amended. Use a project-scoped name (`parasocialize.msg.<date>-<n>.txt`). Nothing
+  is pushed, so amending was safe; if there is ever a remote with commits on it,
+  fix the message with a new commit instead.
+
 ## Architecture
 
 - `data/encyclopedia.json` — the single source of truth. 175 entries.
@@ -435,10 +474,10 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-152 sourced | 12 not yet stood behind | 13 thesis   = 177
+160 sourced | 4 not yet stood behind | 13 thesis   = 177
 34 of 419 edges land on something unchecked
-170 of 319 sources have a locator
-0 of 319 claim to be openable without one   (ratcheted; was 94)
+189 of 338 sources have a locator
+0 of 338 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
 ```
@@ -525,15 +564,27 @@ Board must reconcile to 175. `add_source.py` is authoritative.
      attachment is in the *users*, which is the more interesting claim: the bond
      was engineered as a wellness intervention and turned out to be a
      relationship.
-   - **12 entries still carry zero citation records**: `teen-idols`,
-     `airline-miles`, `michael-jackson`, `the-closure-gift`, `tony-stark`,
-     `bieber-effect`, `gilsoul-case`, `peak-tv`, `pokemon-go-incident`,
-     `billi-eilish`, `pokimane`, `streamer-ban`. Several are specific checkable
-     events — the Gilsoul case, the Pokémon Go stadium, Twitch's two-year ban,
-     the Bieber effect — and should be easier than what has just been closed,
-     not harder. None is flagged `verified`. Searches for the Gilsoul case and
-     for the December 2024 xQc ban returned nothing usable, so both remain
-     unsourced rather than half-sourced.
+   - **Four entries still carry zero citation records**: `gilsoul-case`,
+     `billi-eilish`, `pokimane`, `streamer-ban`. All four are recent fandom or
+     streaming incidents where a single authoritative write-up should close them.
+     Three separate searches were run for each and none surfaced the specific
+     incident: the `pokimane` query returned a *different* streamer (Amouranth,
+     arrested in Houston in June 2022 after casing her house - a genuinely
+     comparable case, and not the one this entry describes), and the
+     `billi-eilish` query returned nothing on the stream removal. All four stay
+     visibly unsourced rather than half-sourced. **None is flagged `verified`**,
+     so none of them is claiming a reading nobody performed.
+   - Eight entries closed in this pass, and **five of them were wrong in
+     substance rather than merely unsourced**: `airline-miles` was two years late
+     and its founding detail was better than its own argument (AAdvantage seeded
+     membership by searching the SABRE reservations system for recurring telephone
+     numbers and wrote to 130,000 flyers individually); `michael-jackson` was five
+     years out; `teen-idols` reached for a record label when the supply chain ran
+     through a television family show; `peak-tv` treated an FX executive's coinage
+     as a critical category; `the-closure-gift` had no instance to point at until
+     Google Reader supplied one, whose petition text states the site's own thesis.
+     `the-closure-gift`'s 2005 date was checked and left alone - it is the year
+     Reader launched, not an error.
 5. **The 94 unopenable `retrievable` records — closed, with a queue.** The
    false claims are gone: 4 records reused a URL that a sibling record in the
    same corpus already carried for the identical citation (verifiable by
