@@ -888,7 +888,7 @@
         "world"
       ],
       "summary": "An adult with authority over a child for years, who is remembered partly by how they made them feel at nine.",
-      "significance": "A bond that shapes adult attachment patterns decades later, entirely outside anything the parasocial literature studies. Most people's template for one-sided attachment is a coach and they have never been asked about it.",
+      "significance": "The entry used to claim nobody had asked about this, and that was wrong in the specific way this site keeps getting things wrong: the coach-athlete relationship is one of the most-studied relationships in developmental psychology, and 'positive and sustained adult-youth relations' is one of the characteristics most strongly associated with the outcomes. What has never been examined is the shape of it. The bond is scored as an outcome - connection is one of the four things a coach is judged on producing - and never described as what it structurally is: an adult holding authority over a child who cannot leave, for years, and who is then remembered long after the authority has gone. That is a parasocial arrangement with a power gradient in it, and the field studying it has no word for that. The site does not yet have the evidence either.",
       "verified": false,
       "medium": [
         "sport"
@@ -904,9 +904,22 @@
           "type": "contemporary"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Holt, N. L., Neely, K. C., Slater, L. G., Camire, M., Cote, J., Fraser-Thomas, J., MacDonald, D., Strachan, L., & Tamminen, K. A. (2017). A grounded theory of positive youth development through sport based on results from a qualitative meta-study. International Review of Sport and Exercise Psychology, 10(1), 1-49. (First published online 4 September 2016.)",
+          "status": "retrievable",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5020349",
+          "claim": "A meta-synthesis of 63 qualitative studies, and the direct refutation of this entry's claim that nobody has asked about the coach. One of its three emergent categories is the 'PYD climate' - adult relationships, peer relationships and parental involvement. It reports that 'positive and sustained adult-youth relations' is one of the Big 3 programme characteristics associated with development; that Cote, Turnidge & Evans' Personal Assets Framework places 'relational factors (i.e., quality relationships)' among its three elements, generating change in confidence, competence, connection and character when repeated over time; and that Catalano et al. list 'warm, supportive relationships' among eight programme characteristics. Open access, CC BY-NC-ND."
+        },
+        {
+          "citation": "Cote, J., & Gilbert, W. (2009). An Integrative Definition of Coaching Effectiveness and Expertise. International Journal of Sports Science & Coaching, 4(3), 307-323.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1260/174795409789623892",
+          "claim": "The source of the 4 Cs that coaching effectiveness is measured against: competence, confidence, connection and character. Connection is defined as 'positive bonds and social relationships with people inside and outside of sport' - so the relational bond is one of the four things a coach is explicitly judged on producing. Volume and issue confirmed against Crossref as 4(3); the journal's own landing page says 4(4), and Crossref was preferred. Publisher returns 403 to an unauthenticated request."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -7727,7 +7740,7 @@
         "consideration"
       ],
       "summary": "A voice trained on an archive, a likeness, a song, a speech, an appearance at a festival, all generated. Not a hologram, not a tribute, not a person.",
-      "significance": "Every parasocial mechanism in this file has an obvious use, and this one is being deployed immediately and without a cooling-off period, mostly for profit and mostly without anyone who loved the person having agreed. The comparison to 1973 is unflattering to both.",
+      "significance": "The interesting fact is not that this happens without permission. Mostly it does not: the documented 2024 cases are licensed, one by an estate and one by the person himself while he was alive, which is a harder thing to argue with than the entry used to claim. Consent has moved to the licensor, and that is where the problem now lives. An estate agreeing is not the same as the dead person choosing how they will sound forever, and the sharpest case is the most defensible one - the actor who authorised his own recreation in advance, on purpose, because he was winding the role down and wanted the early performances preserved. Nobody was imposed on. Which is exactly why it is worth reading closely. Still unresolved, and not about the celebrities: the models are trained on tens of thousands of hours of audio scraped without consent, and the consent being bought covers the voice, not the training set.",
       "verified": false,
       "sections": [
         "grief",
@@ -7751,9 +7764,28 @@
           "type": "depicts"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "LaRosa, A. (2024, September 10). James Earl Jones' Darth Vader Has Already Been Immortalized With AI. WIRED. (Angela Watercutter.)",
+          "status": "retrievable",
+          "url": "https://www.wired.com/story/james-earl-jones-darth-vader-death-artificial-intelligence",
+          "claim": "The case that makes this entry's ethics hard rather than easy. Jones voiced Vader across more than a dozen Star Wars properties and, in 2022, agreed to let Lucasfilm train a speech model on his archive via the Ukrainian company Respeecher; the reconstructed voice shipped in Obi-Wan Kenobi. He died on 9 September 2024 aged 93. The actor had signed off on the use of his archive, and the report describes him as the first celebrity to allow an iconic presence to be recreated with AI before his passing - which is the opposite of this entry's claim that the practice runs without anyone's agreement. Also notes the unresolved training-data question and that SAG-AFTRA won guardrails on AI recreations of performances."
+        },
+        {
+          "citation": "Zetter, K. (2024, July 3). AI resurrects deceased actors' voices to read audiobooks. CNN Business.",
+          "status": "retrievable",
+          "url": "https://www.cnn.com/2024/07/03/tech/elevenlabs-ai-celebrity-voices",
+          "claim": "ElevenLabs' Reader app launched with digitally produced voices of Judy Garland, James Dean and Burt Reynolds, with the company stating it made deals with the estates; terms undisclosed. The voices are not folded into the company's larger audio database. Reports the parallel case of a living person refusing: Scarlett Johansson, 'shocked, angered and in disbelief' at a synthetic voice resembling her own after she had declined a partnership - the control that shows consent is not a formality once the person can still say no. Also records the asymmetry that a voice itself is not copyrightable while the recordings it is trained on are."
+        },
+        {
+          "citation": "Flemming, T. (2024, July 4). Judy Garland and James Dean's voices are being used by a new AI app. Here's what we know. ABC News (Australia).",
+          "status": "retrievable",
+          "url": "https://www.abc.net.au/news/2024-07-04/judy-garland-james-dean-among-celeb-voice-in-new-ai/104056130",
+          "claim": "The licences were with estates - here Judy Garland, James Dean, Burt Reynolds and Sir Laurence Olivier - via CMG, for an undisclosed sum, with ElevenLabs stating the voices will not be incorporated into its larger audio database. Gives the regulatory counterweight: SAG-AFTRA has sponsored a California bill to stop dead performers being replicated without estate consent, its LA president Jodi Long describing the failure mode as making the dead someone's 'unpaid digital puppet'. Also carries the unresolved part: training on tens of thousands of hours of audio scraped without consent or compensation."
+        }
+      ],
       "media_inferred": true,
-      "provenance": ""
+      "provenance": "sourced"
     },
     {
       "id": "digital-orphans",
