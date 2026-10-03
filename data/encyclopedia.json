@@ -9193,6 +9193,181 @@
       ],
       "verified": false,
       "provenance": "sourced"
+    },
+    {
+      "id": "rudolph-valentino",
+      "title": "They were not his, and they had never been",
+      "kind": "person",
+      "year": 1921,
+      "era": "Silent era",
+      "lanes": [
+        "idol"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "A screen persona called the Latin Lover, and a death at thirty-one that produced public mourning on a scale nothing before it had managed - including a woman claiming an engagement he had never mentioned to anyone.",
+      "significance": "The template for every celebrity death since, and the first case where the bereavement was demonstrably about the relationship rather than the work. Valentino - \"the first Latin Lover and the Great Lover\" - broke through in *The Four Horsemen of the Apocalypse* (1921), which did not merely star him: it \"popularized the Argentine tango dance with American audiences\", so the figure and a dance step arrived together. He set up the Rudolph Valentino Medal in 1925, a precursor to the Academy Award, which is worth noting for a different reason - the man was by then an institution capable of handing out prestige. What matters is 23 August 1926. He died at thirty-one of \"complications of peritonitis following surgery for appendicitis and gastric ulcers\", and Wikipedia's own summary of the consequence is flat and enormous: **it \"triggered mass public mourning, cementing his status as a legendary figure of early cinema\".** A death produced a national grief, and the industry read that grief as an asset within days. But the detail that makes this entry is a smaller one and it is the site's whole subject in a single sentence. At the funeral **Pola Negri \"made a scene at his funeral, claiming they were engaged, in spite of the fact that Valentino himself had never mentioned this engagement to anyone.\"** A woman invented a relationship with a dead man because the public bond demanded one, and the invention was more faithful to the audience's picture of him than anything he had done. That is the gap this site is about, and in 1926 it produced a scene at a funeral. On the otherness axis he is deliberately left unplaced: **a real person is not any of its six members**, which turns out to be the clearest argument for the fourth axis. What he is on the reciprocity axis is `directed` - the audience attached, and he never had to notice.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "first-fans",
+          "type": "preceded"
+        },
+        {
+          "to": "gazing-at-celebrities",
+          "type": "preceded"
+        },
+        {
+          "to": "elvis",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Rudolph Valentino. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Rudolph_Valentino",
+          "claim": "Dates, the persona and the mourning: 'Rodolfo Pietro Filiberto Raffaele Guglielmi di Valentina d'Antonguolla (May 6, 1895 - August 23, 1926)... Dubbed the Latin Lover, he became one of the most iconic stars of American silent cinema... Rising to international fame in the early 1920s, Valentino was celebrated for his exotic screen persona, romantic intensity, and expressive performances, which helped redefine male stardom during the silent era. Often referred to as the first Latin Lover and the Great Lover, Valentino began his career as a taxi dancer... before he achieved breakthrough success with the film The Four Horsemen of the Apocalypse (1921), which popularized the Argentine tango dance with American audiences.' And: 'In 1925, he established a film award recognizing artistic achievement, the Rudolph Valentino Medal, which was a precursor to the Academy Award. His sudden death in 1926 at the age of 31 from complications of peritonitis following surgery for appendicitis and gastric ulcers triggered mass public mourning, cementing his status as a legendary figure of early cinema.' And the invention: 'Upon his death, Negri made a scene at his funeral, claiming they were engaged, in spite of the fact that Valentino himself had never mentioned this engagement to anyone.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "mickey-mouse",
+      "title": "From two undelivered reels to a lunchbox",
+      "kind": "work",
+      "year": 1928,
+      "era": "Silent era",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "brand"
+      ],
+      "summary": "A cartoon mouse with a licensed lunchbox, a walk-of-fame star and a park where you can meet him - the first character to be manufactured as an object and then put back in the room with you.",
+      "significance": "This is `howdy-doody` nineteen years early and further along, and it is the point at which the fictional figure stops being a picture and becomes a product with a supply chain. Walt Disney and Ub Iwerks made him as a replacement for Oswald the Lucky Rabbit; he was \"originally to be named 'Mortimer Mouse', until Disney's wife, **Lillian**, suggested 'Mickey'\"; and his first two shorts, *Plane Crazy* and *The Gallopin' Gaucho*, **were not picked up for distribution**. The public debut was *Steamboat Willie* (1928) - the third attempt, and the one that worked, which is a useful reminder that the famous version is usually the version somebody retried. What makes the entry is the licensing. **\"Since his early years, Mickey Mouse has been licensed by Disney to appear on many different kinds of merchandise. Mickey was produced as plush toys and figurines, and Mickey's image has graced almost everything from T-shirts to lunchboxes.\"** Over 130 films, a comic strip that ran 45 years, and a merchandising department run by **Kay Kamen from 1932 until his death in 1949**, \"a 'stickler for quality'\", named a Disney Legend in 1998 - which is the detail that matters, because the object pipeline needed somebody whose job was to police what the figure was allowed to appear on. The character was **licensed from the beginning**, which is the commercial form of `made`: the other end is worked by a company and sold back to you. And then the two facts that tie it to the rest of this corpus. In 1978 **Mickey became the first cartoon character to have a star on the Hollywood Walk of Fame**, and he is described as **\"a meetable character at the Disney parks\"**. Meetable. A drawn figure who exists on a screen and cannot hear you became a person in a room who can see you - which is the whole of `the-fourth-wall`'s argument arriving fifty years early, and arriving as a ticket price.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "comic-strip",
+          "type": "succeeded"
+        },
+        {
+          "to": "superman-comic",
+          "type": "preceded"
+        },
+        {
+          "to": "howdy-doody",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Mickey Mouse. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Mickey_Mouse",
+          "claim": "Origin and naming: 'The character was originally to be named \"Mortimer Mouse\", until Disney's wife, Lillian , suggested \"Mickey\". Mickey first appeared in two 1928 shorts Plane Crazy and The Gallopin' Gaucho (which were not picked up for distribution) before his public debut in Steamboat Willie (1928).' Creation: 'Mickey Mouse was created as a replacement for Oswald the Lucky Rabbit, an earlier cartoon character', by Walt Disney and Ub Iwerks. Reach: 'The character went on to appear in over 130 films, mostly short films... Since 1930, Mickey has been featured extensively in comic strips (including the Mickey Mouse comic strip, which ran for 45 years)'. And the pipeline: 'Since his early years, Mickey Mouse has been licensed by Disney to appear on many different kinds of merchandise. Mickey was produced as plush toys and figurines, and Mickey's image has graced almost everything from T-shirts to lunchboxes. Largely responsible for early Disney merchandising was Kay Kamen , Disney's head of merchandise and licensing from 1932 until his death in 1949, who was called a \"stickler for quality\".' Presence: 'he also appears in media such as video games as well as merchandising and is a meetable character at the Disney parks', and 'In 1978, Mickey became the first cartoon character to have a star on the Hollywood Walk of Fame.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "lugosi-burial",
+      "title": "He did not ask to be buried as Dracula",
+      "kind": "event",
+      "year": 1956,
+      "era": "Postwar",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "grief"
+      ],
+      "summary": "The most reproduced image in the horror canon - a man interred in his character's cape - is true, and the story that he chose it is false. His mother chose it.",
+      "significance": "A small correction with a large afterlife, and the reason this entry exists: **the most famous single image in horror fandom is a document about the gap between an audience's picture of somebody and the person.** Bela Lugosi died on 16 August 1956 and \"was buried wearing a Dracula cape, his full costume, and his Dracula ring in the Holy Cross Cemetery in Culver City, California.\" All of that is true and it is why the grave is a pilgrimage site. Then: **\"Contrary to popular belief, Lugosi never requested to be buried in his cloak; Bela G. Lugosi confirmed on numerous occasions that he and his mother, Lillian, made the decision.\"** So the romantic version - the actor asking to be buried as the vampire - is wrong, and the true version is better: his son and his mother chose it, which is a family making a decision about a character rather than a performer choosing his own ending. That is the difference between this site and a fandom wiki, and it is worth an entry on its own because the myth was the *better* story. One more thing the record corrects while it is here: \"The rumor that Lugosi was clutching the script for The Final Curtain, a planned Ed Wood project, at the time of his death **was a myth**\" - another of the famous last-images that nobody checked. And a coincidence worth not muddling: Mickey's name was suggested by Disney's wife Lillian, and this decision was taken by Lugosi's son Bela G. and **his** mother Lillian. Two different Lillians, twenty-eight years and one of them deciding what a dead man would be wearing.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "casper",
+          "type": "succeeded"
+        },
+        {
+          "to": "elvis",
+          "type": "contemporary"
+        },
+        {
+          "to": "killing-off",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Bela Lugosi. Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Bela_Lugosi",
+          "claim": "The burial and its correction: 'Hungarian actor (1882-1956)', death 16 August 1956 in Los Angeles, resting place Holy Cross Cemetery, Culver City. 'Lugosi was buried wearing a Dracula cape, his full costume, and his Dracula ring in the Holy Cross Cemetery in Culver City, California. Contrary to popular belief, Lugosi never requested to be buried in his cloak; Bela G. Lugosi confirmed on numerous occasions that he and his mother, Lillian, made the decision.' And the other myth, named as one: 'The rumor that Lugosi was clutching the script for The Final Curtain, a planned Ed Wood project, at the time of his death was a myth.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "king-kong",
+      "title": "Nineteen years of the version they were shown",
+      "kind": "work",
+      "year": 1933,
+      "era": "Silent era",
+      "lanes": [
+        "companion"
+      ],
+      "sections": [
+        "companion",
+        "character"
+      ],
+      "summary": "A gorilla who feels affection for the woman offered to him, premiered to a city that had just had King Tut, was cut by censors, and did not get the missing scenes back until thirty-seven years later.",
+      "significance": "The purest `animate` case in the corpus, and the argument is in the premise rather than the reception: the film \"follows said gorilla dubbed Kong **who feels affection for a beautiful young woman offered to him as a sacrifice**\". He is given an interior by the script and he acts on it - he climbs the Empire State Building for her, and he swats at the biplanes rather than harm her. That is a non-human with a mind the audience cannot edit, in 1933, and the attachment runs both ways inside the fiction while running one way outside it. The making is worth recording because it was constructed rather than found: directed and produced by **Merian C. Cooper and Ernest B. Schoedsack**, effects by **Willis H. O'Brien**, music by **Max Steiner**, released by **RKO Radio Pictures** - \"combining live-action sequences with stop-motion animation using rear-screen projection\", which is `made` and `animate in the same frame. It premiered in New York on **2 March 1933**, and the size of the reaction is the part worth keeping: it is credited with having shown up at the New York premiere of King Tut two months later and thereby made Tut possible, which is a documented case of a film reaching an audience and reorganising what that audience wanted. Then the detail this entry is really about. **\"Various scenes were deleted by censors, but they were restored in 1970.\"** So for thirty-seven years the audience was mourning a version of Kong with pieces missing, and the film that had already earned its money - $650,000 on the initial run, $2,847,000 by the 1952 re-release - was being bonded with in a form nobody would choose. It is the purest instance on this site of attachment forming around an artefact rather than around a work, and the fact that it was a censor's edit rather than a studio's decision is the part with teeth.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "superman-comic",
+          "type": "preceded"
+        },
+        {
+          "to": "gazing-at-celebrities",
+          "type": "preceded"
+        },
+        {
+          "to": "comfort-watch",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "King Kong (1933 film). Wikipedia.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/King_Kong_(1933_film)",
+          "claim": "The film and its makers: 'King Kong is a 1933 American pre-Code adventure horror monster film directed and produced by Merian C. Cooper and Ernest B. Schoedsack, with special effects by Willis H. O'Brien and music by Max Steiner. Produced and distributed by RKO Radio Pictures, King Kong is the first film in the self-titled franchise, combining live-action sequences with stop-motion animation using rear-screen projection. The idea for the film came when Cooper decided to create a motion picture about a giant gorilla struggling against modern civilization. The film stars Fay Wray, Robert Armstrong, and Bruce Cabot. The story follows said gorilla dubbed Kong who feels affection for a beautiful young woman offered to him as a sacrifice.' Release and money: 'King Kong premiered in New York City on March 2, 1933, to many rave reviews, with praise for its stop-motion animation and musical score. During its initial run, the film earned a profit of $650,000, which increased to $2,847,000 by the time of its re-release in 1952. Various scenes were deleted by censors, but they were restored in 1970.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
     }
   ]
 }

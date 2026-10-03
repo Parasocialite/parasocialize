@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 189 entries, 465 relations, 275 generated pages.
+relationships. 193 entries, 469 relations, 279 generated pages.
 
 ## The rule that outranks everything
 
@@ -684,9 +684,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-176 sourced | 0 not yet stood behind | 13 thesis   = 189
+180 sourced | 0 not yet stood behind | 13 thesis   = 193
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-231 of 380 sources have a locator
+235 of 384 sources have a locator
 0 of 380 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -1293,6 +1293,84 @@ the project.
      redone preserving every top-level key. **Assert the top-level keys before
      and after writing a hand-maintained corpus file** — which is already the
      rule for taxonomy.json, and now has a second instance.
+
+19. **The corpus's biggest hole is chronological, and it is exactly where the
+   phenomenon happened.** Measured rather than assumed: the thinnest decades are
+   **1910s: 2 entries, 1920s: 3, 1900s: 4, 1940s: 6**. Four decades in which
+   fan mail, the movie star and the first mass celebrity bereavement all
+   happened, and the encyclopedia is nearly empty of them. The distribution
+   overall runs before-1000: 13, 1000–1899: 17, 1900–1959: 33, 1960–1989: 25,
+   1990–2009: 37, 2010+: 63 — so the 2010s are 63 entries deep and the silent era
+   is a footnote. Meanwhile `kind: person` was 17 of 193 and **only about nine
+   were named real humans**, several of them authors rather than objects of
+   attachment. An encyclopedia of one-sided attachment with almost nobody in it.
+   Four entries added, all from that window, all on the requested categories:
+   - **`rudolph-valentino`** (1921, `persona/idol`) — the template for every
+     celebrity death since. "The first Latin Lover and the Great Lover";
+     breakthrough *The Four Horsemen of the Apocalypse* (1921), which did not
+     merely star him but "popularized the Argentine tango dance with American
+     audiences", so figure and dance step arrive together. Died 23 August 1926 at
+     thirty-one, and Wikipedia's own summary of the consequence is flat:
+     **it "triggered mass public mourning, cementing his status as a legendary
+     figure of early cinema."** The detail that earns the entry is smaller: at
+     the funeral **Pola Negri "made a scene at his funeral, claiming they were
+     engaged, in spite of the fact that Valentino himself had never mentioned
+     this engagement to anyone."** A woman invented a relationship with a dead
+     man because the public bond demanded one, and the invention was more
+     faithful to the audience's picture of him than anything he did.
+   - **`mickey-mouse`** (1928, `character/mascot`, `made`) — `howdy-doody`
+     nineteen years early and further along. Disney and Ub Iwerks made him as a
+     replacement for Oswald the Lucky Rabbit; "originally to be named 'Mortimer
+     Mouse', until Disney's wife, **Lillian**, suggested 'Mickey'"; his first two
+     shorts **"were not picked up for distribution"** and the public debut was
+     *Steamboat Willie* — the third attempt, which is a useful reminder that the
+     famous version is usually the version somebody retried. The point of the
+     entry is the licensing: **"Since his early years, Mickey Mouse has been
+     licensed by Disney to appear on many different kinds of merchandise… from
+     T-shirts to lunchboxes"**, run by **Kay Kamen from 1932 until his death in
+     1949**, "a 'stickler for quality'". The pipeline needed somebody whose job
+     was policing what the figure could appear on. Then two facts that tie it to
+     the rest of the corpus: in 1978 **Mickey became the first cartoon character
+     to have a star on the Hollywood Walk of Fame**, and he is "**a meetable
+     character at the Disney parks**". A drawn figure who cannot hear you became
+     a person in a room who can see you — `the-fourth-wall`'s argument arriving
+     fifty years early, and arriving as a ticket price.
+   - **`king-kong`** (1933, `character/fictional-protagonist`, `animate`) — the
+     purest `animate` case here, and the argument is in the premise: "the story
+     follows said gorilla dubbed Kong **who feels affection for a beautiful
+     young woman offered to him as a sacrifice**". Cooper and Schoedsack,
+     effects by Willis H. O'Brien, RKO, "live-action sequences with stop-motion
+     animation using rear-screen projection" — `made` and `animate` in one
+     frame. Premiered 2 March 1933; credited with having drawn the audience to
+     *King Tut* two months later. Then the real entry: **"Various scenes were
+     deleted by censors, but they were restored in 1970."** So for thirty-seven
+     years the audience grieved a version of Kong with pieces missing — and the
+     film had already earned $650,000 initially and $2,847,000 by the 1952
+     re-release. Attachment forming around an artefact rather than a work, and
+     the edit was a censor's rather than a studio's.
+   - **`lugosi-burial`** (1956, `character/played-role`, `made`) — a correction
+     with a large afterlife, and the reason the entry exists: **the most famous
+     image in horror fandom is a document about the gap between an audience's
+     picture of somebody and the person.** Lugosi died 16 August 1956 and "was
+     buried wearing a Dracula cape, his full costume, and his Dracula ring" —
+     true, and why the grave is a pilgrimage site. Then: **"Contrary to popular
+     belief, Lugosi never requested to be buried in his cloak; Bela G. Lugosi
+     confirmed on numerous occasions that he and his mother, Lillian, made the
+     decision."** The romantic version is wrong and the true version is better:
+     his son and mother chose it. **The myth was the better story**, which is
+     the difference between this site and a fandom wiki. The record also names
+     another unchecked famous last-image as a myth — that he died clutching the
+     script for a planned Ed Wood film.
+   - **A finding about the axes, from trying to place Valentino: the otherness
+     axis has no member for a real person.** All six describe something invented,
+     operated or transcendent; a film star is none of those, and forcing him
+     into `made` would have been a different claim. He is left unplaced on
+     otherness and placed `directed` on reciprocity, and **that is the clearest
+     argument yet for why two axes were needed** — one cannot hold both "what is
+     it made of" and "does it attach back" without losing one of them.
+   - Two coincidences are recorded rather than conflated: Mickey was named by
+     Disney's wife **Lillian**, and Lugosi's burial was decided by his son and
+     **his** mother **Lillian**. Two different women, twenty-eight years apart.
 
 ## Deploy note
 

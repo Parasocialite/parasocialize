@@ -969,6 +969,30 @@
       "sub": "fictional-protagonist",
       "other": "animate",
       "why": "A non-human mind the audience cannot edit, and the direct address is a property of the character rather than of the staging. `animate` rather than `made` because the relationship is to who he is, not to the person in the suit - which is the distinction `the-fourth-wall` draws from the other side."
+    },
+    "rudolph-valentino": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "The first mass celebrity bereavement in the record, and the first documented case of an audience inventing a relationship the subject never claimed. `directed` on the reciprocity axis and deliberately unplaced on otherness: a real person is not any of that axis's six members, which is the clearest argument for having two.",
+      "rec": "directed"
+    },
+    "mickey-mouse": {
+      "cat": "character",
+      "sub": "mascot",
+      "why": "The fictional figure as a licensed product with a supply chain, and then as a person you can meet. `made` because the other end is worked by a company and sold back to the audience - the commercial form of the same condition as a puppet.",
+      "other": "made"
+    },
+    "lugosi-burial": {
+      "cat": "character",
+      "sub": "played-role",
+      "why": "A man interred in his character's costume, where the costume's owner chose nothing at all: his son and mother decided. `played-role` because the entry is entirely about where a role ends and a person starts.",
+      "other": "made"
+    },
+    "king-kong": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "why": "A gorilla given an interior by the script, acting on it, while the audience that loved him could not reach him - and the version they loved had been cut by a censor.",
+      "other": "animate"
     }
   }
 }
