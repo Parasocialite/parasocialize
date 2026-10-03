@@ -4559,7 +4559,7 @@
       "id": "michael-jackson",
       "title": "Michael Jackson",
       "kind": "event",
-      "year": 2004,
+      "year": 2009,
       "era": "Music",
       "lanes": [
         "grief",
@@ -4569,8 +4569,8 @@
         "grief",
         "idol"
       ],
-      "summary": "Public mourning in a way that produced its own genre of documentary and speculation.",
-      "significance": "The moment grief for a parasocial figure became a media product, with outlets monetising speculation about the death itself. The line between honouring the dead and selling the death is drawn here, and it is not respected here.",
+      "summary": "Died 25 June 2009, and within hours the crowd at his house was described by a firefighter as a circus, with tour buses at the gate. By August the coroner had called it a homicide and the autopsy was sealed.",
+      "significance": "The moment grief for a parasocial figure became a media product, and the date is the argument. Reported first as a rumour, confirmed through the coroner two hours later, with a publicist on record the same night and a prime-time documentary already in the same news cycle. Speculation about the cause was running before the autopsy had begun, and the autopsy and toxicology reports were then held under seal - which is the mechanism: an audience cannot be given the fact, so the coverage sells the waiting. The line between honouring the dead and selling the death was drawn that week and it was not respected. It has since become routine: this is the template that every later death of a public figure followed.",
       "verified": false,
       "medium": [
         "music"
@@ -4586,9 +4586,34 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Grigsby Bates, K. (2009, June 25). Michael Jackson Dead At 50: The Two-Way. NPR.",
+          "status": "retrievable",
+          "url": "https://www.npr.org/sections/thetwo-way/2009/06/michael_jackson_rushed_to_hosp.html",
+          "claim": "Fixes the date: Jackson died on Thursday 25 June 2009 at UCLA Medical Center, pronounced dead at 2:26pm, aged 50. Also documents the entry's actual subject from inside the first hours: TMZ reported the death first and CNN confirmed it more than two hours later via the Los Angeles coroner, and the publicist who had served Jackson during the 1991 molestation trial issued a statement to assembled reporters within the first night, describing him as 'impossibly difficult and often self-destructive'. Grief and access arriving as a media product, hours after the news, with no cooling-off period."
+        },
+        {
+          "citation": "Duke, A. (2009, August 28). Michael Jackson's death was a homicide, coroner rules. CNN.",
+          "status": "retrievable",
+          "url": "https://www.cnn.com/2009/SHOWBIZ/Music/08/28/jackson.autopsy/index.html",
+          "claim": "The investigation that followed, which is what turned the mourning into sustained coverage: the Los Angeles County coroner ruled the death a homicide, finding propofol and lorazepam the primary drugs responsible, with midazolam, diazepam, lidocaine and ephedrine also detected, and cited 'acute propofol intoxication' with 'benzodiazepine effect' as a contributing condition. The full autopsy and toxicology reports were placed on security hold at the request of police and the district attorney, and federal and state agencies opened parallel investigations."
+        },
+        {
+          "citation": "ABC News (2019, June 13). 'My God, Michael Jackson is dead': The final hours leading up to the pop star's death.",
+          "status": "retrievable",
+          "url": "https://abcnews.com/Entertainment/god-michael-jackson-dead-final-hours-leading-pop/story?id=55213279",
+          "claim": "The scene at the house, from a firefighter-paramedic who was there: the ambulance leaving the Holmby Hills home was met, in his words, by 'a circus' - 'Paparazzi... people, tourists. There was even a double-decker tour bus' - and a celebrity bus tour was stopped by emergency personnel on the way out. This is the entry's 'line between honouring the dead and selling the death', witnessed by someone who was working."
+        },
+        {
+          "citation": "Nasaw, D., & Wood, B. (2009, June 26). Michael Jackson dies: worldwide reaction (live). The Guardian.",
+          "status": "retrievable",
+          "url": "https://www.theguardian.com/music/2009/jun/26/michael-jackson-dead-liveblog",
+          "claim": "Live reporting from the first morning, showing the mechanics the entry describes: speculation about the cause circulating within hours (including a report that he was addicted to Demerol), the coroner saying at 3:51pm that the autopsy would begin 'in minutes' with no definitive results expected for six to eight weeks, and the 1970s-edition of a prime-time documentary being discussed in the same news cycle."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -6462,8 +6487,8 @@
         "danger",
         "brand"
       ],
-      "summary": "A game event causes a physical stampede at a real stadium because players arrived to capture it in person.",
-      "significance": "A parasocial bond with software producing a crowd in a physical space, and the first time the parasocial frame had to explain a mass-casualty event rather than a feeling. Everyone in that stadium was a genuine participant, which is the difficulty.",
+      "summary": "A rare spawn sends hundreds of players running through Central Park after dark, one of them out of a moving car. The stadium-sized crowd came a year later, in Chicago, and it was a server outage rather than a crush.",
+      "significance": "The entry used to claim a mass-casualty event, and there wasn't one - which is worth correcting rather than defending, because the real thing is more interesting. What the record shows is a crowd physically organised by a game mechanic: a spawn location is a coordinate, a coordinate produces a mass on foot, and the mass does what masses do. The documented harm in July 2016 was scattered and individual - a skateboard crash, a drowned wanderer into a police station, two men off an ocean bluff, and three women who found a real dead body while looking for a fictional one. The stadium crowd arrived in Chicago in 2017 and broke down as a server failure, not a crush: a chant of fix the servers, a booed CEO, and thousands walking out. Every one of those people was a genuine participant, which is the difficulty this entry is actually about - the game does not simulate a parasocial bond, it recruits a crowd and then points it at a place on the ground.",
       "verified": false,
       "year_end": null,
       "relations": [
@@ -6476,12 +6501,31 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Price, R. D. (2016, July 18). Rare Pokemon Sparks Stampede in Central Park. NBC 4 New York.",
+          "status": "retrievable",
+          "url": "https://www.nbcnewyork.com/news/local/pokemon-go-players-stampede-new-york-central-park/642115",
+          "claim": "The real 2016 event, and it was a park rather than a stadium: hundreds of players ran through Central Park late on Thursday in pursuit of a rare Vaporeon, with video showing people yelling and running through traffic near 60th Street at about 11pm and one driver getting out of his running car. No injuries are reported here. Corrects the entry's location and its implied casualty toll."
+        },
+        {
+          "citation": "Associated Press (2016, July 10). Getting hurt, mugged and even finding a dead body with Pokemon Go. CBC News.",
+          "status": "retrievable",
+          "url": "https://www.cbc.ca/news/trending/pokemon-go-injuries-1.3672615",
+          "claim": "The actual 2016 harm, which was a scatter of individual incidents rather than a mass-casualty event: a skateboard crash, players entering a Darwin police station because it was a PokeStop, an armed robbery police in Missouri said the game may have prompted, and players who were in fact meeting face to face. This is what the record supports: real individual harm and a lot of unexpected sociability, not a stampede."
+        },
+        {
+          "citation": "Farokhmanesh, M. (2017, July 25). I went to Pokemon Go Fest, and it was a disaster. The Verge.",
+          "status": "retrievable",
+          "url": "https://www.theverge.com/2017/7/25/16019404/pokemon-go-fest-refunds-disaster-review",
+          "claim": "The stadium-scale crowd event, a year later than the entry's date and in a park rather than a stadium: the inaugural Pokemon GO Fest in Chicago's Grant Park, where server and authentication failures produced repeated surges at the main stage, a chant of 'Fix the servers', booing of the onstage host and of Niantic's CEO, and players leaving en masse. A crowd physically organised by a game mechanic, and a refusal to leave. Not a crush."
+        }
+      ],
       "medium": [
         "games"
       ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
