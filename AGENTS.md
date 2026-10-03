@@ -336,6 +336,39 @@ Chaining it with `;` and committing anyway once put a failing commit in history.
   hashing the generated HTML, not by looking at the storyboard: the storyboard
   reads one frame per scene and cannot show this.
 
+- **The coverage of a law is not the law.** `ai-acts` is now California SB 243
+  (Padilla), Chapter 677, approved and filed 13 October 2025 — read from the
+  chaptered bill on leginfo, not from the coverage. The senator's own press
+  release, a law firm's client note and several news items all list two
+  requirements that **are not in the enacted text**: a prohibition on the chatbot
+  offering rewards at unpredictable intervals or after an inconsistent number of
+  actions, and third-party audits. Both are in the 28 March and 22 April 2025
+  Senate amendments and were dropped before chaptering. Citing the press release
+  for either would have put a false claim about a statute on the site while
+  sounding maximally authoritative — a press release *from the bill's author*.
+  The enacted duties are: disclosure only where a reasonable person would be
+  misled (§22602(a)); a **published** protocol preventing suicidal ideation,
+  suicide or self-harm output with referral to crisis services (22602(b)); for a
+  user known to be a minor, disclosure, a break-and-identity reminder **at least
+  every three hours**, and measures against sexually explicit conduct (22602(c));
+  a disclosure that these products may not suit some minors (22604); annual
+  reporting to the Office of Suicide Prevention from 1 July 2027, with
+  evidence-based measurement and no personal data (22603); and a private right of
+  action at the greater of actual loss or **$1,000 per violation** (22605).
+  **When a claim is about what a document says, open the document.** The press
+  release is cited here for the author's stated intent and explicitly not for
+  the statute's requirements.
+- **A statute can dodge the problem an entry names by changing what it regulates.**
+  `ai-acts` argued that you cannot outlaw a feeling without defining it, and that
+  the approach was therefore "almost certainly the wrong one". Chapter 22.6
+  answers it by never defining the feeling: a "companion chatbot" is defined
+  behaviourally, as a system "capable of meeting a user's social needs, including
+  by exhibiting anthropomorphic features and being able to sustain a relationship
+  across multiple interactions". Nothing about the user's interior state appears.
+  So the entry's objection was *answered* and its prediction was wrong — and the
+  entry said so. The entry's title also named an "AI Age Act" that nothing found
+  here corroborates; the title now says what the law is called.
+
 ## Architecture
 
 - `data/encyclopedia.json` — the single source of truth. 175 entries.
@@ -402,10 +435,10 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-150 sourced | 14 not yet stood behind | 13 thesis   = 177
+152 sourced | 12 not yet stood behind | 13 thesis   = 177
 34 of 419 edges land on something unchecked
-166 of 315 sources have a locator
-0 of 315 claim to be openable without one   (ratcheted; was 94)
+170 of 319 sources have a locator
+0 of 319 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
 ```
@@ -485,14 +518,22 @@ Board must reconcile to 175. `add_source.py` is authoritative.
      at each other in a circle and its id was a fragment of the other one. A
      pointer that got promoted to an entry, with a page, a plate, a redirect and a
      taxonomy placement. 178 → 177 entries.
-   - **The 14 entries still with zero citation records are a different queue**,
-     not the end of this one: `teen-idols`, `airline-miles`, `michael-jackson`,
-     `the-closure-gift`, `tony-stark`, `bieber-effect`, `gilsoul-case`,
-     `peak-tv`, `pokemon-go-incident`, `replika-launch`, `billi-eilish`,
-     `pokimane`, `ai-acts`, `streamer-ban`. Several are specific, checkable
-     events (the Gilsoul case, the Replika launch, Twitch's two-year ban, the
-     Pokémon Go stadium) and should be easier than the six just closed, not
-     harder. None of them is flagged `verified`.
+   - `replika-launch` also needed correcting rather than sourcing: it claimed
+     the product's "stated purpose was a parasocial bond". It did not. It
+     launched in 2017 from **Luka, Inc.** as a mental-health and wellbeing app,
+     rated 18+, filed under Health & Fitness, selling self-understanding. The
+     attachment is in the *users*, which is the more interesting claim: the bond
+     was engineered as a wellness intervention and turned out to be a
+     relationship.
+   - **12 entries still carry zero citation records**: `teen-idols`,
+     `airline-miles`, `michael-jackson`, `the-closure-gift`, `tony-stark`,
+     `bieber-effect`, `gilsoul-case`, `peak-tv`, `pokemon-go-incident`,
+     `billi-eilish`, `pokimane`, `streamer-ban`. Several are specific checkable
+     events — the Gilsoul case, the Pokémon Go stadium, Twitch's two-year ban,
+     the Bieber effect — and should be easier than what has just been closed,
+     not harder. None is flagged `verified`. Searches for the Gilsoul case and
+     for the December 2024 xQc ban returned nothing usable, so both remain
+     unsourced rather than half-sourced.
 5. **The 94 unopenable `retrievable` records — closed, with a queue.** The
    false claims are gone: 4 records reused a URL that a sibling record in the
    same corpus already carried for the identical citation (verifiable by

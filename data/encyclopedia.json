@@ -6902,7 +6902,7 @@
         "companion"
       ],
       "summary": "A subscription companion app with an avatar, a persistent memory, and a relationship explicitly designed to be one.",
-      "significance": "The first product whose stated purpose was a parasocial bond, sold as a subscription, with the bond as the subscription. Everything in the manipulation lane about AI is a variation on this commercial decision.",
+      "significance": "The first consumer product to sell a persistent relational companion at scale, and it did not set out to be one. It launched in 2017 from Luka, Inc. as a mental-health and wellbeing app, rated 18+ and filed under Health & Fitness, selling self-understanding rather than romance - so the parasocial reading belongs to its users and to this field, not to its copy. That is the more interesting claim, because it means the bond was not engineered by marketers and then discovered by researchers; it was engineered as a wellness intervention and turned out to be a relationship. Everything in the manipulation lane about AI is downstream of that accident.",
       "verified": false,
       "medium": [
         "ai"
@@ -6922,9 +6922,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Replika - AI Companion Chat. Apple App Store listing, developer Luka, Inc. (app id 1158555867).",
+          "status": "retrievable",
+          "url": "https://apps.apple.com/us/app/replika-ai-companion-chat/id1158555867",
+          "claim": "Establishes what the product is and how it presents itself: Luka, Inc., free with in-app purchases, age rating 18+, filed under Health & Fitness rather than social or entertainment, roughly 228,000 ratings, and copy that dates the product to 2017 ('the AI companion that's been here since 2017') and positions it around self-understanding rather than romance. The listing is the launch material, and it is not a parasocial product's pitch."
+        },
+        {
+          "citation": "Replika Users Say They Formed Emotional Attachments to AI Chatbots. 80 Level (80.lv), 7 March 2023.",
+          "status": "retrievable",
+          "url": "https://80.lv/articles/replika-users-say-they-formed-emotional-attachments-to-ai-chatbots",
+          "claim": "The attachment is in the users, not the marketing: reports that Replika was 'launched in 2017' and 'was advertised as a mental health tool, providing a sense of companionship to individuals who have faced rejection'. Supports the entry's substance - a persistent relational companion at consumer scale - while locating the parasocial reading in user reporting rather than in the product's stated purpose."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -7676,9 +7689,9 @@
     },
     {
       "id": "ai-acts",
-      "title": "The AI Age Act and companion rules",
+      "title": "Companion chatbots, defined by law",
       "kind": "term",
-      "year": 2024,
+      "year": 2025,
       "era": "AI",
       "lanes": [
         "consideration"
@@ -7686,8 +7699,8 @@
       "sections": [
         "companion"
       ],
-      "summary": "Legislative proposals in the US and EU that would restrict emotional attachment to minors specifically, rather than restricting the product generally.",
-      "significance": "The first regulatory attempt to regulate the attachment rather than the technology, which is the correct target and almost certainly the wrong approach. You cannot outlaw a feeling without a definition of it.",
+      "summary": "California's SB 243, the first law anywhere aimed at the attachment rather than the model: it defines a companion chatbot by what it can do, and obliges operators to disclose, to interrupt, and to publish their own safety protocols.",
+      "significance": "This entry used to say you cannot outlaw a feeling without defining it, and that the approach was therefore almost certainly wrong. California found a way round the problem by refusing to define the feeling: the statute regulates the product's capacity - a system that sustains a relationship across multiple interactions and meets social needs - and never mentions how the user feels. Which means the objection was answered rather than sustained, and the entry's prediction was wrong. What the law actually requires is less romantic than the coverage suggests and more specific: disclosure only where a reasonable person would be fooled; a published protocol for suicidal ideation with referral to crisis services; a three-hourly break reminder for users known to be minors; a warning that these products may not suit some minors; reporting from 2027; and a private right of action carrying a thousand dollars per violation. The clauses everyone reported - a ban on rewards at unpredictable intervals, and third-party audits - were in the March and April drafts and are not in the law. The nearest thing to regulating the mechanic is the three-hour reminder, which interrupts rather than prohibits.",
       "verified": false,
       "medium": [
         "ai"
@@ -7703,9 +7716,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "California Senate Bill 243 (Padilla), Companion chatbots. Chapter 677, approved and filed with the Secretary of State 13 October 2025. Adds Chapter 22.6 (commencing with Section 22601) to Division 8 of the Business and Professions Code. Text read from the official chaptered bill on leginfo.",
+          "status": "retrievable",
+          "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB243",
+          "claim": "The enacted law, quoted from the chaptered text rather than from coverage. Section 22601(b)(1) defines a companion chatbot as a system with a natural language interface giving 'adaptive, human-like responses' that is 'capable of meeting a user's social needs, including by exhibiting anthropomorphic features and being able to sustain a relationship across multiple interactions' - a behavioural test, with nothing in it about how the user feels. Exclusions cover customer service and business use (b)(2)(A), video-game bots limited to the game (B), and voice assistants that do not sustain a relationship or generate outputs 'likely to elicit emotional responses' (C). 22602(a): clear and conspicuous AI notification, but only where a reasonable person would be misled into thinking the other end human. 22602(b): a protocol preventing suicidal ideation, suicide or self-harm output, with referral to crisis services, published on the operator's website. 22602(c), for a user known to be a minor: disclose interacting with AI; a break-and-identity reminder at least every three hours; and measures against sexually explicit conduct. 22604: disclose that companion chatbots may not suit some minors. 22603: annual reporting to the Office of Suicide Prevention from 1 July 2027, evidence-based measurement, no personal data. 22605: private right of action, damages the greater of actual loss or $1,000 per violation, plus fees."
+        },
+        {
+          "citation": "Padilla, S., California State Senator. First-in-the-Nation AI Chatbot Safeguards Signed into Law. Senate District 18 press release, 13 October 2025.",
+          "status": "retrievable",
+          "url": "https://sd18.senate.ca.gov/news/first-nation-ai-chatbot-safeguards-signed-law",
+          "claim": "The author's own account of the signing, 13 October 2025, with Padilla's stated rationale that 'left to their own devices the Tech Industry is incentivized to capture young people's attention and hold it at the expense of their real world relationships', and the bill's bipartisan path through the legislature. Recorded as context for intent. NOT used as evidence of the statute's requirements: this release, like most coverage of SB 243, lists a ban on rewards issued at unpredictable intervals, which does not appear in the chaptered text."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
