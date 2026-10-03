@@ -117,13 +117,13 @@
       "id": "p",
       "title": "Pygmalion",
       "kind": "work",
-      "year": -600,
+      "year": 8,
       "era": "Antiquity",
       "lanes": [
         "application"
       ],
       "summary": "The sculptor who fell in love with his own work. The statue was never going to be able to leave, and the story treats that as part of the appeal rather than a tragedy to be corrected.",
-      "significance": "The origin, and the reason the feeling has never needed defending so much as explaining. A love that is completely real and completely structured around the other party's inability to reciprocate. Everyone since has rediscovered this.",
+      "significance": "Not the origin - the archaeology in this file runs tens of thousands of years further back, and Roman wax imagines predate Ovid by two and a half centuries. What this is: the first time the structure was written down deliberately, by a Roman, as a story worth telling about a man who loved something that could not leave. The telling detail was never that he loved a statue. It was that the statue was never going to be able to leave, and that this seems to have been part of the appeal. The feeling is real and entirely structured around the other party's inability to reciprocate, and everyone since has rediscovered it.",
       "verified": true,
       "sections": [
         "character"
@@ -145,9 +145,9 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "Ovid, Metamorphoses",
-          "url": "",
-          "status": "unverified"
+          "citation": "Ovid. Metamorphoses, Book X. Published ca. AD 8; Ovid 43 BC - 17/18 AD.",
+          "url": "https://catalog.perseus.org/catalog/urn:cts:latinLit:phi0959.phi006.opp-lat8",
+          "status": "retrievable"
         }
       ],
       "media_inferred": true,
@@ -8316,6 +8316,57 @@
           "claim": "The La Madeleine 'bison licking its side', Magdalenian, c. 14,000 years old, carved from the palmate section of a reindeer antler, shown turning to lick its own flank - a self-grooming gesture rendered in a portable object.",
           "citation": "Bradshaw Foundation. La Madeleine Bison Licking its Side. Ice Age Art. (Catalogue entry for the carving held at the Musee d'Archéologie Nationale, Saint-Germain-en-Laye.)",
           "url": "https://www.bradshawfoundation.com/sculpture/bison_licking_side.php",
+          "status": "retrievable"
+        }
+      ],
+      "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "roman-imagines",
+      "title": "The wax masks in the hall",
+      "kind": "work",
+      "year": -250,
+      "year_end": 550,
+      "era": "Antiquity",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "idol",
+        "grief"
+      ],
+      "summary": "A Roman aristocrat had a wax mask of his own face taken while he was alive - usually in his thirties or forties, on taking office - and it was kept in a cupboard in the entrance hall beside a painted family tree and a label listing his offices. He never saw it worn. After his death, actors put it on and walked it in his funeral procession, in order of death, wearing the robes of the office he had held.",
+      "significance": "The best-documented one-sided attachment in this corpus, and thirteen thousand years later than the dog - which is the point. Everything here is checkable, because it was written down, and what it shows is how completely a bond can be built with someone who cannot answer. The mask never speaks: eye-holes and a gap between the lips were cut into it so that the *actor* could see and talk, and the inscription beside it did the conversing. Children grew up walking past it daily - Valerius Maximus has a man recalling that he called the dead his parents and drew his standing from their masks - and it had states: opened at festivals, hung with laurel on an election, closed during mourning. It was also an inheritance that changed address, going with a bride into her husband's house, and it was not uniformly flattering: Pliny's son was described as burdened by the masks he carried. No mask survives. All of it comes from authors.",
+      "verified": true,
+      "medium": [
+        "history"
+      ],
+      "relations": [
+        {
+          "to": "p",
+          "type": "preceded"
+        },
+        {
+          "to": "congregation",
+          "type": "preceded"
+        },
+        {
+          "to": "grief",
+          "type": "depicts"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Technique and chronology: masks were cast from a plaster mould taken from the living face, generally between the ages of 35 and 40 and on attaining the aedileship; they were called death masks but were unquestionably made during life and only displayed after death; they were already well established by the 2nd century BC and in use into the 4th and perhaps the 6th century AD. Eyes and a strip between the lips were cut out so the actor could see and speak. No wax mask has survived and there are no ancient depictions of them, so their appearance rests entirely on literary accounts - Polybius and Pliny the Elder chiefly.",
+          "citation": "Rose, C. B., & Lovink, M. (2014). Recreating Roman Wax Masks. Expedition Magazine, 56(3). Penn Museum. Originally published 1 December 2014.",
+          "url": "https://www.penn.museum/sites/expedition/recreating-roman-wax-masks",
+          "status": "retrievable"
+        },
+        {
+          "claim": "The documented mechanism, which is the useful part: masks were kept in armaria in the atrium beside tituli listing consulships, censorships and triumphs, and beside painted portraits linked into a stemma. Tacitus calls the funeral procession the pompa imaginum (Ann. 4.9), with actors in the masks and magisterial dress in order of death. Cicero Phil. 2.26 has the Bruti seeing the mask of Lucius Brutus daily; Val. Max. 5.5.praef has a man recalling that he called the dead his parents and drew equal glory from the masks; Pliny Ep. 3.3.6 describes a son being burdened by which masks he carried, and Ep. 8.10.3 hopes to leave children 'non subitas imagines' - not new masks. The armaria were opened at festivals, hung with laurel on electoral success and closed in mourning. Copies of a bride's imagines passed into her husband's house (Cic. Vat. 28; Senatus Consultum de Cn. Pisone patre 76-82, 20 CE). The right to hold imagines was customary rather than statutory.",
+          "citation": "Webb, L. (2023). Gendering the Roman imago. Eugesta, 7(2017). DOI: 10.54563/eugesta.550",
+          "url": "https://www.peren-revues.fr/eugesta/550",
           "status": "retrievable"
         }
       ],

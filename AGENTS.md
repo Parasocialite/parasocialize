@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 177 entries, 421 relations, 269 generated pages.
+relationships. 178 entries, 424 relations, 269 generated pages.
 
 ## The rule that outranks everything
 
@@ -402,10 +402,10 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-143 sourced | 21 not yet stood behind | 13 thesis   = 177
-34 of 421 edges land on something unchecked
-147 of 297 sources have a locator
-0 of 297 claim to be openable without one   (ratcheted; was 94)
+144 sourced | 21 not yet stood behind | 13 thesis   = 178
+34 of 424 edges land on something unchecked
+150 of 299 sources have a locator
+0 of 299 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 citation strings are notes to self
 ```
@@ -574,13 +574,53 @@ Board must reconcile to 175. `add_source.py` is authoritative.
    - Note the evidence discipline held: the famous Shanidar **"flower burial"
      is a debunk** (the pollen came from burrowing rodents), and the entry says
      so. The *burials* survived the debunk; only the flowers did not.
-   - **Roman wax `imagines` are the obvious next entry** and are not written
-     yet. The evidence is excellent and openable: wax ancestor masks kept in the
-     atrium beside a painted `stemma`, actors wearing them in funeral
-     processions (Polybius 6.53–4, Tacitus *Ann.* 4.9), the *Parentalia* and
-     *Feralia*. Two locators verified open and unused:
-     `penn.museum/sites/expedition/recreating-roman-wax-masks` and the
-     peer-reviewed `peren-revues.fr/eugesta/550`.
+   - **`roman-imagines`, 250 BC – 550 AD, is the strongest evidence in the file**
+     and it is textual, which is why it is worth more than the archaeology. A
+     Roman aristocrat had a wax mask of his own living face taken in his
+     thirties or forties on taking office; it sat in a cupboard in the entrance
+     hall beside a painted family tree (*stemma*) and a label (*titulus*) of his
+     offices; he never saw it worn; after his death actors walked it in his
+     funeral procession in order of death. Two locators, both fetched, both open:
+     Penn Museum (Rose & Lovink, *Expedition* 56(3), 2014) and Lewis Webb,
+     "Gendering the Roman imago", *Eugesta*, DOI 10.54563/eugesta.550.
+     What it establishes about parasocial structure, all from named sources:
+     **the mask cannot answer** — eye-holes and a lip gap were cut so the *actor*
+     could see and speak, and the *titulus* did the conversing; **it was daily**,
+     since Valerius Maximus has a man recalling he called the dead his parents and
+     drew his standing from their masks (5.5.praef) and Cicero has the Bruti
+     seeing Lucius Brutus's mask daily (*Phil.* 2.26); **it had states** — opened
+     at festivals, hung with laurel on an election, closed in mourning; **it was
+     an inheritance that changed address**, copies going with a bride into her
+     husband's atrium (Cic. *Vat.* 28; SCPP 76–82 of 20 CE), with Pliny hoping to
+     leave children "non subitas imagines" (*Ep.* 8.10.3); and **it carried
+     shame** — Pliny's son was *burdened* by which masks he carried (*Ep.* 3.3.6),
+     and Val. Max. 3.3(ext).7 on descendants who turn the ancestors' light into
+     darkness. Two honesty notes kept on the entry: **no wax mask survives**, so
+     all of it is literary; and the right to hold imagines was **customary, not
+     statutory** — Flower 1996 argues there was no formal *ius imaginum*, which
+     makes the site's own "the right to keep imagines" claim wrong.
+     It is placed in `divine/saint-ancestor` on purpose, **the same shelf as
+     `neanderthal-burial`**: burying someone you mean to keep within reach and
+     casting a likeness of them are the same act 70,000 years apart.
+   - **`p` (Pygmalion) was dated −600 by a source published in AD 8.** Its only
+     citation is Ovid's *Metamorphoses*, ca. AD 8 (Ovid 43 BC – 17/18 AD; Perseus
+     CTS catalogue and the Loeb timeline, which files the poem in 1–100 AD). So
+     the entry — the one that called itself "The origin" — was off by roughly 608
+     years and contradicted its own citation. Redated to 8, given a Perseus
+     locator, and "the origin" narrowed to **the first written telling**, which
+     is the same correction already applied to `myth-and-ritual`.
+     `history.json` module 1 had **the same 608-year error a second time**, in the
+     page that is supposed to be the authoritative history: it opened with Ovid
+     under the range "c. 600 BC". Range corrected to "c. 100 AD – 1400" and the
+     archaeology now acknowledged in the body, because the encyclopedia carries
+     three entries older than anything that module mentions. **A history page that
+     contradicts its own encyclopedia is worse than no history page.**
+   - **An entry's own front page must not disagree with itself.** The kicker
+     printed only the start year, so `roman-imagines` read "250 BC" directly
+     above a summary saying the practice continued into the fourth and sixth
+     centuries AD. `_fmt_span()` now includes `year_end`. Positive years still
+     print bare (no "AD") on purpose — the era label carries that, and adding it
+     would restyle 178 entries.
 
 ## Deploy note
 

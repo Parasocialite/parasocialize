@@ -1960,6 +1960,25 @@ def _fmt_year(y):
     return str(y)
 
 
+def _fmt_span(ent):
+    """Formatted date for an entry, including the end when it has one.
+
+    `roman-imagines` runs from 250 BC into the 6th century AD. Its kicker used to
+    print the start year alone, so the page head said "250 BC" while the summary
+    directly beneath it said the practice continued into the fourth and sixth
+    centuries AD - the entry disagreeing with itself on its own front page.
+    A range the reader can see is the fix; inventing an AD marker for bare
+    positive years is not, because the era label already carries that and 178
+    entries would change.
+    """
+    y = ent.get("year")
+    if y is None:
+        return ""
+    if not ent.get("year_end"):
+        return _fmt_year(y)
+    return f"{_fmt_year(y)}\u2013{_fmt_year(ent['year_end'])}"
+
+
 def _era_bucket(y):
     if y < 0:
         return "Before 0"
@@ -2576,7 +2595,7 @@ def build_entry(ent, enc, data, manifest=None):
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
 <main class="article" id="e">
-  <p class="kicker">{esc(kinds.get(ent.get('kind',''),''))} · {_fmt_year(ent.get('year'))} · {esc(ent.get('era',''))}</p>
+  <p class="kicker">{esc(kinds.get(ent.get('kind',''),''))} · {_fmt_span(ent)} · {esc(ent.get('era',''))}</p>
   <h1>{esc(ent['title'])}</h1>
   <p class="dek">{esc(ent.get('summary',''))}</p>
   <div class="byline" style="margin-bottom:20px">{lane_html}{med_html}</div>

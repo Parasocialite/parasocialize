@@ -1,16 +1,15 @@
 {
   "_note": "The definitive history. Structured as a course, because 'courses the history' is the brief: modules, each with a claim, the evidence, and what it changed about the next module. Free, complete, printable. This is the moat - it is the page that earns links for a decade.",
-
   "intro": "Everybody who has ever loved somebody who does not know they exist has been told the feeling is strange. It has a name - parasocial, coined in 1956 - and a research literature, and a certain amount of sneering. But it is not new, it is not rare, and it is not a disorder. It is a predictable thing human beings do when they are exposed to a face, a voice and a story for a long time. This page runs the whole history of that, from a sculptor in antiquity to a policy update in 2023, in eight modules. It is free. Print it. Teach it if you want to.",
-
   "modules": [
     {
       "n": 1,
       "title": "It has always been here",
-      "years": "c. 600 BC - 1400",
+      "years": "c. 100 AD - 1400",
       "claim": "One-sided attachment to a represented figure is older than the word for it, and older than the argument about it.",
       "body": [
         "Ovid tells the story of Pygmalion falling in love with a sculpture. The telling detail is not that he loved a statue. It is that the statue was never going to be able to leave, and that this seems to have been part of the appeal. The love is completely real and it is completely structured around the other party's inability to reciprocate. That is the definition of the whole phenomenon, written down two thousand years before anybody had the nerve to call it that.",
+        "The story this site used to start here is not the beginning, and it took an argument about a dog to find that out. The earliest evidence anyone has of people treating what cannot answer as though it might is not literary at all: Neanderthals carrying their dead into a cave in northern Iraq, seventy-odd thousand years ago, and putting them down in the floor. Above them, forty thousand years ago, somebody carved a bison in antler caught in the act of licking its own side - a specifically human gesture, rendered on purpose, in an object meant to be carried. Below Ovid by two and a half centuries, Roman households kept wax masks of their dead in the entrance hall and walked them in funeral processions. None of that is writing, so this page starts where the writing does. That is a limitation of the evidence, not a claim about importance.",
         "The Greeks were not embarrassed by this. They put it in the national story. What we have lost since is not the feeling but the permission - the sense that loving a figure is a normal thing to be moved by rather than a thing to be quietly ashamed of.",
         "The medieval church understood it too, and got frightened by it. Margery Kempe, in 1438, walked around Bishop's Lynn in white clothes and wept loudly in public, for years, because she had decided she was going to be a specific kind of person and this was how she did it. Her neighbours thought she was unwell. Six hundred years later, a music fan in a stadium thinks they are having a normal time.",
         "Kempe is the hinge of this whole page. She is the first documented case of somebody deliberately performing a self in public until it held, and - crucially - of a community that noticed, and disapproved. Everything since is that pattern with better lighting."
@@ -116,14 +115,48 @@
       "law": 5
     }
   ],
-
   "laws": [
-    { "n": 1, "title": "Binding is public", "one": "Binding only binds if someone witnesses it.", "shelf": "kempe" },
-    { "n": 2, "title": "Clerks beat algorithms", "one": "An algorithm knows what you clicked. A clerk knew what it cost you.", "shelf": "insight-company" },
-    { "n": 3, "title": "Someone holds the dream", "one": "Whenever thousands of people dream together, check who owns the building.", "shelf": "company-dreamer" },
-    { "n": 4, "title": "Grief is real when the companion changes", "one": "Keep something the update cannot take.", "shelf": "athp" },
-    { "n": 5, "title": "Pay for proximity with open eyes", "one": "Budget closeness like merch, not like rent.", "shelf": "company-dreamer" },
-    { "n": 6, "title": "Characters move in", "one": "The scary thing moves into your head and starts paying rent in meaning.", "shelf": "pennywise" },
-    { "n": 7, "title": "Audit quarterly", "one": "Joy and cost, scored. Keep three, mute one.", "shelf": null }
+    {
+      "n": 1,
+      "title": "Binding is public",
+      "one": "Binding only binds if someone witnesses it.",
+      "shelf": "kempe"
+    },
+    {
+      "n": 2,
+      "title": "Clerks beat algorithms",
+      "one": "An algorithm knows what you clicked. A clerk knew what it cost you.",
+      "shelf": "insight-company"
+    },
+    {
+      "n": 3,
+      "title": "Someone holds the dream",
+      "one": "Whenever thousands of people dream together, check who owns the building.",
+      "shelf": "company-dreamer"
+    },
+    {
+      "n": 4,
+      "title": "Grief is real when the companion changes",
+      "one": "Keep something the update cannot take.",
+      "shelf": "athp"
+    },
+    {
+      "n": 5,
+      "title": "Pay for proximity with open eyes",
+      "one": "Budget closeness like merch, not like rent.",
+      "shelf": "company-dreamer"
+    },
+    {
+      "n": 6,
+      "title": "Characters move in",
+      "one": "The scary thing moves into your head and starts paying rent in meaning.",
+      "shelf": "pennywise"
+    },
+    {
+      "n": 7,
+      "title": "Audit quarterly",
+      "one": "Joy and cost, scored. Keep three, mute one.",
+      "shelf": null
+    }
   ]
 }
