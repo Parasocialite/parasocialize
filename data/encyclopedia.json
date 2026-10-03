@@ -3104,7 +3104,7 @@
       "id": "airline-miles",
       "title": "The distance programme",
       "kind": "mechanism",
-      "year": 1981,
+      "year": 1979,
       "era": "Travel",
       "lanes": [
         "manipulation"
@@ -3112,8 +3112,8 @@
       "sections": [
         "brand"
       ],
-      "summary": "Reward miles accrue against travel with an airline, and status is conferred by volume.",
-      "significance": "Status tiers are the parasocial structure with the least romance in it and the most engineering. Tier is a relationship with a company, modelled on rank, and the language of elite is the same language as devotion.",
+      "summary": "Reward miles accrue against travel, status is conferred by volume, and the first programmes identified their members by searching a booking system for people whose telephone numbers kept recurring.",
+      "significance": "The least romantic structure on this site and the most revealing, because the first one did the thing this whole file is about and did it in 1981. Texas International is credited with the first frequent flyer programme in 1979; American's AAdvantage followed on 1 May 1981, and American's own newsroom still calls it the first in the world, which is a corporate version of the claim the rest of this site keeps correcting. What matters is how AAdvantage recruited: membership was by invitation only, seeded by searching the SABRE reservations system for recurring telephone numbers, with the 130,000 most frequent flyers pre-enrolled and sent letters carrying their new account numbers. An airline found its regulars inside a computer and wrote to them one at a time. The reward was a first-class ticket to anywhere it flew. United's Mileage Plus arrived within weeks, and the competition that followed is where the language of rank and tier came from - not from aviation but from the arms race between two marketing departments. Every 'personalised' system since is a smaller version of a 1981 letter.",
       "verified": false,
       "medium": [
         "history"
@@ -3129,9 +3129,22 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "AAdvantage. Wikipedia, citing 'A History of US Airline Deregulation Part 4: 1979-2010: The Effects of Deregulation - Lower Fares, More Travel, Frequent Flier Programs'.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/AAdvantage",
+          "claim": "Corrects the entry's date. American launched AAdvantage on 1 May 1981, and it was the *second* such programme in the world, the first being at Texas International Airlines in 1979 - so the entry was two years late. Also the founding detail the entry was standing on top of without describing: membership began by invitation only, and 'membership was seeded by searching American's SABRE computer reservations system for recurring phone numbers', with the 130,000 most frequent flyers plus 60,000 Admirals Club members pre-enrolled and sent letters with their new account numbers, the reward being a first-class ticket to any destination American flew. United launched Mileage Plus within weeks, described as the first *modern* frequent flyer programme; AAdvantage was the first to partner with an international carrier, in 1982."
+        },
+        {
+          "citation": "History of United Airlines. Wikipedia (Mileage Plus, May 1981).",
+          "status": "retrievable",
+          "url": "http://en.wikipedia.org/wiki/History_of_United_Airlines",
+          "claim": "The competitive clock that made the tier system urgent: in May 1981, 'a week after rival American Airlines launched AAdvantage, the first modern frequent flyer program, United launched its Mileage Plus'. Two programmes within days of each other, after which the Wikipedia AAdvantage history notes competition on features began - rules liberalised, hotel and rental partnerships, triple miles from 1988 - which is how a loyalty scheme acquires the language of rank."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
@@ -5024,9 +5037,16 @@
           "type": "cites"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "citation": "Frye, J. (2013, May 3). Iron Man Unmasked: Robert Downey Jr., Don Cheadle & More Talk Character. The Credits, Motion Picture Association of America. (Courtesy of the Walt Disney Company.)",
+          "status": "retrievable",
+          "url": "https://www.motionpictures.org/2013/05/iron-man-unmasked-robert-downey-jr-don-cheadle-more-talk-character",
+          "claim": "The entry's question asked directly of the people who made the thing, rather than inferred from fan behaviour. Kevin Feige: 'How do you take a billionaire, industrialist playboy and make him relatable and somebody that you can root for?' and, on the alternative, 'take everything away from the character, which then makes you root for the guy'. Stephen Broussard on the boundary itself: even though the world knows and loves Tony Stark, 'he is still learning and struggling to define where Iron Man ends and his own life begins'. The unresolvable seam between persona and persona is named here by the people controlling it."
+        }
+      ],
       "media_inferred": true,
-      "provenance": "",
+      "provenance": "sourced",
       "source": ""
     },
     {
