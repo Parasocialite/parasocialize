@@ -8443,7 +8443,7 @@
         "grief"
       ],
       "summary": "Neanderthals repeatedly carried their dead into one cave in northern Iraq and put them down in the floor. Shanidar 4 was found on his side with his arm under his head; Shanidar Z lay in a hollow gouged out to fit her, with a stone under her head. The cluster dates to roughly seventy to seventy-five thousand years ago.",
-      "significance": "The oldest evidence on this site of people treating the dead as somewhere you go, rather than something you leave behind. It sits about fifty-five thousand years before the dog, which settles an argument this site was getting wrong: one-sided attachment to a non-human does not begin with a domesticated animal. It is also the discipline case. The famous flowers were a mistake - the pollen turned out to come from burrowing rodents - and the burials survived the debunk anyway. That is what a real claim looks like after someone has been wrong about part of it.",
+      "significance": "The oldest evidence on this site of people treating the dead as somewhere you go, rather than something you leave behind. It sits about fifty-five thousand years before the dog, which settles an argument this site was getting wrong: one-sided attachment to a non-human does not begin with a domesticated animal. It is also the discipline case. The famous flowers were a mistake - the pollen turned out to come from burrowing rodents - and the burials survived the debunk anyway. That is what a real claim looks like after someone has been wrong about part of it. One limit worth stating: Sunghir, later and better studied, shows this was not a single uniform practice, so what Shanidar documents is the earliest *instance* of something that varied a great deal.",
       "verified": true,
       "medium": [
         "history"
@@ -8573,6 +8573,63 @@
           "citation": "Webb, L. (2023). Gendering the Roman imago. Eugesta, 7(2017). DOI: 10.54563/eugesta.550",
           "url": "https://www.peren-revues.fr/eugesta/550",
           "status": "retrievable"
+        }
+      ],
+      "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "sunghir",
+      "title": "Beads, and one bull",
+      "kind": "work",
+      "year": -34000,
+      "era": "Deep prehistory",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "grief",
+        "idol"
+      ],
+      "summary": "At Sunghir on the Russian plain, thirty-four thousand years ago, three burials were lavish with beads and ochre and one was not treated that way at all. People were buried in a site that kept producing them for thousands of years, individually and very differently.",
+      "significance": "This entry exists to disagree with another one on this site. Shanidar is the earliest evidence of people returning to the dead; Sunghir is the evidence that this was not one practice with one belief behind it. Of the individuals recovered, four were intentionally buried, two had their remains manipulated and one seems to have received little or no formal treatment, and the only thing uniting the three rich burials is the quantity of beads - which the analysis reads as social behaviour in life rather than in death. That is a harder finding than a uniform origin would be, and it is better for this site, because it means the archaeological record cannot be read as a single relationship any more than the later one can. Formicola's case is the memorable one: at Romito Cave an adolescent dwarf was buried together with a woman, underneath an engraving of a bull. A named dead person, put under a named animal, deliberately, thirty thousand years before anything was written down.",
+      "verified": true,
+      "medium": [
+        "history"
+      ],
+      "year_end": null,
+      "relations": [
+        {
+          "to": "paleolithic-figures",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-dog",
+          "type": "preceded"
+        },
+        {
+          "to": "neanderthal-burial",
+          "type": "succeeded"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The finding that complicates a uniform reading: 'the mortuary behaviour evident at Sunghir indicates considerable diversity in their treatment at an individual level. Four of the individuals were intentionally buried, two of them had their remains manipulated and one of them seems to have received little or no formal treatment', with only the abundance of beads uniting the three elaborate burials - 'and that should reflect social behaviour in life, rather than in death'.",
+          "citation": "Trinkaus, E., & Buzhilova, A. P. (2018). Diversity and differential disposal of the dead at Sunghir. Antiquity, 92(361), 7-21.",
+          "status": "unverified",
+          "url": "https://doi.org/10.15184/aqy.2017.223"
+        },
+        {
+          "claim": "The concrete case the entry turns on, and the framing that Upper Palaeolithic burials are evidence about 'ideological aspects' and 'the perception of diversity and its links to magical-religious beliefs': 'the adolescent dwarf from Romito Cave (Italy), buried together with a woman under the engraving of a bull', alongside the double burial of the Sunghir children and the Dolniestonice triple interment.",
+          "citation": "Formicola, V. (2007). From the Sunghir Children to the Romito Dwarf: Aspects of the Upper Paleolithic Funerary Landscape. Current Anthropology, 48(3), 446-453.",
+          "status": "unverified",
+          "url": "https://doi.org/10.1086/517592"
+        },
+        {
+          "claim": "Dating and site description from an openable source: the site lies about 200km east of present-day Moscow, was discovered in 1955 while being quarried for gravel, and was excavated from 1957 to 1977; burials include an adult male covered in beads and ochre and a juvenile and an adolescent of about ten and twelve, buried head to head.",
+          "citation": "Surugue, L. (2018, February 22). Why This Paleolithic Burial Site Is So Strange (and So Important). SAPIENS.",
+          "status": "retrievable",
+          "url": "https://www.sapiens.org/archaeology/paleolithic-burial-sunghir/"
         }
       ],
       "media_inferred": true,
