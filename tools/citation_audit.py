@@ -101,17 +101,32 @@ def contradictory_relations(enc: dict) -> list[dict]:
     Checked rather than assumed: the semantics were read out of the renderer
     before any verb was flipped, because "preceded" could have meant lineage
     rather than order and the fix would have been 13 new falsehoods.
+
+    Two things are checked here that are not about dates. A **self-relation** is
+    the same defect with the dates removed - `replika-update` carried
+    `depicts: replika-update`, which asserts nothing - and it was missed for
+    years because the self-relation test sat *below* the `preceded`/`succeeded`
+    filter, so an edge of any other type was never examined for it. The test now
+    runs before the filter, so every relation is checked for pointing at itself.
+    And a **tie** is caught by `a >= b` rather than `a > b`: two entries sharing a
+    year cannot come before or after each other, and the honest relation there
+    is `contemporary`, which asserts no order. That is not a hypothetical - a
+    script deriving verbs as `preceded if a < b else succeeded` fails open on
+    equality and did exactly that.
     """
     by = {e["id"]: e for e in enc["entries"]}
     out = []
     for e in enc["entries"]:
         for r in (e.get("relations") or []):
             t, tgt = r.get("type"), r.get("to")
-            if t not in ("preceded", "succeeded"):
-                continue
+            # Before the type filter, not after it: a self-relation is meaningless
+            # whatever verb it wears, and `replika-update` proves it slipped
+            # through a check that only ever looked at chronological edges.
             if tgt == e["id"]:
                 out.append({"entry": e["id"], "rel": t, "to": tgt,
                             "detail": "self-relation"})
+                continue
+            if t not in ("preceded", "succeeded"):
                 continue
             o = by.get(tgt)
             if not o:
