@@ -4573,9 +4573,8 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "Rugrats",
-          "url": "",
-          "status": "unverified"
+          "citation": "No source identified yet. This record previously read 'Rugrats', which is a programme mentioned in the entry rather than a reference for any claim in it, so it has been withdrawn instead of left to read as a citation.",
+          "status": "needs-source"
         }
       ],
       "media_inferred": true,
@@ -8989,9 +8988,8 @@
       "sources": [
         {
           "claim": "the entry as a whole",
-          "citation": "VidSummit 2026",
-          "url": "",
-          "status": "unverified"
+          "citation": "No source identified yet. This record previously read 'VidSummit 2026', which names a conference rather than anything published at it, so it has been withdrawn instead of left to read as a citation.",
+          "status": "needs-source"
         }
       ],
       "media_inferred": true,

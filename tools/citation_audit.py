@@ -77,15 +77,56 @@ def placeholder_citations(enc: dict) -> list[dict]:
     to-do as though it were a reference. A string containing one of these words
     is not a citation, whatever status it carries.
     """
-    words = ("verify", "todo", "tbd", "fixme", "xxx", "???", "placeholder")
     out = []
     for eid, s in records(enc):
         cit = str(s.get("citation") or "")
-        low = cit.lower()
-        if any(re.search(rf"\b{re.escape(w)}\b", low) for w in words):
-            out.append({"entry": eid, "citation": cit[:90],
-                        "status": s.get("status")})
-    return out
+        for pat, why in DESCRIBES_A_SOURCE:
+            if re.search(pat, cit, re.I):
+                out.append({"entry": eid, "citation": cit[:90],
+                            "status": s.get("status"), "detail": why})
+                break
+        else:
+            low = cit.lower()
+            if any(re.search(rf"\b{re.escape(w)}\b", low) for w in NOTE_WORDS):
+                out.append({"entry": eid, "citation": cit[:90],
+                            "status": s.get("status"),
+                            "detail": "a note to self"})
+    return [o for o in out if o["status"] != "needs-source"]
+
+
+# Two classes of string sit in the citation field where a citation belongs, and
+# the original check here caught neither.
+#
+# The first is a note to self: "various; verify", "KpopWave; verify". Fifteen of
+# those existed and are gone.
+#
+# The second is worse, because it reads as a *finished* reference. "Standard
+# bibliographic record." is not a source, it is a description of where a source
+# would be found - and it sat on `cervantes`, `goethe`, `dickens`, `nick-drake`,
+# `vertigo`, `the-archivist`, `the-fanfic-writer` and `the-ultra`. Twenty-four
+# records were of this shape. **Twenty-two of them were already `needs-source` and
+# therefore honest** - the status is printed beside the string on the page, so a
+# reader sees the admission - and they are allowed to keep the wording, because
+# the wording is where the note belongs. Only the two that claimed otherwise were
+# fixed: `saturday-cartoons-top8` cited "Rugrats" and `twitch-500m` cited
+# "VidSummit 2026", both `unverified`, and both naming the entry's own subject
+# rather than a reference - the same defect as "VShojo, 2022", in a different
+# costume. Nobody published a paper called "Rugrats".
+#
+# So the filter below is deliberately asymmetric, and the asymmetry is the whole
+# point: **this class is only a defect when the record claims to be a source.**
+# A `needs-source` record is an admission and may describe itself.
+DESCRIBES_A_SOURCE = [
+    (r"^standard\b", "names a class of record, not a record"),
+    (r"\bstandard (bibliographic|discographic|filmographic|biographical|"
+     r"social-historical|fan-studies|observation)\b", "names a class of record"),
+    (r"^(see|cited under)\b", "is a pointer to another entry, not a source"),
+    (r"^classic studies\b", "names a body of work, not a work"),
+    (r"^contemporaneous\b", "names a time, not a source"),
+    (r"^company release history\b", "names a category of evidence"),
+    (r"^[A-Z][\w' -]*$", "is a bare title with no author and no date"),
+]
+NOTE_WORDS = ("verify", "todo", "tbd", "fixme", "xxx", "???", "placeholder")
 
 
 def contradictory_relations(enc: dict) -> list[dict]:
