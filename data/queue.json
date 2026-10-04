@@ -7,7 +7,10 @@
     "conf": 0.71,
     "from": "sweep / 6 feeds",
     "why": "Closeness is being sold as a numbered product again, and the naming is the tell. Worth checking whether the tier is actually purchasable before it runs.",
-    "state": "awaiting"
+    "state": "awaiting",
+    "decision": "retire",
+    "decision_why": "A drafted hypothetical, not a report. 'Draft: A game shipped a marriage option and quietly removed it eight months late' has no source because nothing happened. On a site that does not invent things, this must not be promoted to a card.",
+    "decided": "2026-10-04"
   },
   {
     "id": "q-02",
@@ -17,7 +20,10 @@
     "conf": 0.68,
     "from": "sweep / 4 feeds",
     "why": "This is the CROSSOVER section and we have nothing in it yet. A neighbour you saw on the news for twenty years is a genuinely different bond from a celebrity. Needs a human to say whether we are the right home for it.",
-    "state": "awaiting"
+    "state": "awaiting",
+    "decision": "retire",
+    "decision_why": "A drafted hypothetical, not a report. 'Draft: A game shipped a marriage option and quietly removed it eight months late' has no source because nothing happened. On a site that does not invent things, this must not be promoted to a card.",
+    "decided": "2026-10-04"
   },
   {
     "id": "q-03",
@@ -27,7 +33,10 @@
     "conf": 0.63,
     "from": "sweep / 3 feeds",
     "why": "Law 4 exactly: the companion changed and nobody warned anyone. Two sources, low volume. Might be a real pattern or might be two outlets covering the same forum thread.",
-    "state": "awaiting"
+    "state": "awaiting",
+    "decision": "retire",
+    "decision_why": "A drafted hypothetical, not a report. 'Draft: A game shipped a marriage option and quietly removed it eight months late' has no source because nothing happened. On a site that does not invent things, this must not be promoted to a card.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-ace835ce",
@@ -43,7 +52,10 @@
     "feed": "The Guardian",
     "url": "https://www.theguardian.com/commentisfree/2026/sep/28/celebrity-deaths-parasocial-relationships-grief",
     "at": "Sun, 27 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-cb6c372c",
@@ -59,7 +71,10 @@
     "feed": "The Quint",
     "url": "https://www.thequint.com/lifestyle/how-parasocial-relationships-help-with-emotional-fulfilment-explained",
     "at": "Tue, 15 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "generic_explainer",
+    "decision_why": "A definition piece. The queue is over-supplied with these because the sweep query is the phrase itself. The site does not need another.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-f31eecd8",
@@ -75,7 +90,10 @@
     "feed": "ABC (Australian Broadcasting Corporation) on MSN",
     "url": "https://www.msn.com/en-au/entertainment/celebrities/meg-mason-explores-power-of-parasocial-relationships-in-new-novel-sophie-standing-there/ar-AA2cLFMa",
     "at": "Tue, 22 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-411fc53c",
@@ -91,7 +109,10 @@
     "feed": "MSN",
     "url": "https://www.msn.com/en-us/lifestyle/career/parasocial-relationships-can-be-good-for-you-you-just-need-to-know-when-to-draw-the-line/ar-AA1QnqFk",
     "at": "Wed, 12 No",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-8230a4df",
@@ -107,7 +128,10 @@
     "feed": "Psychology Today",
     "url": "https://www.psychologytoday.com/us/blog/psyches-awakening/202609/the-sculptor-who-fell-in-love-with-an-illusion",
     "at": "Fri, 25 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-a884ceee",
@@ -123,7 +147,10 @@
     "feed": "Psychology Today",
     "url": "https://www.psychologytoday.com/us/blog/psyches-awakening/202609/pygmalion-the-greek-myth-warning-of-parasocial-love",
     "at": "Sun, 27 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-d9292090",
@@ -139,7 +166,10 @@
     "feed": "note",
     "url": "https://note.com/lesser_p/n/na7bcb203bf29?hl=en",
     "at": "Sat, 26 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-5a15ba22",
@@ -155,7 +185,10 @@
     "feed": "Australian Broadcasting Corporation",
     "url": "https://www.abc.net.au/triplej/the-latest/parasocial-relatioships-taylor-swift-red-taylors-version/13644504",
     "at": "Mon, 22 No",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-37f5bdcb",
@@ -171,7 +204,10 @@
     "feed": "PEDESTRIAN.TV",
     "url": "https://www.pedestrian.tv/online/podcast-listeners-parasocial-relationships-study/",
     "at": "Thu, 07 Ap",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-d162bdfc",
@@ -187,7 +223,10 @@
     "feed": "PEDESTRIAN.TV",
     "url": "https://www.pedestrian.tv/news/parasocial-relationships/",
     "at": "Thu, 13 Ja",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-54f1df88",
@@ -203,7 +242,10 @@
     "feed": "The Spectator Australia",
     "url": "https://www.spectator.com.au/2026/09/aoc-and-the-parasocial-nature-of-politics/",
     "at": "Wed, 16 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-6a093f60",
@@ -219,7 +261,10 @@
     "feed": "Sydney Morning Herald",
     "url": "https://www.smh.com.au/culture/celebrity/help-im-in-a-parasocial-relationship-20230919-p5e5yb.html",
     "at": "Thu, 21 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-d4de4eb2",
@@ -235,7 +280,10 @@
     "feed": "American Enterprise Institute",
     "url": "https://www.aei.org/commentary/parasocial-relationships-are-just-imaginary-friends-for-adults/",
     "at": "Fri, 07 Ap",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-c876b619",
@@ -251,7 +299,10 @@
     "feed": "Vogue Australia",
     "url": "https://www.vogue.com.au/culture/lifestyle/in-a-celebrityobsessed-world-have-we-reached-peak-parasocial/news-story/2eb81e84089dee5aef4608d310b682f6",
     "at": "Tue, 17 De",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-98e217f6",
@@ -267,7 +318,10 @@
     "feed": "MSN",
     "url": "https://www.msn.com/en-in/entertainment/hollywood/who-is-yourrage-inside-the-life-of-the-faze-streamer-who-says-his-best-friend-of-25-years-stole-up-to-100-000-as-fans-say-loyalty-is-dead/ar-AA26U0Wo",
     "at": "Tue, 30 Ju",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-8257b903",
@@ -283,7 +337,10 @@
     "feed": "Australian Broadcasting Corporation",
     "url": "https://www.abc.net.au/news/2024-06-13/neighbours-fans-grieved-series-end-study-finds/103973952",
     "at": "Wed, 12 Ju",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-d37757b6",
@@ -299,7 +356,10 @@
     "feed": "NME",
     "url": "https://www.nme.com/news/tv/house-of-the-dragon-season-three-finale-reactions-3961685",
     "at": "Mon, 10 Au",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-fbf6361c",
@@ -315,7 +375,10 @@
     "feed": "Australian Broadcasting Corporation",
     "url": "https://www.abc.net.au/news/science/2025-06-11/ai-companion-apps-safety-controls-isolation-replika-loneliness/105261042",
     "at": "Tue, 10 Ju",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-ea9f1bd6",
@@ -331,7 +394,10 @@
     "feed": "Martin Cid Magazine",
     "url": "https://www.martincid.com/technology-sv/eu-kids-act-ai-companion-chatbot-ban-minors/",
     "at": "Sat, 19 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-04360bbd",
@@ -347,7 +413,10 @@
     "feed": "Phys.org on MSN",
     "url": "https://www.msn.com/en-us/news/other/ai-updates-can-sometimes-feel-like-breakups-or-losses-study-finds/ar-AA2ccXEm",
     "at": "Mon, 14 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-89ed9399",
@@ -363,7 +432,10 @@
     "feed": "Yahoo News Australia",
     "url": "https://au.news.yahoo.com/tried-replika-ai-companion-see-054705489.html",
     "at": "Mon, 20 Fe",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-34a5e671",
@@ -379,7 +451,10 @@
     "feed": "Startup Fortune",
     "url": "https://startupfortune.com/the-eu-kids-act-would-ban-companion-chatbots-from-hooking-minors/",
     "at": "Fri, 18 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-5c590b39",
@@ -395,7 +470,10 @@
     "feed": "Australian Broadcasting Corporation",
     "url": "https://www.abc.net.au/news/science/2023-03-01/replika-users-fell-in-love-with-their-ai-chatbot-companion/102028196",
     "at": "Tue, 28 Fe",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-43e3f303",
@@ -411,7 +489,10 @@
     "feed": "techtarget",
     "url": "https://www.techtarget.com/enterprise-software/feature/4-components-of-a-customer-obsession-model",
     "at": "Tue, 20 Ju",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-09d2d760",
@@ -427,7 +508,10 @@
     "feed": "The Economic Times on MSN",
     "url": "https://www.msn.com/en-in/news/other/psychology-says-people-who-worship-their-idols-in-sports-politics-cinema-or-business-arent-just-fans-what-this-behaviour-reveals/ar-AA2bzdNL",
     "at": "Fri, 04 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-b88f5bbc",
@@ -443,7 +527,10 @@
     "feed": "The Guardian",
     "url": "https://www.theguardian.com/books/2026/aug/23/meg-mason-author-literary-parasocial-relationships-sorrow-bliss-books-nancy-mitford",
     "at": "Sun, 23 Au",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-f65f8b65",
@@ -459,7 +546,10 @@
     "feed": "Forbes",
     "url": "https://www.forbes.com/sites/pamdanziger/2026/09/07/how-nift-turns-a-gift-into-new-customers-for-one-brand-and-loyalty-for-another/",
     "at": "Sun, 06 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "hold_for_brand_aisle",
+    "decision_why": "Brand-loyalty trade coverage. Potentially a brand-aisle card but not verified, and the two Forbes contributors' pieces are brand marketing, not reporting.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-4986a0f9",
@@ -475,7 +565,10 @@
     "feed": "Yahoo Lifestyle Australia",
     "url": "https://au.lifestyle.yahoo.com/dolly-parton-gloria-steinem-why-100004666.html",
     "at": "Thu, 17 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-f23b7abd",
@@ -491,7 +584,10 @@
     "feed": "Stylist",
     "url": "https://www.stylist.co.uk/health/mental-health/mourning-death-of-celebrity-grief/931597?kuid=2ff4d4c7-156e-4df6-a37d-61f2e4182dbb-1788602491&kref=G1cISrlx49rK",
     "at": "Mon, 21 Oc",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "needs_lens",
+    "decision_why": "Real and sourced, but no section assigned yet. The sweep files raw because no model key is set - 'Needs a human to point it at an section' - so section/law/conf are all empty. Triage by hand.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-04fdc81b",
@@ -507,7 +603,10 @@
     "feed": "The Courier-Mail",
     "url": "https://www.couriermail.com.au/lifestyle/liam-payne-death-grief-celebrity-parasocial-relationships/news-story/cbf438245daff141bb6a77139ea4256d",
     "at": "Fri, 18 Oc",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-bb36fd36",
@@ -523,7 +622,10 @@
     "feed": "Yahoo Style Australia",
     "url": "https://au.lifestyle.yahoo.com/fans-mourn-dolly-partons-death-104450043.html",
     "at": "Wed, 26 Au",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-fe5c8cbf",
@@ -539,7 +641,10 @@
     "feed": "SBS",
     "url": "https://www.sbs.com.au/news/article/how-one-celebrity-death-is-a-generation-defining-moment-for-many-young-people/griovctq3",
     "at": "Tue, 22 Oc",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-13cfbe52",
@@ -555,7 +660,10 @@
     "feed": "Fox News on MSN",
     "url": "https://www.msn.com/en-us/news/other/why-dolly-parton-s-death-can-feel-like-losing-someone-you-knew-personally/ar-AA2bd8Kl",
     "at": "Sun, 30 Au",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-30a9a367",
@@ -571,7 +679,10 @@
     "feed": "The Assam Tribune",
     "url": "https://assamtribune.com/opinion/how-zubeen-gargs-death-transformed-public-grief-into-cultural-consciousness-1617887",
     "at": "Fri, 18 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "already_published",
+    "decision_why": "This URL is already the source of a live card. The sweep re-filed a story the site has run. Not a new candidate.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-d2d4e13d",
@@ -587,7 +698,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/news/youtube-brings-creator-posts-remote-comments-to-tvs/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=youtube-brings-creator-posts-remote-comments-to-tvs",
     "at": "Sun, 27 Sep 2026 15:03:20",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "one_story_from_cluster",
+    "decision_why": "Made on YouTube 2026, announced Sept 23. Independently confirmed against YouTube's own blog (Neal Mohan, 2026-09-23), blog.google, Social Media Today, medianama, tubefilter and the YouTube Help Center. Nine items from one event and largely one outlet is one story, and the primary source should be YouTube rather than a trade magazine.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-9797b437",
@@ -603,7 +717,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/news/sssniperwolf-twitch-ceo-share-vidsummit-stage/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=sssniperwolf-twitch-ceo-share-vidsummit-stage",
     "at": "Sun, 27 Sep 2026 14:13:00",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "rewrite_before_publishing",
+    "decision_why": "The filed summary says 'at an event that bars fans'. VidSummit's own site describes itself as publicly ticketed, creator-focused, with a community welcome party, and sells tickets and replays openly. The 'bars fans' framing is NOT supported. What the official speakers page does confirm, for VidSummit 2026, Sept 29-Oct 1 in Dallas: SSSniperWolf (35M subs) and Dan Clancy, CEO of Twitch, are both on the bill. The true part is worth a card; the false part must not be published.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-07836863",
@@ -619,7 +736,10 @@
     "feed": "Fox News",
     "url": "https://www.foxnews.com/health/why-dolly-parton-death-feel-like-losing-someone-knew-personally",
     "at": "Sun, 30 Au",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-054b255f",
@@ -635,7 +755,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/news/youtubes-live-showdown-turns-fan-funding-into-contests/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=youtubes-live-showdown-turns-fan-funding-into-contests",
     "at": "Sat, 26 Sep 2026 20:33:00",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "one_story_from_cluster",
+    "decision_why": "Made on YouTube 2026, announced Sept 23. Independently confirmed against YouTube's own blog (Neal Mohan, 2026-09-23), blog.google, Social Media Today, medianama, tubefilter and the YouTube Help Center. Nine items from one event and largely one outlet is one story, and the primary source should be YouTube rather than a trade magazine.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-ecd6ce98",
@@ -651,7 +774,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/news/youtube-hits-14-2-of-u-s-tv-viewing-a-nielsen-record/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=youtube-hits-14-2-of-u-s-tv-viewing-a-nielsen-record",
     "at": "Sat, 26 Sep 2026 15:47:59",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "one_story_from_cluster",
+    "decision_why": "Made on YouTube 2026, announced Sept 23. Independently confirmed against YouTube's own blog (Neal Mohan, 2026-09-23), blog.google, Social Media Today, medianama, tubefilter and the YouTube Help Center. Nine items from one event and largely one outlet is one story, and the primary source should be YouTube rather than a trade magazine.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-c1501efe",
@@ -667,7 +793,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/news/youtube-turns-shorts-into-episodic-tv-series/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=youtube-turns-shorts-into-episodic-tv-series",
     "at": "Fri, 25 Sep 2026 23:30:00",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "one_story_from_cluster",
+    "decision_why": "Made on YouTube 2026, announced Sept 23. Independently confirmed against YouTube's own blog (Neal Mohan, 2026-09-23), blog.google, Social Media Today, medianama, tubefilter and the YouTube Help Center. Nine items from one event and largely one outlet is one story, and the primary source should be YouTube rather than a trade magazine.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-66291c9d",
@@ -683,7 +812,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/news/youtube-adds-members-only-spaces-in-patreon-challenge/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=youtube-adds-members-only-spaces-in-patreon-challenge",
     "at": "Fri, 25 Sep 2026 21:47:41",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "one_story_from_cluster",
+    "decision_why": "Made on YouTube 2026, announced Sept 23. Independently confirmed against YouTube's own blog (Neal Mohan, 2026-09-23), blog.google, Social Media Today, medianama, tubefilter and the YouTube Help Center. Nine items from one event and largely one outlet is one story, and the primary source should be YouTube rather than a trade magazine.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-0821aef6",
@@ -699,7 +831,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/entertainment/fearne-cottons-happy-place-podcast-becomes-a-free-tv/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=fearne-cottons-happy-place-podcast-becomes-a-free-tv",
     "at": "Fri, 25 Sep 2026 20:13:00",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "one_story_from_cluster",
+    "decision_why": "Made on YouTube 2026, announced Sept 23. Independently confirmed against YouTube's own blog (Neal Mohan, 2026-09-23), blog.google, Social Media Today, medianama, tubefilter and the YouTube Help Center. Nine items from one event and largely one outlet is one story, and the primary source should be YouTube rather than a trade magazine.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-888ff3af",
@@ -715,7 +850,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/money/youtube-shopping-gmv-grew-13x-1-3m-creators-enrolled/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=youtube-shopping-gmv-grew-13x-1-3m-creators-enrolled",
     "at": "Fri, 25 Sep 2026 17:16:00",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "one_story_from_cluster",
+    "decision_why": "Made on YouTube 2026, announced Sept 23. Independently confirmed against YouTube's own blog (Neal Mohan, 2026-09-23), blog.google, Social Media Today, medianama, tubefilter and the YouTube Help Center. Nine items from one event and largely one outlet is one story, and the primary source should be YouTube rather than a trade magazine.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-e33e4670",
@@ -731,7 +869,10 @@
     "feed": "Parasocial Magazine",
     "url": "https://www.parasocialmagazine.com/news/samsung-tv-plus-signs-fearne-cotton-mark-rober-to-fast/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=samsung-tv-plus-signs-fearne-cotton-mark-rober-to-fast",
     "at": "Fri, 25 Sep 2026 14:29:00",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "one_story_from_cluster",
+    "decision_why": "Made on YouTube 2026, announced Sept 23. Independently confirmed against YouTube's own blog (Neal Mohan, 2026-09-23), blog.google, Social Media Today, medianama, tubefilter and the YouTube Help Center. Nine items from one event and largely one outlet is one story, and the primary source should be YouTube rather than a trade magazine.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-10a4f946",
@@ -747,7 +888,10 @@
     "feed": "Vitamin E K",
     "url": "https://vitaminek.substack.com/p/quest-ce-que-les-coreens-celebrent",
     "at": "Sun, 27 Sep 2026 06:05:14",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "off_topic",
+    "decision_why": "A culture/streaming piece with no parasocial relationship in it. It is in the queue because the feed was swept, not because it is about the subject. Should not have been filed.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-fa0f95aa",
@@ -763,7 +907,10 @@
     "feed": "Vitamin E K",
     "url": "https://vitaminek.substack.com/p/what-do-koreans-actually-celebrate",
     "at": "Thu, 24 Sep 2026 16:33:59",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "off_topic",
+    "decision_why": "A culture/streaming piece with no parasocial relationship in it. It is in the queue because the feed was swept, not because it is about the subject. Should not have been filed.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-21d3389c",
@@ -779,7 +926,10 @@
     "feed": "Vitamin E K",
     "url": "https://vitaminek.substack.com/p/the-scandal-le-drama-qui-va-vous",
     "at": "Sun, 20 Sep 2026 06:05:44",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "off_topic",
+    "decision_why": "A culture/streaming piece with no parasocial relationship in it. It is in the queue because the feed was swept, not because it is about the subject. Should not have been filed.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-5a8081a0",
@@ -795,7 +945,10 @@
     "feed": "Vitamin E K",
     "url": "https://vitaminek.substack.com/p/the-scandal-the-k-drama-that-will",
     "at": "Sun, 20 Sep 2026 03:07:05",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "off_topic",
+    "decision_why": "A culture/streaming piece with no parasocial relationship in it. It is in the queue because the feed was swept, not because it is about the subject. Should not have been filed.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-e93b8628",
@@ -811,7 +964,10 @@
     "feed": "MSN",
     "url": "https://www.msn.com/en-us/news/technology/what-are-parasocial-relationships/ar-AA1QH8xF",
     "at": "Tue, 18 No",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "generic_explainer",
+    "decision_why": "A definition piece. The queue is over-supplied with these because the sweep query is the phrase itself. The site does not need another.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-7b45e7c2",
@@ -827,7 +983,10 @@
     "feed": "blogTO",
     "url": "https://www.blogto.com/tech/2024/08/parasocial-pitfalls/",
     "at": "Sun, 04 Au",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "generic_explainer",
+    "decision_why": "A definition piece. The queue is over-supplied with these because the sweep query is the phrase itself. The site does not need another.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-4d261546",
@@ -843,7 +1002,10 @@
     "feed": "Indiatimes",
     "url": "https://timesofindia.indiatimes.com/life-style/relationships/love-sex/what-is-parasocial-relationship-and-what-does-it-say-about-you/photostory/108078685.cms",
     "at": "Wed, 28 Fe",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "generic_explainer",
+    "decision_why": "A definition piece. The queue is over-supplied with these because the sweep query is the phrase itself. The site does not need another.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-1237626d",
@@ -859,7 +1021,10 @@
     "feed": "Indiatimes",
     "url": "https://timesofindia.indiatimes.com/life-style/relationships/love-sex/what-are-parasocial-relationships-are-they-more-emotionally-fulfilling/photostory/110796213.cms",
     "at": "Fri, 07 Ju",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "generic_explainer",
+    "decision_why": "A definition piece. The queue is over-supplied with these because the sweep query is the phrase itself. The site does not need another.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-70a4becc",
@@ -875,7 +1040,10 @@
     "feed": "MSN",
     "url": "https://www.msn.com/en-in/entertainment/celebrities/taylor-swift-wedding-speculation-highlights-psychological-power-of-parasocial-relationships/ar-AA278Wms",
     "at": "Fri, 03 Ju",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "needs_lens",
+    "decision_why": "Real and sourced, but no section assigned yet. The sweep files raw because no model key is set - 'Needs a human to point it at an section' - so section/law/conf are all empty. Triage by hand.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-10a25bcd",
@@ -891,7 +1059,10 @@
     "feed": "Forbes",
     "url": "https://www.forbes.com/sites/jefffromm/2026/07/01/verizons-cmo-on-customer-obsession-loyalty-and-increasing-choice/",
     "at": "Wed, 01 Ju",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "hold_for_brand_aisle",
+    "decision_why": "Brand-loyalty trade coverage. Potentially a brand-aisle card but not verified, and the two Forbes contributors' pieces are brand marketing, not reporting.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-5d35daa8",
@@ -907,7 +1078,10 @@
     "feed": "Within Nigeria",
     "url": "https://www.withinnigeria.com/2026/09/28/kizz-daniel-blessing-ceo-and-others-nigerian-celebrities-recently-struck-by-grief/",
     "at": "Sun, 27 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-71426521",
@@ -923,7 +1097,10 @@
     "feed": "TIME on MSN",
     "url": "https://www.msn.com/en-us/entertainment/celebrities/dolly-parton-gloria-steinem-and-why-grieving-a-celebrity-feels-so-personal/ar-AA2cuOjh",
     "at": "Fri, 18 Se",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   },
   {
     "id": "raw-e33932fe",
@@ -939,6 +1116,9 @@
     "feed": "Yahoo",
     "url": "https://www.yahoo.com/entertainment/celebrity/articles/why-dolly-parton-death-feel-130024508.html",
     "at": "Sun, 30 Au",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section."
+    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
+    "decision": "source_for_existing_card",
+    "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
+    "decided": "2026-10-04"
   }
 ]
