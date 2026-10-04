@@ -471,6 +471,70 @@ def main():
         uniq.append(i)
     found = uniq
 
+    # Dedupe BY WHAT THE STORY IS, not only by where it was found.
+    #
+    # `seen.json` is keyed on sha1(url). That is the right key for "have I seen
+    # this exact link before", and it is the wrong key for "is this a story I
+    # have already run" - because one syndicated article reaches the sweep from
+    # half a dozen places with half a dozen URLs. Fox, Yahoo and MSN all carried
+    # the same Dolly Parton piece; MSN wrapped three other outlets' reporting
+    # behind its own domain; tracking parameters differ between the RSS copy and
+    # the search copy.
+    #
+    # Measured: of 57 raw candidates in the last queue, 26 were already published
+    # as cards, and among the rest three were one article syndicated three times.
+    # 108 hashes in seen.json and none of it helped, because the hashes were of
+    # the wrong thing.
+    #
+    # There is already a title dedupe in this file, `th = sha1(sorted(words(...)))`
+    # at the model stage - but the model stage is disabled here ("no model key
+    # set"), so raw filing never reached it. 46% of the queue was noise. The
+    # check has been moved up so it runs before filing, whatever the model does,
+    # and the seen-set now records both keys so a syndicated rewrite is caught
+    # next time too.
+    def norm_title(t):
+        # Truncate to 120 FIRST, because that is what seen.json stores
+        # ("title": it["title"][:120]). Normalising the full string on one side
+        # and the truncated string on the other gives two different word sets for
+        # the same headline, and the long syndicated ones are exactly the ones
+        # that need catching.
+        return " ".join(sorted(words((t or "")[:120])))[:200]
+
+    # The published set, which is what "we already ran this" actually means.
+    #
+    # NOT seen.json. That file records "the sweep has laid eyes on this", and
+    # filing is what writes to it - so every item currently sitting in the queue
+    # is in there by construction. Deduping against it drops the entire queue,
+    # including the two stories the drain had just identified. That is not a
+    # subtle over-filter: the first version of this check removed all 57 raw
+    # candidates and both real stories, and the only reason that was visible is
+    # that it was run against the previous queue before being trusted.
+    #
+    # Three sets, three different questions:
+    #   card headlines      - have we published this story
+    #   card source titles  - have we published this under another outlet's byline
+    #   the candidates      - are three feeds carrying one syndicated article
+    seen_titles = set()
+    for c in shop.get("cards", []):
+        if c.get("headline"):
+            seen_titles.add(norm_title(c["headline"]))
+        for s in (c.get("sources") or []):
+            if s.get("title"):
+                seen_titles.add(norm_title(s["title"]))
+
+    by_title, title_dupes = [], 0
+    batch_titles = set()
+    for i in found:
+        th = norm_title(i.get("title"))
+        if th and (th in seen_titles or th in batch_titles):
+            title_dupes += 1
+            continue
+        if th:
+            batch_titles.add(th)
+        by_title.append(i)
+    found = by_title
+    print(f"  {title_dupes} dropped as the same story under a different url")
+
     fresh = [i for i in found if i["id"] not in seen["ids"]]
     print(f"  {len(fresh)} never seen before")
 
