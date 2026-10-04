@@ -1267,9 +1267,9 @@
       "must": [],
       "kind": "illustrative",
       "looked": "2026-10-04",
-      "look_reason": "Opened and looked at. Two small dark silhouettes standing far apart on a horizon line, one upright and narrow, one low and broad, on a flat cream and ochre plain with a great deal of empty space between and around them. Nothing in the frame can be dated, named or checked, which is what makes it safe to put under a -15000 entry.",
-      "note": "GENERATED with FLUX.1-schnell on the local ComfyUI rig. Author-owned by construction, so it satisfies the Commons-or-author-owned policy with no licence question. Never EXACT: it depicts nothing, so it cannot be a documentary record of anything. Weakness recorded rather than hidden - the frame is bottom-heavy with dead ochre and the figures are small, so it works as atmosphere and is weak as a hero. Crop, do not re-prompt.",
-      "local": "img/generated/the-dog-6c39360e5924.png",
+      "look_reason": "Opened and looked at, twice - once before cropping and once after. Two small dark silhouettes on a horizon line, one upright and narrow, one low and broad, on a flat cream and ochre plain with a great deal of empty space between and around them. After cropping 208px off the top they sit at 45% down the frame with the horizon at 48%, which balances the weight. Nothing in the frame can be dated, named or checked, which is what makes it safe under a -15000 entry.",
+      "note": "GENERATED with FLUX.1-schnell on the site owner's own ComfyUI rig. Author-owned by construction, so it satisfies the Commons-or-author-owned policy with no licence question. Never EXACT: it depicts nothing, so it cannot be a documentary record of anything.\n\nCORRECTION, because the first note described the picture wrong. It said 'bottom-heavy with dead ochre'. It is not: the horizon is at 62% down, so the frame is 62% sky and 38% ground. And trimming the bottom makes it worse - the figures move from 60% down to 68%, 75%, 80% as the frame shortens. Only cutting the top helps, because the sky is 477px of slack and the ochre band is not.\n\nThe real remaining weakness is figure scale: 48px across in a 1152px frame, 4.2% of the width, and no crop changes that without cutting them in half. This is atmospheric by construction. It works as a hero band; used as an illustration of anything it will read as empty. If it ever has to carry an argument, it needs a different prompt with the subject large in frame.",
+      "local": "img/generated/the-dog-22f947a11e03.png",
       "src": {
         "title": "Generated locally: FLUX.1-schnell, two distant silhouettes",
         "author": "Parasocialize (generated on the site owner's own machine)",
@@ -1310,6 +1310,18 @@
           }
         ],
         "policy": "Generated art in this layer is atmosphere, never depiction. Anything that depicts a subject is either a Commons photograph of a real thing or nothing."
+      },
+      "crop": {
+        "from": "1152x768",
+        "box": [
+          0,
+          208,
+          1152,
+          768
+        ],
+        "to": "1152x560",
+        "aspect": "2.06:1",
+        "why": "the figures sit at 60% down and trimming the bottom pushes them lower; only trimming the top moves them up"
       }
     }
   ]
