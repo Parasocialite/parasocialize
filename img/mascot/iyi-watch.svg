@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" width="118" height="118" role="img" aria-label="iYi"><title>iYi - watch</title><style>.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-gaze,.iyi-lid,.iyi-iris{
  transform-box:fill-box;transform-origin:center}
-@keyframes iyi-look{0%,100%{transform:translate(0,0)}
- 22%{transform:translate(.7px,.2px)}
- 46%{transform:translate(-.5px,.35px)}
- 71%{transform:translate(.45px,-.15px)}}
+@keyframes iyi-look{0%,18%{transform:translate(0,0)}
+ 38%{transform:translate(2.4px,-.6px)}
+ 58%{transform:translate(2.4px,-.6px)}
+ 78%{transform:translate(-.9px,.4px)}
+ 90%,100%{transform:translate(0,0)}}
 @keyframes iyi-breathe{0%,100%{transform:scale(1)}
  50%{transform:scale(1.035)}}
 @keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
 @keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
-.iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-gaze{animation:iyi-look 13s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi{animation:iyi-breathe 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-pupil{animation:iyi-blink 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-gaze{animation:iyi-look 15s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-bloom{animation:iyi-bloom-pulse 5s ease-in-out infinite;animation-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){
  .iyi,.iyi-pupil,.iyi-gaze,.iyi-bloom{animation:none}}</style><defs><radialGradient id="iyigwatchh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff8f5e" stop-opacity=".42"/><stop offset=".55" stop-color="#ff5a1f" stop-opacity=".14"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/></radialGradient><linearGradient id="iyigwatch" x1=".22" y1=".06" x2=".8" y2=".96"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#eef2f8"/><stop offset="1" stop-color="#c2cddd"/></linearGradient><radialGradient id="iyigwatchi" cx=".42" cy=".36" r=".68"><stop offset="0" stop-color="#d9a441"/><stop offset="1" stop-color="#8a5a12"/></radialGradient><clipPath id="iyigwatchcl"><circle cx="40" cy="42" r="25"/></clipPath><clipPath id="iyigwatchcr"><circle cx="84" cy="42" r="25"/></clipPath><mask id="iyigwatchm"><rect width="118" height="118" fill="#000"/><circle cx="40" cy="42" r="25" fill="#fff"/><circle cx="84" cy="42" r="25" fill="#fff"/></mask></defs><g class="iyi"><circle class="iyi-bloom" cx="46" cy="46" r="34" fill="url(#iyigwatchh)"/><g class="iyi-lobe"><circle cx="40" cy="42" r="25" fill="url(#iyigwatch)"/><circle cx="40" cy="42" r="23.5" fill="none" stroke="#141a24" stroke-width="3" stroke-opacity=".92"/></g><g class="iyi-lobe"><circle cx="84" cy="42" r="25" fill="url(#iyigwatch)"/><circle cx="84" cy="42" r="23.5" fill="none" stroke="#141a24" stroke-width="3" stroke-opacity=".92"/></g><g class="iyi-lid"><g clip-path="url(#iyigwatchcl)"><path d="M49.12 60.69A20.80 20.80 0 1 1 49.12 23.31" stroke="#231009" stroke-width="3" stroke-linecap="round" fill="none"/></g></g><g class="iyi-lid"><g clip-path="url(#iyigwatchcr)"><path d="M93.12 60.69A20.80 20.80 0 1 1 93.12 23.31" stroke="#231009" stroke-width="3" stroke-linecap="round" fill="none"/></g></g><g class="iyi-lid"><g clip-path="url(#iyigwatchcr)"><path d="M59.6 17.6A24.4 24.4 0 0 1 108.4 17.6L108.4 21.1A24.4 24.4 0 0 0 59.6 21.1Z" fill="#231009"/></g></g><g class="iyi-lid"><g clip-path="url(#iyigwatchcr)"><path d="M72.0 40q12.0 9 24 0" stroke="#231009" stroke-width="5.5" stroke-linecap="round" fill="none"/></g></g><circle class="iyi-iris" cx="40" cy="43.5" r="15.70" fill="url(#iyigwatchi)" stroke="#231009" stroke-width="1.1"/><g class="iyi-gaze"><g class="iyi-pupil"><circle cx="40" cy="43.5" r="12.5" fill="#231009"/><circle cx="36.25" cy="39.25" r="3.6249999999999996" fill="#ffffff"/><path d="M43.375 43.75L44.4625 46.2875L47.0 47.375L44.4625 48.4625L43.375 51.0L42.2875 48.4625L39.75 47.375L42.2875 46.2875Z" fill="#ffffff" opacity="0.92"/><circle cx="38.25" cy="49.75" r="1.125" fill="#ffffff" opacity="0.5"/></g></g><circle class="iyi-iris" cx="87" cy="45.5" r="13.70" fill="url(#iyigwatchi)" stroke="#231009" stroke-width="1.1"/><g class="iyi-gaze"><g class="iyi-pupil"><circle cx="87" cy="45.5" r="10.5" fill="#231009"/><circle cx="83.85" cy="41.93" r="1.8879" fill="#ffffff"/><path d="M89.835 46.8671L90.40137 48.18863L91.7229 48.755L90.40137 49.32137L89.835 50.642900000000004L89.26862999999999 49.32137L87.94709999999999 48.755L89.26862999999999 48.18863Z" fill="#ffffff" opacity="0.57"/><circle cx="85.53" cy="50.75" r="0.5859" fill="#ffffff" opacity="0.31"/></g></g></g></svg>

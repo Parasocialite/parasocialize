@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" width="118" height="118" role="img" aria-label="iYi"><title>iYi - love</title><style>.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-gaze,.iyi-lid,.iyi-iris{
  transform-box:fill-box;transform-origin:center}
-@keyframes iyi-look{0%,100%{transform:translate(0,0)}
- 22%{transform:translate(.7px,.2px)}
- 46%{transform:translate(-.5px,.35px)}
- 71%{transform:translate(.45px,-.15px)}}
+@keyframes iyi-look{0%,18%{transform:translate(0,0)}
+ 38%{transform:translate(2.4px,-.6px)}
+ 58%{transform:translate(2.4px,-.6px)}
+ 78%{transform:translate(-.9px,.4px)}
+ 90%,100%{transform:translate(0,0)}}
 @keyframes iyi-breathe{0%,100%{transform:scale(1)}
  50%{transform:scale(1.035)}}
 @keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
 @keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
-.iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-gaze{animation:iyi-look 13s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi{animation:iyi-breathe 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-pupil{animation:iyi-blink 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-gaze{animation:iyi-look 15s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-bloom{animation:iyi-bloom-pulse 5s ease-in-out infinite;animation-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){
  .iyi,.iyi-pupil,.iyi-gaze,.iyi-bloom{animation:none}}</style><defs><radialGradient id="iyigloveh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff8f5e" stop-opacity=".42"/><stop offset=".55" stop-color="#ff5a1f" stop-opacity=".14"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/></radialGradient><linearGradient id="iyiglove" x1=".22" y1=".06" x2=".8" y2=".96"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#eef2f8"/><stop offset="1" stop-color="#c2cddd"/></linearGradient><radialGradient id="iyiglovei" cx=".42" cy=".36" r=".68"><stop offset="0" stop-color="#d9a441"/><stop offset="1" stop-color="#8a5a12"/></radialGradient><clipPath id="iyiglovecl"><circle cx="40" cy="42" r="25"/></clipPath><clipPath id="iyiglovecr"><circle cx="84" cy="42" r="25"/></clipPath><mask id="iyiglovem"><rect width="118" height="118" fill="#000"/><circle cx="40" cy="42" r="25" fill="#fff"/><circle cx="84" cy="42" r="25" fill="#fff"/></mask></defs><g class="iyi"><circle class="iyi-bloom" cx="46" cy="46" r="34" fill="url(#iyigloveh)"/><g class="iyi-lobe"><circle cx="40" cy="42" r="25" fill="url(#iyiglove)"/><circle cx="40" cy="42" r="23.5" fill="none" stroke="#141a24" stroke-width="3" stroke-opacity=".92"/></g><g class="iyi-lobe"><circle cx="84" cy="42" r="25" fill="url(#iyiglove)"/><circle cx="84" cy="42" r="23.5" fill="none" stroke="#141a24" stroke-width="3" stroke-opacity=".92"/></g><g class="iyi-lid"><g clip-path="url(#iyiglovecl)"><path d="M49.12 60.69A20.80 20.80 0 1 1 49.12 23.31" stroke="#231009" stroke-width="3" stroke-linecap="round" fill="none"/></g></g><g class="iyi-lid"><g clip-path="url(#iyiglovecr)"><path d="M93.12 60.69A20.80 20.80 0 1 1 93.12 23.31" stroke="#231009" stroke-width="3" stroke-linecap="round" fill="none"/></g></g><g class="iyi-lid"><g clip-path="url(#iyiglovecr)"><path d="M72.0 40q12.0 9 24 0" stroke="#231009" stroke-width="5.5" stroke-linecap="round" fill="none"/></g></g><g class="iyi-pupil"><path d="M40 53.0C27.6 44.4 27.6 31.6 34.4 31.6C38.0 31.6 40 35.2 40 38.0C40 35.2 42.0 31.6 45.6 31.6C52.4 31.6 52.4 44.4 40 53.0Z" fill="#231009"/></g><g class="iyi-pupil"><path d="M84 53.0C71.6 44.4 71.6 31.6 78.4 31.6C82.0 31.6 84 35.2 84 38.0C84 35.2 86.0 31.6 89.6 31.6C96.4 31.6 96.4 44.4 84 53.0Z" fill="#231009"/></g></g></svg>

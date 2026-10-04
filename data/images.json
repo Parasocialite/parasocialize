@@ -362,7 +362,7 @@
     {
       "slug": "peak-parasocial-vogue",
       "for": "story",
-      "caption": "A fashion show in Japan, 1953",
+      "caption": "A halftone print of a fashion show: a woman on a low platform in a full-length white gown with a wide hoop skirt, a fringed canopy above her, and an audience along the bottom edge.",
       "q": "fashion show",
       "must": [
         "fashion"
@@ -376,7 +376,15 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AFashion_show_in_Japan_1953.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "A woman on a low platform in a full-length white gown with an extremely wide, stiff hoop skirt, a dark flower at the bodice and a large bow at the waist, an elaborate fringed white canopy hanging above her, and an audience seated along the bottom edge - one woman's face turned up toward the platform. A garment presented to an audience on a platform is a fashion show, so the must-term is met by the frame. The reproduction is visibly a blue halftone print, dot pattern and paper grain intact.",
+      "note": "Two things in the caption are not in the picture. Nothing identifies Japan - no signage, no text, no venue detail - and a full crinoline of this silhouette is at least as likely to be a Western ball gown as a Japanese one, so the frame neither confirms nor contradicts it. The 1953 is consistent with the silhouette but cannot be dated from pixels; the era reading is fashion history, not evidence. Disclosed the reproduction medium in the caption, because a halftone print is a copy of a photograph and not the photograph.",
+      "caption_corrected": {
+        "from": "A fashion show in Japan, 1953",
+        "date": "2026-10-04",
+        "why": "A woman on a low platform in a full-length white gown with an extremely wide, stiff hoop skirt, a dark flower at the bodice and a large bow at the waist, an elaborate fringed white canopy hanging above her, and an audience seated along the bottom edge - one woman's face turned up toward the platform. A garment presented to an audience on a platform is a fashion show, so the must-term is met by the frame. The reproduction is visibly a blue halftone print, dot pattern and paper grain intact."
+      }
     },
     {
       "slug": "ai-updates-feel-like-breakups",
@@ -940,7 +948,10 @@
         "page": "https://www.flickr.com/photos/thomashawk/55553861091/"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "exact",
+      "looked": "2026-10-04",
+      "look_reason": "A woman in a pink belted dress, glasses and a pearl necklace, standing beside a rounded-screen television set with a fringed lampshade on top of it, against tan wallpaper. She is standing beside a television set, which is the whole of the caption, and the caption claims nothing further. A genuine match.",
+      "note": "Low resolution - this is a small scan with a printed white border, not a photographic original. Not a correctness problem, but image_audit states it cannot judge whether a picture is a good picture, so it is recorded here rather than left implicit."
     },
     {
       "slug": "history-macy-store",

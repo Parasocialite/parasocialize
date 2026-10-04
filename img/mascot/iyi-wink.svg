@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118" width="118" height="118" role="img" aria-label="iYi"><title>iYi - wink</title><style>.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-gaze,.iyi-lid,.iyi-iris{
  transform-box:fill-box;transform-origin:center}
-@keyframes iyi-look{0%,100%{transform:translate(0,0)}
- 22%{transform:translate(.7px,.2px)}
- 46%{transform:translate(-.5px,.35px)}
- 71%{transform:translate(.45px,-.15px)}}
+@keyframes iyi-look{0%,18%{transform:translate(0,0)}
+ 38%{transform:translate(2.4px,-.6px)}
+ 58%{transform:translate(2.4px,-.6px)}
+ 78%{transform:translate(-.9px,.4px)}
+ 90%,100%{transform:translate(0,0)}}
 @keyframes iyi-breathe{0%,100%{transform:scale(1)}
  50%{transform:scale(1.035)}}
 @keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
 @keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
-.iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-gaze{animation:iyi-look 13s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi{animation:iyi-breathe 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-pupil{animation:iyi-blink 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-gaze{animation:iyi-look 15s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-bloom{animation:iyi-bloom-pulse 5s ease-in-out infinite;animation-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){
  .iyi,.iyi-pupil,.iyi-gaze,.iyi-bloom{animation:none}}</style><defs><radialGradient id="iyigwinkh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff8f5e" stop-opacity=".42"/><stop offset=".55" stop-color="#ff5a1f" stop-opacity=".14"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/></radialGradient><linearGradient id="iyigwink" x1=".22" y1=".06" x2=".8" y2=".96"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#eef2f8"/><stop offset="1" stop-color="#c2cddd"/></linearGradient><radialGradient id="iyigwinki" cx=".42" cy=".36" r=".68"><stop offset="0" stop-color="#d9a441"/><stop offset="1" stop-color="#8a5a12"/></radialGradient><clipPath id="iyigwinkcl"><circle cx="40" cy="42" r="25"/></clipPath><clipPath id="iyigwinkcr"><circle cx="84" cy="42" r="25"/></clipPath><mask id="iyigwinkm"><rect width="118" height="118" fill="#000"/><circle cx="40" cy="42" r="25" fill="#fff"/><circle cx="84" cy="42" r="25" fill="#fff"/></mask></defs><g class="iyi"><circle class="iyi-bloom" cx="46" cy="46" r="34" fill="url(#iyigwinkh)"/><g class="iyi-lobe"><circle cx="40" cy="42" r="25" fill="url(#iyigwink)"/><circle cx="40" cy="42" r="23.5" fill="none" stroke="#141a24" stroke-width="3" stroke-opacity=".92"/></g><g class="iyi-lobe"><circle cx="84" cy="42" r="25" fill="url(#iyigwink)"/><circle cx="84" cy="42" r="23.5" fill="none" stroke="#141a24" stroke-width="3" stroke-opacity=".92"/></g><g class="iyi-lid"><g clip-path="url(#iyigwinkcl)"><path d="M49.12 60.69A20.80 20.80 0 1 1 49.12 23.31" stroke="#231009" stroke-width="3" stroke-linecap="round" fill="none"/></g></g><g class="iyi-lid"><g clip-path="url(#iyigwinkcr)"><path d="M93.12 60.69A20.80 20.80 0 1 1 93.12 23.31" stroke="#231009" stroke-width="3" stroke-linecap="round" fill="none"/></g></g><g class="iyi-lid"><g clip-path="url(#iyigwinkcr)"><path d="M72.0 40q12.0 9 24 0" stroke="#231009" stroke-width="5.5" stroke-linecap="round" fill="none"/></g></g><circle class="iyi-iris" cx="40" cy="44" r="15.20" fill="url(#iyigwinki)" stroke="#231009" stroke-width="1.1"/><g class="iyi-gaze"><g class="iyi-pupil"><circle cx="40" cy="44" r="12.0" fill="#231009"/><circle cx="36.4" cy="39.92" r="3.4799999999999995" fill="#ffffff"/><path d="M43.24 44.24L44.284 46.676L46.72 47.72L44.284 48.763999999999996L43.24 51.199999999999996L42.196000000000005 48.763999999999996L39.760000000000005 47.72L42.196000000000005 46.676Z" fill="#ffffff" opacity="0.92"/><circle cx="38.32" cy="50.0" r="1.08" fill="#ffffff" opacity="0.5"/></g></g></g></svg>

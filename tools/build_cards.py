@@ -758,7 +758,14 @@ def build_credits(data, manifest):
         if not f:
             continue
         src = it.get("src") or {}
-        kind = src.get("kind", "")
+        # Take the kind `img_for` already resolved rather than re-reading it.
+        # This line read `src.get("kind", "")` and so always got "", which made
+        # every badge ILLUSTRATION. Fixing `img_for` alone changed nothing here,
+        # because this assignment overwrote its result - the tell was that the
+        # built page did not move after a fix that should have. `kind` lives on
+        # the record since the image claims were corrected; `src` is provenance
+        # and never held a human judgement about a picture.
+        kind = f.get("kind", "")
         badge = ("<span class=\"tag tag-law\">EXACT</span>" if kind == "exact"
                  else "<span class=\"tag\">ILLUSTRATION</span>")
         page = f.get("page", "#")
@@ -1116,6 +1123,12 @@ def build_front(data, feat=None, manifest=None, hist=None):
 </a>""")
 
     total = len(cards)
+    # The encyclopedia's size is read, not typed. A number written into a
+    # template is a number that goes stale silently and reads as true until
+    # someone checks - the `kind: exact` from a filename, in a different place.
+    nent = len(json.loads(
+        (ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8")
+    )["entries"])
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1133,9 +1146,26 @@ def build_front(data, feat=None, manifest=None, hist=None):
 <section class="masthead">
   <div class="wrap">
     <h1>Parasocialize.</h1>
-    <p class="line">One-sided relationships are just easier.
-     The news, the argument, the research and the whole history of it — tracking it for you.</p>
-    <p class="mono-s" style="margin-top:14px">{total} stories · free · every one signed by a person ·
+    <p class="line"><b style="color:var(--paper)">The word is from 1956.</b>
+     Horton and Wohl coined <i>parasocial interaction</i> to describe what viewers
+     did to a television character who never knew they existed.
+     <b style="color:var(--paper)">The thing is much older than the word.</b>
+     A species has spent fifteen thousand years being selected partly for forming
+     attachment to one particular ape.</p>
+    <p class="line">This is the record of it. The news, the argument, the research,
+     and the whole documented history — back to the dead kept in a cave seventy
+     thousand years ago, and forward to the companion apps now answering at four
+     in the morning.</p>
+    <div class="fdoors" style="margin-top:22px;grid-template-columns:repeat(2,1fr);max-width:760px">
+      <a class="fdoor" href="sections/index.html" style="--c:var(--hot)">
+        <span class="fdoor-body"><b>To read</b><strong>All {total} stories</strong>
+        <span>A story a day, every one of them signed by a person. Free.</span></span></a>
+      <a class="fdoor" href="encyclopedia/index.html" style="--c:var(--mint)">
+        <span class="fdoor-body"><b>To look something up</b>
+        <strong>The encyclopedia</strong>
+        <span>{nent} entries, every claim cited, from a dog to a chatbot.</span></span></a>
+    </div>
+    <p class="mono-s" style="margin-top:16px">{total} stories · free · every one signed by a person ·
     <a href="sections/index.html">all of it, searchable →</a></p>
     <div class="masthead-mark">{wordmark("hero")}</div>
   </div>
@@ -1190,10 +1220,21 @@ def img_for(manifest, slug, depth=1):
         return None
     src = it.get("src") or {}
     page = src.get("page", "#")
+    # `kind` moved OUT of `src` and onto the record when the image claims were
+    # corrected, because a human judgement about a picture was sitting in the
+    # provenance block and reading as though the source had supplied it. This line
+    # was never updated, so `src.get("kind", ...)` matched nothing and every
+    # badge on the site fell through to the default: 48 ILLUSTRATION tags and
+    # zero EXACT, including for records that are now genuinely exact. The
+    # over-disclosure is the safe direction, which is exactly why nothing
+    # complained - a stale read path and a conservative default look identical
+    # from the outside. Read the record, then fall back to the old location so
+    # an older manifest cannot silently lose the distinction.
+    kind = it.get("kind") or src.get("kind") or "illustrative"
     return {"path": p,
             "credit": f'{src.get("author", "unknown")} · {src.get("licence", "")}'.strip(" ·"),
             "page": page, "caption": it.get("caption", ""),
-            "kind": src.get("kind", "illustrative")}
+            "kind": kind}
 
 
 def img_aisle(manifest, aisle_id, depth=1):

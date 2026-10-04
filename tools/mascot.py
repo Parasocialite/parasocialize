@@ -185,22 +185,36 @@ RIG_CSS = """.iyi,.iyi-bloom,.iyi-lobe,.iyi-pupil,.iyi-gaze,.iyi-lid,.iyi-iris{
 # two animations both writing `transform` means the last one wins, so the blink
 # would have eaten the look. Nested groups, one transform each.
 #
-# The drift is small and slow on purpose. iYi is reactive but restrained, and
-# the gaze must never read as tracking the reader - the character is a conduit,
-# not a camera pointed at whoever is nearest.
-GAZE_CSS = """@keyframes iyi-look{0%,100%{transform:translate(0,0)}
- 22%{transform:translate(.7px,.2px)}
- 46%{transform:translate(-.5px,.35px)}
- 71%{transform:translate(.45px,-.15px)}}"""
+# THE PERIODS MUST SHARE A FACTOR. These ran at 5.4s, 5.4s, 6.6s and 13s, and
+# 5.4, 6.6 and 13 have no common factor beyond 2 - so the character's whole
+# combined pose only returned to its starting state every
+# lcm(54,66,130)/10 = 3861 seconds, about 64 minutes. Nothing that aperiodic ever
+# settles: a viewer cannot learn it, and it was reported as "the pink is moving
+# erratically". The mascot is the pink, via --hot on the wordmark's i. Four
+# unrelated periods is not life, it is drift.
+#
+# Everything is now built from a 5s base: breath, bloom and blink on 5s, gaze on
+# 15s (three base units), so the composite returns to identical every 15 seconds
+# - short enough to learn, long enough not to be metronomic. The per-copy --d
+# stagger still desynchronises a page full of mascots, so nothing blinks in
+# unison; each individual character is simply coherent now.
+#
+# The bloom is deliberately in phase with the breath. It is the light behind the
+# eye, so it should brighten as the character draws breath - one gesture, not two.
+GAZE_CSS = """@keyframes iyi-look{0%,18%{transform:translate(0,0)}
+ 38%{transform:translate(2.4px,-.6px)}
+ 58%{transform:translate(2.4px,-.6px)}
+ 78%{transform:translate(-.9px,.4px)}
+ 90%,100%{transform:translate(0,0)}}"""
 
 BLINK_CSS = """@keyframes iyi-breathe{0%,100%{transform:scale(1)}
  50%{transform:scale(1.035)}}
 @keyframes iyi-blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}}
 @keyframes iyi-bloom-pulse{0%,100%{opacity:.26}50%{opacity:.42}}
-.iyi{animation:iyi-breathe 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-pupil{animation:iyi-blink 6.6s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-gaze{animation:iyi-look 13s ease-in-out infinite;animation-delay:var(--d,0s)}
-.iyi-bloom{animation:iyi-bloom-pulse 5.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi{animation:iyi-breathe 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-pupil{animation:iyi-blink 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-gaze{animation:iyi-look 15s ease-in-out infinite;animation-delay:var(--d,0s)}
+.iyi-bloom{animation:iyi-bloom-pulse 5s ease-in-out infinite;animation-delay:var(--d,0s)}
 @media (prefers-reduced-motion:reduce){
  .iyi,.iyi-pupil,.iyi-gaze,.iyi-bloom{animation:none}}"""
 

@@ -401,7 +401,10 @@ def main():
         print(f"{len(items)} entries, {have} cached")
         for i in items:
             ok = "yes" if (ROOT / (i.get("local") or "x")).exists() else "-"
-            k = (i.get("src") or {}).get("kind", "?")
+            # record level, not src: `kind` was moved out of the provenance
+            # block when the image claims were corrected. This read was left
+            # behind and printed "?" for all 73 records.
+            k = i.get("kind") or (i.get("src") or {}).get("kind") or "?"
             print(f"  [{ok:>3}] {k:<12} {i['slug']:<30} {(i.get('caption') or '')[:44]}")
         return
     targets = [x for x in a if not x.startswith("--")]
