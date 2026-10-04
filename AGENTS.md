@@ -1562,10 +1562,62 @@ the project.
       `illustrative` and says why — while the three generic captions, where the
       frame settles the matter, are promoted. **Look at the image to test the
       caption. Never look at it to confirm the caption.**
-    - 44 records have a local file and can be opened now; 24 need fetching first.
-      Three of four spot-checks passing is not a rate to generalise from — item
-      17's four-probe sample came back three of four *wrong*, on the encyclopedia
-      set rather than the story set, so the two are not comparable.
+    - **The queue is 39, and it was reported to me as 64.** See the withdrawn-record
+      bug below; getting this number right matters more than the count itself.
+    - **Working the queue found a false caption, which item 17's sample had
+      suggested was confined to the encyclopedia set. It is not.**
+      `t8-1-rugrats-nest` was captioned **"A Reptar toy."** The picture is a
+      **roller coaster** — green tubular supports, a yellow track, riders over a
+      crest — with a sign reading `DRIVE IN / NOW SHOWING / RUNAWAY`, which
+      points at the *Rugrats film*, not the character. The `reptar` must-term
+      passed on the filename `Rugrat's Runaway Reptar` and on nothing else. The
+      caption was not loose, it was **false**, and it went further: it claimed a
+      photograph of the toy was *closer to the episode than a screenshot*, an
+      argument about the episode's meaning that the picture it captioned cannot
+      support. Caption corrected through `look.py --caption`, with the old text
+      kept in `caption_corrected`. **One in nine of the checked story records was
+      wrong, and 22% of the manifest had never been opened at all.**
+    - **A triage falls out of that failure, and it is free.** The must-term is
+      what admits a picture, so a caption that *never mentions its own must-term*
+      is one where the validating word came from metadata rather than from the
+      sentence a reader sees. Of the outstanding records, **10 name no must-term
+      in the caption at all** and 53 name every one of theirs. The word-matching
+      is crude in both directions — `autograph` against "A signed photograph" and
+      `ocasio` against "Official portrait, 116th Congress" are both false alarms
+      — so it ranks the queue and clears nothing.
+    - **Six captions document their own defect**, which is the right instinct and
+      the reason they are findable: `madeonyoutube-spending-on-scoreboard` is
+      captioned *"A software bug-report form asking for a maximum date. Nothing to
+      do with…"*, while its must-term is `youtube`; `oshi-katsu-half-century`
+      says *"The filter is supposed to exclude charts and this one got…"*; and
+      `aisle-contest` records that its previous picture was a pilgrimage site in
+      the Philippines captioned as a public argument. Somebody wrote the failure
+      down instead of quietly fixing it.
+    - **That investigation produced a false alarm of my own, and the correction
+      matters more than the alarm.** Sixteen captions are cut at **exactly 70
+      characters, mid-word** — `"Nothing to do wi"`, `"this one go"`,
+      `"The single wor"`. The cause is one line:
+
+      ```python
+      tools/apply_review.py:185    it["caption"] = note.split("REJECT. ")[-1][:70]
+      ```
+
+      So the path written to install a *better* caption truncates it. I called
+      this a corruption of the manifest. **It is not.** That slice runs only on
+      the `REJECT` branch, which strips `local`, `src` and `cached` — all 16 are
+      **withdrawn** records, and none of the fragments appears anywhere in
+      `dist/`. Ugly, invisible, not a reader-facing defect. **I reported a
+      systemic corruption before checking whether the affected records were
+      reachable by a reader, which is the one question that decides it.**
+    - **But chasing it found a real bug, in the tool I had just written.**
+      `look.py --list` reported the queue as 64 records, "25 need fetching". All
+      25 are withdrawn: no cached file, no source, deliberately rejected.
+      **Nothing to fetch and nothing to open.** The real queue is **39**, so the
+      list overstated the work by 39% and pointed at twenty-five images that
+      cannot exist. `look.py` now separates openable, fetchable and withdrawn, and
+      prints `QUEUE IS 39, not 64` so the number cannot drift back. **A queue
+      that tells you to fetch work which cannot exist is worse than no queue,
+      because it looks like progress and costs a pass to discover.**
 
 ## Deploy note
 

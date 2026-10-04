@@ -122,7 +122,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ADanny_Philippou_and_Luke_Kidgell_at_VidCon_Australia_2017.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "Two young men selfie-framed in a crowded indoor venue under magenta lighting; one wears a grey beanie and a red lanyard printed with YouTube play-button logos. It is plainly two creators at a convention, which is the thing the entry is about. But the must-term is 'vidcon' and the word appears nowhere in the frame - no signage, no banner. Nothing dates it to 2017 or places it in Australia.",
+      "note": "The must-term is satisfied by the src title alone. This is item 17's failure mode exactly: the filter confirms a word is in the metadata, not that the file shows the subject."
     },
     {
       "slug": "youtube-patreon-membership-spaces",
@@ -461,7 +464,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AJanette_Steer_%281863%E2%80%931947%29_as_Galatea_in_Pygmalion_and_Galatea.png"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "A black-and-white full-length studio portrait of a woman on a low plinth against a dark ground, in a classical gown whose surface is ridged and folded like modelled wax - that part of the caption is visible and is the reason the picture was chosen. The must-term is 'pygmalion' and the word is nowhere in the frame.",
+      "note": "Two separate gaps. The title rests on src, not pixels. And the entry's actual subject is the historical case - the sculptor whose assistant caught fire - while this photograph shows the myth that was built from it. An image of Galatea is illustrative of the legend, not evidence for the history."
     },
     {
       "slug": "sculptor-fell-in-love",
@@ -481,7 +487,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ABuddha%2C_China%2C_marble_sculpture%2C_Tang_dynasty_style%2C_Museum_Humanum_%2C_258919.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "A seated Buddha in a museum gallery on a white plinth, a carved relief panel behind it and a glass case at the left. It is unambiguously a sculpture, and the caption's disclosure that it is not Pygmalion is correct. Two problems with the rest. The stone is a buff, granular, sedimentary-looking material, not the white or veined surface marble has, so the must-term 'marble' is not supported by the frame. And the museum's own label is legible in the photograph, reading 'Buddha im Mondschein / Aus Laos ... vermutlich 10. Jh. ... in der Mitte der West-Pagode' - Laos, tenth century, attribution uncertain.",
+      "note": "The src title says China, Tang dynasty style. The label in the picture says Laos, tenth century. The source metadata and the museum disagree on provenance, and the caption's 'marble' is the one material claim the frame arguably contradicts. Do not describe this as marble without checking which stone it is."
     },
     {
       "slug": "hugh-jackman-divorce",
@@ -770,7 +779,7 @@
     {
       "slug": "t8-1-rugrats-nest",
       "for": "top8",
-      "caption": "A Reptar toy. The NEST letter is about wanting proof that a toy shop is real, so a photograph of the toy is closer to the episode than a screenshot would have been.",
+      "caption": "A roller coaster with green tubular supports and a yellow track, a train of riders cresting a hill above a sign reading DRIVE IN, NOW SHOWING RUNAWAY.",
       "q": "Rugrats",
       "must": [
         "reptar"
@@ -784,7 +793,15 @@
         "page": "https://commons.wikimedia.org/wiki/File%3APKI-Rugrat%27s_Runaway_Reptar.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "There is no toy in this picture. It is a roller coaster - green tubular supports, a yellow track, a train of riders over a crest - with a sign below reading DRIVE IN / NOW SHOWING / RUNAWAY, which points at the Rugrats film rather than at the character. The must-term is 'reptar' and it passed on the filename 'Rugrat's Runaway Reptar' alone. Caption corrected: it described a toy that is not in the frame.",
+      "note": "Item 17's failure caught in the act, on a story record rather than an encyclopedia one. The old caption was not merely loose but false, and it made a claim about the episode's argument - that a photograph of the toy is closer to the episode than a screenshot - which the picture it captioned cannot support. The franchise connection is real, via the RUNAWAY sign; the toy is simply absent.",
+      "caption_corrected": {
+        "from": "A Reptar toy. The NEST letter is about wanting proof that a toy shop is real, so a photograph of the toy is closer to the episode than a screenshot would have been.",
+        "date": "2026-10-04",
+        "why": "There is no toy in this picture. It is a roller coaster - green tubular supports, a yellow track, a train of riders over a crest - with a sign below reading DRIVE IN / NOW SHOWING / RUNAWAY, which points at the Rugrats film rather than at the character. The must-term is 'reptar' and it passed on the filename 'Rugrat's Runaway Reptar' alone. Caption corrected: it described a toy that is not in the frame."
+      }
     },
     {
       "slug": "t8-2-rugrats-gun",
@@ -1085,7 +1102,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AA_woman_adjusts_a_vintage_television_on_a_wooden_table_in_a_warm%2C_inviting_room.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "A cream 1970s television on a wooden table in a sunlit, wood-panelled room: rounded CRT, two large rotary dials, perforated speaker grille. A person in a beige jacket leans over it with a hand reaching toward the lower edge of the set. The must-term television is met by the object itself, not by a filename, and this is the picture the caption's history deserves.",
+      "note": "Narrow downgrade, and the reason is one word. 'Vintage television' and 'adjusting' both hold - the hand is at the set's controls. 'A woman' does not: the face is cropped to nose and mouth, and hair and clothing do not establish gender. Everything the picture is here to show is here; one word of the caption is not visible."
     },
     {
       "slug": "aisle-companion",

@@ -51,6 +51,11 @@ if "--note" in arg:
     i = arg.index("--note")
     NOTE = arg[i + 1]
     del arg[i:i + 2]
+CAPTION = None
+if "--caption" in arg:
+    i = arg.index("--caption")
+    CAPTION = arg[i + 1]
+    del arg[i:i + 2]
 # strip the flags only after reading them. Removing "--apply" first and then
 # asking whether it is present makes the answer permanently no, which is how
 # this printed "(dry run)" on a command that carried --apply.
@@ -62,17 +67,39 @@ items = man["items"]
 if LIST or not arg:
     seen = [i for i in items if i.get("looked")]
     todo = [i for i in items if not i.get("looked")]
-    withfile = [i for i in todo if i.get("local")]
-    remote = [i for i in todo if not i.get("local")]
+    openable = [i for i in todo if i.get("local")]
+    # A withdrawn record has neither a cached file nor a source. Those are the
+    # images a review rejected: `apply_review.py` strips local, src and cached
+    # and leaves a stub caption. There is nothing to fetch and nothing to open,
+    # so they are not outstanding work.
+    #
+    # Counting them as "needs fetching" overstated the queue by 39% - 64 records
+    # reported against 39 that can actually be looked at. A queue that tells you
+    # to go and fetch twenty-five images that were deliberately withdrawn is
+    # worse than no queue, because it sends you to do work that cannot exist.
+    withdrawn = [i for i in todo
+                 if not i.get("local") and not i.get("src")]
+    fetchable = [i for i in todo
+                 if not i.get("local") and i.get("src")]
     print(f"looked: {len(seen)} of {len(items)}")
     for kind in sorted(VALID):
         print(f"   {kind:<13} {sum(1 for i in seen if i.get('kind') == kind)}")
-    print(f"outstanding: {len(todo)}  ({len(withfile)} have a local file, "
-          f"{len(remote)} need fetching before they can be looked at)")
-    if withfile:
+    print(f"\nQUEUE IS {len(openable)}, not {len(todo)}.")
+    print(f"   openable now (cached file)   {len(openable)}")
+    print(f"   fetchable (source on record) {len(fetchable)}")
+    print(f"   withdrawn, never to be opened {len(withdrawn)}  "
+          f"- rejected by review, no image and no source")
+    if fetchable:
+        print("\nfetch first:")
+        for i in fetchable:
+            print(f"   {i['slug']}  {(i.get('src') or {}).get('page','')}")
+    if openable:
         print("\nready to open:")
-        for i in withfile:
+        for i in openable:
             print(f"   {i['local'].rsplit('/', 1)[-1][:14]}  {i.get('caption','')[:70]}")
+    if withdrawn:
+        print(f"\nwithdrawn and closed - do not fetch ({len(withdrawn)}):")
+        print("   " + ", ".join(i["slug"] for i in withdrawn))
     sys.exit(0)
 
 if len(arg) < 2:
@@ -119,6 +146,17 @@ if NOTE:
     rec["note"] = NOTE
 if kind == "unchecked":
     rec.pop("note", None)
+if CAPTION:
+    old = rec.get("caption")
+    rec["caption"] = CAPTION
+    if old and old != CAPTION:
+        print(f"   caption WAS: {old}")
+        print(f"   caption NOW: {CAPTION}")
+        rec["caption_corrected"] = {
+            "from": old,
+            "date": date.today().isoformat(),
+            "why": reason,
+        }
 
 if not APPLY:
     print("\n(dry run - pass --apply to write)")
