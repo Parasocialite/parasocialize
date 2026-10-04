@@ -37,18 +37,47 @@ HEAD = """<link rel="canonical" href="{site}{path}">
 <link rel="stylesheet" href="{root}css/styles.css">
 <link rel="stylesheet" href="{root}css/mascot.css">"""
 
+# THE NAV IS GROUPED BY PURPOSE, BECAUSE THE HOMEPAGE NOW SAYS SO.
+#
+# The masthead offers two doors - "to read" and "to look something up" - and then
+# offered a flat row of ten unlabelled links, which undid the point on the first
+# click. A reader who has just been told the site has two modes should not have
+# to guess which link belongs to which.
+#
+# "Home" is gone as a separate item: the wordmark is the home link, it is larger
+# and it is already in the position the eye goes to first. Carrying both is how
+# a bar ends up with eleven things in it.
+#
+# The story count is deliberately NOT interpolated here, even though every caller
+# passes a `total`. It reads "All {total} stories", and build_atlas.py passes
+# len(enc["entries"]) - so the atlas shipped "All 193 stories" pointing at
+# /sections/, which has 47. A shared template that interpolates a value has to
+# have every caller mean the same thing by it, and "total" means cards on most
+# call sites and encyclopedia entries on that one. The number belongs on the
+# homepage, where it is read from the cards it counts. Here it is just a label.
+#
+# The iYi logotype is gone from before the title. It was injected as {mk} into
+# the wordmark anchor, and it made the site's own name read as "iYi
+# PARASOCIALIZE" - two brands in the top-left corner, with the mascot outranking
+# the publication it belongs to. iYi still has its own page, linked below as
+# before. The {mk} argument is still passed by every caller and is now ignored;
+# twenty call sites were not worth churning to remove a keyword argument that
+# str.format discards.
 NAV = """<header class="topbar"><div class="topbar-in">
-  <a class="wordmark" href="{root}index.html">{mk}<b>PARASOCIALIZE</b></a>
+  <a class="wordmark" href="{root}index.html"><b>PARASOCIALIZE</b></a>
   <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   <nav id="nav" class="nav" aria-label="Main">
-    <a href="{root}index.html">Home</a>
-    <a href="{root}sections/index.html">All 47</a>
+    <span class="nav-lab">Read</span>
+    <a href="{root}sections/index.html">All stories</a>
     <a href="{root}top8/index.html">Top 8</a>
     <a href="{root}history/index.html">The history</a>
-    <a href="{root}atlas/index.html">The atlas</a>
-    <a href="{root}quiz/index.html">Quiz</a>
+    <span class="nav-lab">Look up</span>
     <a href="{root}encyclopedia/index.html">Encyclopedia</a>
+    <a href="{root}atlas/index.html">The atlas</a>
+    <a href="{root}timeline/index.html">Timeline</a>
     <a href="{root}citations/index.html">Citations</a>
+    <span class="nav-lab">Elsewhere</span>
+    <a href="{root}quiz/index.html">Quiz</a>
     <a class="nav-iyi" href="{root}brand/index.html">iYi</a>
     <a href="{root}membership/index.html" class="cta">Support</a>
   </nav>

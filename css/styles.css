@@ -91,6 +91,22 @@ img{max-width:100%;display:block}
 .nav a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--warm);transform:scaleX(0);transform-origin:left;transition:transform .2s}
 .nav a:hover,.nav a[aria-current="true"]{color:var(--paper)}
 .nav a:hover::after,.nav a[aria-current="true"]::after{transform:scaleX(1)}
+
+/* The nav is grouped into Read / Look up / Elsewhere, matching the two doors the
+   masthead offers. These labels are what make the grouping mean anything: an
+   unlabelled gap between two links is a divider, and a labelled one is a
+   category. Dimmed hard so they read as furniture and not as destinations -
+   a label the same weight as a link would be a fourteenth thing to click. */
+.nav-lab{
+  font-family:var(--label);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--dimmer);white-space:nowrap;padding:0 2px;flex:none;
+}
+/* A hairline before every label but the first, so the three groups are visibly
+   three groups. Using a border on the label rather than a separate element
+   means nothing extra to read in the accessibility tree. */
+.nav-lab+.nav-lab{border-left:0}
+.nav-lab:not(:first-child){margin-left:2px}
+.nav a+.nav-lab{margin-left:6px;padding-left:14px;border-left:1px solid var(--line2)}
 /* the name is never uppercased. Every other nav item is set in caps by the
    rule above, which silently turned iYi into IYI - a name is not a label, and
    the lowercase i on both sides is the whole mark. */
@@ -1029,6 +1045,13 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
     flex-direction:column;justify-content:center;align-items:center;gap:2px;padding:90px 24px 40px;
     transform:translateY(-102%);transition:transform .36s cubic-bezier(.4,0,.2,1);overflow-y:auto}
   body.nav-open .nav{transform:translateY(0)}
+  /* Stacked, the same labels become headings for each run of links. The
+     left hairline is dropped - a vertical rule beside centred text reads as a
+     mistake rather than as a divider - and the gap above them opens up so each
+     group is announced rather than merely listed. */
+  .nav-lab{padding:14px 0 4px;letter-spacing:.24em}
+  .nav a+.nav-lab{border-left:0;margin-left:0;padding-left:0}
+  .nav-lab:first-child{padding-top:0}
   .nav a{font-size:.72rem;width:min(340px,84vw);text-align:center;padding:15px;border-radius:8px}
   .nav .cta{margin-top:12px}
   body.nav-open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
