@@ -716,9 +716,34 @@ the project.
 
 ## Open work
 
-1. **Publish one episode.** Nothing links anywhere until a video is live. Three
-   episodes are rendered but unpublished. Blocked on human voice in
-   `episode/*/voice/NN.wav` (nine per episode).
+1. **Publish one episode — and the blocker recorded here was false.** This item
+   said all three episodes were blocked on human voice, "nine per episode" in
+   `episode/*/voice/NN.wav`. **The files are all there.** Reading the WAV headers
+   directly (no ffmpeg, no codec) settles what is in them:
+
+   | episode | files | total | peak | RMS | crest | clipped | verdict |
+   |---|---|---|---|---|---|---|---|
+   | `eliza` | 9 | **42.00s** | 7–18% | **1.5%** | ~1000 | 0% | speech-shaped, recorded far too quiet |
+   | `shipping` | 9 | **53.74s** | ~95% | ~9% | ~1000 | **0%** | levelled speech |
+   | `vshojo` | 9 | **63.37s** | ~95% | ~9% | ~1000 | **0%** | levelled speech |
+
+   Three things follow. **The durations match the recorded episode lengths
+   exactly** — 42.00 / 53.74 / 63.37 against the "42.0s, 53.7s and 63.4s" noted
+   above — so the timing work is finished and only the recording was outstanding.
+   **RMS an order of magnitude under peak with a crest factor near 1000 and
+   1600–2700 zero crossings per second is speech**, not clipping (which would
+   show clipped samples) and not a tone (which would show tens of crossings).
+   And **`eliza` is not silent, which I first reported it as** — I compared
+   24-bit samples against a 16-bit full-scale, so a voice at −23dB read as a
+   peak of 37. It is quiet, not absent; it needs a gain lift, not a recording.
+   **So the only remaining work on all three is listening to them and lifting
+   `eliza`.** Nothing here claims the words are right — waveform shape cannot
+   tell you that, and it is a human judgement.
+   - The lesson generalises past this item: **"blocked on X" is a claim about the
+     world and needs the same scepticism as any other.** It sat in this file
+     through a great deal of work, and nine files per episode satisfying the
+     stated requirement is exactly how a stale blocker keeps looking like
+     progress. Check the artefact, not the note.
 2. **Landscape type and backdrop: fixed.** Both were real and both are closed.
    - `backdrop.py` took the canvas size and now fills whatever frame it is
      given; the hard `x=1080` seam is gone (column means run 37.9/38.3/38.2
