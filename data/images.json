@@ -60,7 +60,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3A2014-07-18_Flowers_and_vigil_candles_on_the_doorsteps_of_Embassy_of_Netherlands_in_Estonia_%28closeup%29.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "exact",
+      "looked": "2026-10-04",
+      "note": "The caption's location - outside the Embassy of the Netherlands in Tallinn - is NOT visible: no signage, no distinctive architecture. It rests on the src record, and the frame neither confirms nor contradicts it.",
+      "look_reason": "Opened the file. A stone ledge carrying lit candles in glass jars, a red votive holder, and cut flowers - white chrysanthemums, blue and orange carnations and gerberas, pink carnations, red roses. A shuttered window behind. Flowers and vigil candles are unambiguously in frame, so the must-term vigil is met by what is visible rather than by a filename."
     },
     {
       "slug": "youve-got-that-one",
@@ -257,7 +260,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3A191125_Taylor_Swift_at_the_2019_American_Music_Awards.png"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "note": "Classed illustrative, not exact, on purpose. Recognising a face is not looking at a picture, and writing 'clearly Taylor Swift' would have recorded a performance instead of a finding.",
+      "look_reason": "Opened the frame: a woman at a lit awards backdrop in a sequined green dress, photographed as a red-carpet portrait. Nothing in frame identifies her, and nothing establishes an event or a year. The caption's claim - a named performer at a named awards show in a named year - rests entirely on the src record."
     },
     {
       "slug": "house-of-the-dragon-backlash",
@@ -335,7 +341,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AYoung_african_child_playing_by_the_beach.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "exact",
+      "looked": "2026-10-04",
+      "look_reason": "A single child on a wide beach under a flat grey sky, digging in wet sand with a long stick, head down. One person in frame, so 'alone' holds; a beach holds; the child is playing rather than posed. Every element of the caption is visible rather than inferred."
     },
     {
       "slug": "peak-parasocial-vogue",
@@ -373,7 +381,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3A2006_broken_laptop_computer_237398638.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "exact",
+      "looked": "2026-10-04",
+      "look_reason": "A black HP Special Edition L2000 laptop, lid open, its display shattered across most of the panel - a wide pale fracture with black wedges and a vertical band of coloured artefacts where the LCD has failed. Keyboard and chassis intact. 'Broken' is not a mood word here; the screen is visibly broken."
     },
     {
       "slug": "yourrage-best-friend-stole",

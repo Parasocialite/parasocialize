@@ -1517,6 +1517,56 @@ the project.
      first produces candidates that cannot be confirmed, and a candidate that
      cannot be confirmed is exactly how `kind: exact` happened.
 
+22. **The image queue was never blocked on human eyes, and I said it was.** Item 17
+    downgraded all 73 records to `kind: "unchecked"` and correctly said a record
+    only returns to `exact` or `illustrative` "once somebody has looked at the
+    file". I then carried that forward as a blocker — **the largest remaining
+    queue in the project, described as needing a person.** The agent doing this
+    work can open an image and see it. Nobody tested the claim; it was assumed
+    from the word "somebody".
+    - **This is the second stale blocker in this file, and the pattern is worth
+      naming.** Item 1 said all three episodes waited on voice recordings; the
+      recordings existed, were muxed into the renders, and matched the episode
+      durations to the hundredth of a second. Both times the blocker was a
+      *description of a workflow* rather than a fact about the filesystem, and
+      both times reading the artefact dissolved it. **A queue described as
+      blocked should be attacked by inspecting the thing it waits on, not by
+      re-stating the description.**
+    - `tools/look.py` now does for images what `add_source.py` does for
+      citations: takes the finding, records it, keeps it checkable. `python
+      tools\look.py --list` shows the queue.
+    - **It refuses `exact` and `illustrative` without a written finding**, because
+      a bare date would reproduce the original defect in a new key — `looked`
+      promising a look that nothing records. Three bugs in it, all mine, all
+      found by using it: it stripped `--apply` from the argument list *before*
+      testing for it, so it could only ever print a dry run; it demanded a
+      minimum-length reason even when downgrading to `unchecked`, which is the
+      one case that needs none; and downgrading left the `looked` date behind, so
+      a reverted record still claimed to have been examined.
+    - **I also wrote a finding against the wrong record** — the Taylor Swift
+      observation landed on `madeonyoutube-spending-on-scoreboard` because I typed
+      a slug from memory instead of reading it. Reverted, and the record is back
+      to bare `kind: "unchecked"` with no residue. The project's own rule applies
+      to me here: **verify the identifier before the judgement, not after.**
+    - Four records opened, and the results were not uniform:
+      | record | caption claims | what the frame showed | kind |
+      |---|---|---|---|
+      | `celebrity-death-feels-like-loss` | flowers and vigil candles outside the Embassy of the Netherlands in Tallinn | flowers and lit candles in glass jars, unambiguously — but **no signage and no distinctive architecture**, so the location is not visible at all | `exact`, with the location flagged as resting on `src` |
+      | `agei-imaginary-friends` | a child playing alone on a beach | one child, wide beach, flat grey sky, digging with a stick. "Alone" holds — one person in frame | `exact` |
+      | `ai-updates-feel-like-breakups` | a broken laptop | an HP L2000 with the LCD shattered across most of the panel, coloured artefacts down one band | `exact` |
+      | `taylor-swift-red-knows-it` | Taylor Swift at the 2019 American Music Awards | a woman in a sequined green dress at a lit awards backdrop. **Nothing in frame identifies her or dates the event** | `illustrative` |
+    - **The last one is the method.** Pixels cannot establish who someone is, and
+      no amount of staring changes that; the identity and the year come from the
+      `src` record. Recording "clearly Taylor Swift" would have been recognition
+      dressed as observation. So the caption's specific claim drops the record to
+      `illustrative` and says why — while the three generic captions, where the
+      frame settles the matter, are promoted. **Look at the image to test the
+      caption. Never look at it to confirm the caption.**
+    - 44 records have a local file and can be opened now; 24 need fetching first.
+      Three of four spot-checks passing is not a rate to generalise from — item
+      17's four-probe sample came back three of four *wrong*, on the encyclopedia
+      set rather than the story set, so the two are not comparable.
+
 ## Deploy note
 
 `dist/` must be re-uploaded after each build. It is routinely ahead of
