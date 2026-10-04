@@ -44,17 +44,15 @@ C = [
  [("Parasocial Magazine", "YouTube Brings Creator Posts, Remote Comments to TVs",
    "https://www.parasocialmagazine.com/news/youtube-brings-creator-posts-remote-comments-to-tvs/")]),
 
-("vid-summit-bars-fans", "creator", 2, "insight-company", "2026-09-26", "OUT",
- "",
- "The platform's big creator conference banned fans",
- "VidSummit put a Twitch CEO and creators on stage together, and turned away the people who made it possible.",
- "Every industry has the one event where the people who actually pay are not in the room, and apparently this one has a "
- "name badge for it. I have worked retail. We had a back-of-house night. Everyone laughed about it and everyone showed up. "
- "The whole economy of this runs on a relationship with somebody watching, and the conference for that relationship "
- "decided the watchers were a distraction.",
- [("Parasocial Magazine", "SSSnipperWolf, Twitch CEO Share VidSummit Stage",
-   "https://www.parasocialmagazine.com/news/sssniperwolf-twitch-ceo-share-vidsummit-stage/")]),
-
+# The row that seeded vid-summit-bars-fans was removed on 2026-10-04. It
+# asserted that VidSummit 2026 banned fans, which is not true: the
+# conference is publicly ticketed, describes itself as creator-focused, runs
+# a community welcome party, and sells tickets and replays openly. The card
+# was rewritten as twitch-ceo-and-the-creator-on-one-stage and cited to the
+# official speakers page, which confirms SSSniperWolf and Twitch's CEO Dan
+# Clancy are both on the 2026 bill. Left in place, re-running this seeder
+# would have put a withdrawn claim back on the site - which is why it is
+# deleted rather than renamed.
 ("fearne-cotton-free-tv", "creator", 3, "pod", "2026-09-25", "OUT",
  "",
  "A wellness podcast just became a television channel",

@@ -419,21 +419,21 @@
       "needs": null
     },
     {
-      "slug": "vid-summit-bars-fans",
-      "headline": "The platform's big creator conference banned fans",
+      "slug": "twitch-ceo-and-the-creator-on-one-stage",
+      "headline": "A platform CEO and a 35-million-subscriber creator share one stage",
       "section": "creator",
       "law": 2,
       "shelf": "insight-company",
-      "one_line": "VidSummit put a Twitch CEO and creators on stage together, and turned away the people who made it possible.",
-      "take": "Every industry has the one event where the people who actually pay are not in the room, and apparently this one has a name badge for it. I have worked retail. We had a back-of-house night. Everyone laughed about it and everyone showed up. The whole economy of this runs on a relationship with somebody watching, and the conference for that relationship decided the watchers were a distraction.",
+      "one_line": "VidSummit 2026 books the chief executive of one platform and one of the largest creators on YouTube onto the same stage. The event is publicly ticketed and creator-facing; nobody has been locked out of anything.",
+      "take": "Two things were true at once in Dallas and only one of them was interesting enough to write down. The dull one: a creator economy conference is a business conference, it sells tickets, and the people who come are the people who make the money. Fine. That is what a trade fair is.\n\nThe other one is on the speakers list. Dan Clancy, who runs Twitch, and SSSniperWolf, who has thirty-five million subscribers and has never once been on a Twitch stage, are billed at the same conference. The executive who sets the terms and the person who lives under them, in the same room, on the same programme.\n\nThat is the shape of this whole thing, honestly. The people who are enormous and the people who own the enormous are not adversaries so much as co-signatories. Neither of them is in the room with the people watching. There was a version of this story where the fans were barred, and it would have been a better headline, and it is not true.",
       "kicker": "",
       "sources": [
         {
-          "publisher": "Parasocial Magazine",
-          "title": "SSSnipperWolf, Twitch CEO Share VidSummit Stage",
-          "url": "https://www.parasocialmagazine.com/news/sssniperwolf-twitch-ceo-share-vidsummit-stage/",
+          "publisher": "VidSummit (official site and speakers list)",
+          "title": "VidSummit 2026 speakers, schedule and venue",
+          "url": "https://vidsummit.com/speakers",
           "via": "report",
-          "at": "2026-09-26"
+          "at": "2026-09-29"
         }
       ],
       "filed": "2026-09-26",
@@ -443,7 +443,8 @@
       "signed": true,
       "res": 85,
       "sightings": 1,
-      "needs": null
+      "needs": null,
+      "retired_claim": "WITHDRAWN CLAIM. This record previously asserted that VidSummit 2026 'banned fans' and that the conference 'turned away the people who made it possible'. Unsupported and not true: the conference is publicly ticketed, describes itself as creator-focused, runs a community welcome party, and sells tickets and replays openly. Nothing in this record now depends on it."
     },
     {
       "slug": "youtube-patreon-membership-spaces",
@@ -1640,6 +1641,14 @@
       "from": "sweep / 3 feeds",
       "why": "Law 4 exactly: the companion changed and nobody warned anyone. Two sources, low volume. Might be a real pattern or might be two outlets covering the same forum thread.",
       "state": "awaiting"
+    }
+  ],
+  "_retired_sources": [
+    {
+      "slug": "vid-summit-bars-fans",
+      "new_slug": "twitch-ceo-and-the-creator-on-one-stage",
+      "why": "the slug asserted the withdrawn claim; kept as a 301",
+      "sources": []
     }
   ]
 }

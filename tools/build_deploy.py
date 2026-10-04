@@ -265,6 +265,27 @@ def assemble(do_optimise=True):
         entries = json.loads(enc_path.read_text(encoding="utf-8"))["entries"]
         for e in sorted(entries, key=lambda x: x["id"]):
             lines.append(f"/e/{e['id']}  /encyclopedia/{e['id']}.html  301")
+
+    # Renamed slugs.
+    #
+    # A slug is a published assertion, not a label. `vid-summit-bars-fans` said
+    # in the URL that a named conference banned fans, which it does not, so the
+    # claim came down and the URL went with it. The old address still has to
+    # work for anyone who linked to it or read it in a feed, and the record of
+    # why it moved lives in data/shop.json under `_retired_sources` - so the
+    # redirect is generated from that rather than hand-maintained here, and a
+    # retired slug with no redirect is a broken link rather than a stale habit.
+    shop_path = ROOT / "data" / "shop.json"
+    if shop_path.is_file():
+        shop = json.loads(shop_path.read_text(encoding="utf-8"))
+        live = {c["slug"] for c in shop.get("cards", [])}
+        for r in shop.get("_retired_sources", []):
+            old, new = r.get("slug"), r.get("new_slug")
+            if old and new and new in live:
+                lines.append(f"/radar/{old}.html  /radar/{new}.html  301")
+            elif old and new:
+                print(f"  WARN retired slug {old!r} points at {new!r}, "
+                      f"which is not a live card - the redirect would 404")
     (DIST / "_redirects").write_text("\n".join(lines) + "\n", encoding="utf-8")
     n += 1
     return n

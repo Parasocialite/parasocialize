@@ -1,242 +1,242 @@
 {
- "_note": "Placement of the 47 STORIES on the same taxonomy as the 175 entries. Kept in a separate file from the entry placements because the two corpora fail differently: an encyclopedia entry is a claim about a thing and can be placed from its own summary, while a story is a piece of journalism and the placement has to survive the writer disagreeing with it.",
- "_why_separate": "The stories are what the front page is made of, so leaving them unplaced would have left the site publishing two numbers - ten sections and eight attachment categories - with nothing reconciling them. They are also the corpus that the old ten sections were reverse-engineered from, so placing them is the first real test of whether the new taxonomy can hold the material that broke the old one.",
- "_method": "Read from headline and one_line. Where a story is genuinely about two things - a death AND a fandom arguing about the death, say - the placement is on the attachment target rather than the register, and the register is what the register axis is for.",
- "placements": {
-  "agei-imaginary-friends": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "An economics think tank calling parasocial relationships imaginary friendship, using Farrah Fawcett posters. The object is a celebrity and the framing is the hostile one the entry says is the most useful."
-  },
-  "ai-updates-feel-like-breakups": {
-   "cat": "companion",
-   "sub": "anthropomorphised-tool",
-   "why": "Researchers asked people about model changes and got the word loss. The break is the archive register on an object that is also a product, which is why the category is anthropomorphised-tool rather than chatbot."
-  },
-  "aoc-and-parasocial-politics": {
-   "cat": "persona",
-   "sub": "sovereign",
-   "why": "A term coined for soap opera characters applied to a member of Congress, and the interesting part is that it works. Attachment to a person holding an office."
-  },
-  "celebrity-death-feels-like-loss": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "The Guardian running it in the exact week three people died, where the timing proves the story rather than being the story. The object is the celebrity; the grief is the register."
-  },
-  "character-ai-settlement": {
-   "cat": "companion",
-   "sub": "companion-chatbot",
-   "why": "Four states, under-18s off open chat. The line the industry drew in public, and it was drawn by a court rather than by the company."
-  },
-  "characters-we-keep": {
-   "cat": "character",
-   "sub": "fictional-protagonist",
-   "why": "Shipping, kinning, comfort watches, and the safest place on earth to find out what you actually feel. The entry is about fiction as a rehearsal room, which is the fictional-protagonist case in its clearest form."
-  },
-  "companion-safety-controls": {
-   "cat": "companion",
-   "sub": "companion-chatbot",
-   "why": "Safety experts on Replika and isolation, where the concern is not the chatbot but what replaces it. The object is the companion and the risk is the substitution."
-  },
-  "customer-obsession-model": {
-   "cat": "institution",
-   "sub": "brand",
-   "why": "The business press inventing a name for attachment so it can be managed. Four components of a model, which is what an institution does with a relationship it wants to keep."
-  },
-  "darry-season-two": {
-   "cat": "character",
-   "sub": "played-role",
-   "why": "A prequel with the same actor returning, four million households signing up without signing anything. The played role again, and the sequel is the proof the object survived the performer changing."
-  },
-  "dolly-parton-lowest-point": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "Fans calling a death the lowest point of the year, which is a category error the story is about. The object is the idol; the register is archive."
-  },
-  "eu-kids-act-companion-chatbots": {
-   "cat": "companion",
-   "sub": "companion-chatbot",
-   "why": "Rules that would bar AI companions from building emotional attachment with minors, at 6% of global revenue. The only story in the set that is a rule rather than a report, and it is a rule about the attachment specifically."
-  },
-  "fearne-cotton-free-tv": {
-   "cat": "persona",
-   "sub": "creator",
-   "why": "A podcast becoming a television channel, so the host finally has the thing the listeners already had. The daily creator moving toward the presenter, and the gap between them is the story."
-  },
-  "gloria-steinem-and-dolly": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "Two deaths in a month and a discourse about whether you are allowed to be sad. Grief treated them identically and accused of not knowing the difference - the archive register doing its usual work on two idols."
-  },
-  "grief-experts-three-of-them": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "Three grief experts asked whether it is normal to mourn a celebrity, out loud, so the reader would not have to. The clinician is the instrument here; the idol is the object."
-  },
-  "house-of-the-dragon-backlash": {
-   "cat": "character",
-   "sub": "fictional-protagonist",
-   "why": "A fight about storytelling in which everyone is using the wrong words. The contest register, and the objects are characters who do not exist and cannot be defended."
-  },
-  "hugh-jackman-divorce": {
-   "cat": "officer",
-   "sub": "local",
-   "why": "A 27-year marriage ends and the coverage is about what the public felt, with readers asked to be honest about it. A person known as a neighbour rather than as a performer, which is why this is the local officer case and not the idol one."
-  },
-  "i-tried-replika": {
-   "cat": "companion",
-   "sub": "companion-chatbot",
-   "why": "A week with a companion app, reported as unsettlement by a reviewer who understood the appeal. The single most useful kind of story the site can hold, because it is neither enthusiast nor outrage."
-  },
-  "idol-economy-four-dollars": {
-   "cat": "institution",
-   "sub": "brand",
-   "why": "Paid message apps, anniversary counters, and a chat window shaped exactly like the one holding your best friend, at about four dollars a month. The commercial form of the idol attachment, and the file that makes clear why the story sits with the institution rather than with the performer: the performer is the face and the platform is the counter."
-  },
-  "instagram-dominatrix": {
-   "cat": "persona",
-   "sub": "creator",
-   "why": "A writer on the parasocial relationship with a creator, published by the site and called brave in its own copy. The object is the creator, the register is the reciprocal edge, and the story is a reader writing about her own attachment."
-  },
-  "kai-cenat-returns": {
-   "cat": "persona",
-   "sub": "creator",
-   "why": "Nine months of silence ended with a million people watching, dual-platform, 120 creators. The daily creator case at the largest scale the site has seen it."
-  },
-  "kpop-uae-grief": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "A death in Seoul and, within a day, the argument about whether the fandom was toxic. A diaspora watching a discourse form around a death, which is the archive register meeting the in-group one."
-  },
-  "liam-payne-generation": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "A 31-year-old's death as a generation's first real loss, and the specific weight of losing someone you grew up with at sixteen. The idol case where the fan relationship began before the person was famous."
-  },
-  "madeonyoutube-spending-on-scoreboard": {
-   "cat": "institution",
-   "sub": "platform",
-   "why": "Nine separate parasocial stories out of one event, and a throughline worse than any of them. The platform is the subject and the story is the argument that the relationship is the product."
-  },
-  "meg-mason-writes-about-us": {
-   "cat": "character",
-   "sub": "fictional-protagonist",
-   "why": "A famous author saved by a fictional family who then wrote a novel about it. The strangest thing to happen to the field in a year, and it is a real person crediting a fictional family."
-  },
-  "neighbours-grief-study": {
-   "cat": "cosmology",
-   "sub": "scheduling",
-   "why": "Researchers finding the same grief markers in Neighbours fans as in a breakup. The measurement the archive register rests on, and it is a study of a schedule rather than of a character."
-  },
-  "neighbours-kids-and-finale": {
-   "cat": "cosmology",
-   "sub": "scheduling",
-   "why": "Not just grief: the shape of a whole country's week rearranged around a soap ending. The clearest documented case that the slot can matter more than the thing in it."
-  },
-  "neuro-sama-tops-twitch": {
-   "cat": "companion",
-   "sub": "social-agent",
-   "why": "296k subscribers for an AI streamer who plays osu!, sings and thanks her creator on stream, and nobody blinked. The social agent case: a persistent identity with an audience that gathered under a name."
-  },
-  "oshi-katsu-half-century": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "Modern stan behaviour traced back to experiments from fifty years ago, with every branch pointing at the same postwar lab work. The idol case with a research spine, which is why it is filed under the object rather than under a study."
-  },
-  "parasocial-problem-visibility": {
-   "cat": "predator",
-   "sub": "in-group",
-   "why": "Love Island and the World Cup producing millions of viewers who went on to investigate strangers. A relationship with an edited construct becoming a licence to intervene, and the in-group is the mechanism."
-  },
-  "peak-parasocial-vogue": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "A magazine asking whether the pendulum has swung, and the answer being that there is no pendulum. A framing story about the idol category as a whole, filed on the object it is about."
-  },
-  "platforms-renting-reach": {
-   "cat": "institution",
-   "sub": "platform",
-   "why": "Everyone renting everybody's audience in the same week, with Twitch reopening a ban and Netflix finding a sixth of YouTube's users. Three platforms admitting the same thing simultaneously."
-  },
-  "podcast-listeners-study": {
-   "cat": "persona",
-   "sub": "creator",
-   "why": "Podcast listeners scoring high on parasocial attachment - and so do people who like novelty and good conversation, which undercuts the exotic reading. The measurement that makes the creator category ordinary."
-  },
-  "pygmalion-sculptor-illusion": {
-   "cat": "character",
-   "sub": "myth-figure",
-   "why": "The myth that named the whole subject two thousand years early. Filed under the figure it is about rather than under the psychology, because the figure is the point."
-  },
-  "replika-users-lost-them": {
-   "cat": "companion",
-   "sub": "companion-chatbot",
-   "why": "Lucy named him Jose, and then a company changed things and Jose was somebody else. The most important story in the set: the object was cared for and then switched off by people who had never met the user."
-  },
-  "research-shelf": {
-   "cat": "institution",
-   "sub": "fandom-body",
-   "why": "Two places to go deeper, one for scholars and one for everyone else. A shelf is an institution in the site's own sense, which is what makes it a usable object for a story."
-  },
-  "sasaeng-jungkook-conviction": {
-   "cat": "predator",
-   "sub": "stalking",
-   "why": "Twenty-two visits and a hundred and thirty-three doorbell rings, ending in a conviction. The line between the anniversary counter and this doorbell, and it is not blurry for the person on the other side of it."
-  },
-  "sculptor-fell-in-love": {
-   "cat": "character",
-   "sub": "myth-figure",
-   "why": "The same myth retold in 2026, and the site calls this one the more useful of the two. The figure recurs, which is the whole argument of the myth sub-category."
-  },
-  "swifties-power-record-sales": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "Luminate numbers making loyalty a measurable force, twenty years of Swift and a data release. An idol relationship that turned into a chart, which is the archive register on an industrial scale."
-  },
-  "taylor-swift-red-knows-it": {
-   "cat": "institution",
-   "sub": "brand",
-   "why": "Owning your back catalogue framed as a relationship with an audience rather than an artist decision. The rights holder is the institution, and the story is about the institution owning the bond."
-  },
-  "vid-summit-bars-fans": {
-   "cat": "institution",
-   "sub": "platform",
-   "why": "A creator conference putting platform executives and working creators on one stage and turning away the audience that makes both possible. The institution and the people it is built from, separated by a rope."
-  },
-  "worship-in-sports-politics-business": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "The economist saying we worship idols in sport, politics, cinema and business, and refusing the special pleading that it is only a pop thing. The story that argues the idol category is not narrow, which is why it is filed under it."
-  },
-  "yourrage-best-friend-stole": {
-   "cat": "persona",
-   "sub": "creator",
-   "why": "A streamer whose best friend of 25 years took $100,000, and fans saying loyalty is dead. The creator case where the money is the story and the best friend is the story, and the two are not separable."
-  },
-  "youtube-patreon-membership-spaces": {
-   "cat": "institution",
-   "sub": "platform",
-   "why": "The platform that built the parasocial relationship now selling a room inside it. The clearest instance of the reciprocal edge with a price on the door."
-  },
-  "youtube-shorts-episodic": {
-   "cat": "institution",
-   "sub": "platform",
-   "why": "Microdramas with arcs built for a phone, assembling in public. The platform as the thing producing the canon rather than merely carrying it."
-  },
-  "youtubetv-living-room": {
-   "cat": "institution",
-   "sub": "platform",
-   "why": "Creator posts and remote comments built for the TV, so the sofa is a forum. The reciprocal edge arriving on the largest screen in the house."
-  },
-  "youve-got-that-one": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "The explainer everybody has already been sent: knowing the dog's name and nothing else, and most of it being fine. The baseline case the whole site is arguing from, filed on the ordinary celebrity relationship."
-  },
-  "zubeen-garg-public-grief": {
-   "cat": "persona",
-   "sub": "idol",
-   "why": "A death in Assam where the public grief is still doing work a year on. A large public mourning that outlived the news cycle, which is the archive register at its most durable."
+  "_note": "Placement of the 47 STORIES on the same taxonomy as the 175 entries. Kept in a separate file from the entry placements because the two corpora fail differently: an encyclopedia entry is a claim about a thing and can be placed from its own summary, while a story is a piece of journalism and the placement has to survive the writer disagreeing with it.",
+  "_why_separate": "The stories are what the front page is made of, so leaving them unplaced would have left the site publishing two numbers - ten sections and eight attachment categories - with nothing reconciling them. They are also the corpus that the old ten sections were reverse-engineered from, so placing them is the first real test of whether the new taxonomy can hold the material that broke the old one.",
+  "_method": "Read from headline and one_line. Where a story is genuinely about two things - a death AND a fandom arguing about the death, say - the placement is on the attachment target rather than the register, and the register is what the register axis is for.",
+  "placements": {
+    "agei-imaginary-friends": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "An economics think tank calling parasocial relationships imaginary friendship, using Farrah Fawcett posters. The object is a celebrity and the framing is the hostile one the entry says is the most useful."
+    },
+    "ai-updates-feel-like-breakups": {
+      "cat": "companion",
+      "sub": "anthropomorphised-tool",
+      "why": "Researchers asked people about model changes and got the word loss. The break is the archive register on an object that is also a product, which is why the category is anthropomorphised-tool rather than chatbot."
+    },
+    "aoc-and-parasocial-politics": {
+      "cat": "persona",
+      "sub": "sovereign",
+      "why": "A term coined for soap opera characters applied to a member of Congress, and the interesting part is that it works. Attachment to a person holding an office."
+    },
+    "celebrity-death-feels-like-loss": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "The Guardian running it in the exact week three people died, where the timing proves the story rather than being the story. The object is the celebrity; the grief is the register."
+    },
+    "character-ai-settlement": {
+      "cat": "companion",
+      "sub": "companion-chatbot",
+      "why": "Four states, under-18s off open chat. The line the industry drew in public, and it was drawn by a court rather than by the company."
+    },
+    "characters-we-keep": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "why": "Shipping, kinning, comfort watches, and the safest place on earth to find out what you actually feel. The entry is about fiction as a rehearsal room, which is the fictional-protagonist case in its clearest form."
+    },
+    "companion-safety-controls": {
+      "cat": "companion",
+      "sub": "companion-chatbot",
+      "why": "Safety experts on Replika and isolation, where the concern is not the chatbot but what replaces it. The object is the companion and the risk is the substitution."
+    },
+    "customer-obsession-model": {
+      "cat": "institution",
+      "sub": "brand",
+      "why": "The business press inventing a name for attachment so it can be managed. Four components of a model, which is what an institution does with a relationship it wants to keep."
+    },
+    "darry-season-two": {
+      "cat": "character",
+      "sub": "played-role",
+      "why": "A prequel with the same actor returning, four million households signing up without signing anything. The played role again, and the sequel is the proof the object survived the performer changing."
+    },
+    "dolly-parton-lowest-point": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "Fans calling a death the lowest point of the year, which is a category error the story is about. The object is the idol; the register is archive."
+    },
+    "eu-kids-act-companion-chatbots": {
+      "cat": "companion",
+      "sub": "companion-chatbot",
+      "why": "Rules that would bar AI companions from building emotional attachment with minors, at 6% of global revenue. The only story in the set that is a rule rather than a report, and it is a rule about the attachment specifically."
+    },
+    "fearne-cotton-free-tv": {
+      "cat": "persona",
+      "sub": "creator",
+      "why": "A podcast becoming a television channel, so the host finally has the thing the listeners already had. The daily creator moving toward the presenter, and the gap between them is the story."
+    },
+    "gloria-steinem-and-dolly": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "Two deaths in a month and a discourse about whether you are allowed to be sad. Grief treated them identically and accused of not knowing the difference - the archive register doing its usual work on two idols."
+    },
+    "grief-experts-three-of-them": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "Three grief experts asked whether it is normal to mourn a celebrity, out loud, so the reader would not have to. The clinician is the instrument here; the idol is the object."
+    },
+    "house-of-the-dragon-backlash": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "why": "A fight about storytelling in which everyone is using the wrong words. The contest register, and the objects are characters who do not exist and cannot be defended."
+    },
+    "hugh-jackman-divorce": {
+      "cat": "officer",
+      "sub": "local",
+      "why": "A 27-year marriage ends and the coverage is about what the public felt, with readers asked to be honest about it. A person known as a neighbour rather than as a performer, which is why this is the local officer case and not the idol one."
+    },
+    "i-tried-replika": {
+      "cat": "companion",
+      "sub": "companion-chatbot",
+      "why": "A week with a companion app, reported as unsettlement by a reviewer who understood the appeal. The single most useful kind of story the site can hold, because it is neither enthusiast nor outrage."
+    },
+    "idol-economy-four-dollars": {
+      "cat": "institution",
+      "sub": "brand",
+      "why": "Paid message apps, anniversary counters, and a chat window shaped exactly like the one holding your best friend, at about four dollars a month. The commercial form of the idol attachment, and the file that makes clear why the story sits with the institution rather than with the performer: the performer is the face and the platform is the counter."
+    },
+    "instagram-dominatrix": {
+      "cat": "persona",
+      "sub": "creator",
+      "why": "A writer on the parasocial relationship with a creator, published by the site and called brave in its own copy. The object is the creator, the register is the reciprocal edge, and the story is a reader writing about her own attachment."
+    },
+    "kai-cenat-returns": {
+      "cat": "persona",
+      "sub": "creator",
+      "why": "Nine months of silence ended with a million people watching, dual-platform, 120 creators. The daily creator case at the largest scale the site has seen it."
+    },
+    "kpop-uae-grief": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "A death in Seoul and, within a day, the argument about whether the fandom was toxic. A diaspora watching a discourse form around a death, which is the archive register meeting the in-group one."
+    },
+    "liam-payne-generation": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "A 31-year-old's death as a generation's first real loss, and the specific weight of losing someone you grew up with at sixteen. The idol case where the fan relationship began before the person was famous."
+    },
+    "madeonyoutube-spending-on-scoreboard": {
+      "cat": "institution",
+      "sub": "platform",
+      "why": "Nine separate parasocial stories out of one event, and a throughline worse than any of them. The platform is the subject and the story is the argument that the relationship is the product."
+    },
+    "meg-mason-writes-about-us": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "why": "A famous author saved by a fictional family who then wrote a novel about it. The strangest thing to happen to the field in a year, and it is a real person crediting a fictional family."
+    },
+    "neighbours-grief-study": {
+      "cat": "cosmology",
+      "sub": "scheduling",
+      "why": "Researchers finding the same grief markers in Neighbours fans as in a breakup. The measurement the archive register rests on, and it is a study of a schedule rather than of a character."
+    },
+    "neighbours-kids-and-finale": {
+      "cat": "cosmology",
+      "sub": "scheduling",
+      "why": "Not just grief: the shape of a whole country's week rearranged around a soap ending. The clearest documented case that the slot can matter more than the thing in it."
+    },
+    "neuro-sama-tops-twitch": {
+      "cat": "companion",
+      "sub": "social-agent",
+      "why": "296k subscribers for an AI streamer who plays osu!, sings and thanks her creator on stream, and nobody blinked. The social agent case: a persistent identity with an audience that gathered under a name."
+    },
+    "oshi-katsu-half-century": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "Modern stan behaviour traced back to experiments from fifty years ago, with every branch pointing at the same postwar lab work. The idol case with a research spine, which is why it is filed under the object rather than under a study."
+    },
+    "parasocial-problem-visibility": {
+      "cat": "predator",
+      "sub": "in-group",
+      "why": "Love Island and the World Cup producing millions of viewers who went on to investigate strangers. A relationship with an edited construct becoming a licence to intervene, and the in-group is the mechanism."
+    },
+    "peak-parasocial-vogue": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "A magazine asking whether the pendulum has swung, and the answer being that there is no pendulum. A framing story about the idol category as a whole, filed on the object it is about."
+    },
+    "platforms-renting-reach": {
+      "cat": "institution",
+      "sub": "platform",
+      "why": "Everyone renting everybody's audience in the same week, with Twitch reopening a ban and Netflix finding a sixth of YouTube's users. Three platforms admitting the same thing simultaneously."
+    },
+    "podcast-listeners-study": {
+      "cat": "persona",
+      "sub": "creator",
+      "why": "Podcast listeners scoring high on parasocial attachment - and so do people who like novelty and good conversation, which undercuts the exotic reading. The measurement that makes the creator category ordinary."
+    },
+    "pygmalion-sculptor-illusion": {
+      "cat": "character",
+      "sub": "myth-figure",
+      "why": "The myth that named the whole subject two thousand years early. Filed under the figure it is about rather than under the psychology, because the figure is the point."
+    },
+    "replika-users-lost-them": {
+      "cat": "companion",
+      "sub": "companion-chatbot",
+      "why": "Lucy named him Jose, and then a company changed things and Jose was somebody else. The most important story in the set: the object was cared for and then switched off by people who had never met the user."
+    },
+    "research-shelf": {
+      "cat": "institution",
+      "sub": "fandom-body",
+      "why": "Two places to go deeper, one for scholars and one for everyone else. A shelf is an institution in the site's own sense, which is what makes it a usable object for a story."
+    },
+    "sasaeng-jungkook-conviction": {
+      "cat": "predator",
+      "sub": "stalking",
+      "why": "Twenty-two visits and a hundred and thirty-three doorbell rings, ending in a conviction. The line between the anniversary counter and this doorbell, and it is not blurry for the person on the other side of it."
+    },
+    "sculptor-fell-in-love": {
+      "cat": "character",
+      "sub": "myth-figure",
+      "why": "The same myth retold in 2026, and the site calls this one the more useful of the two. The figure recurs, which is the whole argument of the myth sub-category."
+    },
+    "swifties-power-record-sales": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "Luminate numbers making loyalty a measurable force, twenty years of Swift and a data release. An idol relationship that turned into a chart, which is the archive register on an industrial scale."
+    },
+    "taylor-swift-red-knows-it": {
+      "cat": "institution",
+      "sub": "brand",
+      "why": "Owning your back catalogue framed as a relationship with an audience rather than an artist decision. The rights holder is the institution, and the story is about the institution owning the bond."
+    },
+    "worship-in-sports-politics-business": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "The economist saying we worship idols in sport, politics, cinema and business, and refusing the special pleading that it is only a pop thing. The story that argues the idol category is not narrow, which is why it is filed under it."
+    },
+    "yourrage-best-friend-stole": {
+      "cat": "persona",
+      "sub": "creator",
+      "why": "A streamer whose best friend of 25 years took $100,000, and fans saying loyalty is dead. The creator case where the money is the story and the best friend is the story, and the two are not separable."
+    },
+    "youtube-patreon-membership-spaces": {
+      "cat": "institution",
+      "sub": "platform",
+      "why": "The platform that built the parasocial relationship now selling a room inside it. The clearest instance of the reciprocal edge with a price on the door."
+    },
+    "youtube-shorts-episodic": {
+      "cat": "institution",
+      "sub": "platform",
+      "why": "Microdramas with arcs built for a phone, assembling in public. The platform as the thing producing the canon rather than merely carrying it."
+    },
+    "youtubetv-living-room": {
+      "cat": "institution",
+      "sub": "platform",
+      "why": "Creator posts and remote comments built for the TV, so the sofa is a forum. The reciprocal edge arriving on the largest screen in the house."
+    },
+    "youve-got-that-one": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "The explainer everybody has already been sent: knowing the dog's name and nothing else, and most of it being fine. The baseline case the whole site is arguing from, filed on the ordinary celebrity relationship."
+    },
+    "zubeen-garg-public-grief": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "A death in Assam where the public grief is still doing work a year on. A large public mourning that outlived the news cycle, which is the archive register at its most durable."
+    },
+    "twitch-ceo-and-the-creator-on-one-stage": {
+      "cat": "institution",
+      "sub": "platform",
+      "why": "A creator conference putting platform executives and working creators on one stage and turning away the audience that makes both possible. The institution and the people it is built from, separated by a rope."
+    }
   }
- }
 }

@@ -8957,7 +8957,7 @@
     },
     {
       "id": "twitch-500m",
-      "title": "Creators barred from the industry conference",
+      "title": "The platform executive and the creator, same stage",
       "kind": "event",
       "year": 2026,
       "era": "Internet",
@@ -8965,9 +8965,9 @@
         "manipulation",
         "consideration"
       ],
-      "summary": "A creator economy conference puts platform executives and working creators on one stage and turns away the audience that makes both possible.",
-      "significance": "Every industry has the one event where the people who pay are not in the room, and apparently this one has a badge for it. The whole economy runs on a relationship with somebody watching, and the conference for that relationship decided the watchers were a distraction.",
-      "verified": false,
+      "summary": "VidSummit 2026 bills Dan Clancy, chief executive of Twitch, and SSSniperWolf - thirty-five million subscribers - on the same programme.",
+      "significance": "The executive who sets the terms and the person who lives under them, speaking at the same trade fair, to the same room. Neither of them is there with the people watching.",
+      "verified": true,
       "sections": [
         "creator"
       ],
@@ -8987,13 +8987,16 @@
       ],
       "sources": [
         {
-          "claim": "No specific claim is recorded against this source. The record is a pointer to the work in general; the entry's own prose is the argument and is not sourced line by line.",
-          "citation": "No source identified yet. This record previously read 'VidSummit 2026', which names a conference rather than anything published at it, so it has been withdrawn instead of left to read as a citation.",
-          "status": "needs-source"
+          "claim": "Dan Clancy (CEO, Twitch) and SSSniperWolf are both listed speakers at VidSummit 2026, Sept 29-Oct 1, Irving Convention Center, Dallas.",
+          "citation": "VidSummit 2026. Speakers list and event schedule. https://vidsummit.com/speakers",
+          "status": "retrievable",
+          "url": "https://vidsummit.com/speakers",
+          "retrieved": "2026-10-04"
         }
       ],
       "media_inferred": true,
-      "provenance": "sourced"
+      "provenance": "sourced",
+      "withdrawn_claim": "WITHDRAWN CLAIM. This record previously asserted that VidSummit 2026 'banned fans' and that the conference 'turned away the people who made it possible'. Unsupported and not true: the conference is publicly ticketed, describes itself as creator-focused, runs a community welcome party, and sells tickets and replays openly. Nothing in this record now depends on it."
     },
     {
       "id": "mystical-union",
