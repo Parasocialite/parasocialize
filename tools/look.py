@@ -124,6 +124,23 @@ if rec is None:
     near = [s for s in ids if slug.split("-")[0] in s][:5]
     sys.exit(f"no record with slug {slug!r}." + (f" did you mean {near}?" if near else ""))
 
+# You cannot look at an image that is not there.
+#
+# This guard exists because I wrote a finding against the wrong slug twice, and
+# the second time the slug belonged to a *withdrawn* record - one with no cached
+# file and no source - so the finding, a `looked` date and a rewritten caption
+# all landed on a record that has no picture. Nothing caught it because the tool
+# accepted whatever slug it was handed. Checking the file exists is the one test
+# that would have caught it, and it is the definition of the operation: a lookup
+# records the result of opening a file.
+if not rec.get("local"):
+    why = "no cached file" if not rec.get("src") else "no cached file yet (source only)"
+    sys.exit(f"refusing: {slug!r} has {why}, so there is nothing to look at. "
+             "This record is withdrawn or unfetched. If you meant a different "
+             "record, read the slug off the manifest rather than typing it from "
+             "memory - `python tools\\look.py --list` prints the openable ones "
+             "with their local filenames.")
+
 prev = (rec.get("kind"), rec.get("looked"), rec.get("note"))
 print(f"{slug}")
 print(f"   was     kind={prev[0]!r} looked={prev[1]}")

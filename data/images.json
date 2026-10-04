@@ -141,7 +141,7 @@
     {
       "slug": "youtube-shorts-episodic",
       "for": "story",
-      "caption": "The YouTube Shorts upload player. A screenshot of the actual mechanism the story is about.",
+      "caption": "A YouTube Shorts watch page: the Shorts rail selected in the sidebar, a vertical video of white flowering foliage, and the like, dislike, comment, Share and Remix controls stacked beside it.",
       "q": "YouTube Shorts",
       "must": [
         "youtube",
@@ -157,7 +157,15 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AYouTube_Shorts_player%2C_opened_on_a_video.png"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "A YouTube Shorts watch page. The YouTube wordmark is top-left, 'Shorts' is the selected item in the left rail, and the player is vertical 9:16 with the like, dislike, comment, Share and Remix controls stacked beside it. Channel '@MailersLanding', title 'Black Cumin - How Does That Work? #shorts'. Both must-terms are met by the interface itself rather than by a filename.",
+      "note": "The caption said 'upload player'. This is a watch page - there is no upload control anywhere in it, no file picker, no title or description field, no thumbnail step. The caption also claimed it was 'the actual mechanism the story is about', and if the story is about uploading then this frame documents the opposite: consumption. Caption corrected upload -> watch. Both must-terms being satisfied is not the same as the caption being true, and this is the second time that has been the trap: the word was in the filename and the sentence was not in the picture.",
+      "caption_corrected": {
+        "from": "The YouTube Shorts upload player. A screenshot of the actual mechanism the story is about.",
+        "date": "2026-10-04",
+        "why": "A YouTube Shorts watch page. The YouTube wordmark is top-left, 'Shorts' is the selected item in the left rail, and the player is vertical 9:16 with the like, dislike, comment, Share and Remix controls stacked beside it. Channel '@MailersLanding', title 'Black Cumin - How Does That Work? #shorts'. Both must-terms are met by the interface itself rather than by a filename."
+      }
     },
     {
       "slug": "dolly-parton-lowest-point",
@@ -214,7 +222,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AAlexandria_Ocasio-Cortez%2C_official_portrait%2C_116th_Congress.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "An official United States House portrait: a woman in a black blazer with pearl earrings, a dark lapel pin, and an American flag behind her showing stars and the red field. The formal frontal composition, the flag and the pin are exactly what a congressional portrait is, so the caption's 'official portrait' is settled by the frame.",
+      "note": "The must-term is 'ocasio' and appears nowhere in the caption or the picture, so this was validated from src alone - the one openable record where that happened. The downgrade is about the frame, not the source: Commons' provenance here is the House's own portrait and is authoritative about who this is. Nothing in the pixels dates it to the 116th Congress. The caption's discipline is worth copying - unlike 'Taylor Swift at the 2019 American Music Awards' it claims only the format, which is what the picture shows."
     },
     {
       "slug": "fearne-cotton-free-tv",
