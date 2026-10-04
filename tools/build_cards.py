@@ -2413,7 +2413,19 @@ def entry_hero(ent, manifest, depth=1):
     slug = ent.get("id")
     photo = img_for(manifest, slug, depth)
     if photo:
-        src = esc(photo)
+        # `photo` is the DICT img_for returns - path, credit, page, caption,
+        # kind. This line escaped the whole dict and put it in the src
+        # attribute, so the built page carried
+        #   <img src="{'path': '../img/...', 'credit': '...'}" >
+        # and link_audit failed on a 404 whose target was a stringified dict.
+        #
+        # It is invisible until an entry actually has an image: img_for returns
+        # None, the plate branch runs instead, and the encyclopedia had no image
+        # record at all until 2026-10-04. So this is the first encyclopedia image
+        # in the project's history, and it walked straight into a bug that had
+        # been sitting here the whole time. The plate branch is why nothing
+        # caught it - a dormant path is not a checked path.
+        src = esc(photo.get("path", ""))
         cap = next((i.get("caption") for i in manifest.get("items", [])
                     if i.get("slug") == slug and i.get("caption")), "")
         credit = next((i.get("src") for i in manifest.get("items", [])

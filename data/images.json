@@ -1258,6 +1258,59 @@
       },
       "cached": "2026-09-28",
       "kind": "unchecked"
+    },
+    {
+      "slug": "the-dog",
+      "for": "encyclopedia",
+      "caption": "Two small distant silhouettes on an empty horizon, far apart. One upright, one low and broad. Neither is drawn closely enough to be identified, which is the point.",
+      "q": "two distant figures far apart on a horizon",
+      "must": [],
+      "kind": "illustrative",
+      "looked": "2026-10-04",
+      "look_reason": "Opened and looked at. Two small dark silhouettes standing far apart on a horizon line, one upright and narrow, one low and broad, on a flat cream and ochre plain with a great deal of empty space between and around them. Nothing in the frame can be dated, named or checked, which is what makes it safe to put under a -15000 entry.",
+      "note": "GENERATED with FLUX.1-schnell on the local ComfyUI rig. Author-owned by construction, so it satisfies the Commons-or-author-owned policy with no licence question. Never EXACT: it depicts nothing, so it cannot be a documentary record of anything. Weakness recorded rather than hidden - the frame is bottom-heavy with dead ochre and the figures are small, so it works as atmosphere and is weak as a hero. Crop, do not re-prompt.",
+      "local": "img/generated/the-dog-6c39360e5924.png",
+      "src": {
+        "title": "Generated locally: FLUX.1-schnell, two distant silhouettes",
+        "author": "Parasocialize (generated on the site owner's own machine)",
+        "licence": "Author-owned. Generated, not a third-party work; no attribution obligation arises and none is claimed.",
+        "page": "https://www.parasocialize.com/encyclopedia/the-dog.html",
+        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned; no third-party work is reproduced.",
+        "page_note": "No third-party source page exists for a generated image. This points at the page it illustrates, which records the model, seed and prompt. Inventing a scheme here is what link_audit exists to catch."
+      },
+      "generation": {
+        "model": "flux1-schnell-fp8.safetensors",
+        "seed": 20261004,
+        "steps": 4,
+        "cfg": 1.0,
+        "sampler": "euler/simple",
+        "size": "1152x768",
+        "encoders": "t5xxl_fp8_e4m3fn + clip_l, type flux",
+        "vae": "ae.safetensors",
+        "rejected_takes": [
+          {
+            "take": "v1 seed 20261004",
+            "showed": "a modern shepherd-type dog by a campfire, reached toward by a disembodied arm",
+            "rejected_because": "a recognisable modern breed on an entry dated -15000, and a limb with no body attached"
+          },
+          {
+            "take": "v2 seed 20261004",
+            "showed": "wolf-adjacent dog beside a crouching figure seen from behind",
+            "rejected_because": "a modern shirt on the figure; the entry is prehistoric"
+          },
+          {
+            "take": "v2 seed 15000",
+            "showed": "dog in profile, figure from behind, good separation",
+            "rejected_because": "a black collar on an animal fifteen thousand years early, despite 'no collar' being in the prompt"
+          },
+          {
+            "take": "v2 seed 6601",
+            "showed": "the same composition, warmer palette",
+            "rejected_because": "a green collar, and a shirt"
+          }
+        ],
+        "policy": "Generated art in this layer is atmosphere, never depiction. Anything that depicts a subject is either a Commons photograph of a real thing or nothing."
+      }
     }
   ]
 }
