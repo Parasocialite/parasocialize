@@ -485,7 +485,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AMobile-Phone-Message.png"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. An iPhone showing a two-message thread - The capital of France is nice / THE CAPITAL OF FRANCE IS PARIS - on a mock status bar. Generic by any measure, and the caption says so rather than implying it is a real conversation. Illustrative."
     },
     {
       "slug": "pygmalion-sculptor-illusion",
@@ -533,25 +535,6 @@
       "note": "The src title says China, Tang dynasty style. The label in the picture says Laos, tenth century. The source metadata and the museum disagree on provenance, and the caption's 'marble' is the one material claim the frame arguably contradicts. Do not describe this as marble without checking which stone it is."
     },
     {
-      "slug": "hugh-jackman-divorce",
-      "for": "story",
-      "caption": "Hugh Jackman",
-      "q": "Hugh Jackman",
-      "must": [
-        "jackman"
-      ],
-      "local": "img/editorial/a6b4afb1722fc2.jpg",
-      "src": {
-        "title": "DEADPOOL y WOLVERINE con ESCORPIÓN DORADO AlVolante Ryan Reynolds y Hugh Jackman son a toda madre",
-        "author": "PelucheEn ElEstuche",
-        "licence": "CC BY 3.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ADEADPOOL_y_WOLVERINE_con_ESCORPI%C3%93N_DORADO_AlVolante_Ryan_Reynolds_y_Hugh_Jackman_son_a_toda_madre.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
       "slug": "podcast-listeners-study",
       "for": "story",
       "caption": "A podcast host at a microphone",
@@ -568,7 +551,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AFreepik_anderson-a-professional-podcast-host-a-smiling-man_30897.png"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A smiling man in headphones beside a studio microphone on a black backdrop. The caption is accurate - a host at a microphone - and nothing in frame identifies him or ties him to any study, so illustrative rather than exact. Worth recording that the Commons file is a Freepik stock render, which is why the ceiling is illustrative: it is a picture of the activity and not of anybody who did the research."
     },
     {
       "slug": "neighbours-kids-and-finale",
@@ -597,7 +582,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ALiam_Payne_2019.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A studio portrait against a red backdrop, bomber jacket, no setting and no date. Nothing in frame identifies him or places the picture in 2019, so illustrative is the ceiling and the identity rests on src. The entry is about grief after a death and the frame is the living performer, which is honest as a portrait and makes no claim about the grief."
     },
     {
       "slug": "neighbours-grief-study",
@@ -626,7 +613,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AZubeen_Garg_in_Edufest_2016.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A performer at a handheld microphone with an in-ear monitor, eyes closed, mid-song on a dark stage. The frame shows someone performing and nothing else - it does not name Edufest, does not date 2016, and does not identify him. Illustrative, with identity, event and year all resting on src."
     },
     {
       "slug": "characters-we-keep",
@@ -645,7 +634,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AGraz_University-Library_reading-room.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "exact",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A two-storey library reading room: long reading tables, brass lamps, galleries with iron railings on both sides, a skylight. The caption says the reading room of the University of Graz library and the frame establishes a university library reading room on its own terms - the must term library is satisfied by what is in the picture, not by the filename. Exact on the caption as written."
     },
     {
       "slug": "worship-in-sports-politics-business",
@@ -705,7 +696,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AConcert_Ticket_from_Texxas_Jam_%2779.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "exact",
+      "looked": "2026-10-05",
+      "look_reason": "Opened, and the frame carries the entry's argument rather than illustrating it. A Texas Jam 79 ticket stub: Cotton Bowl Dallas, Saturday June 9 1979, Boston and Heart, 15 dollars advance/general admission, ADMIT ONE, PLEASE RETAIN TICKET STUB. The caption claims only that this is a concert ticket, which pixels settle entirely - and the unit of account the entry is about is printed on the artefact, price and one admission."
     },
     {
       "slug": "meg-mason-writes-about-us",
@@ -753,7 +746,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AMinetest_Forum_-_General_Discussion.png"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A phpBB-style General Discussion index - topic titles, reply and view counts, last-post stamps, 3291 topics, usernames in colour. The caption is accurate and makes the entry's point structurally: the frame is a list of other people's threads, which is exactly the gap the entry describes between a glimpse and access. Illustrative because a specific forum and a specific thread are named by src, not by anything legible here."
     },
     {
       "slug": "kai-cenat-returns",
@@ -793,8 +788,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ACourtroom_of_the_Austrian_Constitutional_Court_01.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked",
-      "note": "A real courtroom, standing in for a litigation that did not happen there - captioned as a courtroom and not as the hearing."
+      "kind": "illustrative",
+      "note": "A real courtroom, standing in for a litigation that did not happen there - captioned as a courtroom and not as the hearing.",
+      "looked": "2026-10-05",
+      "look_reason": "Opened, and this is the good case of a disclosed substitution. Fifteen judges in black robes with purple collars on a curved bench beneath two inscriptions - OSTERREICH IST EINE DEMOKRATISCHE REPUBLIK and IHR RECHT GEHT VOM VOLK AUS - with the Austrian eagle between them. The frame settles that this is an Austrian court beyond any reliance on src, which the inscription does on its own. Illustrative rather than exact on one narrow point: the motto is the national motto and appears across Austrian state buildings, so the specific identification as the Constitutional Court rests on src. The note already discloses the substitution - a real courtroom standing in for a litigation that did not happen there - and a caption that discloses its own substitution is doing this right."
     },
     {
       "slug": "neuro-sama-tops-twitch",
