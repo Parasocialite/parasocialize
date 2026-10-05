@@ -727,7 +727,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AGiant_Puppet_Shows_by_Ishara_Puppet_Theatre_Trust_during_Youth_Festival_2011_at_CP%2C_Delhi_IMG_8308_01.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A giant orange and red bird puppet with an open beak, filling the frame on a stage with smoke and coloured beams, a second puppet behind it. The caption says a giant puppet show and the frame is exactly that - a giant puppet, worked from above, on a lit stage. It names neither the performer nor the production, so those rest on src."
     },
     {
       "slug": "parasocial-problem-visibility",
@@ -857,7 +859,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ARugrat_Baby_Shower_Decor.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A hotel banquet room set for a Rugrats-themed baby shower: a printed banner with the characters and the word Rugrats, a balloon arch, figurines on each table, wall cutouts, character-print napkins. The caption is accurate. Worth recording that this picture is neither a frame from the cartoons nor a photograph of the audience, which is one of the three that made the front page's old blanket claim - every picture above is of the audience - false, and the fix was to the sentence rather than to this image."
     },
     {
       "slug": "t8-3-grouch",
@@ -876,8 +880,10 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AHallowbaloo_2012_-_Oscar_the_Grouch_Cosplayer.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked",
-      "note": "Fans in costume is what Commons actually holds, and on this site that is the better picture: the bond lives in the audience."
+      "kind": "illustrative",
+      "note": "Fans in costume is what Commons actually holds, and on this site that is the better picture: the bond lives in the audience.",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A person in a blue jumpsuit with white face paint and a red clown nose, holding a grey bin with a green furry Grouch puppet emerging from it. The costume is unmistakably the Grouch and the caption is accurate; Hallowbaloo and 2012 are not in the frame, so those rest on src."
     },
     {
       "slug": "t8-4-zuko",
@@ -896,7 +902,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ACosplay_of_Zuko_at_AVA_Expo_2013.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A Zuko costume - dark wig, red and brown cloak with flame trim, gold tunic, and a prosthetic scar over the left eye - holding a plush of the winged lion-eagle from the album. The costume settles which character it is, which is more than the previous two pictures managed. AVA Expo and 2013 are not in frame. Noting the VK.COM/OCEAN_PHOTO watermark across the bottom: it is part of the image and the author credit covers it, but it is visible to a reader."
     },
     {
       "slug": "t8-5-dragontales",
@@ -953,7 +961,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3AWonderCon_2012_-_the_Animaniacs%21_%286873031174%29.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "exact",
+      "looked": "2026-10-05",
+      "look_reason": "Opened, and the frame carries the caption's two hardest claims. Three cosplayers in white face paint with red clown noses - Yakko, Wakko and Dot - and the middle one is wearing a convention badge that reads WONDERCON 2012. So the event and the year are legible in the picture rather than only on Commons, which is the bar for exact. Also worth recording: the characters cannot reciprocate and the badge proves somebody paid to be in a room with them, which is the top 8's argument in a single frame."
     },
     {
       "slug": "top8-cartoons-90s",
@@ -1029,7 +1039,7 @@
     {
       "slug": "figure-peewee",
       "for": "feature",
-      "caption": "Paul Reubens, with the David Hasselhoff Chalk painting, CalArts",
+      "caption": "Four people in CalArts smocks at a graduation, waving",
       "q": "Paul Reubens",
       "must": [
         "reubens"
@@ -1043,7 +1053,14 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ACalarts-katey-sagal-paul-reubens-david-hasselhoff.png"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Caption corrected, and it was false rather than loose: it said Paul Reubens with the David Hasselhoff Chalk painting, CalArts, and there is no painting in the frame. What is in the frame is four people in black and white wearing CalArts smocks, waving, at what looks like a graduation - the smock ties are visible on two of them. The Commons filename carries three names, Katey Sagal, Paul Reubens and David Hasselhoff, and none of the three can be picked out of four people in a soft, grainy photograph. The caption now says what the frame shows.",
+      "caption_corrected": {
+        "from": "Paul Reubens, with the David Hasselhoff Chalk painting, CalArts",
+        "date": "2026-10-05",
+        "why": "Caption corrected, and it was false rather than loose: it said Paul Reubens with the David Hasselhoff Chalk painting, CalArts, and there is no painting in the frame. What is in the frame is four people in black and white wearing CalArts smocks, waving, at what looks like a graduation - the smock ties are visible on two of them. The Commons filename carries three names, Katey Sagal, Paul Reubens and David Hasselhoff, and none of the three can be picked out of four people in a soft, grainy photograph. The caption now says what the frame shows."
+      }
     },
     {
       "slug": "figure-kozik",
@@ -1062,7 +1079,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ACharlie_Kaufman_Fantastic_Fest_2015-0257_%2827441349145%29_%28cropped%29.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A bearded man in glasses, white shirt and plaid tie, holding a microphone at a festival panel with a sponsor banner behind. Nothing in frame identifies him and nothing dates it to 2015, so identity and year both rest on src. The frame does settle that it is a person holding a mic at a seated panel, which is what the caption claims."
     },
     {
       "slug": "figure-tay",
@@ -1088,7 +1107,7 @@
     {
       "slug": "moment-power-rangers",
       "for": "feature",
-      "caption": "The cast of the Power Rangers film",
+      "caption": "The Power Rangers cast on a Camp Conival panel at Comic-Con, beneath banners for Alpha and Omega",
       "q": "Power Rangers",
       "must": [
         "rangers"
@@ -1102,7 +1121,14 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ACast_of_the_Power_Rangers_movie.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened, and this is the same photograph as t8-6-powerrangers under a different Commons page - byte-identical, sha256 b41dd4b665b9921c59b25a99. Its caption was still the old false one, The cast of the Power Rangers film, which is how a correction can be made on one copy of a picture and leave the other asserting the thing that was just corrected: both records were inspected, only one was fixed, and neither the build nor any gate could see that there was a second copy. The frame is the cast on a Camp Conival panel with an audience in the foreground and ALPHA and OMEGA banners behind them, which are the two 2017 film titles.",
+      "caption_corrected": {
+        "from": "The cast of the Power Rangers film",
+        "date": "2026-10-05",
+        "why": "Opened, and this is the same photograph as t8-6-powerrangers under a different Commons page - byte-identical, sha256 b41dd4b665b9921c59b25a99. Its caption was still the old false one, The cast of the Power Rangers film, which is how a correction can be made on one copy of a picture and leave the other asserting the thing that was just corrected: both records were inspected, only one was fixed, and neither the build nor any gate could see that there was a second copy. The frame is the cast on a Camp Conival panel with an audience in the foreground and ALPHA and OMEGA banners behind them, which are the two 2017 film titles."
+      }
     },
     {
       "slug": "aisle-idol",
@@ -1111,16 +1137,22 @@
       "q": "idol",
       "aisle": "idol",
       "topic": "idol",
-      "local": "img/editorial/1a5445384e8a1d.jpg",
+      "local": null,
       "src": {
         "title": "Mitch Fender Band 2026 - 9",
         "author": "nobody@flickr.com (\"Zechenturm\")",
         "licence": "CC 2.0",
         "credit": "nobody@flickr.com (\"Zechenturm\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
+        "page": "https://www.flickr.com/photos/",
+        "usable_as_image": false,
+        "withheld_note": "Openable and freely licensed, but not used as an image. See withdrawn_reason."
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "withheld",
+      "withdrawn": true,
+      "looked": "2026-10-05",
+      "withdrawn_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"Zechenturm\" in brackets. Two: the file is 240x200, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph.",
+      "look_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"Zechenturm\" in brackets. Two: the file is 240x200, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph."
     },
     {
       "slug": "aisle-creator",
@@ -1129,16 +1161,22 @@
       "q": "creator",
       "aisle": "creator",
       "topic": "creator",
-      "local": "img/editorial/7e0302729d0818.jpg",
+      "local": null,
       "src": {
         "title": "DIGITAL EVANGELISM II",
         "author": "nobody@flickr.com (\"maheryan\")",
         "licence": "CC 2.0",
         "credit": "nobody@flickr.com (\"maheryan\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
+        "page": "https://www.flickr.com/photos/",
+        "usable_as_image": false,
+        "withheld_note": "Openable and freely licensed, but not used as an image. See withdrawn_reason."
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "withheld",
+      "withdrawn": true,
+      "looked": "2026-10-05",
+      "withdrawn_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"maheryan\" in brackets. Two: the file is 240x180, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph.",
+      "look_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"maheryan\" in brackets. Two: the file is 240x180, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph."
     },
     {
       "slug": "aisle-character",
@@ -1197,16 +1235,22 @@
       "q": "world",
       "aisle": "world",
       "topic": "world",
-      "local": "img/editorial/3a85cbcbdfa98b.jpg",
+      "local": null,
       "src": {
         "title": "İstanbul Annex Olimpiyat Parkı ve Atletizm Tesisi",
         "author": "nobody@flickr.com (\"wowTürkiye\")",
         "licence": "CC 2.0",
         "credit": "nobody@flickr.com (\"wowTürkiye\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
+        "page": "https://www.flickr.com/photos/",
+        "usable_as_image": false,
+        "withheld_note": "Openable and freely licensed, but not used as an image. See withdrawn_reason."
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "withheld",
+      "withdrawn": true,
+      "looked": "2026-10-05",
+      "withdrawn_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"wowTürkiye\" in brackets. Two: the file is 240x130, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph.",
+      "look_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"wowTürkiye\" in brackets. Two: the file is 240x130, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph."
     },
     {
       "slug": "aisle-brand",
@@ -1215,16 +1259,22 @@
       "q": "brand",
       "aisle": "brand",
       "topic": "brand",
-      "local": "img/editorial/3f44b5eb1ac3d6.jpg",
+      "local": null,
       "src": {
         "title": "Yumi",
         "author": "nobody@flickr.com (\"Minso Rune (SL)\")",
         "licence": "CC 2.0",
         "credit": "nobody@flickr.com (\"Minso Rune (SL)\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
+        "page": "https://www.flickr.com/photos/",
+        "usable_as_image": false,
+        "withheld_note": "Openable and freely licensed, but not used as an image. See withdrawn_reason."
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "withheld",
+      "withdrawn": true,
+      "looked": "2026-10-05",
+      "withdrawn_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"Minso Rune (SL)\" in brackets. Two: the file is 239x128, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph.",
+      "look_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"Minso Rune (SL)\" in brackets. Two: the file is 239x128, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph."
     },
     {
       "slug": "aisle-crossover",
@@ -1233,16 +1283,22 @@
       "q": "crossover",
       "aisle": "crossover",
       "topic": "crossover",
-      "local": "img/editorial/b5707ad0012445.jpg",
+      "local": null,
       "src": {
         "title": "Blists Hill Victorian Town",
         "author": "nobody@flickr.com (\"Chiltern Wanderer\")",
         "licence": "CC 2.0",
         "credit": "nobody@flickr.com (\"Chiltern Wanderer\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
+        "page": "https://www.flickr.com/photos/",
+        "usable_as_image": false,
+        "withheld_note": "Openable and freely licensed, but not used as an image. See withdrawn_reason."
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "withheld",
+      "withdrawn": true,
+      "looked": "2026-10-05",
+      "withdrawn_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"Chiltern Wanderer\" in brackets. Two: the file is 181x240, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph.",
+      "look_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"Chiltern Wanderer\" in brackets. Two: the file is 181x240, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph."
     },
     {
       "slug": "aisle-contest",
@@ -1273,16 +1329,22 @@
       "q": "grief",
       "aisle": "grief",
       "topic": "grief",
-      "local": "img/editorial/fec5ec9cdbeaa9.jpg",
+      "local": null,
       "src": {
         "title": "Sguardo",
         "author": "nobody@flickr.com (\"Giancarlo Bruss\")",
         "licence": "CC 2.0",
         "credit": "nobody@flickr.com (\"Giancarlo Bruss\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
+        "page": "https://www.flickr.com/photos/",
+        "usable_as_image": false,
+        "withheld_note": "Openable and freely licensed, but not used as an image. See withdrawn_reason."
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "withheld",
+      "withdrawn": true,
+      "looked": "2026-10-05",
+      "withdrawn_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"Giancarlo Bruss\" in brackets. Two: the file is 160x240, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph.",
+      "look_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"Giancarlo Bruss\" in brackets. Two: the file is 160x240, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph."
     },
     {
       "slug": "aisle-danger",
@@ -1291,16 +1353,22 @@
       "q": "danger",
       "aisle": "danger",
       "topic": "danger",
-      "local": "img/editorial/659319cc04fbb1.jpg",
+      "local": null,
       "src": {
         "title": "Under the Queen’s Watch",
         "author": "nobody@flickr.com (\"eduvilasimon\")",
         "licence": "CC 2.0",
         "credit": "nobody@flickr.com (\"eduvilasimon\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
+        "page": "https://www.flickr.com/photos/",
+        "usable_as_image": false,
+        "withheld_note": "Openable and freely licensed, but not used as an image. See withdrawn_reason."
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "withheld",
+      "withdrawn": true,
+      "looked": "2026-10-05",
+      "withdrawn_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"eduvilasimon\" in brackets. Two: the file is 160x240, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph.",
+      "look_reason": "Section artwork withdrawn on three grounds, none of which is that the picture is wrong. One: the source page is https://www.flickr.com/photos/ with no photo identifier after it, so there is no locator - a reader cannot open this and find the work, and the only thing on record about the photographer is the placeholder nobody@flickr.com, with the real name \"eduvilasimon\" in brackets. Two: the file is 160x240, which cannot serve a section front at any width the layout uses. Three: nothing in dist/ references it - the section fronts render story photographs instead - so it has never been on a page. The author and the CC 2.0 licence are both real and are kept on the record; what is missing is the work. If section art is wanted, it has to be fetched from a source that names the photograph."
     },
     {
       "slug": "the-dog",

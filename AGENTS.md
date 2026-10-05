@@ -2029,3 +2029,65 @@ whole thesis inside one commercial decision.
       that is the only reason it was caught before it was believed - the same
       reason `0 of 44` was caught in the DOI tool. Fixed to `(?<!\d)\d{4}(?!\d)`,
       and the true answer is zero disagreements, which is the finding.
+
+27. **The image queue is empty. 54 of 79 records have been opened, 8 exact, 38
+    illustrative, 8 withheld, and the remaining 25 are withdrawn records with no
+    file and no source - there is nothing left to open.** Closing it turned up
+    three things that no gate was looking for.
+
+    - **Seven section illustrations were withdrawn, and the long-standing "fix
+      the 7 fake Flickr credits" item was mis-framed.** All seven carried
+      `src.page` of `https://www.flickr.com/photos/` with **no photo identifier
+      after it** - a bare domain root, so there is no locator and no reader can
+      open the work. The author field was `nobody@flickr.com ("Real Name")`, so
+      the photographer is named in brackets and the placeholder sits in front of
+      them. They were also **160x240 to 240x200 pixels**, which cannot serve a
+      section front at any width the layout uses, and **no page in `dist/`
+      referenced any of them** - the section fronts render story photographs.
+      The task was never "fix the credits". They cannot be credited, because
+      they cannot be attributed, and they are not in use. Withdrawn with
+      `--keep-record`, so the real photographer's name and the CC 2.0 licence
+      stay on the record and the reason says what is missing: the work.
+      **If section art is wanted it has to be fetched from a source that names
+      the photograph.**
+    - **Two records pointed at one byte-identical picture, and a caption
+      correction silently left the other copy asserting the corrected thing.**
+      `t8-6-powerrangers` and `moment-power-rangers` are the same Camp Conival
+      panel under two different Commons pages - sha256 `b41dd4b665b9...` - and
+      both were captioned "The cast of the Power Rangers film". The caption was
+      corrected on the first and **the second kept the false claim through the
+      correction and through two commits**, because both files existed, both
+      had licences and pages and credits, and both could be opened and judged
+      independently. Nobody can see that a judgement was recorded twice for one
+      image. `image_audit.py` now hashes every file and reports duplicates,
+      **confirmed red** by promoting one Taylor Swift copy to `exact` while its
+      twin stayed illustrative with different wording.
+    - **The duplicate check was wrong for one run, in the direction that matters.**
+      Its first version failed on *any* caption disagreement, and it flagged the
+      two Taylor Swift records - both correctly capped at `illustrative`, both
+      naming a person the frame cannot establish, which **is this site's own
+      convention**: `kind: illustrative` is the field that says src did the
+      identifying rather than the pixels. It now fails only when one copy claims
+      `exact`, because exact means the frame settled it and one set of pixels
+      cannot settle two captions; everything else prints as a note. **A gate
+      added in a hurry has to be argued with before it is trusted, and this one
+      cried wolf on correct data.**
+    - **Four false or loose captions in the last stretch**, all now corrected
+      against what the frame shows: `figure-peewee` claimed "Paul Reubens, with
+      the David Hasselhoff Chalk painting, CalArts" and **there is no painting in
+      the frame** - it is four people in CalArts smocks waving at a graduation,
+      and none of the three people in the Commons filename can be picked out of
+      four in a soft photograph. `aisle-companion` claimed the phone was "lit by
+      its own screen" and the frame does not support it. `history-fan-letters`
+      said 1942 for a letter headed 1940. `fearne-cotton-free-tv` said 2014 under
+      a banner reading AWARDS 2015.
+    - **The three `exact` promotions in this stretch are the method working as
+      intended**, and each is exact for the same reason - the frame carries the
+      caption's hardest claim: `youtubetv-living-room` (a person watching an
+      analogue set, and a household around one television *is* the argument),
+      `idol-economy-four-dollars` (a Texas Jam '79 stub whose $15.00 and ADMIT
+      ONE are the unit of account printed on the artefact), `characters-we-keep`
+      (a reading room the must-term is satisfied by rather than by a filename),
+      and `t8-8-animaniacs`, where a convention badge on a cosplayer's waistband
+      reads WONDERCON 2012 - so the event and the year are legible in the picture
+      rather than only on Commons.

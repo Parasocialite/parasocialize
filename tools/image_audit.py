@@ -131,6 +131,73 @@ for i in items:
         problems.append(f"{slug}: caption appears to describe the story rather "
                         f"than the frame: {i['caption'][:60]!r}")
 
+# ---- one picture, two records -------------------------------------------
+#
+# Invisible to every other check in this file. Both files exist, both carry a
+# licence and a page and a credit, both captions can be individually true, and
+# both can be opened and judged independently. What nobody can see is that the
+# judgement was recorded twice for one image - so a caption corrected on one
+# copy leaves the other still asserting the thing that was just corrected, and
+# the next person opens a picture that has already been looked at and trusts a
+# finding that is one version behind.
+#
+# That is not hypothetical. t8-6-powerrangers and moment-power-rangers are the
+# same Camp Conival panel under two different Commons pages, byte-identical,
+# both captioned "The cast of the Power Rangers film". The caption was corrected
+# on the first and the second kept the false claim through the correction and
+# through two commits. The two Taylor Swift records are the same picture the
+# same way. Hashing the bytes is the only thing that sees it.
+import hashlib
+
+by_digest = {}
+for i in items:
+    loc = i.get("local")
+    if not loc:
+        continue
+    f = ROOT / loc
+    if not f.exists():
+        continue
+    digest = hashlib.sha256(f.read_bytes()).hexdigest()
+    by_digest.setdefault(digest, []).append((i.get("slug"), loc))
+dupes = {k: v for k, v in by_digest.items() if len(v) > 1}
+duplicate_notes = []
+for digest, group in sorted(dupes.items(), key=lambda kv: kv[1][0][0] or ""):
+    slugs = ", ".join(s for s, _ in group)
+    files = ", ".join(pathlib.Path(l).name for _, l in group)
+    caps = {str(x.get("caption") or "") for x in items
+            if x.get("slug") in {s for s, _ in group}}
+    if len(caps) > 1:
+        kinds_here = {x.get("kind") for x in items
+                      if x.get("slug") in {s for s, _ in group}}
+        # Two copies of one picture cannot both be `exact` if they disagree -
+        # exact means pixels settled it, and there is one set of pixels. That
+        # is a live false claim.
+        #
+        # Two copies that both cap at `illustrative` and word themselves
+        # differently are NOT a defect, and this check was wrong about that for
+        # one run. Naming a person in an illustrative caption is the site's own
+        # convention: `kind: illustrative` is the field that says src did the
+        # identifying rather than the frame, which is exactly the Taylor Swift
+        # case in item 22. So differing detail between two illustrative copies
+        # is allowed, and the only thing worth printing is that they differ.
+        if "exact" in kinds_here:
+            problems.append(f"{slugs}: one identical picture "
+                            f"({files}, sha256 {digest[:12]}) described two "
+                            f"different ways, and at least one record claims "
+                            f"`exact` - exact means the frame settled it, and "
+                            f"one set of pixels cannot settle two captions")
+        else:
+            duplicate_notes.append(f"{slugs}: one picture reused across two "
+                                   f"subjects ({files}); captions differ in "
+                                   f"detail but both cap at {sorted(kinds_here)}, "
+                                   f"which is the site's convention for a name "
+                                   f"the frame cannot establish")
+    else:
+        # Legitimate: one picture serving two subjects, described the same way
+        # both times. Worth knowing, not a defect.
+        duplicate_notes.append(f"{slugs}: one picture reused across two "
+                               f"subjects ({files}), captions agree")
+
 kinds = Counter(i.get("kind") for i in items)
 fors = Counter(i.get("for") for i in items)
 looked = sum(1 for i in items if i.get("looked"))
@@ -143,6 +210,12 @@ print(f"  by kind   : {dict(kinds)}")
 print(f"  by subject: {dict(fors)}")
 print(f"  with a `looked` date: {looked}")
 print()
+if duplicate_notes:
+    print(f"  {len(duplicate_notes)} reused picture(s) - not defects, but the")
+    print("  captions have to agree across copies and only hashing finds that:")
+    for n in duplicate_notes[:10]:
+        print(f"    NOTE: {n}")
+    print()
 if problems:
     print(f"  {len(problems)} problem(s):")
     for p in problems[:40]:
