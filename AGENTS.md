@@ -2375,3 +2375,72 @@ whole thesis inside one commercial decision.
       there is still no medium for advertising or the visual arts beyond
       `visual_art`. Five entries have a stage in their prose and none is filed
       there.
+
+34. **The corpus had the direction of this mechanism backwards, and the sharpest
+    version of it arrived as something I was told to watch rather than something I
+    found.** Measured first: `wonka`, `dahl`, `chocolat`, `cocoa`, `candy` and
+    "brand extension" return **zero** entries between them, and only **13 of 193
+    entries (7%) mention commerce at all**. The brand axis held five, and its
+    spine was `the-brand-as-character` (1995) - *"Corporations given a voice, a
+    face, a founder narrative, and a tone, so that a customer relationship has a
+    subject."* That is the ordinary case and it is the weak one: the company came
+    first and the personality was bolted on afterwards.
+
+    **`the-figure-you-buy` is the inverse, and it is stronger.** The figure came
+    first and the product took the figure's NAME. Roald Dahl invented a chocolatier
+    in 1964. In 1971 a **breakfast-cereal company with no film experience**
+    advanced about **$3 million** to finance an adaptation in exchange for the
+    right to sell a chocolate bar under the character's name, and the film was
+    **retitled from *Charlie and the Chocolate Factory* to put the product in the
+    title**. The brand launched on 17 May 1971, a month *before* the film opened on
+    30 June. Wikipedia's own phrase for it is "the greatest reverse product
+    placement ever".
+
+    - **The mechanism is an unfalsifiable far side.** Everywhere else on this site
+      the other party can disappoint you: a performer cancels, dies, scandals,
+      sues. This one cannot do any of it, because he was never a person - and a
+      bond that cannot be disappointed cannot repay either. That is not a side
+      effect of the licensing. **It is what the licensing is for**, and it is why
+      the name has outlived four owners: Quaker Oats, Sunmark, Rowntree
+      Mackintosh, Nestle, then Ferrero, and now a streaming platform that bought
+      the Dahl catalogue outright. One invented figure, four successive owners,
+      none of whom have met.
+    - **And the 2026 Netflix competition is where the engineering fails in public,
+      which is what makes it an entry rather than an anecdote.** It restores Gene
+      Wilder's dead voice with generative audio built by ElevenLabs, approved by
+      his estate *and his widow*, and co-showrunner Alison Holloway on why: *"What
+      would Wonka do at this point? What would Wonka say? I.e. What would Gene
+      Wilder say?"* - **fusing a fictional chocolatier and a dead actor into one
+      addressable figure.** It was hated: **Metacritic 29 from 7 reviews, 0 per
+      cent positive**, and the Los Angeles Times on the voice: *"a lifeless voice
+      not so much from beyond the grave as buried in it."*
+      **So the bar works because the mask never slips and the show fails because
+      it made the mask audible.** Same mechanism, opposite outcome - and the
+      corpus had no way to say that, because it had only ever seen the
+      brand-as-character direction.
+    - **The book rewards Charlie for refusing to be greedy. The show pays $3m to
+      contestants who are explicitly incentivised to scheme** (NBC News' word) and
+      calls its eliminations *termination*. **The figure is made to host the exact
+      contest he was invented to punish.** Contestants also qualified by finding a
+      ticket hidden inside a Wonka bar, so the purchase is the entry token.
+    - **The transparency problem, in its most literal form, and stated as an
+      allegation because that is what it is.** Nestle owned the brand 1988-2015 and
+      is a **named defendant** in the 2021 International Rights Advocates case in
+      which eight Malian plaintiffs allege they were trafficked as children to
+      harvest cocoa; the companies dispute it and say there is no legal basis, and
+      the record says so in full. It is in the entry for its **structure** - an
+      invented name is the standing emblem for a real supply chain of real people,
+      and it absorbs the charge - not as an accusation about any one firm. The
+      WaPo reporting (2m+ children per a 2015 Labor Department report; industry
+      deadlines missed in 2005, 2008, 2010 and 2015; a Nestle executive saying
+      "I'm not going to make those claims") is the documentary spine.
+    - **`verified: false`.** Nine sources, all read and all recorded as read, and
+      nobody has stood behind them in the corpus's sense yet.
+    - **A note on the mechanism of the correction, because it is the third time
+      this shape has appeared.** The finding did not come from a gap in the corpus
+      or from an axis that ran out. It came from being told what someone had
+      watched. The tool that found it was **a person**, and the honest reading of
+      "are you doing the full pull" is that the answer was no - and that the
+      breadth question is not answerable from inside the corpus, because a corpus
+      cannot report its own blind spots. It only has holes where it already knows
+      something exists.
