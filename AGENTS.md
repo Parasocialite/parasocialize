@@ -2317,3 +2317,61 @@ whole thesis inside one commercial decision.
       `MEDIA`, and `MEDIA` is thin at one end and absent at the other. Filling
       comics, radio, stage and the visual arts is what makes a cadence possible -
       and unlike the three MP4s it is work that the engine will actually use.
+
+33. **The atlas had its own copy of the medium list, it had already drifted, and
+    the two thinnest media in the corpus were invisible from the map for that
+    reason.** `tools/atlas.py` validates every entry's `medium` against `MEDIA`.
+    `tools/build_atlas.py` - which builds the page - defined **its own**
+    `MEDIA_ORDER` and `MEDIA_LABEL`. The copies had diverged: atlas.py had
+    **fifteen** media, build_atlas.py had **eleven**. So `radio` and `comics` -
+    the two added specifically because the axis had nowhere to put them - had
+    **never been filterable in the atlas at all**. They are the two thinnest media
+    in the corpus, and part of why that was not obvious from the map is that the
+    map did not list them.
+
+    - **Same family as the plate that stopped describing its entry**: a generated
+      artefact quietly falling behind the thing it is generated from, invisible
+      from either file alone. `plate.py --check` catches this for plates; nothing
+      caught it for the media list because there was no second list to compare
+      against - there was only a stale one. `build_atlas.py` now **imports**
+      `MEDIA` and `MEDIA_LABEL` from `atlas.py` rather than copying them, with a
+      `spec_from_file_location` fallback for running from another directory.
+    - **`media_colour(i, n=11)` had the count hardcoded**, so the day a twelfth
+      medium was added every colour on the wheel would have silently re-spaced
+      and nothing would have said so. It derives `n` from `len(MEDIA_ORDER)`
+      now.
+    - **`stage` and `visual_art` were added to `MEDIA`**, and that is the whole
+      of what was done. **Nothing was refiled.** Moving an existing entry into a
+      new bucket to make the distribution look even is the move this project
+      refuses - the same rule that keeps five taxonomy sub-categories empty and
+      reported rather than filled. Adding the names makes the gap *fileable*,
+      which is the only way it can be closed honestly. Both now render as a
+      selectable filter chip with nothing behind it, which is a hole a reader can
+      see rather than one nobody knew was there.
+    - **The measured state of the axis, for the record** (`medium` is a LIST; the
+      first probe compared `str(medium) == "history"` against `"['history']"`,
+      matched nothing, and printed 0 for every medium):
+
+      | medium | entries | days of bi-daily cadence |
+      |---|---|---|
+      | comics | 1 | 0.5 |
+      | radio | 2 | 1.0 |
+      | music / sport | 6 each | 3.0 |
+      | theology | 7 | 3.5 |
+      | television_unscripted | 10 | 5.0 |
+      | television_scripted | 14 | 7.0 |
+      | literature | 16 | 8.0 |
+      | games | 18 | 9.0 |
+      | film | 19 | 9.5 |
+      | ai | 20 | 10.0 |
+      | technology | 29 | 14.5 |
+      | history | 56 | 28.0 |
+
+      **109 of 193 entries (56%) carry a real medium**; the rest sit in `history`
+      or `technology`, which name no medium. `history` alone is 29% of the corpus.
+    - **What the holes are, concretely:** `comics` has one entry and it is
+      `casper`, a character rather than a strip. `radio` has two, both dated 1930
+      (`radio-serials`, `the-shadow`). `stage` and `visual_art` have none, and
+      there is still no medium for advertising or the visual arts beyond
+      `visual_art`. Five entries have a stage in their prose and none is filed
+      there.

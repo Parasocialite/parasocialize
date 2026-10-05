@@ -37,18 +37,35 @@ import json, pathlib, sys, math
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "atlas" / "index.html"
 
-MEDIA_ORDER = ["theology", "literature", "film", "music", "television_scripted",
-               "television_unscripted", "sport", "technology", "ai", "history",
-               "games"]
-MEDIA_LABEL = {
-    "theology": "Theology", "literature": "Literature", "film": "Film",
-    "music": "Music", "television_scripted": "Scripted television",
-    "television_unscripted": "Unscripted television", "sport": "Sport",
-    "technology": "Technology", "ai": "AI", "history": "History",
-    "games": "Games"}
-# eleven domains on a colour wheel, spaced evenly, because there are eleven of
-# them and no one of these deserves to be the accent colour
-def media_colour(i, n=11):
+# The medium list lives in tools/atlas.py, which validates every entry against it.
+#
+# It used to be duplicated here, and the two copies had already drifted: this one
+# had **eleven** media and atlas.py had fifteen, so `radio` and `comics` - the two
+# added specifically because the axis had nowhere to put them - were **never
+# filterable in the atlas at all**. That is the same defect as a plate that stops
+# describing its entry: a generated artefact that quietly fell behind its source,
+# and it is invisible from either file alone. `radio` and `comics` were the two
+# thinnest media in the corpus, and part of the reason nobody could see that from
+# the map was that the map's own list did not contain them.
+#
+# So: import, do not copy. One list, validated in one place.
+try:
+    from atlas import MEDIA as MEDIA_ORDER, MEDIA_LABEL  # noqa: F401
+except ImportError:  # running from a different cwd
+    import importlib.util as _ilu
+    _spec = _ilu.spec_from_file_location(
+        "_atlas_mod", str(ROOT / "tools" / "atlas.py"))
+    _mod = _ilu.module_from_spec(_spec)
+    _spec.loader.exec_module(_mod)
+    MEDIA_ORDER = _mod.MEDIA
+    MEDIA_LABEL = _mod.MEDIA_LABEL
+
+
+# Colours are spaced evenly around the wheel, one per medium, and the count is
+# derived rather than written down - a hardcoded `n=11` silently mis-spaced every
+# colour the day a twelfth medium was added, and nothing would have said so.
+def media_colour(i, n=None):
+    n = n or len(MEDIA_ORDER)
     h = (i / n)
     return f"hsl({int(h*360)} 76% 62%)"
 

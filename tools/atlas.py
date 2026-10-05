@@ -43,7 +43,7 @@ ENC = ROOT / "data" / "encyclopedia.json"
 
 MEDIA = ["theology", "literature", "film", "music", "television_scripted",
          "television_unscripted", "sport", "technology", "ai", "history", "games",
-         "radio", "comics"]
+         "radio", "comics", "stage", "visual_art"]
 
 # `radio` and `comics` were added because the corpus has held instances of both
 # all along and the axis had nowhere to put them: `cliffhanger` is dated 1930, and
@@ -56,14 +56,29 @@ MEDIA = ["theology", "literature", "film", "music", "television_scripted",
 # episode rendering; what it does mean is that a radio entry draws the theatre
 # backdrop until somebody writes a radio system, which is the honest artefact of
 # a real hole rather than a silent one.
+#
+# `stage` and `visual_art` were added for the same reason, and the measurement is
+# in item 32: the thesis is parasociality across ALL FORMS OF MEDIA, and a bi-daily
+# creator walks this list. On the committed corpus the axis ran out. `comics` held
+# ONE entry and it was `casper` - a character, not a strip - `radio` held two, both
+# dated 1930, and stage and visual art held **nothing at all**. Five entries had a
+# stage in their prose and none was filed there. A cadence walking the axis would
+# have exhausted comics in half a day and radio in one.
+#
+# Adding the names does not fill the gap, and it is not meant to. It makes the
+# gap fileable, which is the only way it can be closed honestly. **Moving an
+# existing entry into a new bucket to make a chart look even is the move this
+# project refuses**, so nothing was refiled: the empty columns are now visible
+# columns rather than invisible ones.
 MEDIA_LABEL = {
     "theology": "Theology", "literature": "Literature", "film": "Film",
     "music": "Music", "television_scripted": "Scripted television",
     "television_unscripted": "Unscripted television", "sport": "Sport",
     "technology": "Technology", "ai": "Artificial intelligence",
     "history": "History", "games": "Games",
-    "radio": "Radio", "comics": "Comics",
-}
+"radio": "Radio", "comics": "Comics",
+       "stage": "Stage", "visual_art": "Visual art",
+   }
 
 KINDS = ["figure", "work", "mechanism", "event", "institution", "term", "study"]
 
