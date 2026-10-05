@@ -1917,3 +1917,58 @@ whole thesis inside one commercial decision.
       did. `paleolithic-figures`' finding was lost that way and is written out in
       this item instead. **A tool that keeps the evidence only while the record
       survives is a tool that loses exactly the findings worth keeping.**
+
+24. **A freely-licensed screenshot of a chatbot returning suicide methods was
+    rendering on eleven pages as decoration, and `image_audit.py` could not have
+    caught it.** Item 22's queue is real work rather than a blocker, so six
+    records were opened. One of them, `8432d33b1d39ab`, is a Replika
+    conversation in which a user asks the bot for methods and it returns **an
+    enumerated list of them** - overdose, hanging, shooting, jumping, stabbing,
+    cutting - with the avatar being a real identifiable person's photograph.
+    It was the picture on `i-tried-replika`, `replika-users-lost-them`,
+    `character-ai-settlement`, `neuro-sama-tops-twitch`, `sculptor-fell-in-love`,
+    `eu-kids-act-companion-chatbots`, `companion-safety-controls`,
+    `ai-updates-feel-like-breakups`, `pygmalion-sculptor-illusion`, the
+    companion section front and the credits page.
+    - **The licence was fine and the problem was not licensing.** The Commons
+      record is Public domain and the authorship is correct. Every existing check
+      would have passed it: the file existed, it had a licence and a page and a
+      credit, its caption described its frame, and its `must` term (`chatbot`)
+      was satisfied. **A picture can be perfectly licensed and perfectly
+      accurately captioned and still be the wrong thing to publish**, and no
+      field in this manifest is about that. `licence` answers "may I show it",
+      never "should I".
+    - **`withdrawn` is not `rejected`, and conflating them loses the finding.**
+      Deleting the row would have made the audit green and destroyed the only
+      record that the screenshot exists and is openable - which is a fact the
+      corpus wants, because the entry is *about* it. So `kind: "withheld"` keeps
+      the record, nulls `local`, keeps `src` with `usable_as_image: false`, and
+      carries `withdrawn_reason` in full. `tools/withdraw_image.py --keep-record`
+      does it and asserts the item count.
+    - **The audit now holds the refusal to its proof, the same way it holds a
+      claim.** A `withheld` record with a non-null `local` fails, because a
+      withheld image a page can still reach is not withheld; one with no
+      `withdrawn_reason` fails, because a refusal nobody can read is
+      indistinguishable from a mistake. Confirmed red by restoring `local` and
+      blanking the reason, then green on restore.
+    - **What this does not solve, stated plainly.** A gate can hold a field to
+      what it promises; it cannot read a picture. There is no automatic check
+      that would have found this, and pretending a manifest rule would is the
+      `kind: exact` mistake a third time. **The check is a person opening the
+      file, which is why item 22's queue is a queue and not a gate.**
+    - **The other five, for the method's record.** `youtubetv-living-room` is the
+      first `exact` promoted in this batch and the reason is worth copying: the
+      caption says "a person watching an analogue television set", the frame is
+      precisely that, and **no part of the caption rests on `src`** - so pixels
+      settle it. It is also the better picture for the entry, since a household
+      gathered around one set *is* the argument. `gloria-steinem-and-dolly` is
+      `illustrative` despite looking like a clean portrait, because a **lavalier
+      mic is clipped to the jacket** - the frame carries its own evidence of the
+      recorded interview the entry is about, while identity and year still come
+      from `src`. `i-tried-replika` is a flat vector cartoon avatar and the
+      ceiling is `illustrative`. And **`fearne-cotton-free-tv` was a false
+      caption**: it said "2014" while the step-and-repeat behind her reads
+      **AWARDS 2015**. I cannot tell whether Commons misnamed the file or the
+      banner was reused, so the caption now says "at an awards event" and the
+      disagreement is written into the reason instead of being resolved by
+      guessing a year.

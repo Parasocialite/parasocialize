@@ -59,7 +59,11 @@ MAN = ROOT / "data" / "images.json"
 man = json.loads(MAN.read_text(encoding="utf-8"))
 items = man.get("items", [])
 
-VALID = {"exact", "illustrative", "unchecked"}
+# `withheld` joins the other three: the picture is real and licensed and must
+# not be shown. It is checked separately below, because a refusal needs evidence
+# of the refusal - a null `local` and a written reason - where the other three
+# need evidence of the claim.
+VALID = {"exact", "illustrative", "unchecked", "withheld"}
 
 problems = []
 for i in items:
@@ -75,6 +79,23 @@ for i in items:
     if kind in ("exact", "illustrative") and not looked:
         problems.append(f"{slug}: kind={kind!r} with no `looked` date - nobody "
                         f"has opened this file, so the claim is not yet earned")
+    # `withheld` is a fourth kind, and it is the only one whose meaning is a
+    # refusal rather than a claim. The picture is real and freely licensed and
+    # must not be shown - 8432d33b1d39ab is a Replika conversation in which the
+    # bot returns an enumerated list of suicide methods, and it was rendering on
+    # eleven pages as decoration. It earns its place by requiring all three
+    # things a claim-kind requires and one more: `local` must be null, so
+    # img_for() cannot return it, and the reason must be written down, so the
+    # next person reads why instead of re-fetching it.
+    if kind == "withheld":
+        if i.get("local"):
+            problems.append(f"{slug}: kind='withheld' but local="
+                            f"{i['local']!r} is still set - a withheld image "
+                            f"that a page can still reach is not withheld")
+        if not (i.get("withdrawn_reason") or "").strip():
+            problems.append(f"{slug}: kind='withheld' with no "
+                            f"`withdrawn_reason` - a refusal nobody can read is "
+                            f"indistinguishable from a mistake")
     if i.get("local") and not (ROOT / i["local"]).exists():
         problems.append(f"{slug}: local={i['local']!r} is not on disk")
     # generation.size is what the model emitted and stays that; generation.final
