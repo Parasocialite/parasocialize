@@ -2258,3 +2258,62 @@ whole thesis inside one commercial decision.
       an argument about a mechanism - visibility mistaken for access - and for a
       thesis a named Substack **is** the citable author. 6 warnings -> 1, and the
       1 is a person deciding not to act.
+
+32. **The three finished episodes are prototypes, not the deliverable, and I spent
+    a session optimising the wrong thing.** The direction, given directly: **stop
+    treating `eliza` / `shipping` / `vshojo` as the video problem.** They are three
+    hand-made cuts standing in for a **bi-daily automated creator releasing across
+    all platforms**, and they were never going to be published because they were
+    never the point. `AGENTS.md` item 1 framed "publish one episode" as the
+    headline open item for a long time, and I kept treating it as the blocker.
+
+    - **The goal is a content engine, not a renderer.** Bi-daily is ~182 releases
+      a year. No amount of work on three MP4s produces that, and improving the
+      prototype improves nothing the engine will actually use.
+    - **The editorial thesis is parasociality across ALL FORMS OF MEDIA.** That
+      is the spine the engine walks. Not "AI companions and social platforms",
+      which is what the corpus currently is.
+    - **And the corpus does not currently cover that, which is the real finding.**
+      Measured on `medium` (which is a LIST, not a string - the first version of
+      this probe compared `str(medium) == "history"` against `"['history']"`,
+      matched nothing, and printed 0 for every medium):
+
+      | medium | entries | days of bi-daily cadence at 2 entries/release |
+      |---|---|---|
+      | comics | 1 | 0.5 |
+      | radio | 2 | 1.0 |
+      | music | 6 | 3.0 |
+      | sport | 6 | 3.0 |
+      | theology | 7 | 3.5 |
+      | television_unscripted | 10 | 5.0 |
+      | television_scripted | 14 | 7.0 |
+      | literature | 16 | 8.0 |
+      | games | 18 | 9.0 |
+      | film | 19 | 9.5 |
+      | ai | 20 | 10.0 |
+      | technology | 29 | 14.5 |
+      | history | 56 | 28.0 |
+
+      **Comics lasts half a day and radio lasts one.** A bi-daily cadence walking
+      the media axis exhausts two of its thirteen members in the first week and
+      then has nothing. Only **109 of 193 entries (56%)** carry a real medium at
+      all - the other 84 sit in `history` (56) or `technology` (29), which are
+      catch-alls and name no medium. `history` alone is 29% of the corpus, and
+      AGENTS has already recorded it being used as "the value 57 entries use as a
+      catch-all".
+    - **The stories lean the same way and harder.** By section: `grief` 11,
+      `companion` 9, `creator` 6, `idol` 6, `brand` 5. Counting the medium each
+      story's subject lives in, **34 of 47 are digital/platform** and **only one is
+      film**. That is a coherent editorial identity and it is not the one the
+      thesis names.
+    - **There are media the axis has no name for at all**: stage and theatre,
+      puppetry, advertising, the visual arts. Thirteen entries have a stage in
+      their prose and **none is filed there**. A closed validated list is what
+      makes a missing medium a visible hole rather than an inconvenience -
+      `radio` and `comics` were added for exactly that reason, and the same
+      argument applies to the ones still missing.
+    - **So the content-supply problem is the corpus, not the pipeline.** Rendering
+      is solved and the weights are downloaded. What a bi-daily creator walks is
+      `MEDIA`, and `MEDIA` is thin at one end and absent at the other. Filling
+      comics, radio, stage and the visual arts is what makes a cadence possible -
+      and unlike the three MP4s it is work that the engine will actually use.
