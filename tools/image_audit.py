@@ -50,6 +50,7 @@ from __future__ import annotations
 import json
 import pathlib
 import re
+import struct
 import sys
 from collections import Counter
 
@@ -76,6 +77,25 @@ for i in items:
                         f"has opened this file, so the claim is not yet earned")
     if i.get("local") and not (ROOT / i["local"]).exists():
         problems.append(f"{slug}: local={i['local']!r} is not on disk")
+    # generation.size is what the model emitted and stays that; generation.final
+    # is the file a reader will actually open. Every generated file was
+    # margin-trimmed after generation, so all 7 records said 1152x560 about a
+    # 1084x528 file and only the-dog recorded the trim in `crop`. A recorded size
+    # that does not describe the file is the same defect as `kind: exact`
+    # derived from a filename - the field is not wrong, it is answering a
+    # different question than the one a tool reading it will ask.
+    gen = i.get("generation")
+    if gen and i.get("local") and (ROOT / i["local"]).exists():
+        f = ROOT / i["local"]
+        raw = f.read_bytes()
+        if raw[:8] == b"\x89PNG\r\n\x1a\n":
+            actual = "%dx%d" % struct.unpack(">II", raw[16:24])
+            if not gen.get("final"):
+                problems.append(f"{slug}: generation has no `final` size - the "
+                                f"file on disk is {actual}")
+            elif gen["final"] != actual:
+                problems.append(f"{slug}: generation.final={gen['final']!r} but "
+                                f"the file is {actual}")
     src = i.get("src") or {}
     if i.get("local"):
         for k in ("licence", "page", "credit"):

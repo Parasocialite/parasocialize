@@ -27,6 +27,10 @@ python tools\add_source.py --apply-provenance
 python tools\citation_audit.py # are the status fields telling the truth
 python tools\cull_audit.py    # does any entry claim the far side perceives the reader
 python tools\image_audit.py   # does any image claim what its photograph shows, unopened
+python tools\look.py --list    # the image queue; QUEUE IS 39, not 64
+python tools\gen_atmosphere.py # encyclopedia atmosphere art. NEVER `exact`, never depiction
+python tools\withdraw_image.py # reject a generated image: removes the record AND the file
+python tools\record_image_size.py  # generation.final <- the PNG actually on disk
 python tools\verify_doi.py --from-citations  # does every DOI resolve to the work cited
 python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\verify_narrow.py    # does a generated page overflow at 390px
@@ -1834,3 +1838,82 @@ whole thesis inside one commercial decision.
       per item on HTTP codes, that is a different failure from the Met's 429 and
       gets the same treatment: the claim is recorded, the status says this agent
      did not open it.
+23. **Generated encyclopedia art exists, and both rejections happened off-camera
+    because nothing recorded them.** The image layer item above is about the 73
+    photographic records; this is the other half, and until now `AGENTS.md`
+    documented none of it - no policy, no tools, no seeds, and no record of the
+    two frames that were thrown away. A rejection with no written reason is a
+    rejection that gets attempted again, which is the whole argument this file
+    makes about `RESEARCH-NOTES.md`.
+
+    - **The rule, and it is narrower than "AI art is fine".** Generated art is
+      author-owned and therefore always safe to *license*, which is not the same
+      as safe to *use*. It is **permanent `illustrative`, never `exact`** - a
+      generated image can never be evidence of what a real place or person looks
+      like. And for the encyclopedia layer it is **atmosphere, never depiction**:
+      nothing that stands for the entry's actual subject. **No real people, ever**
+      - that one is absolute, not a register question.
+    - **Why "atmosphere, never depiction" rather than a softer rule.** The first
+      attempts asked for the entry's subject and got it wrong in the direction
+      that matters: `neanderthal-burial` was asked for a burial and rendered a
+      standing human figure, because the only way a text-to-image model can draw
+      a burial is by drawing someone. `paleolithic-figures` is the same failure
+      arriving by a different route - asked for atmosphere and delivered a
+      **person in a modern hooded coat sitting on rocks in a warm desert at
+      sunset**, for an entry about mammoth-ivory carvings from Ice Age Europe.
+      Both withdrawn. **The subject is what pulls a figure into frame**, so the
+      prompt has to stay away from it deliberately rather than be told to avoid it
+      (see the next point).
+    - **A negative constraint in a prompt is decoration.** Every prompt carries
+      "no people, no text, no modern objects" and **flux1-schnell ignored all
+      three** - it produced a hooded coat. Nothing about a 4-step distilled model
+      makes it attend to a negative instruction, and `cfg: 1.0` is required
+      (anything higher fights the distillation). **So every frame is opened
+      before it is promoted, and there is no prompt that removes the need to
+      look.** Three of seven survived inspection; four were opened and three
+      passed while one was withdrawn. That 3-in-7 rate is the argument for the
+      queue being a queue.
+    - **The promoted seven**, all `illustrative`, all with a written finding:
+      `the-dog` (two small distant silhouettes), `roman-imagines` (paper-toned
+      wash - the signature-like corner mark removed by a 3% margin crop),
+      `sunghir`, `gobekli-tepe`, `myth-and-ritual`, `the-absent-sage`,
+      `the-deaf-beloved`. The last three were opened 2026-10-05 and the reasons
+      are in `data/images.json`: emptiness and scale turned out to be the
+      *correct* register for an entry about ritual older than narrative, a sage
+      who survives only as writing, and a beloved who is deaf and therefore
+      never learns the terms. **An image that depicts nothing can still be the
+      right picture**, which is not an argument for generating more of them.
+    - **Weights, verified rather than assumed.** `ComfyUI-Shared/models` holds
+      **11 files, 68.1 GB**, every safetensors header read clean - a truncated
+      download reads as a valid file of the wrong size, so the header is the only
+      check that means anything. Only **`flux1-schnell-fp8`** (17.2 GB) has been
+      used, for these 7 images, at `steps: 4, cfg: 1.0`, seeds
+      `20261004 + n*7` so a run is reproducible. The other 7 weights are **video**
+      (MiniMax H3 + turbo LoRA, Wan2.1, LTX LoRA, Qwen3-VL) and **nothing has been
+      generated from any of them.** `extra_model_paths.yaml` is written outside
+      the repo and four ComfyUI installs exist with empty `models/` dirs, so the
+      MiniMax/Wan/LTX downloads were inert until it was written.
+    - **`generation.size` records 1152x560 and every file is 1084x528**, because
+      all of them were margin-trimmed after generation and only `the-dog` said so
+      in `crop`. Sixth instance of *a status field is a promise*: the value is
+      not wrong, it answers "what did you ask for", but a tool reading it opens a
+      file of a different size. `generation.final` now carries the dimensions of
+      the PNG on disk and `image_audit.py` checks it against the PNG's own IHDR.
+      Confirmed red by resetting `sunghir`'s `final` to the stale value.
+    - **Provenance for these 7 lives only in `data/images.json`.** The PNGs carry
+      no ComfyUI fingerprint and `ComfyUI-Shared/output` is empty, because
+      `gen_atmosphere.py` copies results into the repo itself. That is a single
+      point of failure for a claim about how a picture was made, and it is
+      recorded here rather than assumed.
+    - Tools: `tools/gen_atmosphere.py` (data-derived prompts, writes new records
+      as `unchecked` with a seed and never as `exact`),
+      `tools/withdraw_image.py` (deletes record **and** file, asserting the item
+      count, because downgrading to `unchecked` leaves `local` pointing at an
+      asset nobody approved - the same shape as the 94 URL-less `retrievable`
+      records), `tools/record_image_size.py`.
+    - **One honest limitation.** `look.py` discards the finding when you
+      downgrade to `unchecked`, which is right for a record that stays and wrong
+      for a rejection - the reason is the only surviving record of what the model
+      did. `paleolithic-figures`' finding was lost that way and is written out in
+      this item instead. **A tool that keeps the evidence only while the record
+      survives is a tool that loses exactly the findings worth keeping.**

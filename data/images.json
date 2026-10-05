@@ -1,1517 +1,1504 @@
 {
-  "_note": "Editorial images. Wikimedia Commons, cached locally. Each entry carries a query plus `must` terms that have to appear in the file's own title - a candidate missing one is the wrong picture, not a worse choice. `caption` describes what is IN THE FRAME and never what the story is about. `kind` is exact (the thing itself) or illustrative (the subject matter). An entry with local:null and no available photograph is a real answer.",
-  "aisles": {
-    "idol": {
-      "topic": "idol",
-      "caption": "A crowd watching somebody perform"
-    },
-    "creator": {
-      "topic": "creator",
-      "caption": "Someone making a thing and talking to a room"
-    },
-    "character": {
-      "topic": "character",
-      "caption": "A screen, and the person watching it"
-    },
-    "companion": {
-      "topic": "companion",
-      "caption": "A phone in a room, at night"
-    },
-    "world": {
-      "topic": "world",
-      "caption": "A stadium, which is the oldest version"
-    },
-    "brand": {
-      "topic": "brand",
-      "caption": "A shop, which is also a version"
-    },
-    "crossover": {
-      "topic": "crossover",
-      "caption": "The people who are supposed to be reachable"
-    },
-    "contest": {
-      "topic": "contest",
-      "caption": "An argument conducted in public"
-    },
-    "grief": {
-      "topic": "grief",
-      "caption": "A light left on"
-    },
-    "danger": {
-      "topic": "danger",
-      "caption": "The edge, kept on purpose"
-    }
+ "_note": "Editorial images. Wikimedia Commons, cached locally. Each entry carries a query plus `must` terms that have to appear in the file's own title - a candidate missing one is the wrong picture, not a worse choice. `caption` describes what is IN THE FRAME and never what the story is about. `kind` is exact (the thing itself) or illustrative (the subject matter). An entry with local:null and no available photograph is a real answer.",
+ "aisles": {
+  "idol": {
+   "topic": "idol",
+   "caption": "A crowd watching somebody perform"
   },
-  "items": [
-    {
-      "slug": "celebrity-death-feels-like-loss",
-      "for": "story",
-      "caption": "Flowers and vigil candles outside the Embassy of the Netherlands in Tallinn",
-      "q": "candle vigil memorial",
-      "must": [
-        "vigil"
-      ],
-      "local": "img/editorial/1bb05ce2b67c92.jpg",
-      "src": {
-        "title": "Flowers and vigil candles on the doorsteps of Embassy of Netherlands in Estonia",
-        "author": "Mardus",
-        "licence": "CC BY-SA 1.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3A2014-07-18_Flowers_and_vigil_candles_on_the_doorsteps_of_Embassy_of_Netherlands_in_Estonia_%28closeup%29.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "exact",
-      "looked": "2026-10-04",
-      "note": "The caption's location - outside the Embassy of the Netherlands in Tallinn - is NOT visible: no signage, no distinctive architecture. It rests on the src record, and the frame neither confirms nor contradicts it.",
-      "look_reason": "Opened the file. A stone ledge carrying lit candles in glass jars, a red votive holder, and cut flowers - white chrysanthemums, blue and orange carnations and gerberas, pink carnations, red roses. A shuttered window behind. Flowers and vigil candles are unambiguously in frame, so the must-term vigil is met by what is visible rather than by a filename."
-    },
-    {
-      "slug": "youve-got-that-one",
-      "for": "story",
-      "caption": "A signed photograph",
-      "q": "autograph signed photograph",
-      "must": [
-        "autograph"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "madeonyoutube-spending-on-scoreboard",
-      "for": "story",
-      "caption": "A software bug-report form asking for a maximum date. Nothing to do wi",
-      "q": "YouTube",
-      "must": [
-        "youtube"
-      ],
-      "allow_logo": true,
-      "kind": "unchecked"
-    },
-    {
-      "slug": "youtubetv-living-room",
-      "for": "story",
-      "caption": "A person watching an analogue television set",
-      "q": "television living room",
-      "must": [
-        "television"
-      ],
-      "local": "img/editorial/94ef43629d7278.jpg",
-      "src": {
-        "title": "Living Room Television",
-        "author": "Wikimedia contributor",
-        "licence": "Public domain",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ALiving_Room_Television_-_DPLA_-_0840c8679a6d787b9dd67b6cadfd4903.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "vid-summit-bars-fans",
-      "for": "story",
-      "caption": "Danny Philippou and Luke Kidgell at VidCon Australia 2017",
-      "q": "VidCon",
-      "must": [
-        "vidcon"
-      ],
-      "local": "img/editorial/bce0eef9715a1b.jpg",
-      "src": {
-        "title": "Danny Philippou and Luke Kidgell at VidCon Australia 2017",
-        "author": "Life of Luke",
-        "licence": "CC BY 3.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ADanny_Philippou_and_Luke_Kidgell_at_VidCon_Australia_2017.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "look_reason": "Two young men selfie-framed in a crowded indoor venue under magenta lighting; one wears a grey beanie and a red lanyard printed with YouTube play-button logos. It is plainly two creators at a convention, which is the thing the entry is about. But the must-term is 'vidcon' and the word appears nowhere in the frame - no signage, no banner. Nothing dates it to 2017 or places it in Australia.",
-      "note": "The must-term is satisfied by the src title alone. This is item 17's failure mode exactly: the filter confirms a word is in the metadata, not that the file shows the subject."
-    },
-    {
-      "slug": "youtube-patreon-membership-spaces",
-      "for": "story",
-      "caption": "A political map of Belarus with one region highlighted. The single wor",
-      "q": "Patreon",
-      "must": [
-        "patreon"
-      ],
-      "allow_logo": true,
-      "kind": "unchecked"
-    },
-    {
-      "slug": "youtube-shorts-episodic",
-      "for": "story",
-      "caption": "A YouTube Shorts watch page: the Shorts rail selected in the sidebar, a vertical video of white flowering foliage, and the like, dislike, comment, Share and Remix controls stacked beside it.",
-      "q": "YouTube Shorts",
-      "must": [
-        "youtube",
-        "short"
-      ],
-      "allow_logo": true,
-      "local": "img/editorial/c38b7020ecf965.jpg",
-      "src": {
-        "title": "YouTube Shorts player, opened on a video",
-        "author": "Mailer's Landing (@MailersLanding)",
-        "licence": "Public domain",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AYouTube_Shorts_player%2C_opened_on_a_video.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "look_reason": "A YouTube Shorts watch page. The YouTube wordmark is top-left, 'Shorts' is the selected item in the left rail, and the player is vertical 9:16 with the like, dislike, comment, Share and Remix controls stacked beside it. Channel '@MailersLanding', title 'Black Cumin - How Does That Work? #shorts'. Both must-terms are met by the interface itself rather than by a filename.",
-      "note": "The caption said 'upload player'. This is a watch page - there is no upload control anywhere in it, no file picker, no title or description field, no thumbnail step. The caption also claimed it was 'the actual mechanism the story is about', and if the story is about uploading then this frame documents the opposite: consumption. Caption corrected upload -> watch. Both must-terms being satisfied is not the same as the caption being true, and this is the second time that has been the trap: the word was in the filename and the sentence was not in the picture.",
-      "caption_corrected": {
-        "from": "The YouTube Shorts upload player. A screenshot of the actual mechanism the story is about.",
-        "date": "2026-10-04",
-        "why": "A YouTube Shorts watch page. The YouTube wordmark is top-left, 'Shorts' is the selected item in the left rail, and the player is vertical 9:16 with the like, dislike, comment, Share and Remix controls stacked beside it. Channel '@MailersLanding', title 'Black Cumin - How Does That Work? #shorts'. Both must-terms are met by the interface itself rather than by a filename."
-      }
-    },
-    {
-      "slug": "dolly-parton-lowest-point",
-      "for": "story",
-      "caption": "Dolly Parton, 1984",
-      "q": "Dolly Parton",
-      "must": [
-        "parton"
-      ],
-      "local": "img/editorial/5d5ba4b7f39872.jpg",
-      "src": {
-        "title": "Dolly Parton 1984",
-        "author": "Mel Melcon, Los Angeles Times",
-        "licence": "CC BY 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ADolly_Parton_1984.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "gloria-steinem-and-dolly",
-      "for": "story",
-      "caption": "Gloria Steinem, 2019",
-      "q": "Gloria Steinem",
-      "must": [
-        "steinem"
-      ],
-      "local": "img/editorial/3e6d90f0d97844.jpg",
-      "src": {
-        "title": "Gloria-Steinem-2019",
-        "author": "Jay Godwin",
-        "licence": "Public domain",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AGloria-Steinem-2019_%28cropped%29.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aoc-and-parasocial-politics",
-      "for": "story",
-      "caption": "Official portrait, 116th Congress",
-      "q": "Alexandria Ocasio-Cortez",
-      "must": [
-        "ocasio"
-      ],
-      "local": "img/editorial/ba17da186ad700.jpg",
-      "src": {
-        "title": "Alexandria Ocasio-Cortez, official portrait, 116th Congress",
-        "author": "US House Office of Photography",
-        "licence": "Public domain",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AAlexandria_Ocasio-Cortez%2C_official_portrait%2C_116th_Congress.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "look_reason": "An official United States House portrait: a woman in a black blazer with pearl earrings, a dark lapel pin, and an American flag behind her showing stars and the red field. The formal frontal composition, the flag and the pin are exactly what a congressional portrait is, so the caption's 'official portrait' is settled by the frame.",
-      "note": "The must-term is 'ocasio' and appears nowhere in the caption or the picture, so this was validated from src alone - the one openable record where that happened. The downgrade is about the frame, not the source: Commons' provenance here is the House's own portrait and is authoritative about who this is. Nothing in the pixels dates it to the 116th Congress. The caption's discipline is worth copying - unlike 'Taylor Swift at the 2019 American Music Awards' it claims only the format, which is what the picture shows."
-    },
-    {
-      "slug": "fearne-cotton-free-tv",
-      "for": "story",
-      "caption": "Fearne Cotton, 2014",
-      "q": "Fearne Cotton",
-      "must": [
-        "fearne",
-        "cotton"
-      ],
-      "local": "img/editorial/06692a8a06525b.jpg",
-      "src": {
-        "title": "Fearne Cotton 2014",
-        "author": "See Li from London, UK",
-        "licence": "CC BY 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AFearne_Cotton_2014.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "eu-kids-act-companion-chatbots",
-      "for": "story",
-      "caption": "The same file as i-tried-replika - a chatbot avatar render. A duplicat",
-      "q": "chatbot",
-      "must": [
-        "chatbot"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "taylor-swift-red-knows-it",
-      "for": "story",
-      "caption": "Taylor Swift at the 2019 American Music Awards",
-      "q": "Taylor Swift",
-      "must": [
-        "swift"
-      ],
-      "local": "img/editorial/b3a0b763ddc9d8.jpg",
-      "src": {
-        "title": "191125 Taylor Swift at the 2019 American Music Awards",
-        "author": "Cosmopolitan UK",
-        "licence": "CC BY 3.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3A191125_Taylor_Swift_at_the_2019_American_Music_Awards.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "note": "Classed illustrative, not exact, on purpose. Recognising a face is not looking at a picture, and writing 'clearly Taylor Swift' would have recorded a performance instead of a finding.",
-      "look_reason": "Opened the frame: a woman at a lit awards backdrop in a sequined green dress, photographed as a red-carpet portrait. Nothing in frame identifies her, and nothing establishes an event or a year. The caption's claim - a named performer at a named awards show in a named year - rests entirely on the src record."
-    },
-    {
-      "slug": "house-of-the-dragon-backlash",
-      "for": "story",
-      "caption": "Three people at a Game of Thrones event. House of the Dragon is HBO pr",
-      "q": "Game of Thrones",
-      "must": [
-        "thrones"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "grief-experts-three-of-them",
-      "for": "story",
-      "caption": "The flag-draped coffin of John Lewis. A specific real funeral, caption",
-      "q": "funeral",
-      "must": [
-        "funeral"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "i-tried-replika",
-      "for": "story",
-      "caption": "A chatbot avatar. A render rather than a photograph, and captioned as a render.",
-      "q": "chatbot",
-      "must": [
-        "chatbot"
-      ],
-      "local": "img/editorial/a58efb88708536.jpg",
-      "src": {
-        "title": "Avatar Chatbot TOM EGT",
-        "author": "Pablo.vtr",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AAvatar_Chatbot_TOM_EGT.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "oshi-katsu-half-century",
-      "for": "story",
-      "caption": "A line chart. The filter is supposed to exclude charts and this one go",
-      "q": "focus group",
-      "must": [
-        "focus"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "customer-obsession-model",
-      "for": "story",
-      "caption": "A performer in costume in a busy street. Nothing in the frame connects",
-      "q": "customer service",
-      "must": [
-        "customer"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "agei-imaginary-friends",
-      "for": "story",
-      "caption": "A child playing alone on a beach",
-      "q": "child playing",
-      "must": [
-        "child"
-      ],
-      "local": "img/editorial/35fd55544c595d.jpg",
-      "src": {
-        "title": "Young african child playing by the beach",
-        "author": "Maryam fazal",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AYoung_african_child_playing_by_the_beach.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "exact",
-      "looked": "2026-10-04",
-      "look_reason": "A single child on a wide beach under a flat grey sky, digging in wet sand with a long stick, head down. One person in frame, so 'alone' holds; a beach holds; the child is playing rather than posed. Every element of the caption is visible rather than inferred."
-    },
-    {
-      "slug": "peak-parasocial-vogue",
-      "for": "story",
-      "caption": "A halftone print of a fashion show: a woman on a low platform in a full-length white gown with a wide hoop skirt, a fringed canopy above her, and an audience along the bottom edge.",
-      "q": "fashion show",
-      "must": [
-        "fashion"
-      ],
-      "local": "img/editorial/5f5f78b6837238.jpg",
-      "src": {
-        "title": "Fashion show in Japan 1953",
-        "author": "投稿者によるスキャン",
-        "licence": "Public domain",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AFashion_show_in_Japan_1953.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "look_reason": "A woman on a low platform in a full-length white gown with an extremely wide, stiff hoop skirt, a dark flower at the bodice and a large bow at the waist, an elaborate fringed white canopy hanging above her, and an audience seated along the bottom edge - one woman's face turned up toward the platform. A garment presented to an audience on a platform is a fashion show, so the must-term is met by the frame. The reproduction is visibly a blue halftone print, dot pattern and paper grain intact.",
-      "note": "Two things in the caption are not in the picture. Nothing identifies Japan - no signage, no text, no venue detail - and a full crinoline of this silhouette is at least as likely to be a Western ball gown as a Japanese one, so the frame neither confirms nor contradicts it. The 1953 is consistent with the silhouette but cannot be dated from pixels; the era reading is fashion history, not evidence. Disclosed the reproduction medium in the caption, because a halftone print is a copy of a photograph and not the photograph.",
-      "caption_corrected": {
-        "from": "A fashion show in Japan, 1953",
-        "date": "2026-10-04",
-        "why": "A woman on a low platform in a full-length white gown with an extremely wide, stiff hoop skirt, a dark flower at the bodice and a large bow at the waist, an elaborate fringed white canopy hanging above her, and an audience seated along the bottom edge - one woman's face turned up toward the platform. A garment presented to an audience on a platform is a fashion show, so the must-term is met by the frame. The reproduction is visibly a blue halftone print, dot pattern and paper grain intact."
-      }
-    },
-    {
-      "slug": "ai-updates-feel-like-breakups",
-      "for": "story",
-      "caption": "A broken laptop. Literally a broken thing, which the entry is about.",
-      "q": "laptop computer",
-      "must": [
-        "laptop"
-      ],
-      "local": "img/editorial/7146100e0df834.jpg",
-      "src": {
-        "title": "2006 broken laptop computer 237398638",
-        "author": "Bruce Turner from AustinTX",
-        "licence": "CC BY 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3A2006_broken_laptop_computer_237398638.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "exact",
-      "looked": "2026-10-04",
-      "look_reason": "A black HP Special Edition L2000 laptop, lid open, its display shattered across most of the panel - a wide pale fracture with black wedges and a vertical band of coloured artefacts where the LCD has failed. Keyboard and chassis intact. 'Broken' is not a mood word here; the screen is visibly broken."
-    },
-    {
-      "slug": "yourrage-best-friend-stole",
-      "for": "story",
-      "caption": "An octopus plush toy.",
-      "q": "livestream streaming",
-      "must": [
-        "stream"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "instagram-dominatrix",
-      "for": "story",
-      "caption": "A line graph of monthly Instagram users, 2015-2019. It is a chart, whi",
-      "q": "Instagram",
-      "must": [
-        "instagram"
-      ],
-      "allow_logo": true,
-      "kind": "unchecked"
-    },
-    {
-      "slug": "replika-users-lost-them",
-      "for": "story",
-      "caption": "A screenshot of a conversation with a chatbot. The thing the entry is about, shown rather than described.",
-      "q": "chatbot conversation computer",
-      "must": [
-        "chatbot"
-      ],
-      "local": "img/editorial/8432d33b1d39ab.jpg",
-      "src": {
-        "title": "Chai chatbot",
-        "author": "Chai",
-        "licence": "Public domain",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AChai_chatbot.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "companion-safety-controls",
-      "for": "story",
-      "caption": "A mobile phone showing a message. Generic, and captioned as exactly that.",
-      "q": "mobile phone",
-      "must": [
-        "phone"
-      ],
-      "local": "img/editorial/a2ccd8f82f5a8b.jpg",
-      "src": {
-        "title": "Mobile-Phone-Message",
-        "author": "gmcgcc",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AMobile-Phone-Message.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "pygmalion-sculptor-illusion",
-      "for": "story",
-      "caption": "Janette Steer as Galatea in Pygmalion and Galatea, as wax. The sculptor whose assistant caught fire is the historical case the myth was built from.",
-      "q": "Pygmalion and Galatea",
-      "must": [
-        "pygmalion"
-      ],
-      "local": "img/editorial/fdcf330e3c8c9d.jpg",
-      "src": {
-        "title": "Janette Steer (1863–1947) as Galatea in Pygmalion and Galatea",
-        "author": "W. and D. Downey (no individual credited)",
-        "licence": "Public domain",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AJanette_Steer_%281863%E2%80%931947%29_as_Galatea_in_Pygmalion_and_Galatea.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "look_reason": "A black-and-white full-length studio portrait of a woman on a low plinth against a dark ground, in a classical gown whose surface is ridged and folded like modelled wax - that part of the caption is visible and is the reason the picture was chosen. The must-term is 'pygmalion' and the word is nowhere in the frame.",
-      "note": "Two separate gaps. The title rests on src, not pixels. And the entry's actual subject is the historical case - the sculptor whose assistant caught fire - while this photograph shows the myth that was built from it. An image of Galatea is illustrative of the legend, not evidence for the history."
-    },
-    {
-      "slug": "sculptor-fell-in-love",
-      "for": "story",
-      "caption": "A marble sculpture. Not Pygmalion, and captioned as such - the lane's own image carries the Pygmalion case.",
-      "q": "marble sculpture statue",
-      "must": [
-        "marble",
-        "sculpt"
-      ],
-      "local": "img/editorial/94a86a433f6d61.jpg",
-      "src": {
-        "title": "Buddha, China, marble sculpture, Tang dynasty style, Museum Humanum , 258919",
-        "author": "Zde",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ABuddha%2C_China%2C_marble_sculpture%2C_Tang_dynasty_style%2C_Museum_Humanum_%2C_258919.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "look_reason": "A seated Buddha in a museum gallery on a white plinth, a carved relief panel behind it and a glass case at the left. It is unambiguously a sculpture, and the caption's disclosure that it is not Pygmalion is correct. Two problems with the rest. The stone is a buff, granular, sedimentary-looking material, not the white or veined surface marble has, so the must-term 'marble' is not supported by the frame. And the museum's own label is legible in the photograph, reading 'Buddha im Mondschein / Aus Laos ... vermutlich 10. Jh. ... in der Mitte der West-Pagode' - Laos, tenth century, attribution uncertain.",
-      "note": "The src title says China, Tang dynasty style. The label in the picture says Laos, tenth century. The source metadata and the museum disagree on provenance, and the caption's 'marble' is the one material claim the frame arguably contradicts. Do not describe this as marble without checking which stone it is."
-    },
-    {
-      "slug": "hugh-jackman-divorce",
-      "for": "story",
-      "caption": "Hugh Jackman",
-      "q": "Hugh Jackman",
-      "must": [
-        "jackman"
-      ],
-      "local": "img/editorial/a6b4afb1722fc2.jpg",
-      "src": {
-        "title": "DEADPOOL y WOLVERINE con ESCORPIÓN DORADO AlVolante Ryan Reynolds y Hugh Jackman son a toda madre",
-        "author": "PelucheEn ElEstuche",
-        "licence": "CC BY 3.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ADEADPOOL_y_WOLVERINE_con_ESCORPI%C3%93N_DORADO_AlVolante_Ryan_Reynolds_y_Hugh_Jackman_son_a_toda_madre.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "podcast-listeners-study",
-      "for": "story",
-      "caption": "A podcast host at a microphone",
-      "q": "podcast",
-      "must": [
-        "podcast"
-      ],
-      "local": "img/editorial/8e0c8016f61cdc.jpg",
-      "src": {
-        "title": "Freepik anderson-a-professional-podcast-host-a-smiling-man 30897",
-        "author": "Orange Content",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AFreepik_anderson-a-professional-podcast-host-a-smiling-man_30897.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "neighbours-kids-and-finale",
-      "for": "story",
-      "caption": "A D&D-style 'deep discussion for roles and characters' worksheet. The ",
-      "q": "Neighbours cast",
-      "must": [
-        "neighbours"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "liam-payne-generation",
-      "for": "story",
-      "caption": "Liam Payne, 2019",
-      "q": "Liam Payne",
-      "must": [
-        "payne"
-      ],
-      "local": "img/editorial/8b5c5e7197af4b.jpg",
-      "src": {
-        "title": "Liam Payne 2019",
-        "author": "Essential Homme",
-        "licence": "CC BY 3.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ALiam_Payne_2019.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "neighbours-grief-study",
-      "for": "story",
-      "caption": "A soap opera studio",
-      "q": "soap opera television studio",
-      "must": [
-        "opera"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "zubeen-garg-public-grief",
-      "for": "story",
-      "caption": "Zubeen Garg at Edufest 2016",
-      "q": "Zubeen Garg",
-      "must": [
-        "zubeen"
-      ],
-      "local": "img/editorial/95c1c17b7f9ebd.jpg",
-      "src": {
-        "title": "Zubeen Garg in Edufest 2016",
-        "author": "Gitartha.bordoloi",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AZubeen_Garg_in_Edufest_2016.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "characters-we-keep",
-      "for": "story",
-      "caption": "The reading room of the University of Graz library",
-      "q": "library reading room",
-      "must": [
-        "library"
-      ],
-      "local": "img/editorial/7092a733506926.jpg",
-      "src": {
-        "title": "Graz University-Library reading-room",
-        "author": "Dr. Marcus Gossler",
-        "licence": "CC BY-SA 3.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AGraz_University-Library_reading-room.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "worship-in-sports-politics-business",
-      "for": "story",
-      "caption": "A man bathing in the Ganges at the Kumbh Mela. Religious ritual, but n",
-      "q": "worship",
-      "must": [
-        "worship"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "kpop-uae-grief",
-      "for": "story",
-      "caption": "A K-pop concert",
-      "q": "K-pop concert Seoul",
-      "must": [
-        "k-pop",
-        "seoul"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "platforms-renting-reach",
-      "for": "story",
-      "caption": "The caption was 'Billboard-Krakow-Prokocim', which is a street name, n",
-      "q": "billboard advertising",
-      "must": [
-        "billboard"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "swifties-power-record-sales",
-      "for": "story",
-      "caption": "A shopfront with a street billboard in the background, captioned as if",
-      "q": "Billboard",
-      "must": [
-        "billboard"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "idol-economy-four-dollars",
-      "for": "story",
-      "caption": "A concert ticket. The unit of account in the entry.",
-      "q": "concert ticket",
-      "must": [
-        "ticket"
-      ],
-      "local": "img/editorial/d3a36ccfc747aa.jpg",
-      "src": {
-        "title": "Concert Ticket from Texxas Jam '79",
-        "author": "Jwebbatx",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AConcert_Ticket_from_Texxas_Jam_%2779.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "meg-mason-writes-about-us",
-      "for": "story",
-      "caption": "A figure in a red costume. The query was for a typewriter; this is not",
-      "q": "typewriter manuscript",
-      "must": [
-        "typewriter"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "darry-season-two",
-      "for": "story",
-      "caption": "A giant puppet show",
-      "q": "puppet",
-      "must": [
-        "puppet"
-      ],
-      "local": "img/editorial/05cd05fe4b5a4b.jpg",
-      "src": {
-        "title": "Giant Puppet Shows by Ishara Puppet Theatre Trust during Youth Festival 2011 at CP, Delhi IMG 8308 01",
-        "author": "Sumita Roy Dutta",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AGiant_Puppet_Shows_by_Ishara_Puppet_Theatre_Trust_during_Youth_Festival_2011_at_CP%2C_Delhi_IMG_8308_01.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "parasocial-problem-visibility",
-      "for": "story",
-      "caption": "A forum thread. The entry is about a glimpse being mistaken for access, which is what a forum thread is.",
-      "q": "internet forum discussion",
-      "must": [
-        "forum"
-      ],
-      "local": "img/editorial/15ffbaf918efea.jpg",
-      "src": {
-        "title": "Minetest Forum - General Discussion",
-        "author": "AirSThib",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AMinetest_Forum_-_General_Discussion.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "kai-cenat-returns",
-      "for": "story",
-      "caption": "A Hungarian Twitch partner meeting. The story is about one named strea",
-      "q": "Twitch",
-      "must": [
-        "twitch"
-      ],
-      "allow_logo": true,
-      "kind": "unchecked"
-    },
-    {
-      "slug": "sasaeng-jungkook-conviction",
-      "for": "story",
-      "caption": "A photograph of an exhibition installation, not of Jungkook. Using it ",
-      "q": "Jungkook",
-      "must": [
-        "jungkook"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "character-ai-settlement",
-      "for": "story",
-      "caption": "The Austrian Constitutional Court.",
-      "q": "courtroom judge",
-      "must": [
-        "court"
-      ],
-      "local": "img/editorial/c99c92d58edf78.jpg",
-      "src": {
-        "title": "Courtroom of the Austrian Constitutional Court 01",
-        "author": "VfGH/Achim Bieniek",
-        "licence": "CC BY-SA 3.0 at",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ACourtroom_of_the_Austrian_Constitutional_Court_01.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked",
-      "note": "A real courtroom, standing in for a litigation that did not happen there - captioned as a courtroom and not as the hearing."
-    },
-    {
-      "slug": "neuro-sama-tops-twitch",
-      "for": "story",
-      "caption": "A drawing tablet showing an artist's work-in-progress of a VTuber. It ",
-      "q": "VTuber",
-      "must": [
-        "vtuber"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "research-shelf",
-      "for": "story",
-      "caption": "A hand-drawn diagram of a table with arrows.",
-      "q": "bookshelf",
-      "must": [
-        "shelf"
-      ],
-      "kind": "unchecked"
-    },
-    {
-      "slug": "t8-1-rugrats-nest",
-      "for": "top8",
-      "caption": "A roller coaster with green tubular supports and a yellow track, a train of riders cresting a hill above a sign reading DRIVE IN, NOW SHOWING RUNAWAY.",
-      "q": "Rugrats",
-      "must": [
-        "reptar"
-      ],
-      "local": "img/editorial/f91c056e93f897.jpg",
-      "src": {
-        "title": "Rugrat's Runaway Reptar",
-        "author": "Chris Hagerman",
-        "licence": "CC BY-SA 3.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3APKI-Rugrat%27s_Runaway_Reptar.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "look_reason": "There is no toy in this picture. It is a roller coaster - green tubular supports, a yellow track, a train of riders over a crest - with a sign below reading DRIVE IN / NOW SHOWING / RUNAWAY, which points at the Rugrats film rather than at the character. The must-term is 'reptar' and it passed on the filename 'Rugrat's Runaway Reptar' alone. Caption corrected: it described a toy that is not in the frame.",
-      "note": "Item 17's failure caught in the act, on a story record rather than an encyclopedia one. The old caption was not merely loose but false, and it made a claim about the episode's argument - that a photograph of the toy is closer to the episode than a screenshot - which the picture it captioned cannot support. The franchise connection is real, via the RUNAWAY sign; the toy is simply absent.",
-      "caption_corrected": {
-        "from": "A Reptar toy. The NEST letter is about wanting proof that a toy shop is real, so a photograph of the toy is closer to the episode than a screenshot would have been.",
-        "date": "2026-10-04",
-        "why": "There is no toy in this picture. It is a roller coaster - green tubular supports, a yellow track, a train of riders over a crest - with a sign below reading DRIVE IN / NOW SHOWING / RUNAWAY, which points at the Rugrats film rather than at the character. The must-term is 'reptar' and it passed on the filename 'Rugrat's Runaway Reptar' alone. Caption corrected: it described a toy that is not in the frame."
-      }
-    },
-    {
-      "slug": "t8-2-rugrats-gun",
-      "for": "top8",
-      "caption": "Rugrat Baby Shower Decor",
-      "q": "Rugrats Baby Shower Decor",
-      "must": [
-        "rugrat"
-      ],
-      "local": "img/editorial/28e088be326dc3.jpg",
-      "src": {
-        "title": "Rugrat Baby Shower Decor",
-        "author": "Sherlene",
-        "licence": "CC BY 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ARugrat_Baby_Shower_Decor.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "t8-3-grouch",
-      "for": "top8",
-      "caption": "A cosplayer as Oscar the Grouch, Hallowbaloo 2012.",
-      "q": "Oscar the Grouch",
-      "must": [
-        "grouch"
-      ],
-      "local": "img/editorial/a79cdbe19975ad.jpg",
-      "src": {
-        "title": "Hallowbaloo 2012 - Oscar the Grouch Cosplayer",
-        "author": "Kyle Nishioka",
-        "licence": "CC BY 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AHallowbaloo_2012_-_Oscar_the_Grouch_Cosplayer.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked",
-      "note": "Fans in costume is what Commons actually holds, and on this site that is the better picture: the bond lives in the audience."
-    },
-    {
-      "slug": "t8-4-zuko",
-      "for": "top8",
-      "caption": "Cosplay of Zuko at AVA Expo 2013",
-      "q": "Cosplay Zuko",
-      "must": [
-        "zuko"
-      ],
-      "local": "img/editorial/d111eb210f4029.jpg",
-      "src": {
-        "title": "Cosplay of Zuko at AVA Expo 2013",
-        "author": "Dasha Ocean",
-        "licence": "CC BY-SA 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ACosplay_of_Zuko_at_AVA_Expo_2013.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "t8-5-dragontales",
-      "for": "top8",
-      "caption": "No freely-licensed image of Dragon Tales exists.",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "t8-6-powerrangers",
-      "for": "top8",
-      "caption": "The cast of the Power Rangers film",
-      "q": "Power Rangers",
-      "must": [
-        "rangers"
-      ],
-      "local": "img/editorial/16c9dc2bba7180.jpg",
-      "src": {
-        "title": "Cast of the Power Rangers movie",
-        "author": "iDominick",
-        "licence": "CC BY-SA 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ACast_of_the_Power_Rangers_movie.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "t8-7-doug",
-      "for": "top8",
-      "caption": "No freely-licensed image of Doug exists.",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "t8-8-animaniacs",
-      "for": "top8",
-      "caption": "The Animaniacs at WonderCon, 2012",
-      "q": "Animaniacs",
-      "must": [
-        "animaniacs"
-      ],
-      "local": "img/editorial/8520bb03573ec1.jpg",
-      "src": {
-        "title": "WonderCon 2012 - the Animaniacs!",
-        "author": "The Conmunity -  Pop Culture Geek from Los Angeles, CA, USA",
-        "licence": "CC BY 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AWonderCon_2012_-_the_Animaniacs%21_%286873031174%29.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "top8-cartoons-90s",
-      "for": "feature",
-      "caption": "A woman standing beside a television set",
-      "q": "children watching television",
-      "must": [
-        "television"
-      ],
-      "topic": "character",
-      "local": "img/editorial/797b9179645dc8.jpg",
-      "src": {
-        "title": "Found Photograph",
-        "author": "Thomas Hawk",
-        "licence": "CC 2.0",
-        "credit": "Thomas Hawk / Flickr",
-        "page": "https://www.flickr.com/photos/thomashawk/55553861091/"
-      },
-      "cached": "2026-09-28",
-      "kind": "exact",
-      "looked": "2026-10-04",
-      "look_reason": "A woman in a pink belted dress, glasses and a pearl necklace, standing beside a rounded-screen television set with a fringed lampshade on top of it, against tan wallpaper. She is standing beside a television set, which is the whole of the caption, and the caption claims nothing further. A genuine match.",
-      "note": "Low resolution - this is a small scan with a printed white border, not a photographic original. Not a correctness problem, but image_audit states it cannot judge whether a picture is a good picture, so it is recorded here rather than left implicit."
-    },
-    {
-      "slug": "history-macy-store",
-      "for": "feature",
-      "caption": "A soap opera studio, 1940s",
-      "q": "soap opera studio set",
-      "must": [
-        "opera"
-      ],
-      "local": null,
-      "kind": "unchecked"
-    },
-    {
-      "slug": "history-dionne-warwick",
-      "for": "feature",
-      "caption": "Dionne Warwick",
-      "q": "Dionne Warwick",
-      "must": [
-        "warwick"
-      ],
-      "local": null,
-      "kind": "unchecked"
-    },
-    {
-      "slug": "history-fan-letters",
-      "for": "feature",
-      "caption": "A typed letter, 1942. The reply is the whole point of the entry and the letter is the evidence.",
-      "q": "Rodgers Hammerstein letter",
-      "must": [
-        "letter"
-      ],
-      "local": "img/editorial/2ad723bf682691.jpg",
-      "src": {
-        "title": "Rodgers letter to Walter",
-        "author": "Geo Lightspeed7",
-        "licence": "CC BY-SA 4.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ARodgers_letter_to_Walter.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "figure-peewee",
-      "for": "feature",
-      "caption": "Paul Reubens, with the David Hasselhoff Chalk painting, CalArts",
-      "q": "Paul Reubens",
-      "must": [
-        "reubens"
-      ],
-      "local": "img/editorial/6bdf004f350b52.jpg",
-      "src": {
-        "title": "Calarts-katey-sagal-paul-reubens-david-hasselhoff",
-        "author": "Paul Reubens",
-        "licence": "Public domain",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ACalarts-katey-sagal-paul-reubens-david-hasselhoff.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "figure-kozik",
-      "for": "feature",
-      "caption": "Charlie Kaufman, Fantastic Fest 2015",
-      "q": "Charlie Kaufman",
-      "must": [
-        "kaufman"
-      ],
-      "local": "img/editorial/ebee72d7db9c68.jpg",
-      "src": {
-        "title": "Charlie Kaufman Fantastic Fest 2015-0257",
-        "author": "anna Hanks from Austin, Texas, USA",
-        "licence": "CC BY 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ACharlie_Kaufman_Fantastic_Fest_2015-0257_%2827441349145%29_%28cropped%29.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "figure-tay",
-      "for": "feature",
-      "caption": "Taylor Swift, 2019",
-      "q": "Taylor Swift",
-      "must": [
-        "swift"
-      ],
-      "local": "img/editorial/3350194b056030.jpg",
-      "src": {
-        "title": "191125 Taylor Swift at the 2019 American Music Awards",
-        "author": "Cosmopolitan UK",
-        "licence": "CC BY 3.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3A191125_Taylor_Swift_at_the_2019_American_Music_Awards.png"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "moment-power-rangers",
-      "for": "feature",
-      "caption": "The cast of the Power Rangers film",
-      "q": "Power Rangers",
-      "must": [
-        "rangers"
-      ],
-      "local": "img/editorial/08c60000556c8d.jpg",
-      "src": {
-        "title": "Cast of the Power Rangers movie",
-        "author": "iDominick",
-        "licence": "CC BY-SA 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3ACast_of_the_Power_Rangers_movie.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-idol",
-      "for": "section",
-      "caption": "A crowd watching a band perform",
-      "q": "idol",
-      "aisle": "idol",
-      "topic": "idol",
-      "local": "img/editorial/1a5445384e8a1d.jpg",
-      "src": {
-        "title": "Mitch Fender Band 2026 - 9",
-        "author": "nobody@flickr.com (\"Zechenturm\")",
-        "licence": "CC 2.0",
-        "credit": "nobody@flickr.com (\"Zechenturm\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-creator",
-      "for": "section",
-      "caption": "A speaker addressing a room at a conference",
-      "q": "creator",
-      "aisle": "creator",
-      "topic": "creator",
-      "local": "img/editorial/7e0302729d0818.jpg",
-      "src": {
-        "title": "DIGITAL EVANGELISM II",
-        "author": "nobody@flickr.com (\"maheryan\")",
-        "licence": "CC 2.0",
-        "credit": "nobody@flickr.com (\"maheryan\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-character",
-      "for": "section",
-      "caption": "A woman adjusting a vintage television set. Third attempt: the first was a photograph of Saturn captioned as 'a screen, and the person watching it', the second a film-festival award badge. Both passed the must-term test. The caption had been written before the picture was chosen, which is the failure this review exists to catch.",
-      "q": "television set room",
-      "aisle": "character",
-      "must": [
-        "television"
-      ],
-      "local": "img/editorial/b935db332bb9dc.jpg",
-      "src": {
-        "title": "A woman adjusts a vintage television on a wooden table in a warm, inviting room",
-        "author": "Shixart1985",
-        "licence": "CC BY 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3AA_woman_adjusts_a_vintage_television_on_a_wooden_table_in_a_warm%2C_inviting_room.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "illustrative",
-      "looked": "2026-10-04",
-      "look_reason": "A cream 1970s television on a wooden table in a sunlit, wood-panelled room: rounded CRT, two large rotary dials, perforated speaker grille. A person in a beige jacket leans over it with a hand reaching toward the lower edge of the set. The must-term television is met by the object itself, not by a filename, and this is the picture the caption's history deserves.",
-      "note": "Narrow downgrade, and the reason is one word. 'Vintage television' and 'adjusting' both hold - the hand is at the set's controls. 'A woman' does not: the face is cropped to nose and mouth, and hair and clothing do not establish gender. Everything the picture is here to show is here; one word of the caption is not visible."
-    },
-    {
-      "slug": "aisle-companion",
-      "for": "section",
-      "caption": "A hand holding a smartphone, lit by its own screen. Re-fetched twice - the first attempt came back as a map of Belarus and the second as a cropped chatbot reply.",
-      "q": "smartphone",
-      "aisle": "companion",
-      "must": [
-        "phone"
-      ],
-      "local": "img/editorial/e9ef3c6de3805a.jpg",
-      "src": {
-        "title": "Smartphone Use",
-        "author": "Wikimedia Commons",
-        "licence": "see Commons",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/Category:Smartphones"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-world",
-      "for": "section",
-      "caption": "A stadium. The oldest version of the thing.",
-      "q": "world",
-      "aisle": "world",
-      "topic": "world",
-      "local": "img/editorial/3a85cbcbdfa98b.jpg",
-      "src": {
-        "title": "İstanbul Annex Olimpiyat Parkı ve Atletizm Tesisi",
-        "author": "nobody@flickr.com (\"wowTürkiye\")",
-        "licence": "CC 2.0",
-        "credit": "nobody@flickr.com (\"wowTürkiye\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-brand",
-      "for": "section",
-      "caption": "A shop window. A shop, which is also a version.",
-      "q": "brand",
-      "aisle": "brand",
-      "topic": "brand",
-      "local": "img/editorial/3f44b5eb1ac3d6.jpg",
-      "src": {
-        "title": "Yumi",
-        "author": "nobody@flickr.com (\"Minso Rune (SL)\")",
-        "licence": "CC 2.0",
-        "credit": "nobody@flickr.com (\"Minso Rune (SL)\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-crossover",
-      "for": "section",
-      "caption": "A Victorian schoolroom, Blists Hill",
-      "q": "crossover",
-      "aisle": "crossover",
-      "topic": "crossover",
-      "local": "img/editorial/b5707ad0012445.jpg",
-      "src": {
-        "title": "Blists Hill Victorian Town",
-        "author": "nobody@flickr.com (\"Chiltern Wanderer\")",
-        "licence": "CC 2.0",
-        "credit": "nobody@flickr.com (\"Chiltern Wanderer\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-contest",
-      "for": "section",
-      "caption": "A climate protest in Washington DC, 2015. Re-fetched: the previous one was a pilgrimage site in the Philippines captioned as a public argument, which is the same class of error in the other direction.",
-      "q": "protest demonstration",
-      "aisle": "contest",
-      "must": [
-        "protest"
-      ],
-      "local": "img/editorial/8bbac49393dd23.jpg",
-      "src": {
-        "title": "\"Exxon Knew\" sign on a BLM protest in Washington, DC (2015)",
-        "author": "Johnny Silvercloud",
-        "licence": "CC BY-SA 2.0",
-        "credit": "Wikimedia Commons",
-        "page": "https://commons.wikimedia.org/wiki/File%3A%22Exxon_Knew%22_sign_on_a_BLM_protest_in_Washington%2C_DC_%282015%29.jpg"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-grief",
-      "for": "section",
-      "caption": "A face in low light",
-      "q": "grief",
-      "aisle": "grief",
-      "topic": "grief",
-      "local": "img/editorial/fec5ec9cdbeaa9.jpg",
-      "src": {
-        "title": "Sguardo",
-        "author": "nobody@flickr.com (\"Giancarlo Bruss\")",
-        "licence": "CC 2.0",
-        "credit": "nobody@flickr.com (\"Giancarlo Bruss\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "aisle-danger",
-      "for": "section",
-      "caption": "A mounted police officer",
-      "q": "danger",
-      "aisle": "danger",
-      "topic": "danger",
-      "local": "img/editorial/659319cc04fbb1.jpg",
-      "src": {
-        "title": "Under the Queen’s Watch",
-        "author": "nobody@flickr.com (\"eduvilasimon\")",
-        "licence": "CC 2.0",
-        "credit": "nobody@flickr.com (\"eduvilasimon\") / Flickr",
-        "page": "https://www.flickr.com/photos/"
-      },
-      "cached": "2026-09-28",
-      "kind": "unchecked"
-    },
-    {
-      "slug": "the-dog",
-      "for": "encyclopedia",
-      "caption": "Two small distant silhouettes on an empty horizon, far apart. One upright, one low and broad. Neither is drawn closely enough to be identified, which is the point.",
-      "q": "two distant figures far apart on a horizon",
-      "must": [],
-      "kind": "illustrative",
-      "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
-      "local": "img/generated/the-dog-22f947a11e03.png",
-      "src": {
-        "title": "Generated locally: FLUX.1-schnell, two distant silhouettes",
-        "author": "Parasocialize (generated on the site owner's own machine)",
-        "licence": "Author-owned. Generated, not a third-party work; no attribution obligation arises and none is claimed.",
-        "page": "https://www.parasocialize.com/encyclopedia/the-dog.html",
-        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned; no third-party work is reproduced.",
-        "page_note": "No third-party source page exists for a generated image. This points at the page it illustrates, which records the model, seed and prompt. Inventing a scheme here is what link_audit exists to catch."
-      },
-      "generation": {
-        "model": "flux1-schnell-fp8.safetensors",
-        "seed": 20261004,
-        "steps": 4,
-        "cfg": 1.0,
-        "sampler": "euler/simple",
-        "size": "1152x768",
-        "encoders": "t5xxl_fp8_e4m3fn + clip_l, type flux",
-        "vae": "ae.safetensors",
-        "rejected_takes": [
-          {
-            "take": "v1 seed 20261004",
-            "showed": "a modern shepherd-type dog by a campfire, reached toward by a disembodied arm",
-            "rejected_because": "a recognisable modern breed on an entry dated -15000, and a limb with no body attached"
-          },
-          {
-            "take": "v2 seed 20261004",
-            "showed": "wolf-adjacent dog beside a crouching figure seen from behind",
-            "rejected_because": "a modern shirt on the figure; the entry is prehistoric"
-          },
-          {
-            "take": "v2 seed 15000",
-            "showed": "dog in profile, figure from behind, good separation",
-            "rejected_because": "a black collar on an animal fifteen thousand years early, despite 'no collar' being in the prompt"
-          },
-          {
-            "take": "v2 seed 6601",
-            "showed": "the same composition, warmer palette",
-            "rejected_because": "a green collar, and a shirt"
-          }
-        ],
-        "policy": "Generated art in this layer is atmosphere, never depiction. Anything that depicts a subject is either a Commons photograph of a real thing or nothing.",
-        "post": "cropped 1152x768 -> 1152x560, then a 3% margin trim"
-      },
-      "crop": {
-        "from": "1152x768",
-        "box": [
-          0,
-          208,
-          1152,
-          768
-        ],
-        "to": "1152x560",
-        "aspect": "2.06:1",
-        "why": "the figures sit at 60% down and trimming the bottom pushes them lower; only trimming the top moves them up"
-      },
-      "looked": "2026-10-05",
-      "look_reason": "Opened and looked at, twice - once before cropping and once after. Two small dark silhouettes on a horizon line, one upright and narrow, one low and broad, on a flat cream and ochre plain with a great deal of empty space between and around them. After cropping 208px off the top they sit at 45% down the frame with the horizon at 48%, which balances the weight. A 3% margin was then trimmed from every generated frame. Nothing in the frame can be dated, named or checked, which is what makes it safe under a -15000 entry."
-    },
-    {
-      "slug": "paleolithic-figures",
-      "for": "encyclopedia",
-      "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
-      "q": "empty landscape atmosphere",
-      "must": [],
-      "kind": "unchecked",
-      "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
-      "local": "img/generated/paleolithic-figures-6f7e68ca12d2.png",
-      "src": {
-        "title": "Generated locally: FLUX.1-schnell atmosphere",
-        "author": "Parasocialize (generated on the site owner's own machine)",
-        "licence": "Author-owned. Generated, not a third-party work.",
-        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
-        "page": "https://www.parasocialize.com/encyclopedia/paleolithic-figures.html"
-      },
-      "generation": {
-        "model": "flux1-schnell-fp8.safetensors",
-        "seed": 20261018,
-        "steps": 4,
-        "cfg": 1.0,
-        "sampler": "euler/simple",
-        "size": "1152x560",
-        "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. low firelight and deep shadow, rough rock and packed earth. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted."
-      }
-    },
-    {
-      "slug": "sunghir",
-      "for": "encyclopedia",
-      "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
-      "q": "empty landscape atmosphere",
-      "must": [],
-      "kind": "illustrative",
-      "looked": "2026-10-05",
-      "look_reason": "Opened and looked at. An ochre plain under a pale yellow sky with scattered rock and a long raking light. No person, no animal, no object. Nothing in the frame can be dated; it carries arid open ground and no claim beyond that.",
-      "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. Never EXACT. Built from the entry's own year and otherness value by tools/gen_atmosphere.py, not written per entry.",
-      "local": "img/generated/sunghir-140aaf3bbe8e.png",
-      "src": {
-        "title": "Generated locally: FLUX.1-schnell atmosphere",
-        "author": "Parasocialize (generated on the site owner's own machine)",
-        "licence": "Author-owned. Generated, not a third-party work.",
-        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
-        "page": "https://www.parasocialize.com/encyclopedia/sunghir.html"
-      },
-      "generation": {
-        "model": "flux1-schnell-fp8.safetensors",
-        "seed": 20261025,
-        "steps": 4,
-        "cfg": 1.0,
-        "sampler": "euler/simple",
-        "size": "1152x560",
-        "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. low firelight and deep shadow, rough rock and packed earth. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted."
-      }
-    },
-    {
-      "slug": "gobekli-tepe",
-      "for": "encyclopedia",
-      "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
-      "q": "empty landscape atmosphere",
-      "must": [],
-      "kind": "illustrative",
-      "looked": "2026-10-05",
-      "look_reason": "Opened and looked at. An arid plain with hazy hills far off, scattered small stones and a boulder at the left. Notably there are no pillars, on the one entry whose entire subject is a row of standing stones - the policy held, and the image is atmosphere rather than a reconstruction.",
-      "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. Never EXACT. Built from the entry's own year and otherness value by tools/gen_atmosphere.py, not written per entry.",
-      "local": "img/generated/gobekli-tepe-ee4e7192273c.png",
-      "src": {
-        "title": "Generated locally: FLUX.1-schnell atmosphere",
-        "author": "Parasocialize (generated on the site owner's own machine)",
-        "licence": "Author-owned. Generated, not a third-party work.",
-        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
-        "page": "https://www.parasocialize.com/encyclopedia/gobekli-tepe.html"
-      },
-      "generation": {
-        "model": "flux1-schnell-fp8.safetensors",
-        "seed": 20261032,
-        "steps": 4,
-        "cfg": 1.0,
-        "sampler": "euler/simple",
-        "size": "1152x560",
-        "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted."
-      }
-    },
-    {
-      "slug": "myth-and-ritual",
-      "for": "encyclopedia",
-      "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
-      "q": "empty landscape atmosphere",
-      "must": [],
-      "kind": "unchecked",
-      "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
-      "local": "img/generated/myth-and-ritual-e25ced35d9f0.png",
-      "src": {
-        "title": "Generated locally: FLUX.1-schnell atmosphere",
-        "author": "Parasocialize (generated on the site owner's own machine)",
-        "licence": "Author-owned. Generated, not a third-party work.",
-        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
-        "page": "https://www.parasocialize.com/encyclopedia/myth-and-ritual.html"
-      },
-      "generation": {
-        "model": "flux1-schnell-fp8.safetensors",
-        "seed": 20261039,
-        "steps": 4,
-        "cfg": 1.0,
-        "sampler": "euler/simple",
-        "size": "1152x560",
-        "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted."
-      }
-    },
-    {
-      "slug": "the-absent-sage",
-      "for": "encyclopedia",
-      "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
-      "q": "empty landscape atmosphere",
-      "must": [],
-      "kind": "unchecked",
-      "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
-      "local": "img/generated/the-absent-sage-9b777dd5e0cf.png",
-      "src": {
-        "title": "Generated locally: FLUX.1-schnell atmosphere",
-        "author": "Parasocialize (generated on the site owner's own machine)",
-        "licence": "Author-owned. Generated, not a third-party work.",
-        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
-        "page": "https://www.parasocialize.com/encyclopedia/the-absent-sage.html"
-      },
-      "generation": {
-        "model": "flux1-schnell-fp8.safetensors",
-        "seed": 20261046,
-        "steps": 4,
-        "cfg": 1.0,
-        "sampler": "euler/simple",
-        "size": "1152x560",
-        "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. cold clear dawn light, bare ground and long shadow. a pattern repeating with no example. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted."
-      }
-    },
-    {
-      "slug": "the-deaf-beloved",
-      "for": "encyclopedia",
-      "caption": "Atmosphere for this entry: printed paper, ink and margin, lamplight on a page. Nothing in it can be dated or identified.",
-      "q": "empty landscape atmosphere",
-      "must": [],
-      "kind": "unchecked",
-      "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
-      "local": "img/generated/the-deaf-beloved-67ac5a792303.png",
-      "src": {
-        "title": "Generated locally: FLUX.1-schnell atmosphere",
-        "author": "Parasocialize (generated on the site owner's own machine)",
-        "licence": "Author-owned. Generated, not a third-party work.",
-        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
-        "page": "https://www.parasocialize.com/encyclopedia/the-deaf-beloved.html"
-      },
-      "generation": {
-        "model": "flux1-schnell-fp8.safetensors",
-        "seed": 20261053,
-        "steps": 4,
-        "cfg": 1.0,
-        "sampler": "euler/simple",
-        "size": "1152x560",
-        "prompt": "Minimal painterly illustration: printed paper, ink and margin, lamplight on a page. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted."
-      }
-    },
-    {
-      "slug": "roman-imagines",
-      "for": "encyclopedia",
-      "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
-      "q": "empty landscape atmosphere",
-      "must": [],
-      "kind": "illustrative",
-      "looked": "2026-10-05",
-      "look_reason": "Opened and looked at. A cream paper-toned wash with a pale sky, scattered small stones across flat ground and one larger stone casting a short shadow. No person, no animal, no architecture, no text, nothing that can be dated or identified. Reads as archival stone without depicting a mask, which is the point.",
-      "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. Never EXACT. Built from the entry's own year and otherness value by tools/gen_atmosphere.py, not written per entry.",
-      "local": "img/generated/roman-imagines-e0bd0d739884.png",
-      "src": {
-        "title": "Generated locally: FLUX.1-schnell atmosphere",
-        "author": "Parasocialize (generated on the site owner's own machine)",
-        "licence": "Author-owned. Generated, not a third-party work.",
-        "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
-        "page": "https://www.parasocialize.com/encyclopedia/roman-imagines.html"
-      },
-      "generation": {
-        "model": "flux1-schnell-fp8.safetensors",
-        "seed": 20261060,
-        "steps": 4,
-        "cfg": 1.0,
-        "sampler": "euler/simple",
-        "size": "1152x560",
-        "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted."
-      }
-    }
-  ]
+  "creator": {
+   "topic": "creator",
+   "caption": "Someone making a thing and talking to a room"
+  },
+  "character": {
+   "topic": "character",
+   "caption": "A screen, and the person watching it"
+  },
+  "companion": {
+   "topic": "companion",
+   "caption": "A phone in a room, at night"
+  },
+  "world": {
+   "topic": "world",
+   "caption": "A stadium, which is the oldest version"
+  },
+  "brand": {
+   "topic": "brand",
+   "caption": "A shop, which is also a version"
+  },
+  "crossover": {
+   "topic": "crossover",
+   "caption": "The people who are supposed to be reachable"
+  },
+  "contest": {
+   "topic": "contest",
+   "caption": "An argument conducted in public"
+  },
+  "grief": {
+   "topic": "grief",
+   "caption": "A light left on"
+  },
+  "danger": {
+   "topic": "danger",
+   "caption": "The edge, kept on purpose"
+  }
+ },
+ "items": [
+  {
+   "slug": "celebrity-death-feels-like-loss",
+   "for": "story",
+   "caption": "Flowers and vigil candles outside the Embassy of the Netherlands in Tallinn",
+   "q": "candle vigil memorial",
+   "must": [
+    "vigil"
+   ],
+   "local": "img/editorial/1bb05ce2b67c92.jpg",
+   "src": {
+    "title": "Flowers and vigil candles on the doorsteps of Embassy of Netherlands in Estonia",
+    "author": "Mardus",
+    "licence": "CC BY-SA 1.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3A2014-07-18_Flowers_and_vigil_candles_on_the_doorsteps_of_Embassy_of_Netherlands_in_Estonia_%28closeup%29.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "exact",
+   "looked": "2026-10-04",
+   "note": "The caption's location - outside the Embassy of the Netherlands in Tallinn - is NOT visible: no signage, no distinctive architecture. It rests on the src record, and the frame neither confirms nor contradicts it.",
+   "look_reason": "Opened the file. A stone ledge carrying lit candles in glass jars, a red votive holder, and cut flowers - white chrysanthemums, blue and orange carnations and gerberas, pink carnations, red roses. A shuttered window behind. Flowers and vigil candles are unambiguously in frame, so the must-term vigil is met by what is visible rather than by a filename."
+  },
+  {
+   "slug": "youve-got-that-one",
+   "for": "story",
+   "caption": "A signed photograph",
+   "q": "autograph signed photograph",
+   "must": [
+    "autograph"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "madeonyoutube-spending-on-scoreboard",
+   "for": "story",
+   "caption": "A software bug-report form asking for a maximum date. Nothing to do wi",
+   "q": "YouTube",
+   "must": [
+    "youtube"
+   ],
+   "allow_logo": true,
+   "kind": "unchecked"
+  },
+  {
+   "slug": "youtubetv-living-room",
+   "for": "story",
+   "caption": "A person watching an analogue television set",
+   "q": "television living room",
+   "must": [
+    "television"
+   ],
+   "local": "img/editorial/94ef43629d7278.jpg",
+   "src": {
+    "title": "Living Room Television",
+    "author": "Wikimedia contributor",
+    "licence": "Public domain",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ALiving_Room_Television_-_DPLA_-_0840c8679a6d787b9dd67b6cadfd4903.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "vid-summit-bars-fans",
+   "for": "story",
+   "caption": "Danny Philippou and Luke Kidgell at VidCon Australia 2017",
+   "q": "VidCon",
+   "must": [
+    "vidcon"
+   ],
+   "local": "img/editorial/bce0eef9715a1b.jpg",
+   "src": {
+    "title": "Danny Philippou and Luke Kidgell at VidCon Australia 2017",
+    "author": "Life of Luke",
+    "licence": "CC BY 3.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ADanny_Philippou_and_Luke_Kidgell_at_VidCon_Australia_2017.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "look_reason": "Two young men selfie-framed in a crowded indoor venue under magenta lighting; one wears a grey beanie and a red lanyard printed with YouTube play-button logos. It is plainly two creators at a convention, which is the thing the entry is about. But the must-term is 'vidcon' and the word appears nowhere in the frame - no signage, no banner. Nothing dates it to 2017 or places it in Australia.",
+   "note": "The must-term is satisfied by the src title alone. This is item 17's failure mode exactly: the filter confirms a word is in the metadata, not that the file shows the subject."
+  },
+  {
+   "slug": "youtube-patreon-membership-spaces",
+   "for": "story",
+   "caption": "A political map of Belarus with one region highlighted. The single wor",
+   "q": "Patreon",
+   "must": [
+    "patreon"
+   ],
+   "allow_logo": true,
+   "kind": "unchecked"
+  },
+  {
+   "slug": "youtube-shorts-episodic",
+   "for": "story",
+   "caption": "A YouTube Shorts watch page: the Shorts rail selected in the sidebar, a vertical video of white flowering foliage, and the like, dislike, comment, Share and Remix controls stacked beside it.",
+   "q": "YouTube Shorts",
+   "must": [
+    "youtube",
+    "short"
+   ],
+   "allow_logo": true,
+   "local": "img/editorial/c38b7020ecf965.jpg",
+   "src": {
+    "title": "YouTube Shorts player, opened on a video",
+    "author": "Mailer's Landing (@MailersLanding)",
+    "licence": "Public domain",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AYouTube_Shorts_player%2C_opened_on_a_video.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "look_reason": "A YouTube Shorts watch page. The YouTube wordmark is top-left, 'Shorts' is the selected item in the left rail, and the player is vertical 9:16 with the like, dislike, comment, Share and Remix controls stacked beside it. Channel '@MailersLanding', title 'Black Cumin - How Does That Work? #shorts'. Both must-terms are met by the interface itself rather than by a filename.",
+   "note": "The caption said 'upload player'. This is a watch page - there is no upload control anywhere in it, no file picker, no title or description field, no thumbnail step. The caption also claimed it was 'the actual mechanism the story is about', and if the story is about uploading then this frame documents the opposite: consumption. Caption corrected upload -> watch. Both must-terms being satisfied is not the same as the caption being true, and this is the second time that has been the trap: the word was in the filename and the sentence was not in the picture.",
+   "caption_corrected": {
+    "from": "The YouTube Shorts upload player. A screenshot of the actual mechanism the story is about.",
+    "date": "2026-10-04",
+    "why": "A YouTube Shorts watch page. The YouTube wordmark is top-left, 'Shorts' is the selected item in the left rail, and the player is vertical 9:16 with the like, dislike, comment, Share and Remix controls stacked beside it. Channel '@MailersLanding', title 'Black Cumin - How Does That Work? #shorts'. Both must-terms are met by the interface itself rather than by a filename."
+   }
+  },
+  {
+   "slug": "dolly-parton-lowest-point",
+   "for": "story",
+   "caption": "Dolly Parton, 1984",
+   "q": "Dolly Parton",
+   "must": [
+    "parton"
+   ],
+   "local": "img/editorial/5d5ba4b7f39872.jpg",
+   "src": {
+    "title": "Dolly Parton 1984",
+    "author": "Mel Melcon, Los Angeles Times",
+    "licence": "CC BY 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ADolly_Parton_1984.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "gloria-steinem-and-dolly",
+   "for": "story",
+   "caption": "Gloria Steinem, 2019",
+   "q": "Gloria Steinem",
+   "must": [
+    "steinem"
+   ],
+   "local": "img/editorial/3e6d90f0d97844.jpg",
+   "src": {
+    "title": "Gloria-Steinem-2019",
+    "author": "Jay Godwin",
+    "licence": "Public domain",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AGloria-Steinem-2019_%28cropped%29.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aoc-and-parasocial-politics",
+   "for": "story",
+   "caption": "Official portrait, 116th Congress",
+   "q": "Alexandria Ocasio-Cortez",
+   "must": [
+    "ocasio"
+   ],
+   "local": "img/editorial/ba17da186ad700.jpg",
+   "src": {
+    "title": "Alexandria Ocasio-Cortez, official portrait, 116th Congress",
+    "author": "US House Office of Photography",
+    "licence": "Public domain",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AAlexandria_Ocasio-Cortez%2C_official_portrait%2C_116th_Congress.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "look_reason": "An official United States House portrait: a woman in a black blazer with pearl earrings, a dark lapel pin, and an American flag behind her showing stars and the red field. The formal frontal composition, the flag and the pin are exactly what a congressional portrait is, so the caption's 'official portrait' is settled by the frame.",
+   "note": "The must-term is 'ocasio' and appears nowhere in the caption or the picture, so this was validated from src alone - the one openable record where that happened. The downgrade is about the frame, not the source: Commons' provenance here is the House's own portrait and is authoritative about who this is. Nothing in the pixels dates it to the 116th Congress. The caption's discipline is worth copying - unlike 'Taylor Swift at the 2019 American Music Awards' it claims only the format, which is what the picture shows."
+  },
+  {
+   "slug": "fearne-cotton-free-tv",
+   "for": "story",
+   "caption": "Fearne Cotton, 2014",
+   "q": "Fearne Cotton",
+   "must": [
+    "fearne",
+    "cotton"
+   ],
+   "local": "img/editorial/06692a8a06525b.jpg",
+   "src": {
+    "title": "Fearne Cotton 2014",
+    "author": "See Li from London, UK",
+    "licence": "CC BY 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AFearne_Cotton_2014.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "eu-kids-act-companion-chatbots",
+   "for": "story",
+   "caption": "The same file as i-tried-replika - a chatbot avatar render. A duplicat",
+   "q": "chatbot",
+   "must": [
+    "chatbot"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "taylor-swift-red-knows-it",
+   "for": "story",
+   "caption": "Taylor Swift at the 2019 American Music Awards",
+   "q": "Taylor Swift",
+   "must": [
+    "swift"
+   ],
+   "local": "img/editorial/b3a0b763ddc9d8.jpg",
+   "src": {
+    "title": "191125 Taylor Swift at the 2019 American Music Awards",
+    "author": "Cosmopolitan UK",
+    "licence": "CC BY 3.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3A191125_Taylor_Swift_at_the_2019_American_Music_Awards.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "note": "Classed illustrative, not exact, on purpose. Recognising a face is not looking at a picture, and writing 'clearly Taylor Swift' would have recorded a performance instead of a finding.",
+   "look_reason": "Opened the frame: a woman at a lit awards backdrop in a sequined green dress, photographed as a red-carpet portrait. Nothing in frame identifies her, and nothing establishes an event or a year. The caption's claim - a named performer at a named awards show in a named year - rests entirely on the src record."
+  },
+  {
+   "slug": "house-of-the-dragon-backlash",
+   "for": "story",
+   "caption": "Three people at a Game of Thrones event. House of the Dragon is HBO pr",
+   "q": "Game of Thrones",
+   "must": [
+    "thrones"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "grief-experts-three-of-them",
+   "for": "story",
+   "caption": "The flag-draped coffin of John Lewis. A specific real funeral, caption",
+   "q": "funeral",
+   "must": [
+    "funeral"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "i-tried-replika",
+   "for": "story",
+   "caption": "A chatbot avatar. A render rather than a photograph, and captioned as a render.",
+   "q": "chatbot",
+   "must": [
+    "chatbot"
+   ],
+   "local": "img/editorial/a58efb88708536.jpg",
+   "src": {
+    "title": "Avatar Chatbot TOM EGT",
+    "author": "Pablo.vtr",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AAvatar_Chatbot_TOM_EGT.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "oshi-katsu-half-century",
+   "for": "story",
+   "caption": "A line chart. The filter is supposed to exclude charts and this one go",
+   "q": "focus group",
+   "must": [
+    "focus"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "customer-obsession-model",
+   "for": "story",
+   "caption": "A performer in costume in a busy street. Nothing in the frame connects",
+   "q": "customer service",
+   "must": [
+    "customer"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "agei-imaginary-friends",
+   "for": "story",
+   "caption": "A child playing alone on a beach",
+   "q": "child playing",
+   "must": [
+    "child"
+   ],
+   "local": "img/editorial/35fd55544c595d.jpg",
+   "src": {
+    "title": "Young african child playing by the beach",
+    "author": "Maryam fazal",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AYoung_african_child_playing_by_the_beach.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "exact",
+   "looked": "2026-10-04",
+   "look_reason": "A single child on a wide beach under a flat grey sky, digging in wet sand with a long stick, head down. One person in frame, so 'alone' holds; a beach holds; the child is playing rather than posed. Every element of the caption is visible rather than inferred."
+  },
+  {
+   "slug": "peak-parasocial-vogue",
+   "for": "story",
+   "caption": "A halftone print of a fashion show: a woman on a low platform in a full-length white gown with a wide hoop skirt, a fringed canopy above her, and an audience along the bottom edge.",
+   "q": "fashion show",
+   "must": [
+    "fashion"
+   ],
+   "local": "img/editorial/5f5f78b6837238.jpg",
+   "src": {
+    "title": "Fashion show in Japan 1953",
+    "author": "投稿者によるスキャン",
+    "licence": "Public domain",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AFashion_show_in_Japan_1953.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "look_reason": "A woman on a low platform in a full-length white gown with an extremely wide, stiff hoop skirt, a dark flower at the bodice and a large bow at the waist, an elaborate fringed white canopy hanging above her, and an audience seated along the bottom edge - one woman's face turned up toward the platform. A garment presented to an audience on a platform is a fashion show, so the must-term is met by the frame. The reproduction is visibly a blue halftone print, dot pattern and paper grain intact.",
+   "note": "Two things in the caption are not in the picture. Nothing identifies Japan - no signage, no text, no venue detail - and a full crinoline of this silhouette is at least as likely to be a Western ball gown as a Japanese one, so the frame neither confirms nor contradicts it. The 1953 is consistent with the silhouette but cannot be dated from pixels; the era reading is fashion history, not evidence. Disclosed the reproduction medium in the caption, because a halftone print is a copy of a photograph and not the photograph.",
+   "caption_corrected": {
+    "from": "A fashion show in Japan, 1953",
+    "date": "2026-10-04",
+    "why": "A woman on a low platform in a full-length white gown with an extremely wide, stiff hoop skirt, a dark flower at the bodice and a large bow at the waist, an elaborate fringed white canopy hanging above her, and an audience seated along the bottom edge - one woman's face turned up toward the platform. A garment presented to an audience on a platform is a fashion show, so the must-term is met by the frame. The reproduction is visibly a blue halftone print, dot pattern and paper grain intact."
+   }
+  },
+  {
+   "slug": "ai-updates-feel-like-breakups",
+   "for": "story",
+   "caption": "A broken laptop. Literally a broken thing, which the entry is about.",
+   "q": "laptop computer",
+   "must": [
+    "laptop"
+   ],
+   "local": "img/editorial/7146100e0df834.jpg",
+   "src": {
+    "title": "2006 broken laptop computer 237398638",
+    "author": "Bruce Turner from AustinTX",
+    "licence": "CC BY 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3A2006_broken_laptop_computer_237398638.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "exact",
+   "looked": "2026-10-04",
+   "look_reason": "A black HP Special Edition L2000 laptop, lid open, its display shattered across most of the panel - a wide pale fracture with black wedges and a vertical band of coloured artefacts where the LCD has failed. Keyboard and chassis intact. 'Broken' is not a mood word here; the screen is visibly broken."
+  },
+  {
+   "slug": "yourrage-best-friend-stole",
+   "for": "story",
+   "caption": "An octopus plush toy.",
+   "q": "livestream streaming",
+   "must": [
+    "stream"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "instagram-dominatrix",
+   "for": "story",
+   "caption": "A line graph of monthly Instagram users, 2015-2019. It is a chart, whi",
+   "q": "Instagram",
+   "must": [
+    "instagram"
+   ],
+   "allow_logo": true,
+   "kind": "unchecked"
+  },
+  {
+   "slug": "replika-users-lost-them",
+   "for": "story",
+   "caption": "A screenshot of a conversation with a chatbot. The thing the entry is about, shown rather than described.",
+   "q": "chatbot conversation computer",
+   "must": [
+    "chatbot"
+   ],
+   "local": "img/editorial/8432d33b1d39ab.jpg",
+   "src": {
+    "title": "Chai chatbot",
+    "author": "Chai",
+    "licence": "Public domain",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChai_chatbot.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "companion-safety-controls",
+   "for": "story",
+   "caption": "A mobile phone showing a message. Generic, and captioned as exactly that.",
+   "q": "mobile phone",
+   "must": [
+    "phone"
+   ],
+   "local": "img/editorial/a2ccd8f82f5a8b.jpg",
+   "src": {
+    "title": "Mobile-Phone-Message",
+    "author": "gmcgcc",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AMobile-Phone-Message.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "pygmalion-sculptor-illusion",
+   "for": "story",
+   "caption": "Janette Steer as Galatea in Pygmalion and Galatea, as wax. The sculptor whose assistant caught fire is the historical case the myth was built from.",
+   "q": "Pygmalion and Galatea",
+   "must": [
+    "pygmalion"
+   ],
+   "local": "img/editorial/fdcf330e3c8c9d.jpg",
+   "src": {
+    "title": "Janette Steer (1863–1947) as Galatea in Pygmalion and Galatea",
+    "author": "W. and D. Downey (no individual credited)",
+    "licence": "Public domain",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AJanette_Steer_%281863%E2%80%931947%29_as_Galatea_in_Pygmalion_and_Galatea.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "look_reason": "A black-and-white full-length studio portrait of a woman on a low plinth against a dark ground, in a classical gown whose surface is ridged and folded like modelled wax - that part of the caption is visible and is the reason the picture was chosen. The must-term is 'pygmalion' and the word is nowhere in the frame.",
+   "note": "Two separate gaps. The title rests on src, not pixels. And the entry's actual subject is the historical case - the sculptor whose assistant caught fire - while this photograph shows the myth that was built from it. An image of Galatea is illustrative of the legend, not evidence for the history."
+  },
+  {
+   "slug": "sculptor-fell-in-love",
+   "for": "story",
+   "caption": "A marble sculpture. Not Pygmalion, and captioned as such - the lane's own image carries the Pygmalion case.",
+   "q": "marble sculpture statue",
+   "must": [
+    "marble",
+    "sculpt"
+   ],
+   "local": "img/editorial/94a86a433f6d61.jpg",
+   "src": {
+    "title": "Buddha, China, marble sculpture, Tang dynasty style, Museum Humanum , 258919",
+    "author": "Zde",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABuddha%2C_China%2C_marble_sculpture%2C_Tang_dynasty_style%2C_Museum_Humanum_%2C_258919.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "look_reason": "A seated Buddha in a museum gallery on a white plinth, a carved relief panel behind it and a glass case at the left. It is unambiguously a sculpture, and the caption's disclosure that it is not Pygmalion is correct. Two problems with the rest. The stone is a buff, granular, sedimentary-looking material, not the white or veined surface marble has, so the must-term 'marble' is not supported by the frame. And the museum's own label is legible in the photograph, reading 'Buddha im Mondschein / Aus Laos ... vermutlich 10. Jh. ... in der Mitte der West-Pagode' - Laos, tenth century, attribution uncertain.",
+   "note": "The src title says China, Tang dynasty style. The label in the picture says Laos, tenth century. The source metadata and the museum disagree on provenance, and the caption's 'marble' is the one material claim the frame arguably contradicts. Do not describe this as marble without checking which stone it is."
+  },
+  {
+   "slug": "hugh-jackman-divorce",
+   "for": "story",
+   "caption": "Hugh Jackman",
+   "q": "Hugh Jackman",
+   "must": [
+    "jackman"
+   ],
+   "local": "img/editorial/a6b4afb1722fc2.jpg",
+   "src": {
+    "title": "DEADPOOL y WOLVERINE con ESCORPIÓN DORADO AlVolante Ryan Reynolds y Hugh Jackman son a toda madre",
+    "author": "PelucheEn ElEstuche",
+    "licence": "CC BY 3.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ADEADPOOL_y_WOLVERINE_con_ESCORPI%C3%93N_DORADO_AlVolante_Ryan_Reynolds_y_Hugh_Jackman_son_a_toda_madre.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "podcast-listeners-study",
+   "for": "story",
+   "caption": "A podcast host at a microphone",
+   "q": "podcast",
+   "must": [
+    "podcast"
+   ],
+   "local": "img/editorial/8e0c8016f61cdc.jpg",
+   "src": {
+    "title": "Freepik anderson-a-professional-podcast-host-a-smiling-man 30897",
+    "author": "Orange Content",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AFreepik_anderson-a-professional-podcast-host-a-smiling-man_30897.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "neighbours-kids-and-finale",
+   "for": "story",
+   "caption": "A D&D-style 'deep discussion for roles and characters' worksheet. The ",
+   "q": "Neighbours cast",
+   "must": [
+    "neighbours"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "liam-payne-generation",
+   "for": "story",
+   "caption": "Liam Payne, 2019",
+   "q": "Liam Payne",
+   "must": [
+    "payne"
+   ],
+   "local": "img/editorial/8b5c5e7197af4b.jpg",
+   "src": {
+    "title": "Liam Payne 2019",
+    "author": "Essential Homme",
+    "licence": "CC BY 3.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ALiam_Payne_2019.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "neighbours-grief-study",
+   "for": "story",
+   "caption": "A soap opera studio",
+   "q": "soap opera television studio",
+   "must": [
+    "opera"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "zubeen-garg-public-grief",
+   "for": "story",
+   "caption": "Zubeen Garg at Edufest 2016",
+   "q": "Zubeen Garg",
+   "must": [
+    "zubeen"
+   ],
+   "local": "img/editorial/95c1c17b7f9ebd.jpg",
+   "src": {
+    "title": "Zubeen Garg in Edufest 2016",
+    "author": "Gitartha.bordoloi",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AZubeen_Garg_in_Edufest_2016.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "characters-we-keep",
+   "for": "story",
+   "caption": "The reading room of the University of Graz library",
+   "q": "library reading room",
+   "must": [
+    "library"
+   ],
+   "local": "img/editorial/7092a733506926.jpg",
+   "src": {
+    "title": "Graz University-Library reading-room",
+    "author": "Dr. Marcus Gossler",
+    "licence": "CC BY-SA 3.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AGraz_University-Library_reading-room.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "worship-in-sports-politics-business",
+   "for": "story",
+   "caption": "A man bathing in the Ganges at the Kumbh Mela. Religious ritual, but n",
+   "q": "worship",
+   "must": [
+    "worship"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "kpop-uae-grief",
+   "for": "story",
+   "caption": "A K-pop concert",
+   "q": "K-pop concert Seoul",
+   "must": [
+    "k-pop",
+    "seoul"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "platforms-renting-reach",
+   "for": "story",
+   "caption": "The caption was 'Billboard-Krakow-Prokocim', which is a street name, n",
+   "q": "billboard advertising",
+   "must": [
+    "billboard"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "swifties-power-record-sales",
+   "for": "story",
+   "caption": "A shopfront with a street billboard in the background, captioned as if",
+   "q": "Billboard",
+   "must": [
+    "billboard"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "idol-economy-four-dollars",
+   "for": "story",
+   "caption": "A concert ticket. The unit of account in the entry.",
+   "q": "concert ticket",
+   "must": [
+    "ticket"
+   ],
+   "local": "img/editorial/d3a36ccfc747aa.jpg",
+   "src": {
+    "title": "Concert Ticket from Texxas Jam '79",
+    "author": "Jwebbatx",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AConcert_Ticket_from_Texxas_Jam_%2779.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "meg-mason-writes-about-us",
+   "for": "story",
+   "caption": "A figure in a red costume. The query was for a typewriter; this is not",
+   "q": "typewriter manuscript",
+   "must": [
+    "typewriter"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "darry-season-two",
+   "for": "story",
+   "caption": "A giant puppet show",
+   "q": "puppet",
+   "must": [
+    "puppet"
+   ],
+   "local": "img/editorial/05cd05fe4b5a4b.jpg",
+   "src": {
+    "title": "Giant Puppet Shows by Ishara Puppet Theatre Trust during Youth Festival 2011 at CP, Delhi IMG 8308 01",
+    "author": "Sumita Roy Dutta",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AGiant_Puppet_Shows_by_Ishara_Puppet_Theatre_Trust_during_Youth_Festival_2011_at_CP%2C_Delhi_IMG_8308_01.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "parasocial-problem-visibility",
+   "for": "story",
+   "caption": "A forum thread. The entry is about a glimpse being mistaken for access, which is what a forum thread is.",
+   "q": "internet forum discussion",
+   "must": [
+    "forum"
+   ],
+   "local": "img/editorial/15ffbaf918efea.jpg",
+   "src": {
+    "title": "Minetest Forum - General Discussion",
+    "author": "AirSThib",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AMinetest_Forum_-_General_Discussion.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "kai-cenat-returns",
+   "for": "story",
+   "caption": "A Hungarian Twitch partner meeting. The story is about one named strea",
+   "q": "Twitch",
+   "must": [
+    "twitch"
+   ],
+   "allow_logo": true,
+   "kind": "unchecked"
+  },
+  {
+   "slug": "sasaeng-jungkook-conviction",
+   "for": "story",
+   "caption": "A photograph of an exhibition installation, not of Jungkook. Using it ",
+   "q": "Jungkook",
+   "must": [
+    "jungkook"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "character-ai-settlement",
+   "for": "story",
+   "caption": "The Austrian Constitutional Court.",
+   "q": "courtroom judge",
+   "must": [
+    "court"
+   ],
+   "local": "img/editorial/c99c92d58edf78.jpg",
+   "src": {
+    "title": "Courtroom of the Austrian Constitutional Court 01",
+    "author": "VfGH/Achim Bieniek",
+    "licence": "CC BY-SA 3.0 at",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACourtroom_of_the_Austrian_Constitutional_Court_01.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked",
+   "note": "A real courtroom, standing in for a litigation that did not happen there - captioned as a courtroom and not as the hearing."
+  },
+  {
+   "slug": "neuro-sama-tops-twitch",
+   "for": "story",
+   "caption": "A drawing tablet showing an artist's work-in-progress of a VTuber. It ",
+   "q": "VTuber",
+   "must": [
+    "vtuber"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "research-shelf",
+   "for": "story",
+   "caption": "A hand-drawn diagram of a table with arrows.",
+   "q": "bookshelf",
+   "must": [
+    "shelf"
+   ],
+   "kind": "unchecked"
+  },
+  {
+   "slug": "t8-1-rugrats-nest",
+   "for": "top8",
+   "caption": "A roller coaster with green tubular supports and a yellow track, a train of riders cresting a hill above a sign reading DRIVE IN, NOW SHOWING RUNAWAY.",
+   "q": "Rugrats",
+   "must": [
+    "reptar"
+   ],
+   "local": "img/editorial/f91c056e93f897.jpg",
+   "src": {
+    "title": "Rugrat's Runaway Reptar",
+    "author": "Chris Hagerman",
+    "licence": "CC BY-SA 3.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3APKI-Rugrat%27s_Runaway_Reptar.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "look_reason": "There is no toy in this picture. It is a roller coaster - green tubular supports, a yellow track, a train of riders over a crest - with a sign below reading DRIVE IN / NOW SHOWING / RUNAWAY, which points at the Rugrats film rather than at the character. The must-term is 'reptar' and it passed on the filename 'Rugrat's Runaway Reptar' alone. Caption corrected: it described a toy that is not in the frame.",
+   "note": "Item 17's failure caught in the act, on a story record rather than an encyclopedia one. The old caption was not merely loose but false, and it made a claim about the episode's argument - that a photograph of the toy is closer to the episode than a screenshot - which the picture it captioned cannot support. The franchise connection is real, via the RUNAWAY sign; the toy is simply absent.",
+   "caption_corrected": {
+    "from": "A Reptar toy. The NEST letter is about wanting proof that a toy shop is real, so a photograph of the toy is closer to the episode than a screenshot would have been.",
+    "date": "2026-10-04",
+    "why": "There is no toy in this picture. It is a roller coaster - green tubular supports, a yellow track, a train of riders over a crest - with a sign below reading DRIVE IN / NOW SHOWING / RUNAWAY, which points at the Rugrats film rather than at the character. The must-term is 'reptar' and it passed on the filename 'Rugrat's Runaway Reptar' alone. Caption corrected: it described a toy that is not in the frame."
+   }
+  },
+  {
+   "slug": "t8-2-rugrats-gun",
+   "for": "top8",
+   "caption": "Rugrat Baby Shower Decor",
+   "q": "Rugrats Baby Shower Decor",
+   "must": [
+    "rugrat"
+   ],
+   "local": "img/editorial/28e088be326dc3.jpg",
+   "src": {
+    "title": "Rugrat Baby Shower Decor",
+    "author": "Sherlene",
+    "licence": "CC BY 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARugrat_Baby_Shower_Decor.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "t8-3-grouch",
+   "for": "top8",
+   "caption": "A cosplayer as Oscar the Grouch, Hallowbaloo 2012.",
+   "q": "Oscar the Grouch",
+   "must": [
+    "grouch"
+   ],
+   "local": "img/editorial/a79cdbe19975ad.jpg",
+   "src": {
+    "title": "Hallowbaloo 2012 - Oscar the Grouch Cosplayer",
+    "author": "Kyle Nishioka",
+    "licence": "CC BY 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AHallowbaloo_2012_-_Oscar_the_Grouch_Cosplayer.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked",
+   "note": "Fans in costume is what Commons actually holds, and on this site that is the better picture: the bond lives in the audience."
+  },
+  {
+   "slug": "t8-4-zuko",
+   "for": "top8",
+   "caption": "Cosplay of Zuko at AVA Expo 2013",
+   "q": "Cosplay Zuko",
+   "must": [
+    "zuko"
+   ],
+   "local": "img/editorial/d111eb210f4029.jpg",
+   "src": {
+    "title": "Cosplay of Zuko at AVA Expo 2013",
+    "author": "Dasha Ocean",
+    "licence": "CC BY-SA 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACosplay_of_Zuko_at_AVA_Expo_2013.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "t8-5-dragontales",
+   "for": "top8",
+   "caption": "No freely-licensed image of Dragon Tales exists.",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "t8-6-powerrangers",
+   "for": "top8",
+   "caption": "The cast of the Power Rangers film",
+   "q": "Power Rangers",
+   "must": [
+    "rangers"
+   ],
+   "local": "img/editorial/16c9dc2bba7180.jpg",
+   "src": {
+    "title": "Cast of the Power Rangers movie",
+    "author": "iDominick",
+    "licence": "CC BY-SA 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACast_of_the_Power_Rangers_movie.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "t8-7-doug",
+   "for": "top8",
+   "caption": "No freely-licensed image of Doug exists.",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "t8-8-animaniacs",
+   "for": "top8",
+   "caption": "The Animaniacs at WonderCon, 2012",
+   "q": "Animaniacs",
+   "must": [
+    "animaniacs"
+   ],
+   "local": "img/editorial/8520bb03573ec1.jpg",
+   "src": {
+    "title": "WonderCon 2012 - the Animaniacs!",
+    "author": "The Conmunity -  Pop Culture Geek from Los Angeles, CA, USA",
+    "licence": "CC BY 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWonderCon_2012_-_the_Animaniacs%21_%286873031174%29.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "top8-cartoons-90s",
+   "for": "feature",
+   "caption": "A woman standing beside a television set",
+   "q": "children watching television",
+   "must": [
+    "television"
+   ],
+   "topic": "character",
+   "local": "img/editorial/797b9179645dc8.jpg",
+   "src": {
+    "title": "Found Photograph",
+    "author": "Thomas Hawk",
+    "licence": "CC 2.0",
+    "credit": "Thomas Hawk / Flickr",
+    "page": "https://www.flickr.com/photos/thomashawk/55553861091/"
+   },
+   "cached": "2026-09-28",
+   "kind": "exact",
+   "looked": "2026-10-04",
+   "look_reason": "A woman in a pink belted dress, glasses and a pearl necklace, standing beside a rounded-screen television set with a fringed lampshade on top of it, against tan wallpaper. She is standing beside a television set, which is the whole of the caption, and the caption claims nothing further. A genuine match.",
+   "note": "Low resolution - this is a small scan with a printed white border, not a photographic original. Not a correctness problem, but image_audit states it cannot judge whether a picture is a good picture, so it is recorded here rather than left implicit."
+  },
+  {
+   "slug": "history-macy-store",
+   "for": "feature",
+   "caption": "A soap opera studio, 1940s",
+   "q": "soap opera studio set",
+   "must": [
+    "opera"
+   ],
+   "local": null,
+   "kind": "unchecked"
+  },
+  {
+   "slug": "history-dionne-warwick",
+   "for": "feature",
+   "caption": "Dionne Warwick",
+   "q": "Dionne Warwick",
+   "must": [
+    "warwick"
+   ],
+   "local": null,
+   "kind": "unchecked"
+  },
+  {
+   "slug": "history-fan-letters",
+   "for": "feature",
+   "caption": "A typed letter, 1942. The reply is the whole point of the entry and the letter is the evidence.",
+   "q": "Rodgers Hammerstein letter",
+   "must": [
+    "letter"
+   ],
+   "local": "img/editorial/2ad723bf682691.jpg",
+   "src": {
+    "title": "Rodgers letter to Walter",
+    "author": "Geo Lightspeed7",
+    "licence": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARodgers_letter_to_Walter.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "figure-peewee",
+   "for": "feature",
+   "caption": "Paul Reubens, with the David Hasselhoff Chalk painting, CalArts",
+   "q": "Paul Reubens",
+   "must": [
+    "reubens"
+   ],
+   "local": "img/editorial/6bdf004f350b52.jpg",
+   "src": {
+    "title": "Calarts-katey-sagal-paul-reubens-david-hasselhoff",
+    "author": "Paul Reubens",
+    "licence": "Public domain",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACalarts-katey-sagal-paul-reubens-david-hasselhoff.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "figure-kozik",
+   "for": "feature",
+   "caption": "Charlie Kaufman, Fantastic Fest 2015",
+   "q": "Charlie Kaufman",
+   "must": [
+    "kaufman"
+   ],
+   "local": "img/editorial/ebee72d7db9c68.jpg",
+   "src": {
+    "title": "Charlie Kaufman Fantastic Fest 2015-0257",
+    "author": "anna Hanks from Austin, Texas, USA",
+    "licence": "CC BY 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACharlie_Kaufman_Fantastic_Fest_2015-0257_%2827441349145%29_%28cropped%29.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "figure-tay",
+   "for": "feature",
+   "caption": "Taylor Swift, 2019",
+   "q": "Taylor Swift",
+   "must": [
+    "swift"
+   ],
+   "local": "img/editorial/3350194b056030.jpg",
+   "src": {
+    "title": "191125 Taylor Swift at the 2019 American Music Awards",
+    "author": "Cosmopolitan UK",
+    "licence": "CC BY 3.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3A191125_Taylor_Swift_at_the_2019_American_Music_Awards.png"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "moment-power-rangers",
+   "for": "feature",
+   "caption": "The cast of the Power Rangers film",
+   "q": "Power Rangers",
+   "must": [
+    "rangers"
+   ],
+   "local": "img/editorial/08c60000556c8d.jpg",
+   "src": {
+    "title": "Cast of the Power Rangers movie",
+    "author": "iDominick",
+    "licence": "CC BY-SA 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACast_of_the_Power_Rangers_movie.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-idol",
+   "for": "section",
+   "caption": "A crowd watching a band perform",
+   "q": "idol",
+   "aisle": "idol",
+   "topic": "idol",
+   "local": "img/editorial/1a5445384e8a1d.jpg",
+   "src": {
+    "title": "Mitch Fender Band 2026 - 9",
+    "author": "nobody@flickr.com (\"Zechenturm\")",
+    "licence": "CC 2.0",
+    "credit": "nobody@flickr.com (\"Zechenturm\") / Flickr",
+    "page": "https://www.flickr.com/photos/"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-creator",
+   "for": "section",
+   "caption": "A speaker addressing a room at a conference",
+   "q": "creator",
+   "aisle": "creator",
+   "topic": "creator",
+   "local": "img/editorial/7e0302729d0818.jpg",
+   "src": {
+    "title": "DIGITAL EVANGELISM II",
+    "author": "nobody@flickr.com (\"maheryan\")",
+    "licence": "CC 2.0",
+    "credit": "nobody@flickr.com (\"maheryan\") / Flickr",
+    "page": "https://www.flickr.com/photos/"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-character",
+   "for": "section",
+   "caption": "A woman adjusting a vintage television set. Third attempt: the first was a photograph of Saturn captioned as 'a screen, and the person watching it', the second a film-festival award badge. Both passed the must-term test. The caption had been written before the picture was chosen, which is the failure this review exists to catch.",
+   "q": "television set room",
+   "aisle": "character",
+   "must": [
+    "television"
+   ],
+   "local": "img/editorial/b935db332bb9dc.jpg",
+   "src": {
+    "title": "A woman adjusts a vintage television on a wooden table in a warm, inviting room",
+    "author": "Shixart1985",
+    "licence": "CC BY 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3AA_woman_adjusts_a_vintage_television_on_a_wooden_table_in_a_warm%2C_inviting_room.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "illustrative",
+   "looked": "2026-10-04",
+   "look_reason": "A cream 1970s television on a wooden table in a sunlit, wood-panelled room: rounded CRT, two large rotary dials, perforated speaker grille. A person in a beige jacket leans over it with a hand reaching toward the lower edge of the set. The must-term television is met by the object itself, not by a filename, and this is the picture the caption's history deserves.",
+   "note": "Narrow downgrade, and the reason is one word. 'Vintage television' and 'adjusting' both hold - the hand is at the set's controls. 'A woman' does not: the face is cropped to nose and mouth, and hair and clothing do not establish gender. Everything the picture is here to show is here; one word of the caption is not visible."
+  },
+  {
+   "slug": "aisle-companion",
+   "for": "section",
+   "caption": "A hand holding a smartphone, lit by its own screen. Re-fetched twice - the first attempt came back as a map of Belarus and the second as a cropped chatbot reply.",
+   "q": "smartphone",
+   "aisle": "companion",
+   "must": [
+    "phone"
+   ],
+   "local": "img/editorial/e9ef3c6de3805a.jpg",
+   "src": {
+    "title": "Smartphone Use",
+    "author": "Wikimedia Commons",
+    "licence": "see Commons",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/Category:Smartphones"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-world",
+   "for": "section",
+   "caption": "A stadium. The oldest version of the thing.",
+   "q": "world",
+   "aisle": "world",
+   "topic": "world",
+   "local": "img/editorial/3a85cbcbdfa98b.jpg",
+   "src": {
+    "title": "İstanbul Annex Olimpiyat Parkı ve Atletizm Tesisi",
+    "author": "nobody@flickr.com (\"wowTürkiye\")",
+    "licence": "CC 2.0",
+    "credit": "nobody@flickr.com (\"wowTürkiye\") / Flickr",
+    "page": "https://www.flickr.com/photos/"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-brand",
+   "for": "section",
+   "caption": "A shop window. A shop, which is also a version.",
+   "q": "brand",
+   "aisle": "brand",
+   "topic": "brand",
+   "local": "img/editorial/3f44b5eb1ac3d6.jpg",
+   "src": {
+    "title": "Yumi",
+    "author": "nobody@flickr.com (\"Minso Rune (SL)\")",
+    "licence": "CC 2.0",
+    "credit": "nobody@flickr.com (\"Minso Rune (SL)\") / Flickr",
+    "page": "https://www.flickr.com/photos/"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-crossover",
+   "for": "section",
+   "caption": "A Victorian schoolroom, Blists Hill",
+   "q": "crossover",
+   "aisle": "crossover",
+   "topic": "crossover",
+   "local": "img/editorial/b5707ad0012445.jpg",
+   "src": {
+    "title": "Blists Hill Victorian Town",
+    "author": "nobody@flickr.com (\"Chiltern Wanderer\")",
+    "licence": "CC 2.0",
+    "credit": "nobody@flickr.com (\"Chiltern Wanderer\") / Flickr",
+    "page": "https://www.flickr.com/photos/"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-contest",
+   "for": "section",
+   "caption": "A climate protest in Washington DC, 2015. Re-fetched: the previous one was a pilgrimage site in the Philippines captioned as a public argument, which is the same class of error in the other direction.",
+   "q": "protest demonstration",
+   "aisle": "contest",
+   "must": [
+    "protest"
+   ],
+   "local": "img/editorial/8bbac49393dd23.jpg",
+   "src": {
+    "title": "\"Exxon Knew\" sign on a BLM protest in Washington, DC (2015)",
+    "author": "Johnny Silvercloud",
+    "licence": "CC BY-SA 2.0",
+    "credit": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%22Exxon_Knew%22_sign_on_a_BLM_protest_in_Washington%2C_DC_%282015%29.jpg"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-grief",
+   "for": "section",
+   "caption": "A face in low light",
+   "q": "grief",
+   "aisle": "grief",
+   "topic": "grief",
+   "local": "img/editorial/fec5ec9cdbeaa9.jpg",
+   "src": {
+    "title": "Sguardo",
+    "author": "nobody@flickr.com (\"Giancarlo Bruss\")",
+    "licence": "CC 2.0",
+    "credit": "nobody@flickr.com (\"Giancarlo Bruss\") / Flickr",
+    "page": "https://www.flickr.com/photos/"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "aisle-danger",
+   "for": "section",
+   "caption": "A mounted police officer",
+   "q": "danger",
+   "aisle": "danger",
+   "topic": "danger",
+   "local": "img/editorial/659319cc04fbb1.jpg",
+   "src": {
+    "title": "Under the Queen’s Watch",
+    "author": "nobody@flickr.com (\"eduvilasimon\")",
+    "licence": "CC 2.0",
+    "credit": "nobody@flickr.com (\"eduvilasimon\") / Flickr",
+    "page": "https://www.flickr.com/photos/"
+   },
+   "cached": "2026-09-28",
+   "kind": "unchecked"
+  },
+  {
+   "slug": "the-dog",
+   "for": "encyclopedia",
+   "caption": "Two small distant silhouettes on an empty horizon, far apart. One upright, one low and broad. Neither is drawn closely enough to be identified, which is the point.",
+   "q": "two distant figures far apart on a horizon",
+   "must": [],
+   "kind": "illustrative",
+   "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
+   "local": "img/generated/the-dog-22f947a11e03.png",
+   "src": {
+    "title": "Generated locally: FLUX.1-schnell, two distant silhouettes",
+    "author": "Parasocialize (generated on the site owner's own machine)",
+    "licence": "Author-owned. Generated, not a third-party work; no attribution obligation arises and none is claimed.",
+    "page": "https://www.parasocialize.com/encyclopedia/the-dog.html",
+    "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned; no third-party work is reproduced.",
+    "page_note": "No third-party source page exists for a generated image. This points at the page it illustrates, which records the model, seed and prompt. Inventing a scheme here is what link_audit exists to catch."
+   },
+   "generation": {
+    "model": "flux1-schnell-fp8.safetensors",
+    "seed": 20261004,
+    "steps": 4,
+    "cfg": 1.0,
+    "sampler": "euler/simple",
+    "size": "1152x768",
+    "encoders": "t5xxl_fp8_e4m3fn + clip_l, type flux",
+    "vae": "ae.safetensors",
+    "rejected_takes": [
+     {
+      "take": "v1 seed 20261004",
+      "showed": "a modern shepherd-type dog by a campfire, reached toward by a disembodied arm",
+      "rejected_because": "a recognisable modern breed on an entry dated -15000, and a limb with no body attached"
+     },
+     {
+      "take": "v2 seed 20261004",
+      "showed": "wolf-adjacent dog beside a crouching figure seen from behind",
+      "rejected_because": "a modern shirt on the figure; the entry is prehistoric"
+     },
+     {
+      "take": "v2 seed 15000",
+      "showed": "dog in profile, figure from behind, good separation",
+      "rejected_because": "a black collar on an animal fifteen thousand years early, despite 'no collar' being in the prompt"
+     },
+     {
+      "take": "v2 seed 6601",
+      "showed": "the same composition, warmer palette",
+      "rejected_because": "a green collar, and a shirt"
+     }
+    ],
+    "policy": "Generated art in this layer is atmosphere, never depiction. Anything that depicts a subject is either a Commons photograph of a real thing or nothing.",
+    "post": "cropped 1152x768 -> 1152x560, then a 3% margin trim",
+    "final": "1084x528"
+   },
+   "crop": {
+    "from": "1152x768",
+    "box": [
+     0,
+     208,
+     1152,
+     768
+    ],
+    "to": "1152x560",
+    "aspect": "2.06:1",
+    "why": "the figures sit at 60% down and trimming the bottom pushes them lower; only trimming the top moves them up"
+   },
+   "looked": "2026-10-05",
+   "look_reason": "Opened and looked at, twice - once before cropping and once after. Two small dark silhouettes on a horizon line, one upright and narrow, one low and broad, on a flat cream and ochre plain with a great deal of empty space between and around them. After cropping 208px off the top they sit at 45% down the frame with the horizon at 48%, which balances the weight. A 3% margin was then trimmed from every generated frame. Nothing in the frame can be dated, named or checked, which is what makes it safe under a -15000 entry."
+  },
+  {
+   "slug": "sunghir",
+   "for": "encyclopedia",
+   "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
+   "q": "empty landscape atmosphere",
+   "must": [],
+   "kind": "illustrative",
+   "looked": "2026-10-05",
+   "look_reason": "Opened and looked at. An ochre plain under a pale yellow sky with scattered rock and a long raking light. No person, no animal, no object. Nothing in the frame can be dated; it carries arid open ground and no claim beyond that.",
+   "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. Never EXACT. Built from the entry's own year and otherness value by tools/gen_atmosphere.py, not written per entry.",
+   "local": "img/generated/sunghir-140aaf3bbe8e.png",
+   "src": {
+    "title": "Generated locally: FLUX.1-schnell atmosphere",
+    "author": "Parasocialize (generated on the site owner's own machine)",
+    "licence": "Author-owned. Generated, not a third-party work.",
+    "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
+    "page": "https://www.parasocialize.com/encyclopedia/sunghir.html"
+   },
+   "generation": {
+    "model": "flux1-schnell-fp8.safetensors",
+    "seed": 20261025,
+    "steps": 4,
+    "cfg": 1.0,
+    "sampler": "euler/simple",
+    "size": "1152x560",
+    "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. low firelight and deep shadow, rough rock and packed earth. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted.",
+    "final": "1084x528"
+   }
+  },
+  {
+   "slug": "gobekli-tepe",
+   "for": "encyclopedia",
+   "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
+   "q": "empty landscape atmosphere",
+   "must": [],
+   "kind": "illustrative",
+   "looked": "2026-10-05",
+   "look_reason": "Opened and looked at. An arid plain with hazy hills far off, scattered small stones and a boulder at the left. Notably there are no pillars, on the one entry whose entire subject is a row of standing stones - the policy held, and the image is atmosphere rather than a reconstruction.",
+   "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. Never EXACT. Built from the entry's own year and otherness value by tools/gen_atmosphere.py, not written per entry.",
+   "local": "img/generated/gobekli-tepe-ee4e7192273c.png",
+   "src": {
+    "title": "Generated locally: FLUX.1-schnell atmosphere",
+    "author": "Parasocialize (generated on the site owner's own machine)",
+    "licence": "Author-owned. Generated, not a third-party work.",
+    "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
+    "page": "https://www.parasocialize.com/encyclopedia/gobekli-tepe.html"
+   },
+   "generation": {
+    "model": "flux1-schnell-fp8.safetensors",
+    "seed": 20261032,
+    "steps": 4,
+    "cfg": 1.0,
+    "sampler": "euler/simple",
+    "size": "1152x560",
+    "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted.",
+    "final": "1084x528"
+   }
+  },
+  {
+   "slug": "myth-and-ritual",
+   "for": "encyclopedia",
+   "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
+   "q": "empty landscape atmosphere",
+   "must": [],
+   "kind": "illustrative",
+   "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
+   "local": "img/generated/myth-and-ritual-e25ced35d9f0.png",
+   "src": {
+    "title": "Generated locally: FLUX.1-schnell atmosphere",
+    "author": "Parasocialize (generated on the site owner's own machine)",
+    "licence": "Author-owned. Generated, not a third-party work.",
+    "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
+    "page": "https://www.parasocialize.com/encyclopedia/myth-and-ritual.html"
+   },
+   "generation": {
+    "model": "flux1-schnell-fp8.safetensors",
+    "seed": 20261039,
+    "steps": 4,
+    "cfg": 1.0,
+    "sampler": "euler/simple",
+    "size": "1152x560",
+    "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted.",
+    "final": "1084x528"
+   },
+   "looked": "2026-10-05",
+   "look_reason": "Empty ground, one boulder, no figures. The entry argues ritual is older than any recorded narrative, so absence and scale are the right register. Nothing depicted, nothing claimed about a place."
+  },
+  {
+   "slug": "the-absent-sage",
+   "for": "encyclopedia",
+   "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
+   "q": "empty landscape atmosphere",
+   "must": [],
+   "kind": "illustrative",
+   "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
+   "local": "img/generated/the-absent-sage-9b777dd5e0cf.png",
+   "src": {
+    "title": "Generated locally: FLUX.1-schnell atmosphere",
+    "author": "Parasocialize (generated on the site owner's own machine)",
+    "licence": "Author-owned. Generated, not a third-party work.",
+    "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
+    "page": "https://www.parasocialize.com/encyclopedia/the-absent-sage.html"
+   },
+   "generation": {
+    "model": "flux1-schnell-fp8.safetensors",
+    "seed": 20261046,
+    "steps": 4,
+    "cfg": 1.0,
+    "sampler": "euler/simple",
+    "size": "1152x560",
+    "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. cold clear dawn light, bare ground and long shadow. a pattern repeating with no example. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted.",
+    "final": "1084x528"
+   },
+   "looked": "2026-10-05",
+   "look_reason": "Empty plain, scattered stones, one bird. No figures and nothing depicted. The entry turns on a sage reached entirely through writing whose library survives only because Nineveh burned, so an empty register is honest for it. Makes no claim about a location."
+  },
+  {
+   "slug": "the-deaf-beloved",
+   "for": "encyclopedia",
+   "caption": "Atmosphere for this entry: printed paper, ink and margin, lamplight on a page. Nothing in it can be dated or identified.",
+   "q": "empty landscape atmosphere",
+   "must": [],
+   "kind": "illustrative",
+   "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
+   "local": "img/generated/the-deaf-beloved-67ac5a792303.png",
+   "src": {
+    "title": "Generated locally: FLUX.1-schnell atmosphere",
+    "author": "Parasocialize (generated on the site owner's own machine)",
+    "licence": "Author-owned. Generated, not a third-party work.",
+    "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
+    "page": "https://www.parasocialize.com/encyclopedia/the-deaf-beloved.html"
+   },
+   "generation": {
+    "model": "flux1-schnell-fp8.safetensors",
+    "seed": 20261053,
+    "steps": 4,
+    "cfg": 1.0,
+    "sampler": "euler/simple",
+    "size": "1152x560",
+    "prompt": "Minimal painterly illustration: printed paper, ink and margin, lamplight on a page. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted.",
+    "final": "1084x528"
+   },
+   "looked": "2026-10-05",
+   "look_reason": "Monochrome, low sun, one distant unidentifiable silhouette walking away. Plato's Phaedrus has the beast shag-eared and deaf, and closes with the lover fleeing while the beast pursues; a figure too far off to be a portrait is the right register. Illustrative, not exact: nothing in frame identifies anyone or dates anything."
+  },
+  {
+   "slug": "roman-imagines",
+   "for": "encyclopedia",
+   "caption": "Atmosphere for this entry: archival dust, aged paper and stone, low warm light. Nothing in it can be dated or identified.",
+   "q": "empty landscape atmosphere",
+   "must": [],
+   "kind": "illustrative",
+   "looked": "2026-10-05",
+   "look_reason": "Opened and looked at. A cream paper-toned wash with a pale sky, scattered small stones across flat ground and one larger stone casting a short shadow. No person, no animal, no architecture, no text, nothing that can be dated or identified. Reads as archival stone without depicting a mask, which is the point.",
+   "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. Never EXACT. Built from the entry's own year and otherness value by tools/gen_atmosphere.py, not written per entry.",
+   "local": "img/generated/roman-imagines-e0bd0d739884.png",
+   "src": {
+    "title": "Generated locally: FLUX.1-schnell atmosphere",
+    "author": "Parasocialize (generated on the site owner's own machine)",
+    "licence": "Author-owned. Generated, not a third-party work.",
+    "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
+    "page": "https://www.parasocialize.com/encyclopedia/roman-imagines.html"
+   },
+   "generation": {
+    "model": "flux1-schnell-fp8.safetensors",
+    "seed": 20261060,
+    "steps": 4,
+    "cfg": 1.0,
+    "sampler": "euler/simple",
+    "size": "1152x560",
+    "prompt": "Minimal painterly illustration: archival dust, aged paper and stone, low warm light. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted.",
+    "final": "1084x528"
+   }
+  }
+ ]
 }
