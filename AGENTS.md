@@ -2091,3 +2091,54 @@ whole thesis inside one commercial decision.
       and `t8-8-animaniacs`, where a convention badge on a cosplayer's waistband
       reads WONDERCON 2012 - so the event and the year are legible in the picture
       rather than only on Commons.
+
+28. **148 citation records had no locator. 16 of them did not need research - they
+    were short-form second references to a work the corpus already locates, and
+    attaching the existing locator took the backlog to 132.** The corpus cites
+    the same paper twice in several places: `free-trial-bait` cites Mathur et al.
+    2019 once in full with `10.1145/3359183` and once as "Mathur et al. (2019)."
+    with nothing. `crossover`, `siri`, `the-priest`, `congregation`,
+    `characters-move-in`, `grief-extraction`, `beatlesmania` and `free-trial-bait`
+    all do it, and several do it **on the same entry**. That is not a research
+    backlog - it is a citation asserting a locator the site has already verified.
+    `tools/attach_twin_locators.py` does it on `exact` (identical once normalised)
+    or `prefix` (one string is the other plus a subtitle) evidence only, records
+    where each locator came from in `locator_from`, and asserts the record and
+    entry counts before writing. **236 -> 252 records with a locator, statuses
+    unchanged, nothing promoted to `verified`.**
+    - **A locator is not a reading, and the page now says so.** The attached
+      record renders as "Mathur et al. (2019). ↗" and still reads `unverified`
+      and "Not yet stood behind" underneath. A URL answers "can a reader open
+      this"; it does not answer "did somebody read it". Same family as the 94
+      `retrievable` records with no URL, running the other way.
+    - **The strict evidence rule is there because AGENTS already records the
+      loose version failing.** Letting author+year be enough made
+      `keep-it-or-lose-it` MATCH a different paper by the same first author in
+      the same year, and that paper was then accepted. **An author and a year
+      are a pair of coordinates, not a work.** 30 records match on surname and
+      year alone and are left alone.
+    - **And the prefix rule needed one more guard, found by reading a pair rather
+      than a match.** `prince`'s short form is "CBS News (2016)." and the sibling
+      is a **compound** citation - "CBS News (2016), citing photographs and CBS
+      Minnesota; NPR, Music Legend Prince Dies At Paisley Park" - carrying
+      **one** URL, the NPR one. Attaching it would have put a wrong outlet's link
+      on a CBS citation: a fresh false attribution, worse than the honest gap the
+      tool exists to close. `cobain` has the identical shape and is correct only
+      by luck, because that URL happens to be the Seattle Times one. **Luck is
+      not a rule.** Compound citations are now refused outright: 21 candidates
+      became 16.
+    - **And the first version of the prefix test fired on only the easy half of
+      its own rule.** `norm()` strips the trailing full stop, so after stripping,
+      the remainder of "mathur et al. (2019). dark patterns at scale" begins with
+      `". "` - and the boundary test was `nxt[:1].isspace()`, which is false for
+      a period. Every case of exactly the shape the class exists for was being
+      silently dropped, and the first run reported 3 matches where there were 7.
+      **A filter that only fires on the easy half of its stated rule looks
+      exactly like a filter that is working.**
+    - **What this does not fix, stated plainly: 132 records remain, and about 112
+      of them cite a work the corpus holds nowhere else.** Those are real
+      research tasks - a student dissertation behind a paywall, a 1994 newspaper
+      item, a book with only a publisher page. The cheap-win note in item 5 -
+      "anything with a DOI" - is **stale**: 0 of the 148 carried a DOI in its
+      citation string, so every one of them needs the citation completed before
+      the locator becomes checkable, which is item 21's conclusion again.
