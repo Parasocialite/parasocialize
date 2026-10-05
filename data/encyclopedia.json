@@ -3261,10 +3261,13 @@
    "relations": [],
    "sources": [
     {
-     "claim": "No specific claim is recorded against this source. The record is a pointer to the work in general; the entry's own prose is the argument and is not sourced line by line.",
-     "citation": "Weizenbaum, 1966",
-     "url": "",
-     "status": "unverified"
+     "citation": "Weizenbaum, J. (1966). ELIZA - A computer program for the study of natural language communication between man and machine. Communications of the ACM, 9(1), 36-45.",
+     "status": "retrievable",
+     "claim": "The original report of the program, and the source of the finding the entry turns on: that people told it they understood within minutes. This paper describes the pattern-matching method. It is NOT the source of the moral argument, which came ten years later in the book Computer Power and Human Reason (W. H. Freeman, 1976) - a distinction the bare citation string 'Weizenbaum, 1966' did not make.",
+     "url": "https://doi.org/10.1145/365153.365168",
+     "locator": "doi:10.1145/365153.365168",
+     "identity_verified": "crossref: 'ELIZA—A Computer Program For the Study of Natural Language C';   authors: 'Joseph Weizenbaum';   year: 1966  citation years: ['1966'];   author surname shared: True;   title overlap: 100%  -> identity OK",
+     "citation_replaced": "Weizenbaum, 1966"
     }
    ],
    "media_inferred": true,
@@ -3591,10 +3594,13 @@
    ],
    "sources": [
     {
-     "claim": "No specific claim is recorded against this source. The record is a pointer to the work in general; the entry's own prose is the argument and is not sourced line by line.",
-     "citation": "Winograd, 1970",
-     "url": "",
-     "status": "unverified"
+     "citation": "Winograd, T. (1972). Understanding natural language. Cognitive Psychology, 3(1), 1-191. The principal reference on SHRDLU. The program itself was written 1968-1970 as Winograd's MIT PhD thesis, Procedures as a Representation for Data in a Computer Program for Understanding Natural Language, issued as MIT AI Memo 235 with a February 1971 date - so the corpus's '1970' named the thesis, not this paper.",
+     "status": "retrievable",
+     "claim": "The principal published reference on SHRDLU, and the source of the two facts the entry turns on: that the system genuinely tracked a user's intentions in a blocks world, and that the demonstration's fame outran its coverage. Also the record of the date ambiguity - the thesis is 1970/1971 and this paper is 1972.",
+     "url": "https://doi.org/10.1016/0010-0285(72)90002-3",
+     "locator": "doi:10.1016/0010-0285(72)90002-3",
+     "identity_verified": "crossref: 'Understanding natural language';   authors: 'Terry Winograd';   year: 1972  citation years: ['1968', '1970', '1971', '1972'];   author surname shared: True;   title overlap: 100%  -> identity OK",
+     "citation_replaced": "Winograd, 1970"
     }
    ],
    "media_inferred": true,

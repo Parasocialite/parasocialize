@@ -2142,3 +2142,70 @@ whole thesis inside one commercial decision.
       "anything with a DOI" - is **stale**: 0 of the 148 carried a DOI in its
       citation string, so every one of them needs the citation completed before
       the locator becomes checkable, which is item 21's conclusion again.
+
+29. **`AGENTS.md` told me to cite sources with a tool that cannot cite anything,
+    and my recall of a DOI was wrong twice in one sitting.** The file says "Cite
+    sources via `tools/add_source.py`, not by hand-editing JSON." That tool does
+    two things: print a report, and recompute provenance. **It takes no entry and
+    no citation.** Anyone following the instruction would run
+    `add_source.py <entry> "<citation>"`, get a silent no-op, and leave
+    believing a source had been added - and a no-op that looks like success is
+    worse than a tool that admits it has none. `tools/cite.py` is that path now:
+    it adds or updates a record, refuses thesis entries, asserts the record
+    count and the top-level keys, and records what it did and did not check in
+    `identity_verified`.
+
+    - **It checks a DOI for IDENTITY, not resolvability, and it earned that on
+      the first real citation.** The obvious DOI for Weizenbaum's ELIZA paper -
+      the one I reached for - `10.1145/360018.360022`, resolves perfectly to
+      *"Computer science as empirical inquiry"* by **Newell and Simon, CACM
+      19(3), 1976**. Not ELIZA. Writing it would have put a confident,
+      loadable, wrong citation on the site's most famous AI entry. The real one
+      is `10.1145/365153.365168`, found by **searching Crossref by title** rather
+      than recalling it - and even then Crossref returned three plausible
+      answers, including a 1983 CACM reprint and a 2021 MIT Press collection, so
+      volume 9 issue 1 pages 36-45 had to be checked before the DOI was accepted.
+      Confirmed red by feeding it the wrong DOI: *"NO shared author surname.
+      Refused."*
+    - **The same trap, second instance, on the next citation.** My recalled DOI
+      for Winograd's *Understanding natural language* was
+      `10.1016/0010-0285(72)90004-0`. The real one ends **`90002-3`**. Again
+      found by searching Crossref, which confirmed Winograd, *Cognitive
+      Psychology* **3(1), 1-191, 1972**. **Two out of two recalled DOIs were
+      wrong, and both were wrong in the direction that looks fine.** This is item
+      20's finding arriving in the corpus's own most-cited entries, and it is the
+      strongest argument for making identity a gate rather than a habit.
+    - **A regex over free text cannot parse a DOI.** The first attempt at
+      `shrlu` was **refused**, because the character class excluded `)` and
+      truncated `10.1016/0010-0285(72)90002-3` to `10.1016/0010-0285(72`. Old-style
+      Elsevier DOIs embed the year in parentheses, so that is a whole real class
+      broken by a detail. **The tool failed in the right direction** - refusing
+      rather than writing half a DOI - but the fix is to take everything after
+      `doi.org/` in the URL, because DOIs may legally contain `(`, `)`, `;`, `<`
+      and `>`. Regex is now only the fallback for a bare DOI.
+    - **Both records were ambiguous rather than wrong, and naming the work is
+      what fixed them.** `Weizenbaum, 1966` did not say which of two works: the
+      **1966** CACM paper (9(1), 36-45, doi 10.1145/365153.365168) or the book,
+      ***Computer Power and Human Reason*, which is 1976** - W. H. Freeman,
+      ISBN 978-0-7167-0464-5, confirmed against ACM's book record and the
+      Internet Archive catalogue. Ten years apart, and the string is identical
+      in shape. `Winograd, 1970` named a PhD thesis written 1968-1970 and issued
+      as **MIT AI Memo 235 with a February 1971 date**, while the principal
+      published reference is the **1972** paper. Both citations now name the work,
+      the venue and the ambiguity, and the ELIZA record states outright that the
+      paper is **not** the source of the moral argument, which came in the 1976
+      book - a distinction the old string made impossible.
+    - **Neither record was upgraded to `verified`.** Both are `retrievable`,
+      which means a reader can open them and find the work - Crossref's metadata
+      confirmed author, title, volume, issue, pages and year for both. **Nobody
+      read either paper**, and the tool says so in the record it writes.
+      252 -> 254 records with a locator. All 14 gates green.
+
+30. **A tool whose documented interface does not exist is worse than one that
+    admits it has none - and PowerShell parse-errors killed two writes this
+    session while reporting success.** Twice now a `look.py` or `cite.py` call
+    shared a bash block with an inline `python -c` that PowerShell could not
+    parse, and **PowerShell parses the entire block before executing any of it**,
+    so the earlier command never ran. Both times I reported the finding as
+    recorded. Neither was. The tell is available and I did not use it: **check
+    the artefact, not the exit of the block you just typed.**
