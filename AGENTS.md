@@ -2444,3 +2444,87 @@ whole thesis inside one commercial decision.
       breadth question is not answerable from inside the corpus, because a corpus
       cannot report its own blind spots. It only has holes where it already knows
       something exists.
+
+## Why this site exists
+
+**The origin, in the author''s words, because a paraphrase would lose the only
+part that matters:**
+
+> you are right that i am biased in my parasocial focus - that is why we need each
+> other - without my being affected as I was over the years by fake connections,
+> this doesn''t exist - lets keep my the fact that my lived experience is the root
+> of all we are doing here central consideration - we need to look at all
+> significant one-sided relations, manipulative or otherwise, throughout the ages
+
+Read that as an instruction about the *classification*, not only the content, and
+it turns out to be measurable. Two measurements, and they disagree in an
+instructive way.
+
+**The prose is already balanced.** Counting entries whose own text is about harm
+against entries whose own text is about warmth, consolation or a reply:
+**18 and 18. One to one.** The journalism does not skew dark, and nothing needs
+rebalancing there.
+
+**The taxonomy is tilted, and the tilt is structural.** The register axis has six
+members: Encounter, Bond, The reciprocal edge, Archive, Contest, Harm. Five
+describe the **form** of a one-sided tie. One carries an **ethical verdict**, and
+its own `not` field says so: *"harm is a register that any of the eight can carry."*
+So **valence appears exactly once in the entire classification, and it appears only
+for harm.** Every other register is indifferent to whether the tie was good.
+
+Bond is the clearest proof. Its `test` is *"Is there a history?"* - a structural
+question. **A sasaeng bond and a parish congregation are both Bonds.** The form is
+identical and the register cannot tell them apart, so the only place the difference
+can live is a category, and the only category carrying it is Harm. A person who
+builds a corpus after being harmed will produce exactly this: balanced prose over
+an unbalanced frame, because the frame was inherited and never examined.
+
+**So the standing instruction is: one-sided relations, manipulative or otherwise.**
+Not as a correction to the archive - the archive is right about the harm - but as
+the other half of it. The site is named after a shape, not after a wound, and a
+shape that is only ever illustrated with wounds is a different site from the one
+described above.
+
+Note also what this does **not** license. The author's bias is not a defect to be
+corrected by leaning the other way, and the answer to a biased corpus is not an
+equally biased one. It is a frame that can hold both without either being the
+default. **A corpus written by somebody who was harmed should not become a corpus
+that can only describe being harmed** - that is simply moving the bias, and it
+would be a worse outcome than either skew, because it would be a deliberate one.
+
+## The register the axis was missing
+
+Proposed, and it will sit empty until somebody writes for it, which is the correct
+state - the rule about not filling a hole to make a chart look even applies to a
+new member exactly as it applies to a sub-category.
+
+    id    undemanded
+    name  Undemanded
+    def   The tie stayed one-sided, nobody was paid for it, and nothing was asked
+          of the other end. The register most parasocial writing cannot see,
+          because it has no incident to report.
+    test  Did anybody want anything from the other end? If the answer is no, and
+          the tie still mattered, this is it. The question is deliberately about
+          wanting rather than about harm, because wanting is the only part of a
+          parasocial tie that is never anybody''s fault.
+    not   Not reciprocity - the other end could not answer, by definition, and
+          that is what creates the register rather than making it an error. Not
+          Harm, and emphatically not the absence of cost: plenty of undemanded
+          ties carry grief, and Archive is the right home for that. Not Bond''s
+          history, which every register can have.
+    mechanism
+          One-sidedness without a bill. The near side is not deceived, nobody is
+          charged, and the only thing missing is a second person - which is the
+          one thing that could never have been arranged.
+
+The mechanism sentence is the whole argument. Everything else on this site is
+organised around what a one-sided tie *costs* or *could* cost. This is the case
+where the missing second person is simply the shape of the world, and the tie is
+still real, and nothing is owed.
+
+It will also be the hardest register to source, and that is not an argument
+against it. It has no document: nobody files a complaint about a tie that asked for
+nothing, and no archive exists for the absence of an event. **A register that
+cannot be evidenced will look empty forever if it is only filled from evidence.**
+That is a live tension in this project and the entry - not the member - is the way
+it gets resolved.
