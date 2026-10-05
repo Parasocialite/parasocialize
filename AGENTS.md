@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 195 entries, 478 relations, 287 generated pages.
+relationships. 196 entries, 480 relations, 288 generated pages.
 
 ## The rule that outranks everything
 
@@ -689,9 +689,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-182 sourced | 0 not yet stood behind | 13 thesis   = 195
+183 sourced | 0 not yet stood behind | 13 thesis   = 196
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-267 of 397 sources have a locator
+271 of 401 sources have a locator
 0 of 380 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -705,7 +705,7 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 195. `add_source.py` is authoritative.
+Board must reconcile to 196. `add_source.py` is authoritative.
 
 **These four lines are typed, and they are the defect this file warns about
 twice** - "a number inside a paragraph is not obviously a claim, which is what
@@ -2650,4 +2650,77 @@ it gets resolved.
     tidy-up.** The instinct to leave a file sorted is the same instinct as
     filling an empty register to make a chart look even - it optimises the
     file rather than the reader, and the reader is who has to review it.
+
+38. **`nancy-drew` found a fourth state on the otherness axis, and the honest
+    response was to leave the field empty.** The entry (1930-1984) is the
+    second argument for the `undemanded` register and the first `simulated`
+    reciprocity instance that is not a live stream.
+    - **The evidence is an archive, and it is fifty-four years of it.** The NYPL
+      Stratemeyer Syndicate records (MssCol 2903) hold the fan mail as a
+      described subseries - **boxes 56-57**, "letters received from young
+      readers of Syndicate books dating from 1930-1984", plus "a few letters
+      written by parents on behalf of their children, and from adults who read
+      Syndicate volumes during their childhood". **This is the only kind of
+      evidence an undemanded tie ever produces** - nobody files a complaint
+      about a tie that asked for nothing, so an archive of one is just a
+      correspondence department that kept its mail.
+    - **The same collection holds "audio letters" and "commercial recordings of
+      dramatic readings of Syndicate books, including stories from The Bobbsey
+      Twins, Nancy Drew and Tom Swift."** A child could send a voice and
+      receive a voice with no answering machine in existence. **The limit is
+      recorded on the entry: the finding aid does not say who those letters were
+      addressed to, so the entry does not claim they were answers to children.**
+      It claims what the document says, which is that the company held audio
+      letters and readings of Nancy Drew.
+    - **For the first forty-four years of that correspondence, the readers were
+      writing to somebody with no author.** The first book appeared April 1930;
+      Edward Stratemeyer died **twelve days** later; Mildred Wirt Benson wrote
+      **23 of the first 30 books** under the Syndicate-chosen house pseudonym
+      **Carolyn Keene**, which was a slot in a production system rather than a
+      person, at a flat fee of $85-250 per novel. **Her identity was not made
+      public until 1991**, established by University of Iowa staff and faculty.
+      So every reply to a child's letter in that span came from an office that
+      had chosen not to have a face. The only quality note on record from that
+      same correspondence is a marketing one - Stratemeyer thought Nancy Drew
+      was **"much too flip"** and sent the manuscripts anyway.
+    - **The near side's own account was collected, which almost never happens.**
+      The Carolyn Dyer papers hold the **1993 Nancy Drew Conference** at Iowa,
+      including "testimonials from readers all over the country on what Nancy
+      Drew meant to them", and *Rediscovering Nancy Drew* (Iowa, 1995) grew out
+      of it with a chapter titled "Reading the Stories of Reading: Nancy Drew
+      Testimonials". **This site is an argument assembled from reader testimony,
+      and here a hundred strangers wrote theirs down before anyone asked.**
+    - **The register claim has to live with the motive, and does.** Nothing was
+      asked of the far end and nothing was paid *by the reader*, which is the
+      test exactly - but the tie was **industrial**, with an owner, a
+      correspondence department, a house pseudonym and a schedule. So it is not
+      the private case the register imagines; it is somebody noticing children
+      were writing and building the reply channel, which is the same decisive
+      move as a cereal company's decoder ring and much less cynical. What earns
+      it the register is not that nobody profited - the Syndicate profited - but
+      that the tie as the reader lived it asked for nothing and was answered
+      anyway.
+    - **`simulated` is load-bearing here, and it is a different shape from the
+      other two.** `live-commentary` and `twitch-subs` work by **latency** - a
+      host reads a comment aloud within seconds. A correspondence department
+      works by **post**: the distance between a child's letter and its reply is
+      a postal system, and the answer was typed on Syndicate stationery under a
+      name that was a slot rather than a woman.
+    - **And the placement failed to fit, which is the finding.** Filed
+      `character/fictional-protagonist` - whose definition is nearly a
+      transcription of the case, "somebody described in a book and therefore
+      available to an unlimited number of people at once" - and **left
+      unplaced on otherness.** `imagined` needs the audience to *know* they made
+      it; the readers did not, with thirty-odd published books behind the
+      character. `made` needs the operator to be *shown*, and its own `not`
+      redirects the hidden case to `played-role`, which is a different thing
+      again. **So the axis has no member for a figure written by an operator
+      the audience is never shown** - `the-shadow` and `howdy-doody` are `made`
+      with the transparency intact, because a voice actor, an advertising agency
+      and a writer-director are all discoverable. This is the same machinery
+      with the byline bolted shut.
+      **Recorded, not filled.** Adding a ninth otherness member is an editorial
+      decision and it is **the author's**, not a script's. The gap is real, it
+      is on a validated axis, and it is now written down where `verify_taxonomy`
+      can be pointed at it.
 
