@@ -125,6 +125,11 @@ img{max-width:100%;display:block}
    following one of these may land on prose that has since been corrected. The
    note under the block says so rather than leaving them to notice. */
 .xl-note{font-size:.78rem;color:var(--dimmer);margin-top:10px;line-height:1.5}
+/* And on the entry side, a story pointing here may itself have been corrected
+   after this entry was written. Saying so is the whole point of a site that
+   withdraws claims. */
+.xl-corrected{display:block;margin-top:5px;color:var(--hot);font-family:var(--label);
+  font-size:.6rem;letter-spacing:.14em;text-transform:uppercase}
 /* the name is never uppercased. Every other nav item is set in caps by the
    rule above, which silently turned iYi into IYI - a name is not a label, and
    the lowercase i on both sides is the whole mark. */

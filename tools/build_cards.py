@@ -2667,6 +2667,39 @@ def build_entry(ent, enc, data, manifest=None):
             f'<span>{" · ".join(b for b in map(esc, bits) if b)}</span></a>')
     xref_html = "".join(xref_rows[:16])
 
+    # ---- the journalism that reported on this -------------------------------
+    # The other direction of the join. Story pages gained a doorway into the
+    # encyclopedia; this is the way back, and it matters more, because most
+    # readers arrive here from search rather than from a story. An entry with
+    # forty connections and no link to a single piece of reporting is a database
+    # row; the story is where the argument is made in a human voice.
+    #
+    # One asymmetry worth naming: a withdrawn claim leaves the entry standing
+    # and the story retired. If this entry's own prose was corrected while a
+    # story still points here, the reader gets the corrected version, and the
+    # gap between the two is visible on the entry itself rather than hidden.
+    story_back = ""
+    sids = (enc.get("stories") or {}).get(ent["id"]) or []
+    if sids:
+        by = {c["slug"]: c for c in (data.get("cards") or [])}
+        rows_s = []
+        for slug in sids[:6]:
+            c = by.get(slug)
+            if not c:
+                continue
+            note = ""
+            if c.get("retired_claim"):
+                note = ('<span class="xl-corrected">this story has been '
+                        'corrected since</span>')
+            rows_s.append(
+                f'<a class="xl" href="{r}radar/{esc(slug)}.html">'
+                f'<b>{esc(c.get("headline", slug))}</b>'
+                f'<span>{esc(str(c.get("one_line") or ""))[:150]}{note}</span></a>')
+        if rows_s:
+            story_back = (f'<p class="kicker" style="margin-top:40px">'
+                          f'Reported as a story</p>'
+                          f'<div class="xlinks">{"".join(rows_s)}</div>')
+
     # ---- where this sits in the taxonomy -------------------------------------
     # One line, linking to the sub-category, so the classification is reachable
     # from the thing being classified and not only from the page that holds the
@@ -2838,6 +2871,8 @@ def build_entry(ent, enc, data, manifest=None):
   {tx_html}
 
   {f'<p class="kicker" style="margin-top:40px">Connected · {len(out_edges)} out, {len(incoming)} in</p><div class="xrefs">{xref_html}</div>' if xref_html else ''}
+
+  {story_back}
 
   <p class="kicker" style="margin-top:40px">It sits in</p>
   <div class="chips">{sec_html}{other_secs}</div>
