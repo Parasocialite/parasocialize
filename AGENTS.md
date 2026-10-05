@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 197 entries, 482 relations, 289 generated pages.
+relationships. 198 entries, 484 relations, 290 generated pages.
 
 ## The rule that outranks everything
 
@@ -33,6 +33,7 @@ python tools\withdraw_image.py # reject a generated image: removes the record AN
 python tools\record_image_size.py  # generation.final <- the PNG actually on disk
 python tools\verify_doi.py --from-citations  # does every DOI resolve to the work cited
 python tools\verify_taxonomy.py  # is the classification sound and complete
+python tools\report_current_state.py # the AGENTS Current-state block + media table, MEASURED
 python tools\verify_narrow.py    # does a generated page overflow at 390px
 python tools\plate.py --check    # does every title plate match its entry
 python tools\episode.py eliza   # render episode; preserves voice/*.wav
@@ -689,9 +690,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-184 sourced | 0 not yet stood behind | 13 thesis   = 197
+185 sourced | 0 not yet stood behind | 13 thesis   = 198
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-275 of 405 sources have a locator
+281 of 411 sources have a locator
 0 of 380 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -705,7 +706,7 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 197. `add_source.py` is authoritative.
+Board must reconcile to 198. `add_source.py` is authoritative.
 
 **These four lines are typed, and they are the defect this file warns about
 twice** - "a number inside a paragraph is not obviously a claim, which is what
@@ -2834,4 +2835,109 @@ it gets resolved.
       values and disagrees on the casing. Cosmetic, and recorded rather than
       fixed, because a label is a promise about what the word means and the
       cheapest way to break it is to restyle it for tidiness.
+
+42. **Every medium in `MEDIA` now has at least one entry, and the axis was the
+    actual blocker for a bi-daily creator.** Items 32 and 33 measured the
+    problem - comics 1, radio 2, `stage` 0, `visual_art` 0, and 84 of 193
+    entries in a catch-all - and item 33 added the two missing names without
+    refiling anything, because "moving an existing entry into a new bucket to
+    make the distribution look even is the move this project refuses". The
+    consequence of that refusal is that a name with nothing behind it sits on
+    the page as a filter chip leading to an empty set, and it stayed empty
+    until an entry was **written** for it.
+    - **`krapp-last-tape`** (1958, `stage`) - item 39. A man on his 69th
+      birthday plays a recording he made at 39 and has the conversation the
+      tape cannot have back.
+    - **`american-gothic`** (1930, `visual_art`) - and this is the richest
+      parasocial structure in the corpus after `dear-kitty`, because **the two
+      people in the painting did not choose it and then had to live in it.**
+      - **The dentist denied it for five years.** Dr Byron McKeeby "didn't want
+        to be famous. He shied away" from Wood's first offer. He posed in
+        overalls holding **a theatre prop pitchfork**, painted in a dental
+        office. Friends recognised him and joked about the pitchfork's role in
+        his dental procedures; "McKeeby stood firm in his denials... The real
+        McKeeby was nothing like the dour farmer who challenged the painting's
+        viewers." **It was literally national news when he broke his silence in
+        1935**, prodded by an AP bureau chief. So a real person refused a
+        one-sided relationship with a painted version of himself for five
+        years, and the refusal was the story.
+      - **Wood designed the likeness to fail.** He "exaggerate[d] McKeeby's
+        features so no one would recognize him" and stretched his sister's face
+        "so that no one would be able to recognize her". **Opacity was the
+        design choice - the exact inverse of `made`, where transparency is the
+        design choice - and it failed absolutely.**
+      - **And the sister credited the painting with her own interior**: "**Grant
+        made a personality out of me. I would have had a very drab life without
+        [American Gothic].**" A woman saying a painting supplied a self she
+        would not otherwise have had.
+      - **And the brother ended it because it worked.** After critics said she
+        "looked like the missing link, that her face would turn milk sour" and
+        the apologetic *Portrait of Nan* (1931), Wood reportedly told her "It's
+        the last portrait I intend to paint, and it's the last time you will ever
+        pose for me." She had posed for years and asked why. **"Your face is too
+        well known."** That is the entry's title, and it is the moment the
+        figure leaves the model - reported by a brother, as a fact about his own
+        work.
+      - **The cog is the afterlives**: parodied in "advertisements, in
+        television shows such as *The Simpsons*, in albums, in comic books, on
+        magazine covers, and by Jim Henson's Muppets" and "in the political
+        arena". Christie's weighs the multiplicity against exactly one other
+        thing, **Edvard Munch's *The Scream***. Millions of remakes, none by
+        anyone who met Wood, Nan or McKeeby. The 1977 *Hustler* topless version
+        is the sharp end - Nan "was afraid that people would think that she
+        authorized it."
+      - **The authenticity was manufactured and shipped.** Wood called the pair
+        "tintypes from my old family album" and then ordered the apron and
+        overalls **from a Chicago mail-order house**; the Eldon house's
+        churchlike window "wasn't the product of a distinctive local culture,
+        either... It, too, was mail-ordered from Sears." **`the-figure-you-buy`
+        arriving in paint and arriving first** - a fictional figure is
+        unnecessary when the rural American can be assembled from a catalogue
+        and a dentist.
+      - **And an impresario invented the movement to sell it.** $300 and a
+        bronze medal, then the picture "championed as the masterpiece of a new
+        American art movement called 'Regionalism', **first invented, and then
+        promoted, by an impresario and art dealer from Kansas named Maynard
+        Walker**". Wood "happily played along with the role of a stay-at-home
+        Iowan rustic prescribed for him by the propaganda of the Regionalist
+        movement. He even posed for photographs in his studio wearing overalls
+        identical to those of his reluctantly disguised dentist." **The painter
+        became a parasocial figure himself, in his model's costume.**
+      - **Two honesty notes.** Wood "consistently rejected" the satire reading
+        and meant sympathy - *Revolt Against the City* (1935) argues cities were
+        "far less typically American". And **it drew real hostility**: a "storm
+        of protest from Iowa farm wives", one threatening to "smash my head".
+        Wood painted an assurance and they took it as a mockery. That is why
+        this is not filed `undemanded` on its own: **undemanded is about nobody
+        wanting anything, not about nobody objecting.**
+    - **`american-gothic` is also the control that proves item 40.** It carries
+      `other: made` - correctly, because Wood is continuously and publicly
+      operating the thing, which is exactly what that member's test asks - while
+      `krapp-last-tape` cannot, because its operator is a damaged recording the
+      audience is never shown. **Same category, opposite conditions, and the
+      axis has a word for one of them.** That makes the case for a ninth member
+      demonstrable from two adjacent entries rather than asserted, which is a
+      much better position to hand the author than a list of complaints.
+    - The measured result, and it is the number that matters for the creator:
+      **`stage`, `visual_art`, `comics` and `radio` all have entries, and no
+      medium is empty.** The thinnest are still half a day each, so a bi-daily
+      cadence does not run long on any single medium - it runs out of the
+      *good* ones. 85 of 198 still sit in `history` or `technology`, which name
+      no medium at all, and that is now the biggest single hole left on the
+      axis. `tools/report_current_state.py` prints the block and the table, so
+      the numbers in `AGENTS.md` can be measured instead of refreshed by eye.
+
+43. **The Current state block is now generated rather than typed, because I got
+    it wrong twice in one sitting.** Item 41's lesson generalises. I refreshed
+    the block by hand, typed `289 generated pages`, and it was **288** - caught
+    only because I measured it afterwards, which is luck rather than a
+    process. Then I typed `482 relations` and `289 pages` again for the next
+    entry and had to measure both. **A number inside a paragraph is not
+    obviously a claim, which is what makes it the dangerous kind**, and the
+    cure is not discipline, it is removing the human from the loop:
+    `tools/report_current_state.py` computes the header line, the source
+    reconciliation and the medium table, and prints the exact strings the block
+    should contain. The block is still typed - it has to be, it is prose - but
+    it now has a tool that says what the truth is, and the claim in it is
+    checkable in one command instead of in one careful reading.
 
