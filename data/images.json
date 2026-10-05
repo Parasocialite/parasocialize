@@ -907,7 +907,7 @@
     {
       "slug": "t8-6-powerrangers",
       "for": "top8",
-      "caption": "The cast of the Power Rangers film",
+      "caption": "The Power Rangers cast on a Camp Conival panel at Comic-Con, beneath banners for Alpha and Omega",
       "q": "Power Rangers",
       "must": [
         "rangers"
@@ -921,7 +921,14 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ACast_of_the_Power_Rangers_movie.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Caption corrected. It said the cast of the Power Rangers film; the frame is the cast at a Camp Conival panel at Comic-Con - seven people in director's chairs with handheld microphones, a Legendary Digital Network backdrop, and an audience in the foreground with a phone raised. Two things worth recording. The banners behind them read ALPHA and OMEGA, which are the two 2017 Power Rangers film titles, so the link to the film is in frame rather than only on Commons. And an audience is present, which is why this picture partly restores the front page's claim even though the cast is the subject.",
+      "caption_corrected": {
+        "from": "The cast of the Power Rangers film",
+        "date": "2026-10-05",
+        "why": "Caption corrected. It said the cast of the Power Rangers film; the frame is the cast at a Camp Conival panel at Comic-Con - seven people in director's chairs with handheld microphones, a Legendary Digital Network backdrop, and an audience in the foreground with a phone raised. Two things worth recording. The banners behind them read ALPHA and OMEGA, which are the two 2017 Power Rangers film titles, so the link to the film is in frame rather than only on Commons. And an audience is present, which is why this picture partly restores the front page's claim even though the cast is the subject."
+      }
     },
     {
       "slug": "t8-7-doug",
@@ -996,7 +1003,7 @@
     {
       "slug": "history-fan-letters",
       "for": "feature",
-      "caption": "A typed letter, 1942. The reply is the whole point of the entry and the letter is the evidence.",
+      "caption": "A typed letter from Richard Rodgers to Maggie, 6 May 1940. The reply is the point of the entry; the letter is the evidence.",
       "q": "Rodgers Hammerstein letter",
       "must": [
         "letter"
@@ -1010,7 +1017,14 @@
         "page": "https://commons.wikimedia.org/wiki/File%3ARodgers_letter_to_Walter.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Caption corrected: it asserted 1942 and the letter is dated May 6th, 1940 in plain sight, with a Richard Rodgers letterhead reading 50 East 77 and signed Dick. The frame settles the date, the medium and the author, so the caption now states what is legible rather than the year the manifest carried. Illustrative because the letter is shown and the reply is not - the caption says as much, and the note is that the reply is the point of the entry, so the picture is the evidence rather than the thing itself.",
+      "caption_corrected": {
+        "from": "A typed letter, 1942. The reply is the whole point of the entry and the letter is the evidence.",
+        "date": "2026-10-05",
+        "why": "Caption corrected: it asserted 1942 and the letter is dated May 6th, 1940 in plain sight, with a Richard Rodgers letterhead reading 50 East 77 and signed Dick. The frame settles the date, the medium and the author, so the caption now states what is legible rather than the year the manifest carried. Illustrative because the letter is shown and the reply is not - the caption says as much, and the note is that the reply is the point of the entry, so the picture is the evidence rather than the thing itself."
+      }
     },
     {
       "slug": "figure-peewee",
@@ -1067,7 +1081,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3A191125_Taylor_Swift_at_the_2019_American_Music_Awards.png"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A red-carpet portrait against a purple fireworks backdrop, green sequined dress. Nothing in frame identifies her and nothing dates it to 2019 - the year is the filename's, not the picture's. Illustrative, and the second Taylor Swift record to cap at illustrative for the same reason: a portrait of somebody famous is not a picture of that person."
     },
     {
       "slug": "moment-power-rangers",
@@ -1150,7 +1166,7 @@
     {
       "slug": "aisle-companion",
       "for": "section",
-      "caption": "A hand holding a smartphone, lit by its own screen. Re-fetched twice - the first attempt came back as a map of Belarus and the second as a cropped chatbot reply.",
+      "caption": "A hand holding a smartphone showing a grid of subject categories",
       "q": "smartphone",
       "aisle": "companion",
       "must": [
@@ -1165,7 +1181,14 @@
         "page": "https://commons.wikimedia.org/wiki/Category:Smartphones"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened. A hand holding a Samsung showing a Browse grid of subject tiles - arts, biology, chemistry, computer science, US history, civics, medicine, engineering, energy. Two things worth writing down. The caption says lit by its own screen and the frame does not really support it: the screen is bright but the ambient light on the hand is warm and directional, so the lighting claim is dropped as the least load-bearing part of the caption. And the re-fetch history is now recorded accurately - the third attempt is this one, and it is a stock-photo app grid, not a conversation.",
+      "caption_corrected": {
+        "from": "A hand holding a smartphone, lit by its own screen. Re-fetched twice - the first attempt came back as a map of Belarus and the second as a cropped chatbot reply.",
+        "date": "2026-10-05",
+        "why": "Opened. A hand holding a Samsung showing a Browse grid of subject tiles - arts, biology, chemistry, computer science, US history, civics, medicine, engineering, energy. Two things worth writing down. The caption says lit by its own screen and the frame does not really support it: the screen is bright but the ambient light on the hand is warm and directional, so the lighting claim is dropped as the least load-bearing part of the caption. And the re-fetch history is now recorded accurately - the third attempt is this one, and it is a stock-photo app grid, not a conversation."
+      }
     },
     {
       "slug": "aisle-world",
@@ -1239,7 +1262,9 @@
         "page": "https://commons.wikimedia.org/wiki/File%3A%22Exxon_Knew%22_sign_on_a_BLM_protest_in_Washington%2C_DC_%282015%29.jpg"
       },
       "cached": "2026-09-28",
-      "kind": "unchecked"
+      "kind": "illustrative",
+      "looked": "2026-10-05",
+      "look_reason": "Opened, and the re-fetch is the right picture this time. A hand-lettered placard reading EXXON KNEW ABOUT CLIMATE CHANGE SINCE 1981. DENIED IT ANYWAY, with other placards behind it - OUR GENERATION OUR CHOICE, 350 - and autumn foliage against DC architecture. The frame settles that this is a climate protest about Exxon and settles the 350.org reference; it does not settle 2015 or Washington, so both rest on src. Worth keeping that the previous picture was a pilgrimage site in the Philippines captioned as a public argument, which is the same failure as the roller coaster captioned as a Reptar toy: the must term was satisfied and the caption was still false."
     },
     {
       "slug": "aisle-grief",

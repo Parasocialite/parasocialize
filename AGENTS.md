@@ -1972,3 +1972,60 @@ whole thesis inside one commercial decision.
       banner was reused, so the caption now says "at an awards event" and the
       disagreement is written into the reason instead of being resolved by
       guessing a year.
+
+25. **A blanket sentence about six pictures was false for three of them, and the
+    enumeration on /top8/ was wrong twice - both written before anyone opened
+    the six.** The front page said:
+
+    > Not one frame of these cartoons is freely licensed, so **every picture
+    > above is of the audience instead** - which is the list.
+
+    First clause true. Second clause false. Opening all six `t8-*` records:
+    `t8-1` is a **roller coaster** with green tubular supports and a RUNAWAY
+    sign; `t8-2` is **Rugrats-themed baby shower decor**; `t8-6` is the cast on
+    a **Comic-Con panel**. Only `t8-3`, `t8-4` and `t8-8` are the audience.
+    **Three of six.**
+    - **And /top8/ made the same claim as an enumeration**, which is worse
+      because an enumeration names each one: it promised "a Reptar toy in a
+      shop" and "a cast photo from a film that is not the show". The first is a
+      roller coaster - the `reptar` must-term passed on the filename, exactly the
+      failure item 22 found. The second is a convention panel. **Both had been
+      wrong the whole time, in public, on the page whose entire argument is that
+      it does not lie about its pictures.**
+    - **The rewrite is a better sentence, not just a true one.** What the six
+      share is not that they are all audience shots but that the cartoons left
+      the screen and became objects - cosplay, a panel, a party, a coaster built
+      out of Reptar. That is more or less what this site is about, so the honest
+      version is also the sharper one. The old sentence flattened a set of six
+      different kinds of evidence into one claim in order to make it short.
+    - **The general form: a claim about every member of a set is a claim about
+      the set, and it is exactly as falsifiable as `kind: exact` was.** The must
+      term, the `retrievable` status, the plate's category, the citation board -
+      all of them summarise many things and are all verified by opening the
+      things. **A summary sentence is not a shorter citation, and it is checked
+      the same way: by looking at every member.**
+
+26. **Every year in an image caption was copied from a filename, and two of the
+    seven that have been checked against their own frame were wrong.** Fourteen
+    captions assert a year. Extracting the year from each caption and from its
+    Commons filename gives **zero disagreements** - which sounds reassuring and
+    is the problem: agreement between a caption and the filename it was written
+    from is not corroboration, it is a copy.
+    - `fearne-cotton-free-tv` said **2014**; the step-and-repeat behind her reads
+      **AWARDS 2015**. Corrected to "at an awards event", with the disagreement
+      written into the reason rather than resolved by guessing which is right.
+    - `history-fan-letters` said **1942**; the letter is headed **May 6th, 1940**
+      with a Richard Rodgers letterhead and signed "Dick". Corrected to what is
+      legible.
+    - **So a caption date is a filename until the frame is opened.** Eight
+      captions still assert an unopened year, and the two that were opened and
+      checked were wrong 2 times in 7. `tools/look.py` is the only thing that
+      converts one into the other.
+    - **My own probe was wrong first, in the way this file keeps predicting.**
+      The cross-check used `\b(1[89]\d\d|20[0-2]\d)\b`, and `_` is a word
+      character, so `\b1984\b` never fires inside `Dolly_Parton_1984.jpg`. Every
+      Commons column came back empty and the report claimed seven captions
+      disagreed with their own filenames. **Seven is not a plausible result** and
+      that is the only reason it was caught before it was believed - the same
+      reason `0 of 44` was caught in the DOI tool. Fixed to `(?<!\d)\d{4}(?!\d)`,
+      and the true answer is zero disagreements, which is the finding.

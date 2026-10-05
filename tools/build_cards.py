@@ -1195,9 +1195,35 @@ def build_front(data, feat=None, manifest=None, hist=None):
         # one line, on the front page, because the photographs are of the fans
         # rather than of the cartoons and that is worth saying before somebody
         # wonders why a list about cartoons is illustrated with a toy
+        # ---- why there are no cartoon frames in this list
+        #
+        # This used to read: "Not one frame of these cartoons is freely
+        # licensed, so every picture above is of the audience instead - which is
+        # the list." First clause true, second false for half the pictures.
+        # Opening all six records settled it:
+        #
+        #   t8-1  a roller coaster with green tubular supports   (an amusement ride)
+        #   t8-2  Rugrats-themed baby shower decor                (merchandise)
+        #   t8-3  a cosplayer as Oscar the Grouch                 (the audience)
+        #   t8-4  cosplay of Zuko at AVA Expo                    (the audience)
+        #   t8-6  the cast on a Comic-Con panel, audience in frame (both)
+        #   t8-8  the Animaniacs at WonderCon                    (the audience)
+        #
+        # Three of six are the audience. **A blanket claim about a set, written
+        # before anybody opened the set** - the same shape as the must term,
+        # which also passed on metadata rather than on the picture.
+        #
+        # The fix is a sentence true of all six, and it turns out to be the
+        # better one: what the six share is not that they are all audience shots
+        # but that the cartoons left the screen and became objects. That is more
+        # or less what this site is about, so the honest sentence is also the
+        # sharper one.
         frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
-                  f'freely licensed, so every picture above is of <b>the audience '
-                  f'instead</b> &mdash; which is the list.</p>') if shot else ""
+                  f'freely licensed, so nothing above <i>is</i> a cartoon. What '
+                  f'is up there is what the cartoons turned into instead &mdash; '
+                  f'cosplay, a convention panel, a themed party, a coaster built '
+                  f'out of Reptar &mdash; which is a longer way of saying the '
+                  f'pictures are of the audience.</p>') if shot else ""
         t8_block = f"""<div class="t8col-wrap">
   <p class="kicker">The top 8 &middot; this week &middot; rotating</p>
   <div class="t8col-list">{''.join(rows)}</div>
@@ -1554,15 +1580,25 @@ def build_top8(data, feat, manifest):
     # a cast photo. For a list about one-sided bonds, the illustrations are
     # themselves evidence of the bond, and saying so is better than pretending
     # the gap is a production accident.
+    #
+    # The enumeration below used to name "a Reptar toy in a shop" and "a cast
+    # photo from a film that is not the show". Both were wrong and both were
+    # wrong in the direction this page exists to prevent. t8-1-rugrats-nest was
+    # captioned "A Reptar toy" and the file is a roller coaster with a RUNAWAY
+    # sign - the reptar must-term passed on a filename. t8-6-powerrangers was
+    # captioned "The cast of the Power Rangers film" and the file is the cast on
+    # a Camp Conival panel at Comic-Con, audience in the foreground. **An
+    # enumeration of pictures is a claim about every picture in it**, and this
+    # one had not been checked against the pictures.
     missing = len(L["entries"]) - photographed
     frame_note = f"""<aside class="t8-frame">
   <p class="kicker">Read this before the list</p>
   <p>There is not one frame of these eight cartoons on this page. All of it is
   Nickelodeon property and none of it is free to reuse, so {photographed} of the
-  {len(L['entries'])} pictures below are of <b>the audience instead</b>: a Reptar
-  toy in a shop, somebody's Rugrats party, a Grouch costume in a church hall, a
-  Zuko at a convention, a cast photo from a film that is not the show, the
-  Animaniacs on a convention floor.</p>
+  {len(L['entries'])} pictures below are of <b>the audience instead</b>: a roller
+  coaster built out of Reptar, somebody's Rugrats-themed party, a Grouch costume
+  in a church hall, a Zuko at a convention, the cast on a Comic-Con panel with
+  the audience in front of them, the Animaniacs on a convention floor.</p>
   <p>That is not a workaround. It is the list. Every entry here is about a
   relationship with a character who cannot reciprocate, and the only images left
   standing are of the people having it.</p>
