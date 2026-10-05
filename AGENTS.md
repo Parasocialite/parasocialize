@@ -2209,3 +2209,52 @@ whole thesis inside one commercial decision.
     so the earlier command never ran. Both times I reported the finding as
     recorded. Neither was. The tell is available and I did not use it: **check
     the artefact, not the exit of the block you just typed.**
+
+31. **Six card-audit warnings, and the field that should have prevented three of
+    them existed, held a placeholder, and was rendered nowhere.** `via` was on
+    eight records with the value `report`, which means nothing to a reader, and
+    **zero templates referenced it**. So a card could say
+    "Phys.org · 23 SEP 2026", link to `www.msn.com`, and a reader would click
+    through to MSN having been told they were reading Phys.org. MSN syndicates
+    other outlets wholesale - that is a legitimate route to a reader and not the
+    same as reading the originating outlet - and the page was concealing which
+    one it was. `via` was the field for exactly that and was doing nothing.
+    Now it renders: **"Phys.org, via MSN"**, **"ABC News (Australia), via MSN"**.
+    `card_audit.py` **learned the field** rather than being switched off - the
+    aggregator check no longer fires when `via` names the host, because the page
+    now states the discrepancy instead of hiding it. **A gate should learn a
+    field, not be silenced, and one firing on a record whose credit reads
+    "Phys.org, via MSN" is the audit crying wolf at correct data.**
+    - **`publisher: "note"` was a platform in a field named for a publisher.**
+      note.com is a Japanese publishing platform and the account is `lesser_p`,
+      visible in the URL. Now `note (lesser_p)`, and the audit accepts that shape
+      because **it is the shape the audit asked for** - an unadorned platform
+      word still warns. Setting `via: note.com` there was also wrong and was
+      caught in the dry run: a note.com post is published by an account ON
+      note.com, there is no separate organisation being syndicated, and the
+      credit would have read "note (lesser_p), via note.com" - two names for one
+      thing. The case `via` exists for is a wire story republished elsewhere.
+    - **`sasaeng-jungkook-conviction` was the serious one, and it was true.**
+      A card asserting a criminal conviction about a named living person, with
+      "twenty-two visits, one hundred and thirty-three doorbell rings", sourced
+      to **one person's Substack and nothing else**. That is a fair warning: a
+      conviction is a matter of public record and should not rest on a newsletter.
+      Checking the numbers rather than assuming them, **every figure holds** -
+      22 visits between 7 and 28 December, 133 rings on a single visit which the
+      court called an "extreme level of obsession", one year suspended for two
+      years, sentenced 8 May by **Judge Park Ji-won of the Seoul Western District
+      Court**. Reported by BBC (bylined Kelly Ng), *The Korea Times*, *The
+      Independent*, NME and GMA. So this was never a false card - it was a true
+      card resting on the weakest available citation, which is the same defect as
+      a `retrievable` record with no URL. The BBC and Korea Times records are now
+      on it and the Substack is kept as secondary commentary.
+      **The defendant is unnamed in every report and in the court documents, and
+      the card does not name her.** That is worth preserving deliberately: a
+      conviction is a fact about a person and the site has no reason to make her
+      findable.
+    - **The last warning is a judgement, and the judgement is that it is fine.**
+      `parasocial-problem-visibility` is also sole-sourced to a personal Substack,
+      but it names no date, no person, no proceeding and no number. It advances
+      an argument about a mechanism - visibility mistaken for access - and for a
+      thesis a named Substack **is** the citable author. 6 warnings -> 1, and the
+      1 is a person deciding not to act.

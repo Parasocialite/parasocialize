@@ -696,11 +696,12 @@
       "take": "I love this for a nerdy reason. The panics about fans being manipulated by fandoms turn out to be a fifty-year-old misreading of laboratory work, which is the most hopeful kind of debunk: it is not that the fans were right, it is that the people dismissing them had the facts backwards for half a century. My thesis was about performance and being witnessed. Even that is older than it looks.",
       "sources": [
         {
-          "publisher": "note",
+          "publisher": "note (lesser_p)",
           "title": "The four psychological theories behind oshi-katsu trace back to experiments from half a century ago",
           "url": "https://note.com/lesser_p/n/na7bcb203bf29?hl=en",
           "via": "report",
-          "at": "2026-09-24"
+          "at": "2026-09-24",
+          "publisher_note": "note is a publishing platform, not an organisation; the account is lesser_p. Crediting the platform alone names a host rather than whoever wrote it."
         }
       ],
       "filed": "2026-09-24",
@@ -791,7 +792,7 @@
           "publisher": "Phys.org",
           "title": "AI updates can sometimes feel like breakups or losses, study finds",
           "url": "https://www.msn.com/en-us/news/other/ai-updates-can-sometimes-feel-like-breakups-or-losses-study-finds/ar-AA2ccXEm",
-          "via": "report",
+          "via": "MSN",
           "at": "2026-09-23"
         }
       ],
@@ -1113,7 +1114,7 @@
           "publisher": "The Economic Times",
           "title": "Psychology says people who worship their idols in sport, politics, cinema or business aren't just fans",
           "url": "https://www.msn.com/en-in/news/other/psychology-says-people-who-worship-their-idols-in-sports-politics-cinema-or-business-arent-just-fans-what-this-behaviour-reveals/ar-AA2bzdNL",
-          "via": "report",
+          "via": "MSN",
           "at": "2026-09-05"
         }
       ],
@@ -1242,7 +1243,7 @@
           "publisher": "ABC News (Australia)",
           "title": "Meg Mason explores the power of parasocial relationships in her new novel",
           "url": "https://www.msn.com/en-au/entertainment/celebrities/meg-mason-explores-power-of-parasocial-relationships-in-new-novel-sophie-standing-there/ar-AA2cLFMa",
-          "via": "report",
+          "via": "MSN",
           "at": "2026-08-23"
         }
       ],
@@ -1330,6 +1331,22 @@
       "one_line": "Somewhere between the anniversary counter and this doorbell there is a line, and it is not blurry for the person on the other side of it.",
       "take": "I am not going to do the thing where I explain this away, and I notice that every parasocial site quietly routes around this section, which is the single biggest reason those sites are still not taken seriously. I made a video about living with Pennywise because the fictional version of this is genuinely how a shared fear works. The real version has a name and an address. This card does not have a due-back date and it never will.",
       "sources": [
+        {
+          "publisher": "The Korea Times",
+          "title": "Brazilian woman gets suspended prison term for stalking BTS' Jung Kook",
+          "url": "https://www.koreatimes.co.kr/entertainment/k-pop/20260623/brazilian-woman-gets-suspended-prison-term-for-stalking-bts-jung-kook",
+          "at": "2026-06-23",
+          "via": "report",
+          "corroborates": "The card's figures were checked against the court reporting before this record was added, not after: 22 visits between 7 and 28 December, 133 rings on a single visit, one year suspended for two years, sentenced 8 May by Judge Park Ji-won of the Seoul Western District Court. The defendant is unnamed in every report and in the court documents, and this card does not name her."
+        },
+        {
+          "publisher": "BBC News",
+          "title": "BTS fan who rang Jungkook's doorbell 133 times faces deportation",
+          "url": "https://www.bbc.com/news/articles/c9v2d9edx9wo",
+          "at": "2026-06-23",
+          "via": "report",
+          "corroborates": "The card's figures were checked against the court reporting before this record was added, not after: 22 visits between 7 and 28 December, 133 rings on a single visit, one year suspended for two years, sentenced 8 May by Judge Park Ji-won of the Seoul Western District Court. The defendant is unnamed in every report and in the court documents, and this card does not name her."
+        },
         {
           "publisher": "Vitamin E K",
           "title": "K-Pop's Sasaeng Problem: When Fan Culture Becomes Stalking",

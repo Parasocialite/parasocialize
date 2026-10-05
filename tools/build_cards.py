@@ -307,16 +307,32 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
 
     src_rows = []
     for s in c.get("sources", []):
+        # `via` names the host a reader will actually land on, when that is not
+        # the organisation the credit names.
+        #
+        # The field existed on eight records, held the value "report" - which
+        # means nothing to a reader - and was referenced by **no template at
+        # all**. So a card could say "Phys.org · 23 SEP 2026", link to
+        # www.msn.com, and a reader would click through to MSN having been told
+        # they were reading Phys.org. MSN syndicates other outlets wholesale;
+        # that is a real and legitimate route, but it is not the same as
+        # reading the originating outlet, and the page should say which it is.
+        # `via` was the field for exactly this and was doing nothing.
+        via = str(s.get("via") or "").strip()
+        show_via = via and via.lower() not in ("report", "", s.get("publisher", "").lower())
+        credit = esc(s["publisher"])
+        if show_via:
+            credit += f', via {esc(via)}'
         if s.get("url"):
             src_rows.append(
                 f'<div class="srcbox" style="padding:14px 0;border-bottom:1px solid var(--line2)">'
                 f'<a href="{esc(s["url"])}" target="_blank" rel="noopener nofollow">{esc(s["title"])} ↗</a>'
-                f'<p class="pub">{esc(s["publisher"])} · {fmt_date(s.get("at"))}</p></div>')
+                f'<p class="pub">{credit} · {fmt_date(s.get("at"))}</p></div>')
         else:
             src_rows.append(
                 f'<div class="srcbox" style="padding:14px 0;border-bottom:1px solid var(--line2);opacity:.6">'
                 f'<a>{esc(s["title"])}</a>'
-                f'<p class="pub">{esc(s["publisher"])} · LINK NOT RESOLVED YET — TREAT WITH SUSPICION</p></div>')
+                f'<p class="pub">{credit} · LINK NOT RESOLVED YET — TREAT WITH SUSPICION</p></div>')
 
     sh_html = ""
     # The way out. For the whole of this site's life a story page linked to

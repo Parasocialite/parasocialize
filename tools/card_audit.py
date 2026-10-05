@@ -121,8 +121,17 @@ def main():
             warn.append((slug, f"publisher={pub!r} is a platform word, not an "
                                f"organisation (host {bare})"))
         elif bare in PLATFORM or host in PLATFORM:
-            warn.append((slug, f"publisher={pub!r} but the host is the platform "
-                               f"{bare} - the field holds a site, not a publisher"))
+            # "note (lesser_p)" names the account on the platform, so the field
+            # holds a writer rather than a site. That is the fix this audit
+            # asked for - the scraper had put "note", the platform, in a field
+            # named for a publisher - and it should not go on warning about the
+            # shape it just asked for. An unadorned platform word still warns.
+            if re.fullmatch(r"[^()]+\(\s*[\w.\-]+\s*\)", pub):
+                pass
+            else:
+                warn.append((slug, f"publisher={pub!r} but the host is the platform "
+                                   f"{bare} - the field holds a site, not a "
+                                   f"publisher (write it as 'platform (account)')"))
         elif bare and pub.lower().replace(" ", "") == bare.replace(".", "").replace(" ", ""):
             warn.append((slug, f"publisher={pub!r} is just the domain"))
 
@@ -162,12 +171,29 @@ def main():
                                    "an opinion, thin for a fact a court recorded"))
 
     # 5. the link is an aggregator while the field claims someone else
+    #
+    # An aggregator link is not the publisher, whoever `publisher` claims - the
+    # reader cannot see the original from it. That is true and it is why the
+    # credit has to carry BOTH: the organisation that made the article and the
+    # host the reader will actually land on. `via` is that second name, and
+    # build_cards.py renders it as "Phys.org, via MSN".
+    #
+    # So the difference between the field and the link stops being a defect once
+    # `via` names the host, because the page then states the discrepancy rather
+    # than concealing it. **A gate should learn a field, not be switched off** -
+    # and this check firing on a record whose credit now reads "Phys.org, via MSN"
+    # would be the audit crying wolf at correct data.
     for slug, s in recs:
         host = urlparse(str(s.get("url") or "")).netloc.lower()
         pub = str(s.get("publisher") or "").strip().lower()
+        via = str(s.get("via") or "").strip().lower()
         if host in AGGREGATOR and pub and pub not in host:
+            if via and via in host:
+                continue          # explained and rendered
             warn.append((slug, f"link is {host} but publisher says {s.get('publisher')!r} "
-                               f"- the metadata and the link name different organisations"))
+                               f"- the metadata and the link name different "
+                               f"organisations, and no `via` names the host, so "
+                               f"the reader is not told"))
 
     # 6. date sanity, cheap
     for slug, s in recs:
