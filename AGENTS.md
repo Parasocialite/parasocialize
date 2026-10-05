@@ -2447,50 +2447,56 @@ whole thesis inside one commercial decision.
 
 ## Why this site exists
 
-**The origin, in the author''s words, because a paraphrase would lose the only
-part that matters:**
+**The origin, in the author's words, corrected once already. The first version of
+this section was wrong and the error is worth keeping.**
 
-> you are right that i am biased in my parasocial focus - that is why we need each
-> other - without my being affected as I was over the years by fake connections,
-> this doesn''t exist - lets keep my the fact that my lived experience is the root
-> of all we are doing here central consideration - we need to look at all
-> significant one-sided relations, manipulative or otherwise, throughout the ages
+I first wrote this section inferring that the author had been harmed, from the
+word "affected". It quoted the author accurately and then invented a wound around
+the quotation: *"A person who builds a corpus after being harmed will produce
+exactly this"*, *"the archive is right about the harm"*, *"named after a shape,
+not after a wound"*. None of it was said. **An inference wearing the clothes of a
+quotation is the defect this project exists to catch, and it was committed here
+about the person who wrote the thing.** The correction:
 
-Read that as an instruction about the *classification*, not only the content, and
-it turns out to be measurable. Two measurements, and they disagree in an
-instructive way.
+> the parasocial wasn't harmful to me from my perspective - i shrugged off the
+> fake god connection - then affixed to my favorite and most relatable character
+> in movies and tv - saw glimmers of me in video games - really saw versions of me
+> in reality tv - i find parasocial connections essential but necessary to
+> identify and reflect on with purpose - i have a much more nuanced and open mind
+> about the power of the parasocial than you seem to assume
 
-**The prose is already balanced.** Counting entries whose own text is about harm
-against entries whose own text is about warmth, consolation or a reply:
-**18 and 18. One to one.** The journalism does not skew dark, and nothing needs
-rebalancing there.
+So the origin is **recognition, not damage.** The god connection was shrugged off -
+that detail carries the most weight, because it means the site was not built by
+somebody trying to understand what had been done to them. It was built by somebody
+who found versions of themselves in characters across film, television, video
+games and reality television, and who holds that to be constitutive of a person
+rather than something to be processed. **Essential, and necessary to identify and
+reflect on with purpose.** The discipline is reflection, not defence.
 
-**The taxonomy is tilted, and the tilt is structural.** The register axis has six
-members: Encounter, Bond, The reciprocal edge, Archive, Contest, Harm. Five
-describe the **form** of a one-sided tie. One carries an **ethical verdict**, and
-its own `not` field says so: *"harm is a register that any of the eight can carry."*
-So **valence appears exactly once in the entire classification, and it appears only
-for harm.** Every other register is indifferent to whether the tie was good.
+What that asks of the archive is breadth of *kind*, not a corrective tilt: every
+significant one-sided relation, across the ages, whatever its valence. The
+measured finding below survives the correction intact, because it never depended on
+the false premise.
 
-Bond is the clearest proof. Its `test` is *"Is there a history?"* - a structural
-question. **A sasaeng bond and a parish congregation are both Bonds.** The form is
-identical and the register cannot tell them apart, so the only place the difference
-can live is a category, and the only category carrying it is Harm. A person who
-builds a corpus after being harmed will produce exactly this: balanced prose over
-an unbalanced frame, because the frame was inherited and never examined.
+**The prose is balanced.** Entries whose own text is about harm: 18. Entries about
+warmth, consolation or a reply: 18. One to one. The journalism does not skew dark.
 
-**So the standing instruction is: one-sided relations, manipulative or otherwise.**
-Not as a correction to the archive - the archive is right about the harm - but as
-the other half of it. The site is named after a shape, not after a wound, and a
-shape that is only ever illustrated with wounds is a different site from the one
-described above.
+**The classification is not.** The register axis has six members: Encounter, Bond,
+The reciprocal edge, Archive, Contest, Harm. Five describe the **form** of a
+one-sided tie. One carries an **ethical verdict**, and its own `not` says so:
+*"harm is a register that any of the eight can carry."* **Valence therefore occurs
+exactly once in the classification, and only for harm.** Bond is the proof: its
+test is *"Is there a history?"*, which is structural - a sasaeng bond and a parish
+congregation are both Bonds, and nothing in the register separates them.
 
-Note also what this does **not** license. The author's bias is not a defect to be
-corrected by leaning the other way, and the answer to a biased corpus is not an
-equally biased one. It is a frame that can hold both without either being the
-default. **A corpus written by somebody who was harmed should not become a corpus
-that can only describe being harmed** - that is simply moving the bias, and it
-would be a worse outcome than either skew, because it would be a deliberate one.
+The honest explanation for that is unexciting and needs no biography: **nobody had
+asked whether a register axis needs a member for a tie that was good, because the
+dramatic cases are the interesting ones.** That is how taxonomies go lopsided, and
+the archive is not evidence about the author. It is evidence about what gets
+written down.
+
+**And the standing instruction is the one thing here that is not mine:** all
+significant one-sided relations, manipulative or otherwise, throughout the ages.
 
 ## The register the axis was missing
 
