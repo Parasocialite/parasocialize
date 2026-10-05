@@ -82,7 +82,13 @@ img{max-width:100%;display:block}
 .logo-img{width:24px;height:24px;flex:none;transition:transform .45s cubic-bezier(.34,1.5,.64,1)}
 .wordmark:hover .logo-img{transform:rotate(-10deg) scale(1.12)}
 
-.nav{display:flex;align-items:center;gap:20px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav{display:flex;align-items:center;gap:16px;row-gap:4px;margin-left:auto;justify-content:flex-end;
+  /* A nav that scrolls sideways hides items, and a hidden item is not a smaller
+     nav - it is a broken one. Ten links plus three group labels is twelve runs and
+     240px of gaps, which did not fit, so "Elsewhere" rendered as "elsewher" in an
+     overflow-x:auto container with no scrollbar and no affordance to say so.
+     It wraps now, and it cannot conceal its own options. */
+  flex-wrap:wrap;overflow:visible}
 .nav::-webkit-scrollbar{display:none}
 .nav a{
   font-family:var(--label);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
@@ -159,7 +165,66 @@ img{max-width:100%;display:block}
 .btn-dark:hover{background:#0f0a07}
 
 /* ---------- the masthead: the whole intro, nothing more ---------- */
+/* ---- filed under: a story page's two real doors -------------------------
+   Was three taxonomies in three identical pills: a shouted section sign that
+   linked nowhere while its own page sat unused, an editorial register note in
+   the same shape as a category, and the law - the only thing that looked like
+   a link - pointing at "#laws", an anchor that does not exist. Identical
+   styling told the reader they were looking at the same kind of thing, which is
+   why the row read as incoherent rather than merely wrong.
+
+   Now the shape carries the meaning: a labelled row, each item stating what it
+   is ("Filed under", "Which law it tests") before saying what it is, and each
+   one carrying the blurb that explains the category in a sentence. The law
+   links to #law-N, which build_cards.py has always emitted as id="law-N". */
+.fu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+  margin:0 0 26px;padding:0;list-style:none}
+.fu-filed,.fu-law{display:grid;gap:5px;padding:13px 15px;border-radius:10px;
+  background:var(--bg2);border:1px solid var(--line);text-decoration:none;
+  border-left:3px solid var(--c,var(--hot));transition:border-color .15s,background .15s}
+.fu-filed:hover,.fu-law:hover{background:var(--bg3,#241c17);border-color:var(--line2)}
+.fu-filed{border-left-color:var(--hot)}
+.fu-law{border-left-color:var(--mint)}
+.fu-k{font-family:var(--label);font-size:.5rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--dimmer);line-height:1}
+.fu b{font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--paper);
+  line-height:1.2}
+.fu-blurb{font-size:.82rem;color:var(--dim);line-height:1.4}
+.fu-od{grid-column:1/-1;font-family:var(--label);font-size:.6rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--hot);padding:2px 0}
+/* The kicker moved here from the pill row. It is a note about register
+   ("The big one", "Evergreen"), not a category, and sitting under the headline
+   it reads as a note instead of competing with two real destinations. */
+.regnote{font-family:var(--label);font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--hot);margin:-14px 0 10px}
+@media (max-width:620px){
+  .fu{grid-template-columns:1fr}
+}
+
 .masthead{padding:46px 0 8px;position:relative;overflow:hidden}
+
+/* ---- the thesis, as a pair rather than a paragraph --------------------
+   This was three prose blocks - 144 words, 778 characters - under the h1, and
+   it read as a wall rather than an opening. The whole argument is a contrast
+   between a date and an age, so it is now set as one: two figures, side by
+   side, each with one line under it. Twenty-two words instead of a hundred and
+   forty-four, and the shape of the claim carries the claim. */
+.thesis{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:26px 0 4px;
+  border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.thesis-side{padding:20px 26px 20px 0;display:flex;gap:16px;align-items:baseline}
+.thesis-side+.thesis-side{border-left:1px solid var(--line2);padding-left:26px;padding-right:0}
+.thesis-num{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,4.4vw,3.1rem);
+  line-height:.86;letter-spacing:-.04em;color:var(--dim);flex:none;min-width:4.6ch}
+.thesis-hot .thesis-num{color:var(--hot)}
+.thesis-txt{font-size:.95rem;color:var(--dim);line-height:1.45;max-width:30ch;margin:0}
+.thesis-txt b{color:var(--paper);font-weight:600}
+.thesis-doors{grid-template-columns:repeat(2,1fr);max-width:none;margin-top:22px}
+@media (max-width:760px){
+  .thesis{grid-template-columns:1fr}
+  .thesis-side+.thesis-side{border-left:0;border-top:1px solid var(--line2);
+    padding-left:0;padding-top:18px}
+  .thesis-doors{grid-template-columns:1fr}
+}
 .masthead h1{
   font-family:var(--serif);font-size:clamp(3rem,10vw,7.5rem);font-weight:900;
   letter-spacing:-.05em;line-height:.86;margin:0 0 20px;

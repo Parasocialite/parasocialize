@@ -84,6 +84,50 @@ def main():
                 continue
             if not target.exists():
                 p(f"{html_file.relative_to(ROOT)} -> {href}  (404)")
+                continue
+            # 3a. the fragment, if there is one, has to exist in the target.
+            #
+            # `base, _, frag = href.partition("#")` used to end right there, so
+            # the fragment was computed and thrown away. A cross-page fragment is
+            # therefore checked exactly as well as nothing at all: the file
+            # resolves, the gate is green, and the reader lands at the top of a
+            # page instead of the thing they were sent to.
+            #
+            # It shipped 46 dead anchors on 46 story pages at once. Every story
+            # page linked "LAW n - <title>" at index.html#law-n; the id="law-n"
+            # anchors are emitted by build_history() into /history/, and the
+            # homepage has never had a #laws element or a #law-n one. It passed
+            # because the template that EMITS id="law-n" is right there in the
+            # same file as the template that LINKS to it, and reading the emitter
+            # is not the same as asking which page it writes into.
+            #
+            # "A link that looks right is not a link that goes somewhere" - and
+            # the check that would have caught it costs one dict lookup.
+            #
+            # Excluded: fragments the target's own script handles. /atlas/ reads
+            # `location.hash` and dispatches on `#n=<id>` to paint a panel - a
+            # real navigation with no element to land on. 193 of these were
+            # reported as 404 by the first version of this check, which is the
+            # same error in the opposite direction: a gate that cannot tell a
+            # missing anchor from a routed one is a gate that cries wolf, and a
+            # crying wolf gets disabled. So it asks the page whether it routes.
+            if frag and target.suffix.lower() == ".html":
+                try:
+                    dest = target.read_text(encoding="utf-8", errors="replace")
+                except OSError:
+                    continue
+                if f'id="{frag}"' in dest or f"id='{frag}'" in dest:
+                    continue
+                scripts = "\n".join(re.findall(r"<script\b[^>]*>(.*?)</script>",
+                                               dest, re.S | re.I))
+                if ("location.hash" in scripts or "window.location.hash" in scripts
+                        or "hashchange" in scripts) and (
+                        "hash" in scripts and frag.split("=")[0] in scripts
+                        or frag.split("=")[0] == ""):
+                    continue
+                p(f"{html_file.relative_to(ROOT)} -> {href}  (404: no element "
+                  f"with id=\"{frag}\" in {target.name}, and that page does not "
+                  f"route on its hash)")
 
     # 3b. runtime fetches resolve too
     #

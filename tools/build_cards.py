@@ -236,13 +236,32 @@ def cover(c, sections, manifest=None, depth=1, big=False):
     return poster(c, sections, wide=big)
 
 
+def clip(text, n=150):
+    """Truncate on a word boundary, with an ellipsis.
+
+    `[:150]` was cutting mid-word in 74 places across dist/ — "that is prese",
+    "produced to a gen", "lives. A rel". Every one read as a rendering fault
+    rather than a deliberate teaser, because nothing signals that the text was
+    cut rather than written that way. Cutting at the last space inside the
+    budget and marking it costs four characters and removes the whole class.
+    """
+    s = " ".join(str(text or "").split())
+    if len(s) <= n:
+        return s
+    cut = s[:n].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return (cut or s[:n]) + "…"
+
+
 def story(c, sections, laws, big=False, take=True, root_="", manifest=None, depth=1):
     a = next((x for x in sections if x["id"] == c["section"]), {})
     col = a.get("colour", "#ffb454")
     law = next((l for l in laws if l["n"] == c["law"]), {})
     src = (c.get("sources") or [{}])[0]
     tags = [f'<span class="tag tag-aisle">{esc(a.get("sign", c["section"].upper()))}</span>']
-    if c.get("kicker"):
+    # The kicker guard is here, not only in the article template, because these
+    # cards render everywhere a story list appears - and 37 of 47 kickers are
+    # empty, so an unguarded pill printed an empty chip across the whole site.
+    if (c.get("kicker") or "").strip():
         tags.append(f'<span class="tag tag-kick">{esc(c["kicker"])}</span>')
     if c.get("state") == "OVERDUE":
         tags.append('<span class="tag tag-od">Do not return</span>')
@@ -278,7 +297,13 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
 
     rel = sorted([x for x in data["cards"] if x["slug"] != c["slug"]
                   and x["section"] == c["section"]], key=lambda x: -x.get("res", 0))[:4]
-    rel_html = "".join(story(x, sections, laws, root_=r, manifest=manifest, depth=d) for x in rel)
+    # take=False: the related-story cards already print `one_line` as the dek
+    # (median 99 chars). Passing the default through printed `take` underneath
+    # it as well — median 393, longest 937 — so every card carried a second,
+    # first-person paragraph that was never a teaser. That is the incoherent
+    # text on the buttons: it read as a caption for the card and was an essay.
+    rel_html = "".join(story(x, sections, laws, root_=r, manifest=manifest,
+                             depth=d, take=False) for x in rel)
 
     src_rows = []
     for s in c.get("sources", []):
@@ -315,7 +340,7 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
             links.append(
                 f'<a class="xl" href="{r}encyclopedia/{esc(eid)}.html">'
                 f'<b>{esc(e.get("title", eid))}</b>'
-                f'<span>{esc(str(e.get("summary") or ""))[:150]}</span></a>')
+                f'<span>{esc(clip(e.get("summary"), 150))}</span></a>')
         if links:
             xl = (f'<p class="kicker" style="margin-top:40px">'
                   f'Where this sits in the encyclopedia</p>'
@@ -333,13 +358,52 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
                    f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">{esc(sh["title"])} ↗</a></b>'
                    f'<span style="color:var(--dim)">{esc(sh["blurb"])}</span></div></div>')
 
-    tags = [f'<span class="tag tag-aisle">{esc(a.get("sign",""))}</span>']
-    if c.get("kicker"):
-        tags.append(f'<span class="tag tag-kick">{esc(c["kicker"])}</span>')
-    if c.get("state") == "OVERDUE":
-        tags.append('<span class="tag tag-od">This one does not go back on the shelf</span>')
+    # ---- Filed under: one line, three real destinations ---------------------
+    #
+    # This row was three taxonomies in identical pills, and the one thing that
+    # looked most like a link was the one that was broken:
+    #
+    #   <span>IDOL</span>                              a section page exists
+    #   <span>The contrarian read</span>               not a category at all
+    #   <a href="index.html#laws">LAW 1 · Binding…</a> no such anchor
+    #
+    # So the section was inert while its page sat unused, the law linked to a
+    # fragment that does not exist, and 37 of 47 cards printed an empty kicker
+    # pill. Three naming conventions in one row: a shouted sign, a sentence-case
+    # editorial label, and a numbered principle, all styled as if they were the
+    # same kind of thing.
+    #
+    # The rebuild separates the three by what they *are* rather than styling them
+    # as one thing:
+    #   FILED UNDER  -> the section, a real link, carrying its own blurb
+    #   LAW          -> the principle, linked to its own card (#law-N exists)
+    #   the kicker   -> dropped from this row. It is an editorial register note
+    #                   ("The big one"), not a category, and it belongs beside the
+    #                   headline where it can read as a note rather than a door.
+    bits = []
+    sec_href = f"{r}section/{esc(c['section'])}/index.html"
+    blurb = a.get("blurb", "")
+    bits.append(
+        f'<a class="fu-filed" href="{sec_href}">'
+        f'<span class="fu-k">Filed under</span>'
+        f'<b>{esc(a.get("sign", c["section"].upper()))}</b>'
+        f'<span class="fu-blurb">{esc(blurb)}</span></a>')
     if law:
-        tags.append(f'<a class="tag tag-law" href="{r}index.html#laws">LAW {c["law"]} · {esc(law["title"])}</a>')
+        # /history/, not the homepage. The id="law-N" anchors are emitted by
+        # build_history() into that page's .h-laws block; the homepage has no
+        # #laws element and never has. Verified by reading dist/ for the ids
+        # rather than by reading the template that emits them - the template
+        # looks like it would justify pointing at index.html, which is how the
+        # first version of this line shipped 46 dead anchors across 46 story
+        # pages while every gate stayed green.
+        bits.append(
+            f'<a class="fu-law" href="{r}history/index.html#law-{esc(law["n"])}">'
+            f'<span class="fu-k">Which law it tests</span>'
+            f'<b>Law {esc(law["n"])} &middot; {esc(law["title"])}</b>'
+            f'<span class="fu-blurb">{esc(law.get("one_line",""))}</span></a>')
+    if c.get("state") == "OVERDUE":
+        bits.append('<span class="fu-od">This one does not go back on the shelf</span>')
+    filed = f'<nav class="fu" aria-label="Filed under">{chr(10).join(bits)}</nav>'
 
     due = ("No due date - kept deliberately" if c.get("state") == "OVERDUE"
            else (f"Due back {fmt_date(c['due'])}" if c.get("due") else "Kept on the shelf"))
@@ -375,8 +439,9 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
 <main class="article" id="story">
-  <div style="margin-bottom:18px">{''.join(tags)}</div>
-  <h1>{esc(c['headline'])}</h1>
+{filed}
+{('<p class="regnote">' + esc(c["kicker"]) + '</p>') if c.get("kicker") else ''}
+<h1>{esc(c['headline'])}</h1>
   <p class="dek">{esc(c['one_line'])}</p>
   <div class="byline">
     <span>FILED {fmt_date(c['filed'])} · {esc(rel_days(c['filed']))}</span>
@@ -1100,10 +1165,22 @@ def build_front(data, feat=None, manifest=None, hist=None):
     t8 = feat.get("lists") or []
     if t8:
         L = t8[0]
-        pick = rotate(L["entries"], f"top8-w{week}", 4, by="rank")
+        # All eight, in rank order.
+        #
+        # This used to sample four of the eight, picked by rank, which produced
+        # exactly what a reader reported as broken: a block headed "The top 8"
+        # showing four items numbered 1, 3, 5 and 7. Not a rendering fault - the
+        # code asked rotate() for 4 on purpose - but a heading that promises
+        # eight and delivers four, with the numbering visibly skipping, reads as
+        # an error even when it is a decision.
+        #
+        # Two honest ways out: show all eight, or stop calling it the top 8. The
+        # list IS a top 8, the front page is where it should be readable, and
+        # there is room. So: all eight, sequentially, and the rotation now
+        # chooses *which* list rather than trimming this one.
         rows = []
         shot = 0
-        for en in pick:
+        for en in sorted(L["entries"], key=lambda x: x.get("rank") or 99):
             f = img_for(manifest, en.get("image"), 0)  # front page: depth 0
             if f:
                 shot += 1
@@ -1210,27 +1287,29 @@ def build_front(data, feat=None, manifest=None, hist=None):
 <section class="masthead">
   <div class="wrap">
     <h1>Parasocialize.</h1>
-    <p class="line"><b style="color:var(--paper)">The word is from 1956.</b>
-     Horton and Wohl coined <i>parasocial interaction</i> to describe what viewers
-     did to a television character who never knew they existed.
-     <b style="color:var(--paper)">The thing is much older than the word.</b>
-     A species has spent fifteen thousand years being selected partly for forming
-     attachment to one particular ape.</p>
-    <p class="line">This is the record of it. The news, the argument, the research,
-     and the whole documented history — back to the dead kept in a cave seventy
-     thousand years ago, and forward to the companion apps now answering at four
-     in the morning.</p>
-    <div class="fdoors" style="margin-top:22px;grid-template-columns:repeat(2,1fr);max-width:760px">
+
+    <div class="thesis">
+      <div class="thesis-side">
+        <b class="thesis-num">1956</b>
+        <p class="thesis-txt"><b>The word.</b> Horton and Wohl coined
+         <i>parasocial</i> to describe television.</p>
+      </div>
+      <div class="thesis-side thesis-hot">
+        <b class="thesis-num">&minus;15,000</b>
+        <p class="thesis-txt"><b>The thing.</b> A species selected to form
+         attachment to one particular ape.</p>
+      </div>
+    </div>
+
+    <div class="fdoors thesis-doors">
       <a class="fdoor" href="sections/index.html" style="--c:var(--hot)">
         <span class="fdoor-body"><b>To read</b><strong>All {total} stories</strong>
-        <span>A story a day, every one of them signed by a person. Free.</span></span></a>
+        <span>One a day. Every one signed by a person.</span></span></a>
       <a class="fdoor" href="encyclopedia/index.html" style="--c:var(--mint)">
         <span class="fdoor-body"><b>To look something up</b>
         <strong>The encyclopedia</strong>
-        <span>{nent} entries, every claim cited, from a dog to a chatbot.</span></span></a>
+        <span>{nent} entries, every claim cited.</span></span></a>
     </div>
-    <p class="mono-s" style="margin-top:16px">{total} stories · free · every one signed by a person ·
-    <a href="sections/index.html">all of it, searchable →</a></p>
     <div class="masthead-mark">{wordmark("hero")}</div>
   </div>
 </section>
