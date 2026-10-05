@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 196 entries, 480 relations, 288 generated pages.
+relationships. 197 entries, 482 relations, 289 generated pages.
 
 ## The rule that outranks everything
 
@@ -689,9 +689,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-183 sourced | 0 not yet stood behind | 13 thesis   = 196
+184 sourced | 0 not yet stood behind | 13 thesis   = 197
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-271 of 401 sources have a locator
+275 of 405 sources have a locator
 0 of 380 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -705,7 +705,7 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 196. `add_source.py` is authoritative.
+Board must reconcile to 197. `add_source.py` is authoritative.
 
 **These four lines are typed, and they are the defect this file warns about
 twice** - "a number inside a paragraph is not obviously a claim, which is what
@@ -2723,4 +2723,115 @@ it gets resolved.
       decision and it is **the author's**, not a script's. The gap is real, it
       is on a validated axis, and it is now written down where `verify_taxonomy`
       can be pointed at it.
+
+39. **`stage` had zero entries for its whole life, and the fix was a play
+    about a man who cannot get a reply from a recording of himself.**
+    - **`krapp-last-tape` (1958, `medium: stage`, `kind: work`).** Premiere
+      **28 October 1958, Royal Court Theatre, London**. Krapp records a tape
+      reviewing the year gone on every birthday of his life; at 69 he plays the
+      one he made at 39 and talks to it. The Guardian: although performed by a
+      single actor, "it is not quite a monologue. It becomes a kind of dialogue
+      between the 69-year-old Krapp and his recorded 39-year-old self."
+      **Everywhere else on this site the far end is somebody else; here it is a
+      recording of the near side, and it cannot answer either.** The only
+      technology that could have produced a reply from the past produces the
+      past instead, and an audience watches a man fail to get a response from a
+      voice that is his own.
+    - **The detail that earns the entry: the tape is damaged, in every
+      edition.** An *Opera Quarterly* article records a mechanical error
+      "present not only in all the Faber & Faber editions, but also in the
+      so-called avant-texte", appearing in a typescript from shortly before
+      publication in 1958 - **four words are missing from the tape**, which the
+      article calls "a sonic or performative punctum pricking the one who
+      realizes it". **So the past self is not silent, it is truncated**, and no
+      reprint fixes it. Quoting Steven Connor from the same source: "for Krapp
+      to listen to the tape of himself as a man of thirty-nine is to reveal
+      clearly his ironic non-coincidence with himself."
+    - **The tape's own contents are a record of being refused.** The reel his
+      ledger marks "**Farewell to love**" recalls a tryst on a river, and the
+      Guardian's 2024 review calls it "a jolt to hear the line, spoken calmly:
+      'I said again I thought it was hopeless and no good going on and she
+      agreed, without opening her eyes.'" The other party is on the recording
+      too and is *described* rather than heard; the only audible voice is a man
+      reproducing the moment he asked for something and was refused. He is
+      scathing about his 39-year-old self, and the review has him cradling the
+      recorder "in a gesture of engulfing loneliness". Then he loads a fresh
+      reel and records the year - **the ritual continues, which is what makes
+      it a bond rather than an episode.**
+    - **Beckett wrote it because he heard somebody hear himself**: for the Irish
+      actor **Patrick Magee**, after hearing him read Beckett's own *From an
+      Abandoned Work* (1954-55) and extracts from *Molloy* (1955) **on the
+      radio**. And the structure keeps being manufactured the way the play
+      describes it - Arts Over Borders asked Samuel West and Richard Dormer to
+      each record the taped Krapp **at 39**, so the two-age split is produced by
+      casting two people rather than by time.
+    - **And there is no recording of the 1958 premiere** with Magee under
+      Donald McWhinnie. The first audience's encounter with this tie left no
+      trace, while a play whose entire subject is a destructible recording
+      outlived every document about its own first night. **An `archive` register
+      entry inside a `bond` entry** - the same double reading as `dear-kitty`'s
+      "as long as this still exists, I cannot be sad".
+    - Filed `companion/anthropomorphised-tool` beside `the-shadow` and
+      `howdy-doody`, because that shelf's test is "persistence after the
+      purpose has gone" and the ledger names the reels. Reciprocity unset -
+      `directed` is the corpus default.
+    - **Dated from the premiere rather than a composition date**, because the
+      play's first object is a Royal Court stage. Relations: `contemporary` ->
+      `vertigo` (1958, same year, and a man who cannot reach another person)
+      and `depicts` -> `parasocial-interaction`. `character/played-role` was
+      rejected: that is about the actor, and the object of the tie here is the
+      recording.
+
+40. **The otherness axis now has two entries it cannot file, failing in
+    opposite directions, and both are a recording. That is a pattern, and the
+    candidate member is obvious.** Recording it here rather than adding a ninth
+    member, because the axis is a validated editorial instrument and adding to
+    it is the author's call.
+    - `nancy-drew` - a figure **written by an operator the audience is never
+      shown**. `imagined` needs them to *know* they made it; `made` needs them
+      to *see* the operator. Benson wrote 23 of the first 30 books under a house
+      pseudonym and was not identified until 1991.
+    - `krapp-last-tape` - a **recording of a real person as the far end of a
+      one-sided tie**. `made`'s own `mechanism` refuses it outright: "**The
+      figure answers, and that is the whole appeal**, so every answer is a
+      small breach: the voice is pre-recorded, the mouth is somebody else's
+      hand." Krapp's far end never answers - that is the play. `mirrored` half
+      fits and then fails, because its mechanism calls the copy "assembled out
+      of memory and **never checked against the original**" and the whole play
+      is that **the original is sitting in the chair listening**. The tape is
+      not an idealised self; it is a verbatim one, and its accuracy is the
+      problem.
+    - **One is a machine that cannot speak; the other is a machine that speaks
+      only in the past. The case the axis has no word for is the far end being a
+      recording** - and Krapp's fourth missing word sharpens it, because that
+      recording is damaged in every edition, so it is not even a faithful copy
+      of the past. The Faber error is a bonus for the argument: a parasocial
+      artefact that fails at *fidelity*, which is the one thing it was supposed
+      to fix.
+
+41. **I checked whether the medium renders on an entry page, decided it did
+    not, and was wrong - because I searched for the label I assumed rather than
+    the one the code emits.** After adding the first `stage` entry I grepped
+    `dist/encyclopedia/krapp-last-tape.html` for "Stage" (the `MEDIA_LABEL` the
+    atlas uses), got **0**, and concluded the medium was invisible on entry
+    pages - which would have been a real gap worth fixing, since the media axis
+    is the spine of the bi-daily plan. The byline actually reads:
+
+        <div class="byline" ...><span class="chip chip-m">stage</span></div>
+
+    built by `med_html` at `build_cards.py:2952` as
+    `f'<span class="chip chip-m">{esc(m.replace("_", " "))}</span>'`. So it was
+    rendered the whole time, lowercase, and my probe measured the capitalised
+    atlas spelling instead of the chip's. **Reading the renderer before editing
+    it is what stopped this becoming a change to fix a defect that was not
+    there** - the same instinct as the eyelid arc, arriving from the opposite
+    direction.
+    - **One real inconsistency does survive, and it is the item 33 family.**
+      Three label paths now exist for one closed list: `MEDIA_LABEL` in
+      `atlas.py` ("Stage"), this chip's `m.replace("_", " ")` ("stage",
+      "television scripted"), and `MEDIUM_ORDER`. Item 33 fixed a duplicated
+      list that had *drifted*; this is a duplicated list that agrees on the
+      values and disagrees on the casing. Cosmetic, and recorded rather than
+      fixed, because a label is a promise about what the word means and the
+      cheapest way to break it is to restyle it for tidiness.
 
