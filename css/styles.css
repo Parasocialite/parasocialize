@@ -104,9 +104,27 @@ img{max-width:100%;display:block}
 /* A hairline before every label but the first, so the three groups are visibly
    three groups. Using a border on the label rather than a separate element
    means nothing extra to read in the accessibility tree. */
-.nav-lab+.nav-lab{border-left:0}
-.nav-lab:not(:first-child){margin-left:2px}
 .nav a+.nav-lab{margin-left:6px;padding-left:14px;border-left:1px solid var(--line2)}
+
+/* ---- the way out of a story, into the encyclopedia --------------------
+   A story page used to end at its sources and "More from <aisle>" - other
+   stories, all of which are journalism. The 193 encyclopedia entries, where the
+   depth is, were unreachable from any of them. These are the doorways, computed
+   by tools/crosslink.py and rendered on the standalone radar page.
+   Cards, not a list: each one shows the entry's title and the first line of its
+   summary, so the reader can see whether it is the thing they want. */
+.xlinks{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.xl{
+  display:block;text-decoration:none;background:var(--bg2);border:1px solid var(--line);
+  border-left:3px solid var(--mint);border-radius:8px;padding:11px 14px;transition:.18s;
+}
+.xl:hover{border-color:var(--mint);transform:translateY(-2px)}
+.xl b{display:block;font-family:var(--serif);font-size:1rem;color:var(--paper);margin-bottom:3px}
+.xl span{display:block;font-size:.8rem;color:var(--dim);line-height:1.45}
+/* A withdrawn claim leaves the slug retired but the entry standing, so a reader
+   following one of these may land on prose that has since been corrected. The
+   note under the block says so rather than leaving them to notice. */
+.xl-note{font-size:.78rem;color:var(--dimmer);margin-top:10px;line-height:1.5}
 /* the name is never uppercased. Every other nav item is set in caps by the
    rule above, which silently turned iYi into IYI - a name is not a label, and
    the lowercase i on both sides is the whole mark. */

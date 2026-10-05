@@ -15,6 +15,7 @@ import json, html, datetime, pathlib, urllib.parse, hashlib
 from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+ENC_BY_ID = {}
 SHOP = ROOT / "data" / "shop.json"
 SITE = "https://www.parasocialize.com"
 
@@ -264,9 +265,16 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
     r = root(d)
     manifest = manifest or {"items": []}
     a = next((x for x in sections if x["id"] == c["section"]), {})
-    law = next((x for x in laws if x["n"] == c["law"]), {})
+    law = next((l for l in laws if l["n"] == c["law"]), {})
     col = a.get("colour", "#ffb454")
     sh = next((x for x in shelf if x["id"] == c.get("shelf")), None)
+    # id -> entry, for rendering the crosslinks. Loaded per card rather than at
+    # module scope because the encyclopedia is read in four other places already
+    # and one more global would mean a fifth read of a 460KB file on every import.
+    global ENC_BY_ID
+    if not ENC_BY_ID:
+        _e = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
+        ENC_BY_ID = {x["id"]: x for x in _e["entries"]}
 
     rel = sorted([x for x in data["cards"] if x["slug"] != c["slug"]
                   and x["section"] == c["section"]], key=lambda x: -x.get("res", 0))[:4]
@@ -286,6 +294,32 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
                 f'<p class="pub">{esc(s["publisher"])} · LINK NOT RESOLVED YET — TREAT WITH SUSPICION</p></div>')
 
     sh_html = ""
+    # The way out. For the whole of this site's life a story page linked to
+    # nothing but other stories: 47 of them here and 193 encyclopedia entries
+    # that no story ever pointed at. The two halves were separate databases
+    # joined by a nav link to an index, and the entries - which is where the
+    # depth actually lives - were unreachable from the journalism.
+    #
+    # tools/crosslink.py computes the join from shared vocabulary weighted by
+    # inverse document frequency within the aisle, so "fandom" and "audience"
+    # cannot carry a match and two distinct words must overlap. The picks are
+    # written into data/shop.json under `crosslinks`; this renders them.
+    xl = ""
+    xids = (data.get("crosslinks") or {}).get(c["slug"]) or []
+    if xids:
+        links = []
+        for eid in xids:
+            e = ENC_BY_ID.get(eid)
+            if not e:
+                continue
+            links.append(
+                f'<a class="xl" href="{r}encyclopedia/{esc(eid)}.html">'
+                f'<b>{esc(e.get("title", eid))}</b>'
+                f'<span>{esc(str(e.get("summary") or ""))[:150]}</span></a>')
+        if links:
+            xl = (f'<p class="kicker" style="margin-top:40px">'
+                  f'Where this sits in the encyclopedia</p>'
+                  f'<div class="xlinks">{"".join(links)}</div>')
     if sh:
         img = (f'<img src="{sh["img"] if str(sh.get("img","")).startswith("http") else r + sh["img"]}" '
                f'alt="{esc(sh["title"])}" loading="lazy" style="width:84px;height:84px;object-fit:cover;'
@@ -363,6 +397,7 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
   <p class="kicker" style="margin-top:40px">Sources</p>
   {''.join(src_rows)}
 
+  {xl}
   {f'<p class="kicker" style="margin-top:40px">More from {esc(a.get("sign",""))}</p><div class="front front-2">{rel_html}</div>' if rel_html else ''}
 </main>
 {FOOT.format(root=r, sweep=MESSY, motto='NO ALGORITHM CHOSE THIS.<br>THAT IS THE POINT.')}

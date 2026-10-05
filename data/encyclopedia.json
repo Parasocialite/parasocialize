@@ -9370,5 +9370,324 @@
       "media_inferred": false,
       "provenance": "sourced"
     }
-  ]
+  ],
+  "stories": {
+    "ai-acts": [
+      "eu-kids-act-companion-chatbots",
+      "i-tried-replika",
+      "companion-safety-controls"
+    ],
+    "ai-companion": [
+      "character-ai-settlement"
+    ],
+    "alf": [
+      "i-tried-replika",
+      "character-ai-settlement"
+    ],
+    "attention-economy": [
+      "youtube-patreon-membership-spaces",
+      "fearne-cotton-free-tv",
+      "yourrage-best-friend-stole",
+      "platforms-renting-reach"
+    ],
+    "binding-is-public": [
+      "aoc-and-parasocial-politics",
+      "hugh-jackman-divorce"
+    ],
+    "celebrity-endorsement-fatigue": [
+      "taylor-swift-red-knows-it"
+    ],
+    "characterai": [
+      "character-ai-settlement"
+    ],
+    "characterai-lawsuits": [
+      "eu-kids-act-companion-chatbots",
+      "companion-safety-controls"
+    ],
+    "characters-move-in": [
+      "characters-we-keep"
+    ],
+    "chatterbots": [
+      "eu-kids-act-companion-chatbots"
+    ],
+    "clerks-beat-algorithms": [
+      "hugh-jackman-divorce"
+    ],
+    "cobain": [
+      "liam-payne-generation"
+    ],
+    "coffee-card": [
+      "madeonyoutube-spending-on-scoreboard"
+    ],
+    "contest": [
+      "house-of-the-dragon-backlash"
+    ],
+    "continuity": [
+      "twitch-ceo-and-the-creator-on-one-stage"
+    ],
+    "creator-on-tv": [
+      "madeonyoutube-spending-on-scoreboard",
+      "youtubetv-living-room",
+      "twitch-ceo-and-the-creator-on-one-stage",
+      "youtube-patreon-membership-spaces",
+      "fearne-cotton-free-tv",
+      "platforms-renting-reach"
+    ],
+    "deadpool": [
+      "eu-kids-act-companion-chatbots"
+    ],
+    "digital-bereavement": [
+      "ai-updates-feel-like-breakups",
+      "replika-users-lost-them",
+      "companion-safety-controls"
+    ],
+    "digital-orphans": [
+      "gloria-steinem-and-dolly",
+      "ai-updates-feel-like-breakups"
+    ],
+    "dionne-warwick": [
+      "agei-imaginary-friends"
+    ],
+    "doxxing": [
+      "house-of-the-dragon-backlash",
+      "sasaeng-jungkook-conviction"
+    ],
+    "elvis-hologram": [
+      "sasaeng-jungkook-conviction"
+    ],
+    "fan-club": [
+      "youtube-patreon-membership-spaces"
+    ],
+    "fandom-doxxing": [
+      "sasaeng-jungkook-conviction"
+    ],
+    "fight-club": [
+      "i-tried-replika",
+      "ai-updates-feel-like-breakups",
+      "neuro-sama-tops-twitch"
+    ],
+    "gobekli-tepe": [
+      "idol-economy-four-dollars"
+    ],
+    "got-finale": [
+      "darry-season-two"
+    ],
+    "grief": [
+      "celebrity-death-feels-like-loss",
+      "dolly-parton-lowest-point",
+      "gloria-steinem-and-dolly",
+      "grief-experts-three-of-them",
+      "liam-payne-generation",
+      "neighbours-grief-study",
+      "zubeen-garg-public-grief",
+      "kpop-uae-grief"
+    ],
+    "grief-extraction": [
+      "dolly-parton-lowest-point",
+      "grief-experts-three-of-them",
+      "zubeen-garg-public-grief",
+      "kpop-uae-grief"
+    ],
+    "harvey": [
+      "eu-kids-act-companion-chatbots",
+      "replika-users-lost-them",
+      "characters-we-keep",
+      "darry-season-two"
+    ],
+    "howdy-doody": [
+      "eu-kids-act-companion-chatbots"
+    ],
+    "keep-it-or-lose-it": [
+      "taylor-swift-red-knows-it",
+      "oshi-katsu-half-century",
+      "agei-imaginary-friends"
+    ],
+    "kpop-parasocial-industry": [
+      "taylor-swift-red-knows-it",
+      "customer-obsession-model",
+      "idol-economy-four-dollars"
+    ],
+    "live-commentary": [
+      "twitch-ceo-and-the-creator-on-one-stage",
+      "fearne-cotton-free-tv"
+    ],
+    "loyalty-counter": [
+      "madeonyoutube-spending-on-scoreboard",
+      "platforms-renting-reach"
+    ],
+    "lugosi-burial": [
+      "replika-users-lost-them"
+    ],
+    "macy-paradox": [
+      "youtube-patreon-membership-spaces"
+    ],
+    "mash-finale": [
+      "neighbours-grief-study"
+    ],
+    "mob-and-internet-pile": [
+      "madeonyoutube-spending-on-scoreboard"
+    ],
+    "mourn-a-person-you-met": [
+      "zubeen-garg-public-grief"
+    ],
+    "myth-and-ritual": [
+      "neighbours-kids-and-finale"
+    ],
+    "neighbours-finale": [
+      "neighbours-kids-and-finale",
+      "neighbours-grief-study"
+    ],
+    "paid-intimacy": [
+      "madeonyoutube-spending-on-scoreboard",
+      "taylor-swift-red-knows-it",
+      "idol-economy-four-dollars"
+    ],
+    "parasocial-consent": [
+      "aoc-and-parasocial-politics"
+    ],
+    "parasocial-interaction": [
+      "parasocial-problem-visibility"
+    ],
+    "parasocial-persuasion": [
+      "youtube-patreon-membership-spaces"
+    ],
+    "parasocial-problem": [
+      "agei-imaginary-friends",
+      "parasocial-problem-visibility"
+    ],
+    "peak-tv": [
+      "youtube-shorts-episodic",
+      "neighbours-kids-and-finale"
+    ],
+    "podcast-intimacy": [
+      "fearne-cotton-free-tv",
+      "instagram-dominatrix",
+      "podcast-listeners-study"
+    ],
+    "prince": [
+      "neighbours-grief-study",
+      "kpop-uae-grief"
+    ],
+    "protagonist-parasocial": [
+      "characters-we-keep"
+    ],
+    "psr-research-begins": [
+      "fearne-cotton-free-tv",
+      "instagram-dominatrix",
+      "kai-cenat-returns"
+    ],
+    "ratio": [
+      "agei-imaginary-friends"
+    ],
+    "reality-celebrity": [
+      "taylor-swift-red-knows-it",
+      "oshi-katsu-half-century"
+    ],
+    "replika-launch": [
+      "i-tried-replika",
+      "replika-users-lost-them",
+      "companion-safety-controls"
+    ],
+    "replika-update": [
+      "i-tried-replika",
+      "ai-updates-feel-like-breakups",
+      "replika-users-lost-them"
+    ],
+    "roman-imagines": [
+      "grief-experts-three-of-them",
+      "kpop-uae-grief"
+    ],
+    "rudolph-valentino": [
+      "worship-in-sports-politics-business"
+    ],
+    "sasaeng-culture": [
+      "sasaeng-jungkook-conviction"
+    ],
+    "scale-change": [
+      "customer-obsession-model"
+    ],
+    "soap-finale-study": [
+      "celebrity-death-feels-like-loss",
+      "neighbours-grief-study",
+      "zubeen-garg-public-grief"
+    ],
+    "soap-opera": [
+      "neighbours-kids-and-finale"
+    ],
+    "stadium-residency": [
+      "taylor-swift-red-knows-it",
+      "idol-economy-four-dollars"
+    ],
+    "star-trek-con": [
+      "neighbours-kids-and-finale",
+      "characters-we-keep"
+    ],
+    "sunghir": [
+      "meg-mason-writes-about-us"
+    ],
+    "swatting": [
+      "kai-cenat-returns",
+      "sasaeng-jungkook-conviction"
+    ],
+    "the-algorithm-decides": [
+      "madeonyoutube-spending-on-scoreboard"
+    ],
+    "the-dog": [
+      "i-tried-replika",
+      "pygmalion-sculptor-illusion"
+    ],
+    "the-fourth-wall": [
+      "neuro-sama-tops-twitch"
+    ],
+    "the-imaginary-friend": [
+      "companion-safety-controls",
+      "character-ai-settlement"
+    ],
+    "the-litigation-year": [
+      "companion-safety-controls"
+    ],
+    "the-mourning-merch": [
+      "dolly-parton-lowest-point",
+      "grief-experts-three-of-them",
+      "zubeen-garg-public-grief",
+      "kpop-uae-grief"
+    ],
+    "the-phone": [
+      "podcast-listeners-study"
+    ],
+    "the-politician": [
+      "aoc-and-parasocial-politics"
+    ],
+    "the-reply-heres-watching": [
+      "fearne-cotton-free-tv",
+      "house-of-the-dragon-backlash",
+      "yourrage-best-friend-stole",
+      "instagram-dominatrix",
+      "kai-cenat-returns"
+    ],
+    "the-subscription-box": [
+      "youtube-patreon-membership-spaces",
+      "platforms-renting-reach"
+    ],
+    "transnational-fandom": [
+      "neighbours-kids-and-finale"
+    ],
+    "twitch-500m": [
+      "twitch-ceo-and-the-creator-on-one-stage",
+      "kai-cenat-returns"
+    ],
+    "twitch-launch": [
+      "twitch-ceo-and-the-creator-on-one-stage"
+    ],
+    "twitch-subs": [
+      "platforms-renting-reach"
+    ],
+    "vtuber": [
+      "character-ai-settlement",
+      "neuro-sama-tops-twitch"
+    ],
+    "who-holds-the-dream": [
+      "platforms-renting-reach"
+    ]
+  }
 }
