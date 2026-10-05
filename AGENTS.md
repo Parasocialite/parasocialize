@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 193 entries, 469 relations, 279 generated pages.
+relationships. 195 entries, 478 relations, 287 generated pages.
 
 ## The rule that outranks everything
 
@@ -689,9 +689,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-180 sourced | 0 not yet stood behind | 13 thesis   = 193
+182 sourced | 0 not yet stood behind | 13 thesis   = 195
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-235 of 384 sources have a locator
+267 of 397 sources have a locator
 0 of 380 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -705,7 +705,16 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 189. `add_source.py` is authoritative.
+Board must reconcile to 195. `add_source.py` is authoritative.
+
+**These four lines are typed, and they are the defect this file warns about
+twice** - "a number inside a paragraph is not obviously a claim, which is what
+makes it the dangerous kind" and "do not type this number here". They went stale
+at 193 entries while the data was at 195, and `235 of 384` had been stale
+since the Wonka entry. They were only corrected because the entry count was
+checked against `add_source.py report` while verifying something else, which
+is luck rather than a gate. **The durable fix is to compute this block**, and
+until it is computed, treat any number in it as a claim awaiting a tool.
 
 **Gate order matters.** `plate.py` draws from the data, so it must run *after*
 `build_cards.py` and *before* `build_deploy.py`:
@@ -2534,3 +2543,111 @@ nothing, and no archive exists for the absence of an event. **A register that
 cannot be evidenced will look empty forever if it is only filled from evidence.**
 That is a live tension in this project and the entry - not the member - is the way
 it gets resolved.
+35. **A register is a definition, not a placement, and I nearly invented a field to
+    hold one.** `undemanded` and `cog` were added as empty registers and both
+    reports asked the same natural next question: which entries go in them?
+    **The data model cannot answer it, and that is by design rather than an
+    oversight.** Checking the render path rather than the prose:
+    - `data/taxonomy.json` holds `register` as a **list of definitions** -
+      `id`, `name`, `def`, `test`, `not`, `mechanism`, optional `anchor` - and
+      **no `members` key**, unlike `otherness` and `reciprocity`, which both
+      carry one.
+    - `build_cards.py` renders `otherness` **with a placement count counted from
+      `taxonomy_placements.json`**, printing "nothing placed yet" for a member
+      with zero. The register block, sixteen lines below it, **has no count and
+      no tally** - a register you cannot test is a heading, and a heading cannot
+      be assigned to.
+    - `encyclopedia.json` carries no `register` field at all. The keys are
+      `era, id, kind, lanes, media_inferred, medium, provenance, relations,
+      sections, significance, sources, summary, title, verified, year,
+      year_end`. There is nowhere to put one.
+    So a tie's register is carried by **its prose** - by what the entry argues
+    and which sub-category it sits in - and not by a value. `dear-kitty` is the
+    first entry to make that argument outright, and it does it in the
+    significance rather than in a field: "the purest instance of an undemanded
+    tie on this site". **Adding a `register` field would have been the fourth
+    instance of this file's own family - a field that promises more than it
+    keeps** - because nothing would have counted it, so the first register with
+    one entry set and a member with none would both claim to be populated.
+    The next useful work here is *not* a field. It is a way for a reader to
+    find the `undemanded` entries at all, which today means reading prose.
+
+36. **`dear-kitty` (1942) is the first entry to name the phenomenon from the
+    inside, and writing it produced three defects that no build would have
+    caught.** Anne Frank wrote to an invented listener for two years and stated
+    this site's definition while doing it: *"I like writing to you most, you
+    know that don't you, and I hope the feeling is mutual."* The hoping is the
+    whole condition and she named it fourteen years before Horton & Wohl had a
+    phrase for it.
+    - **She addressed eight correspondents, not one** - Kitty, Pop, Phien,
+      Conny, Lou, Marjan, Jettje, Emmy - which is **a social network with no
+      reciprocating nodes in it**, a structure no entry here had described. Five
+      came from Cissy van Marxveldt's Joop ter Heul books and three she
+      invented, so the far end is fabricated at two removes: first the
+      character, then the correspondence. She wrote to only Kitty from
+      13 November 1942. And she addressed the object too - *"as long as this
+      still exists, I cannot be sad"* - so the tie survives its own removal,
+      which is `archive` operating inside a `bond`.
+    - **The published half is the `cog` case, and it is the machine getting it
+      wrong.** The diary came out in **1947**, after every member of the family
+      but Otto Frank was dead, and has sold something like 30 million copies in
+      more than 65 languages: the most private one-sided conversation in the
+      western canon became a mass reading relationship with a dead child. And
+      **the most-quoted line in the world's most-read diary is a truncation.**
+      The United States Holocaust Memorial Museum records that it "has been
+      taken out of context" and that read in full - "about three paragraphs" -
+      "it is part of a quote about a great deal of despair and longing." What
+      actually follows the famous line is *"I simply can't build up my hopes on
+      a foundation consisting of confusion, misery, and death."* **The optimism
+      is the misquotation** - a private sentence replaced by its opposite by
+      readers who were not there and never wrote back, which is this site's
+      whole argument arriving from the one place it could not be constructed.
+    - **Defect 1: two false relations, and it is the inverted-verb family again.**
+      I wrote `mourn-a-person-you-met` (1990) and `dickens` (1812) as
+      `contemporary` with a 1942 entry. `contemporary` renders as "of the same
+      time as", so both edges asserted a chronology wrong by 48 and 130 years,
+      written from how the sentence read rather than from the dates - the
+      seventh-wrong-edge shape this file records three times already, repeated
+      by the same person. **`dear-kitty` at 1942 is the only entry in its
+      year**, measured, so there is no honest `contemporary` to have and the
+      correct result was *fewer* relations. The relation vocabulary is
+      chronological, bibliographic or structural - there is no "thematic
+      kinship" type - so a real tie to `mourn-a-person-you-met` is not
+      expressible, and the answer is to leave it out.
+    - **Defect 2: `kind: case`.** Legal, but the three existing `case` entries
+      are all matters before a court - `stalker-law`, `characterai-lawsuits`,
+      `the-litigation-year`. A published diary is not a case; its peers by shape
+      are `gigi` (1943) and `casper` (1945). Changed to `work`.
+    - **Defect 3: `sections` carried `brand`,** which is a licence
+      relationship and has nothing to do with a hiding child in Amsterdam.
+      Replaced with `grief`, which is where the register's own `not` sends
+      undemanded ties that carry loss.
+    - Four sources, all read: Anne Frank House, USHMM, Wikipedia, Britannica.
+      **The Kitty-Egyedi reading was checked and refused** - the speculation
+      began in the 1970s and Kitty Egyedi herself said that once Kitty "started
+      to lead her own life in the diary that it ceases to matter who is meant
+      by Kitty. The name is not meant to be me." `verified: false`.
+
+37. **My own defensive `sorted()` made a two-entry change unreadable, and the
+    diff stat was the only thing that noticed.** `correct_dear_kitty.py` ended
+    with `dict(sorted(assignments.items()))` as tidying. Two things were wrong
+    with that and neither would have raised an error:
+    - **The file's convention is "sorted, then appended in the order added."**
+      `fight-club`, `deadpool`, `rudolph-valentino`, `mickey-mouse`,
+      `lugosi-burial`, `king-kong` is the order I added them in, not the
+      alphabet's. Sorting destroyed a record of the corpus's growth.
+    - **`data/taxonomy_placements.json` is `indent=2` and every other corpus
+      file is `indent=1`.** Rewriting it at `indent=1` reformatted all 2000
+      lines. The diff stat read **"2001 ++++----"** for an eleven-line change.
+    Both are this file's own lesson applied to me: **a hand-maintained corpus
+    file must be merged into, in its own format** - "Merge into the committed
+    file; never regenerate it from a template." A script that reads a corpus
+    file, changes two keys and writes it back has regenerated it from a
+    template unless it checked the indentation and the key order first. Both
+    are now read from the committed bytes rather than assumed, and the tool
+    refuses to write if the key set or the top-level keys moved.
+    **And the general form: a tidy-up that makes a diff unreadable is not a
+    tidy-up.** The instinct to leave a file sorted is the same instinct as
+    filling an empty register to make a chart look even - it optimises the
+    file rather than the reader, and the reader is who has to review it.
+

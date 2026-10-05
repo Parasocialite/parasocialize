@@ -993,6 +993,17 @@
       "sub": "fictional-protagonist",
       "why": "A gorilla given an interior by the script, acting on it, while the audience that loved him could not reach him - and the version they loved had been cut by a censor.",
       "other": "animate"
+    },
+    "dear-kitty": {
+      "cat": "companion",
+      "sub": "social-agent",
+      "other": "imagined",
+      "why": "Filed `companion/social-agent` because the shelf it belongs on was opened by `the-imaginary-friend`, and this is that entry's oldest named instance rather than a variant of it. `other: imagined` is the clean case on that axis rather than a debatable one: Anne invented Kitty, and knew she had. The child in `the-imaginary-friend` also knows, and the distinction the axis cannot make - a companion who is silent versus a listener who is written TO - is why this is filed as a social agent rather than an anthropomorphised object. It is the corpus's only example of a one-sided tie documented from the near side in the near side's own handwriting, and the only one where the near side states the condition in words: 'I hope the feeling is mutual', which is the definition of this site given by somebody living inside it. Reciprocity is left unset on purpose - `directed` is the default condition of the whole corpus and the axis exists to surface the exceptions, and this is not one."
+    },
+    "the-figure-you-buy": {
+      "cat": "persona",
+      "sub": "creator",
+      "why": "Filed `persona/creator` and NOT `brand`, which is the placement this entry exists to invert. `the-brand-as-character` at companion/brand is the ordinary direction: a company acquires a voice, a face and a founder narrative so that a customer relationship has a subject. Here the figure came first - Roald Dahl invented a chocolatier in 1964 - and the product took the figure's NAME, with the film retitled to carry it and the bar launching a month before the film opened. The shelf is the one that holds people who authored something, because a chocolatier written in 1964 is a created character first and a brand only once somebody bought the rights to his name. Deliberately left unplaced on otherness: the six members describe what the far end is MADE OF, and a figure that is simultaneously invented by an author, licensed by four successive owners and printed on packaging does not reduce to one of them without losing the licensing, which is the entry's actual argument."
     }
   }
 }
