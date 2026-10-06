@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 199 entries, 486 relations, 291 generated pages.
+relationships. 200 entries, 488 relations, 292 generated pages.
 
 ## The rule that outranks everything
 
@@ -690,9 +690,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-186 sourced | 0 not yet stood behind | 13 thesis   = 199
+187 sourced | 0 not yet stood behind | 13 thesis   = 200
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-285 of 415 sources have a locator
+290 of 420 sources have a locator
 0 of 380 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -706,7 +706,7 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 199. `add_source.py` is authoritative.
+Board must reconcile to 200. `add_source.py` is authoritative.
 
 **These four lines are typed, and they are the defect this file warns about
 twice** - "a number inside a paragraph is not obviously a claim, which is what
@@ -3042,3 +3042,62 @@ it gets resolved.
       both real options and both are editorial decisions rather than defects, and
       **neither should be made by a tool that merely noticed them.**
 
+
+46. **`queen-for-a-day` (1945) breaks `radio`'s two-1930 pin, and the applause
+    meter is the `cog` register in hardware.** `radio` held two entries and
+    **both were 1930** - `radio-serials` and `the-shadow` - so the medium was
+    not merely thin but historically narrow, pinned to the year its two entries
+    happened to land in.
+    - **I arrived with a wrong memory and the sources corrected it.** I expected
+      a letter-writing show, listeners writing in with their misfortunes. The
+      format that broadcast was different and better: contestants interviewed
+      in the studio one at a time, each telling her troubles aloud, and the
+      audience choosing **by applauding** - "She who received the greatest
+      amount of applause **as registered by the 'applause meter'** was Queen for
+      a Day." **A machine returned the verdict on somebody's life.** Every
+      other `cog` case argues the point structurally; this one has a box on a
+      wall with a needle in it. And the register's test is satisfied for free -
+      **the schedule is the receipt**, since the network extended the show from
+      30 to 45 minutes "so they could sell more commercial time at the then
+      astounding rate of $4000 per minute". The sorrow slot was sold by the
+      minute.
+    - **The instrument was pointed at the wrong room**, which is sharper than
+      "the audience picked the winner". In radio the home listener could not
+      applaud into the device at all: the crowd the meter registered was the
+      **studio** audience, while the millions listening at home could not
+      participate. **The applause meter was not a proxy for the audience's
+      feeling; it measured a different and much smaller audience than the one
+      listening.** The far end was not merely unseen - its measuring instrument
+      was aimed elsewhere.
+    - **The prize was a fictional figure assembled out of a real woman's
+      hardship**: "It starred their friends and neighbors, and **turned them
+      into fabulous Cinderellas**" - one contestant asked for "an operation for
+      her sick cat". So the object of the public's attachment is a Queen built
+      weekly out of a neighbour's misfortune, and the grief is then explained as
+      a commercial.
+    - **And the throne is where the performance was compulsory.** Documented as
+      mood dissonance: after being crowned, the contestant "was expected to sit
+      on a throne and listen to a five minute in-show commercial about all the
+      consumer items that she'd just won, **while pretending to be really
+      excited and thankful about the benefits of things like aluminum cookware
+      and dog treats**." A woman who has just asked in public for surgery for
+      her child is required to perform gratitude to a sponsor, on air, for five
+      minutes. **That is `simulated` reciprocity aimed at the person being
+      pitied rather than at the audience** - and the corpus has no axis for a
+      bond that runs from the pitied party to the audience for it. Recorded
+      rather than modelled; the fourth axis was recovered from the author's own
+      2019 character chart and a fifth direction is not a thing a tool should
+      invent.
+    - **Sourcing weakness is on the entry, not buried.** The applause-meter
+      wording - the title and the central claim - is from Simple English
+      Wikipedia. The throne behaviour is from TV Tropes, the weakest record
+      here. The **$4000-per-minute figure is from a fan site and is not
+      corroborated by anything else read**, so it is flagged as the first claim
+      to check; the 30-to-45-minute extension itself *is* independently
+      supported.
+    - Filed `persona/presenter` because that shelf's own definition names the
+      case: "The one who addresses you directly, by name, in second person.
+      Newsreaders, weathermen, **game show hosts**." The show opens by asking
+      the whole audience a question at once, answered in chorus - the most
+      efficient parasocial address in the corpus, and it does it with one word:
+      YOU.
