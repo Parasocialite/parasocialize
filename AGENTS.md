@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 198 entries, 484 relations, 290 generated pages.
+relationships. 199 entries, 486 relations, 291 generated pages.
 
 ## The rule that outranks everything
 
@@ -690,9 +690,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-185 sourced | 0 not yet stood behind | 13 thesis   = 198
+186 sourced | 0 not yet stood behind | 13 thesis   = 199
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-281 of 411 sources have a locator
+285 of 415 sources have a locator
 0 of 380 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -706,7 +706,7 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 13 media values, up from 11 (radio and comics added)
 ```
 
-Board must reconcile to 198. `add_source.py` is authoritative.
+Board must reconcile to 199. `add_source.py` is authoritative.
 
 **These four lines are typed, and they are the defect this file warns about
 twice** - "a number inside a paragraph is not obviously a claim, which is what
@@ -2940,4 +2940,105 @@ it gets resolved.
     should contain. The block is still typed - it has to be, it is prose - but
     it now has a tool that says what the truth is, and the claim in it is
     checkable in one command instead of in one careful reading.
+
+44. **`marvel-club` (1940) is `comics`' first real entry, the fourth `simulated`
+    reciprocity instance, and the first named `cog` in the corpus.** Both
+    registers added in the last stretch had a definition, a test and a `not`,
+    and **nothing behind them** - which is the state `undemanded` was in before
+    `dear-kitty` and `cog` was still in now. A register with nothing behind it
+    prints on the taxonomy page as though it were a finding.
+    - **`comics` had exactly one entry and it was `casper`** - a 1945 character,
+      not a strip. `Whiz Comics` #2, cover-dated February 1940, is the first
+      comic in the medium: C. C. Beck's cover, Bill Parker's script, Wilford H.
+      Fawcett as executive editor, Captain Marvel's first appearance.
+    - **The child did the work, and that is the entry.** The issue carried an
+      offer: send in a code and receive a membership certificate, a membership
+      card with your own code number, and a plastic Captain Marvel ring. **The
+      code was printed in the comic the reader was holding.** So the near side
+      performed the decoding, and the impression of a private channel was
+      manufactured out of materials the far side printed. **The parasocial bond
+      was assembled by the person who was attached** - the part nobody writes
+      about, and the reason it is an entry rather than a footnote to the Golden
+      Age.
+    - **The membership card was authorised by a character**, which is `simulated`
+      reciprocity in its purest form: "Is a charter member in good standing of
+      The Merry Marvel Marching Society And is thereby **entitled to the adulation
+      and admiration of all lesser mortals!**" - issued under **"the actual
+      authority of Benj J. Grimm, Grand Marshal (pro tem)"**. The institution
+      signed as the Thing, so a reply from a publisher would appear to come from
+      inside the fiction. The card also declared "these privileges are
+      non-transferable", which is a reminder that what was sold was a status
+      rather than an access.
+    - **The adjacent clubs prove the signature was a choice.** Dell's club
+      certificate was authorised by **G. T. Delacorte Jr.**, an actual person;
+      Little Orphan Annie ran a code badge one boy "waited anxiously for",
+      requiring only a subscription; E. C. "began to build a mailing list of
+      fans willing to pay to belong to its fan club". **Four publishers, four
+      devices, and the one that put a character in the signature is the one whose
+      reply reads as coming from inside the story.**
+    - **The register's own test is satisfied by the cheapest possible evidence.**
+      `cog` asks whether seeing the whole machine would change the attachment,
+      and "a cog that can see the machine is still a cog." A reader who knows
+      exactly how the private channel works is not thereby a different kind of
+      reader. The far end has its own machinery (a premium scheme - "a color
+      picture of Spy Smasher for a quarter"), every member has theirs (the
+      decoding), and no child in any of the four clubs built any of them.
+    - **The commercial ending runs the other way from the usual story.** The fan
+      clubs "evolved, eventually culminating in a full-fledged kit for Wild Agents
+      of Marvel **before being discarded as a potential profit center**". So the
+      apparatus was retired because it did not pay: **the bond outlived the
+      business plan**, not the reverse. And it was promoted by an actual feature
+      film - Frank Tashlin's *Good Humor Man* (1950) - plus a Fawcett special
+      issue, so membership in a fictional boy's club was sold through a feature
+      film, on a screen, to children who had never met the people writing to
+      them.
+    - **And the hard fact no club's own literature would tell you:** DC sued
+      Fawcett in 1941 alleging the character violated its intellectual property;
+      the case **took twelve years**, Fawcett paid **$400,000**, and ceased
+      publication of all Captain Marvel material, ending the thirteen-year run.
+      The far end of this tie was not silent or withdrawn - it was **legally
+      removed**, and the members had no say.
+    - **`other: made` fits here and `made` correctly refuses `nancy-drew`, which
+      is what makes item 40's gap a gap rather than a misfiling.** Beck, Parker
+      and Fawcett are all credited on the book - that is the transparency `made`
+      asks for. Benson's pseudonym was not, and `made`'s `not` sends the hidden
+      case to `played-role`, which is a different thing. **Same category, one
+      with the byline and one without** - so the distinction is "the axis has one
+      state it does not have" and not "the axis is wrong", and only the first is
+      worth adding a member for.
+    - **The sourcing weakness is on the entry, not buried.** The publication
+      facts are solid and double-sourced. **The artefacts - certificate wording,
+      Grimm signature, plastic ring, the decoding - rest on two weaker records**,
+      a Comic-Con programme newsletter and a fan site that has recreated the code
+      card. A club that awarded a plastic ring is exactly the sort of thing
+      remembered differently by different people, so the wording is quoted
+      verbatim wherever a quote exists and paraphrased nowhere, and the entry
+      names which claims are load-bearing on the weak pair.
+
+45. **Both registers added in this stretch are now documented here, and neither
+    is a data field.** The open item from the previous session - that `cog` had
+    no `AGENTS.md` note and its provenance was recorded only in `taxonomy.json` -
+    is closed by this item. The substance worth keeping is item 35's: a register
+    has no `members` key, `build_cards.py` renders register blocks with no
+    placement count, and `encyclopedia.json` has no `register` field. **A tie's
+    register is carried by its prose**, so the honest options are an entry that
+    argues the case or a new field that nothing counts.
+    - **`undemanded`** - "the purest instance" is `dear-kitty`; `nancy-drew` is
+      the harder one, because its tie was *industrial* (an owner, a
+      correspondence department, a house pseudonym) and the register's test is
+      about nobody wanting anything, not about nobody profiting.
+    - **`cog`** - `marvel-club` is the named instance and the mechanism is
+      named. `american-gothic` is the second and the purest on scale: an image
+      with a multiplicity of afterlives "rivalled" only by Munch's *The Scream*,
+      remade by millions, none of them by anyone who met Wood, Nan or McKeeby.
+      `dear-kitty` is the third and the saddest - the most private one-sided
+      conversation in the western canon became a mass reading relationship with a
+      dead child, and then the most-quoted line in it was flattened by readers
+      into its own opposite.
+    - **What is still missing, and is the author's call:** there is no way for a
+      *reader* to find the entries on a register. The taxonomy page prints the
+      definition; the prose carries the argument; nothing links them. A ninth
+      otherness member (item 40) and a register-membership field (item 35) are
+      both real options and both are editorial decisions rather than defects, and
+      **neither should be made by a tool that merely noticed them.**
 
