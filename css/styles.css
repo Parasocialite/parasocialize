@@ -75,19 +75,29 @@ img{max-width:100%;display:block}
   background:rgba(27,20,16,.94);backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,90,31,.22);
 }
-.topbar-in{max-width:var(--w);margin:0 auto;padding:0 24px;height:64px;
+/* min-height, NOT height. Measured at 1180px and 1100px this bar was rendering
+   a two-line nav (72px) inside a 64px box, so the second line sat on top of the
+   content instead of pushing it down - the nav was not clipped and it was not
+   scrollable, it was simply overlapping, which is worse than either. A fixed
+   height can only express "one line or wrong"; min-height lets the bar grow if a
+   future item makes the nav wrap, so the failure mode is a taller header rather
+   than an overlap. The breakpoint below is what actually keeps it to one line -
+   this is the safety net, not the fix. */
+.topbar-in{max-width:var(--w);margin:0 auto;padding:0 24px;min-height:64px;
   display:flex;align-items:center;gap:22px}
 .wordmark{font-weight:700;font-size:1.15rem;letter-spacing:-.01em;display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
 .wordmark b{color:var(--warm)}
 .logo-img{width:24px;height:24px;flex:none;transition:transform .45s cubic-bezier(.34,1.5,.64,1)}
 .wordmark:hover .logo-img{transform:rotate(-10deg) scale(1.12)}
 
+/* One line, or the menu. An earlier version let this wrap, which fixed a
+   clipped nav by creating an overflowing one; and `overflow-x:auto` with a
+   hidden scrollbar, which hid items with no affordance saying so - "elsewher"
+   rendering as a truncated word is a broken nav, not a smaller one. Wrapping is
+   still allowed as a last resort, but `tools/probe_nav.py` fails the build if
+   the nav ever takes a second line at any width where it is meant to be the
+   desktop row, so this cannot come back quietly. */
 .nav{display:flex;align-items:center;gap:16px;row-gap:4px;margin-left:auto;justify-content:flex-end;
-  /* A nav that scrolls sideways hides items, and a hidden item is not a smaller
-     nav - it is a broken one. Ten links plus three group labels is twelve runs and
-     240px of gaps, which did not fit, so "Elsewhere" rendered as "elsewher" in an
-     overflow-x:auto container with no scrollbar and no affordance to say so.
-     It wraps now, and it cannot conceal its own options. */
   flex-wrap:wrap;overflow:visible}
 .nav::-webkit-scrollbar{display:none}
 .nav a{
@@ -1118,20 +1128,82 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   .moment-body{padding:0 20px 20px}
   .moment-art{min-height:190px;max-height:230px}
 }
-@media (max-width:760px){
-  .hubs{grid-template-columns:1fr}
-  .t8col-list{grid-template-columns:1fr}
-  .fdoors{grid-template-columns:1fr}
-  .h-outline{grid-template-columns:1fr 1fr}
-  .t8-item{padding:18px 16px}
-  .t8-head{gap:12px}
-  .t8-rank{font-size:2.2rem;min-width:38px}
-  .t8-art{width:64px;height:64px}
+/* The nav becomes a menu at 1024px, not 760px. Measured, not guessed: the
+   desktop nav needs 835px plus 48px of bar padding, the wordmark and a 22px gap,
+   so it fits one line down to about 1000px and wrapped below that - two lines
+   inside a 64px bar, which is not a clipped nav and not a scrollable one but an
+   overlapping one. **Every viewport between 761px and 1024px had a broken
+   header**, and nothing in this project could see it: `verify_narrow.py` measures
+   only at 390px, where the nav *is* this overlay. `tools/probe_nav.py` now
+   measures the desktop row across a width ladder and is the gate for it. */
+@media (max-width:1024px){
+  /* THE MOBILE MENU WAS 130px TALL AND NOT A FULL-SCREEN OVERLAY AT ALL, for
+     an undeclared reason. `.topbar` carries `backdrop-filter: blur(14px)`, and
+     **`backdrop-filter` makes an element a containing block for its
+     `position:fixed` descendants** - exactly as `transform`, `filter`,
+     `contain` and `will-change` do. So the overlay's `inset:0` was resolving
+     against the 65px header instead of against the viewport, and its height
+     became `max(65px, 90px top padding + 40px bottom padding)` = **130px**: a
+     strip at the top of the page. Measured, not inferred -
+     `tools/probe_overlay.py` prints computed height 130px at viewport heights
+     900, 700, 480 and 844 alike, which is the signature of a fixed element whose
+     containing block is a short ancestor.
+
+     It stayed invisible to every gate because the menu is CLOSED by default: it
+     is translated off-screen until you press the button, so `verify_narrow.py`
+     measured a hidden element and reported a clean 390px. **A closed menu proves
+     nothing about whether it opens correctly**, and this project had been
+     reporting a phone header as fine on that basis.
+
+     The blur is dropped below the breakpoint and the background goes opaque.
+     That is the smallest fix that does not move the nav out of `<header>` (which
+     would cost the skip-link order and a24 of the call sites for a blur), and it
+     reads better anyway: a translucent bar over a 390px screen shows the reader
+     more of what is scrolling underneath, which is the distraction the blur was
+     partly hiding. */
+  .topbar{backdrop-filter:none;background:rgba(27,20,16,.98)}
+  /* THE PAGE SHOWED THROUGH THE OPEN MENU, and neither the nav's z-index nor its
+     opacity could fix it. `.grain` is `position:fixed; z-index:50;
+     mix-blend-mode:overlay; opacity:.4` and it is a SIBLING of `.topbar`, not a
+     descendant - while `.topbar` is `position:sticky; z-index:40`, and a
+     positioned element with a z-index creates a stacking context. So the nav's
+     `z-index:65` is scoped *inside* the header's context and cannot lift it above
+     a sibling at 50. The grain blended the page content over the open menu, which
+     is why "Parasocialize", "1956" and a masthead line were all legible through a
+     menu with a 99%-opaque background.
+
+     Confirmed by breaking the input on purpose: painting the nav solid red
+     removed every trace of the bleed (`tools/probe_bleed.py`). The tell was that
+     `elementFromPoint` returned an element inside the nav at every point while
+     the screenshot disagreed - **the nav was painting on top and something else
+     was painting over it**, which is the only situation in which both can be
+     true at once.
+
+     Closed, the grain over the header is the intended film texture and is left
+     alone. Open, the menu is the entire screen and a full-page overlay-blend
+     texture over it does nothing but reduce contrast. */
+  body.nav-open .grain{display:none}
   .menu-btn{display:block}
   body.nav-open{overflow:hidden}
-  .nav{position:fixed;inset:0;z-index:65;margin:0;background:rgba(27,20,16,.99);
-    flex-direction:column;justify-content:center;align-items:center;gap:2px;padding:90px 24px 40px;
+  .nav{position:fixed;inset:0;z-index:65;margin:0;background:#1b1410;
+    flex-direction:column;justify-content:flex-start;justify-content:safe center;
+    align-items:center;gap:2px;padding:90px 24px 40px;
+    /* `flex-wrap:nowrap` is the fix for a real defect found by screenshotting
+       the overlay at a SHORT height. The desktop row is `flex-wrap:wrap`, and
+       this rule did not reset it - so in the column overlay the items flowed
+       into a *second column*, and the last one, Support, ran off the right edge
+       (measured: left 708px, right 1048px, in a 1000px viewport). A wrap set for
+       a horizontal row is not harmless in a vertical one. */
+    flex-wrap:nowrap;
     transform:translateY(-102%);transition:transform .36s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+  /* `justify-content:center` on a flex column whose content is TALLER than the
+     box puts the first items in unreachable space above the scroll origin - you
+     cannot scroll up to them. On a 1000x420 window the twelve links are ~680px,
+     so this was reachable-but-broken on any short screen. Declared twice on
+     purpose: `flex-start` first as the fallback for anything without `safe`,
+     then `safe center`, which centres when it fits and starts at the top when
+     it does not. */
+  @supports not (justify-content:safe center){.nav{justify-content:flex-start}}
   body.nav-open .nav{transform:translateY(0)}
   /* Stacked, the same labels become headings for each run of links. The
      left hairline is dropped - a vertical rule beside centred text reads as a
@@ -1144,8 +1216,18 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   .nav .cta{margin-top:12px}
   body.nav-open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   body.nav-open .menu-btn span:nth-child(2){opacity:0}
+  /* Was written twice, identically, in a copy-paste slip. */
   body.nav-open .menu-btn span:nth-child(3){transform:translateY(-7deg) rotate(-45deg)}
-  body.nav-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+@media (max-width:760px){
+  .hubs{grid-template-columns:1fr}
+  .t8col-list{grid-template-columns:1fr}
+  .fdoors{grid-template-columns:1fr}
+  .h-outline{grid-template-columns:1fr 1fr}
+  .t8-item{padding:18px 16px}
+  .t8-head{gap:12px}
+  .t8-rank{font-size:2.2rem;min-width:38px}
+  .t8-art{width:64px;height:64px}
   .onair{display:none}
   .front,.front-2,.lead{grid-template-columns:1fr}
   .grid-pod,.grid-video,.story{flex-direction:column}

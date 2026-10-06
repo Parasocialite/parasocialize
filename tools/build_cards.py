@@ -64,20 +64,27 @@ HEAD = """<link rel="canonical" href="{site}{path}">
 # before. The {mk} argument is still passed by every caller and is now ignored;
 # twenty call sites were not worth churning to remove a keyword argument that
 # str.format discards.
+# The nav is grouped, but the grouping was costing more than it was worth.
+# Measured at 1600px: thirteen runs and twelve gaps needing 1031px, of which the
+# three group labels were 178px plus 48px of gap. Three labels in a 64px bar is
+# not grouping, it is a second and third heading competing with the first, and
+# "Elsewhere" was the worst of the three - two letters of meaning for 80px.
+# So: two labels, not three, and the shortest word that still says it. Every
+# destination is still in the bar; none was dropped, because a link removed to
+# make a header fit is a page nobody finds.
 NAV = """<header class="topbar"><div class="topbar-in">
   <a class="wordmark" href="{root}index.html"><b>PARASOCIALIZE</b></a>
   <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   <nav id="nav" class="nav" aria-label="Main">
     <span class="nav-lab">Read</span>
-    <a href="{root}sections/index.html">All stories</a>
+    <a href="{root}sections/index.html">Stories</a>
     <a href="{root}top8/index.html">Top 8</a>
-    <a href="{root}history/index.html">The history</a>
+    <a href="{root}history/index.html">History</a>
     <span class="nav-lab">Look up</span>
     <a href="{root}encyclopedia/index.html">Encyclopedia</a>
-    <a href="{root}atlas/index.html">The atlas</a>
+    <a href="{root}atlas/index.html">Atlas</a>
     <a href="{root}timeline/index.html">Timeline</a>
     <a href="{root}citations/index.html">Citations</a>
-    <span class="nav-lab">Elsewhere</span>
     <a href="{root}quiz/index.html">Quiz</a>
     <a class="nav-iyi" href="{root}brand/index.html">iYi</a>
     <a href="{root}membership/index.html" class="cta">Support</a>

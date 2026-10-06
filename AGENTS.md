@@ -35,6 +35,8 @@ python tools\verify_doi.py --from-citations  # does every DOI resolve to the wor
 python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\report_current_state.py # the AGENTS Current-state block + media table, MEASURED
 python tools\verify_narrow.py    # does a generated page overflow at 390px
+python tools\probe_nav.py --check  # does the HEADER fit at every width, 768-1600, row vs overlay
+python tools\shoot_nav.py   # 7 header screenshots incl. two body.nav-open cases; LOOK at them
 python tools\plate.py --check    # does every title plate match its entry
 python tools\episode.py eliza   # render episode; preserves voice/*.wav
 python tools\verify_measure.py eliza shipping vshojo   # type vs its measure
@@ -3101,3 +3103,112 @@ it gets resolved.
       the whole audience a question at once, answered in chorus - the most
       efficient parasocial address in the corpus, and it does it with one word:
       YOU.
+47. **The header was broken from 761px to 1280px, and under it a mobile menu that
+    had never been full-screen on any phone.** Four distinct defects, none of them
+    visible to `verify_narrow.py`, and three of them invisible to my own first
+    measurement harness.
+    - **The desktop nav could not fit, and the reason was structural.** Measured:
+      the nav needed **1031px** with no wrapping, in a bar capped at `--w:1240px`
+      that also has to hold a ~200px wordmark, a 22px gap and 48px of padding -
+      about **1304px**. So it was impossible for the nav to fit one line inside
+      the content width it shared. It fitted at ≥1280px viewport and wrapped below
+      that, and `.topbar-in` had `height:64px`, so at **1180px and 1100px the
+      nav was 72px tall in a 64px box** - not clipped and not scrollable, but
+      **overlapping the page**. And `.menu-btn` only appeared at ≤760px. **Every
+      viewport between 761 and 1280 had a broken header, which is most laptops.**
+      Fixed by measuring first: two group labels instead of three ("Elsewhere"
+      cost 80px for two letters of meaning, and folded into the second group),
+      "All stories"/"The history"/"The atlas" shortened, and the menu breakpoint
+      raised 760 → **1024px**. Nav now needs **835px** and fits one line to 1024px.
+      `.topbar-in` is `min-height:64px` now, so a future item that makes it wrap
+      grows the bar instead of overlapping the page.
+    - **`backdrop-filter` makes an element a containing block for its
+      `position:fixed` descendants**, exactly as `transform`, `filter`,
+      `contain` and `will-change` do - and `.topbar` carries
+      `backdrop-filter:blur(14px)`. So the menu overlay's `inset:0` resolved
+      against the **65px header** rather than the viewport, and its height became
+      `max(65px, 90px padding-top + 40px padding-bottom)` = **130px**: a strip at
+      the top of the page, on every phone. Measured as computed height **130px at
+      viewport heights 900, 700, 480 and 844 alike** - a fixed element that is the
+      same height at every viewport is a fixed element whose containing block is
+      a short ancestor. Fixed by dropping the blur below the breakpoint and going
+      opaque; the overlay now measures exactly 900/700/480/844 respectively.
+    - **A `z-index` on a nested element cannot lift it out of an ancestor's
+      stacking context, and `.grain` is a sibling.** `.grain` is
+      `position:fixed; z-index:50; mix-blend-mode:overlay; opacity:.4`; `.topbar`
+      is `position:sticky; z-index:40`. The nav's `z-index:65` is scoped *inside*
+      the header's context, so the whole header subtree paints at 40 and the grain
+      at 50 blends the page over the open menu - "Parasocialize", "1956" and a
+      masthead line were all legible through a menu with a 99%-opaque background.
+      Fixed by hiding the grain while the menu is open, where a full-screen
+      overlay-blend texture over the whole viewport does nothing but cut contrast.
+      **The tell was that `elementFromPoint` returned an element inside the nav at
+      every sampled point while the screenshot disagreed** - and both can only be
+      true at once if the nav is painting on top *and something else is painting
+      over it*. Confirmed by breaking the input on purpose: painting the nav solid
+      red removed every trace of the bleed (`tools/probe_bleed.py`).
+    - **Two more, in the overlay only, both found by screenshotting it.**
+      `flex-wrap:wrap` is set on the desktop row and the overlay never reset it,
+      so in the *column* overlay the items flowed into a **second column** and the
+      last one, Support, ran off the right edge (measured left 708px, right
+      1048px in a 1000px viewport). And `justify-content:center` on a flex column
+      taller than its box puts the first items in **unreachable space above the
+      scroll origin** - the twelve links are ~680px, so on any window under that
+      the top of the menu could not be scrolled to. Now `flex-wrap:nowrap` and
+      `justify-content:flex-start` followed by `justify-content:safe center`,
+      with an `@supports not` fallback.
+    - **`verify_narrow.py` could never have caught any of this**, because it
+      measures only at 390px, where the nav *is* the overlay - and the overlay is
+      **closed by default**, so it measured a hidden, off-screen element.
+      **A closed menu proves nothing about whether it opens correctly**, and this
+      project had a green 390px gate over a 130px broken one.
+      `tools/probe_nav.py` is the replacement: a width ladder from 768 to 1600 on
+      two pages, which distinguishes the desktop *row* from the *overlay* and
+      checks only what applies in each, plus an **open**-overlay measurement.
+      `--check` is the gate. It is deliberately NOT wired into `link_audit.py`, for
+      the reason `verify_narrow.py` is not: it needs a build and Chrome, and a gate
+      that runs on every commit is a gate that eventually gets disabled.
+      `tools/shoot_nav.py` writes screenshots of seven cases including two
+      `body.nav-open` ones.
+
+48. **My screenshot tool was wrong three separate times, and I believed it over
+    the measurements each time. The instrument has to be trusted before the
+    picture is.** This is the sharp edge of this file's own "look at the drawing;
+    do not reason about the geometry" rule.
+    - **`--window-size=390` does not give a 390px viewport on Windows.** Chrome
+      clamps it to roughly 500px and then crops the capture, so the menu's
+      `width:min(340px,84vw)` computed 340 centred in 500 (left edge 80px) and the
+      crop sliced it. **SUPPORT appeared to run off the right edge in two
+      consecutive screenshots while `probe_zorder.py` measured zero overflowing
+      links at a true 390px.** AGENTS already records this clamp and this is
+      exactly the trap; the shooter now measures inside an **iframe**, which is
+      immune, and that is how `verify_narrow.py` avoids it too.
+    - **A `fetch` + `document.write` shim fires mid-rewrite**, so `--screenshot`
+      captured the overlay before its background painted and fabricated a
+      bleed-through defect. Rewriting the `<body>` tag in a copy of the page is a
+      string edit that happens before first paint.
+    - **A harness that fails open reports a clean layout it never observed.** The
+      second version of `probe_nav.py` returned every field as `None` and still
+      printed **"fits" at all ten widths**, because the verdict read
+      `o.get("lines", 1)` and a missing key defaulted to one line, zero overflow
+      and zero document width. Identical to the `<` that fails open in the
+      relation-derivation script, and to `verify_narrow`'s unstyled-page pass. It
+      now asserts that every required key is present and **refuses to report if
+      any width produced no measurement**.
+    - Two more, both of which reported confidently about the wrong thing: calling
+      `getBoundingClientRect()` on an already-computed rect gave 24 identical
+      failures that never named the line; and the page's own `error` key was not
+      mapped, so a page-side exception printed as "INCOMPLETE" instead of naming
+      the fault, twenty-four times over.
+    - **And one metric that was right about the wrong layer:** counting distinct
+      `top` offsets reported **three lines on a one-line nav at every width**,
+      because the group labels are a smaller font and centre-aligned and so sit at
+      a different offset *on the same line*. That is the "distinct vertical
+      offsets are rows, not columns" item already in this file, arriving as rows
+      instead of columns. Now clusters tops with a tolerance of a third of the
+      tallest item.
+    - **The general form: three of my four "the page is broken" conclusions were
+      artefacts, and the one that was real was found by looking.** Painting the nav
+      red is what separated them - not more measurement, and not more reasoning
+      about the geometry.
+
