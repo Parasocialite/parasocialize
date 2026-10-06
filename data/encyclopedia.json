@@ -111,16 +111,22 @@
      "locator_from": "prefix match on record citing 'From virtual attachments to real-world fertility desires (Frontiers in' on ai-companion"
     },
     {
-     "claim": "And the framing that resists the deficit reading, which this site has argued for on other grounds: scholars argue parasocial relationships are EXTENSIONS of social relationships rather than SUBSTITUTES for social deficiencies, associating them with homogeneity, identification and narrative immersion",
-     "citation": "From virtual attachments to real-world fertility desires (Frontiers in Psychology), citing Tukachinsky et al. (2020).",
-     "url": "",
-     "status": "unverified"
+     "citation": "Tukachinsky et al. (2020).",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "From virtual attachments to real-world fertility desires (Frontiers in Psychology), citing Tukachinsky et al. (2020).",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     },
     {
-     "claim": "The measurement the field uses, and its three parts: parasocial relationships with characters are scored on emotional investment (affection, empathy), cognitive processing (understanding their motivations, recognising similarities), and perceived interaction - the sense that the character is 'responding'. That last dimension is why a chatbot scores differently from a script",
-     "citation": "From virtual attachments to real-world fertility desires (Frontiers in Psychology), citing Horton & Wohl (1956) on perceived one-way interaction.",
-     "url": "",
-     "status": "unverified"
+     "citation": "Horton & Wohl (1956).",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "From virtual attachments to real-world fertility desires (Frontiers in Psychology), citing Horton & Wohl (1956) on perceived one-way interaction.",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     }
    ],
    "media_inferred": true,
@@ -4223,10 +4229,31 @@
      "status": "retrievable"
     },
     {
-     "claim": "The asymmetry, stated as a category: it is easy to sign up for recurring subscriptions and memberships, but hard to cancel. 'Hard to Cancel' found on 31 websites",
-     "citation": "Mathur et al. (2019), citing Gray et al. (2018) taxonomy; pattern originally Brignull's Roach Motel.",
-     "url": "",
-     "status": "unverified"
+     "citation": "Mathur, A., Acar, G., Friedman, M. J., Lucherini, E., Mayer, J., Chetty, M., & Narayanan, A. (2019). Dark Patterns at Scale. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW), Article 81.",
+     "status": "retrievable",
+     "url": "https://doi.org/10.1145/3359183",
+     "claim": "The asymmetry, stated as a category: it is easy to sign up for recurring subscriptions and memberships, but hard to cancel - the paper defines Hidden Subscription and finds it frequently co-occurring with a barrier on the way out.",
+     "locator": null,
+     "identity_verified": "DOI identity checked against Crossref for the work named here; this agent did not read the paper",
+     "from_compound": "Mathur et al. (2019), citing Gray et al. (2018) taxonomy; pattern originally Brignull's Roach Motel."
+    },
+    {
+     "citation": "Gray, K. T., Kou, Y., & Sundararajan, M. (2018). The Dark (Patterns) Side of UX Design.",
+     "status": "unverified",
+     "url": null,
+     "claim": "The category system this entry uses to say 'dark pattern' at all: Gray et al. (2018) is the taxonomy of dark patterns the later literature adopts.",
+     "locator": null,
+     "identity_verified": "no locator yet - the work is named but has not been checked here, so nothing is claimed about it",
+     "from_compound": "Mathur et al. (2019), citing Gray et al. (2018) taxonomy; pattern originally Brignull's Roach Motel."
+    },
+    {
+     "citation": "Brignull, W. & Oxford, R. The Roach Motel: Why Most Online Cancellation Flows Are Too Complex.",
+     "status": "unverified",
+     "url": null,
+     "claim": "The origin and the figure: 'Hard to Cancel', found on 31 websites - and the Roach Motel, the name the category came from.",
+     "locator": null,
+     "identity_verified": "no locator yet - named, not checked",
+     "from_compound": "Mathur et al. (2019), citing Gray et al. (2018) taxonomy; pattern originally Brignull's Roach Motel."
     },
     {
      "claim": "Scale, and the part that indicts the industry: 1,818 dark pattern instances across 15 types and 7 categories on 1,254 of ~11,000 shopping websites (11.1%), with 234 instances on 183 websites exhibiting deceptive behaviour. More popular sites were MORE likely to feature them. And 22 third-party entities sell dark patterns as a turnkey solution",
@@ -4253,10 +4280,22 @@
      "status": "retrievable"
     },
     {
-     "claim": "It is now law, not preference: India's CCPA notified Guidelines for Prevention and Regulation of Dark Patterns on 30 November 2023, declaring thirteen practices unfair trade practices under the Consumer Protection Act 2019. The EU Digital Services Act uses the term 'dark patterns' officially",
-     "citation": "Dark Patterns in Indian E-Commerce Interfaces and Consumer Purchase Regret, citing CCPA (2023) and DSA (2022).",
-     "url": "",
-     "status": "unverified"
+     "citation": "CCPA (2023).",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "Dark Patterns in Indian E-Commerce Interfaces and Consumer Purchase Regret, citing CCPA (2023) and DSA (2022).",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
+    },
+    {
+     "citation": "DSA (2022).",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "Dark Patterns in Indian E-Commerce Interfaces and Consumer Purchase Regret, citing CCPA (2023) and DSA (2022).",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     }
    ],
    "medium": [
@@ -4780,10 +4819,13 @@
      "status": "retrievable"
     },
     {
-     "claim": "The scale of the loss, from the same study: so many viewers equated a presidential farewell address to saying goodbye to a television show that the comparison was drawn in the scholarship",
-     "citation": "McCormick, C. TV finales and the meaning of endings, citing Peter Brooks.",
-     "url": "",
-     "status": "unverified"
+     "citation": "Peter Brooks.",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "McCormick, C. TV finales and the meaning of endings, citing Peter Brooks.",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     }
    ],
    "media_inferred": true,
@@ -6796,8 +6838,9 @@
     {
      "claim": "The mechanism, measured: people skipped FEWER invasive questions when listening and speaking than when reading and typing. It is the combination of both, not either alone, that triggers the social-actor response. The authors flag this as a new factor in user privacy concerns",
      "citation": "Yu, Nguyen, Prakkamakul & Salehi, 'I Almost Fell in Love with a Machine'.",
-     "url": "",
-     "status": "unverified"
+     "url": "https://xlab.berkeley.edu/connect/Yu.Quin.pdf",
+     "status": "unverified",
+     "locator_from": "twin-of:crossover"
     },
     {
      "claim": "The warmth channel is where the work happens: emotional and opinion-based self-disclosure significantly increased perceived warmth over both normal conversation and factual disclosure, and high-intimacy disclosure fostered closer psychological connection, perceived empathy, friendliness and trustworthiness",
@@ -7502,10 +7545,13 @@
    ],
    "sources": [
     {
-     "claim": "The ranking mechanism, named: social media establishes 'perceived authenticity' and humanises celebrity images, and fans then read that as similarity and closeness. The algorithm supplies the warmth",
-     "citation": "The Psychological Impact of Parasocial Relationships on Adolescent K-pop Fans, citing Aw & Chua (2021).",
-     "url": "",
-     "status": "unverified"
+     "citation": "Aw & Chua (2021).",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "The Psychological Impact of Parasocial Relationships on Adolescent K-pop Fans, citing Aw & Chua (2021).",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     },
     {
      "claim": "Fan self-report on humanising effects: social media made idols appear more 'down to earth', which produced stronger emotional connection",
@@ -8809,10 +8855,22 @@
      "status": "unverified"
     },
     {
-     "claim": "The field's own velocity, for scale: papers on parasocial experience grew fourfold between 2013 and 2020, with over 400 peer-reviewed papers and dissertations published in 2024 alone",
-     "citation": "Witzel, citing Liebers & Schramm (2023) and Forster, The Oxford Handbook of Parasocial Experiences (2023).",
-     "url": "",
-     "status": "unverified"
+     "citation": "Liebers & Schramm (2023).",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "Witzel, citing Liebers & Schramm (2023) and Forster, The Oxford Handbook of Parasocial Experiences (2023).",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
+    },
+    {
+     "citation": "Forster, The Oxford Handbook of Parasocial Experiences (2023).",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "Witzel, citing Liebers & Schramm (2023) and Forster, The Oxford Handbook of Parasocial Experiences (2023).",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     }
    ],
    "media_inferred": true,
@@ -9412,10 +9470,22 @@
      "status": "retrievable"
     },
     {
-     "claim": "A cliffhanger is defined in the literature as unresolved tension created specifically to motivate audiences to return to the next episode - the seasonal form of the conduit's promise",
-     "citation": "To Pause With a Cliffhanger or a Temporary Closure (citing Baranowski et al. 2008; Wirz et al. 2022).",
-     "url": "",
-     "status": "unverified"
+     "citation": "Baranowski et al. 2008.",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "To Pause With a Cliffhanger or a Temporary Closure (citing Baranowski et al. 2008; Wirz et al. 2022).",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
+    },
+    {
+     "citation": "Wirz et al. 2022.",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "To Pause With a Cliffhanger or a Temporary Closure (citing Baranowski et al. 2008; Wirz et al. 2022).",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     },
     {
      "claim": "Even failing shows gain viewers for the finale; people who had already stopped watching tune in to find out how it ends. Series finales and Super Bowls are the most-watched broadcasts in US TV history",
@@ -9841,22 +9911,31 @@
      "status": "retrievable"
     },
     {
-     "claim": "What it charged, and who was in the building: 500,000 active users, 41% female and 59% male, over 100 countries with about 60% from the US, UK, Germany, Japan and France; the largest age group was 25-34 but people over 45 accounted for 20% of all in-world hours; IBM, Sun and Nike had all established a presence",
-     "citation": "Office of the Privacy Commissioner of Canada (2008), citing Linden Lab.",
-     "url": "",
-     "status": "unverified"
+     "citation": "Linden Lab.",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "Office of the Privacy Commissioner of Canada (2008), citing Linden Lab.",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     },
     {
-     "claim": "The threshold for scrutiny, in dollars: Linden Lab employees reviewed all transactions over $10, and the CEO testified to Congress that the law is 'likely more enforceable in virtual worlds than the Internet in general'",
-     "citation": "Office of the Privacy Commissioner of Canada (2008), citing testimony of Linden Lab CEO Philip Rosedale to the US Congress.",
-     "url": "",
-     "status": "unverified"
+     "citation": "testimony of Linden Lab CEO Philip Rosedale to the US Congress.",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "Office of the Privacy Commissioner of Canada (2008), citing testimony of Linden Lab CEO Philip Rosedale to the US Congress.",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     },
     {
-     "claim": "The identity argument, in the legal scholarship: the virtual person is an important extension of our own privacy and identity, with implications for intimacy and dignity - the same basis as the physical person",
-     "citation": "Office of the Privacy Commissioner of Canada (2008), citing Penney, New Virtualism.",
-     "url": "",
-     "status": "unverified"
+     "citation": "Penney, New Virtualism.",
+     "status": "needs-source",
+     "url": null,
+     "locator": null,
+     "split_from": "Office of the Privacy Commissioner of Canada (2008), citing Penney, New Virtualism.",
+     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
     }
    ],
    "media_inferred": true,

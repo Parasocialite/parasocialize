@@ -35,6 +35,7 @@ python tools\verify_doi.py --from-citations  # does every DOI resolve to the wor
 python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\report_current_state.py # the AGENTS Current-state block + media table, MEASURED
 python tools\verify_narrow.py    # does a generated page overflow at 390px
+python tools\report_missing_locators.py # the shape of the locator backlog, measured
 python tools\probe_nav.py --check  # does the HEADER fit at every width, 768-1600, row vs overlay
 python tools\shoot_nav.py   # 7 header screenshots incl. two body.nav-open cases; LOOK at them
 python tools\plate.py --check    # does every title plate match its entry
@@ -3211,4 +3212,109 @@ it gets resolved.
       artefacts, and the one that was real was found by looking.** Painting the nav
       red is what separated them - not more measurement, and not more reasoning
       about the geometry.
+
+49. **The locator backlog is not closable by tooling, and measuring that was
+    worth more than closing two of them.** The debt is **130 records with no
+    locator across 96 entries** (of 425 records, 292 located). Its shape:
+    - **0 of them carry a DOI**, confirming item 21's finding that the
+      citation itself must be completed before a locator becomes findable.
+    - **43 name no 4-digit year**, **14 are under 25 characters** ("Rain & Mar
+      (2021).", "de Vries & Gilovich, 2015"), and 30 of the 130 are already
+      `needs-source` rather than `unverified` - so a third of the backlog was
+      never a citation to begin with.
+    - **The twin mechanisms are exhausted.** Normalised-equality finds **0**
+      records closable by same-entry copy and **0** by cross-entry copy. Only
+      3 prefix candidates remained, and reading each against the full sibling
+      gave three different answers.
+    `tools/report_missing_locators.py` prints the whole shape, so the next
+    person starts from the measurement rather than from the number.
+
+50. **Two of the three twin candidates were attached; the third was a false
+    attribution waiting to happen, exactly as AGENTS item 28 predicted.**
+    - `siri`: "Yu, Nguyen, Prakkamakul & Salehi, 'I Almost Fell in Love with a
+      Machine'." names **one** work, and `crossover` carries that URL on a record
+      with the same authors and title, already `retrievable`. Attached.
+    - `the-algorithm-decides`: the bare title record **already had** its
+      locator; the record without one was `'...K-pop Fans, citing Aw & Chua
+      (2021).'` - a compound. So the split applied there instead.
+    - `loyalty-dark-pattern`: **refused.** The string names three works -
+      Mathur 2019, Gray et al. 2018, Brignull's Roach Motel - and the finder
+      would have handed it the **arXiv preprint** while the corpus already holds
+      **the DOI `10.1145/3359183`** for the same paper on the same entry. The
+      "inherited" locator was the worse of two locators the corpus is already
+      using.
+    - **My first dry run got two of these wrong and the dry run is why.** A
+      substring needle matched `siri`'s *other* record and skipped a real gap,
+      and on `the-algorithm-decides` it selected the **compound** - the exact
+      class the exercise exists to refuse. Now it requires an **exact** citation
+      match, an empty URL, and refuses outright on any "citing" marker.
+
+51. **The 20 compound citations are a defect class, and 11 could be split with no
+    research at all.** A string like "X, citing Y (2021) and Z (2019)." is one
+    record standing in for two or three works, which is why no locator can
+    attach to it safely. The fix is not to add a URL; it is to split.
+
+    **And the split is mostly a deletion of duplication**: in nearly every case
+    the leading work is *already cited separately with its own locator*, so the
+    compound was not missing a locator for its first work - it was missing the
+    *other* works, which had none anywhere. Replacing it turns "one string
+    naming three works, locating none" into "N strings each naming one work,
+    locating none", which is honest and independently workable.
+
+    - **11 compounds -> 15 single-work children**, each `needs-source` with a
+      claim that says the work is named but not identified, and `split_from`
+      preserving the original string so the compound is still on the record.
+    - **9 refused or skipped, each for a stated reason**, and two of those
+      reasons are the whole point of the guard:
+      - **`prince` x2 - the AGENTS item 28 trap, live.** The compound
+        `'CBS News (2016), citing The Associated Press.'` has on its entry a
+        parent `'CBS News (2016), citing photographs and CBS Minnesota; NPR,
+        Music Legend Prince Dies...'` carrying **one URL, the NPR one.**
+        Attaching it would put an NPR link on a CBS citation. **A parent that
+        is itself compound is refused**, because its single URL belongs to one
+        of several works and cannot be attributed to ours. Same for
+        `beatlesmania`.
+      - 7 skipped because the leading work has no separately located record, so
+        there is nothing to inherit from - `cobain`, `siri` x2,
+        `the-subscription-box` x3.
+    - **Auto-location was tried and removed.** The first version substring-
+      matched surname and year, and reported `'Aw & Chua (2021)'` as
+      `retrievable` because some record contained both characters somewhere -
+      and `'Horton & Wohl (1956)'` likewise. **An author and a year are a pair
+      of coordinates, not a work** (item 21), so every child is `needs-source`.
+      A child string with no title cannot be matched against a title, and the
+      honest state is a visible debt rather than a plausible-looking match.
+
+52. **`citation_audit.py` caught a missing field in the tool that made the change,
+    on the run rather than after a commit.** The splitter wrote
+    `identity_verified` and `split_from` and **no `claim`**, and the gate failed
+    with "13 record(s) print a placeholder where a claim should be". It was
+    right: a record with an empty claim is a field promising something it does
+    not keep, which is the family this file keeps meeting. Re-running the
+    splitter does not help - the compounds are already split - so
+    `tools/fill_split_claims.py` repairs precisely the records carrying
+    `split_from` and refuses to touch anything else, and reports that
+    **0 empty claims exist without it**, which means the 13 were the whole of
+    this class rather than part of it.
+
+53. **A tool's path is a landmine, and the tool that showed me the line showed me
+    a word that was not in it.** `close_locator_gaps.py` shipped with a hardcoded
+    absolute path whose literal was **missing the word "Documents"**, so every
+    run died with `FileNotFoundError` on `data/encyclopedia.json` - a file that
+    exists, is tracked, and reads fine from the shell. **`read` displayed the
+    line with "Documents" in it.** Only `len(str(ROOT))` against the expected 54
+    found it: the literal was 44, ten short, which is "Documents" plus its
+    separator.
+    - **Hardcoding is the existing convention** - 27 tools in this repo do it,
+      including `cite.py`, `verify_narrow.py` and `find_citation_twins.py` - so
+      this was not a deviation. The finding is that the convention is unsafe, and
+      the fix is `ROOT = pathlib.Path(__file__).resolve().parent.parent`, which
+      is what `build_cards.py` already does.
+    - `tools/derive_tool_paths.py` converted the **twelve** tools written in this
+      session and left the pre-existing ones alone, because rewriting 27 working
+      tools is unrequested churn with real risk. All twelve were re-run
+      afterwards and their idempotency guards still fire.
+    - **The general form: the tool output disagreed with the artefact, so read
+      the bytes.** A `read` that shows a plausible path is not evidence the path
+      is right; a length is.
 
