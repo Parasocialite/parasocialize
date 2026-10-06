@@ -122,11 +122,12 @@
     {
      "citation": "Horton & Wohl (1956).",
      "status": "needs-source",
-     "url": null,
+     "url": "https://doi.org/10.1080/00332747.1956.11023049",
      "locator": null,
      "split_from": "From virtual attachments to real-world fertility desires (Frontiers in Psychology), citing Horton & Wohl (1956) on perceived one-way interaction.",
-     "identity_verified": "NO locator, work not identified: no title or DOI in the child citation, so the work cannot be distinguished from its neighbours - and an author-and-year match is a pair of coordinates, not a work. This record exists because the compound string it came from named a second work inside one citation, which is a defect by itself",
-     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record."
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. both authors and the year, and it is the only Horton & Wohl record in the corpus; the DOI is the founding citation of the term this site is named for. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work.",
+     "claim": "Named inside a compound citation that also named the work cited separately on this entry, which carries its own locator. This one is recorded on its own so that a single string is not standing in for several works. **It has not been identified here - no title, no venue, no locator - and nothing is claimed about what it says.** The string it came from is kept in `split_from` so the compound is still on the record.",
+     "locator_from": "sibling-read:parasocial-interaction"
     }
    ],
    "media_inferred": true,
@@ -976,8 +977,10 @@
     {
      "claim": "Launched September 2022 as a web chatbot of 'characters', two months before ChatGPT; $193M seed and a mobile app in May 2023; by November 2024 the r/Character.AI subreddit had 1.5M members and the app 10M+ downloads",
      "citation": "Garcia v. Character Technologies, Inc., Order on Motions to Dismiss (M.D. Fla. 2025).",
-     "url": "",
-     "status": "unverified"
+     "url": "https://cdn.arstechnica.net/wp-content/uploads/2025/05/Garcia-v-Character-Technologies-Order-on-Motion-to-Dismiss-5-21-25.pdf",
+     "status": "unverified",
+     "locator_from": "sibling-read:characterai",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. same case, same court, same order; the sibling adds the docket date. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     }
    ],
    "media_inferred": true,
@@ -1034,8 +1037,10 @@
     {
      "claim": "THE QUESTION THE SITE EXISTS FOR, asked in a courtroom: the court held it was 'not prepared to hold that the Character.AI LLM's output is speech at this stage' - whether a chatbot's words are a person speaking is legally unresolved",
      "citation": "Garcia v. Character Technologies, Inc., Order on Motions to Dismiss (M.D. Fla. 2025), First Amendment discussion.",
-     "url": "",
-     "status": "unverified"
+     "url": "https://cdn.arstechnica.net/wp-content/uploads/2025/05/Garcia-v-Character-Technologies-Order-on-Motion-to-Dismiss-5-21-25.pdf",
+     "status": "unverified",
+     "locator_from": "sibling-read:characterai",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. same case and same order; 'First Amendment discussion' names a section of that order, not a second work. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "Allegation worth taking seriously: the product was marketed to under-13s to obtain a dataset the company could not otherwise collect, and the child-safe rating was pulled shortly before Google's talent-and-licence deal",
@@ -1103,8 +1108,10 @@
     {
      "claim": "And it is conditional, which is the uncomfortable part: attachment anxiety and avoidance DIFFERENTIALLY predict character identification and parasocial interaction, and a high-powered pre-registered follow-up found attachment orientation predicts which characters people are drawn to. Some characters are wanted because they are unavailable",
      "citation": "Rain & Mar (2021).",
-     "url": "",
-     "status": "unverified"
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8419286/",
+     "status": "unverified",
+     "locator_from": "sibling-read:characters-move-in",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. same two authors and the same year, on the same entry; the sibling has the full title and a PMC locator. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "Sometimes you are not watching the character, you ARE it - and the literature distinguishes the two. A player-avatar relationship can be MONADIC, where the player identifies with the avatar to the point of being the same being, or DYADIC, where a separation makes it closer to a parasocial relationship. Same apparatus, opposite structure",
@@ -1357,8 +1364,10 @@
     {
      "claim": "Cobain's mother and his sister both learned of his death from radio reports. She said: 'Now he's gone and joined that stupid club'",
      "citation": "Seattle Times, 8 April 1994.",
-     "url": "",
-     "status": "unverified"
+     "url": "https://archive.seattletimes.com/archive/19940408/1904521/nirvanas-cobain-dead----suicide-note-shotgun-near-body-of-musician-at-his-seattle-home----mother-now-hes-gone-and-joined-that-stupid-club",
+     "status": "unverified",
+     "locator_from": "sibling-read:cobain",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. JUDGEMENT CALL, allowed on positive evidence: the sibling is compound and carries ONE url, but that url is archive.seattletimes.com/.../nirvanas-cobain-dead... so both its host and its path belong to the leading work. That is attribution evidence of a kind `prince` did not have - there, an npr.org url on a CBS citation could not be resolved this way.. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "AND THE EXTRACTION, MEASURED IN HOURS. Two hours after the county medical examiner positively identified the body by fingerprints, most local record stores were completely wiped out of all Nirvana product. One store reported selling a few hundred CDs, singles and vinyl by the next morning, including the $100 interview CD",
@@ -1381,8 +1390,10 @@
     {
      "claim": "And a fan's own account of the mechanism, on the street outside his house: 'Nirvana touched something deep inside me'",
      "citation": "Seattle Times, 8 April 1994, reporting Laura Mitchell.",
-     "url": "",
-     "status": "unverified"
+     "url": "https://archive.seattletimes.com/archive/19940408/1904521/nirvanas-cobain-dead----suicide-note-shotgun-near-body-of-musician-at-his-seattle-home----mother-now-hes-gone-and-joined-that-stupid-club",
+     "status": "unverified",
+     "locator_from": "sibling-read:cobain",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. as above; 'reporting Laura Mitchell' names a source inside the same article. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "The counter-claim, and it is the strongest version of the other side: 'He was his audience' - the songs were written from experience the listeners recognised as their own",
@@ -1612,8 +1623,10 @@
     {
      "claim": "AND THE FINDING NOBODY NOTICES: that community has a power hierarchy among its participants - described by the authors as 'usually the least noticed aspect in research on online platforms'. The folklore of equal fans is empirically false",
      "citation": "Malik, Z., & Haidar, S. (2020). Interactive Learning Environments, 31(2).",
-     "url": "",
-     "status": "unverified"
+     "url": "https://doi.org/10.1080/10494820.2020.1805773",
+     "status": "unverified",
+     "locator_from": "sibling-read:congregation",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. same two authors, same year, same journal - the target is the short form of the sibling and is on the same entry. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "Why the congregation forms: PSRs develop because they fulfil a need to belong and are maintained through parasocial interaction and fandom activity; the authors conclude they may need redefining because fans perceive reciprocity. N=126 stan / N=111 non-stan / N=12 interviews",
@@ -2134,8 +2147,10 @@
     {
      "claim": "The griefbots that followed - automated messages that appear to speak for the dead - sit inside the same gap between a continuing bond and a conversation that never happened",
      "citation": "Brubaker, Hargittai & Burgess (2013).",
-     "url": "",
-     "status": "unverified"
+     "url": "https://doi.org/10.1080/21670811.2013.780480",
+     "status": "unverified",
+     "locator_from": "sibling-read:digital-bereavement",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. all three surnames and the same year, on the same entry; the sibling carries the full title and a DOI. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     }
    ],
    "media_inferred": true,
@@ -3552,8 +3567,10 @@
     {
      "claim": "WHY there is no contract: the common thread among artists whose likenesses get used is unexpected or accidental death, so the image-use clauses were never written. Prince left no will at all, and without one an estate can exploit or license the rights at will. Robin Williams restricted use of his image for 25 years after his death because he foresaw this",
      "citation": "Dead celebrities are being digitally resurrected. CBC News (2021), reporting Lachman and media lawyer Iain MacKinnon.",
-     "url": "",
-     "status": "unverified"
+     "url": "https://www.cbc.ca/news/entertainment/dead-celebrities-digital-resurrection-1.6132738",
+     "status": "unverified",
+     "locator_from": "sibling-read:grief-extraction",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. the same article: 'reporting Lachman and media lawyer Iain MacKinnon' names INTERVIEWEES inside one piece, not a second work. This is the case a compound detector must not split.. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "And that the grief is the asset: Pat Houston, estate executor, on the marketing push - 'Before she passed, there was so much negativity around the name; it wasn't about the music anymore... they let all the personal things about their life outweigh why they fell in love with them in the first place.' Monetising the legacy and redeeming the reputation are the same project",
@@ -4270,8 +4287,10 @@
     {
      "claim": "Confirmation as a toll: The Daily Wire required a three-question mandatory survey AND typing the word 'CONFIRM' to cancel. The authors concede some friction prevents accidents, and note that requiring a typed phrase appears unnecessary",
      "citation": "Staying at the Roach Motel (2024).",
-     "url": "",
-     "status": "unverified"
+     "url": "https://arxiv.org/html/2309.17145",
+     "status": "unverified",
+     "locator_from": "sibling-read:loyalty-dark-pattern",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. identical title on the same entry; the sibling has the arXiv locator. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "The harm is process harm: study of 53 Indian apps found 52 carried at least one deceptive pattern and e-commerce ran 5.3 per app against 2.7 across sectors, and argues the resulting regret is PROCESS regret from a bad decision procedure, not outcome regret from a bad product - which is why satisfaction metrics miss it",
@@ -4749,14 +4768,18 @@
     {
      "claim": "What it actually achieves: harassment frequently results in the ACCUSED SELF-CENSORING, so the pile-on functions as a regulating force that removes speech from the public sphere. Neither platforms nor legal regulation protects against it. Interviews with 28 targets and 9 Trust and Safety workers",
      "citation": "Marwick, A. E. (2021). Social Media Society, 7(2).",
-     "url": "",
-     "status": "unverified"
+     "url": "https://doi.org/10.1177/20563051211021378",
+     "status": "unverified",
+     "locator_from": "sibling-read:mob-and-internet-pile",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. same author, same year, same journal and volume; the sibling has the title and a DOI. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "Not a partisan tactic, which is the part usually left out: this is used across the ideological spectrum, and the amplification runs in both directions depending on which network node shares it",
      "citation": "Marwick, A. E. (2021), Social Media Society, 7(2).",
-     "url": "",
-     "status": "unverified"
+     "url": "https://doi.org/10.1177/20563051211021378",
+     "status": "unverified",
+     "locator_from": "sibling-read:mob-and-internet-pile",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. as above - a second short-form record of the same paper on the same entry. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "WHY IT ESCALATES: analysis of 231 threads finds networked harassment runs in three phases - target introduction, network decision, network response - and that the crowd added narrative elements in at least 80% of threads, producing Continuous Narrative Escalation. The crowd is not reacting to the story. It is writing it",
@@ -4767,8 +4790,10 @@
     {
      "claim": "AND THE PART THAT MADE ME STOP: takedown requests are misused by the community and repurposed as ELEMENTS TO FURTHER FUEL THE NARRATIVE. Reporting abuse is itself harvested as content",
      "citation": "Stoking the Flames: Understanding Escalation in an Online Harassment Community (ACM CSCW 2024), analysis of 100 takedown request threads.",
-     "url": "",
-     "status": "unverified"
+     "url": "https://doi.org/10.1145/3641015",
+     "status": "unverified",
+     "locator_from": "sibling-read:mob-and-internet-pile",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. identical title and year; the sibling carries the CSCW proceedings and a DOI. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     }
    ],
    "media_inferred": true,
@@ -5372,8 +5397,10 @@
     {
      "claim": "No specific claim is recorded against this source. The record is a pointer to the work in general; the entry's own prose is the argument and is not sourced line by line.",
      "citation": "Horton, D., & Wohl, R. R. (1956). Mass communication and para-social interaction: Observations on intimacy at a distance. Psychiatry, 19(3), 215-229.",
-     "url": "",
-     "status": "unverified"
+     "url": "https://doi.org/10.1080/00332747.1956.11023049",
+     "status": "unverified",
+     "locator_from": "sibling-read:parasocial-interaction",
+     "identity_verified": "URL COPIED from a record already in the corpus, not typed here. SAME authors, SAME year and the SAME DOI as the sibling, but the two records carry DIFFERENT TITLES for it - 'Mass communication and para-social interaction' against 'Mass Communication and Social Interaction'. Item 20's rule applies: author and year decide, the title corroborates, and a registry and a citation routinely disagree about titles. The discrepancy is recorded on the record, not smoothed away.. Identity was NOT independently re-checked against Crossref or the publisher - the basis is that the sibling names the same work."
     },
     {
      "claim": "THE FOUNDING CITATION for the term this entire site runs on, coined in 1956 for psychological attachment to television personalities, and quoted for the 'exchange' at p.218",

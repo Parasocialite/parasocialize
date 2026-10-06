@@ -3318,3 +3318,52 @@ it gets resolved.
       the bytes.** A `read` that shows a plausible path is not evidence the path
       is right; a length is.
 
+54. **Relaxing the twin rule from strings to meaning finds 25 candidates, and
+    reading them leaves 14 and refuses 11. No score could have made that
+    split.** `find_citation_twins.py` matches exact/prefix strings and had
+    found 3. Matching on author + year + word overlap instead finds **25**, and
+    the whole value of this pass is that the two sets are not the same set:
+    **14 are the same work and 11 are not.**
+
+    `tools/attach_read_locators.py` therefore carries an **explicit allow-list**,
+    with the reason written per attachment, and no heuristic at all. Every URL
+    is copied from the sibling and never typed. **292 -> 306 records with a
+    locator; 133 -> 119 without; 96 -> 90 entries.**
+
+    - **`Horton & Wohl (1956)` is now located on both records that cite it** -
+      and they carry **different titles for the same DOI**: "Mass communication
+      and para-social interaction: Observations on intimacy at a distance"
+      against "Mass Communication and Social Interaction". Same authors, same
+      year, same DOI. Item 20's rule decides it - **author and year decide, the
+      title corroborates** - and the discrepancy is recorded on the record rather
+      than smoothed away. This is the founding citation of the term the site is
+      named for, and until now one of its two records had no locator at all.
+    - **One judgement call, allowed on positive evidence.** `cobain`'s "Seattle
+      Times, 8 April 1994" has a *compound* sibling ("Seattle Times...; and
+      Rolling Stone (Neil Strauss)") carrying **one** URL - which is normally the
+      `prince` refusal. It was attached anyway because the URL itself settles
+      attribution: `archive.seattletimes.com/.../nirvanas-cobain-dead...`, so
+      both its host and its path belong to the leading work. **That is evidence
+      of a kind `prince` did not have**, where an `npr.org` URL on a CBS
+      citation could not be resolved that way. The rule is not "compound parents
+      are always refused"; it is "refused unless the URL provably belongs to the
+      leading work".
+    - **And one refusal that shows what a wrong match looks like.**
+      `live-commentary`'s "Regelbrugge, 2024" scored **0.11** jaccard against
+      three located records - and **no sibling mentions Regelbrugge at all**.
+      The entire overlap was the words "parasocial relationships". Left
+      locator-less. **A low score is not a weak match, it is usually a bad one**,
+      because the shared words are the corpus's own vocabulary rather than the
+      work's identity.
+    - Also refused: `cobain`'s Tower Records / Billboard record (the sibling URL
+      is Borzillo's retrospective, not Tower Records' statement, and the dates
+      differ), `cobain`'s "Borzillo, Billboard (2019); Rolling Stone (1994)"
+      (two outlets, one URL), and `prince`'s "Melody Chestler... reported in NPR"
+      (the sibling URL is a *different* NPR piece).
+    - **One case a compound detector must NOT split**, and it is the mirror of
+      `grief-extraction`: "Dead celebrities are being digitally resurrected. CBC
+      News (2021), reporting Lachman and media lawyer Iain MacKinnon" names
+      **interviewees inside one article**, not a second work. The splitter's
+      `citing`-marker heuristic would have got this wrong, which is why it runs
+      only on records with no separately located leading work.
+
