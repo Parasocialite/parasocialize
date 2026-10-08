@@ -134,6 +134,72 @@
       "provenance": "sourced"
     },
     {
+      "id": "aimee-semple-mcpherson",
+      "title": "The radio church of Sister Aimee",
+      "kind": "person",
+      "year": 1924,
+      "era": "Radio",
+      "lanes": [
+        "consideration"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "Her church went on the air on 6 February 1924: KFSG - 'Kall Foursquare Gospel' - broadcasting at 500 watts from Angelus Temple, listener-supported one day at a time. She is credited by her own church as the first woman to preach a sermon on radio (1922), and after the first broadcast the letters came from other states and other countries, cataloguing where the signal had been heard.",
+      "significance": "**A church built to be heard at a distance.** Aimee Semple McPherson had preached on Los Angeles radio before owning a station, and her church's history credits her as the first woman to preach a sermon over the radio, on the Rockridge station in Oakland in April 1922. In February 1924 KFSG went on the air from Angelus Temple - a 500-watt Western Electric transmitter whose dedication named its reach, 'the people of the United States, Canada, Alaska, Mexico, Panama, Hawaii, South Sea Islands'. The congregation had raised the roughly $25,000 to build it.\n\n**The letters were the reply channel, and they were the audience.** In the early 1920s a station learned who was listening from the mail: cards, telegrams and letters reporting where the signal was received. The record kept for KFSG includes letters from Illinois, Indiana, Pennsylvania and New Zealand describing when the broadcast was heard and what it meant - 'We do hope to hear you soon again', one wrote, and a listener in Indiana asked who the woman preacher had been. The station answered its mail through volunteer church members, and it was sponsored day by day by listeners through the Radio Missionary Society, with patrons booked months ahead.\n\n**The mechanism is a congregational 'you' at a distance.** The church addressed the radio congregation as assembled even though the far end could not answer: in Angelus Temple the pastor asked 'Do you pledge to live clean Christian lives for God?' and the answer - 'We do' - came back from a room the radio listeners could not join. That is the presenter mechanism with a congregation in it: second-person grammar aimed at an unseen audience, engineered on a schedule. The competing placement, the idol, fails because the sermons were live and ongoing - an address from somebody who believed herself perceived, not a finished body of work. One honesty note is kept: the famous 'minions of Satan' telegram to Secretary Hoover over a wavelength dispute is recorded by radio historians as legend rather than fact, and KFSG was never actually taken off the air.",
+      "verified": false,
+      "medium": [
+        "radio",
+        "theology"
+      ],
+      "relations": [
+        {
+          "to": "fireside-chats",
+          "type": "preceded"
+        },
+        {
+          "to": "queen-for-a-day",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Radio Heritage Foundation, \"KFSG Los Angeles - The Aimee Semple McPherson Station\" (J. Hilliker)",
+          "status": "unverified",
+          "url": "https://www.radioheritage.com/story51/",
+          "claim": "The station as its history records it: the February 1924 dedication, the 500-watt Western Electric transmitter, the church's claim that she was the first woman to preach a sermon over the radio (the Rockridge station, KZY, in Oakland, April 1922), the reception letters from other states and from New Zealand, the Radio Missionary Society's day-by-day sponsorship, and the volunteer staff that answered the mail. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "International Church of the Foursquare Gospel resources, \"Sister Aimee's astounding radio impact\" (adapted from R. L. Power, Radio in the Home, January 1925)",
+          "status": "unverified",
+          "url": "https://resources.foursquare.org/sister_aimees_astounding_radio_impact/",
+          "claim": "The broadcast mechanism from inside the church: the congregation's 'Do you pledge... We do' exchange, the hundreds of thousands the broadcast reached in homes, the voluntary financing of the station's upkeep, and the shut-in and sunshine-hour programming. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"KFSG (Los Angeles)\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/KFSG_(Los_Angeles)",
+          "claim": "The licence facts: KFSG first licensed in January 1924 to the Echo Park Evangelistic Association at 500 watts, the call letters standing for 'Kall Foursquare Gospel', and the non-commercial religious programming. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The Radio Historian, \"The alleged Hoover telegram\" (J. Schneider)",
+          "status": "unverified",
+          "url": "https://theradiohistorian.org/lax/hoover-telegram.html",
+          "claim": "The caution on the 'minions of Satan' telegram to Secretary of Commerce Hoover: no period record of it exists, the Department of Commerce files show no action against KFSG, and the incident is recorded here as legend rather than fact. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "airline-miles",
       "title": "The distance programme",
       "kind": "mechanism",
@@ -552,6 +618,55 @@
         }
       ],
       "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "babe-ruth",
+      "title": "The baseball the papers built",
+      "kind": "person",
+      "year": 1927,
+      "era": "Radio",
+      "lanes": [
+        "consideration"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "In 1927 Babe Ruth hit sixty home runs and became the most replayed figure in a game most fans knew through print. His bylined column ran in syndication, much of it ghostwritten, and radio was beginning to carry him into rooms the stadium never reached. The 1920s press manufactured a 'hot romance' and he was its star.",
+      "significance": "**The season the man and the persona arrived together.** Ruth's 1927 season - sixty home runs in a 154-game schedule, a single-season record that stood until Roger Maris hit sixty-one in 1961, with the Yankees' Murderers' Row around him - is the on-field anchor this entry leans on without being about. The subject is the parallel figure the press built, because most of the people who loved him never saw him play.\n\n**The printed voice was another man's.** Through the 1920s Ruth's byline ran across the country in syndicated columns and serials, and much of that copy was ghostwritten - the 'Babe Ruth' column was substantially the work of Christy Walsh, his agent, who organised the ghosted pieces under Ruth's name. A reader opening the sports page met a voice signed 'Babe Ruth' that Babe Ruth had not written, which is the manufactured reply end of a one-sided tie arriving in sports journalism: the attention felt answered, and the answer was an agency.\n\n**Radio and the syndicated page made the tie work at distance.** Baseball went on the air in the 1920s, and Ruth's name travelled ahead of him by broadcast and by print - this entry records the 1920 film 'Headin' Home' as the star's celluloid echo of the same reach. The deeper claim, read from the thesis this entry draws on, is that the newspapers of the 1920s manufactured what one account calls a 'hot romance between sport and the public'. The counter-argument - that Ruth's fame was earned by a bat, not by columns - is real and kept on the entry; the point is narrower, that the relationship hundreds of thousands had with him ran through contributed copy and broadcast names rather than through a seat in a ballpark.",
+      "verified": false,
+      "medium": [
+        "sport"
+      ],
+      "relations": [
+        {
+          "to": "the-atletefan-bond",
+          "type": "succeeded"
+        },
+        {
+          "to": "kobe",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "J. C. Trimble, \"Babe Ruth: The Media Construction of a 1920's Sport Personality\" (Colby College senior thesis",
+          "status": "unverified",
+          "url": "https://digitalcommons.colby.edu/cgi/viewcontent.cgi?article=3102&context=cq",
+          "claim": "The thesis treats the press and radio construction of Ruth across the 1920s: the ghostwriting of his bylined columns, syndication, the early radio broadcasts of baseball, and the claim that the newspapers of that decade manufactured a 'hot romance between sport and the public'. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Encyclopaedia Britannica, \"Babe Ruth\"",
+          "status": "unverified",
+          "url": "https://www.britannica.com/topic/Babe-Ruth",
+          "claim": "The baseball facts the entry rests on: the 1927 season's sixty home runs in a 154-game schedule, the single-season record until Maris's sixty-one in 1961, Murderers' Row, and the 1920 motion picture 'Headin' Home'. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
       "provenance": "sourced"
     },
     {
@@ -6139,6 +6254,51 @@
       "provenance": "sourced"
     },
     {
+      "id": "peanuts",
+      "title": "The strip about unrequited love",
+      "kind": "work",
+      "year": 1950,
+      "era": "Fandom",
+      "lanes": [
+        "consideration"
+      ],
+      "sections": [
+        "character"
+      ],
+      "summary": "Peanuts began on 2 October 1950 with a strip whose first line - 'Good ol' CharlieBrown... How I hate him!' - announced the subject: affection that cannot be returned. A round-headed boy who loses everything, a dog who does not answer, a cartoon world that kept 350 million readers. Schulz maintained the loser's world on purpose.",
+      "significance": "**The first strip made the subject legal tender.** Peanuts debuted on 2 October 1950, syndicated by United Feature, and the opening panel was a small boy walking past Charlie Brown with the line 'Good ol' CharlieBrown... How I hate him!' - unrequited feeling in the form of a neighbour who cannot be placated, which is where the strip stayed for fifty years.\n\n**The world is an economy of unanswered want.** Charlie Brown's love for the Little Red-Haired Girl is offered to a girl who is never on panel; Snoopy's silence keeps the one close bond in the strip without a reply; and the habit of the boy losing - the game, the spelling bee, the object of affection - is presented as the ordinary condition rather than the exception. The reader's caring-for-a-boy-who-loses is the tie the strip runs on: the audience's side of an attachment the strip itself never completes. Nothing in the fiction ever answered any of it.\n\n**The maker defended the loss as a structure.** Schulz returned repeatedly to why Charlie Brown has to keep losing, describing the round-headed boy as the strip's conscience - the one who carries hope in a world designed to disappoint him. The counter-argument, that affection for Peanuts is really affection for a remembered world rather than for a character, is kept on the entry; the placement lands on the character because the whole strip is written from one figure who cannot be answered.",
+      "verified": false,
+      "medium": [
+        "comics"
+      ],
+      "relations": [
+        {
+          "to": "fan-club",
+          "type": "contemporary"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "TIME, anniversary essay on Peanuts and the villain of unrequited love (L. Rothman, 2014)",
+          "status": "unverified",
+          "url": "https://time.com/3445127/peanuts/",
+          "claim": "The 2 October 1950 first strip and its opening line about Charlie Brown, the strip's themes of unrequited love and the character of the loser, and the scale of the strip's peak readership. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Encyclopaedia Britannica, \"Peanuts\"",
+          "status": "unverified",
+          "url": "https://www.britannica.com/topic/Peanuts",
+          "claim": "The strip's 1950 debut, Schulz's authorship, the unrequited-love and loser themes, the roughly 18,000 strips of its run, and the readership measured across its country and audience counts. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "podcast-intimacy",
       "title": "The podcast as an intimate medium",
       "kind": "mechanism",
@@ -7023,6 +7183,48 @@
           "status": "retrievable",
           "url": "https://en.wikipedia.org/wiki/Rudolph_Valentino",
           "claim": "Dates, the persona and the mourning: 'Rodolfo Pietro Filiberto Raffaele Guglielmi di Valentina d'Antonguolla (May 6, 1895 - August 23, 1926)... Dubbed the Latin Lover, he became one of the most iconic stars of American silent cinema... Rising to international fame in the early 1920s, Valentino was celebrated for his exotic screen persona, romantic intensity, and expressive performances, which helped redefine male stardom during the silent era. Often referred to as the first Latin Lover and the Great Lover, Valentino began his career as a taxi dancer... before he achieved breakthrough success with the film The Four Horsemen of the Apocalypse (1921), which popularized the Argentine tango dance with American audiences.' And: 'In 1925, he established a film award recognizing artistic achievement, the Rudolph Valentino Medal, which was a precursor to the Academy Award. His sudden death in 1926 at the age of 31 from complications of peritonitis following surgery for appendicitis and gastric ulcers triggered mass public mourning, cementing his status as a legendary figure of early cinema.' And the invention: 'Upon his death, Negri made a scene at his funeral, claiming they were engaged, in spite of the fact that Valentino himself had never mentioned this engagement to anyone.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "sarah-bernhardt",
+      "title": "The Divine Sarah",
+      "kind": "person",
+      "year": 1891,
+      "era": "Theatre",
+      "lanes": [
+        "consideration"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "Sarah Bernhardt toured more like a head of state than a player: when she sailed for New York in 1891 the crossing was covered the way a royal visit is, and 'Divine Sarah' was by then the whole public's phrase for her. Mark Twain's note put it exactly - there were five kinds of actresses, and Sarah Bernhardt. An idol built at distance.",
+      "significance": "**The most famous face the pre-cinema stage could make.** Born in Paris in 1844, Bernhardt was by the 1870s the figure the international press called Divine Sarah - Oscar Wilde's 1879 poem of that name had her crowned with lilies at the feet of audiences who would never see her act in a room, and a French paper called her a national institution. Her motto was 'Quand Même' - 'in spite of everything' - which the torments of a career turned into a legend of refusal.\n\n**The 1891 tour was the idol arriving.** In 1891 she left Le Havre on 15 October aboard the L'Amérique on her way to America, and the arrival was covered in the register of a state visit: one account of these tours records the homage shown her as the kind 'usually reserved for royalty', applause and press for a woman most of the auditorium had only met through prints, reviews and playbills. Distance is the mechanism - the audience knew the surface better than the woman, and a finished public surface is exactly what a parasocial idol is made of.\n\n**She stood at the seam between the printed and the cinematic star.** Mark Twain's tribute, written for a tour programme, ranked her apart from every other class of actress, and the cinema that arrived within a generation inherited the structure: the same manufactured distance, the same schedule of manufactured encounters, the same audience that never arrived in time for the making. The counter-argument - that she was simply the greatest actress of her age and the devotion was earned on stage - is kept on the entry. The claim here is narrower: her fame was distributed by the print machinery this corpus files everywhere else under the idol, which makes her the theatre's first systematic case of it.",
+      "verified": false,
+      "medium": [
+        "stage",
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "charlie-chaplin",
+          "type": "preceded"
+        },
+        {
+          "to": "mary-pickford",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "American Heritage, \"Bernhardt in America\"",
+          "status": "unverified",
+          "url": "https://www.americanheritage.com/bernhardt-america",
+          "claim": "The American tours and their register as the article records it: the 1891 departure from Le Havre aboard the L'Amérique, homage usually reserved for royalty, and Mark Twain's programme tribute ranking her apart from every class of actress. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
         }
       ],
       "media_inferred": false,
@@ -8677,6 +8879,71 @@
       "provenance": "sourced"
     },
     {
+      "id": "the-confessional-booth",
+      "title": "The confessional that became a convention",
+      "kind": "mechanism",
+      "year": 1992,
+      "era": "Reality television",
+      "lanes": [
+        "consideration"
+      ],
+      "sections": [
+        "contest"
+      ],
+      "summary": "In 1992 MTV's The Real World gave reality television its least-questioned convention: a person alone in a room, speaking to a camera about what everyone just saw. The confessional was adopted by Survivor, Big Brother and the Housewives, and it endures because it is an interview dressed as a private thought, in a public space everyone pretends is private.",
+      "significance": "**A soap opera that could not afford writers invented a confidante instead.** The Real World began as MTV's attempt at a scripted show for a younger audience; without a writers' budget, the plan became gathering seven strangers in one house and editing the resulting footage. The series premiered on 21 May 1992, and from the start its stock included the confessional - alone time in which a cast member could 'speak directly to a camera about the happenings in the house'. One reference account calls the confessional 'a Real World invention that dozens of other reality shows, including Survivor, Boot Camp, Making of the Band, Big Brother and Road Rules, have adopted'.\n\n**The confession is a manufactured private address.** The producers interviewed cast members on a schedule - in the first season in hallways, stairways, on a roof and once in a bathtub - and trained them to look straight into the lens and tell the story in the present tense, so the audio could work as narration. Later seasons installed a closet with a sofa and a fixed camera; a producer's description, recorded in the press, is the sharpest sentence on the format: 'a public space that everyone pretended was a private space'. The viewer is not a confidante; the viewer is the intended addressee of a scene the crew staged and the editors selected.\n\n**The booth is infrastructure for somebody else's attachment.** The confessional is the compact through which a reality participant becomes a figure you can feel alone with: it manufactures the feeling of being spoken to directly - 'this person is talking directly to me', as one account of the format puts it - and the far side of that conversation is edited by people the viewer never meets. The competing placement, the presenter, fails because the speaker is not an employee assigned the second person on someone else's schedule; the machinery between viewer and figure - who is chosen, when they speak, what the editor keeps - is the platform's property, which is the shelf this entry is filed on. The booth's later children on this site are the reality celebrity and the live stream that inherits the address.",
+      "verified": false,
+      "medium": [
+        "television_unscripted"
+      ],
+      "relations": [
+        {
+          "to": "reality-celebrity",
+          "type": "preceded"
+        },
+        {
+          "to": "twitch-launch",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "The Encyclopedia of Television, \"Real World, The\" (tvencyclopedia.org)",
+          "status": "unverified",
+          "url": "https://www.tvencyclopedia.org/tv-encyclopedia13/real-world-the",
+          "claim": "The spring-1992 origin of the format, the confessionals allowing cast members 'in solitude, to directly address a video camera in a manner similar to a video diary', and the claim that the confessional is 'a Real World invention' adopted by Survivor, Boot Camp, Making of the Band, Big Brother and Road Rules. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The New Yorker, \"How 'The Real World' Created Modern Reality TV\" (E. Nussbaum, 2024)",
+          "status": "unverified",
+          "url": "https://www.newyorker.com/culture/the-weekend-essay/how-the-real-world-created-modern-reality-tv",
+          "claim": "The confessional as a defining trope: intimate interviews repurposed as narration, the present-tense looking-into-the-lens training, the interview locations of the first season, and the later closet-with-camera set-up described as 'a public space that everyone pretended was a private space'. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The Cut, \"How the Reality TV Confessional Shaped Our Digital Lives\" (L. Staples, 2022)",
+          "status": "unverified",
+          "url": "https://www.thecut.com/2022/10/reality-tv-confessional-interview-history-evolution-digital.html",
+          "claim": "The confessional as the moment reality television became a cohesive medium, its function as cast 'thought bubbles', the breaking of the fourth wall, and the direct-address effect described as 'this person is talking directly to me'. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "New York Post, \"How 'The Real World: New York' found its cast - and its success\" (C. Hirsch, 2021)",
+          "status": "unverified",
+          "url": "https://nypost.com/2021/03/04/how-the-real-world-new-york-found-its-cast-and-its-success/",
+          "claim": "The first-season facts: seven cast members in the Soho loft from February to May 1992, thirteen episodes, and the premiere on 21 May 1992. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "the-deaf-beloved",
       "title": "Shag-eared and deaf",
       "kind": "work",
@@ -9063,6 +9330,56 @@
           "status": "retrievable",
           "url": "https://en.wikipedia.org/wiki/Fourth_wall",
           "claim": "The definition and the whole etymology: 'Breaking the fourth wall in a narrative, particularly in drama, is the action of characters violating the convention of the fourth wall, for instance when performers in a play speak directly to or even interact with the audience, when movie or television characters speak directly into the camera, when protagonists in a novel acknowledge the artificiality of the story they are in, or generally whenever fictional characters openly refer to themselves as such.' The concept 'is often attributed to philosopher, critic and dramatist Denis Diderot, who wrote in 1758 that actors and writers should \"imagine a huge wall across the front of the stage, separating you from the audience, and behave exactly as if the curtain had never risen\"'. Diderot's 'un grand mur' 'became \"the fourth wall\" to Leigh Hunt when in 1807 referring to Mr. Bannister': 'No actor enters so well into the spirit of his audience as well as his author, for he engages your attention immediately by seeming to care nothing about you; the stage appears to be his own room, of which the audience compose the fourth wall.' Henry Irving, February 1879: 'It should never be forgotten that the stage has four walls, though the fourth is only theoretical.' 'The first known use of \"fourth wall theory\" follows later that month in a comment on that article in the British periodical Truth.' Vincent Canby 1987: 'that invisible scrim that forever separates the audience from the stage.' Also: 'Breaking the fourth wall is especially common in pantomime and children's theater where - for example, a character might ask the children for help, as when Peter Pan appeals to the audience to applaud in an effort to revive the fading Tinker Bell (\"If you believe in fairies, clap your hands!\")'. Cinema: Mary MacLane's 1918 Men Who Have Made Love to Me, 'the enigmatic author - who portrays herself - interrupts the vignettes onscreen to address the audience directly'; Reefer Madness (1936), Josef Forte as Dr. Alfred Carroll; Groucho Marx in Animal Crackers (1930) and Horse Feathers (1932), the latter advising viewers to 'go out to the lobby'; 'Characters in theatrical animated cartoons, particularly Bugs Bunny and other characters in Warner Bros.' Looney Tunes and Merrie Melodies shorts, regularly broke the fourth wall', with Tex Avery's Daffy Duck and Egghead (1938) and Thugs with Dirty Mugs (1939) named. Woody Allen on Annie Hall (1977): 'I felt many of the people in the audience had the same feelings and the same problems. I wanted to talk to them directly and confront them.' Jerry Lewis, The Total Filmmaker (1971): 'Some film-makers believe you should never have an actor look directly into the camera... I think that is nonsense, and usually I have my actors, in a single, look direct into the camera at least once in a film, if a point is to be served.' And the mockumentary exemption, which is the important one: 'because the camera crew and interview situation may be part of the fictional documentary frame, looking at or speaking to the camera does not always function as a convention.'"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "the-icon",
+      "title": "The icon answers nothing",
+      "kind": "work",
+      "year": 787,
+      "era": "Medieval",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "In 787 the Second Council of Nicaea ended the first phase of the Byzantine iconoclastic dispute and defined what an icon was for: the honour paid to the image passes to the figure it shows. Icons were lawful because in Christ the invisible God had been seen. The panel itself never answered anyone.",
+      "significance": "**The council drew a line only the second phase of iconoclasm would redraw.** The Byzantine dispute over images ran from the reign of the emperor Leo III in the 730s; the Second Council of Nicaea, summoned in 787, closed the first phase by declaring the veneration of icons lawful and orthodox. Its formula rests on a distinction the church still repeats: relative veneration (proskynesis - the honour, the greeting) was owed to the image, while true worship (latreia) belonged to God alone. The classical backing was Basil of Caesarea's sentence that the honour paid to the image passes to the prototype - the figure the image shows.\n\n**What the icon is for makes this site's subject in paint.** The devotee stands before a panel understood, in the argument of John of Damascus and later the Studite writers, to participate in the figure it shows, so that a prayer said 'through' the image is addressed to somebody who is not in the room. The venerated panel cannot answer, and nobody expects it to; the whole doctrine runs on the reply being withheld here and heard elsewhere. The icon is a face in a church that speaks to nobody back - the painted absence this corpus already records in the empty-wall entry, arriving as an official theology rather than a habit.\n\n**The counter-argument is the one the council had to defeat, and it is kept on the entry rather than resolved.** The iconoclasts charged the practice as idolatry; the council's answer was that honour directed through an image is not the worship of wood and pigment, and the plain reading of the ban on graven images was set against the Incarnation - the unseeable God had been seen in Christ. The settlement did not hold: the icons were banned again in 815 and restored for good only in 843. One political parallel the same argument used is worth keeping - the imperial portrait honoured an absent emperor exactly as an icon honours an absent Christ, which is the civic version of the same structure.",
+      "verified": false,
+      "medium": [
+        "visual_art",
+        "theology"
+      ],
+      "relations": [
+        {
+          "to": "margery-kempe",
+          "type": "preceded"
+        },
+        {
+          "to": "lewis-chessmen",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Brunel University research archive (thesis full text)",
+          "status": "unverified",
+          "url": "https://bura.brunel.ac.uk/bitstream/2438/5323/1/FulltextThesis.pdf",
+          "claim": "The iconoclasm dispute and its doctrinal mechanism as the thesis treats it: the Second Council of Nicaea in 787 ending the first phase, the proskynesis/latreia distinction, Basil's honour-passes-to-the-prototype formula, John of Damascus and the hypostasis argument of the Studites, the imperial-portrait parallel, and the second phase running to the final restoration of the icons in 843. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Byzantine Iconoclasm\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Iconoclasm",
+          "claim": "The two periods of the dispute and their dates: the council at Nicaea in 787 ending the first Iconoclastic period, and the final restoration of the icons at the orthodox synod of 843. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
         }
       ],
       "media_inferred": false,

@@ -303,3 +303,58 @@ Research-specific decisions worth keeping:
 - **Letters page**: the "cover-dated March 1962, on sale in late 1961" tension
   is preserved inside the CBR claim; the No-Prize envelope line is quoted from
   Wikipedia's article on the No-Prize.
+
+## 2026-10-08 - second media batch: radio's 1930 pin breaks, and the rest follow
+
+The 1910s batch left stage 1, comics 2, visual_art 2, radio 5. This round added
+six more, all `unverified` with the index-read REASON and recorded in
+`tools/add_second_media_batch_entries.py` and
+`tools/add_second_media_batch_placements.py`:
+
+| entry | year | medium | shelf | the argument in one line |
+|---|---|---|---|---|
+| `the-icon` | 787 | visual_art+theology | divine/christ | honour paid to the image passes to the prototype - address, not spectatorship |
+| `sarah-bernhardt` | 1891 | stage+film | persona/idol | the Divine Sarah travelled ahead of any performance; the tour was the surface |
+| `aimee-semple-mcpherson` | 1924 | radio+theology | persona/presenter | KFSG was institutional direct address on a schedule; the cleric `not` is the contested line |
+| `peanuts` | 1950 | comics | character/fictional-protagonist | unrequited love as a written character's interior; no performer to leave the costume |
+| `babe-ruth` | 1927 | sport | persona/idol | 60 in 1927 is a finished work; the ghostwritten columns are the idol's publicist machinery |
+| `the-confessional-booth` | 1992 | television_unscripted | institution/platform | the room sits between you and the cast member, which a church or club does not |
+
+Research-specific decisions worth keeping:
+
+- **the-icon**: dated 787, the Second Council of Nicaea closing the first
+  iconoclasm, not the 843 triumph or the first outbreak c.730 - Nicaea is the
+  crisply sourced anchor. The Brunel thesis PDF was read via the search index
+  (index-read REASON, `unverified`); Wikipedia's Byzantine Iconoclasm article is
+  the second record. The entry does not claim the council "settled" iconodulia -
+  iconoclasm returned.
+- **sarah-bernhardt**: the 1891 departure aboard L'Amérique and the homage
+  "usually reserved for royalty" are American Heritage's; the "five kinds of
+  actresses" line is quoted via the tour programme in that piece. The date is
+  1891 because the entry is the first American tour, the moment a pre-existing
+  European figure arrived as a manufactured public image.
+- **aimee-semple-mcpherson**: the pin is now 1924 (KFSG launch, 6 February) -
+  the crispest verifiable anchor - not the ~1926 date an earlier note guessed.
+  1922 KZY Oakland is recorded as "her first sermon over the radio" per church
+  history and left as the church's claim; reception letters from Illinois,
+  Indiana, Pennsylvania and New Zealand, the day-by-day sponsor-a-day scheme and
+  the "Do you pledge / We do" exchange are the radio-heritage source. The
+  Hoover "minions of Satan" telegram is recorded as a legend the radio historians
+  dispute (theradiohistorian.org/lax/hoover-telegram.html), so the entry
+  carries the never-taken-off-air account without asserting the telegram as
+  fact.
+- **peanuts**: dated 1950 (first strip, 2 October), not a Schulz-year; TIME 2014
+  and Britannica corroborate the 350m readers and the unrequited-love thesis.
+  The Charlie Brown "Good ol' CharlieBrown... How I hate him!" opener is quoted
+  from Britannica.
+- **babe-ruth**: 1927 (the 60-home-run season) is the year, not a birth or death;
+  the Trimble Colby thesis (digitalcommons.colby.edu) is the strongest record
+  and carries the ghostwritten-columns finding; Britannica corroborates the
+  1927 season and the Maris 1961 eclipse. The placement counter
+  (`persona/sport-figure`) is argued honestly in the `why`.
+- **the-confessional-booth**: the "Real World invention" claim is the TV
+  encyclopedia's; the Verschoor-closet and "talking directly to me" observations
+  are the Nussbaum New Yorker (2024) and The Cut (2022) pieces; the NY Post
+  Hirsch (2021) supplies the adoption timeline across Survivor, Boot Camp,
+  Making of the Band, Big Brother and Road Rules. Dated 1992 - The Real World's
+  premiere - not the date any later show adopted the device.
