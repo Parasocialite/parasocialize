@@ -358,3 +358,66 @@ Research-specific decisions worth keeping:
   Hirsch (2021) supplies the adoption timeline across Survivor, Boot Camp,
   Making of the Band, Big Brother and Road Rules. Dated 1992 - The Real World's
   premiere - not the date any later show adopted the device.
+
+## 2026-10-08 - third batch: the It Girl, the Sphinx, and the forum that scored the edit
+
+Three more, all `unverified` with the index-read REASON and recorded in
+`tools/add_third_batch_entries.py` and `tools/add_third_batch_placements.py`.
+They take `persona/idol` to 24 and `institution/fandom-body` to 13, and the
+three eras to Silent era 6, Cinema 9, Reality television 3 (film 26,
+television_unscripted 13).
+
+| entry | year | medium | shelf | the argument in one line |
+|---|---|---|---|---|
+| `clara-bow` | 1927 | film | persona/idol | 45,000 letters in one month, addressed to a surface the studio assembled and kept counted |
+| `greta-garbo` | 1932 | film | persona/idol | the ballerina's line became the actress's biography, and her own correction did not take |
+| `edgic` | 2002 | television_unscripted | institution/fandom-body | a rating key members wrote, a schedule volunteers keep, a boundary the group expels for crossing |
+
+Seven relations, 531 -> 538 edges: `contemporary` babe-ruth (1927, same year);
+`succeeded` the-fan-magazine (1911) and fan-mail (1920) from clara-bow, clara-bow
+(1927) from greta-garbo, forum-culture (1999) and the-confessional-booth (1992)
+from edgic; `preceded` the-algorithm-decides (2016) from edgic, which points into
+the future and is asserted because 2002 < 2016.
+
+Research-specific decisions worth keeping:
+
+- **clara-bow**: dated 1927 - the six Paramount releases and It, the year the
+  studio assembled the girl - not 1929, the month the 45,000 letters arrived.
+  The five-year deal (signed 16 August 1926, $1,700 rising to $4,000), the six
+  1927 releases, the lowest-major-star salary with bonuses in trust against the
+  morals clause, Glyn writing both the story and the screenplay, the box-office
+  ranks (first 1928 and 1929, second 1927 and 1930) and the henna tripling are
+  Wikipedia's; PBS NewsHour (2024) corroborates the 45,000-a-month scale by 1929
+  and the henna; American Heritage (1995) independently dates the 45,000 to
+  January 1929; Vogue (2017) carries the phrase's origin and Glyn's definition;
+  Moviediva's Wild Party piece carries January 1929 as her first talkie filming,
+  Colleen Moore a distant second, the Fame and Fortune Contest at sixteen and
+  Arzner's "automatically a natural". Arzner is also the entry's own
+  counter-paragraph - no contract manufactures that - and the claim is narrowed
+  to what the letters were addressed to, which is what the shelf is for.
+- **greta-garbo**: dated 1932 - Grand Hotel and the contract expiring after As
+  You Desire Me - not 1955 (the LIFE correction) or 1937 (the letter). The LIFE
+  January 1955 text is quoted through the garboforever.com scan (index-read, so
+  `unverified`): "I never said, I want to be alone ... I only said, I want to be
+  let alone! There is all the difference", plus the mechanism line - the myth
+  "built up by her dogged defences of her personal privacy". Smithsonian (2017)
+  and the Guardian (2019) are the two accounts that still open with the line she
+  denied; Wikipedia's Garbo and Grand Hotel articles carry the MGM "eventually
+  capitalised" arrangement, the AFI's #30 ranking of the line (2005) and the
+  line in its scene as Grusinskaya. The placement counter is
+  `character/played-role` and it is the strongest available form - the line is
+  the character's - but the documented transfer went the other way: she
+  corrected it and the correction failed, which is the idol mechanism keeping
+  a surface working without her presence.
+- **edgic**: dated 2002 (season four on Survivor Sucks, credited to KernelQ per
+  The Ringer 2020), not 2005 (the guidelines thread, used here as the archive of
+  the practice) or 2016 (the Purple Rock critique). Inside Survivor's intro and
+  glossary define the portmanteau and the practice; the tapatalk revival of the
+  S2 Edgic thread supplies the five categories, the tone/visibility 1-5 schedule
+  and the roster that includes KernelQ; Purple Rock supplies the counter-case
+  (no official edgic, spoiler contamination, "There's no such thing as unspoiled
+  edgic", the pre-season-24 split) and Surviving Tribal the fan glossary. The
+  entry already says why it is filed as an institution - "what attaches is the
+  group's rule, not the contestant" - so the shelf contest was platform vs
+  fandom-body, decided by the fandom-body test: rules that are not the
+  platform's, and a membership boundary the split enforced.

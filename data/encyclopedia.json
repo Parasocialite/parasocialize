@@ -1481,6 +1481,84 @@
       "provenance": "sourced"
     },
     {
+      "id": "clara-bow",
+      "title": "The girl the studio built",
+      "kind": "person",
+      "year": 1927,
+      "era": "Silent era",
+      "lanes": [
+        "application",
+        "manipulation"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "Paramount signed Clara Bow in 1926 and released six of her pictures in 1927, one of which - It - put a novelist's definition of 'It' onto a face and left the language with the phrase 'It Girl'. At the top of her fame she was the most-answered person in America: more than 45,000 fan letters arrived in January 1929 alone, and when fans found out she used henna, sales of the dye tripled.",
+      "significance": "**A novelist defined the quality, and the studio cast a woman to hold it.** Elinor Glyn wrote both the story and the screenplay of It (1927) and gave the age its definition of the thing - 'To have It, the fortunate possessor must have that strange magnetism which attracts both sexes' - and the picture gave Bow the phrase she has been known by ever since, the It Girl. Paramount had signed her to a five-year deal on 16 August 1926, at $1,700 a week rising to $4,000 by the last year, and in 1927 alone it released six pictures with her in them, among them It and Wings. One account of her years at Paramount records her salary as the lowest of any major star, with her bonuses put in trust against the morals clause of that contract.\n\n**The reply came in at a scale the studio could count, and the audience copied her as well as writing to her.** In January 1929 - the month she began filming her first talkie - she received more than 45,000 fan letters and stood as the number one star in America, with Colleen Moore a distant second. When fans found out she put henna in her red hair, sales of the dye tripled: the audience did not only write, it reproduced the surface. Her own rise had run through a public contest - at sixteen she won Motion Picture magazine's Fame and Fortune Contest from a line of auditioning rivals - so the correspondence was part of the industry's apparatus from the start. She was named the first box-office draw in 1928 and 1929, and the second in 1927 and 1930.\n\n**The counter-argument is that she was simply the most alive person on the screen, and the record backs it.** Dorothy Arzner, who directed her in 1927, called her 'automatically a natural' and 'full of animation and projection of her thoughts and emotions', and no contract manufactures that. The claim here is narrower: what the letters were addressed to was assembled out of a novelist's definition, a five-year contract, a hair colour and a studio that kept the count - and the audience's half of it was unpaid work, writing and dyeing and copying, done at a distance the studio controlled. Whatever she was like in the room, the thing that drew more than forty-five thousand letters in one month was a surface, and surfaces are what this shelf exists to file.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "babe-ruth",
+          "type": "contemporary"
+        },
+        {
+          "to": "the-fan-magazine",
+          "type": "succeeded"
+        },
+        {
+          "to": "fan-mail",
+          "type": "succeeded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Wikipedia, \"Clara Bow\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Clara_Bow",
+          "claim": "The facts the entry rests on: the five-year Paramount deal signed 16 August 1926 at $1,700 a week rising to $4,000 by the last year; the six Paramount releases of 1927 (It, Children of Divorce, Rough House Rosie, Wings, Hula, Get Your Man); It giving her the nickname the It Girl with Elinor Glyn writing the book and the screenplay; more than 45,000 fan letters in a single month, January 1929; the first box-office draw of 1928 and 1929 and the second of 1927 and 1930; and henna sales tripling when fans learned she used it. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "PBS NewsHour, \"Who is Clara Bow from Taylor Swift's new album?\" (2024)",
+          "status": "unverified",
+          "url": "https://www.pbs.org/newshour/arts/who-is-clara-bow-from-taylor-swifts-new-album",
+          "claim": "The scale of the reply as PBS records it: by 1929 she was receiving 45,000 fan letters a month, and that same year sales of the reddish dye henna tripled as fans tried to mimic her look; plus the 1927 star turn in It. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Vogue, \"Happy Birthday, Clara Bow! Here, a Look back at the Original It Girl\" (L. Yaeger, 2017)",
+          "status": "unverified",
+          "url": "https://www.vogue.com/article/clara-bow-birthday-curls",
+          "claim": "The origin of the phrase and its definition: Bow as the world's first It girl after the 1927 film It, Elinor Glyn's written definition of It as a strange magnetism which attracts both sexes, the box-office ranking of 1928 and 1929 against 1927 and 1930, and 45,000 fan letters in a single month at the height of her fame. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Moviediva, \"The Wild Party\" (2022)",
+          "status": "unverified",
+          "url": "https://moviediva.com/reviewpages/mdwildparty/",
+          "claim": "The studio side of the record: January 1929 as the month she began filming her first talkie, her standing as the number one star in America with 45,000 fan letters and Colleen Moore a distant second, the studio exploiting her fame, her salary as the lowest of any major star with bonuses held in trust against the morals clause, her win at sixteen in Motion Picture magazine's Fame and Fortune Contest, and Dorothy Arzner's on-set assessment of her as a natural full of animation and projection of her thoughts and emotions. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "American Heritage, \"The It Girl\" (1995, Vol. 46 Issue 4)",
+          "status": "unverified",
+          "url": "https://www.americanheritage.com/it-girl",
+          "claim": "Independent corroboration of the month: 45,000 fan letters in January of 1929, with Glyn's It Girl declaration and Bow's standing alongside Garbo, Gish, Pickford and Swanson. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "clerks-beat-algorithms",
       "title": "Clerks beat algorithms",
       "kind": "mechanism",
@@ -2705,6 +2783,84 @@
       "provenance": "sourced"
     },
     {
+      "id": "edgic",
+      "title": "The forum that scored the edit",
+      "kind": "mechanism",
+      "year": 2002,
+      "era": "Reality television",
+      "lanes": [
+        "consideration",
+        "manipulation"
+      ],
+      "sections": [
+        "contest"
+      ],
+      "summary": "Edgic - editing plus logic - is the practice of grading every contestant's screen presence week by week: a category (invisible, under the radar, middle of the road, complex personality, over the top), a tone and a visibility score, charted in public so a community can read what the production is doing and name the winner before the merge. It began on the Survivor Sucks forum during Survivor's fourth season in 2002.",
+      "significance": "**The instrument was written by forum users, in season four, and it has never been official.** Inside Survivor's glossary records the portmanteau - edit plus logic - as coined by members of the Survivor Sucks forum, and its introduction page describes the practice: a fan decided to apply media theory and statistical analysis to his favourite show to work out who the winner was from the editing, assigning each player a rating every episode from their portrayal, their share of screen time and other factors. The Ringer's history fixes the origin: Survivor Sucks, during season four, in 2002, credited to a user called KernelQ, remembered by one of the community's organisers as part man and part myth, and by season nine many of its permanent principles and methods were in place. The board's own archive shows the machinery running: a 2005 thread lays out the guidelines - invisible, under the radar, middle of the road, complex personality, over the top, each with a tone and a visibility from one to five - a rating schedule with dates, and a roster of raters that includes KernelQ himself.\n\n**What makes it this site's subject is that the grade is written for somebody who will never read it, and the group that keeps it has a constitution.** Each week the community scores a real person's edited presence - not the programme but an individual's portrayal - and the work is collective and kept: the successor forum Unspoiled Edgicers Unite holds transcripts of confessionals, visibility charts for every episode and a complete set of colour-coded edgic charts for every season, early ones rewatched and rated after the fact, and it has grown past two thousand members. The board split over a rule rather than over a contestant: spoilers were leaking into the ratings, the original board's answer was that there is no such thing as unspoiled edgic, and a spoiler-free forum was founded in response - a membership boundary, enforced. The archive also settles arguments opinions cannot: its organisers report that the community's own records show female winners edited differently and talking about half as much as male winners.\n\n**The counter-argument is that this is analysis rather than attachment, and edgic's critics put it almost that way.** The Purple Rock podcast's complaint is that there is no official edgic at all - the consensus version is whatever Survivor Sucks runs it as - and that the charts are contaminated by spoilers, since the board that supplies them is the board that leaks them. That is the honest challenge, and it is why this entry is filed as an institution rather than as a tie: what attaches is the group's rule, not the contestant, and a grade written weekly for a person who will never see it can be described as data rather than as attention. The narrower claim stands anyway: a vocabulary the audience wrote for itself, a schedule its volunteers keep, and a boundary it expels people for crossing are the workings of a body rather than of a viewership - and the forum, not the show, is what holds it together.",
+      "verified": false,
+      "medium": [
+        "television_unscripted"
+      ],
+      "relations": [
+        {
+          "to": "forum-culture",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-confessional-booth",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-algorithm-decides",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "The Ringer, \"Edgic of Extinction: How Hardcore Edit Analysts Unravel the Mysteries of Reality TV\" (B. Lindbergh, 2020)",
+          "status": "unverified",
+          "url": "https://www.theringer.com/2020/05/13/tv/survivor-edgic-analysis-winners-edit",
+          "claim": "The origin and history as the article records it: edgic originating on the Survivor Sucks forum during Season 4 in 2002, created by the user KernelQ, its foundational community and record-keeping at Unspoiled Edgicers Unite with more than 2,000 members, the principles and methods in place by season nine, the goal of picking the winner before the merge, the spoiler crisis that drove the splinter site, and the archive showing female winners edited differently and talking about half as much as male winners. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Inside Survivor, \"Survivor Edgic - An Introduction\" (M. Holmes, 2015)",
+          "status": "unverified",
+          "url": "https://insidesurvivor.com/survivor-edgic-an-introduction-3094",
+          "claim": "The definition and the portmanteau: edgic combining editing and logic, a concept devised by members of the Survivor Sucks forums to determine each season's winner from the edit, assigning a rating to each player per episode based on portrayal, percentage of screen time and other factors, and also useful for mapping a character's story arc. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Survivor Sucks forum thread, \"S2 Edgic (Editing and Logic)\" (2005)",
+          "status": "unverified",
+          "url": "https://www.tapatalk.com/groups/survivorsucks/s2-edgic-editing-and-logic-t10185.html",
+          "claim": "The practice as the community ran it: written guidelines defining the ratings INV, UTR, MOR, CP and OTT with their tone categories and visibility measures from low to high, a dated season-long schedule for raters to post their scores, and a roster of participants that includes KernelQ. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The Purple Rock Survivor Podcast, \"The Problem with Edgic\" (2016)",
+          "status": "unverified",
+          "url": "https://www.purplerockpodcast.com/the-problem-with-edgic/",
+          "claim": "The critics' case and the governance: no official edgic with the consensus version existing on the Survivor Sucks forum, spoilers being baked into that version, a group of devotees breaking off before season 24 to form a spoiler-free site, and the original board's response that there is no such thing as unspoiled edgic. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Surviving Tribal, \"Survivor glossary: Does edgic truly predict winners?\" (2017)",
+          "status": "unverified",
+          "url": "https://survivingtribal.com/2017/09/28/survivor-glossary-edgic-truly-predict-winners/",
+          "claim": "The practice and its stated purpose as a fan glossary records it: edgic describing the logic behind what the editing team shows over an episode to predict the narrative and character arcs, the goal of a definitive winner pick after the merge episode, and the term's creation credited to Survivor Sucks. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "edwin-drood",
       "title": "Vote for the murderer",
       "kind": "work",
@@ -3894,6 +4050,76 @@
         }
       ],
       "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "greta-garbo",
+      "title": "Let alone, not alone",
+      "kind": "person",
+      "year": 1932,
+      "era": "Cinema",
+      "lanes": [
+        "manipulation",
+        "consideration"
+      ],
+      "sections": [
+        "idol"
+      ],
+      "summary": "In Grand Hotel (1932) Greta Garbo said 'I want to be alone', and the line became her biography: the press called her the Swedish Sphinx and MGM capitalised on the mystery. In LIFE in January 1955 she corrected the record - she had wanted to be let alone, not alone, and there is all the difference - but the correction did not take, and the letters she wrote at the time read lonelier than the legend does.",
+      "significance": "**The line belonged to a ballerina, and then it belonged to her.** As Grusinskaya in Grand Hotel (1932) Garbo says 'I want to be alone' - once, then 'I just want to be alone', then again in conversation with the Baron - and the picture won that year's Academy Award for Best Picture. In 2005 the American Film Institute put the line thirtieth among a century's most memorable movie quotes. The press meanwhile called her the Swedish Sphinx, and the arrangement is plain in the record: she spurned Hollywood's publicity rules, MGM eventually capitalised on that, because it bolstered the image of the silent and reclusive woman of mystery, and her MGM contract expired after As You Desire Me later in 1932. So the surface had two maintainers - the woman who refused and the studio that found the refusal useful.\n\n**In January 1955 she corrected the sentence she is famous for saying.** LIFE's piece of that month has her: 'I never said, I want to be alone, she told a friend recently. I only said, I want to be let alone! There is all the difference.' The same article states how the myth was assembled: repeatedly, it reads, the myth of Garbo's aloneness was built up by her dogged defences of her personal privacy - her furtive comings and goings, her headlong flights from fans and reporters, her refusal to allow strangers or even strange technicians onto the sets of her movies. The audience's picture was therefore assembled out of refusals it could watch her make, while the private record runs the other way: writing to a friend in 1937 she said 'I go nowhere, see no one', and 'It is hard and sad to be alone, but sometimes it's even more difficult to be with someone.'\n\n**The counter-argument is that there was no myth at all, only a private woman who disliked the noise, and it is half right.** LIFE records periods of determined solitude and notes that she was seldom literally alone - she had friends, and the piece spends its length on dinners, a prince and a game of tennis. What this entry attaches to is narrower and sits on the audience's side: the finished surface of refusal, which she was not present to contradict and which went on working after she stopped making pictures - thirteen years of it by LIFE's count. Distance is this shelf's property, and it explains why the correction failed: a correction is itself a reply, and the legend did not need one. The accounts read for this entry in 2017 and 2019 both still open with the line she denied.",
+      "verified": false,
+      "medium": [
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "clara-bow",
+          "type": "succeeded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "LIFE, January 1955 (press article, reprinted at GarboForever)",
+          "status": "unverified",
+          "url": "http://www.garboforever.com/1955_Life-3.htm",
+          "claim": "The correction and the mechanism, in the magazine's own words: 'I never said, I want to be alone ... I only said, I want to be let alone! There is all the difference'; the myth of Garbo's aloneness built up by her dogged defences of her personal privacy, her flights from fans and reporters and her refusal to allow strangers or technicians onto her sets; her periods of determined solitude and the fact that she was seldom literally alone; and the mystery of her thirteen-year absence from the screen. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Smithsonian, \"The Profound Loneliness of Greta Garbo\" (B. Katz, 2017)",
+          "status": "unverified",
+          "url": "https://www.smithsonianmag.com/smart-news/profound-loneliness-greta-garbo-180967417/",
+          "claim": "The legend as it was still being told in 2017 and the correction underneath it: 'I want to be alone' as the most famous quip attributed to her, her practice of shunning reporters, premieres and fan mail, and her claim that she was misquoted according to the 1955 LIFE piece. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The Guardian, \"'I go nowhere, I see no one': Garbo letters reveal lonely life of film icon\" (V. Thorpe, 2019)",
+          "status": "unverified",
+          "url": "https://www.theguardian.com/film/2019/oct/05/garbo-letters-for-sale-echo-lonely-life-of-film-icon",
+          "claim": "The private record against the legend: the famous phrase as the line her character speaks in her 1932 hit Grand Hotel and how it fitted her image as a star who shunned Hollywood; her 1937 letter 'I go nowhere, see no one'; and 'It is hard and sad to be alone, but sometimes it's even more difficult to be with someone'. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Greta Garbo\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Greta_Garbo",
+          "claim": "The manufacture and its owners: MGM eventually capitalising on her aversion to publicity because it bolstered the image of the silent and reclusive woman of mystery, the press routinely calling her the Swedish Sphinx, Grand Hotel winning that year's Best Picture, her contract expiring after As You Desire Me (1932) and her return to Sweden, and the later LIFE explanation that she had said let alone rather than alone. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Grand Hotel (1932 film)\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Grand_Hotel_(1932_film)",
+          "claim": "The line itself in its setting: Garbo as Grusinskaya delivering 'I want to be alone' and repeating 'I just want to be alone', the AFI ranking of the line thirtieth among movie quotes, and her later insistence that she only said she wanted to be let alone. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
       "provenance": "sourced"
     },
     {
