@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 206 entries, 504 relations, 299 generated pages.
+relationships. 212 entries, 520 relations, 305 generated pages.
 
 ## The rule that outranks everything
 
@@ -97,7 +97,7 @@ ship a falsehood on this site and it was done once already.
   English. Probe both directions before trusting a regex change.
 - **`is_sourced()` is `bool(e.get("sources"))`, so thesis entries counted as
   unsourced** and inflated the backlog by 13. The board now excludes them. If the
-  three numbers ever stop reconciling to 206, suspect this class of bug first.
+  three numbers ever stop reconciling to 212, suspect this class of bug first.
 - **Report a defect once, verified.** A claimed arithmetic mismatch was reported
   twice before it was checked against the data. It was a misparse of my own
   verification regex; the arithmetic had been correct throughout.
@@ -610,10 +610,10 @@ ship a falsehood on this site and it was done once already.
 
 ## Architecture
 
-- `data/encyclopedia.json` — the single source of truth. 206 entries.
+- `data/encyclopedia.json` — the single source of truth. 212 entries.
 - `tools/build_cards.py` — all page generation, the citation board, section
   fronts, and the entry Watch block (renders only when a real `video` URL exists).
-- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 206 entries.
+- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 212 entries.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
@@ -643,7 +643,7 @@ ship a falsehood on this site and it was done once already.
   existing axes could express the difference: a companion can be invented,
   worked, alive, worshipped, mirrored or haunted, and each produces a different
   relationship.
-- `data/taxonomy_placements.json` / `data/story_placements.json` — all 206
+- `data/taxonomy_placements.json` / `data/story_placements.json` — all 212
   entries and all 48 stories placed, each with a written reason. The reason is
   printed on the page rather than kept in a commit message, so a placement can
   be argued with instead of merely trusted.
@@ -693,9 +693,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-193 sourced | 0 not yet stood behind | 13 thesis   = 206
+199 sourced | 0 not yet stood behind | 13 thesis   = 212
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-348 of 449 sources have a locator
+367 of 468 sources have a locator
 0 of 252 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -709,7 +709,7 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 15 media values, up from 13 (stage and visual_art added)
 ```
 
-Board must reconcile to 206. `add_source.py` is authoritative.
+Board must reconcile to 212. `add_source.py` is authoritative.
 
 **These four lines are typed, and they are the defect this file warns about
 twice** - "a number inside a paragraph is not obviously a claim, which is what
@@ -915,7 +915,7 @@ the project.
    run, and the page now says how long ago that was.
    `link_audit.py` now checks what scripts `fetch()` against what is actually
    deployed, which is the general form of this bug.
-10. **The other 203 episodes.** All 206 entries carry `summary` and
+10. **The other 209 episodes.** All 212 entries carry `summary` and
    `significance`, so an episode exists for each and only the hand-written
    `hook` is missing. `tools/episode.py DRAFTS` has 3. Mechanically derivable,
    but a hook is the one line that makes a stranger stop scrolling, so it wants

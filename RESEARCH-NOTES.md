@@ -257,3 +257,49 @@ Order of work per item 21 held throughout: complete the citation first, then the
 - "Witzel, The Cultivation and Harvesting of Parasocial Relationships for Evangelism" (`the-priest`, `crossover`): Crossref title search returns nothing by Witzel (top hits are unrelated "Parasocial Relationships" generics). Likely a thesis with no DOI. Needs library-catalogue research, not registry search.
 
 **Tool limitation found:** `attach_twin_locators.py`'s COMPOUND guard (`;\s|\s&\s|\sand\s+[A-Z]`) fires on author-list ampersands, so it refuses same-entry short forms like the Yu record above. The guard is left as-is (it is load-bearing for the `prince` class) — the read-allow-list tool exists for exactly these cases.
+
+
+## 2026-10-08 - media supply: six entries lift stage, comics, visual_art and radio
+
+Item 32/33's measurements (comics 1, radio 2, `stage` 0, `visual_art` 0 in the
+193-entry corpus) set the target; the 1910s batch (commit d8664d4) added six
+and left stage 1, comics 2, visual_art 2, radio 5. Six more were added this
+round, all `unverified` with the index-read REASON, and recorded in
+`tools/add_media_entries.py` and `tools/add_media_placements.py`:
+
+| entry | year | medium | shelf | the argument in one line |
+|---|---|---|---|---|
+| `rocky-horror` | 1976 | stage+film | cosmology/myth-system | the audience performs its own side of a one-sided tie, carried by the room with no owner |
+| `edwin-drood` | 1985 | stage | cosmology/canon | the audience votes the ending into being inside a band the production has guaranteed |
+| `death-in-family` | 1988 | comics | cosmology/canon | Robin died by 72 votes on a premium-rate line; canon altered for pocket change |
+| `marilyn-diptych` | 1962 | visual_art | character/historic-as-character | fifty identical Monroes impose a type the real biography cannot survive |
+| `amos-n-andy` | 1928 | radio | institution/fandom-body | forty million listeners, and the audience caricatured by it organised |
+| `marvel-letters-page` | 1962 | comics | institution/platform | the printed reply that made fan-mail's exception a schedule |
+
+Research-specific decisions worth keeping:
+
+- **Rocky Horror**: the midnight origins (Waverly start ~April 1976, arranger Tim
+  Deegan, manager Denise Borden, the first documented callback during Labor Day
+  weekend 1976) rest on the fan-run history page and are recorded `unverified`
+  for exactly that reason; the entry is dated 1976 (the midnight phenomenon),
+  not 1973 (stage) or 1975 (film), which is why `contemporary con-culture`
+  (1976) is valid.
+- **Death in the Family**: the window is kept as a discrepancy - DC's blog says
+  36 hours, Wikipedia says 35 from 9 a.m. Eastern on 15 September 1988. The
+  verdict-number mapping (1-900-720-2660 live / 2666 die) is *not* asserted in
+  the entry text because sources have repeated it both ways; the agreed core -
+  two numbers, one verdict apiece, fifty cents - is. The 10,614 / 5,343 / 5,271
+  / 72-margin figures are three-way corroborated (Wikipedia, DC, howtolovecomics);
+  the 38-vote lead with 15 minutes left is howtolovecomics's disclosure claim.
+- **Drood**: the 1,200 endings and "it won't be rigged in any way" lines are
+  the director's, from the NYT preview; the hedge (fixed results in smaller
+  companies, uncounted votes for the obvious culprit) is Wikipedia's. The two
+  vote entries are placed in the same shelf on purpose.
+- **Marilyn Diptych**: Tate carries the caption facts and Warhol's timing;
+  Wikipedia the 50-image structure. The empty `companion/object` shelf is named
+  as the honest counter in the placement `why`.
+- **Amos 'n' Andy**: the 40-million / "over half of the nation's radios" scale
+  is four-way corroborated; the 700,000-petition figure is Wikipedia's alone.
+- **Letters page**: the "cover-dated March 1962, on sale in late 1961" tension
+  is preserved inside the CBR claim; the No-Prize envelope line is quoted from
+  Wikipedia's article on the No-Prize.

@@ -315,6 +315,72 @@
       "provenance": "sourced"
     },
     {
+      "id": "amos-n-andy",
+      "title": "The audience organised against the show",
+      "kind": "work",
+      "year": 1928,
+      "era": "Radio",
+      "lanes": [
+        "consideration"
+      ],
+      "sections": [
+        "idol",
+        "world"
+      ],
+      "summary": "Two white broadcasters voiced two fictional black men from March 1928, and at its peak about forty million listeners a night followed their fortunes - half the nation's radios, by one estimate. The audience the show loved most was also the one it caricatured, and from 1931 that audience organised.",
+      "significance": "**The audience that loved the show most was the one it caricatured, and that audience organised.** Amos 'n' Andy began on WMAQ in Chicago on 19 March 1928, created, written and voiced by two white performers, Freeman Gosden and Charles Correll, playing two fictional black men. It grew out of Sam 'n' Henry, which had itself begun as the pair's attempt to adapt a comic strip for radio - the broadcast history in the records calls the show a \"radio comic strip\". By the 1930-31 peak the audience was enormous: roughly forty million listeners a night, half the nation's radios by the Smithsonian's count, listening to a nightly serial that the record calls the fountainhead of both the situation comedy and the soap opera.\n\nThe complaint ran through the same machinery the fandom ran. After a December 1930 attack in Abbott's Monthly by Bishop W. J. Walls, the Pittsburgh Courier pushed a six-month campaign, and the reference account records that more than 700,000 African-Americans petitioned the Federal Radio Commission about the show's stereotyping in 1931. The television version, with an all-Black cast told to keep its voices close to the white originals, drew the NAACP's formal protest within days of its June 1951 premiere: its bulletin on why the show should be taken off the air itemised the stock figures - \"every character is either a clown or a crook\". CBS cancelled the show in 1953; the sponsor had discontinued its advertising the same June.\n\nThis is the corpus's diagnostic for an audience that exists as an institution rather than a screen: its machinery is its own. A newspaper campaign, a petition to a regulator, a sponsor's boycott notice - each acted on people who were not members of anything the audience owned. **The attachment to the characters was real enough to make the complaint precise, and the complaint was that the images were not theirs to love.**",
+      "verified": false,
+      "medium": [
+        "radio"
+      ],
+      "relations": [
+        {
+          "to": "comic-strip",
+          "type": "succeeded"
+        },
+        {
+          "to": "mickey-mouse",
+          "type": "contemporary"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Wikipedia, \"Amos 'n' Andy\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Amos_%27n%27_Andy",
+          "claim": "The premiere on 19 March 1928 on WMAQ, the Gosden and Correll credits, the 40-million peak audience of 1930-31, the 1931 petition by more than 700,000 African-Americans to the Federal Radio Commission, the 1951-53 television series and the NAACP bulletin with its itemised characterizations, Blatz withdrawing sponsorship in June 1953, and syndication until 1966. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Museum of Broadcast Communications, \"Amos 'n' Andy\" (radio encyclopedia)",
+          "status": "unverified",
+          "url": "https://www.museum.tv/radio-encyclopedia/amos-n-andy",
+          "claim": "The serial's shape as the industry recorded it: the \"radio comic strip\" framing and the WGN origins around adapting The Gumps, the January 1926 start of Sam 'n' Henry, the move to WMAQ with disc syndication - the \"chainless chain\" - the claim that it was the fountainhead of the situation comedy and the soap opera, and the 1930-31 audience that exceeded 40 million. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Television Academy (interview archive), \"Amos 'n' Andy\"",
+          "status": "unverified",
+          "url": "https://interviews.televisionacademy.com/shows/amos-n-andy",
+          "claim": "The broadcast records the entry leans on: origin on WMAQ on 19 March 1928, claim to be the longest-running radio program in broadcast history, the 1951-53 television version as the first series with an all-Black cast, the NAACP's attempted injunction against its premiere, and the advertising trade's reported \"No Negro performers allowed\". Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Smithsonian Magazine, \"The Long, Unfortunate History of Racial Parody in America\" (G. DuBois Shaw, 2016)",
+          "status": "unverified",
+          "url": "https://www.smithsonianmag.com/smithsonian-institution/long-unfortunate-history-racial-parody-america-180960947/",
+          "claim": "The scale claim in one line: \"As many as 40 million people - over half of the nation's radios - tuned in each week\"; the show's roots in 19th-century blackface minstrelsy and the way radio let the performers stress the oral side of the form. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "anime-import",
       "title": "The anime import boom",
       "kind": "event",
@@ -2062,6 +2128,69 @@
       "provenance": "sourced"
     },
     {
+      "id": "death-in-family",
+      "title": "Robin died by 72 votes",
+      "kind": "event",
+      "year": 1988,
+      "era": "Fandom",
+      "lanes": [
+        "consideration",
+        "manipulation"
+      ],
+      "sections": [
+        "contest",
+        "danger"
+      ],
+      "summary": "In September 1988 Batman's readers called a premium-rate number, fifty cents a call, to decide whether the Joker's beaten Robin lived or died. The poll ran for about a day and a half and came down to 72 votes: 5,343 killed him, 5,271 spared him, and the issue that revealed the verdict had been prepared both ways.",
+      "significance": "**The audience's attachment to a fictional child was measured in change taken out of pockets, and it was a coin flip.** In September 1988 DC Comics asked its readers to settle the lives of the Joker's beaten sidekick by telephone. On the back cover of Batman #427 an advertisement showed Batman carrying the injured Robin and warned that readers could yet \"prevent it with a telephone call\"; two 900 numbers were printed, one for each verdict. The lines were open for about a day and a half from 9 a.m. Eastern on 15 September, and each call cost fifty cents.\n\nThe numbers are the story. 10,614 calls were counted: 5,343 for the death, 5,271 against, a margin of 72. The result was kept secret, and the issue that carried the outcome was prepared two ways and finished in secrecy because the ending could not be known until the tally closed. The editor's own framing is in the records: the telephone poll was an extension of the policy of heeding what fans said in letters and at conventions, and the publisher did not want to waste the technology on whether Firestorm's boots should be red or yellow. \"This had to be important stuff. Life-and-death.\"\n\nThe sources disagree about the window, and the disagreement is kept: the publisher's own account says 36 hours, the reference account says 35, from 9 a.m. Eastern on 15 September. The closeness is the point. One account discloses that, with fifteen minutes left, survival was ahead by 38 votes before the final tally swung; a swing of a few dozen calls changed canon for decades. **A character's death was decided by whoever had a telephone and a dollar, and the margin is why the device keeps being retold.**\n\nThree years earlier a Broadway musical had shown an audience how a vote over a story feels - the relation this page points to - but that vote was free and stayed in the room. Here the vote left the room, priced itself, and could not be repeated once the lines closed. The pair is the same manufactured consequence, one in a theatre and one on a telephone line: both let the audience feel like co-authors of a fiction that never read any of the replies.",
+      "verified": false,
+      "medium": [
+        "comics"
+      ],
+      "relations": [
+        {
+          "to": "edwin-drood",
+          "type": "succeeded"
+        },
+        {
+          "to": "protagonist-parasocial",
+          "type": "instance_of"
+        },
+        {
+          "to": "killing-off",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Wikipedia, \"A Death in the Family (comics)\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/A_Death_in_the_Family_(comics)",
+          "claim": "The vote as recorded: two 900 numbers (one per verdict), the lines open about 35 hours from 9 a.m. Eastern on September 15 1988, 10,614 votes with 5,343 for death and 5,271 against - a margin of 72 - the back-cover \"prevent it with a telephone call\" appeal, the dual-preparation of the revealing issue, and the unproven hearsay that a lawyer programmed a Macintosh to redial the killing number. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "DC, \"How 'A Death in the Family' Shook the World\" (J. Lapin-Bertone, 12 October 2020)",
+          "status": "unverified",
+          "url": "https://www.dc.com/blog/2020/10/12/how-a-death-in-the-family-shook-the-world",
+          "claim": "The publisher's account: the poll as an extension of heeding fans' letters and convention talk, the editor's \"This had to be important stuff. Life-and-death.\", the 36-hour window, 10,614 calls and the 72-vote margin, and the claim that 72 more votes would have changed Batman history. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "How to Love Comics, \"A Death in The Family: The Batman Comic That Killed Robin\" (12 October 2020)",
+          "status": "unverified",
+          "url": "https://www.howtolovecomics.com/2020/10/12/batman-a-death-in-the-family/",
+          "claim": "The ad on the back of Batman #427 inviting the call appears here as a reproduction, along with the 36-hour window, the 72-vote margin, and the editor's disclosure revealed in the back of #429 that survival was ahead by 38 votes with fifteen minutes left. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "deepfake-grief",
       "title": "The dead celebrity, generated",
       "kind": "mechanism",
@@ -2458,6 +2587,77 @@
         }
       ],
       "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "edwin-drood",
+      "title": "Vote for the murderer",
+      "kind": "work",
+      "year": 1985,
+      "era": "Theatre",
+      "lanes": [
+        "application",
+        "manipulation"
+      ],
+      "sections": [
+        "contest",
+        "world"
+      ],
+      "summary": "A musical of Dickens' unfinished novel that stops where the novel stops and turns the cliffhanger over to the seats: the audience votes who murdered Edwin Drood, who the disguised Dick Datchery is and which two characters end up together, and the cast performs the chosen ending that night. The house was promised 1,200 possible endings and that it 'won't be rigged in any way'.",
+      "significance": "**A show sells the feeling of authorship and the feeling is the product.** The Mystery of Edwin Drood is the musical Rupert Holmes built out of the novel Charles Dickens left unfinished at his death in 1870. It premiered at the Delacorte Theater in Central Park on 21 August 1985, moved to Broadway in December, and won five Tonys including Best Musical. When Dickens's plot runs out, the cast asks the audience to vote: who killed Drood, who the disguised Dick Datchery is, and which two characters the show will reward with each other. The director's own framing is in the records - \"the last 40 minutes will be up for grabs every night\", 1,200 possible endings, \"it won't be rigged in any way\".\n\nThe freedom had a border, and the border is the interesting half. A production that cannot guarantee a shape cannot guarantee an ending, so the industry hedges: the reference account records that some smaller companies fix the results to keep the number of performable endings manageable, and that some houses refuse to count votes for the obvious culprit so the reveal keeps its twist. The vote is tallied by applause and by seating area while the actors wait. **The audience is deciding inside a band the production has already guaranteed, and the decision is scored as a vote rather than as an experiment.**\n\nDrood tells the audience the fiction's ending is theirs, and everything that makes that true - the tallying, the hedging, the rehearsed alternatives - happens where they are not. Three years later the same device ran on a telephone line, which is the relation to the comics entry this page points at: the manufactured consequence is identical, the room is different. **What the audience got to do felt like control over the characters, and the vote was the machine that made the feeling.**",
+      "verified": false,
+      "medium": [
+        "stage"
+      ],
+      "relations": [
+        {
+          "to": "queen-for-a-day",
+          "type": "succeeded"
+        },
+        {
+          "to": "dickens",
+          "type": "cites"
+        },
+        {
+          "to": "death-in-family",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Wikipedia, \"The Mystery of Edwin Drood (musical)\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/The_Mystery_of_Edwin_Drood_(musical)",
+          "claim": "The show as a whole: the first Broadway musical with multiple endings determined by audience vote, the five Tonys, the writer Rupert Holmes, the vote covering the murderer, Dick Datchery's identity and the romantic pairing, and the ways the industry bounds the freedom (fixed results in some smaller companies, uncounted votes for the obvious culprit in some houses). Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The New York Times, 3 May 1985, \"Broadway\"",
+          "status": "unverified",
+          "url": "https://www.nytimes.com/1985/05/03/theater/broadway.html",
+          "claim": "Director Wilford Leach's own framing of the mechanism: \"The last 40 minutes will be up for grabs every night\", the 1,200 possible endings, and \"it won't be rigged in any way\"; previews were to begin at the Delacorte in August 1985. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The New York Times, 23 August 1985, \"STAGE: 'DROOD,' A MUSICAL IN THE PARK\"",
+          "status": "unverified",
+          "url": "https://www.nytimes.com/1985/08/23/theater/stage-drood-a-musical-in-the-park.html",
+          "claim": "The contemporary review's description of the vote: the audience \"solves, resolves and concludes the mystery\" by voice and hand to a series of multiple-choice propositions, an election led by the evening's master of ceremonies. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Betty Buckley, official stage history of \"Drood\"",
+          "status": "unverified",
+          "url": "https://www.bettybuckley.com/biography/stage/drood/",
+          "claim": "The premiere dates the section uses: a first performance at the Delacorte Theater in Central Park on 21 August 1985 as a New York Shakespeare Festival production, the vote by seating districts, and the mechanism it calls \"an intricate parlor game\". Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
       "provenance": "sourced"
     },
     {
@@ -4652,6 +4852,60 @@
       "provenance": "sourced"
     },
     {
+      "id": "marilyn-diptych",
+      "title": "Fifty copies of a face",
+      "kind": "work",
+      "year": 1962,
+      "era": "Modern",
+      "lanes": [
+        "consideration"
+      ],
+      "sections": [
+        "idol",
+        "grief"
+      ],
+      "summary": "Warhol's 1962 double panel repeats one publicity still of Marilyn Monroe fifty times: colour on the left, draining to monochrome on the right, taken from Gene Kornman's Niagara photograph. Monroe died in August of that year, and the silkscreen turns her into a pattern a person can look at without her.",
+      "significance": "**The diptych is a piece of mourning with the mourner deleted.** Andy Warhol's two-panel silkscreen is made of fifty copies of one publicity photograph - taken by Gene Kornman for the 1953 film Niagara - twenty-five in colour on the left and twenty-five fading to a grey ghost on the right. Monroe died in August 1962. The museum that holds the work records Warhol's own timing: he got the idea to make screens of her face the month she died.\n\nThe repetition is the meaning, and it is the opposite of a portrait. Fifty identical faces are not fifty chances to look at her; they are a pattern to be looked at without answering. The process is manufacture by design - silkscreen is the reproduction of a reproduction, and Warhol made a whole series of her that year, of which this double panel is the best known. The difference between a portrait and a product is exactly what the paint process erases.\n\nWhat the pattern makes is the kind of image this corpus has already met once: the empty-wall entry records the first crowd gathered around a painted absence, thousands coming to look at hooks. The diptych makes the absence portable and repeatable - a public image the person is not required to maintain for you, because the person died and the manufacture went on. It is filed under the shelf for the historic-as-character: the real woman flattened into a type the silkscreen imposes, and every accurate fact about her in tension with the attachment the picture invites.",
+      "verified": false,
+      "medium": [
+        "visual_art"
+      ],
+      "relations": [
+        {
+          "to": "rudolph-valentino",
+          "type": "succeeded"
+        },
+        {
+          "to": "gazing-at-celebrities",
+          "type": "depicts"
+        },
+        {
+          "to": "mona-lisa-theft",
+          "type": "cites"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Tate, \"Andy Warhol, Marilyn Diptych 1962\"",
+          "status": "unverified",
+          "url": "https://www.tate.org.uk/art/artworks/warhol-marilyn-diptych-t03093",
+          "claim": "The work as the museum presents it: the 1962 date, the fifty repeated images from a publicity still photographed by Gene Kornman for Niagara, the colour-then-monochrome arrangement, Monroe's death in August 1962, Warhol's recollection of getting the idea to make screens of her face that month, and the work's passage from Emily and Burton Tremaine to the Tate in 1980. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Marilyn Diptych\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Marilyn_Diptych",
+          "claim": "The description the entry's numbers rest on: fifty repetitions of the single 1953 publicity still, twenty-five in colour at the left and twenty-five in black and white drained to the right, in the context of the series of Monroes Warhol made that year. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "marvel-club",
       "title": "Entitled to the adulation of all lesser mortals",
       "kind": "mechanism",
@@ -4713,6 +4967,64 @@
           "claim": "The decoding, and the weakest record in the entry - a fan-run site, used only for the mechanism and not for any fact a historian would dispute. \"**Captain Marvel Club members of the 1940s were able to decode secret messages from the Captain.** The card has been recreated on this page to allow Captain Marvel Club members to interactively encode and decode messages.\" That is the whole of the parasocial claim in one sentence, which is why the entry quotes it verbatim rather than paraphrasing, and why the same claim is stated on the entry as resting partly on a fan site.",
           "locator": null,
           "identity_verified": "no DOI in this locator, so identity was NOT checked - the citation is recorded as read"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
+      "id": "marvel-letters-page",
+      "title": "The reply that was printed",
+      "kind": "mechanism",
+      "year": 1962,
+      "era": "Fandom",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "companion",
+        "creator"
+      ],
+      "summary": "From 1962 Stan Lee ran fan mail in the back of The Fantastic Four and answered it in print in his own voice, so a reader could see their name answered on a page. The letters page became Marvel's institutional address to its readership, and its regular trophy, the No-Prize, was deliberately nothing.",
+      "significance": "**The corpus keeps the datum that a reply used to be the exception. This is the same object with the exception removed.** From the early issues of The Fantastic Four, cover-dated 1962, Stan Lee printed readers' letters and answered them on the page. Lee's own 1992 account traces the habit to the Jerry Todd books, which printed readers' letters and the author's informal answers, and he concluded that \"talking to the readers informally and indirectly seemed like the natural thing to do.\" The page ran polls - whether the Invisible Girl should leave the team - and offered five dollars for the best explanation of a continuity error.\n\nThe reply became a scheduled product. A contest whose prize was nothing got a name when its winner was announced, and the name stuck: the No-Prize. By the end of 1965 the letters section had grown into the house page, and from 1967 a regular column made the reply a fixture. The trophy became a posted ritual: winners were mailed a pre-printed empty envelope reading \"this envelope contains a genuine Marvel Comics No-Prize which you have just won!\", and some readers wrote back to ask where the prize had fallen out. **The award was the reply; the envelope was the receipt.**\n\nThe voice outlived the man: the page passed to the editors who followed Lee, which is the tell that the intimacy was institutional rather than personal. It belongs in this corpus where the intermediary that is also the relationship sits - the infrastructure for somebody else's attachment. A reader's name printed next to an answer is the demonstration of being seen while nothing on the other side was made available, and the demonstration was mass-produced on a schedule.",
+      "verified": false,
+      "medium": [
+        "comics"
+      ],
+      "relations": [
+        {
+          "to": "fan-mail",
+          "type": "succeeded"
+        },
+        {
+          "to": "marvel-club",
+          "type": "succeeded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Wikipedia, \"Bullpen Bulletins\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Bullpen_Bulletins",
+          "claim": "The institutional history: Lee's 1992 account of the Jerry Todd books and the naturalness of replying to readers informally, the letters section of Fantastic Four as the start, the Special Announcements section and the Mighty Marvel Checklist in the issue dated December 1964, the first standalone house page in the issues dated December 1965, and the regular column first appearing in June 1967. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Marvel No-Prize\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Marvel_No-Prize",
+          "claim": "The prize's history: the five-dollar offer on the Fantastic Four letters page for the best explanation of a continuity error, the contest whose prize was nothing becoming named when its winner was announced, and the practice, beginning 1967, of mailing pre-printed empty envelopes \"containing\" the No-Prize, with readers asking where their prize had fallen out. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Comic Book Resources, \"The History of Marvel's No-Prize\" (Brian Cronin, 2016)",
+          "status": "unverified",
+          "url": "https://www.cbr.com/knowledge-waits-the-history-of-marvels-no-prize/",
+          "claim": "The chronology the entry follows: the letters section beginning with Fantastic Four #3 (cover-dated March 1962, on sale in late 1961), Lee's reader polls on the page, and the largest-collection contest (issue #22) whose winner announcement (issue #25) gave the No-Prize its name. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
         }
       ],
       "media_inferred": false,
@@ -6517,6 +6829,69 @@
         }
       ],
       "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "rocky-horror",
+      "title": "The audience became the show",
+      "kind": "event",
+      "year": 1976,
+      "era": "Live",
+      "lanes": [
+        "application"
+      ],
+      "sections": [
+        "crossover",
+        "world"
+      ],
+      "summary": "Launched as a small London stage musical in 1973, filmed in 1975, and from 1976 screened at midnight before a room that shouted back: The Rocky Horror Picture Show ran while its audience performed it, wearing the costumes, speaking the lines, improvising replies. The screen never answered a single shout. The room was the show.",
+      "significance": "**The subject here is not the film; it is the room it ran in.** The Rocky Horror Show that Richard O'Brien wrote opened at the Royal Court Theatre Upstairs in London on 19 June 1973, and the remembered film version arrived in 1975. Then, in 1976, one Manhattan cinema, the Waverly, began showing it after midnight. The fan-run history kept in the records credits an advertising man, Tim Deegan, with persuading Bill Quigley of the Walter Reade organisation to book it, and the theatre's manager, Denise Borden, with the nightly fight that followed. It is kept as unverified rather than promoted, because this corpus does not promote a page it did not open.\n\nWhat happened in the room is the entry. The first documented callback came on Labor Day weekend 1976, an audience member's shout about an umbrella aimed at the screen, and the shouting hardened into a repertoire: lines the audience said, props it threw, clothes it wore, rules about when talking was allowed at all. Sal Piro, who saw the film more than a thousand times and wrote the book this culture kept, became its chronicler. The film was the same film every night; nothing in the fiction ever answered. **The audience built the reply end of a one-sided tie, in public, together, on a schedule.**\n\nRocky Horror is the largest early case in this corpus of an audience performing its own side of a one-sided relationship: wearing the characters, speaking their lines back, improvising responses to a text that cannot hear them. What the evening offered was not a chance to change the film but a chance to be the change. **Participation here never touches the fiction, and that is exactly why it works.** The contemporary entry in the corpus that shares its year is the convention itself; this one is the screening that turned the convention into a habit.",
+      "verified": false,
+      "medium": [
+        "stage",
+        "film"
+      ],
+      "relations": [
+        {
+          "to": "con-culture",
+          "type": "contemporary"
+        },
+        {
+          "to": "star-trek-con",
+          "type": "succeeded"
+        },
+        {
+          "to": "parasocial-interaction",
+          "type": "depicts"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Wikipedia, \"The Rocky Horror Show\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/The_Rocky_Horror_Show",
+          "claim": "The musical Richard O'Brien wrote opened at the Royal Court Theatre Upstairs in London on 19 June 1973 and is the predecessor the film remembered; the writer credit, the venue, the date and the director all come from here. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"The Rocky Horror Picture Show\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/The_Rocky_Horror_Picture_Show",
+          "claim": "The 1975 Westwood premiere of the film, the beginning of the midnight screenings in 1976, the growth of the cult following, the callbacks and the prop rituals: what the films section of the record rests on. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Rocky Horror official fan history, \"How It All Began\"",
+          "status": "unverified",
+          "url": "https://www.rockyhorror.com/history/howapbegan.php",
+          "claim": "The Waverly origin as the site tells it: the midnight experiment beginning around April 1976, arranged by the ad man Tim Deegan with Bill Quigley of the Walter Reade organisation and the theatre manager Denise Borden, the first documented callback during Labor Day weekend 1976, and Sal Piro's early role. A fan-run account, recorded as unverified. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
       "provenance": "sourced"
     },
     {
