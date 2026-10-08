@@ -1153,27 +1153,124 @@ def build_aisle(data, feat=None, manifest=None):
 
 
 # ------------------------------------------------------------------ front page
-def pick_top(cards, section):
-    """The one story that represents the section right now. Ranked by importance,
-    with a nudge toward anything that just happened and anything deliberately
-    kept as DO-NOT-RETURN."""
+# ---- curation ------------------------------------------------------------
+# Both numbers are measured rather than picked. The corpus's median card age
+# is 16 days and only one card in forty-eight is younger than six, so the
+# six-day freshness window that used to sit here could never fire: every card
+# scored 0 on it and the ranking was a permanent leaderboard of `res`, which
+# is how a section's tile came to show a 46-day-old story with four newer
+# ones underneath. A window nobody can enter is not a window.
+FRESH_DAYS = 28          # the span over which this shelf files new material
+FRESH_PTS = 16.0         # what a card filed today earns, to 0 at FRESH_DAYS
+ROTATE_SPREAD = 18       # how far below the leader the rotation pool reaches
+ROTATE_POOL = 4          # at most this many cards ever share one tile
+ROTATE_FRESH_DAYS = 21   # how far behind the section's newest card a card may
+                         # sit and still take the tile at all
+
+
+def cur_slot(now=None):
+    """The curation slot: twice a day, in UTC.
+
+    UTC on purpose. A selection that depends on the builder's timezone is a
+    selection nobody can reproduce - the front page would differ between a
+    laptop in Australia and a runner in Virginia, and neither could say
+    which one was right.
+    """
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    day = (now.date() - datetime.date(2026, 1, 1)).days
+    return day * 2 + (0 if now.hour < 12 else 1)
+
+
+def pick_list(feat, now=None):
+    """Which top-8 list is on show, for the front page and /top8/ alike.
+
+    One selector because there were two: the front column said "this week it
+    is X" while the page it linked to read `feat["lists"][0]`, so the two
+    could name different lists and neither could tell. Indexing by ISO week
+    rather than by a stored counter keeps it derived from the calendar, so it
+    is the same for every reader on a given day and needs no state file.
+
+    With one list in the file this returns that list every day.
+    """
+    lists = (feat or {}).get("lists") or []
+    if not lists:
+        raise ValueError("features.json holds no top-8 list to show")
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    return lists[now.isocalendar()[1] % len(lists)]
+
+
+def section_pool(cards, section, now=None):
+    """The stories eligible for a section's tile, best first.
+
+    RANK - importance (`res`), the state bonuses, and a freshness window
+    measured in weeks rather than days.
+
+    ROTATE - the best-scoring card would otherwise hold the tile until
+    something outranked it, and nothing does. So a pool forms and
+    `pick_top` picks one out of it by slot: ranked, so the pool is always
+    the section's best stories, and rotating, so the tile moves twice a day
+    instead of sitting for months.
+
+    Two gates on the pool, each of which failed without the other. A score
+    band alone let a 77-day-old card share a tile with a 13-day-old one,
+    because the state bonuses are worth six points and swamp a fortnight of
+    freshness - so "rotates" would have meant "alternates between fresh and
+    stale". A freshness gate alone closed the band until the state tiers
+    pulled it apart and a five-card section had a pool of one. So a card
+    must be within ROTATE_SPREAD of the leader AND no more than
+    ROTATE_FRESH_DAYS behind the section's own newest card.
+
+    A section with one card has a pool of one and the rotation is silent.
+    """
     mine = [c for c in cards if c["section"] == section]
     if not mine:
-        return None
+        return []
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    today = now.date()
+
+    def filed(c):
+        try:
+            return datetime.date.fromisoformat(str(c.get("filed"))[:10])
+        except Exception:
+            return None
+
     def rank(c):
-        s = c.get("res", 0)
+        s = c.get("res") or 0
         if c.get("state") == "OVERDUE":
             s += 12
         if c.get("state") == "OUT":
             s += 6
-        try:
-            age = (datetime.date.today()
-                   - datetime.date.fromisoformat(str(c.get("filed"))[:10])).days
-            s += max(0, 6 - age)
-        except Exception:
-            pass
+        d = filed(c)
+        if d:
+            s += max(0, FRESH_DAYS - (today - d).days) * FRESH_PTS / FRESH_DAYS
         return s
-    return sorted(mine, key=rank, reverse=True)[0]
+
+    ranked = sorted(mine, key=rank, reverse=True)
+    lead = rank(ranked[0])
+    stamps = [d for d in (filed(c) for c in mine) if d]
+    newest = max(stamps) if stamps else None
+
+    def in_pool(c):
+        if rank(c) < lead - ROTATE_SPREAD:
+            return False
+        d = filed(c)
+        if newest is None or d is None:
+            return True
+        return (newest - d).days <= ROTATE_FRESH_DAYS
+
+    return [c for c in ranked if in_pool(c)][:ROTATE_POOL] or ranked[:1]
+
+
+def pick_top(cards, section, now=None):
+    """The one story that represents the section right now: one out of
+    `section_pool`, chosen by the slot. See there for why it is a pool
+    rather than a sort.
+    """
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    pool = section_pool(cards, section, now=now)
+    if not pool:
+        return None
+    return pool[cur_slot(now) % len(pool)]
 
 
 def build_front(data, feat=None, manifest=None, hist=None):
@@ -1182,12 +1279,13 @@ def build_front(data, feat=None, manifest=None, hist=None):
     manifest = manifest or {"items": []}
     hist = hist or {"modules": []}
 
-    # ---- the rotating top 8 column. deterministic on the ISO week, so it
-    # changes on a schedule and is the same for every reader that week.
-    week = datetime.date.today().isocalendar()[1]
+    # ---- the rotating top 8 column. Which list is on show comes from
+    # pick_list(), so this and /top8/ name the same one; with a single list
+    # in the file it is that list every day, which is why the copy below
+    # only claims rotation when there is more than one to rotate through.
     t8 = feat.get("lists") or []
     if t8:
-        L = t8[0]
+        L = pick_list(feat)
         # All eight, in rank order.
         #
         # This used to sample four of the eight, picked by rank, which produced
@@ -1247,12 +1345,23 @@ def build_front(data, feat=None, manifest=None, hist=None):
                   f'cosplay, a convention panel, a themed party, a coaster built '
                   f'out of Reptar &mdash; which is a longer way of saying the '
                   f'pictures are of the audience.</p>') if shot else ""
+        # "Rotates weekly" is a promise about a schedule, and with one list
+        # in the file nothing rotates - a front page that claims otherwise is
+        # the status-field defect in a different costume. The claim is
+        # conditional on there being more than one list to rotate through.
+        if len(t8) > 1:
+            t8_kick = "The top 8 &middot; this week &middot; rotating"
+            t8_note = (f"Rotates weekly. This week it is the "
+                       f"{esc(L['title'].lower())}.")
+        else:
+            t8_kick = "The top 8"
+            t8_note = f"One list so far: the {esc(L['title'].lower())}."
         t8_block = f"""<div class="t8col-wrap">
-  <p class="kicker">The top 8 &middot; this week &middot; rotating</p>
+  <p class="kicker">{t8_kick}</p>
   <div class="t8col-list">{''.join(rows)}</div>
   {frames}
   <a class="btn btn-solid" href="top8/index.html">Read the whole list</a>
-  <p class="countline">Rotates weekly. This week it is the {esc(L['title'].lower())}.</p>
+  <p class="countline">{t8_note}</p>
 </div>"""
     else:
         t8_block = ""
@@ -1337,29 +1446,32 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <div class="wrap">
     <h1>Parasocialize.</h1>
 
+    <p class="line">You feel like you know somebody who has no idea you exist.
+      <b>Everybody has one. This is the news feed for that.</b></p>
+
     <div class="thesis">
       <div class="thesis-side">
-        <b class="thesis-num">1956</b>
+        <a class="thesis-num" href="encyclopedia/parasocial-interaction.html">1956</a>
         <p class="thesis-txt"><b>The word.</b> Horton and Wohl coined
          <i>parasocial</i> to describe television.</p>
       </div>
       <div class="thesis-side thesis-hot">
-        <b class="thesis-num">&minus;15,000</b>
-        <p class="thesis-txt"><b>The thing.</b> A species selected to form
-         attachment to one particular ape.</p>
+        <a class="thesis-num" href="encyclopedia/neanderthal-burial.html">&minus;70,000</a>
+        <p class="thesis-txt"><b>The thing.</b> Somebody carried their dead into
+         a cave and set a stone under her head.</p>
       </div>
     </div>
 
     <div class="fdoors thesis-doors">
       <a class="fdoor" href="sections/index.html" style="--c:var(--hot)">
-        <span class="fdoor-body"><b>To read</b><strong>All {total} stories</strong>
-        <span>One a day. Every one signed by a person.</span></span></a>
+        <span class="fdoor-body"><b>To read</b><strong>The stories</strong>
+        <span>One a day, each one signed by a person. {total} so far.</span></span></a>
       <a class="fdoor" href="encyclopedia/index.html" style="--c:var(--mint)">
         <span class="fdoor-body"><b>To look something up</b>
         <strong>The encyclopedia</strong>
         <span>{nent} entries, every claim cited.</span></span></a>
     </div>
-    <div class="masthead-mark">{wordmark("hero")}</div>
+    <div class="masthead-mark" role="img" aria-label="iYi, the Parasocialize mascot">{mascot(150, "mascot-hero")}</div>
   </div>
 </section>
 
@@ -1368,7 +1480,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
 </section>
 
 <section class="section" id="hub" style="padding-top:0">
-  <p class="kicker">Ten ways it shows up · the top story in each</p>
+  <p class="kicker">Ten ways it shows up · one story from each</p>
   <div class="hubs">{''.join(tiles)}</div>
 </section>
 
@@ -1530,7 +1642,13 @@ def rotate(seq, key, n=8, by="rank"):
 # ------------------------------------------------------------------ top 8
 def build_top8(data, feat, manifest):
     r = root(1)
-    L = feat["lists"][0]
+    L = pick_list(feat)
+    # "rotated weekly" is a promise about a schedule, and with one list in
+    # the file there is nothing to rotate through. The front page already
+    # conditions its version of this claim; this is the same sentence from
+    # the other end.
+    outro = ("More top 8s coming, rotated weekly."
+             if len(feat.get("lists") or []) > 1 else "More top 8s to come.")
     laws = {l["n"]: l for l in data["laws"]}
     shelf = {s["id"]: s for s in data["shelf"]}
 
@@ -1659,7 +1777,7 @@ def build_top8(data, feat, manifest):
 <section class="section" id="list" style="padding-top:8px">
   {shared_law}
   <ol class="t8">{''.join(items)}</ol>
-  <p class="countline" style="margin-top:30px">More top 8s coming, rotated weekly.
+  <p class="countline" style="margin-top:30px">{outro}
   <a href="{r}index.html">Back to the ten sections →</a></p>
 </section>
 </main>

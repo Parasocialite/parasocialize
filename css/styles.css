@@ -223,8 +223,15 @@ img{max-width:100%;display:block}
   border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
 .thesis-side{padding:20px 26px 20px 0;display:flex;gap:16px;align-items:baseline}
 .thesis-side+.thesis-side{border-left:1px solid var(--line2);padding-left:26px;padding-right:0}
-.thesis-num{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,4.4vw,3.1rem);
-  line-height:.86;letter-spacing:-.04em;color:var(--dim);flex:none;min-width:4.6ch}
+/* The two figures are links to the entries they are taken from, so a number on
+   the front page has somewhere to go rather than being decoration. `.masthead a`
+   would otherwise colour both hot - the specificity has to beat it, or the
+   contrast the block is built on disappears. */
+.thesis .thesis-num{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,4.4vw,3.1rem);
+  line-height:.86;letter-spacing:-.04em;color:var(--dim);flex:none;min-width:4.6ch;
+  text-decoration:none}
+.thesis .thesis-num:hover,.thesis .thesis-num:focus-visible{text-decoration:underline;
+  text-decoration-thickness:2px;text-underline-offset:.14em}
 .thesis-hot .thesis-num{color:var(--hot)}
 .thesis-txt{font-size:.95rem;color:var(--dim);line-height:1.45;max-width:30ch;margin:0}
 .thesis-txt b{color:var(--paper);font-weight:600}

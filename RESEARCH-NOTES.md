@@ -233,3 +233,27 @@ Two further citation-quality problems the audit exposed, both benign but both re
 3. It let a title mismatch **override** a matching author and year, so a citation carrying a subtitle that Crossref truncates read as a different paper. Author and year now decide; the title corroborates.
 
 Each of those is the same defect the site keeps meeting in another place: a measurement that is confidently reporting on the wrong layer.
+
+## 2026-10-06 — locator backlog: 306 → 324 of 425, plus two corrections and two refusals
+
+Order of work per item 21 held throughout: complete the citation first, then the locator becomes checkable. Nothing below was attached on author+year alone.
+
+**Corrected, not merely located (wrong work named):**
+- `coffee-card` cited "Higgs, R., & McInstash, S. (2008). Measuring the operational efficiency of retail promotions which have a loyalty card scheme." Crossref has no such work under any spelling. The claim's substance (loyalty-card data quantifying promotion effects, Tesco) is Felgate, Fearne, DiFalco & Martinez (2012), "Using Supermarket Loyalty Card Data to Analyse the Impact of Promotions", IJMR 54(2), 221-240, DOI 10.2501/IJMR-54-2-221-240 — identity confirmed via registry, SAGE itself 403s to an unauthenticated fetch (same class as Britannica/Sage, recorded rather than worked around). Citation replaced, `citation_replaced` kept by `cite.py`.
+- `loyalty-dark-pattern` cited "Gray, K. T., Kou, Y., & Sundararajan, M. (2018)" — Sundararajan is not an author of anything so titled. The work is Gray, Kou, Battles, Hoggatt & Toombs (2018), CHI, DOI 10.1145/3173574.3174108.
+
+**Dead locator found and fixed before it propagated:**
+- `eudaimonia` carried `https://plato.stanford.edu/entries/ethics-aristotle/` as `retrievable`. It 404s (confirmed twice: WebFetch and HEAD). Corrected to `/entries/aristotle-ethics/`, fetched live, confirmed "Aristotle's Ethics". The short-form SEP record on the same entry was then twinned off the corrected URL — attaching it first would have put a second record behind a dead link.
+
+**Resolved by reading (one research, N attaches):**
+- "Ascue et al., Annyeong, Saranghae (De La Salle University)" ×3 (`congregation`, `fandom-wars`, `trading-stamps`) is Ascue, Balmeo, Unay, Yap & Cortez (2023), 2nd SHS Research Congress, DLSU — repository landing verified, PDF `article=1788` matches the already-located fuller sibling on `congregation`. Neither exact nor prefix rules fire (short form ends "(De La Salle University)", sibling has ": A Phenomenological Study..."), so read-attached.
+- "Weber, M. Economy and Society" ×2 completed to Roth & Wittich eds., UC Press (1978/2013; English ed. 1968 Bedminster), locator the UC Press page (200).
+- "Liebers & Schramm (2023)" is "The History and Scope of Parasocial Research", DOI 10.1093/oxfordhb/9780197650677.013.1 — a chapter in the Forster handbook, which is what the companion split record "Forster, The Oxford Handbook (2023)" is (DOI 10.1093/oxfordhb/9780197650677.001.0001, OUP). Both identity-checked via Crossref on write.
+- "CCPA (2023)" → OAG page (verified live; CPRA amendments effective 2023 confirmed on the page). "DSA (2022)" → Commission DSA package page (Regulation (EU) 2022/2065 confirmed; eur-lex.europa.eu returned empty to a plain fetch — JS wall — so the locator is the Commission page, not EUR-Lex).
+- "Yu, Nguyen, Prakkamakul & Salehi, 'I Almost Fell in Love with a Machine'" on `crossover` twinned off its same-entry sibling (xlab PDF fetched live: 200, 1.4MB).
+
+**Refused / not found:**
+- "Brignull, W. & Oxford, R. The Roach Motel: Why Most Online Cancellation Flows Are Too Complex" (`loyalty-dark-pattern`): no such work exists. Exact-title search returns only Sheil, Acar, Schraffenberger, Gellert & Malone (2024), "Staying at the Roach Motel" (verified authors via arXiv) — no Brignull, no Oxford. The coinage is Brignull (2010), documented on deceptive.design — but attaching that page to a citation naming a different work with a different co-author would be a plausible-looking source, which is the defect. Left locator-less. "Oxford, R." and "found on 31 websites" both unidentified.
+- "Witzel, The Cultivation and Harvesting of Parasocial Relationships for Evangelism" (`the-priest`, `crossover`): Crossref title search returns nothing by Witzel (top hits are unrelated "Parasocial Relationships" generics). Likely a thesis with no DOI. Needs library-catalogue research, not registry search.
+
+**Tool limitation found:** `attach_twin_locators.py`'s COMPOUND guard (`;\s|\s&\s|\sand\s+[A-Z]`) fires on author-list ampersands, so it refuses same-entry short forms like the Yu record above. The guard is left as-is (it is load-bearing for the `prince` class) — the read-allow-list tool exists for exactly these cases.

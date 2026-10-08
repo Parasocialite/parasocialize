@@ -142,6 +142,45 @@ ALLOW = [
      "cobain", "Seattle Times, 8 April 1994; and Rolling Stone (Neil Strauss)",
      "as above; 'reporting Laura Mitchell' names a source inside the same "
      "article"),
+    ("eudaimonia", "Stanford Encyclopedia of Philosophy, 'Aristotle's Ethics'.",
+     "eudaimonia", "Nicomachean Ethics, Books I and X",
+     "same SEP entry named by both records on the same entry; the sibling URL "
+     "was CORRECTED first (it pointed at /entries/ethics-aristotle/, which "
+     "404s) to /entries/aristotle-ethics/, fetched live and confirmed to be "
+     "'Aristotle's Ethics'. A twin attach off the dead URL would have "
+     "propagated a false locator."),
+    ("crossover", "Yu, Nguyen, Prakkamakul & Salehi, 'I Almost Fell in Love "
+     "with a Machine'.",
+     "crossover", "(UC Berkeley, X Lab)",
+     "same entry, identical authors and title; the short form drops only the "
+     "parenthetical venue. attach_twin_locators refuses it because its "
+     "COMPOUND guard fires on the '&' in the author list - the guard cannot "
+     "tell an author-list ampersand from a multi-work citation. The sibling "
+     "PDF was fetched live (200, 1.4MB) and siri's fuller record carries the "
+     "same title and URL."),
+    ("congregation", "Ascue et al., Annyeong, Saranghae (De La Salle University).",
+     "congregation", "Phenomenological Study on the Effects of Parasocial",
+     "same entry; the short form plus a fuller sibling record of the same "
+     "2023 DLSU paper, which carries the repository PDF. The short form is "
+     "neither exact nor prefix (it ends '(De La Salle University)' where the "
+     "fuller record has ': A Phenomenological Study...'), so the twin rules "
+     "cannot see it. Identity read from the repository landing page: Ascue, "
+     "Balmeo, Unay, Yap & Cortez (2023), same title."),
+    ("fandom-wars", "Ascue et al., Annyeong, Saranghae (De La Salle University).",
+     "congregation", "Phenomenological Study on the Effects of Parasocial",
+     "cross-entry twin of the congregation sibling above: same authors, same "
+     "short title, same 2023 DLSU paper. The sibling PDF URL was verified "
+     "against the repository (article=1788)."),
+    ("trading-stamps", "Ascue et al., Annyeong, Saranghae (De La Salle University).",
+     "congregation", "Phenomenological Study on the Effects of Parasocial",
+     "as above, third short-form record of the same paper."),
+    ("the-priest", "Between pulpit and platform (2025).",
+     "crossover", "Parasocial bonds in Filipino priests",
+     "same work: the short title plus the sibling's full subtitle, same year, "
+     "and the sibling already carries the Taylor's-hosted locator with a "
+     "prefix-match provenance. Neither exact nor prefix rules fire (the short "
+     "form ends '(2025)' where the full record has ': Parasocial...'), so it "
+     "is read-attached here."),
 ]
 
 

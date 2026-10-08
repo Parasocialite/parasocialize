@@ -1,0 +1,89 @@
+name: curation
+
+# The front page's ten section tiles are chosen by pick_top(), which reads a
+# twice-daily UTC slot. That selection is only worth anything if the site is
+# rebuilt after the slot flips, so this runs at 00:17 and 12:17 UTC - just
+# after 00:00 and 12:00, and offset from the hourly counter's minute 7 so the
+# two never queue behind each other.
+#
+# IT DOES NOT DEPLOY. Production is a manual upload of dist/ to Cloudflare
+# Pages, and nothing here changes that: this rebuilds the tracked pages and
+# commits them, so the repository is never behind the clock, and the upload
+# picks up whatever was last built. Run `python tools/build_deploy.py` and
+# upload dist/ when you want readers to see it.
+#
+# GATES FAIL LOUDLY. Every gate below is written to exit non-zero rather than
+# print a warning, and no step here swallows that with `|| true`. A red gate
+# stops the job before the commit step, so a bad build is never pushed. The
+# only thing skipped is the Chrome layout gates (probe_front, verify_narrow,
+# probe_nav): they need a local Chrome binary and they measure design, not
+# data, and they are run by hand before a layout change is shipped.
+#
+# Nothing here writes content. It rebuilds what is already signed; no card,
+# claim or citation is authored by this job.
+
+on:
+  schedule:
+    - cron: "17 0,12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: curation
+  cancel-in-progress: false   # never let two rebuilds race the same commit
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Slot in force
+        run: python -c "import sys; sys.path.insert(0, 'tools'); import datetime, build_cards as bc; n = datetime.datetime.now(datetime.timezone.utc); print('now', n.isoformat(), 'slot', bc.cur_slot(n))"
+
+      - name: Rebuild the site
+        run: python tools/build_cards.py
+
+      - name: Regenerate the title plates
+        run: python tools/plate.py
+
+      - name: Curation must actually rotate
+        run: python tools/curate.py --check
+
+      - name: Plates must match their data
+        run: python tools/plate.py --check
+
+      - name: Internal links
+        run: python tools/link_audit.py
+
+      - name: Citations
+        run: python tools/citation_audit.py
+
+      - name: Cull report
+        run: python tools/cull_audit.py
+
+      - name: Taxonomy
+        run: python tools/verify_taxonomy.py
+
+      - name: Cards
+        run: python tools/card_audit.py
+
+      - name: Images
+        run: python tools/image_audit.py
+
+      - name: Commit
+        run: |
+          git config user.name "curation"
+          git config user.email "curation@parasocialize.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "curate $(date -u +%FT%TZ)"
+          # A failed push must be loud. The counter was three weeks stale once
+          # because a push failure was allowed to pass without anybody reading it.
+          git push || echo "::error::could not push - the rebuilt pages are not in the repository"
