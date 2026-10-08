@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 221 entries, 538 relations, 314 generated pages.
+relationships. 224 entries, 546 relations, 317 generated pages.
 
 ## The rule that outranks everything
 
@@ -610,10 +610,10 @@ ship a falsehood on this site and it was done once already.
 
 ## Architecture
 
-- `data/encyclopedia.json` — the single source of truth. 221 entries.
+- `data/encyclopedia.json` — the single source of truth. 224 entries.
 - `tools/build_cards.py` — all page generation, the citation board, section
   fronts, and the entry Watch block (renders only when a real `video` URL exists).
-- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 221 entries.
+- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 224 entries.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
@@ -643,7 +643,7 @@ ship a falsehood on this site and it was done once already.
   existing axes could express the difference: a companion can be invented,
   worked, alive, worshipped, mirrored or haunted, and each produces a different
   relationship.
-- `data/taxonomy_placements.json` / `data/story_placements.json` — all 221
+- `data/taxonomy_placements.json` / `data/story_placements.json` — all 224
   entries and all 48 stories placed, each with a written reason. The reason is
   printed on the page rather than kept in a commit message, so a placement can
   be argued with instead of merely trusted.
@@ -693,9 +693,9 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-208 sourced | 0 not yet stood behind | 13 thesis   = 221
+211 sourced | 0 not yet stood behind | 13 thesis   = 224
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-397 of 498 sources have a locator
+409 of 510 sources have a locator
 0 of 252 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
@@ -709,7 +709,7 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 15 media values, up from 13 (stage and visual_art added)
 ```
 
-Board must reconcile to 221. `add_source.py` is authoritative.
+Board must reconcile to 224. `add_source.py` is authoritative.
 
 **These four lines are typed, and they are the defect this file warns about
 twice** - "a number inside a paragraph is not obviously a claim, which is what

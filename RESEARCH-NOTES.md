@@ -421,3 +421,72 @@ Research-specific decisions worth keeping:
   group's rule, not the contestant" - so the shelf contest was platform vs
   fandom-body, decided by the fandom-body test: rules that are not the
   platform's, and a membership boundary the split enforced.
+
+## 2026-10-08 - fourth batch: the pause, the guru, and the voice you distrust
+
+Three entries, all sources `unverified` with the index-read REASON and the
+standard `identity_verified` string, `locator: null` with the url recorded -
+the batch-3 convention. Recorded in `tools/add_fourth_batch_entries.py` and
+`tools/add_fourth_batch_placements.py`. 221 -> 224 entries, 538 -> 546
+relations, 221 -> 224 assignments, 498 -> 510 source records (397 -> 409 with
+a url).
+
+| entry | year | kind | shelf | the argument in one line |
+|---|---|---|---|---|
+| `blues-clues` | 1996 | work | persona/presenter | the scripted pause asks a question it never hears, and the period's research measured the reply that did not have to be a reply |
+| `guru-disciple` | 1650 | mechanism | officer/senior | the oldest instruction in the corpus to attend to one person continuously, dated from the book rather than the practice |
+| `unreliable-narrator` | 1961 | term | character/fictional-protagonist | a voice the reader maintains alone, with no author able to close the account |
+
+Research-specific decisions worth keeping:
+
+- **blues-clues** dated 1996 (the premiere), not 1997 (the NYT piece) or 2024
+  (the commencement speech). Five sources: NYT 1997, "The Joy of Repetition,
+  Repetition, Repetition" - the Monday-to-Friday week and the muddled mother;
+  Anderson et al. 2000, Media Psychology 2(2), 179-194, DOI
+  10.1207/s1532785xmep0202_4 (bibliographic identity only - the findings were
+  not read, and the entry says so and sends the numbers to Crawley); Crawley
+  et al. 1999, Journal of Educational Psychology 91(4), DOI
+  10.1037/0022-0663.91.4.630, which supplies every number the entry states;
+  Carter, Hyde & Hodgins 2017, ACM IDC, DOI 10.1145/3078072.3079717, for the
+  pseudo-interaction expansion and the two-second pause; Today 2024 for Burns's
+  commencement speech. **Variety and ERIC were dropped** - the claims found in
+  them were too thin to carry a record, and the entry does not make them.
+- **guru-disciple** dated 1650 - the Bla-ma mchod-pa, "Offering to the
+  Spiritual Guide", "compiled by Losang Chokyi Gyaltsan (1570-1662) in the
+  mid-seventeenth century" per Emory-Moore - not the date of the practice,
+  which the entry says is older than the book ("A dated text is an anchor, not
+  a birth"). Capper (2004, Journal of Contemporary Religion 19(2), 137-153) is
+  cited through the aquila.usm.edu copy of record; the hcommons copy is the
+  same work and was deliberately not duplicated. Capper's extract OCRs as
+  "automa tons"; the entry quotes the clean fragment instead ("Rather than
+  being automatons for a charismatic leader, many of these Buddhists
+  critically employ submission to their lama to attempt their own personal and
+  religious empowerment"). Emory-Moore (2012, MA, Calgary, DOI
+  10.11575/PRISM/28396) supplies the 1650 compilation and the exchange
+  mechanism; Donovan (1986, MA, Calgary) supplies the survey of all four
+  Tibetan schools and the Gling-ras-pa Pad-ma-rdo-rje (1128-1188) ritual
+  lineage the entry uses to date the practice behind the text; the CJBS blog
+  post carries the structural analysis of the Guru Puja and is the weakest
+  record on the entry, kept because the compilation detail is otherwise
+  single-sourced.
+- **unreliable-narrator** dated 1961 (Booth's The Rhetoric of Fiction): the
+  year is checkable and the boundaries are not, which the entry says rather
+  than resolving sixty years of argument. Booth's definition is quoted in
+  full from the Alvarez-Amoros essay (Poetica 52, 2021, 361-386), which also
+  records the coiner's 1983 return and the expansions since; Wikipedia and
+  Wiktionary are the term's reference records. The placement contest was
+  `character/played-role` - Fight Club performs the split on screen - and it
+  lost on that shelf's own `not`: the term needs no performer at all, and
+  Booth's verdict is made against "the implied author's norms", which no
+  casting choice can supply.
+- Relations were asserted from the years before write, and all eight passed
+  the chronology check in-script and again in `citation_audit.py`:
+  `blues-clues` succeeded `saturday-mornings` (1993), `the-fourth-wall`
+  (1758) and `howdy-doody` (1947); `guru-disciple` succeeded `the-priest`
+  (100) and `congregation` (-200) and preceded `candidacy-and-charisma`
+  (1968); `unreliable-narrator` succeeded `the-fourth-wall` (1758) and
+  preceded `fight-club` (1999).
+- Every quoted fragment in the three `why` strings - 35 in total - was
+  checked verbatim against taxonomy.json + encyclopedia.json (`bad = 0`)
+  before `--apply`, and all three placements say "Contestable, and recorded
+  as such".
