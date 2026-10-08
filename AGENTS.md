@@ -27,7 +27,7 @@ python tools\add_source.py --apply-provenance
 python tools\citation_audit.py # are the status fields telling the truth
 python tools\cull_audit.py    # does any entry claim the far side perceives the reader
 python tools\image_audit.py   # does any image claim what its photograph shows, unopened
-python tools\look.py --list    # the image queue; QUEUE IS 39, not 64
+python tools\look.py --list    # the image queue; QUEUE IS 0, not 25
 python tools\gen_atmosphere.py # encyclopedia atmosphere art. NEVER `exact`, never depiction
 python tools\withdraw_image.py # reject a generated image: removes the record AND the file
 python tools\record_image_size.py  # generation.final <- the PNG actually on disk
@@ -97,7 +97,7 @@ ship a falsehood on this site and it was done once already.
   English. Probe both directions before trusting a regex change.
 - **`is_sourced()` is `bool(e.get("sources"))`, so thesis entries counted as
   unsourced** and inflated the backlog by 13. The board now excludes them. If the
-  three numbers ever stop reconciling to 175, suspect this class of bug first.
+  three numbers ever stop reconciling to 206, suspect this class of bug first.
 - **Report a defect once, verified.** A claimed arithmetic mismatch was reported
   twice before it was checked against the data. It was a misparse of my own
   verification regex; the arithmetic had been correct throughout.
@@ -610,10 +610,10 @@ ship a falsehood on this site and it was done once already.
 
 ## Architecture
 
-- `data/encyclopedia.json` — the single source of truth. 175 entries.
+- `data/encyclopedia.json` — the single source of truth. 206 entries.
 - `tools/build_cards.py` — all page generation, the citation board, section
   fronts, and the entry Watch block (renders only when a real `video` URL exists).
-- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 175 entries.
+- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 206 entries.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
@@ -631,7 +631,7 @@ ship a falsehood on this site and it was done once already.
 - `data/taxonomy.json` — **the classification, on three axes.** Eight attachment
   categories (who or what is on the other end), six registers (what is happening
   in the tie), and — added 2026-10-03 — six **otherness** members (what the other
-  end is *made of*), with 38 attachment sub-categories. This replaced the ten
+  end is *made of*), with 39 attachment sub-categories. This replaced the ten
   sections, which were reverse-engineered from the 47 stories and could not hold
   18 of the entries, including Margery Kempe. Three of the ten were never
   attachment targets at all — contest, grief and danger are register — which is
@@ -643,8 +643,8 @@ ship a falsehood on this site and it was done once already.
   existing axes could express the difference: a companion can be invented,
   worked, alive, worshipped, mirrored or haunted, and each produces a different
   relationship.
-- `data/taxonomy_placements.json` / `data/story_placements.json` — all 175
-  entries and all 47 stories placed, each with a written reason. The reason is
+- `data/taxonomy_placements.json` / `data/story_placements.json` — all 206
+  entries and all 48 stories placed, each with a written reason. The reason is
   printed on the page rather than kept in a commit message, so a placement can
   be argued with instead of merely trusted.
 - `tools/verify_taxonomy.py` — asserts the structure and reports sub-categories
@@ -652,7 +652,7 @@ ship a falsehood on this site and it was done once already.
   and a `not` of real length, and every anchor to resolve to a labelled
   reference: a definition can be read but cannot be used to classify anything,
   so the field that does the work is the question a person asks at 2am when
-  deciding where a new entry goes. Five of 38 are empty and are reported rather
+  deciding where a new entry goes. Four of 39 are empty and are reported rather
   than filled: forcing an entry in to make a distribution look even is the same
   move as inventing a plausible-looking source.
 - The ten sections still exist and are **not** to be renumbered. A section is a
@@ -660,7 +660,7 @@ ship a falsehood on this site and it was done once already.
   mapping between them.
 - `tools/mascot.py`, `tools/wordmark.py` — iYi. Asymmetric per-eye rig.
 - `tools/episode.py`, `tools/backdrop.py`, `tools/iyi.py` — video.
-- `COVERAGE-MAP.md` — domain sweep and the 22-entry work queue in three tiers.
+- `COVERAGE-MAP.md` — domain sweep and the three-tier work queue.
 
 Deploy by uploading `dist/` **directly** to Cloudflare Pages. Do not upload the
 extracted Desktop folder, and do not extract the archive. `episode/` is
@@ -915,7 +915,7 @@ the project.
    run, and the page now says how long ago that was.
    `link_audit.py` now checks what scripts `fetch()` against what is actually
    deployed, which is the general form of this bug.
-10. **The other 175 episodes.** All 177 entries carry `summary` and
+10. **The other 203 episodes.** All 206 entries carry `summary` and
    `significance`, so an episode exists for each and only the hand-written
    `hook` is missing. `tools/episode.py DRAFTS` has 3. Mechanically derivable,
    but a hook is the one line that makes a stranger stop scrolling, so it wants
@@ -1632,7 +1632,8 @@ the project.
       **Nothing to fetch and nothing to open.** The real queue is **39**, so the
       list overstated the work by 39% and pointed at twenty-five images that
       cannot exist. `look.py` now separates openable, fetchable and withdrawn, and
-      prints `QUEUE IS 39, not 64` so the number cannot drift back. **A queue
+      prints the real queue beside the one it used to report, so the number
+      cannot drift back. **A queue
       that tells you to fetch work which cannot exist is worse than no queue,
       because it looks like progress and costs a pass to discover.**
 
