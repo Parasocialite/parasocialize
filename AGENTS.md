@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 200 entries, 488 relations, 292 generated pages.
+relationships. 206 entries, 504 relations, 299 generated pages.
 
 ## The rule that outranks everything
 
@@ -693,10 +693,10 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-187 sourced | 0 not yet stood behind | 13 thesis   = 200
+193 sourced | 0 not yet stood behind | 13 thesis   = 206
 edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-290 of 420 sources have a locator
-0 of 380 claim to be openable without one   (ratcheted; was 94)
+348 of 449 sources have a locator
+0 of 252 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
 0 relations claim an order neither end can support
@@ -706,10 +706,10 @@ edges landing on an entry with no source: COMPUTED - do not type this number her
 39 attachment sub-categories, up from 38
 6 otherness members, on a third axis
 3 reciprocity members, on a fourth axis recovered from the 2019 chart
-13 media values, up from 11 (radio and comics added)
+15 media values, up from 13 (stage and visual_art added)
 ```
 
-Board must reconcile to 200. `add_source.py` is authoritative.
+Board must reconcile to 206. `add_source.py` is authoritative.
 
 **These four lines are typed, and they are the defect this file warns about
 twice** - "a number inside a paragraph is not obviously a claim, which is what
