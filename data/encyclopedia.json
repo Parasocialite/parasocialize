@@ -758,6 +758,86 @@
       "provenance": "sourced"
     },
     {
+      "id": "betty-crocker",
+      "title": "Cordially yours, Betty Crocker",
+      "kind": "person",
+      "year": 1921,
+      "era": "Marketing",
+      "lanes": [
+        "application",
+        "consideration"
+      ],
+      "sections": [
+        "brand",
+        "character"
+      ],
+      "summary": "In 1921 a flour company's advertising department needed one woman's name for the kitchen advice its all-female home-service staff was already writing. Betty Crocker was a signature and a persona, not a person: she answered letters, then took a radio voice in 1924, and gave millions a correspondent who signed herself \"Cordially yours.\"",
+      "significance": "**The reply existed before the name did.** In late October 1921 Gold Medal Flour ran a jigsaw-puzzle advertisement in The Saturday Evening Post; Washburn-Crosby received 30,000 completed puzzles and, with them, several hundred letters of cooking questions. The advertising department asked the board to create a personality that the women answering the letters could all sign, as the company's own account puts it. \"Crocker\" honoured a retired company director, William G. Crocker; \"Betty\" was chosen because it sounded friendly; employees competed to submit the signature and Florence Lindberg's was adopted, and is still in use. The replies, written by a home-service department of home economists, went out signed \"Cordially Yours, Betty Crocker\" - a real hand typing under a name no woman owned.\n\n**Then the persona was given a voice, which is what makes it a bond rather than a byline.** In 1924 the company helped a local radio station out of bankruptcy, renamed it WCCO, and put Betty Crocker on daytime radio's first cooking show, \"the Betty Crocker Cooking School of the Air\"; Blanche Ingersoll was its first voice, the program spread to thirteen regional stations, and from 1927 it ran on the fledgling NBC network for twenty-four years, with more than a million listeners enrolled. Each station had its own Betty Crocker reading the same scripts from Minneapolis, and letters - now from across the Midwest - kept arriving. General Mills' own description of the effect is this entry's best line: her voice on the air \"was like the woman next door dropping in for a morning visit to share a new recipe.\"\n\n**This is the brand-as-character mechanism at its founding, decades before the corpus had a name for it.** A corporation was given a face and a tone so that a customer relationship would have a subject, and the entry files it as an instance of that later mechanism with the practice dated to the year the signature was drawn. The tie is one-sided in the way that matters: the reader attached to a woman who did not exist, and the reply, however real the labour behind it, came from the persona rather than the person. The counter - that a home economist really did answer, so the bond was two-way - loses because the far end of the reader's attachment was Betty, and Betty could not answer as herself; the correspondence ran under a single invented name for exactly that purpose. Contestable, and recorded as such.",
+      "verified": false,
+      "medium": [
+        "literature",
+        "radio"
+      ],
+      "relations": [
+        {
+          "to": "the-brand-as-character",
+          "type": "instance_of"
+        },
+        {
+          "to": "nancy-drew",
+          "type": "preceded"
+        },
+        {
+          "to": "the-figure-you-buy",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "General Mills, \"How Betty Crocker got its start\" (2024)",
+          "status": "unverified",
+          "url": "https://www.generalmills.com/news-and-stories/stories/how-betty-crocker-got-its-start",
+          "claim": "The origin as the company's account gives it: the late-October 1921 Saturday Evening Post Gold Medal Flour jigsaw-puzzle advertisement; 30,000 completed puzzles arriving with several hundred letters of cooking questions; the Advertising Department persuading the board to create a personality the women answering the letters could all use; the surname Crocker chosen for the retired executive William G. Crocker and Betty for its friendly sound; Florence Lindberg's signature chosen in an internal contest and still in use; and the home economists who tested and demonstrated the flour. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "General Mills, \"The women who built Betty Crocker\" (2022)",
+          "status": "unverified",
+          "url": "https://www.generalmills.com/news-and-stories/stories/the-women-who-built-betty-crocker",
+          "claim": "The people behind the persona: Ruth Hayes Carpenter hired in 1921 to create the Home Service Department and a team of 25 home economists; Blanche Ingersoll developing the first radio scripts and becoming, in early October 1924, the first voice of Betty Crocker; the doubt that women would listen to a radio program and the letters that quickly came in instead; and the description of the voice as \"like the woman next door dropping in for a morning visit to share a new recipe.\" Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "MNopedia (Minnesota Historical Society), \"Betty Crocker\"",
+          "status": "unverified",
+          "url": "https://www.mnhs.org/mnopedia/search/index/person/betty-crocker",
+          "claim": "That Betty Crocker began in the advertising department of Washburn-Crosby after the October 1921 contest; that Samuel Gale invented the persona because the advice should come from a woman; that the all-female home service department answered consumer questions signing each letter \"Cordially Yours, Betty Crocker\"; and that Marjorie Child Husted drove the persona and wrote its radio scripts. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Betty Crocker\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Betty_Crocker",
+          "claim": "That Betty Crocker is a brand and fictional character created by the Washburn-Crosby Company in 1921 \"to give a personalized response to consumer product questions\"; the Gold Medal Flour promotion in the Saturday Evening Post and the 30,000 puzzles and letters that produced the persona; and that the persona was made because housewives would want advice from a fellow woman. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "JSTOR Daily, \"In Search of the Real Betty Crocker\" (29 June 2017)",
+          "status": "unverified",
+          "url": "https://daily.jstor.org/in-search-of-the-real-betty-crocker/",
+          "claim": "That Betty Crocker began as a signature in an all-male advertising department needing a trustworthy spokeswoman; that the autograph was a composite of handwriting samples from the women at Washburn-Crosby; the 1924 radio debut of the \"Betty Crocker Cooking School of the Air\"; and Laura Shapiro's reading of Marjorie Child Husted's Betty as \"the home-economist-in-chief.\" Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "bieber-effect",
       "title": "The Bieber effect",
       "kind": "event",
@@ -5738,6 +5818,76 @@
       "provenance": "sourced"
     },
     {
+      "id": "mister-rogers",
+      "title": "Won't you be my neighbor?",
+      "kind": "work",
+      "year": 1968,
+      "era": "Television",
+      "lanes": [
+        "application",
+        "consideration"
+      ],
+      "sections": [
+        "companion"
+      ],
+      "summary": "Fred Rogers went national on public television on 19 February 1968 and spent thirty-three years talking, slowly, into the camera at children aged two to five. The show's offer is mutual in its own words - \"Won't you be my neighbor?\" - and its host insisted he was not acting a character, only sharing his real self. The bond was engineered, and returned by people who could not answer.",
+      "significance": "**The address was deliberate, slow and aimed at the youngest viewer, and the show's own research treats the screen as a face.** Rogers spoke directly into the lens and, as the show's article records, made a point of behaving \"naturally on camera rather than acting out a character\": \"One of the greatest gifts you can give anybody is the gift of your honest self. I also believe that kids can spot a phony a mile away.\" The pace was a design choice. Discussing it, Rogers quoted the program's own finding - \"the younger the child, the more interested they are in the program when my face is on the screen\" - and reached the comparison this entry is built on: \"the younger children might consider the television screen as another mother's face.\" The show went to hard places on purpose: in the summer of 1968, after Robert F. Kennedy was shot, it had the puppet Daniel Striped Tiger ask what assassination meant, because Rogers thought small children would feel the adults' fear and deserved to be spoken to.\n\n**The offer is mutual in the song and one-sided in fact.** \"Won't you be my neighbor?\" asks a question the viewer answers by watching, and the closing line reassures a child that \"there's only one person in the whole world that's like you, and that's you.\" That is the fourth wall stepped through on purpose - and unlike the fictional figures this site usually files, Rogers staked the whole thing on the speaker being a real man rather than a character. The attachment shows in what viewers did with it: families reported children donning a sweater and sneakers when the theme music began, and one of Rogers' cardigans now hangs in the Smithsonian. Thirty-three years, and the format stayed, in the same article's word, \"virtually unchanged.\"\n\n**The counter-argument is that this is ordinary children's television and Rogers would have refused the frame.** He spent his life insisting on honesty and would not have claimed his viewers had a relationship with him, only that he spoke to them truthfully. It loses on the structure rather than on the sentiment: the address runs one way, a child's reply - a shout at the screen, a sweater - does not reach the set, and the program's own research treats the young viewer's attention to the face as the thing being built. He is the honest ancestor of the engineered pause that arrives in children's television later in the century: the show came after howdy-doody and before Blue's Clues, and this shelf is the address, not the puppets. Contestable, and recorded as such.",
+      "verified": false,
+      "medium": [
+        "television_scripted"
+      ],
+      "relations": [
+        {
+          "to": "howdy-doody",
+          "type": "succeeded"
+        },
+        {
+          "to": "the-fourth-wall",
+          "type": "succeeded"
+        },
+        {
+          "to": "blues-clues",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "NPR / Fresh Air, \"It's A Beautiful 50th Birthday For 'Mister Rogers' Neighborhood'\" (19 February 2018)",
+          "status": "unverified",
+          "url": "https://www-s1.npr.org/2018/02/19/586180373/its-a-beautiful-50th-birthday-for-mister-rogers-neighborhood",
+          "claim": "The premiere date as reported - Fred Rogers going national on public television on February 19, 1968 - and the quotations this entry uses: Rogers on honesty (\"Every one of us longs to be in touch with honesty\") and on the program's research (\"the younger the child, the more interested they are ... when my face is on the screen\"; \"the younger children might consider the television screen as another mother's face\"); the summer-1968 prime-time segment in which Daniel Striped Tiger asks the definition of \"assassination\" after Robert F. Kennedy was shot; and the sweater-and-sneakers routine children imitated. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Mister Rogers' Neighborhood\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Mister_Rogers%27_Neighborhood",
+          "claim": "That the American national debut was February 19, 1968; that during each segment Rogers \"spoke directly to the viewer\" and \"made a point simply to behave naturally on camera rather than acting out a character,\" with the quotation \"One of the greatest gifts you can give anybody is the gift of your honest self. I also believe that kids can spot a phony a mile away\"; the format remaining \"virtually unchanged\" for the whole run; the closing \"There's only one person in the whole world that's like you\" reassurance; and that one of Rogers' sweaters hangs in the Smithsonian. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Fred Rogers\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Fred_Rogers",
+          "claim": "The biographical frame: Fred McFeely Rogers (1928-2003), Presbyterian minister and host of Mister Rogers' Neighborhood, which began airing nationally in 1968 and ran for 895 episodes; and that a special segment dealing with the assassination of Robert F. Kennedy aired on June 7, 1968, two days after the assassination. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The Mister Rogers' Neighborhood Archive, \"Episode 0001\"",
+          "status": "unverified",
+          "url": "https://www.neighborhoodarchive.com/mrn/episodes/0001/",
+          "claim": "The first episode's air date (February 19, 1968) and its contents: Rogers talking about learning to tie his shoes as he changes into his sneakers, and singing \"I Like You As You Are.\" Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
+      "provenance": "sourced"
+    },
+    {
       "id": "mob-and-internet-pile",
       "title": "A mob is a parasocial event",
       "kind": "term",
@@ -6358,6 +6508,93 @@
         }
       ],
       "media_inferred": true,
+      "provenance": "sourced"
+    },
+    {
+      "id": "pamela",
+      "title": "Virtue rewarded",
+      "kind": "work",
+      "year": 1740,
+      "era": "Enlightenment",
+      "lanes": [
+        "application",
+        "consideration"
+      ],
+      "sections": [
+        "character",
+        "companion"
+      ],
+      "summary": "The novel that turned its readers into a correspondent. Pamela Andrews writes home about her master's pursuit, and the reader takes the seat of the parents - receiving every letter, sending none. Published anonymously in November 1740, it became the first English best-seller and the first novel whose readers wrote back demanding more of it.",
+      "significance": "**The form is a correspondence the reader reads from the far end of.** Richardson was a printer who took a commission in 1739 to compile a volume of model \"familiar letters\" for people too unskilled to write their own, and the germ of Pamela was a short run of letters from a servant daughter asking her father's advice about her master's advances. He kept the epistolary shape and changed its address: the letters are written not to a lover but to Pamela's parents, who are offstage, at a distance, and never answer inside the book. The reader is put in that seat - handed a life in letters addressed to somebody else, with no way to write back - which is this site's subject arriving in the first novel most of its readers ever meet.\n\n**The reception is a record of attachment, and it is unusually well documented.** The book is, on the Cambridge edition's own description, \"perhaps the most influential novel published in Britain in the eighteenth century\" and \"on its first publication in 1740 ... an immediate bestseller\"; it ran to five editions in its first year and produced what the University of Michigan project calls a \"'Pamela' rage,\" with Pamela motifs on teacups and fans. The world was said to divide into \"Pamelists and Antipamelists.\" A village blacksmith, the oft-repeated anecdote runs, read it aloud on his anvil through the summer evenings to an attentive crowd and set the parish bells ringing at the happy ending. And the readers did not stay passive: the unauthorized continuations and parodies - Fielding's Shamela, Haywood's Anti-Pamela, Kelly's Pamela's Conduct in High Life - drew a sequel from Richardson himself, Pamela in her Exalted Condition, in 1742. The audience's want bent the text.\n\n**The counter-argument is that Pamela belongs to the history of the novel, not to this site: its importance is form, consent and class, and the people who wrote back wrote to Richardson, not to a girl who never existed.** It is a fair objection and the entry's claim is narrower than it looks. What it files is a structure - a one-sided correspondence the reader reads from the parents' end - and a documented public that formed an attachment and then wrote to keep it going. The letters in the book are addressed to figures who cannot reply; the letters out of the book were addressed to a man who could, and did, and wrote two more volumes because of them. Both are this site's shape. Contestable, and recorded as such.",
+      "verified": false,
+      "medium": [
+        "literature"
+      ],
+      "relations": [
+        {
+          "to": "parasocial-interaction",
+          "type": "instance_of"
+        },
+        {
+          "to": "werther",
+          "type": "preceded"
+        },
+        {
+          "to": "nancy-drew",
+          "type": "preceded"
+        }
+      ],
+      "sources": [
+        {
+          "citation": "Richardson, S., \"Pamela; or, Virtue Rewarded\" (1740), Project Gutenberg ebook 6124",
+          "status": "unverified",
+          "url": "https://www.gutenberg.org/ebooks/6124",
+          "claim": "The work and its form as the record states them: an epistolary novel published in 1740 in which the fifteen-year-old maidservant Pamela Andrews recounts, through letters and journal entries, her employer Mr. B's persistent advances; and the Gutenberg introduction's account of Richardson the printer taking a commission to write a volume of model \"familiar letters,\" out of which the plot and the epistolary form came. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Introduction to Pamela, Project Gutenberg",
+          "status": "unverified",
+          "url": "https://www.gutenberg.org/files/24860/24860-h/24860-h.htm",
+          "claim": "The publication history the introduction sets out: Richardson's own editions running (1) November 6, 1740, (2) February 14, 1741, and onward; the first public reference to Pamela, an advertisement in The Weekly Miscellany on October 11, 1740; and the introductory letters written by Jean Baptiste de Freval, William Webster and Aaron Hill rather than by Richardson. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Cambridge University Press, \"Pamela: Or, Virtue Rewarded\" (critical edition)",
+          "status": "unverified",
+          "url": "https://www.cambridge.org/core/books/pamela-or-virtue-rewarded/49FC58F01F61FF1FE4569A2532FE9168",
+          "claim": "The two phrases this entry leans on: that Pamela is \"perhaps the most influential novel published in Britain in the eighteenth century,\" and that on its first publication in 1740 \"it became an immediate bestseller.\" Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "University of Michigan, \"Pamela, the novel\"",
+          "status": "unverified",
+          "url": "https://websites.umich.edu/~ece/student_projects/pamela_illustrated/pamela.htm",
+          "claim": "That Pamela was the first example of the best-seller phenomenon in English fiction; that there was a \"'Pamela' rage,\" with Pamela motifs on teacups and fans as Margaret Ann Doody reports; the germ of the novel in the model-letter commission; and the December 1741 sequel written in response to criticisms, parodies and spurious continuations. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "The Telegraph, \"Rediscovering Pamela, the 1740 blockbuster\" (17 January 2019)",
+          "status": "unverified",
+          "url": "https://www.telegraph.co.uk/books/what-to-read/rediscovering-pamela-1740-blockbuster-pure-metoo/",
+          "claim": "That Pamela ran to five editions in its first year of publication; that there was Pamela merchandise \"in the shape of fans, cups and pictures\"; and that there was talk \"of the world being divided into Pamelists and Antipamelists.\" Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        },
+        {
+          "citation": "Wikipedia, \"Pamela; or, Virtue Rewarded\"",
+          "status": "unverified",
+          "url": "https://en.wikipedia.org/wiki/Virtue_Rewarded",
+          "claim": "The blacksmith anecdote \"repeated in varying forms since 1777\" - the novel read aloud on an anvil to a village audience, the parish bells rung at the happy ending; the Pamela-themed artefacts (prints, paintings, waxworks, a fan, and a set of playing cards); the sequel Pamela in her Exalted Condition (1742); and the parodies Shamela and Anti-Pamela. Read through a search index rather than fetched, so the record is unverified: a reader can open this page, this agent did not.",
+          "locator": null,
+          "identity_verified": "no DOI in this locator, so identity was NOT checked - the url was returned by a search index and was not opened"
+        }
+      ],
+      "media_inferred": false,
       "provenance": "sourced"
     },
     {

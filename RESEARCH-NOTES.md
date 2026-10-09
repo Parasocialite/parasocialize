@@ -490,3 +490,93 @@ Research-specific decisions worth keeping:
   checked verbatim against taxonomy.json + encyclopedia.json (`bad = 0`)
   before `--apply`, and all three placements say "Contestable, and recorded
   as such".
+
+## 2026-10-08 - fifth batch: the reader who writes back, the neighbor, and the signature
+
+Three entries, all sources `unverified` with the index-read REASON and the
+standard `identity_verified` string, `locator: null` with the url recorded -
+the batch-3/4 convention. Recorded in `tools/add_fifth_batch_entries.py` and
+`tools/add_fifth_batch_placements.py`. 224 -> 227 entries, 546 -> 555
+relations, 224 -> 227 assignments, 510 -> 525 source records (409 -> 424 with a
+url).
+
+| entry | year | kind | shelf | the argument in one line |
+|---|---|---|---|---|
+| `pamela` | 1740 | work | character/fictional-protagonist | the reader is put in the parents' seat - every letter received, none sent - and the public that formed wrote back, forcing a sequel |
+| `mister-rogers` | 1968 | work | persona/presenter | the second person is the show's title, aimed at two-year-olds, and the programme's own research treats the screen as a face |
+| `betty-crocker` | 1921 | person | institution/brand | the reply existed before the name did: one signature the answering home economists could all sign, given a radio voice in 1924 |
+
+Research-specific decisions worth keeping:
+
+- **pamela** dated 1740 (first publication, 6 November 1740), not 1741 or 1742
+  (Richardson's own sequel). Six sources, all index-read and all `unverified`:
+  Project Gutenberg ebook 6124 (the full text); Gutenberg 24860, its
+  Introduction (the editions, the first public reference on 11 October 1740, the
+  letters by de Freval, Webster and Aaron Hill); the Cambridge critical edition,
+  DOI 10.1017/9780511975424 ("perhaps the most influential novel published in
+  Britain in the eighteenth century"; "on its first publication in 1740 ... an
+  immediate bestseller"); the University of Michigan student project (the first
+  best-seller, the "'Pamela' rage", the teacups and fans per Doody); the
+  Telegraph, 17 January 2019 (five editions in the first year, the fans and
+  cups, "Pamelists and Antipamelists"); and Wikipedia, "Pamela; or, Virtue
+  Rewarded" (the village-blacksmith anecdote, the merchandise, the sequel,
+  Shamela and Anti-Pamela). The placement contest was `character/mascot` - the
+  reception left objects behind - and it lost on that shelf's own test, because
+  the decade of "Pamelists and Antipamelists" is a public being wrong about an
+  interior the author could not correct; the second counter was
+  `persona/creator`, and it lost because the letters out of the book went to
+  Richardson only after the attachment to Pamela had already formed.
+- **mister-rogers** dated 1968 (the national premiere, 19 February 1968), not
+  1966 or 1967 (the earlier regional WQED run, which the entry does not date
+  from). Four sources, all `unverified`: NPR/Fresh Air, 19 February 2018 (the
+  premiere date, the honesty and "another mother's face" quotations, the Daniel
+  Striped Tiger assassination segment, the sweater and sneakers); Wikipedia,
+  "Mister Rogers' Neighborhood" (the national debut, the direct address,
+  "behave naturally on camera", the closing reassurance, the Smithsonian
+  sweater); Wikipedia, "Fred Rogers" (1928-2003, the national 1968 launch, 895
+  episodes, the 7 June 1968 RFK-assassination segment); and the
+  neighborhoodarchive Episode 0001 page (the air date, the shoelace and sneaker,
+  "I Like You As You Are"). The placement contest was `persona/creator`, and it
+  was the strong one because Rogers wrote and produced the show rather than
+  being handed the address; it lost on that shelf's own test - the recurring
+  slot attaches to a programme, not a person - and on the presenter's `not`, a
+  job function with a shift that ran thirty-three years. The second counter,
+  `character/mascot`, is the puppet shelf, and the entry's own line settles it:
+  the reply was aimed at the man.
+- **betty-crocker** dated 1921 (the October 1921 Saturday Evening Post
+  jigsaw-puzzle advertisement), not 1924 (the first radio voice) or any later
+  radio date. Five sources, all `unverified`: General Mills, "How Betty Crocker
+  got its start" (the Post jigsaw ad; the 30,000 puzzles and several hundred
+  letters; the board decision; the Crocker/Betty naming; the Florence Lindberg
+  signature; the home economists who did the answering); General Mills, "The
+  women who built Betty Crocker" (Ruth Hayes Carpenter, the 25 home economists,
+  Blanche Ingersoll as the first voice in 1924, the "woman next door" line);
+  MNopedia (Samuel Gale, "Cordially Yours, Betty Crocker", Marjorie Child
+  Husted); Wikipedia, "Betty Crocker" (created 1921, "to give a personalized
+  response to consumer product questions"); and JSTOR Daily, 29 June 2017 (the
+  all-male advertising department, the composite signature, the 1924 radio
+  debut). The placement contest was `character/fictional-protagonist`, and it
+  lost on the one half of the written-character test no author can survive -
+  "if no author can override what the audience says they feel" - because General
+  Mills could and did override every part of Betty; the second counter,
+  `character/mascot`, lost because Betty carries a biography and a household
+  voice rather than being an inert logo.
+- **A first for a batch: the structural relation vocabulary.** All earlier
+  batches derived every edge from `year` and so used only the chronological
+  verbs. This batch also carries two `instance_of` edges -
+  `pamela -> parasocial-interaction` and `betty-crocker ->
+  the-brand-as-character` - which assert a kind rather than a date, so the
+  entries script now permits the STRUCTURAL set (instance_of, depicts, cites,
+  wrote, member_of, bond_with, occurred_in) alongside the CHRONO set and dates
+  only the latter. All eight dated edges were asserted from the years before
+  write, and all eight passed the chronology check in-script and again in
+  `citation_audit.py`: `pamela` preceded `werther` (1774) and `nancy-drew`
+  (1930); `mister-rogers` succeeded `howdy-doody` (1947) and `the-fourth-wall`
+  (1758) and preceded `blues-clues` (1996); `betty-crocker` preceded
+  `nancy-drew` (1930) and `the-figure-you-buy` (1971). The two `instance_of`
+  edges are undated and are not checked as chronology.
+- Every quoted fragment in the three `why` strings - 34 in total - was checked
+  verbatim against taxonomy.json + encyclopedia.json (`bad = 0`) before
+  `--apply`, and all three placements say "Contestable, and recorded as such".
+  One fragment was caught by the checker on the first pass ("has enough" for
+  the taxonomy's "with enough") and corrected.
