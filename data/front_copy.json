@@ -1,0 +1,33 @@
+{
+  "_note": "Front page copy, one edition per bi-daily release. `front_copy.py --stamp <date>` sets which one is live and `build_cards.py` renders it - the copy used to be written into build_cards.py's template, which made it impossible to rotate without editing a generator, and it was invisible there next to the counts. Appended, never rewritten: the sequence of what the front page said is the record. The hub teasers are NOT here - they come from each story's own `take`, cut at sentence boundaries by `deck()` in build_cards.py, so they change when the stories do.",
+  "_live": "2026-10-13",
+  "editions": [
+    {
+      "date": "2026-10-11",
+      "note": "the masthead lockup: iYi in the clerk mood beside the line and the thesis, with the doors as their own row",
+      "copy": {
+        "kicker": "iYi &middot; behind the counter",
+        "line": "You feel like you know somebody who has no idea you exist. <b>Everybody has one.</b> This is the news feed for that.",
+        "thesis_word": "Horton and Wohl coined <i>parasocial</i> to describe television.",
+        "thesis_thing": "Somebody carried their dead into a cave and set a stone under her head.",
+        "clerk_line": "<b>I keep the record.</b> Every claim here carries its source, and the ones nobody has opened say so. I do not remember you, and nothing here pretends to.",
+        "door_stories": "One a day, each one signed by a person. 48 so far.",
+        "door_encyclopedia": "227 entries, every claim cited."
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "note": "front page clarity: every sentence says what it is and why it is here",
+      "copy": {
+        "kicker": "iYi &middot; behind the counter",
+        "line": "You feel like you know somebody who has no idea you exist. <b>Nearly everybody does.</b> This is the news feed for that feeling.",
+        "thesis_word": "Horton and Wohl coined <i>parasocial</i> in 1956 for a bond with somebody who does not know you exist.",
+        "thesis_thing": "Neanderthals carried their dead into a cave in Iraq and laid them in the floor.",
+        "clerk_line": "<b>I keep the record.</b> Every claim here carries its source, and the ones nobody has opened say so. I do not remember you, and nothing here pretends to.",
+        "door_stories": "One a day, each one signed by a person. 48 so far.",
+        "door_encyclopedia": "227 entries, every claim cited.",
+        "thesis_pair": "Both are people going back to somebody who cannot answer."
+      }
+    }
+  ]
+}

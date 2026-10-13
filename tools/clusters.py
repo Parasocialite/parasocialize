@@ -20,10 +20,49 @@ MEDIUM_NAME = {
     "technology": "Technology", "theology": "Theology and religion",
     "history": "History",
     "radio": "Radio", "comics": "Comics",
+    # stage and visual_art were added to the medium list in items 39 and 42 and
+    # were never added here, so they fell through to `m.replace("_", " ")`. On
+    # the encyclopedia index that rendered as "visual art" and "stage" in lower
+    # case in a grid where the other fourteen tiles are Title Case - a reader
+    # could see the drift on the page, which is the whole subject of item 33.
+    "stage": "Stage", "visual_art": "Visual art",
 }
 MEDIUM_ORDER = ["ai", "television_scripted", "television_unscripted", "music",
                 "film", "literature", "games", "sport", "technology",
-                "theology", "history", "radio", "comics"]
+                "theology", "history", "radio", "comics", "stage", "visual_art"]
+
+
+def _assert_covers_the_medium_axis():
+    """Every medium the atlas validates against needs a reader-facing label here.
+
+    This is a second copy of a list that already exists in atlas.py, and copies
+    drift: build_atlas.py had eleven media where atlas.py had fifteen, so two
+    were invisible from the map for two releases. Then this file had thirteen,
+    and the two it was missing printed in the wrong case on a public page.
+
+    Importing atlas.MEDIA_LABEL is not the fix - its wording is deliberately
+    different ("Scripted television" against "Scripted TV", "Artificial
+    intelligence" against "AI and chatbots"), because this one is page copy and
+    that one is an atlas chip. So the two stay separate and the drift is made
+    impossible instead: a medium with no label here is a build error, not a
+    lowercase tile.
+    """
+    import sys, pathlib
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    from atlas import MEDIA
+    missing_name = [m for m in MEDIA if m not in MEDIUM_NAME]
+    missing_order = [m for m in MEDIA if m not in MEDIUM_ORDER]
+    if missing_name or missing_order:
+        raise SystemExit(
+            f"tools/clusters.py has drifted from tools/atlas.py's MEDIA list.\n"
+            f"  no MEDIUM_NAME label for: {missing_name}\n"
+            f"  not in MEDIUM_ORDER:      {missing_order}\n"
+            f"Add a reader-facing label for each. Without one the medium prints "
+            f"as its raw key, which is how 'stage' and 'visual art' reached a "
+            f"public page in lower case beside fourteen Title Case tiles.")
+
+
+_assert_covers_the_medium_axis()
 
 # A subject cluster is a word that appears in three or more entry ids. The word
 # is the cluster's name because it is the thing the reader is looking for, and

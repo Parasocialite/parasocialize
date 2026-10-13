@@ -235,6 +235,20 @@ img{max-width:100%;display:block}
 .thesis-hot .thesis-num{color:var(--hot)}
 .thesis-txt{font-size:.95rem;color:var(--dim);line-height:1.45;max-width:30ch;margin:0}
 .thesis-txt b{color:var(--paper);font-weight:600}
+/* The two figures are 1956 and -70,000 and a reader arriving cold has no way
+   to know they belong together, or why either is on a site about one-sided
+   attachment. Asking each door to carry its own justification made one of them
+   twice the length of the other - 4 lines against 8, with 120px of dead space
+   under the short one, because the two are forced into equal columns.
+
+   So the shared reason is stated once, below the pair, and each door is left
+   to be a plain fact. It spans both columns and sits on the block's own
+   baseline rule, so it reads as a caption on the pair rather than a third
+   thing competing with them. */
+.thesis-pair{grid-column:1/-1;margin:0;padding:11px 0 13px;
+  border-top:1px solid var(--line2);
+  font-family:var(--label);font-size:.62rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--warm);opacity:.85}
 .thesis-doors{grid-template-columns:repeat(2,1fr);max-width:none;margin-top:22px}
 @media (max-width:760px){
   .thesis{grid-template-columns:1fr}
@@ -299,6 +313,54 @@ img{max-width:100%;display:block}
 
 .iyiw-hero{font-size:clamp(4.2rem,17vw,10.5rem);display:flex;justify-content:center}
 .iyiw-hero .iyiw-r{opacity:.7;transform:scale(.8)}
+/* ---- the masthead lockup: copy column, clerk column -------------------
+The mark used to be `display:flex;justify-content:center` in a full-width band,
+which `probe_front.py` measured as a 1192px box containing 150px of drawing:
+1042px of nothing either side of two disembodied eyes, sitting between the doors
+and the top 8 with no copy attached. The gate was green because nothing it
+checks is about a mark having a job.
+
+So the mascot is a column now, not a stamp: it shares a row with the line and
+the thesis, carries its own caption, and breaks the top edge of its card so it
+is layered into the composition rather than plopped on it. The doors are a full
+row of their own underneath, which is what closes the masthead - with the doors
+inside the left column the clerk card ran a hundred pixels past them and the
+empty space just moved to the bottom left. */
+.masthead-grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;
+  gap:40px;align-items:stretch;margin-top:4px}
+.clerk{display:flex;flex-direction:column;position:relative;
+  border:1px solid var(--line2);border-radius:14px;
+  background:linear-gradient(180deg,var(--bg3),var(--bg2));
+  padding:6px 20px 16px;text-align:left}
+.clerk-face{display:flex;justify-content:center;margin:-52px 0 0}
+.clerk-face .mascot-hero{filter:drop-shadow(0 14px 30px rgba(255,90,31,.30))}
+.clerk-kick{font-family:var(--label);font-size:.56rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--warm);margin:8px 0 8px}
+.clerk-line{font-size:.95rem;line-height:1.5;color:var(--dim);margin:0 0 12px}
+.clerk-line b{color:var(--paper);font-weight:600}
+.clerk-more{font-family:var(--label);font-size:.56rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--hot)}
+.clerk-more:hover{color:var(--paper)}
+.thesis-doors{margin-top:22px}
+@media (max-width:900px){
+  .masthead-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .clerk{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 16px;
+    align-items:center;padding:14px 18px}
+  .clerk-face{margin:0;grid-row:span 3}
+  .clerk-face .mascot-hero{width:104px;height:104px}
+  .clerk-kick{margin:0}
+  .clerk-line{grid-column:2;margin:0 0 8px}
+  .clerk-more{grid-column:2;margin-top:0}
+  .thesis-doors{margin-top:18px}
+}
+/* The wordmark is 7.5rem at desktop and the clamp bottoms out at 3rem, which at
+   390px wraps "Parasocialize." onto three lines and leaves the period alone on
+   the last one - measured, not guessed: the h1 box was 107px tall for a 48px
+   font at .86 line-height, i.e. 2.6 lines. 10.5vw keeps it on one at 320px. */
+@media (max-width:900px){
+  .masthead h1{font-size:clamp(2.2rem,10.5vw,4.6rem)}
+}
+
 .masthead-mark{margin:26px 0 6px;display:flex;justify-content:center}
 
 /* the wordmark strip: iYi, then the publication name as a quiet subtitle */
@@ -426,6 +488,12 @@ img{max-width:100%;display:block}
 .fdoor-body b{font-family:var(--label);font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c);display:block}
 .fdoor-body strong{font-family:var(--serif);font-size:1.1rem;font-weight:700;display:block;margin:1px 0 2px}
 .fdoor-body span{font-size:.8rem;color:var(--dim);line-height:1.35;display:block}
+/* the numbered art box, when a door has no photograph to put in it. The box is
+   styled for a label, so a bare <b> inherits .5rem mono and reads as a smudge;
+   it gets the same numerals as the top 8 list, which is the site's existing
+   answer to "a count with no picture". */
+.fdoor-art b{font-family:var(--serif);font-weight:900;font-size:1.3rem;
+  line-height:1;color:var(--hot)}
 
 /* ---------- the top 8 list ---------- */
 .t8{list-style:none;counter-reset:none;display:grid;gap:22px}
@@ -895,20 +963,26 @@ table.db a:hover{color:var(--hot)}
 .result h4{font-family:var(--serif);font-size:1.25rem;font-weight:700;margin-bottom:8px}
 .result p{color:var(--dim);margin-bottom:12px;font-size:.96rem}
 
-/* ---------- THE CLERK ---------- */
-.clerk{
-  background:linear-gradient(150deg,var(--bg3),var(--bg2));
-  border:1px solid var(--line);border-radius:18px;padding:28px;
-  display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;
-}
-.clerk .face{width:96px;height:96px;border-radius:16px;flex:none;overflow:hidden;
-  box-shadow:0 12px 28px rgba(0,0,0,.5);border:2px solid var(--warm)}
-.clerk .face img{width:100%;height:100%;object-fit:cover}
-.clerk h3{font-family:var(--serif);font-size:1.5rem;font-weight:700;margin-bottom:4px;letter-spacing:-.02em}
-.clerk .role{font-family:var(--label);font-size:.56rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--warm);margin-bottom:14px}
-.clerk p{color:var(--dim);margin-bottom:12px;max-width:64ch}
-.clerk p:last-child{margin-bottom:0}
+/* A "THE CLERK" block used to live here for a /shelf/ component that no longer
+   exists. It styled `.clerk .face`, `.clerk h3`, `.clerk .role` and `.clerk p`
+   - none of which any page emits any more - but its bare `.clerk{...}` selector
+   matched the front page's mascot card and silently won, because it came later
+   in the file. Measured, not guessed: the card asked for `display:flex` and a
+   single 330px column and got `display:grid` with `auto 1fr`, which resolved to
+   197px + 50px inside a 330px card. The card's own copy then wrapped to EIGHT
+   lines at a 191px measure (~24 characters) and "WHAT THE MASCOT IS FOR" sat in
+   a 50px column, three words to a line.
+
+   Nothing caught it and nothing could have: the defect produces no overflow, so
+   verify_narrow cannot see it; it overlaps nothing, so probe_front cannot see
+   it; and every class in it is a real class, so check_css reports it as styled.
+   A dead component's stylesheet outliving the component is the same shape as the
+   25 drifted title plates and the stale mascot sheet - a generated artefact
+   quietly describing an older version of its source - except that here the stale
+   copy was the one being applied. `check_css.py --orphans` now holds it.
+
+   The name `.clerk` belongs to the masthead card alone. If a second component
+   ever needs it, give it its own name rather than sharing this one. */
 
 /* ---------- newsletter ---------- */
 .signal-sec{text-align:center;background:
@@ -1244,8 +1318,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   .section{padding:40px 18px}
   .wrap{padding-inline:18px}
   .foot-tag{text-align:left}
-  .clerk{grid-template-columns:1fr}
-  .clerk .face{width:72px;height:72px}
   .punch-grid{gap:10px}.hole{width:24px;height:24px}
   .row2{grid-template-columns:1fr}
 }

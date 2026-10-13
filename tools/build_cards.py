@@ -11,7 +11,7 @@ build_cards.py - redraws the whole video store from data/shop.json.
 
 Run:  python tools/build_cards.py
 """
-import json, html, datetime, pathlib, urllib.parse, hashlib
+import json, html, datetime, pathlib, re, urllib.parse, hashlib
 from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -1273,6 +1273,41 @@ def pick_top(cards, section, now=None):
     return pool[cur_slot(now) % len(pool)]
 
 
+def deck(take, words=20):
+    """The front page's teaser for a story: whole sentences, never a mid-word cut.
+
+    This used to be `" ".join(take.split()[:20]) + "..."`, which produced
+    "The panics about fans being manipulated by fandoms turn out to be a..." -
+    a sentence cut off at its own last word. Ten of those in one grid reads as
+    a page of truncation bugs, and that is exactly what it was reported as.
+
+    A `take` is 48 to 173 words, so it has to be cut. It is cut at sentence
+    boundaries instead: whole sentences until the budget is spent, and if the
+    first sentence alone is over budget it is kept whole rather than amputated.
+    The only fallback is a clause boundary, and it never takes an ellipsis with
+    it, because a teaser that never lands is not a teaser.
+    """
+    take = " ".join((take or "").split())
+    if not take:
+        return ""
+    sentences = [s for s in re.split(r"(?<=[.!?])\s+", take) if s]
+    out, n = [], 0
+    for s in sentences:
+        if out and n + len(s.split()) > words:
+            break
+        out.append(s)
+        n += len(s.split())
+    s = " ".join(out).strip()
+    if s.endswith((".", "!", "?")):
+        return s
+    # one long sentence: fall back to its last clause, and end it properly
+    for sep in (" - ", " — ", "; ", ", "):
+        if sep in s:
+            s = s.rsplit(sep, 1)[0].rstrip(" ,;-—")
+            break
+    return s.rstrip(" ,;-—") + ("." if s else "")
+
+
 def build_front(data, feat=None, manifest=None, hist=None):
     sections, laws, shelf, cards = data["sections"], data["laws"], data["shelf"], data["cards"]
     feat = feat or {"lists": [], "moments": [], "figures": []}
@@ -1371,19 +1406,27 @@ def build_front(data, feat=None, manifest=None, hist=None):
     if hist.get("modules"):
         feats.append(('history', 'The history', '',
                       f"A course in {len(hist['modules'])} modules, from a sculptor to a 2023 policy update. Free, printable.",
-                      "history-macy-store"))
+                      "history-macy-store", len(hist['modules'])))
     if feat.get("moments"):
         feats.append(('moments', 'The moments', '',
                       f"{len(feat['moments'])} significant moments across television, music, the internet, games and AI.",
-                      "moment-wojak"))
+                      "moment-wojak", len(feat['moments'])))
     if feat.get("figures"):
         feats.append(('figures', 'The figures', '',
                       f"{len(feat['figures'])} people and characters who keep the sphere turning, from Pygmalion to a Twitch emote.",
-                      None))
+                      None, len(feat['figures'])))
     fcards = []
-    for slug, name, kick, blurb, imslug in feats:
+    for slug, name, kick, blurb, imslug, count in feats:
         f = img_for(manifest, imslug, 0)  # front page: depth 0
         im = f'<img src="{esc(f["path"])}" alt="" loading="lazy">' if f else ""
+        if not im:
+            # The art box used to be left empty whenever a door had no cached
+            # photograph, which renders as a dark 56px rectangle with nothing
+            # in it - a hole that reads as a missing image, on a page whose
+            # whole argument is that it does not pretend about pictures. The
+            # box is styled for a label, so it carries the number its own
+            # blurb states: modules, moments, figures.
+            im = f"<b>{count:02d}</b>"
         fcards.append(f"""<a class="fdoor" href="{esc(slug)}/index.html" style="--c:{esc(next((a.get('colour','#ff5a1f') for a in sections if a['id']=='history'), '#ff5a1f'))}">
   <span class="fdoor-art">{im}</span>
   <span class="fdoor-body"><strong>{esc(name)}</strong><span>{esc(blurb)}</span></span>
@@ -1399,8 +1442,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
         if not top:
             continue
         glyph = (top["headline"].strip() or "P")[0].upper()
-        take = top.get("take", "")
-        short = " ".join(take.split()[:20]) + ("…" if len(take.split()) > 20 else "")
+        short = deck(top.get("take", ""))
         f = img_aisle(manifest, a["id"], 0) or img_for(manifest, top.get("image"), 0)
         if f:
             # No caption and no credit on the tile. The credit is a licence
@@ -1428,6 +1470,15 @@ def build_front(data, feat=None, manifest=None, hist=None):
     nent = len(json.loads(
         (ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8")
     )["entries"])
+
+    # ---- the masthead's words. They live in data/front_copy.json, one edition
+    # per bi-daily release, and build them from there rather than from the
+    # template - a number or a sentence written into a template is a claim that
+    # goes stale silently and reads as true until somebody checks. `total` and
+    # `nent` stay computed: they are counts of things, and a count read from the
+    # data cannot drift. See tools/front_copy.py.
+    ed = front_copy_edition()
+
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1446,32 +1497,40 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <div class="wrap">
     <h1>Parasocialize.</h1>
 
-    <p class="line">You feel like you know somebody who has no idea you exist.
-      <b>Everybody has one. This is the news feed for that.</b></p>
+    <div class="masthead-grid">
+      <div class="masthead-copy">
+        <p class="line">{ed.get("line")}</p>
 
-    <div class="thesis">
-      <div class="thesis-side">
-        <a class="thesis-num" href="encyclopedia/parasocial-interaction.html">1956</a>
-        <p class="thesis-txt"><b>The word.</b> Horton and Wohl coined
-         <i>parasocial</i> to describe television.</p>
+        <div class="thesis">
+          <div class="thesis-side">
+            <a class="thesis-num" href="encyclopedia/parasocial-interaction.html">1956</a>
+            <p class="thesis-txt"><b>The word.</b> {ed.get("thesis_word")}</p>
+          </div>
+          <div class="thesis-side thesis-hot">
+            <a class="thesis-num" href="encyclopedia/neanderthal-burial.html">&minus;70,000</a>
+            <p class="thesis-txt"><b>The practice.</b> {ed.get("thesis_thing")}</p>
+          </div>
+          <p class="thesis-pair">{ed.get("thesis_pair")}</p>
+        </div>
       </div>
-      <div class="thesis-side thesis-hot">
-        <a class="thesis-num" href="encyclopedia/neanderthal-burial.html">&minus;70,000</a>
-        <p class="thesis-txt"><b>The thing.</b> Somebody carried their dead into
-         a cave and set a stone under her head.</p>
-      </div>
+
+      <aside class="clerk" aria-labelledby="clerk-kick">
+        <div class="clerk-face" role="img" aria-label="iYi, the Parasocialize mascot, behind the counter">{mascot(168, "mascot-hero", mood="clerk")}</div>
+        <p class="clerk-kick" id="clerk-kick">{ed.get("kicker")}</p>
+        <p class="clerk-line">{ed.get("clerk_line")}</p>
+        <a class="clerk-more" href="brand/index.html">What the mascot is for &rarr;</a>
+      </aside>
     </div>
 
     <div class="fdoors thesis-doors">
       <a class="fdoor" href="sections/index.html" style="--c:var(--hot)">
         <span class="fdoor-body"><b>To read</b><strong>The stories</strong>
-        <span>One a day, each one signed by a person. {total} so far.</span></span></a>
+        <span>{ed.get("door_stories")}</span></span></a>
       <a class="fdoor" href="encyclopedia/index.html" style="--c:var(--mint)">
         <span class="fdoor-body"><b>To look something up</b>
         <strong>The encyclopedia</strong>
-        <span>{nent} entries, every claim cited.</span></span></a>
+        <span>{ed.get("door_encyclopedia")}</span></span></a>
     </div>
-    <div class="masthead-mark" role="img" aria-label="iYi, the Parasocialize mascot">{mascot(150, "mascot-hero")}</div>
   </div>
 </section>
 
@@ -1560,39 +1619,6 @@ def fig(manifest, slug, depth=1, cls="", wide=False):
             f'{esc(f["credit"])}</a></figcaption></figure>')
 
 
-def mascot(size=40, cls="", mood="watch", dark=False):
-    """The brand mark: an eight on its side. Which is also infinity, and also
-    two eyes. The eyes are the audience, so the mascot looks back at the
-    reader - which is the joke, and also the argument.
-
-    mood:
-      watch    pupils slightly off-axis, alert (default)
-      wink     one pupil shut, for pull quotes
-      sad      pupils low, for the grief section
-      hollow   no pupils. the one-sided joke: nobody is home
-    """
-    pupils = {
-        "watch": ('<circle cx="34" cy="26" r="8.5" fill="{f}"/><circle cx="72" cy="34" r="8.5" fill="{f}"/>'
-                  '<circle cx="36.5" cy="23" r="2.9" fill="{b}"/><circle cx="74.5" cy="31" r="2.9" fill="{b}"/>'),
-        "wink":  ('<circle cx="34" cy="26" r="8.5" fill="{f}"/><path d="M64 34a9 9 0 0 1 18 0" '
-                  'fill="none" stroke="{f}" stroke-width="5" stroke-linecap="round"/>'
-                  '<circle cx="36.5" cy="23" r="2.9" fill="{b}"/>'),
-        "sad":   ('<circle cx="34" cy="33" r="8.5" fill="{f}"/><circle cx="72" cy="33" r="8.5" fill="{f}"/>'
-                  '<path d="M22 14a16 16 0 0 1 24 0" fill="none" stroke="{f}" stroke-width="4" stroke-linecap="round"/>'
-                  '<path d="M60 14a16 16 0 0 1 24 0" fill="none" stroke="{f}" stroke-width="4" stroke-linecap="round"/>'),
-        "hollow": "",
-    }
-    f = "#130d0a" if not dark else "#fff6ea"
-    b = "#fff6ea" if not dark else "#130d0a"
-    p = pupils.get(mood, pupils["watch"]).format(f=f, b=b)
-    return (f'<svg class="mascot {esc(cls)}" viewBox="0 0 106 60" width="{size}" height="{size*60/106:.0f}" '
-            f'aria-hidden="true" focusable="false">'
-            f'<g fill="none" stroke="url(#pzg)" stroke-width="9" stroke-linecap="round">'
-            f'<path d="M38 30a24 24 0 1 0 0-48 24 24 0 1 0 0 48"/>'
-            f'<path d="M68 30a24 24 0 1 0 0-48 24 24 0 1 0 0 48"/></g>{p}</svg>')
-
-
-
 def wordmark(size="nav", label=True):
     """The iYi logotype: i-Y-i, the two i's unequal and the Y as the fork.
 
@@ -1616,6 +1642,58 @@ def mascot(size=34, cls="", mood="watch", dark=False):
     import mascot as _m
     return _m.inline(mood, size=size, cls=cls)
 
+
+
+def front_copy_edition():
+    """The front page's live copy edition, out of data/front_copy.json.
+
+    The masthead's words used to be written into this template, which made them
+    impossible to rotate without editing a Python file - and indistinguishable,
+    once written, from the counts. The copy is data now: `front_copy.py
+    --stamp <date>` sets which edition is live and `build_front` reads it here.
+
+    Falls back to the template's own constants if the file is missing, so a
+    fresh clone still builds. A missing key in a live edition is refused rather
+    than rendered empty: an empty `<p class="line">` is a hole nobody sees until
+    it is on the page.
+    """
+    import pathlib as _p
+    import json as _j
+    f = ROOT / "data" / "front_copy.json"
+    if not f.exists():
+        return {"kicker": "iYi &middot; behind the counter",
+                "line": ("You feel like you know somebody who has no idea you "
+                         "exist. <b>Everybody has one.</b> This is the news feed "
+                         "for that."),
+                 "thesis_word": ("Horton and Wohl coined <i>parasocial</i> in "
+                                 "1956 for a bond with somebody who does not "
+                                 "know you exist."),
+                 "thesis_thing": ("Neanderthals carried their dead into a "
+                                  "cave in Iraq and laid them in the floor."),
+                 "thesis_pair": ("Both are people going back to somebody who "
+                                 "cannot answer."),
+                "clerk_line": ("<b>I keep the record.</b> Every claim here "
+                               "carries its source, and the ones nobody has "
+                               "opened say so. I do not remember you, and "
+                               "nothing here pretends to."),
+                "door_stories": (f"One a day, each one signed by a person. "
+                                 f"48 so far."),
+                "door_encyclopedia": "227 entries, every claim cited."}
+    d = _j.loads(f.read_text(encoding="utf-8"))
+    eds = d.get("editions") or []
+    live = d.get("_live") or (eds[-1]["date"] if eds else None)
+    ed = next((e for e in eds if e["date"] == live), None)
+    if ed is None:
+        raise SystemExit(f"data/front_copy.json: live edition {live!r} is not "
+                         f"in the file. Run tools/front_copy.py --list")
+    missing = [k for k in ("kicker", "line", "thesis_word", "thesis_thing",
+                           "thesis_pair", "clerk_line", "door_stories",
+                           "door_encyclopedia")
+               if not ed.get("copy", {}).get(k)]
+    if missing:
+        raise SystemExit(f"data/front_copy.json: edition {live} has no value "
+                         f"for {missing}. A slot rendered empty is a hole.")
+    return ed["copy"]
 
 
 def rotate(seq, key, n=8, by="rank"):
@@ -3193,26 +3271,104 @@ def _clus(meds, subjs, r):
 def build_encyclopedia(enc, data):
     r = root(1)
     rows = []
+    # Two of the four classification axes were not filterable here at all, which
+    # is the gap AGENTS 45 records: `otherness` and `reciprocity` held 24 and 10
+    # entries respectively and a reader could reach none of them but by reading
+    # prose. The reciprocated and simulated entries are the exceptions that
+    # make the rest of the corpus mean anything - "a corpus about one-sided
+    # attachment that cannot count its own exceptions is not measuring the thing
+    # it is named after" - and there was no way to ask the page for them.
+    #
+    # The labels come from data/taxonomy.json, never from a list written here.
+    # build_atlas.py once carried its own copy of the media list, it drifted,
+    # and two media were invisible from the map for two releases; a second copy
+    # of a classification is how that happened. Registers are deliberately NOT
+    # here: `taxonomy.json` defines them without a `members` key and
+    # `encyclopedia.json` has no register field, so there is nothing to count
+    # and a chip would promise a set the page cannot produce.
+    _tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+    _pla = json.loads((ROOT / "data" / "taxonomy_placements.json")
+                      .read_text(encoding="utf-8"))["assignments"]
+    # `otherness` and `reciprocity` are objects carrying `_note` and a `members`
+    # list; `register` is a list with no members key at all, which is why it gets
+    # no chips here. Reading the axis wrong is a one-line TypeError, not a
+    # silent empty page, which is the good kind of failure.
+    OTHER_LABEL = {m["id"]: m["name"]
+                   for m in _tax.get("otherness", {}).get("members", [])}
+    RECIP_LABEL = {m["id"]: m["name"]
+                   for m in _tax.get("reciprocity", {}).get("members", [])}
+
+    def _hay(e):
+        """Everything a reader might type to find this entry.
+
+        The summaries and titles are written the way they are on purpose: they
+        describe the *phenomenon* and refuse to name the *subject*. `nancy-drew`
+        reads "Fifty-four years of letters to a fictional detective" and never
+        says Nancy Drew; `siri` reads "A voice assistant on every phone"; `dorian-gray`
+        never says Dorian Gray. That is good writing and it is also why 43 of
+        227 entries could not be found by the name anybody knows them by -
+        measured by feeding every entry's own id back through its haystack and
+        counting the misses.
+
+        The id IS the common name, so it goes in the index. It is never printed:
+        an identifier shown to a reader reads as a citation, which is the trap
+        AGENTS records, and this is a search index rather than a page. The axis
+        labels and the medium go in for the same reason - a reader looking for
+        the football entries should not have to know that `medium: sport` is
+        the word for it.
+        """
+        p = _pla.get(e["id"], {}) or {}
+        parts = [e.get("title", ""), e.get("summary", ""), e.get("era", ""),
+                 e.get("id", "").replace("-", " "),
+                 OTHER_LABEL.get(p.get("other") or "", ""),
+                 RECIP_LABEL.get(p.get("rec") or "", ""),
+                 " ".join(e.get("sections", []))]
+        parts += [enc["kinds"].get(e.get("kind", ""), "")]
+        parts += [enc["lanes"][l]["name"] for l in e.get("lanes", [])
+                  if l in enc["lanes"]]
+        return " ".join(p for p in parts if p).lower()
+
     for e in sorted(enc["entries"], key=lambda x: (_y(x), x.get("title", ""))):
         dots = "".join(
             f'<i class="lane-dot" style="--c:{enc["lanes"][l]["colour"]}" '
             f'title="{esc(enc["lanes"][l]["name"])}"></i>'
             for l in e.get("lanes", []) if l in enc["lanes"])
+        _pl = _pla.get(e["id"], {})
+        _other = _pl.get("other") or ""
+        _rec = _pl.get("rec") or ""
         rows.append(
             f'<tr data-lanes="{esc(" ".join(e.get("lanes", [])))}" '
             f'data-kind="{esc(e.get("kind", ""))}" '
             f'data-med="{esc(" ".join(e.get("medium", [])))}" '
+            f'data-other="{esc(_other)}" '
+            f'data-rec="{esc(_rec)}" '
             f'data-verified="{esc(str(bool(e.get("verified"))).lower())}" '
-            f'data-hay="{esc((e.get("title", "") + " " + e.get("summary", "") + " " + e.get("era", "")).lower())}">'
+            f'data-hay="{esc(_hay(e))}">'
             f'<td class="db-y">{esc(_fmt_year(e.get("year")))}</td>'
             f'<td><a href="{r}encyclopedia/{esc(e["id"])}.html">{esc(e["title"])}</a></td>'
             f'<td class="db-k">{esc(enc["kinds"].get(e.get("kind", ""), ""))}</td>'
             f'<td class="db-l">{dots}</td>'
             f'<td class="db-v">{"" if e.get("verified") else "?"}</td></tr>')
+
+    def _axis_chips(axis, key):
+        """A chip row for an axis, in the taxonomy's own order, with a count."""
+        have = Counter((_pla.get(e["id"], {}) or {}).get(key) for e in enc["entries"])
+        have.pop(None, None)
+        out = []
+        for m in axis:
+            if not have.get(m["id"]):
+                continue        # a member with nothing behind it is a hole the
+            out.append(         # reader can see, and is left visible on purpose
+                f'<button class="chip" data-{key}="{esc(m["id"])}">'
+                f'{esc(m["name"])} <i>{have[m["id"]]}</i></button>')
+        return "".join(out)
+
     lanes = "".join(f'<button class="chip" data-lane="{esc(l)}">{esc(v["name"])}</button>'
                     for l, v in enc["lanes"].items())
     kinds = "".join(f'<button class="chip" data-kind="{esc(k)}">{esc(v)}</button>'
                     for k, v in enc["kinds"].items())
+    others = _axis_chips(_tax.get("otherness", {}).get("members", []), "other")
+    recips = _axis_chips(_tax.get("reciprocity", {}).get("members", []), "rec")
     n = len(enc["entries"])
     unv = sum(1 for e in enc["entries"] if not e.get("verified"))
     meds = medium_clusters(enc["entries"])
@@ -3259,6 +3415,10 @@ def build_encyclopedia(enc, data):
   <div class="chips" id="lanes">{lanes}</div>
   <p class="kicker" style="margin-top:12px">Kind</p>
   <div class="chips" id="kinds">{kinds}</div>
+  <p class="kicker" style="margin-top:12px">What the other end is <i>made of</i></p>
+  <div class="chips" id="others">{others}</div>
+  <p class="kicker" style="margin-top:12px">Does it attach back</p>
+  <div class="chips" id="recips">{recips}</div>
   <p class="countline" id="count" aria-live="polite"></p>
 
   <div class="dbwrap"><table class="db"><tbody>{''.join(rows)}</tbody></table></div>
@@ -3275,9 +3435,11 @@ def build_encyclopedia(enc, data):
       rows=[].slice.call(document.querySelectorAll('tr[data-lanes]')),
       lb=[].slice.call(document.querySelectorAll('#lanes .chip')),
       kb=[].slice.call(document.querySelectorAll('#kinds .chip')),
+      ob=[].slice.call(document.querySelectorAll('#others .chip')),
+      rb=[].slice.call(document.querySelectorAll('#recips .chip')),
       unv=document.getElementById('onlyunv'),
       mb=[].slice.call(document.querySelectorAll('.medchip')),
-      lane=null,kind=null,med=null,total=rows.length;
+      lane=null,kind=null,med=null,other=null,rec=null,total=rows.length;
   function run(){{
     var t=(q.value||'').trim().toLowerCase(),n=0;
     rows.forEach(function(r){{
@@ -3285,13 +3447,17 @@ def build_encyclopedia(enc, data):
           okK=!kind||r.dataset.kind===kind,
           okV=!unv.checked||r.dataset.verified==='false',
           okM=!med||(' '+r.dataset.med+' ').indexOf(' '+med+' ')>-1,
+          okO=!other||r.dataset.other===other,
+          okR=!rec||r.dataset.rec===rec,
           okT=!t||r.dataset.hay.indexOf(t)>-1,
-          on=okL&&okK&&okV&&okT&&okM;
+          on=okL&&okK&&okV&&okT&&okM&&okO&&okR;
       r.style.display=on?'':'none';if(on)n++;
     }});
     c.textContent=n+' / '+total+' ENTRIES'+(lane?' · '+lane.toUpperCase():'')
       +(kind?' · '+kind.toUpperCase():'')+(unv.checked?' · CITATION CHECK':'')
       +(med?' · '+med.replace(/_/g,' ').toUpperCase():'')
+      +(other?' · '+other.toUpperCase():'')
+      +(rec?' · '+rec.toUpperCase():'')
       +(t?' · "'+q.value.toUpperCase()+'"':'');
   }}
   lb.forEach(function(b){{b.addEventListener('click',function(){{
@@ -3300,6 +3466,12 @@ def build_encyclopedia(enc, data):
   kb.forEach(function(b){{b.addEventListener('click',function(){{
     kind=(kind===b.dataset.kind?null:b.dataset.kind);
     kb.forEach(function(x){{x.classList.toggle('on',x.dataset.kind===kind);}});run();}});}});
+  ob.forEach(function(b){{b.addEventListener('click',function(){{
+    other=(other===b.dataset.other?null:b.dataset.other);
+    ob.forEach(function(x){{x.classList.toggle('on',x.dataset.other===other);}});run();}});}});
+  rb.forEach(function(b){{b.addEventListener('click',function(){{
+    rec=(rec===b.dataset.rec?null:b.dataset.rec);
+    rb.forEach(function(x){{x.classList.toggle('on',x.dataset.rec===rec);}});run();}});}});
   mb.forEach(function(m){{m.addEventListener('click',function(ev){{
     ev.preventDefault();
     med=(med===m.dataset.med)?null:m.dataset.med;
