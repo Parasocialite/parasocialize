@@ -68,6 +68,28 @@ Cite sources via `tools\add_source.py`, not by hand-editing JSON. It validates,
 de-duplicates, refuses thesis entries, and recomputes provenance. One entry per
 call is fine; batches of 8-20 are normal.
 
+```powershell
+python tools\shoot_front.py      # the front page at 1440/1180/390, plus a full-height pass
+python tools\shoot_band.py       # one band of it, for detail a full shot hides
+python tools\shoot_moods.py      # iYi's eight moods as a PNG. LOOK at them.
+python tools\probe_masthead.py   # which column is the tall one, at four widths
+python tools\front_copy.py --list          # the rotating front-page copy, and which edition is live
+python tools\front_copy.py --save --note "..."          # start this release's edition
+python tools\front_copy.py --set <slot> <text> --to <date>
+python tools\test_front_copy.py  # the copy rotation, exercised through the generator
+```
+
+**`shoot_front.py` and `shoot_moods.py` are how anything visual gets signed off.**
+`probe_front.py` and `verify_narrow.py` measure overlap, contrast and 390px
+overflow, and every one of them was green while the top half of the front page
+read as janky - because none of them is about a mark having a job. They are not
+wrong; they are answering a different question. Render, look, then measure.
+
+**The front-page copy rotates with each bi-daily release** and that refresh is an
+agent task, not a script's: `front_copy.py --save`, then `--set` the slots you
+are changing, then `build_cards.py`. The copy lives in `data/front_copy.json` -
+never in `index.html`, which `build_cards.py` overwrites (item 56).
+
 **`link_audit.py` is a gate, not advice.** Read its output before committing.
 Chaining it with `;` and committing anyway once put a failing commit in history.
 
@@ -3367,4 +3389,320 @@ it gets resolved.
       **interviewees inside one article**, not a second work. The splitter's
       `citing`-marker heuristic would have got this wrong, which is why it runs
       only on records with no separately located leading work.
+55. **The front page's top half was five full-width stacked blocks, and
+     the gate that owned it was green.** Measured with `tools/probe_front.py`
+     and then *looked at* with `tools/shoot_front.py`, which is the order that
+     matters: the probe reported `mark={'t': 584, 'b': 734, 'w': 1192, 'h': 150}`
+     and then "OK nothing wrong", because what it checks is overlap, overflow
+     and two-tone contrast - **none of which is about a mark having a job.** A
+     150px iYi sat centred in a 1192px band with 1042px of nothing either side
+     of it, between the doors and the top 8, with no copy attached. On a phone
+     the wordmark wrapped onto three lines and the eyes were a 150px island.
 
+     - **The gate was not wrong; it was answering a different question.** It
+       measured "does the mascot sit inside its box and not overlap the doors",
+       and it did. The defect was compositional and no check had a name for it.
+       This is the `kind: exact` argument from the other side: a field can keep
+       its promise and the artefact can still be wrong. **The screenshot found
+       it and no number did.**
+     - **The fix is `.masthead-grid`**: the h1 is its own full-width row, the
+       line and the thesis pair take the left column, iYi takes the right as a
+       bordered card, and the two doors are a full row underneath that closes the
+       masthead. The doors were inside the left column at first and the clerk
+       card ran a hundred pixels past them - **which moved the dead space to the
+       bottom left instead of removing it.** The third row is the fix, not a
+       tweak to the first.
+     - **Two mistakes of my own are recorded because they cost a round trip.**
+       The first edit dropped a closing brace off `.clerk-more:hover`, and the
+       page rendered the two doors as unstyled inline text and the top 8 as a
+       full-bleed photograph: **one unbalanced brace silently discards every
+       rule after it**, which looks exactly like "the doors were always like
+       that". Caught by looking. `styles.css` is brace-counted after an edit
+       (808/808). The second: an interpolated `None` placeholder put `>None<`
+       where the mascot goes, because the f-string was built before the value.
+
+56. **`index.html` is GENERATED. Editing it is not a change - it is a change
+     that the next `build_cards.py` quietly reverts, with every gate green.**
+     This is the most expensive thing in this file and it was found by breaking
+     the page on purpose.
+
+     - `tools/build_cards.py:build_front()` writes the whole of `index.html`
+       from an f-string template inside the generator. A masthead redesign, ten
+       rewritten hub teasers and three filled art boxes were all applied to the
+       *output file*. Then the gate chain ran `build_cards` and **all of it
+       reverted** - the old masthead came back, the ellipses came back, the
+       empty art boxes came back. `link_audit`, `probe_front` and `verify_narrow`
+       were all green, because they were measuring a correctly-built version of
+       the old page.
+     - **The tell was available and was not used.** The tell is in this file
+       already: `build_cards.py` writes `desk/index.html`, `radar/*.html`,
+       `section/*/index.html` and thirty other files, and a build that rewrites
+       60+ files was reported as "48 stories, 10 section fronts" with no mention
+       of the front page. **A generator's output list is its claim about what it
+       owns, and it owns the front page.**
+     - **So the edits belong in the generator**, and the tests belong where they
+       can see it. `tools/test_front_copy.py` now greps the *generated* page
+       rather than the source file, which is the only place a reader ever sees
+       anything. A test that passes against a file the build owns proves nothing
+       - it is the same shape as item 17's `kind: exact` and item 22's queue:
+       **the check has to run against the artefact, not against the input.**
+     - **Two things were regenerating over each other before that too.**
+       `build_cards.py` carried a *second, divergent* `mascot()` - a hand-written
+       106x60 SVG with four moods - which was dead code shadowed by the version
+       that delegates to `tools/mascot.py`. Python uses the last definition, so
+       the site was fine, but a reader of the file could not know that. Deleted;
+       there is one mascot now.
+
+57. **Front-page copy is versioned data behind a pointer, because a page whose
+     words only change when somebody notices will drift back into a draft.**
+     Ten hub teasers ended in an ellipsis - "copying the tactic without copying
+     the thing that made it work, which is..." - and ten in a row is what made
+     the page read as unintelligible.
+
+     - **The ellipsis was generated, not written.** `build_front` built each
+       teaser with `" ".join(take.split()[:20]) + "…"`, which cuts a sentence at
+       its own last word: "The panics about fans being manipulated by fandoms
+       turn out to be a…". A `take` is 48 to 173 words, so it has to be cut -
+       **it is now cut at sentence boundaries** by `deck()` in `build_cards.py`,
+       with a clause boundary as the only fallback and no ellipsis ever. The ten
+       teasers now read as sentences.
+     - **The masthead words are data, not template.**
+       `data/front_copy.json` holds one edition per bi-daily release: `line`,
+       the two `thesis_*` lines, the `clerk_*` pair, and the two door sub-copy
+       slots. `tools/front_copy.py --list|--current|--stamp <date>|--set <slot>
+       <text> --to <date>|--diff a b` moves between them; `build_front` reads the
+       live one through `front_copy_edition()`. **Appended, never rewritten** -
+       the sequence of what the front page said is the record.
+     - **Only the prose is data. The counts stay computed.** `{total}` stories
+       and `{nent}` entries are read out of `shop.json` and
+       `encyclopedia.json` in the template, because a number typed anywhere is
+       a claim that goes stale silently and reads as true until someone checks.
+       `front_copy_edition()` keeps the template's own constants as a fallback
+       so a fresh clone still builds, and **refuses a live edition with an empty
+       slot** rather than rendering a hole.
+     - **The hub teasers are deliberately NOT in this file.** They come from
+       each story's own `take`, so they change when the stories do - which is
+       the behaviour the author asked for. Putting them in `front_copy.json`
+       would freeze a rotating feed.
+     - **The standing instruction:** the front-page copy is refreshed **each
+       bi-daily release**, and the refresh is an agent task, not a script's.
+       The whole workflow is `--save --note "..."` then `--set <slot> <text>`,
+       then `build_cards.py`.
+
+58. **`img/mascot/sheet.svg` was stale, and the two tools that would have said
+     so did not exist.** Running `tools/mascot.py --sheet` to look at the moods
+     changed 97 lines of a committed generated file: the sheet was still
+     carrying **the old rig** - `.iyi-blush` in the selector list, no
+     `@keyframes iyi-look`, no `.iyi-gaze` - because the rig gained a gaze and
+     lost its blush and the sheet was never regenerated. Nothing referenced it
+     in `dist/`, so nothing 404'd, so nothing noticed.
+
+     - **Same family as the 25 drifted title plates** (`plate.py --check`) and
+       as the hand-pasted mascot: an artefact generated from data, quietly
+       describing an older version of that data. The difference here is that the
+       other two had gates; this one had not even the possibility of one.
+     - **The fix is that there is now a reason to open it.** `shoot_moods.py`
+       rasterises the sheet to a PNG, because **an SVG cannot be looked at
+       directly** and a mood grid nobody has seen is a mood grid nobody can
+       judge. All eight were looked at before any was chosen - and the finding
+       was that **the character was never the problem.** Two disembodied eyes
+       read as silly only when they are centred in empty space with nothing to
+       do.
+
+59. **iYi is not a decoration, and the author's standing instruction is now
+     policy: cuter, page-relevant, unique form per page, integrated rather than
+     plopped.**
+
+     - **A page picks a mood for a reason, and the reason is written down.**
+       `MOODS` in `tools/mascot.py` carries `watch / hollow / wink / sad /
+       panic / love / clerk / asleep` - the house has eight faces and the front
+       page was using the default because nobody chose. The front page is the
+       record desk, so it runs **`clerk`**, with a caption in the clerk's own
+       voice: "I keep the record. Every claim here carries its source, and the
+       ones nobody has opened say so. I do not remember you, and nothing here
+       pretends to." That last clause is the video strategy's standing rule -
+       iYi admits it has a job and **must never claim to remember an individual
+       viewer** - and it is now on the front page rather than only on /brand/.
+     - **Integrated, not plopped: the mascot breaks the top edge of its card**
+       (`.clerk-face{margin:-52px 0 0}`), so it is layered into the composition
+       instead of sitting on it, and the bloom halo gives it a reason to be
+       there. On a phone it becomes a row inside the same card rather than its
+       own band.
+     - **Never hand-paste the SVG.** `mascot.inline(mood, size, cls)` gives each
+       copy its own gradient ids and its own `--d` stagger, so a page full of iYi
+       does not blink in step. `build_front` calls `mascot(168, "mascot-hero",
+       mood="clerk")` - one call, from the module that owns the character.
+     - **Still owed:** the other pages. `/brand/` has its own grid, the hub
+       tiles each have a section colour and a giant glyph letter, and every
+       entry page has a plate. Each is a place a mood could be chosen *for that
+       page's subject* rather than inherited. The mechanism exists
+       (`mascot.inline` + a per-page class); the per-page choices are editorial
+       and are not made by a script.
+
+60. **`.clerk` was two components sharing one class name, and the dead one was
+    winning.** Found by screenshotting the front page and reading the copy, not
+    by any measurement - which is the only reason it was ever going to be found.
+
+    - **The masthead card asks for one thing and gets another.** `styles.css`
+      defines `.clerk` twice. Line 317 is the front page's mascot card
+      (`display:flex`, a single 330px column). Line 952 was a `/shelf/` component
+      that was deleted, and its stylesheet block was not; its *bare* `.clerk{}`
+      selector still matched the live card and came later in the file, so it won.
+      Measured in Chrome: the card asked for `display:flex` and computed
+      `display:grid` with `grid-template-columns:197.453px 50.5469px`. Its own
+      copy rendered **8 lines at a 191px measure - about 24 characters** - and
+      "WHAT THE MASCOT IS FOR" sat in a **50px** column, three words to a line.
+      Now one 288px column, 6 lines at 286px, kicker and link one line each.
+    - **Nothing in this repo could have seen it, and the reasons are the useful
+      part.** It overflows nothing, so `verify_narrow` is silent. It overlaps
+      nothing, so `probe_front` is silent. Every class in it is real and defined,
+      so `check_css` reports it as *styled*. The page builds, the file 200s, and
+      it looks like a design decision. **A dead component's stylesheet
+      outliving the component is the same shape as the 25 drifted plates and the
+      stale mascot sheet - except that here the stale copy was the one being
+      applied.**
+    - `check_css.py --orphans` now holds it: descendant selectors that match no
+      element in any generated page. It is the inverse of that file's existing
+      check, and it found **17 orphaned layout rules** already in the
+      stylesheet (`.hub-art img`, `.law .n`, `.sidebox ul`, `.qs input` ...),
+      which is the same bug class that had not detonated yet.
+    - **Two versions of that gate were wrong before it was right, and the first
+      one is the one worth remembering.** It read prose out of CSS comments and
+      reported "and its height" as an unmatchable selector. Then its block
+      scanner **discarded every top-level selector**, so it reported **0 orphans
+      while the dead rule was still in the file** - it passed the red test this
+      project requires, because the thing it failed to see was the thing under
+      test. And it flagged `.ent-hero img` on a page that opens with
+      `<figure class="ent-hero plate"><img ...>`, because `<img>` was being
+      deleted from the tree it matched against. **A measurement that cannot see
+      its own subject will pass any test you give it.**
+    - **It is a ratchet, not a hard failure**, because it starts life 17 behind.
+      Same reasoning as the 94 URL-less records: a gate that is red on arrival
+      gets switched off inside a week, so the committed number is a ceiling that
+      can only fall and `--ratchet` is the only way to move it.
+    - `.yt-facade iframe` is exempt and says why: `main.js` appends the iframe on
+      click. **A gate should learn the field, not be silenced** - that is the
+      `via` lesson, and the exemption is a declaration with a reason, not a
+      suppression.
+
+61. **43 of 227 entries could not be found by any word of their own name, and
+    the cause is the writing being good.** The encyclopedia index has searched
+    `title + summary + era` for a long time, and all three are written the way
+    they are *on purpose*: they describe the phenomenon and refuse to name the
+    subject.
+
+        nancy-drew      "Fifty-four years of letters to a fictional detective"
+        siri            "A voice assistant on every phone, addressing the user by name"
+        dorian-gray     never says Dorian Gray
+        superman-comic  "A character who cannot die, printed in a newspaper"
+
+    So a reader who knows who Nancy Drew is and types "nancy drew" gets nothing.
+    Measured by feeding every entry's own `id` back through its own haystack and
+    counting the misses: **43**, including `harvey`, `casper`, `alf`,
+    `deadpool`, `charlie-chaplin`, `mary-pickford`, `mickey-mouse`,
+    `rudolph-valentino`, `tony-stark`, `gobekli-tepe`, `lugosi-burial`,
+    `fight-club`, `howdy-doody`, `siri`, `vtuber`, `superman-comic`.
+    **An encyclopedia that cannot be searched by name is not an encyclopedia**,
+    and no gate here could see it: `link_audit` checks that links resolve, not
+    that anything can be found, and every gate was green.
+    - **The fix is the `id`, which IS the common name - and it is never
+      printed.** It goes in `data-hay` and nowhere else. AGENTS records the
+      `ANCHORED - HORTON-WOHL-1956` trap: an identifier shown to a reader reads
+      as a citation. A search index is not a page. 43 misses -> **0**, and all
+      20 of the worst names verified in a real browser against the generated
+      page.
+    - `tools/verify_findable.py` holds it, and **confirms red** by removing
+      "nancy drew" from one haystack. Two attempts at that red test proved
+      nothing first: the corruption regex matched nothing and still reported
+      green, and the second was a PowerShell parse error that never ran - item
+      30, again.
+    - **And the check's own first version reported 167 missing, including
+      `margery-kempe` whose title IS "Margery Kempe."** It paired rows to
+      entries positionally using its own idea of the generator's sort, and
+      `build_cards._y()` is not `year or 0`. It now reads the id out of each
+      row's own href. **And even that regex could span a `</tr><tr>`**, which it
+      did during the red test - it handed back the neanderthal haystack for
+      nancy-drew - so the rows are split apart before they are parsed.
+
+62. **Two of the four classification axes were not filterable on the index, and
+    the missing ones are the ones that make the corpus mean anything.**
+    `otherness` held 24 placed entries and `reciprocity` held 10, and the only
+    way to reach either was to read prose. The reciprocated and simulated
+    entries are the *exceptions* - "a corpus about one-sided attachment that
+    cannot count its own exceptions is not measuring the thing it is named
+    after" - so the gap was exactly where the site is most interesting.
+    Both are filter rows now, with counts, verified by driving the real page:
+    `simulated` -> 5, `reciprocated` -> 3, `directed` -> 2, `made` -> 9,
+    `haunted` -> 4, and a no-match term returns 0 and a cleared one returns 227.
+    - **The labels come from `data/taxonomy.json`, never from a list written
+      here.** `build_atlas.py` once carried its own copy of the media list, it
+      drifted, and two media were invisible from the map for two releases. A
+      second copy of a classification is how that happens.
+    - **Registers deliberately get no chips.** `taxonomy.json` defines them
+      without a `members` key and `encyclopedia.json` has no register field, so
+      there is nothing to count - and item 35's argument is that inventing a
+      field would be the fourth instance of this file's own family. A chip would
+      promise a set the page cannot produce.
+    - **A member with nothing behind it is left off, not filled in.** The chips
+      are built from counts, so a hole is a chip that is not there rather than a
+      zero nobody can see - the same rule as the empty taxonomy sub-categories.
+
+63. **`clusters.py` had drifted from `atlas.py` and a reader could see it.** The
+    media tiles on the index are built from `MEDIUM_NAME` in `clusters.py`, a
+    second copy of the list `atlas.py` validates against. It had thirteen
+    entries where `atlas.py` had fifteen, so `stage` and `visual_art` - added in
+    items 39 and 42 - fell through to `m.replace("_", " ")` and printed as
+    **"stage"** and **"visual art"** in lower case in a grid where the other
+    fourteen tiles are Title Case. Item 41 recorded this as "cosmetic, recorded
+    rather than fixed"; it was on a public page the whole time.
+    - **Importing `MEDIA_LABEL` is not the fix.** Its wording is deliberately
+      different - "Scripted television" against "Scripted TV", "Artificial
+      intelligence" against "AI and chatbots" - because one is an atlas chip and
+      the other is page copy. So the two lists stay separate and the drift is
+      made impossible instead: `_assert_covers_the_medium_axis()` raises at
+      import if any `MEDIA` member has no `MEDIUM_NAME` label. **Confirmed red**
+      by deleting the two and watching `build_cards.py` stop.
+
+64. **The front page's two thesis doors were unreadable, and the cause was that
+    they were a pair of unrelated facts presented as a pair of related ones.**
+    Asked to remove ambiguity from the front page, the sharpest instance given
+    was the second door: **"The thing. Somebody carried their dead into a cave
+    and set a stone under her head."** Four separate faults, and none of them
+    is the sentence being poetic:
+
+    - **The label and the content disagreed.** "The word." names a category -
+      the coinage. "The thing." also claims to name a category, and what
+      follows is *one archaeological episode*. So the label promised a class and
+      the copy delivered an anecdote, and the reader has to guess which they
+      are getting.
+    - **Neither sentence said why it was on the page.** 1956 survives that
+      because "coined parasocial" is self-evidently about the site's name. A
+      Neanderthal burial is not, and the front page gave no reason - which is
+      the whole reason `neanderthal-burial` is in the corpus, and it was being
+      left as trivia.
+    - **The two were given identical visual weight** - same grid cell, same
+      numeral size, one grey one orange - so the page invited the reading that
+      they are the same kind of claim. They are not: one is a naming event, the
+      other an archaeological inference.
+    - **And it read awkwardly**: "Somebody" where the entry has a real subject,
+      and a pronoun shift from "their dead" to "her head" with nothing between.
+
+    - **The fix is structural, not a rewording.** Each door is now a plain short
+      fact - "The word." / "The practice." - and the reason they belong together
+      is stated **once, below the pair**, where it binds both: *"Both are people
+      going back to somebody who cannot answer."* Asking each door to carry its
+      own justification had made one of them **twice the length** of the other -
+      4 lines against 8, with 120px of dead space under the short one, because
+      the two are forced into equal columns. **A caption can carry what a layout
+      cannot.**
+    - The same pass removed the other ellipsis on the page: **"Everybody has
+      one."** was doing real work - one *what*? - and is now "**Nearly everybody
+      does.** This is the news feed for that feeling."
+    - **This is the `front_copy.py` workflow doing its job**, which is the point
+      of item 56: a new edition dated 2026-10-13 via `--save`, every string
+      written with `--set`, and `build_cards.py` afterwards. Nothing was typed
+      into `index.html`, which the next build would have reverted.
+    - **`thesis_pair` is a new slot**, so it went into `front_copy.SLOTS`, into
+      the `build_front` fallback, and into the `missing=` check that refuses to
+      render an empty slot. **Adding a slot to the data without adding it to the
+      refusal list is how a hole gets rendered as a hole.**
