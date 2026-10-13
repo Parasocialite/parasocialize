@@ -1308,6 +1308,34 @@ def deck(take, words=20):
     return s.rstrip(" ,;-—") + ("." if s else "")
 
 
+def _plate_word(show, limit=11):
+    """The show name for a 52px plate, cut at a WORD boundary.
+
+    The first attempt sliced to a fixed length and produced "DRAGONTA" for
+    Dragon Tales - a truncation that reads as a typo rather than a decision,
+    which is the same defect as the front-page teasers that used to be cut at
+    their own last word and given an ellipsis. **A generated cut has to land
+    somewhere a reader would have stopped.**
+
+    Leading articles go, because "The grouch" reduced to "THE" is worse than no
+    word at all. A single word longer than the limit is kept whole and wraps -
+    the plate sets `overflow-wrap:anywhere` for exactly that.
+    """
+    s = (show or "").split(",")[0].strip()
+    s = re.sub(r"^(?:the|a|an)\s+", "", s, flags=re.I)
+    if not s:
+        return ""
+    if len(s) > limit:
+        cut = s.rfind(" ", 0, limit + 1)
+        if cut > 0:
+            s = s[:cut]
+        elif len(s) > limit:
+            # A single word with nowhere to cut. Breaking it mid-word reads as
+            # a typo ("DRAGO N"), so the caller falls back to the rank instead.
+            return ""
+    return s.upper()
+
+
 def build_front(data, feat=None, manifest=None, hist=None):
     sections, laws, shelf, cards = data["sections"], data["laws"], data["shelf"], data["cards"]
     feat = feat or {"lists": [], "moments": [], "figures": []}
@@ -1343,7 +1371,20 @@ def build_front(data, feat=None, manifest=None, hist=None):
                 im = (f'<span class="t8col-photo"><img src="{esc(f["path"])}" alt="" '
                       f'loading="lazy"></span>')
             else:
-                im = f'<span class="t8col-n">{esc(en["rank"])}</span>'
+                # A bare numeral in a grid where six of eight neighbours are
+                # photographs reads as a broken image, which is the one thing
+                # this site is not supposed to put on a page. /top8/ already
+                # does this properly - the show set in display type on its own
+                # colour with the reason written underneath - so the front page
+                # now uses the same idea at 52px. The reason itself is stated
+                # once in the caption below rather than eight times.
+                # A show name too long for a 52px box falls back to the rank,
+                # set in the same plate style, so the slot is never blank and
+                # never broken mid-word.
+                _pw = _plate_word(en["show"])
+                _pt = _pw or str(en["rank"])
+                im = (f'<span class="t8col-plate" style="--c:#ff5a1f">'
+                      f'{esc(_pt)}</span>')
             rows.append(f'<a class="t8col" href="top8/index.html">'
                         f'<span class="t8col-art">{im}</span>'
                         f'<span class="t8col-body"><b>{esc(en["rank"])}. {esc(en["name"])}</b>'
@@ -1374,12 +1415,53 @@ def build_front(data, feat=None, manifest=None, hist=None):
         # but that the cartoons left the screen and became objects. That is more
         # or less what this site is about, so the honest sentence is also the
         # sharper one.
-        frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
-                  f'freely licensed, so nothing above <i>is</i> a cartoon. What '
-                  f'is up there is what the cartoons turned into instead &mdash; '
-                  f'cosplay, a convention panel, a themed party, a coaster built '
-                  f'out of Reptar &mdash; which is a longer way of saying the '
-                  f'pictures are of the audience.</p>') if shot else ""
+        #
+        # ---- and then the set changed size under the sentence
+        #
+        # The sentence above was fixed when the list was six photographs. It is
+        # eight entries now, and **two of them have no photograph at all**:
+        # `t8-5-dragontales` and `t8-7-doug` were withdrawn at review, with no
+        # image and no source. So the corrected sentence - "what is up there is
+        # what the cartoons turned into", "the pictures are of the audience" -
+        # was a claim about every member of a set, written when every member
+        # was a picture, and nobody re-checked it when two stopped being one.
+        #
+        # **This is item 25 arriving from the other side.** That item was a
+        # blanket sentence about six pictures, false for three of them, and the
+        # lesson recorded was "a summary sentence is not a shorter citation, and
+        # it is checked the same way: by looking at every member." Here the
+        # sentence is true of the six and false for the two, which is the same
+        # defect with the numbers inverted, and it survived because the *style*
+        # had been fixed once already and the fix is what made it look settled.
+        #
+        # So the sentence now counts, and says why two are blank. Saying so is
+        # not an apology: it is the same standard the /top8/ page already states
+        # per entry ("no free frame exists"), and a page that shows eight things
+        # and claims about all of them has to account for the two it is not
+        # showing.
+        if shot == 0:
+            frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
+                      f'freely licensed, and no photograph of what they turned into '
+                      f'is free either, so all {len(L["entries"])} are set in type '
+                      f'the whole way down. The list would rather say that than '
+                      f'borrow pictures of something adjacent.</p>')
+        elif shot == len(L["entries"]):
+            frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
+                      f'freely licensed, so nothing above <i>is</i> a cartoon. What '
+                      f'is up there is what the cartoons turned into instead &mdash; '
+                      f'cosplay, a convention panel, a themed party, a coaster built '
+                      f'out of Reptar &mdash; which is a longer way of saying the '
+                      f'pictures are of the audience.</p>')
+        else:
+            blank = len(L["entries"]) - shot
+            frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
+                      f'freely licensed, so nothing above <i>is</i> a cartoon. '
+                      f'{shot} of the {len(L["entries"])} carry a photograph of what '
+                      f'the cartoons turned into instead &mdash; cosplay, a '
+                      f'convention panel, a themed party, a coaster built out of '
+                      f'Reptar. The other {blank} are set in type because no free '
+                      f'frame exists for them; the list would rather say that than '
+                      f'borrow a picture of something adjacent.</p>')
         # "Rotates weekly" is a promise about a schedule, and with one list
         # in the file nothing rotates - a front page that claims otherwise is
         # the status-field defect in a different costume. The claim is

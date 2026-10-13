@@ -410,9 +410,12 @@ empty space just moved to the bottom left. */
    over it so the text stays legible, and the tile keeps its section colour. */
 .hub-art{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hub-art img{width:100%;height:100%;object-fit:cover;opacity:.62}
+/* Darkening the tile made it WORSE - worst 3.53 -> 3.14 - because the text is
+   near-black and darkening the ground converges the two. The contrast has to
+   come from the other end. Measured both directions rather than assuming. */
 .hub-art::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(100deg,color-mix(in srgb,var(--c) 94%,#000) 30%,
-    color-mix(in srgb,var(--c) 70%,transparent) 58%,rgba(20,11,6,.5) 100%)}
+    linear-gradient(100deg,color-mix(in srgb,var(--c) 86%,#fff 14%) 30%,
+    color-mix(in srgb,var(--c) 74%,transparent) 58%,rgba(20,11,6,.55) 100%)}
 /* The credit used to sit here, on every homepage tile. Ten identical
    strings made the front page read like a stock library and turned a
    licence obligation into decoration. It lives on the section front,
@@ -425,7 +428,7 @@ empty space just moved to the bottom left. */
 .hub-name{
   position:relative;z-index:2;
   font-family:var(--serif);font-size:1.5rem;font-weight:700;
-  letter-spacing:-.02em;color:rgba(18,10,5,.8);margin-bottom:10px;
+  letter-spacing:-.02em;color:#1d1008;margin-bottom:10px;
   padding-bottom:9px;border-bottom:2px solid rgba(18,10,5,.22);
 }
 .hub h3{
@@ -433,14 +436,24 @@ empty space just moved to the bottom left. */
   font-size:clamp(1.1rem,1.9vw,1.42rem);line-height:1.14;letter-spacing:-.02em;
   color:#120a05;margin:0 0 8px;max-width:30ch;
 }
+/* These were `rgba(18,10,5,.72)` and `.6` - hierarchy carried by alpha, over
+   TEN different background colours. Measured off the pixels (two renders, text
+   hidden, sampled where the text sits) that put the deck below 4.5:1 on seven
+   of the ten tiles and the "N MORE" link below it on nine, worst 2.64:1.
+
+   **Alpha is not a way to express hierarchy on a variable background**, and
+   the site already had the proof: `.hub h3` is solid `#120a05` and is the only
+   text on these tiles that clears the large-text threshold on all ten. So the
+   hierarchy moves to size and weight - which is where it should have been - and
+   the deck and link are solid, a step lighter than the headline. */
 .hub p{
   position:relative;z-index:2;font-size:.88rem;line-height:1.45;flex:1;
-  color:rgba(18,10,5,.72);
+  color:#1e1108;
 }
 .hub-go{
   position:relative;z-index:2;margin-top:12px;
   font-family:var(--label);font-size:.55rem;letter-spacing:.18em;
-  color:rgba(18,10,5,.6);
+  color:#1e1108;
 }
 .hub:hover .hub-name,.hub:hover .hub-go{color:#120a05}
 
@@ -469,7 +482,22 @@ empty space just moved to the bottom left. */
   background:var(--bg3);display:flex;align-items:center;justify-content:center;
 }
 .t8col-art img{width:100%;height:100%;object-fit:cover}
-.t8col-n{font-family:var(--serif);font-weight:900;font-size:1.3rem;color:var(--hot)}
+/* The front page showed a bare orange numeral where /top8/ shows a designed
+   plate reading "no free frame exists". Two of the eight are in that state, so
+   in a grid of eight where the other six are photographs, two read as broken
+   images - which is the one thing this site should not put on a page. Same idea
+   as /top8/, at 52px: the show in display type on its own colour. The reason is
+   stated once in the caption below rather than eight times over. */
+.t8col-plate{width:100%;height:100%;display:flex;align-items:center;
+  justify-content:center;text-align:center;padding:3px;line-height:1;
+  /* The art box is a fixed 52px at every width, so this must not scale with
+     the viewport - a vw-based size fitted "DRAGON" at desktop and broke it to
+     "DRAGO N" on a phone. Sized against the box instead. */
+  font-family:var(--serif);font-weight:900;font-size:9px;letter-spacing:-.01em;
+  color:rgba(255,246,234,.92);white-space:nowrap;overflow:hidden;
+  background:
+    repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 9px),
+    linear-gradient(150deg,var(--c),#1a0f08)}
 .t8col-body{min-width:0}
 .t8col-body b{display:block;font-family:var(--serif);font-size:.94rem;font-weight:700;line-height:1.15}
 .t8col-body span{font-family:var(--label);font-size:.53rem;letter-spacing:.12em;color:var(--dimmer)}
@@ -508,8 +536,10 @@ empty space just moved to the bottom left. */
   color:var(--hot);flex:none;min-width:52px;
 }
 .t8-art{width:92px;height:92px;flex:none;border-radius:6px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,.5)}
-.t8-art-none{display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--c),#1a0f08)}
-.t8-art-none span{font-family:var(--serif);font-weight:900;font-size:2.4rem;color:rgba(255,255,255,.8)}
+/* .t8-art-none was a no-image plate designed for this list and never wired to
+   anything - it is one of the orphans `check_css --orphans` reported. The
+   front page now uses .t8col-plate and /top8/ uses .t8-plate, so the third
+   version of the same idea is removed rather than left to drift again. */
 .t8-titles{min-width:0;flex:1}
 .t8-titles h3{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:700;line-height:1.1;letter-spacing:-.02em}
 .t8-show{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:var(--hot);margin:5px 0 8px}

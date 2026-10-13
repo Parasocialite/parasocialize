@@ -3706,3 +3706,75 @@ it gets resolved.
       the `build_front` fallback, and into the `missing=` check that refuses to
       render an empty slot. **Adding a slot to the data without adding it to the
       refusal list is how a hole gets rendered as a hole.**
+
+65. **Seven of ten hub tiles had body copy below WCAG AA, and the hierarchy was
+    being carried by alpha over ten different backgrounds.** The ten "ten ways
+    it shows up" tiles on the front page are the one place body copy sits on a
+    saturated section colour rather than on the dark page. The deck was
+    `rgba(18,10,5,.72)` and the "N MORE" link `rgba(18,10,5,.6)`.
+
+    Measured by rendering the page twice - once as shipped, once with the tile
+    text hidden - and sampling the pixels where the text sits:
+
+        tile        h3    deck    link
+        IDOL       5.49    3.84    3.08
+        CHARACTER  4.14    3.14    2.64   <- worst
+        DANGER     4.38    3.35    2.79
+        ... nine of ten links under 4.5, seven of ten decks under it
+
+    **Alpha is not a way to express hierarchy on a variable background**, and
+    the site already had the counter-example on the same tile: `.hub h3` is
+    solid `#120a05` and was the only text clearing its threshold on all ten. The
+    fix moves the hierarchy to size and weight and makes the deck and link
+    solid. Worst ratio **2.64 -> 4.77**, all twenty measurements clear.
+    - **And the first attempt at the fix made it worse** - darkening the tile
+      took the worst from 3.53 to **3.14**, because the copy is near-black and
+      darkening the ground converges the two. Reverted and went the other way.
+      **Contrast on a dark-ground design is not a one-directional dial.**
+    - `.t8-art-none` was a no-image plate designed for the top 8 and never wired
+      to anything - one of the orphans item 60's gate reported. The front page
+      now uses `.t8col-plate` and `/top8/` uses `.t8-plate`, so the third version
+      of the same idea is deleted rather than left to drift.
+    - `tools/probe_hub_contrast.py` holds it. **Three probes got this wrong
+      before one worked**, and each failure is a different way of measuring a
+      layer you are not measuring: reading `backgroundColor` returned the PAGE
+      colour for all ten tiles at 1.02:1, because `.hub` paints with a
+      `background` gradient; computing the gradient arithmetically would need a
+      photograph at 62% opacity composited under a `color-mix` with `transparent`;
+      and the third composited the translucent TEXT into the background and then
+      compared the raw text colour against the composite - text against itself -
+      reporting **1.31:1 on tiles that are plainly legible in a screenshot**.
+    - **And its first red test changed the file, confirmed the change landed, and
+      reported numbers identical to two decimals on all ten tiles.** Chrome was
+      serving a cached stylesheet from a persistent profile. Every render now
+      gets a fresh `--user-data-dir` plus `--disable-application-cache`, and the
+      gate refuses to run if it does not find ten tiles. **A gate that cannot see
+      the change it is gating is the same defect as one that cannot fail.**
+      Confirmed red after the fix.
+
+66. **The top 8 caption made a claim about every member of a set that two of them
+    were not part of.** It read *"what is up there is what the cartoons turned
+    into instead... which is a longer way of saying the pictures are of the
+    audience."* Item 25 had corrected this sentence by opening all six
+    photographs - and then the list became eight entries, and **two of them have
+    no photograph at all**: `t8-5-dragontales` and `t8-7-doug` were withdrawn at
+    review, with no image and no source.
+
+    So the sentence was true of the six and false for the two, which is item
+    25's defect with the numbers inverted - and it survived *because* the style
+    had been fixed once already, which is what made it look settled. **A fix
+    that has been applied is not a property of the thing it was applied to.**
+    The caption now counts, and says why two are blank.
+    - **And the front page's no-image state was a bare orange numeral** where
+      `/top8/` had been doing it properly all along - a designed plate reading
+      "no free frame exists". Two of eight, in a grid where six are photographs,
+      so two read as broken images. The front page now uses the same idea at
+      52px: the show in display type on its own colour.
+    - **The first cut of that word was "DRAGONTA"** - a fixed-length slice
+      through "Dragon Tales", which reads as a typo rather than a decision, and
+      is the same defect as the front-page teasers that used to be cut at their
+      own last word and given an ellipsis. Cutting at a word boundary fixed it,
+      and then a `vw` font-size broke "DRAGON" to "DRAGO N" on a phone because
+      the art box is a fixed 52px and the type was scaling with the viewport.
+      **Size type against the box it sits in.** A word with nowhere to cut falls
+      back to the rank rather than breaking.
