@@ -3846,3 +3846,66 @@ it gets resolved.
       made by omission.
     - **The two graph legends are the only places the classification is
       _explained_ rather than shown**, and their labels are set at ~9px.
+
+69. **Backticks and italics rendered, and `<code>` had no stylesheet at all.**
+    The `**` fix left the same defect class in two other forms: **468 backticks
+    and 80 single-asterisk italics**, 412 of the backticks on `/taxonomy/` where
+    the author marks classification values as `` `persona/idol` ``.
+    - Measured before converting: 74 distinct backtick spans, none over 40
+      characters, all machine keys. 53 distinct italic spans, mostly work
+      titles (*Whiz Comics*, *The Scream*) plus genuine stress (*is*, *also*),
+      and **zero** ending in punctuation or exceeding 45 characters - so the
+      pattern cannot eat a sentence.
+    - **The reason this was left unrendered first is the useful part.** `<code>`
+      had **no rule anywhere in the stylesheet** and no page emitted it, so
+      introducing the element without one would have dropped 412 keys into the
+      browser's default monospace on the one page whose entire job is teaching
+      the vocabulary. **An element with no style is not a fix, it is a second
+      defect.** `code` is now set in `--label` - IBM Plex Mono, the face this site
+      already uses whenever a machine speaks - with `overflow-wrap:break-word`
+      and **not** `nowrap`, because `character/fictional-protagonist` is 30
+      characters in a narrow column and a rule that refuses to break overflows.
+    - **And the gate caught two of its own misses.** The first pass converted
+      two of the four taxonomy triad renderers, because two of them print the
+      same line and a text search for `esc(m[key])` returned them as one match.
+      The 12 surviving backticks were the tell. **A converter applied by search
+      finds the sites you searched for, which is not the same as the sites that
+      exist.**
+
+70. **Entry landmarks, and a correction to what item 68 reported.** Item 68 said
+    "all 227 entries have zero `<h2>`, median 488 words". **The 488 was the
+    whole `<main>` block - sources, graph, relations and taxonomy card included -
+    not the entry body.** The body is a median of **43 words**, and **171 of 227
+    entries run under 150**. Almost none of them need a landmark, and "227
+    entries carry no headings" described a reading problem that did not exist.
+    **A number measured about the wrong element is the most confident kind of
+    wrong**, and it came from stripping tags over `<main>` instead of over the
+    one field the claim was about.
+    - **Only 4 entries exceed 700 words** - `american-gothic` 1,266,
+      `marvel-club` 984, `queen-for-a-day` 938, `krapp-last-tape` 720 - and
+      **zero entries are long with nothing to derive**. Every one of the four
+      opens its paragraphs on the author's own bolded claim, 23 between them.
+    - So `prose(..., heads=True)` is a **promotion, not an invention**: the
+      script changes the rendering of structure the author wrote. 19 entries
+      gain headings, 6 of them a contents rail. The rules are all measured
+      rather than tuned: the lead must start the paragraph (or a bold aside
+      becomes a heading), must be under 90 characters (27 of 96 leads are longer
+      and stay bold, because a sentence is not a heading), is never the first
+      paragraph (drop cap, and directly under the h1), and must leave text
+      behind.
+    - **A rail needs three, not two.** Two links in a list is a menu.
+    - **Two real bugs, both from slugging the ESCAPED text**: an id cut mid-word
+      ("...a-reading-rathe") and an HTML entity in a slug
+      (`the-tape-x27-s-own-contents`). Matched on the raw text instead, and the
+      cut now lands on a boundary. **A generated cut has to land where a person
+      would have stopped** - now the third time this file has had to say it.
+    - `tools/verify_landmarks.py` holds it. **Its first version tested
+      `id =~ /[a-z0-9]-[a-z]*$/`, which matches every id in existence** and
+      reported 29 failures on correct data - a gate crying wolf. It happened to
+      contain the two real bugs inside the noise, which is the usual bargain,
+      and it now tests the property instead: each id must be exactly the slug
+      of its own label. Confirmed red by truncating one.
+    - **`md_leak.py` then caught a regression I introduced in the same sitting** -
+      a heading and a rail line both used `esc()` instead of `emph()`, so a code
+      key inside a heading rendered literally. **A gate earns its place by
+      failing on the author.**

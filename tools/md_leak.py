@@ -19,11 +19,19 @@ WHAT IT WILL AND WILL NOT CATCH
   guess at. Rendering it literally is the desk doing its job - it is visible
   evidence the card is not ready to sign - so it is not a renderer defect and
   the gate must not go permanently red over it.
-- It counts `code \`` and `italic *` and reports them, but does NOT fail. Those
-  are the same class of defect and both are currently unfixed: 468 backticks,
-  412 of them on /taxonomy/, where the author marks taxonomy keys as `persona/idol`.
-  Rendering those as <code> restyles that whole page, so it is an editorial
-  decision rather than a lint fix, and it is reported until somebody decides.
+- `code \`` and `italic *` were fixed the same way and are now zero on every
+  published page. They were left unrendered for a while first - 468 backticks,
+  412 of them on /taxonomy/, where the author marks taxonomy keys as
+  `persona/idol`. The reason was that `<code>` had no stylesheet at all, so
+  introducing the element without one would have dropped 412 keys into the
+  browser's default monospace on the one page whose whole job is teaching the
+  vocabulary. `css/styles.css` now styles `code` in `--label`, the face this
+  site already uses whenever a machine speaks.
+- **This gate found two of its own misses.** The first pass converted two of the
+  four triad renderers on the taxonomy page, because two of them print the same
+  line and a text search for `esc(m[key])` returned them as one match. The
+  remaining 12 backticks were the tell. **A converter applied by search finds
+  the sites you searched for, which is not the same as the sites that exist.**
 
 Usage: python tools/md_leak.py
 """
@@ -73,22 +81,18 @@ def main():
             print(f"            {n:>4}x  {rel}")
         for n, rel in sorted(nhits, reverse=True)[:3]:
             print(f"      draft {n:>4}x  {rel}")
-        if hits and name == "bold **":
+        if hits:
             fails += len(hits)
 
     print()
-    if "code `" in PATTERNS and sum(
-            len(PATTERNS["code `"].findall(c)) for _, c in published):
-        print("note: backticks are still unrendered. Same defect class, "
-              "unfixed on purpose - see the module docstring.")
-
     if fails:
-        print(f"FAIL literal '**' reaches {fails} published page(s). Emphasis "
-              f"must render; emph() is applied per prose field, not inside "
-              f"esc(), so a field rendered by a path that still calls esc() "
-              f"will show this.")
+        print(f"FAIL authored markdown reaches {fails} published page(s). "
+              f"emph() is applied per prose field, not inside esc(), so a field "
+              f"rendered by a path that still calls esc() shows up here - which "
+              f"is how two of the four taxonomy triad renderers were missed the "
+              f"first time.")
         return 1
-    print("ok - no literal ** reaches any published page")
+    print("ok - no authored markdown reaches any published page")
     return 0
 
 

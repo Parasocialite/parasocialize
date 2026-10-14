@@ -342,6 +342,21 @@ empty space just moved to the bottom left. */
   text-transform:uppercase;color:var(--hot)}
 .clerk-more:hover{color:var(--paper)}
 .thesis-doors{margin-top:22px}
+/* ---- <code>: the author's machine keys, in the site's own label face -------
+The corpus marks classification values in backticks - `persona/idol`,
+`simulated`, `split_from` - and 468 of them, 412 on /taxonomy/, were reaching
+the page as literal backticks. `--label` is IBM Plex Mono, which is already the
+face this site uses whenever a machine is speaking, so a key looks like a key
+rather than arriving in the browser's default monospace.
+
+`overflow-wrap:break-word` rather than `nowrap`: a key like
+`character/fictional-protagonist` is 30 characters and the taxonomy sub-category
+cards are narrow, so a rule that refuses to break is a rule that overflows. The
+gate for that is verify_narrow.py, not this comment. */
+code{font-family:var(--label);font-size:.88em;letter-spacing:0;
+  color:var(--warm);background:rgba(255,90,31,.09);
+  border:1px solid rgba(255,90,31,.18);border-radius:3px;
+  padding:.06em .32em;overflow-wrap:break-word;white-space:normal}
 @media (max-width:900px){
   .masthead-grid{grid-template-columns:minmax(0,1fr);gap:24px}
   .clerk{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 16px;
@@ -456,6 +471,36 @@ empty space just moved to the bottom left. */
   color:#1e1108;
 }
 .hub:hover .hub-name,.hub:hover .hub-go{color:#120a05}
+
+/* ---- entry landmarks: h2 promoted from the author's own bold lead --------
+227 entries carried zero <h2>, which was reported as a corpus-wide reading
+problem. It is not: the entry BODY is a median of 43 words and 171 entries run
+under 150, so almost none of them need a landmark. Four are long enough
+(american-gothic 1,266 words, marvel-club 984, queen-for-a-day 938,
+krapp-last-tape 720) and those four already open their paragraphs on the
+author's own bolded claims - 23 between them - so the structure promoted here is
+structure the author wrote. `prose(..., heads=True)` changes its rendering and
+invents nothing.
+
+A lead over 90 characters stays bold rather than becoming a heading: 27 of the
+96 leads are that long, and a sentence is not a heading. Measured, not tuned. */
+.ent-h{font-family:var(--serif);font-weight:700;letter-spacing:-.02em;
+  font-size:1.28rem;line-height:1.18;color:var(--paper);
+  margin:34px 0 10px;padding-top:16px;
+  border-top:1px solid var(--line2);scroll-margin-top:88px}
+.article .body > .ent-h:first-child{margin-top:26px}
+/* The rail appears only where there are three or more headings, which is a
+   different question from "are there any" - two links in a list is not a table
+   of contents, it is a menu. */
+.ent-toc{border:1px solid var(--line2);border-radius:12px;
+  background:linear-gradient(180deg,var(--bg3),var(--bg2));
+  padding:14px 20px 16px;margin:0 0 26px}
+.ent-toc-h{font-family:var(--label);font-size:.54rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--warm);margin:0 0 9px}
+.ent-toc ol{margin:0;padding-left:1.15em;font-size:.9rem;line-height:1.5}
+.ent-toc li{margin:0 0 5px;color:var(--dim)}
+.ent-toc a{color:var(--dim);text-decoration:none}
+.ent-toc a:hover,.ent-toc a:focus-visible{color:var(--paper);text-decoration:underline}
 
 /* ---------- editorial images: real, credited, cached locally ---------- */
 .fig{margin:0 0 18px}

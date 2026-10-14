@@ -159,11 +159,11 @@ def esc(s):
 
 
 # --- inline emphasis and paragraph breaks -----------------------------------
-# The corpus's prose fields are written with `**bold**` and with blank-line
-# paragraph breaks, and neither survived the build: **build_cards.py had no
-# inline-formatting path at all**, so 709 literal `**` markers were reaching 52
-# deployed pages, and 33 entries ran as one unbroken wall because their `\n\n`
-# collapsed to a space. Measured, not assumed:
+# The corpus's prose fields are written in markdown and the renderer had no
+# inline-formatting path at all, so the source reached the page as source:
+# **709 literal `**` markers across 52 deployed pages**, and 33 entries ran as
+# one unbroken wall because their `\n\n` collapsed to a space. Measured, not
+# assumed:
 #
 #   significance   428 markers, 33 entries with blank-line breaks (96 total)
 #   placement why   84 markers
@@ -175,35 +175,114 @@ def esc(s):
 # would be a new way for a field to promise something it does not keep. It stays
 # a pure escape, and prose goes through these.
 _EMPH = re.compile(r"\*\*(.+?)\*\*", re.S)
+_ITAL = re.compile(r"(?<![\w*])\*([^*\n]{2,60})\*(?![\w*])")
+_CODE = re.compile(r"`([^`\n]{1,60})`")
 
 
 def emph(s):
-    """Escape, then render the one inline emphasis the corpus actually uses.
+    """Escape, then render the markdown the corpus is actually written in.
 
-    Non-greedy, which is correct here: every marker pair in the corpus is
-    balanced (0 odd counts) and the "nested" hits a naive regex flags are
-    sequential spans - "**A.** middle. **B.**" - not spans inside spans. A
-    converter that silently mangles prose is worse than one that leaves
-    asterisks alone, so nothing else is attempted: no italics, no links, no
-    headings. The other markdown patterns were measured at zero.
+    Three constructs, in this order, and nothing else. Bold runs first so that
+    `**A**` is never mistaken for two italics.
+
+    - `**strong**` non-greedy, which is correct here: every marker pair in the
+      corpus is balanced and the "nested" hits a naive regex flags are
+      sequential spans - "**A.** middle. **B.**" - not spans inside spans.
+    - `*emphasis*`, bounded to 60 chars and to a single line, with non-word
+      neighbours. Measured over the corpus: 53 distinct spans, 80 uses, the
+      great majority of them work titles (*Whiz Comics*, *The Scream*) and the
+      rest genuine stress (*is*, *also*). **Zero** end in punctuation or exceed
+      45 characters, so the pattern cannot eat a sentence.
+    - `` `code` `` for the author's machine keys - `persona/idol`, `simulated`,
+      `split_from` - 468 uses, 412 of them on /taxonomy/, none over 40 chars.
+
+    Nothing else is attempted. Headings, links and list markers were measured
+    at zero, and a converter that guesses is a converter that mangles prose.
     """
-    return _EMPH.sub(r"<strong>\1</strong>", esc(s))
+    t = esc(s)
+    t = _EMPH.sub(r"<strong>\1</strong>", t)
+    t = _ITAL.sub(r"<em>\1</em>", t)
+    t = _CODE.sub(r"<code>\1</code>", t)
+    return t
 
 
-def prose(s, first_cls="lede2"):
+def prose(s, first_cls="lede2", heads=False):
     """Paragraphs from a field written with blank-line breaks.
 
     Only the FIRST paragraph carries `lede2`, because that class carries the
     drop cap (`.article .body p.lede2::first-letter`). Giving every paragraph
     the class would put a drop cap on each one. The plain <p> is already styled
     by `.article .body p`.
+
+    `heads=True` promotes a paragraph's LEADING bold span to an `<h2>`, and
+    returns the table of contents beside the html.
+
+    It is a promotion, not an invention, and the measurements are what make it
+    safe. Only **4 of the 227 entries are long enough to need a landmark at
+    all** - the body is a median of 43 words and 171 entries are under 150 -
+    and those 4 already open their paragraphs on the author's own bolded
+    claim, 23 of them between them. So the structure being promoted is
+    structure the author wrote; the script is only changing its rendering.
+
+    The rules, and each is there because of a way this could go wrong:
+      - the lead must be at the START of a paragraph, or a bold aside anywhere
+        in the prose would become a heading;
+      - it must be at most 90 characters, or a sentence becomes a heading -
+        measured, 27 of the 96 leads are 91 characters or longer and they stay
+        as bold, which is right;
+      - it is never the first paragraph, which carries the drop cap and sits
+        directly under the h1;
+      - the paragraph must have text left after the lead, or an empty `<p>`
+        would render.
     """
     parts = [p.strip() for p in str(s or "").split("\n\n") if p.strip()]
     if not parts:
+        return "", []
+    out, toc = [], []
+    for i, p in enumerate(parts):
+        # Match the lead on the RAW text, not on emph()'s output. Slugging the
+        # escaped string put an HTML entity in the id - the tape's became
+        # "the-tape-x27-s-own-contents" - because `&#x27;` slugifies to "x27".
+        m = _LEAD.match(p) if heads else None
+        if m and i > 0 and len(m.group(1)) <= 90:
+            lead, rest = m.group(1), p[m.end():].strip()
+            if rest:
+                slug = _slug(lead)
+                out.append(f'<h2 class="ent-h" id="{slug}">{emph(lead)}</h2>')
+                out.append(f"<p>{emph(rest)}</p>")
+                toc.append((slug, lead))
+                continue
+        cls = f' class="{first_cls}"' if i == 0 else ""
+        out.append(f"<p{cls}>{emph(p)}</p>")
+    return "".join(out), toc
+
+
+_LEAD = re.compile(r"^\*\*(.+?)\*\*", re.S)
+
+
+def _slug(text, limit=60):
+    """A URL id from a heading, cut at a WORD boundary.
+
+    A fixed-length slice produced "two-honesty-notes-because-the-entry-is-about-
+    a-reading-rathe" - cut inside "rather", which is an id nobody can guess and
+    a link nobody can read. Same lesson as the top-8 plate word: **a generated
+    cut has to land where a person would have stopped.**
+    """
+    s = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+    if len(s) <= limit:
+        return s or "s"
+    cut = s.rfind("-", 0, limit + 1)
+    return (s[:cut] if cut > 0 else s[:limit]) or "s"
+
+
+def toc_html(toc):
+    """A contents rail, only when there are enough headings to be worth one."""
+    if len(toc) < 3:
         return ""
-    out = [f'<p class="{first_cls}">{emph(parts[0])}</p>']
-    out += [f"<p>{emph(p)}</p>" for p in parts[1:]]
-    return "".join(out)
+    items = "".join(f'<li><a href="#{slug}">{emph(label)}</a></li>'
+                    for slug, label in toc)
+    return (f'<nav class="ent-toc" aria-label="On this page">'
+            f'<p class="ent-toc-h">On this page</p><ol>{items}</ol></nav>')
 
 
 def root(depth):
@@ -2423,7 +2502,7 @@ def build_taxonomy(enc, data):
             if m.get(key):
                 cells += (f'<div class="tx-triad-c {cls}">'
                           f'<span class="tx-triad-k">{label}</span>'
-                          f'<p>{esc(m[key])}</p></div>')
+                          f'<p>{emph(m[key])}</p></div>')
         # Counted from the placements, never typed. Zero is printed as a gap.
         tally = (f'<span class="tx-count">{n}</span>' if n else
                  '<span class="tx-count tx-count-0">nothing placed yet</span>')
@@ -2454,7 +2533,7 @@ def build_taxonomy(enc, data):
             if m.get(key):
                 cells += (f'<div class="tx-triad-c {cls}">'
                           f'<span class="tx-triad-k">{label}</span>'
-                          f'<p>{esc(m[key])}</p></div>')
+                          f'<p>{emph(m[key])}</p></div>')
         tally = (f'<span class="tx-count">{n}</span>' if n else
                  '<span class="tx-count tx-count-0">nothing placed yet</span>')
         recs.append(f"""<details class="tx-reg" id="tx-r-{esc(m['id'])}">
@@ -2551,8 +2630,8 @@ def build_taxonomy(enc, data):
 
 <section class="section" style="padding-top:0" id="tx-otherness">
   <p class="kicker">Otherness · what the other end is made of · {n_oth}</p>
-  <p class="sec-lede" style="max-width:66ch">{esc(OTH.get("_note", ""))}</p>
-  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{esc(OTH.get("_why_it_is_a_separate_axis", ""))}</p>
+  <p class="sec-lede" style="max-width:66ch">{emph(OTH.get("_note", ""))}</p>
+  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{emph(OTH.get("_why_it_is_a_separate_axis", ""))}</p>
   <div class="tx-regs" style="margin-top:22px">{oth_html}</div>
   <p class="countline" style="max-width:66ch;margin-top:20px">{n_oth_stated} of
   {total} entries carry a kind of otherness. It is optional, because it is a
@@ -2574,9 +2653,9 @@ def build_taxonomy(enc, data):
 
 <section class="section" style="padding-top:0" id="tx-reciprocity">
   <p class="kicker">Reciprocity · whether the other end attaches back · {n_rec}</p>
-  <p class="sec-lede" style="max-width:66ch">{esc(REC.get("_note", ""))}</p>
-  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{esc(REC.get("_why_it_is_a_separate_axis", ""))}</p>
-  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{esc(REC.get("_relation_to_the_2019_chart", ""))}</p>
+  <p class="sec-lede" style="max-width:66ch">{emph(REC.get("_note", ""))}</p>
+  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{emph(REC.get("_why_it_is_a_separate_axis", ""))}</p>
+  <p class="sec-lede" style="max-width:66ch;margin-top:16px">{emph(REC.get("_relation_to_the_2019_chart", ""))}</p>
   <div class="tx-regs" style="margin-top:22px">{rec_html}</div>
   <p class="countline" style="max-width:66ch;margin-top:20px">{n_rec_stated} of
   {total} entries state whether the bond attaches back, and the number is
@@ -2590,7 +2669,7 @@ def build_taxonomy(enc, data):
 
 <section class="section" style="padding-top:0">
   <p class="kicker">From the ten sections to the {words(n_cat)} categories</p>
-  <p class="sec-lede" style="max-width:66ch">{esc(mig["headline"])}</p>
+  <p class="sec-lede" style="max-width:66ch">{emph(mig["headline"])}</p>
   <div class="tx-mig">{migrows}</div>
   <p class="countline" style="max-width:66ch;margin-top:18px">{esc(mig["counts"])}</p>
 </section>
@@ -3010,6 +3089,13 @@ def build_entry(ent, enc, data, manifest=None):
     vsec = ent.get("video_seconds")
     vid_label, vid_note = _runtime_words(vsec)
 
+    # Entry body. `heads=True` promotes the author's own leading bold claims to
+    # h2 and hands back a contents rail - but only 4 of 227 entries are long
+    # enough for that to fire, which is the measurement that made it safe to do
+    # rather than a filter worth tuning.
+    _sig, _toc = prose(ent.get("significance", ""), heads=True)
+    _sig_toc = toc_html(_toc)
+
     # ---- outgoing and incoming edges -----------------------------------------
     out_edges = [(x["to"], x.get("type", "related")) for x in rels
                  if x.get("to") in byid]
@@ -3322,7 +3408,7 @@ def build_entry(ent, enc, data, manifest=None):
   {graph}
 
   <div class="body">
-    {prose(ent.get('significance',''))}
+    {_sig_toc}{_sig}
     {lane_note}
   </div>
 
