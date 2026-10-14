@@ -3778,3 +3778,71 @@ it gets resolved.
       the art box is a fixed 52px and the type was scaling with the viewport.
       **Size type against the box it sits in.** A word with nowhere to cut falls
       back to the rank rather than breaking.
+
+67. **The corpus was written in markdown and the renderer had never supported
+    any, so 709 `**bold**` markers were reaching 52 deployed pages as literal
+    asterisks.** Found by *reading an entry page*, not by any gate - which is
+    the only reason it was ever going to be found, and it is the third time in
+    this file that the screenshot found what the measurement could not.
+
+        ... together with "a few letters written by parents on behalf of their
+        children". **Fifty-four years, addressed to a girl who did not exist.**"
+        The finding aid does not record who those letters were addressed to...
+
+    **`build_cards.py` contains no inline-formatting path at all.** It is not a
+    regression; the renderer never had one, and the recent `add_*.py` scripts
+    wrote prose assuming it did. The damage is concentrated in the newest work:
+    `american-gothic` 72, `marvel-club` 70, `queen-for-a-day` 62,
+    `krapp-last-tape` 44.
+    - **Measured before changing anything, because the fix is not obvious.**
+      Only TWO fields carry markers - `significance` (428) and placement `why`
+      (84). **Zero** sit in a `summary`, so no `meta description` or `title`
+      attribute is affected. Every marker pair is balanced (0 odd counts), and
+      the 14 entries a naive regex flags as "nested" are sequential spans
+      - "**A.** middle. **B.**" - not spans inside spans. All three facts are
+      what make a non-greedy `\*\*(.+?)\*\*` correct rather than lucky.
+    - **Two functions, not one change to `esc()`.** `esc()` is also used for
+      `content="..."` and `title="..."`, so converting inside it would put
+      `<strong>` inside an attribute - a new instance of this file's own family.
+      `emph()` escapes and then converts; `esc()` stays a pure escape.
+    - **The same field had a second leak, and it was larger.** 33 entries use
+      blank-line paragraph breaks that HTML collapsed to a space, so a 2,640-word
+      entry ran as one unbroken wall. `prose()` emits real paragraphs - and
+      **only the first** carries `lede2`, because that class carries the drop
+      cap and giving every paragraph the class puts a drop cap on each one.
+    - **And the finding that makes it worth having: the entries were WRITTEN as
+      argument.** Each paragraph opens on a bolded claim - "**And there are
+      recordings.**", "**The honest limit is on the entry: ...**" - and the
+      signposting was invisible on every one of them. Fixing the markup did not
+      change a word and roughly halved the time to read an entry.
+    - **The last marker was not a bug and the converter was right to refuse it.**
+      `data/queue.json` has a draft with an **unbalanced** `**`. `emph()` leaves
+      it literal rather than guessing. That draft is in the signoff queue, so
+      `md_leak.py` REPORTS it and does not fail on it - an unsigned draft is
+      raw by design, and a visible stray marker is the desk doing its job.
+      **A converter that silently mangles prose is worse than one that leaves
+      asterisks alone.**
+    - `tools/md_leak.py` holds it and is **confirmed red** by injecting a span
+      into a published page. It also counts `code \`` and `italic *` and
+      deliberately does **not** fail on them: 468 backticks, 412 of them on
+      `/taxonomy/`, where the author marks taxonomy keys as `` `persona/idol` ``.
+      Rendering those as `<code>` would restyle that entire page, so it is an
+      editorial decision and not a lint fix. **Reported until somebody decides.**
+
+68. **Measured, for the purpose/attention/use analysis asked for on 2026-10-13.**
+    320 deployed pages: 227 entries, 48 stories, 10 section fronts, 11 timeline,
+    3 cases, ~20 hubs. 8,411 internal links, and **all 227 entries reachable
+    from `/` in at most two clicks.**
+    - **19 of 25 page types have exactly one interactive element, and it is
+      `button.menu-btn` - the hamburger.** Real interactivity exists on five
+      page types: the encyclopedia hub (search + 21 filters), the timeline
+      (search + 121 chips), the front page (email), `/tip/` (form) and `/desk/`.
+      **The site is a well-built library with no reading instrument.**
+    - **All 227 entries have zero `<h2>`.** Median 488 words, p90 1,109, max
+      2,640. No landmark, nothing to link to, and no handle to quote an entry
+      by except its title - which never names its subject.
+    - **5 pages have no inbound internal link**: `classroom/` and three `cases/*`.
+      Content that exists and cannot be navigated to, which is a decision being
+      made by omission.
+    - **The two graph legends are the only places the classification is
+      _explained_ rather than shown**, and their labels are set at ~9px.

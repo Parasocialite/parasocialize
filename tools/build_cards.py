@@ -158,6 +158,54 @@ def esc(s):
     return html.escape(str(s if s is not None else ""), quote=True)
 
 
+# --- inline emphasis and paragraph breaks -----------------------------------
+# The corpus's prose fields are written with `**bold**` and with blank-line
+# paragraph breaks, and neither survived the build: **build_cards.py had no
+# inline-formatting path at all**, so 709 literal `**` markers were reaching 52
+# deployed pages, and 33 entries ran as one unbroken wall because their `\n\n`
+# collapsed to a space. Measured, not assumed:
+#
+#   significance   428 markers, 33 entries with blank-line breaks (96 total)
+#   placement why   84 markers
+#   summaries        0 - so no meta description or title attribute is affected,
+#                     which is why `esc()` is NOT the place to fix this
+#
+# Two functions rather than one change to esc(): esc() is also used for
+# `content="..."` and `title="..."`, and putting <strong> inside an attribute
+# would be a new way for a field to promise something it does not keep. It stays
+# a pure escape, and prose goes through these.
+_EMPH = re.compile(r"\*\*(.+?)\*\*", re.S)
+
+
+def emph(s):
+    """Escape, then render the one inline emphasis the corpus actually uses.
+
+    Non-greedy, which is correct here: every marker pair in the corpus is
+    balanced (0 odd counts) and the "nested" hits a naive regex flags are
+    sequential spans - "**A.** middle. **B.**" - not spans inside spans. A
+    converter that silently mangles prose is worse than one that leaves
+    asterisks alone, so nothing else is attempted: no italics, no links, no
+    headings. The other markdown patterns were measured at zero.
+    """
+    return _EMPH.sub(r"<strong>\1</strong>", esc(s))
+
+
+def prose(s, first_cls="lede2"):
+    """Paragraphs from a field written with blank-line breaks.
+
+    Only the FIRST paragraph carries `lede2`, because that class carries the
+    drop cap (`.article .body p.lede2::first-letter`). Giving every paragraph
+    the class would put a drop cap on each one. The plain <p> is already styled
+    by `.article .body p`.
+    """
+    parts = [p.strip() for p in str(s or "").split("\n\n") if p.strip()]
+    if not parts:
+        return ""
+    out = [f'<p class="{first_cls}">{emph(parts[0])}</p>']
+    out += [f"<p>{emph(p)}</p>" for p in parts[1:]]
+    return "".join(out)
+
+
 def root(depth):
     return "../" * depth
 
@@ -748,9 +796,9 @@ def build_desk(data):
             f'data-section="{esc(str(d.get("section") or ""))}">'
             f'<div class="body"><div class="tags">{"".join(tags)}</div>'
             f'<h3>{esc(d.get("headline") or "(untitled)")}</h3>'
-            + (f'<p class="dek">{esc(d["one_line"])}</p>' if d.get("one_line") else "")
-            + (f'<p class="take">{esc(d["take"])}</p>' if d.get("take") else "")
-            + f'<p class="dek" style="font-style:italic">{esc(d.get("why") or "")}</p>'
+            + (f'<p class="dek">{emph(d["one_line"])}</p>' if d.get("one_line") else "")
+            + (f'<p class="take">{emph(d["take"])}</p>' if d.get("take") else "")
+            + f'<p class="dek" style="font-style:italic">{emph(d.get("why") or "")}</p>'
             f'<div class="foot">{link}<span class="src">'
             f'{esc(d.get("feed") or "")}</span></div></div></article>')
 
@@ -764,7 +812,7 @@ def build_desk(data):
     for row in (sweep.get("rejected_sample") or [])[:20]:
         rej.append(f'<div class="log-row"><span class="tick" style="--c:#e63946">'
                    f'</span><span><b>{esc(row.get("title"))}</b>'
-                   f'<span class="meta">{esc(row.get("why"))}</span></span>'
+                   f'<span class="meta">{emph(row.get("why"))}</span></span>'
                    f'<span class="tag tag-od">no</span></div>')
     if not rej:
         rej.append('<div class="log-row"><span class="tick" style="--c:#3d2e23">'
@@ -2277,7 +2325,7 @@ def build_taxonomy(enc, data):
                 f'<b>{esc(e.get("title"))}</b>'
                 f'<span class="tx-why">{esc(e.get("year") or "")} · '
                 f'{esc(enc["kinds"].get(e.get("kind", ""), ""))}</span>'
-                f'<span class="tx-r">{esc(v["why"])}</span></a></li>')
+                f'<span class="tx-r">{emph(v["why"])}</span></a></li>')
         return "".join(out)
 
     # The anchor was stored as a key into _literature and the page was printing
@@ -2321,12 +2369,12 @@ def build_taxonomy(enc, data):
                     if s.get(key):
                         cells += (f'<div class="tx-triad-c {cls}">'
                                   f'<span class="tx-triad-k">{label}</span>'
-                                  f'<p>{esc(s[key])}</p></div>')
+                                  f'<p>{emph(s[key])}</p></div>')
                 triad = f'<div class="tx-triad">{cells}</div>'
             subs.append(f"""<details class="tx-sub" id="tx-{esc(s['id'])}">
       <summary><span class="tx-name">{esc(s['name'])}</span>
         <span class="tx-n">{n}</span></summary>
-      <p class="tx-def">{esc(s['def'])}</p>{triad}{note}{anchor}{empty}{body}
+      <p class="tx-def">{emph(s['def'])}</p>{triad}{note}{anchor}{empty}{body}
     </details>""")
         n = cat_n.get(a["id"], 0)
         sn = story_n.get(a["id"], 0)
@@ -2339,7 +2387,7 @@ def build_taxonomy(enc, data):
 
     regs = []
     for g in tax["register"]:
-        note = f'<p class="tx-note">{esc(g["note"])}</p>' if g.get("note") else ""
+        note = f'<p class="tx-note">{emph(g["note"])}</p>' if g.get("note") else ""
         # same four fields as the attachment axis: a register you cannot test
         # is a heading, and a heading cannot be assigned to
         cells = ""
@@ -2350,11 +2398,11 @@ def build_taxonomy(enc, data):
                 if g.get(key):
                     cells += (f'<div class="tx-triad-c {cls}">'
                               f'<span class="tx-triad-k">{label}</span>'
-                              f'<p>{esc(g[key])}</p></div>')
+                              f'<p>{emph(g[key])}</p></div>')
         triad = f'<div class="tx-triad">{cells}</div>' if cells else ""
         regs.append(f"""<details class="tx-reg" id="tx-{esc(g['id'])}">
-  <summary><b>{esc(g['name'])}</b></summary>
-  <p class="tx-def">{esc(g['def'])}</p>{triad}{note}{anchor_span(g.get('anchor'))}
+  <summary><b>{emph(g['name'])}</b></summary>
+  <p class="tx-def">{emph(g['def'])}</p>{triad}{note}{anchor_span(g.get('anchor'))}
 </details>""")
 
     # The third axis is rendered with the same four fields as the other two, for
@@ -2381,7 +2429,7 @@ def build_taxonomy(enc, data):
                  '<span class="tx-count tx-count-0">nothing placed yet</span>')
         others.append(f"""<details class="tx-reg" id="tx-o-{esc(m['id'])}">
   <summary><b>{esc(m['name'])}</b>{tally}</summary>
-  <p class="tx-def">{esc(m['def'])}</p><div class="tx-triad">{cells}</div>
+  <p class="tx-def">{emph(m['def'])}</p><div class="tx-triad">{cells}</div>
 </details>""")
     oth_html = "".join(others)
     n_oth = len(OTH.get("members", []))
@@ -2411,7 +2459,7 @@ def build_taxonomy(enc, data):
                  '<span class="tx-count tx-count-0">nothing placed yet</span>')
         recs.append(f"""<details class="tx-reg" id="tx-r-{esc(m['id'])}">
   <summary><b>{esc(m['name'])}</b>{tally}</summary>
-  <p class="tx-def">{esc(m['def'])}</p><div class="tx-triad">{cells}</div>
+  <p class="tx-def">{emph(m['def'])}</p><div class="tx-triad">{cells}</div>
 </details>""")
     rec_html = "".join(recs)
     n_rec = len(REC.get("members", []))
@@ -2432,7 +2480,7 @@ def build_taxonomy(enc, data):
         tos = ", ".join(m["to"])
         migrows += (f'<details class="tx-migr"><summary><b>{esc(m["from"])}</b>'
                    f'<span class="tx-arrow">→</span><span>{esc(tos)}</span>'
-                   f'</summary><p class="tx-def">{esc(m["why"])}</p></details>')
+                   f'</summary><p class="tx-def">{emph(m["why"])}</p></details>')
 
     total = len(pla)
     # Counted from the taxonomy, never typed in. The meta description used to
@@ -3174,7 +3222,7 @@ def build_entry(ent, enc, data, manifest=None):
                     if u else cite)
             items.append(
                 f'<li class="prov-{stl}"><span class="prov-status">{esc(st or "unverified")}</span>'
-                f'<span class="prov-claim">{esc(s.get("claim") or "")}</span>'
+                f'<span class="prov-claim">{emph(s.get("claim") or "")}</span>'
                 f'<span class="prov-cite">{body}</span></li>')
         prov = f"""
   <div class="ent-prov">
@@ -3274,7 +3322,7 @@ def build_entry(ent, enc, data, manifest=None):
   {graph}
 
   <div class="body">
-    <p class="lede2">{esc(ent.get('significance',''))}</p>
+    {prose(ent.get('significance',''))}
     {lane_note}
   </div>
 
