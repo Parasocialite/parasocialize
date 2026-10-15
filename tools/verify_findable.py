@@ -93,6 +93,7 @@ def main():
         if toks and not any(t in hay for t in toks):
             miss.append((eid, titles.get(eid, "?")))
 
+    print()
     print(f"findable: {len(rows) - len(miss)} / {len(rows)} entries answer to "
           f"a word of their own name")
     if miss:
@@ -120,8 +121,78 @@ def main():
         else:
             print(f"  {axis}: {want} entries placed and filterable")
 
+    print()
+    bad += _register_check(dict(rows))
+
     print("ok" if not bad else f"{bad} problem(s).")
     return 1 if bad else 0
+
+
+def _register_check(hay):
+    """Every register named in a placement reason must be searchable.
+
+    AGENTS item 45 records "there is no way for a reader to find the entries on
+    a register", and item 35 rules out the fix everybody reaches for - a
+    `register` field - because a field nothing counts is the family of defect
+    this project exists to avoid.
+
+    **Both were wrong, and measuring them is what showed it.** The register
+    information was already written: 86 placement reasons name one, `bond` in
+    26 and `contest` in 28, and `dear-kitty`'s reads "the purest instance of an
+    undemanded tie on this site". All eight registers were named in prose and
+    reachable from no search box, along with 59 backticked keys including
+    `idol`, `made`, `haunted` and `simulated` - keys the author put in backticks
+    precisely so somebody could look them up.
+
+    So the axis never needed a field. It needed the sentence that already says
+    it to be indexed, which is what `build_cards._hay()` now does. The check is
+    the SET rather than the count: a search can return the right number for the
+    wrong reasons - `cog` matched 3 entries before this, on the ordinary
+    English word - so what is asserted is that every entry naming a register is
+    inside the results for it.
+    """
+    pla = json.loads((ROOT / "data" / "taxonomy_placements.json")
+                     .read_text(encoding="utf-8"))["assignments"]
+    tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+    regs = [r["id"] for r in tax.get("register", []) if isinstance(r, dict)]
+    if not regs:
+        print("  note no registers defined; nothing to check")
+        return 0
+
+    def search(term):
+        t = term.lower()
+        return {eid for eid, h in hay.items() if t in h}
+
+    bad = 0
+    total_named = 0
+    for reg in regs:
+        named = {e for e, v in pla.items()
+                 if reg in str(v.get("why", "")).lower()}
+        total_named += len(named)
+        missing = sorted(named - search(reg))
+        if missing:
+            bad += 1
+            print(f"  FAIL register {reg!r} is named by {len(named)} placement "
+                  f"reason(s) but {len(missing)} of those entries are not "
+                  f"searchable by it: {missing[:5]}")
+    if not bad:
+        print(f"  all {len(regs)} registers searchable; "
+              f"{total_named} placement reasons name one")
+
+    # the backticked keys. The author marks them so they can be looked up, so a
+    # key nobody can find is a promise the page does not keep.
+    keys = set()
+    for v in pla.values():
+        for k in re.findall(r"`([^`\n]{1,60})`", str(v.get("why", ""))):
+            keys.add(k.strip())
+    lost = sorted(k for k in keys if not search(k))
+    if lost:
+        bad += 1
+        print(f"  FAIL {len(lost)} of {len(keys)} backticked key(s) in the "
+              f"placement reasons are not searchable: {lost[:8]}")
+    else:
+        print(f"  all {len(keys)} backticked keys searchable")
+    return bad
 
 
 if __name__ == "__main__":

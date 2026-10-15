@@ -3583,6 +3583,8 @@ def build_encyclopedia(enc, data):
     RECIP_LABEL = {m["id"]: m["name"]
                    for m in _tax.get("reciprocity", {}).get("members", [])}
 
+    _BT = re.compile(r"`([^`\n]{1,60})`")
+
     def _hay(e):
         """Everything a reader might type to find this entry.
 
@@ -3601,6 +3603,27 @@ def build_encyclopedia(enc, data):
         labels and the medium go in for the same reason - a reader looking for
         the football entries should not have to know that `medium: sport` is
         the word for it.
+
+        And the placement REASON goes in last, which closes the gap AGENTS item
+        45 says cannot be closed.
+
+        Item 45 says there is "no way for a reader to find the entries on a
+        register", and the standing conclusion is that this needs a new
+        `register` field - which item 35 rules out four times over, because a
+        field nothing counts is the family of defect this project exists to
+        avoid. **Both of those are wrong, and measuring them is what showed
+        it.** The register information is already written. 86 placement reasons
+        name one - `bond` in 26 of them, `contest` in 28 - and `dear-kitty`'s
+        reads "the purest instance of an undemanded tie on this site". **All
+        eight registers were named in prose and reachable from no search box**,
+        and so were 59 backticked keys including `idol`, `made`, `haunted` and
+        `simulated`: keys the author put in backticks precisely so somebody
+        could look them up.
+
+        So the axis does not need a field. It needs the sentence that already
+        says it to be indexed. That is the whole distance between "the axis has
+        no members" and "the members are named in a sentence nobody can
+        search", and it is one line rather than a schema.
         """
         p = _pla.get(e["id"], {}) or {}
         parts = [e.get("title", ""), e.get("summary", ""), e.get("era", ""),
@@ -3611,7 +3634,16 @@ def build_encyclopedia(enc, data):
         parts += [enc["kinds"].get(e.get("kind", ""), "")]
         parts += [enc["lanes"][l]["name"] for l in e.get("lanes", [])
                   if l in enc["lanes"]]
-        return " ".join(p for p in parts if p).lower()
+        # The placement reason, with its markdown punctuation removed but the
+        # words kept: `made` not `` `made` ``, and "it failed" not
+        # "**it failed**". `md_leak.py` caught this - unwrapping the backticks
+        # and nothing else left 84 `**` and 10 `*` sitting raw in a
+        # data-hay attribute, which is a search index and never gets rendered.
+        # **A search index is not a page, so it wants the text, not the markup
+        # that describes the text.**
+        _why = _BT.sub(r"\1", p.get("why") or "").replace("*", "")
+        parts += [_why]
+        return " ".join(x for x in parts if x).lower()
 
     for e in sorted(enc["entries"], key=lambda x: (_y(x), x.get("title", ""))):
         dots = "".join(

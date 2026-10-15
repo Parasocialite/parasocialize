@@ -3988,3 +3988,51 @@ it gets resolved.
       it never carries fewer than three. Confirmed red by pointing a strip at
       its own page - a link that resolves perfectly, so nothing else in the
       toolchain would have caught it.
+
+73. **AGENTS item 45 was wrong about the register axis, and wrong in the way that
+    cost the most: it said the gap needed a new field, and the field was never
+    needed because the information already existed.** Item 45 records "there is
+    no way for a reader to find the entries on a register", and item 35 rules
+    out the obvious fix four times over - a `register` field, because a field
+    nothing counts is this file's own defect family. Between them the project
+    had concluded the gap was unclosable.
+
+    **Measuring it instead of reasoning about it closed it in one line.**
+        register        placement reasons naming it   searchable before
+        contest                          28                    0
+        bond                             26                    0
+        archive                          13                    0
+        cog                               8                    0
+        undemanded                        2                    0
+    86 placement reasons name a register. `dear-kitty`'s reads "the purest
+    instance of an undemanded tie on this site". **All eight were written down
+    and reachable from no search box**, along with **59 backticked keys** -
+    `idol`, `made`, `haunted`, `simulated`, `companion/social-agent` - which the
+    author marked in backticks precisely so somebody could look them up.
+    - So the axis did not need a field. It needed **the sentence that already
+      says it to be indexed**, which is what `build_cards._hay()` now does with
+      the placement reason. 0 -> all 8 registers reachable; **0 of 59 -> 59 of
+      59** backticked keys findable. Every specific name still resolves to one
+      entry: `harvey` 1, `deadpool` 1, `nancy drew` 1, `siri` 1.
+    - **The measurement had to check the SET, not the count.** `cog` matched 3
+      entries before this change, on the ordinary English word, so a count would
+      have looked close to right for the wrong reason. `verify_findable.py`
+      asserts that every entry naming a register is inside the results for it,
+      and **confirms red** by redacting the word from every haystack - which
+      names the two entries that became unreachable.
+    - **`md_leak.py` caught the regression in the making.** Unwrapping the
+      backticks and nothing else left **84 `**` and 10 `*`** sitting raw in a
+      `data-hay` attribute - markup describing text, inside a search index that
+      never gets rendered. **A search index is not a page: it wants the text, not
+      the markup.** Third time this session a gate has failed on work from the
+      same sitting.
+    - Cost: the haystack went from 267 to 731 characters per entry and the
+      index grew, and the stopword-ish terms degraded (`the` 204 -> 226, `one`
+      61 -> 109). Those matched 90%+ of entries before and still do, so nothing
+      that meant anything specific got worse - which is the only question worth
+      asking of a change that makes everything match more.
+
+    **The general form, and it is the one worth carrying out of this file: a
+    "this gap cannot be closed without a schema change" conclusion is a claim
+    about the schema, and the cheap test is whether the information is already
+    written down somewhere nobody was looking.** It was, 86 times.
