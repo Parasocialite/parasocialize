@@ -502,6 +502,25 @@ A lead over 90 characters stays bold rather than becoming a heading: 27 of the
 .ent-toc a{color:var(--dim);text-decoration:none}
 .ent-toc a:hover,.ent-toc a:focus-visible{color:var(--paper);text-decoration:underline}
 
+/* ---- /cases/ - the Case Files collection ---------------------------------
+Generated from cases/*.md frontmatter by build_cases(). It exists because three
+Case Files were indexable, absent from sitemap.xml and linked from nothing, so
+no reader and no crawler could reach them. The page is generated rather than
+written because a hand-made index drifts the moment a fourth .md is added. */
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;margin-top:26px}
+.case-card{display:flex;flex-direction:column;gap:7px;padding:20px 22px 18px;
+  border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);
+  color:inherit;text-decoration:none}
+.case-card:hover{border-color:var(--hot);background:var(--bg3);transform:translateY(-2px)}
+.case-no{font-family:var(--label);font-size:.52rem;letter-spacing:.2em;color:var(--hot)}
+.case-title{font-family:var(--serif);font-size:1.14rem;font-weight:700;
+  line-height:1.2;letter-spacing:-.02em;color:var(--paper)}
+.case-teaser{font-size:.88rem;line-height:1.5;color:var(--dim);flex:1}
+.case-foot{font-family:var(--label);font-size:.5rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dimmer);margin-top:4px}
+.shelf-more{margin-top:38px;padding-top:22px;border-top:1px solid var(--line2)}
+
 /* ---------- editorial images: real, credited, cached locally ---------- */
 .fig{margin:0 0 18px}
 .fig img{width:100%;border-radius:6px;box-shadow:0 10px 26px rgba(0,0,0,.5)}

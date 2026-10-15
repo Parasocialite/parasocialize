@@ -359,6 +359,74 @@ def main():
     except Exception as exc:
         w(f"could not check title plates ({exc.__class__.__name__})")
 
+    # ---- pages nothing links to -------------------------------------------
+    # A page with no inbound internal link cannot be navigated to. Measured
+    # across the deployed tree this found FIVE: 404.html (correct - a 404
+    # handler should have no inbound link), three Case Files, and /classroom/.
+    # All four of the rest were **indexable** - no robots meta - and absent
+    # from sitemap.xml, so a crawler could index a page it had no way to reach.
+    # That is a page existing and not being offered, which is a decision being
+    # made by omission rather than a technical fault, and nothing else in this
+    # audit could see it: every other check here asks whether a LINK WORKS,
+    # never whether a page is REACHABLE.
+    #
+    # NOTE THE TWO TREES. Every other check in this file reads the SOURCE tree;
+    # this one reads dist/. That is deliberate - "reachability" is a property of
+    # what is deployed - but it means the two disagree by exactly one build, and
+    # it is why the first version of this check's red test passed: it removed
+    # the link from membership/index.html in the source while this block was
+    # reading dist/, so it saw nothing wrong. **A gate that reads a different
+    # file from the thing you edited is not testing your edit.**
+    # The scan is over dist/ ONLY. The first version walked the whole repo and
+    # reported 275 orphans, because it counted every page twice - once in the
+    # source tree and once in dist/ - and swept up Chrome's scratch calibration
+    # files under episode/.chrome/. **"Reachability" is a property of what is
+    # deployed**, and a source page and its built twin are the same page.
+    _DIST = ROOT / "dist"
+    _inbound = {}
+    if _DIST.exists():
+        for _p in _DIST.rglob("*.html"):
+            _raw = _p.read_text(encoding="utf-8", errors="replace")
+            for _m in re.finditer(r'<a\b[^>]*\bhref="([^"]+)"', _raw, re.I):
+                _t = _m.group(1).split("#")[0].strip()
+                if not _t or _t.startswith(("http", "mailto:", "tel:", "javascript:")):
+                    continue
+                if _t.startswith("/"):
+                    _t = _t.lstrip("/")
+                else:
+                    _base = _p.parent.relative_to(_DIST).as_posix()
+                    if _base != ".":
+                        _t = urllib.parse.urljoin(_base + "/", _t)
+                    # A page at the ROOT resolves relative to the root, and
+                    # `urljoin("/", "figures/index.html")` returns
+                    # "/figures/index.html" - an absolute path that matches no
+                    # key in the inbound table. That made every page linked only
+                    # from the front page look orphaned, which is how `figures/`
+                    # and `tip/` turned up as failures on correct data.
+                    # **A resolver that is wrong for the most common case in the
+                    # tree is a resolver, not a measurement.**
+                _t = urllib.parse.unquote(_t)
+                if _t.endswith(".html"):
+                    _inbound[_t] = _inbound.get(_t, 0) + 1
+        _orphans = []
+        for _p in sorted(_DIST.rglob("*.html")):
+            _rel = _p.relative_to(_DIST).as_posix()
+            if _rel == "404.html" or _inbound.get(_rel):
+                continue
+            _raw = _p.read_text(encoding="utf-8", errors="replace")
+            if re.search(r'<meta name="robots" content="[^"]*noindex', _raw, re.I):
+                continue      # deliberately unpublished, which is a decision
+            _orphans.append(_rel)
+    else:
+        _orphans = []
+    if _orphans:
+        p(f"{len(_orphans)} page(s) have no inbound internal link and are "
+          f"indexable, so nothing can reach them: {', '.join(_orphans[:8])}"
+          f"{' ...' if len(_orphans) > 8 else ''}. Link them from the page "
+          f"they belong to, or mark them noindex if they are not ready.")
+    else:
+        w("every indexable page has at least one inbound internal link")
+
     print(f"link audit: {checked} internal links across "
           f"{len(list(ROOT.rglob('*.html')))} pages")
     for m in warnings:
