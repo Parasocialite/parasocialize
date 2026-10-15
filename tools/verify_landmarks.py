@@ -19,6 +19,8 @@ DIST = ROOT / "dist" / "encyclopedia"
 RAIL = re.compile(r'<nav class="ent-toc".*?</nav>', re.S)
 H2 = re.compile(r'<h2 class="ent-h" id="([^"]+)">(.*?)</h2>', re.S)
 LINK = re.compile(r'href="#([^"]+)"')
+SHELF = re.compile(r'<nav class="ent-shelf".*?</nav>', re.S)
+SHELFCARD = re.compile(r'<a class="shelfcard" href="[^"]*encyclopedia/([^".]+)\.html"')
 
 
 def slug(text, limit=60):
@@ -39,7 +41,7 @@ def main():
         sys.exit("refusing: found 0 entry pages")
 
     bad = 0
-    with_heads = with_rail = total_h2 = 0
+    with_heads = with_rail = total_h2 = with_strip = 0
     for p in pages:
         t = p.read_text(encoding="utf-8", errors="replace")
         h2 = H2.findall(t)
@@ -79,8 +81,33 @@ def main():
             bad += 1
             print(f"  FAIL {p.name}: {len(h2)} headings and no contents rail")
 
+        # ---- the same-shelf strip -----------------------------------------
+        # Three properties, all of which would fail silently: it must exist on
+        # every entry (the fallback to the parent category is what guarantees
+        # that, and a broken fallback would just drop 32 pages), it must never
+        # link back to the entry it is on, and it must carry at least three -
+        # below that the block is a menu rather than a way of finding something.
+        strip = SHELF.search(t)
+        if not strip:
+            bad += 1
+            print(f"  FAIL {p.name}: no same-shelf strip. Every entry gets one - "
+                  f"the thin sub-categories fall back to the parent category - "
+                  f"so a missing strip means the fallback broke.")
+            continue
+        with_strip += 1
+        self_id = p.stem
+        mates = SHELFCARD.findall(strip.group(0))
+        if self_id in mates:
+            bad += 1
+            print(f"  FAIL {p.name}: the strip links to its own entry")
+        if len(mates) < 3:
+            bad += 1
+            print(f"  FAIL {p.name}: strip has {len(mates)} card(s); the "
+                  f"threshold is 3 and the fallback should have caught this")
+
     print(f"entry pages {len(pages)}   with headings {with_heads}   "
-          f"with a rail {with_rail}   headings {total_h2}")
+          f"with a rail {with_rail}   headings {total_h2}   "
+          f"with a same-shelf strip {with_strip}")
     print("ok" if not bad else f"{bad} problem(s)")
     return 1 if bad else 0
 

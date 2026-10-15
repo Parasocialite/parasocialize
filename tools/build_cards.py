@@ -3294,6 +3294,74 @@ def build_entry(ent, enc, data, manifest=None):
     <p class="seq">{seq}</p>
   </div>"""
 
+    # ---- the same shelf, not the same name ---------------------------------
+    # `ent-seq` above is derived from the entries' NAMES: it finds ids sharing
+    # a significant word, so it catches `mickey-mouse` for `alf` and nothing
+    # for `the-dog`. This block is derived from the CLASSIFICATION instead - the
+    # attachment sub-category this entry is filed under - so it answers a
+    # different question: not "what else is called that" but "what else is
+    # filed here".
+    #
+    # Both exist on purpose. Three related blocks on a page is one too many, so
+    # this one only appears where the shelf is deep enough to be a way of
+    # finding something: **195 of 227 entries have three or more siblings**,
+    # and the four entries with none are the ones in a one-member sub-category.
+    # Two links in a row is a menu, not a shelf.
+    shelf_html = ""
+    try:
+        _PLA = json.loads((ROOT / "data" / "taxonomy_placements.json")
+                          .read_text(encoding="utf-8"))["assignments"]
+        _tax_s = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+        _SUB_NAME = {s["id"]: s.get("name", s["id"])
+                     for a in _tax_s.get("attachment", [])
+                     for s in a.get("sub", [])}
+        _BYID = {e["id"]: e for e in enc["entries"]}
+        _pl = _pla.get(ent["id"], {}) or {}
+        _cat_id, _sub_id = _pl.get("cat"), _pl.get("sub")
+
+        def _mates(on, val, exclude):
+            out = [e for e in _BYID.values()
+                   if ((_pla.get(e["id"], {}) or {}).get(on) == val)
+                   and e["id"] != ent["id"] and e["id"] not in exclude]
+            out.sort(key=lambda e: (abs((e.get("year") or 0) - (ent.get("year") or 0)),
+                                    e.get("year") or 0))
+            return out
+
+        _shown = {x["id"] for x in sibs[:7]}
+        # Prefer the exact sub-category. When it is too thin to be useful -
+        # 32 of 227 entries sit in a shelf of one to three, and the-dog is one
+        # of them - fall back to the parent CATEGORY rather than showing
+        # nothing. The fallback says which level it is at, because "here are
+        # two entries filed exactly here" and "here is the wider shelf" are
+        # different claims and the label is the only place a reader can tell.
+        for _on, _val, _name, _label in (
+                ("sub", _sub_id,
+                 _SUB_NAME.get(_sub_id, ("" if not _sub_id else _sub_id.replace("-", " "))),
+                 "Also filed as"),
+                ("cat", _cat_id,
+                 next((a.get("name", a["id"]) for a in _tax_s.get("attachment", [])
+                       if a["id"] == _cat_id), ""),
+                 "Wider shelf")):
+            if not _val:
+                continue
+            _pool = _mates(_on, _val, _shown)
+            if len(_pool) < 3:
+                continue
+            _cards = "".join(
+                f'<a class="shelfcard" href="{r}encyclopedia/{esc(e["id"])}.html">'
+                f'<span class="shelfcard-y">{_fmt_year(e.get("year"))}</span>'
+                f'<b>{esc(e.get("title", ""))}</b>'
+                f'<span class="shelfcard-k">{esc(kinds.get(e.get("kind", ""), ""))}</span>'
+                f'</a>' for e in _pool[:6])
+            shelf_html = f"""
+  <nav class="ent-shelf" aria-label="More in this shelf">
+    <p class="kicker">{_label} {esc(_name)} &middot; {len(_pool)} more</p>
+    <div class="shelfcards">{_cards}</div>
+  </nav>"""
+            break
+    except Exception as exc:
+        w(f"entry {ent.get('id')}: shelf strip failed ({exc.__class__.__name__})")
+
     # ---- provenance ---------------------------------------------------------
     prov = ""
     if srcs:
@@ -3413,6 +3481,7 @@ def build_entry(ent, enc, data, manifest=None):
   </div>
 
   {sib_html}
+  {shelf_html}
   {era_html}
   {prov}
 

@@ -3909,3 +3909,82 @@ it gets resolved.
       a heading and a rail line both used `esc()` instead of `emph()`, so a code
       key inside a heading rendered literally. **A gate earns its place by
       failing on the author.**
+
+71. **Five deployed pages had no inbound link, and four of them were indexable.**
+    `404.html` is correct - a 404 handler should have nothing pointing at it.
+    The rest were a content type with no front door and a product nobody could
+    reach:
+
+        cases/kempe-to-stans.html          Case File 001
+        cases/blockbuster-knew-your-name   Case File 002
+        cases/dream-recording-metaphor    Case File 003
+        classroom/index.html              a $49 product
+
+    All four were **indexable** - no robots meta - and absent from
+    sitemap.xml, so a crawler could index a page it had no way to find. Nothing
+    in `link_audit.py` could see it, and the reason generalises: **every other
+    check in that file asks whether a LINK WORKS, and none asked whether a page
+    is REACHABLE.** It now fails on any indexable deployed page with no inbound
+    link. `404.html` and `noindex` pages are exempt, because for those
+    "unreachable" is the intent rather than an omission.
+    - `/cases/` now exists, **generated from the frontmatter of `cases/*.md`** so
+      it cannot drift when a fourth file is added. It deliberately does NOT
+      render the member sections - that text is the paid product and is not this
+      script's to publish. Linked from `/shelf/`; `/classroom/` from
+      `/membership/`.
+    - **The shelf link was written into `shelf/index.html` twice and the next
+      build silently reverted it both times.** `shelf/index.html` is GENERATED,
+      at `build_cards.py:4047`, from `build_shelf()` - I had inferred from
+      `cases/` and `classroom/` having no generator that it was hand-written.
+      Third attempt went into `build_shelf()` and stuck. **This is item 56:
+      a generator's output list is its claim about what it owns, and it owns
+      more than you expect. Read `main()` before hand-editing anything.**
+    - **The orphan check itself was wrong twice.** It scanned the whole repo
+      rather than `dist/`, so it counted every page twice, swept up Chrome's
+      calibration files under `episode/.chrome/`, and reported 275 orphans. Then
+      it resolved relative links with `urljoin("/", href)` for pages at the
+      root, which returns an absolute path matching no key in the table, so
+      every page linked only from the front page - `figures/`, `tip/` - came
+      back orphaned on correct data. **A resolver that is wrong for the most
+      common case in the tree is a resolver, not a measurement.**
+    - Its red test took three attempts and proved nothing twice: it edited the
+      source while the check reads `dist/`, and then repointed the link at a
+      404 so the run failed on the broken-link check while the orphan check
+      stayed green. That is a red, but not the red being tested. Note the two
+      trees are deliberate - reachability is a property of what is deployed -
+      and they now say so in the file.
+    - **Still owed:** the three Case File pages are stubs. Each `.md` carries a
+      free TEASER and a gated MEMBER FULL block and the HTML renders neither,
+      only "full take lands in the Friday Signal".
+
+72. **The one piece of interactivity added where the reader already is.**
+    Item 68 measured that 19 of 25 page types have exactly one interactive
+    element and it is the hamburger, and that the honest verbs for this subject
+    are retrieve, compare and follow. Retrieval and comparison were fixed in
+    items 61 and 62. This is **follow**.
+
+    - **The entry page already had a related block, and it is name-derived.**
+      `.ent-seq` ("Same story, N other entries") finds entries whose ids share
+      a significant word, so it catches `mickey-mouse` from `alf` and nothing
+      at all from `the-dog`. The new block is **classification**-derived - the
+      attachment sub-category - so it finds `the-dog` from `alf`, which the
+      name heuristic cannot, because nothing about those two ids resembles
+      anything. Both exist and are labelled differently, because they answer
+      different questions.
+    - **Ordered nearest-in-time first**, not by year. On a site laid out along a
+      timeline the neighbours in time are the ones that make a shape; sorted by
+      year alone the block is just a list. `harvey` (1950) gets 1942, 1942,
+      1946, 1946, 2003.
+    - **Measured before building, and the measurement changed the design.** 195
+      of 227 entries have three or more siblings in their sub-category; **32 sit
+      in a shelf of one to three** and would have shown nothing. Those fall back
+      to the parent CATEGORY and are labelled "Wider shelf" rather than "Also
+      filed as", because "here are two entries filed exactly here" and "here is
+      the wider shelf" are different claims and the label is the only place a
+      reader can tell. `the-dog` falls back and lands on its nearest neighbours
+      among the companion entries. **All 227 entries now have one.**
+    - `verify_landmarks.py` holds three properties that would otherwise fail
+      silently: every entry has a strip, it never links to its own entry, and
+      it never carries fewer than three. Confirmed red by pointing a strip at
+      its own page - a link that resolves perfectly, so nothing else in the
+      toolchain would have caught it.
