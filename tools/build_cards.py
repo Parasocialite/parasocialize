@@ -25,6 +25,12 @@ HEAD = """<link rel="canonical" href="{site}{path}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="{site}/img/podcasts/parasocialize.jpg">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{site}/radar.xml">
+<!-- Two feeds, deliberately. radar.xml is content; ledger/feed.xml is the
+     archive's own figures changing. They serve different subscribers and a
+     reader who wants both should be offered both rather than made to pick in a
+     feed reader's settings. Titles differ so the two are distinguishable in a
+     subscription list, which is the only place anybody will see them. -->
+<link rel="alternate" type="application/rss+xml" title="Parasocialize — the open ledger" href="{site}/ledger/feed.xml">
 <link rel="icon" type="image/svg+xml" href="{site}/favicon.svg">
 <link rel="icon" type="image/x-icon" sizes="48x48" href="{site}/favicon.ico">
 <link rel="icon" type="image/png" sizes="192x192" href="{site}/icon-192.png">
@@ -691,6 +697,9 @@ def build_ledger(data, enc):
 <title>The open ledger - Parasocialize</title>
 <meta name="description" content="{esc(verified_note(m))}"
 <link rel="stylesheet" href="{r}css/styles.css">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{SITE}/radar.xml">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize - the open ledger" href="{SITE}/ledger/feed.xml">
+<link rel="icon" type="image/svg+xml" href="{SITE}/favicon.svg">
 <meta property="og:title" content="The open ledger - Parasocialize">
 <meta property="og:type" content="website">
 <meta property="og:description" content="{esc(verified_note(m))}">
@@ -796,6 +805,8 @@ def build_exceptions(data, enc, placements):
 a value on the reciprocity axis - and eight of those carry none on the otherness
 axis either.">
 <link rel="stylesheet" href="{r}css/styles.css">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{SITE}/radar.xml">
+<link rel="icon" type="image/svg+xml" href="{SITE}/favicon.svg">
 <meta property="og:title" content="Exceptions - Parasocialize">
 <meta property="og:type" content="website">
 <meta property="og:description" content="{esc(m['labelled'])} of {m['entries']}
@@ -4407,6 +4418,7 @@ def build_cases(data):
 <meta property="og:title" content="Case Files - Parasocialize">
 <meta property="og:description" content="The long form behind the feed.">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize" href="https://www.parasocialize.com/radar.xml">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize — the open ledger" href="https://www.parasocialize.com/ledger/feed.xml">
 <link rel="icon" type="image/svg+xml" href="https://www.parasocialize.com/favicon.svg">
 <link rel="icon" type="image/x-icon" sizes="48x48" href="https://www.parasocialize.com/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="https://www.parasocialize.com/apple-touch-icon.png">

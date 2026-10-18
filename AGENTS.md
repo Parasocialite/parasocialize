@@ -700,6 +700,14 @@ ship a falsehood on this site and it was done once already.
   every reference is rewritten, and a stale unhashed name is refused — because
   `immutable` caching on a stable filename is how a deploy goes out and nobody
   sees it.
+- `data/ledger_history.json` — **STATEFUL AND TRACKED IN GIT.** Appended by
+  `record_snapshot()` only when a watched figure moves, one entry per day however
+  many builds run. `/ledger/feed.xml` is generated from it, so the feed is the
+  only thing on the site that reports *change* rather than current state. **Do
+  not regenerate it, and do not delete it to "clean up"** — a rebuild from
+  scratch loses the history and the feed restarts at "first recorded snapshot",
+  which is exactly the silent reset the feed exists to avoid. It is the one data
+  file in the repository whose value is its *sequence*.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
