@@ -214,7 +214,7 @@ def orphan_report():
 # `retrievable` records, and the reasoning is the same: fix the claim, keep the
 # debt visible, and make regression impossible rather than pretending the debt
 # is not there.
-ORPHAN_BASELINE = 17
+ORPHAN_BASELINE = 0
 
 
 def strip_at_blocks(text):
@@ -239,7 +239,15 @@ def strip_at_blocks(text):
         elif ch == "}":
             if stack:
                 sel, bstart = stack.pop()
-                out.append((sel, text[bstart:pos]))
+                # +1: the body starts AFTER the brace. Without it the first
+                # declaration of every rule parses as "{padding", and because
+                # this stylesheet is written one-rule-per-line the opening brace
+                # is usually the first thing in the body - so a rule whose ONLY
+                # layout property was its first declaration was silently
+                # classed as colour/type and could not fail the gate. Found by
+                # injecting `.no-such-class-anywhere p{padding:99px}` and
+                # watching it come back as a note at a baseline of 0.
+                out.append((sel, text[bstart + 1:pos]))
             sel_start = pos + 1
     return out
 
@@ -268,15 +276,28 @@ def read_tree():
         raw = re.sub(r"<(?:br|hr|meta|link|source|area|base|col|embed|param|track|wbr)\b[^>]*>",
                      "", raw, flags=re.I)
         stack = [-1]
+        skip_depth = 0
         nodes = []
         for m in tok.finditer(raw):
             closing, tag, rest, selfclose = (m.group(1), m.group(2).lower(),
                                             m.group(3), m.group(4))
+            if tag in SVG_DROP:
+                # Skipping the opening token is not enough. The matching CLOSING
+                # token still reached the closing branch above and popped a real
+                # ancestor that had never been pushed, so the stack was corrupt
+                # for the rest of the file. That is why `.mood figcaption span`
+                # read as an orphan: every mood figure puts a large inline <svg>
+                # in `.mood-art` immediately before its <figcaption>, and Chrome
+                # counts the rule 8 times on /brand/ while this said 0.
+                # Track the skipped elements in their own depth counter so they
+                # never touch the element stack.
+                if selfclose:
+                    continue
+                skip_depth += 1 if not closing else -1
+                continue
             if closing:
                 if len(stack) > 1:
                     stack.pop()
-                continue
-            if tag in SVG_DROP:
                 continue
             cm = attr.search(rest)
             classes = frozenset(cm.group(1).split()) if cm else frozenset()

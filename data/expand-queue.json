@@ -1,0 +1,48 @@
+{
+  "_note": "Fifth batch, one entry. Comics is one of the two thinnest media in the corpus. Every figure here was read off the Wikipedia article and cross-checked against Britannica and a named retailer account; the retailer's own recollection is recorded as what a retailer said, not as industry fact.",
+  "entries": [
+    {
+      "id": "the-death-they-scheduled",
+      "title": "The death they scheduled",
+      "year": 1992,
+      "summary": "A publisher announced in advance that its most famous character was about to die, delayed every book in the line so the death could not be disproved by the next issue, and sold the gap.",
+      "significance": "It is the clearest case on this site of grief being manufactured and sold as a product, and the direction is unusual: everywhere else the far side is indifferent, unavailable or gone, and the near side does the rest. Here the absence itself was commissioned, scheduled and promoted by the people who owned the character, with no intention of it being permanent. The one detail that earns the entry is from a comic retailer who opposed it at the time and heard about it for the next decade: he still had non-readers a month telling him they had felt ripped off to have been tricked into believing Superman was really going to die. Everybody else grieved, and nobody on the far side ever noticed, but a handful of readers worked out that the feeling had been delivered to them on purpose - which is the moment the arrangement becomes visible from the near side, and the only time on this site where that happens by arithmetic rather than by somebody writing it down.",
+      "kind": "work",
+      "medium": ["comics"],
+      "provenance": "sourced",
+      "other": "made",
+      "shelf": "fictional-protagonist",
+      "fits": "Somebody described in a book and therefore available to an unlimited number of people at once, whose most consequential event was produced and timed by the people who own him.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Wikipedia (2024). The Death of Superman.",
+          "claim": "Superman #75 sold over six million copies and became the top-selling comic of 1992; Adventures of Superman #500, which began his resurrection, was the best-selling comic of 1993. The teams delayed all Superman comics for three months to create the illusion that he had really been killed, because the solicitation cycle would have spoiled the resurrection. The issue brought in about US$30 million on its first day on sale, and sales from Superman #75 doubled DC's market share in November 1992.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/The_Death_of_Superman"
+        },
+        {
+          "citation": "Wikipedia (2024). The Death of Superman.",
+          "claim": "Commentators have retrospectively dismissed the story as a publicity stunt; each series' sales immediately declined following the resurrection, and Wizard compared the phenomenon to the New Coke debacle.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/The_Death_of_Superman"
+        },
+        {
+          "citation": "Rozanski, C. Tales From the Database, CBG #127. Mile High Comics.",
+          "claim": "A named retailer opposing the plan at the time, saying DC President Paul Levitz told him there was no turning back and that publicist Martha Thomases had saturated the news media with the word that Superman was about to die; and that he continued 'to hear from at least one non-comics fan a month about how they felt ripped off when they were tricked into believing that Superman was really going to die.' One retailer's account of what he was told in 1991, and of reader reaction afterwards; recorded as his recollection, not as industry fact.",
+          "status": "retrievable",
+          "url": "https://www.milehighcomics.com/tales/cbg127.html"
+        },
+        {
+          "citation": "Britannica (2024). DC Comics.",
+          "claim": "During the early 1990s the comic book industry experienced a boom in sales, with books tied to DC's The Death of Superman crossover selling millions of copies; such growth proved unsustainable, as sales soon declined to a fraction of their previous levels.",
+          "status": "retrievable",
+          "url": "https://www.britannica.com/money/DC-Comics"
+        }
+      ],
+      "relations": [
+        {"type": "depicts", "to": "parasocial-interaction"}
+      ]
+    }
+  ]
+}

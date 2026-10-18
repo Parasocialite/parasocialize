@@ -1170,6 +1170,71 @@
       "cat": "institution",
       "sub": "brand",
       "why": "Filed `institution/brand`, on the shelf's def: \"A tie to a commercial entity that behaves recognisably like a person\" - and its `not` is this case almost verbatim, \"A brand is the case where the relationship is the asset and the person on the counter is employed by it.\" Betty Crocker is a home-service department's output, \"the reader attached to a woman who did not exist, and the reply, however real the labour behind it, came from the persona rather than the person\", typed by employed home economists under a name the company owned, which is \"a real hand typing under a name no woman owned\". The test answers cleanly: the far end is a commercial entity, and a competitor cannot take the attachment because the attachment is the brand. The entry's own framing is that this is \"the brand-as-character mechanism at its founding\" - the instance the mechanism entry names - and that mechanism already sits on this same shelf, so filing the instance beside it is the consistent reading rather than the tidy one. The counter is `character/fictional-protagonist`, and it is the natural first move, because Betty has an interior and a voice - \"she answered letters, then took a radio voice in 1924\". It loses on the one half of that shelf's test no author can survive, \"if no author can override what the audience says they feel\", because the fictional-protagonist is only where nobody can correct the audience, and here the author could and did correct everything: the name, the signature and the radio scripts were all chosen, and the persona \"was given a voice\" by decision rather than supplied by readers. The second counter is `character/mascot`, whose def sounds like her, \"A figure with no body, no biography and no intention\". It loses on that shelf's own `not`, \"Not a written character, who can contradict you\", because Betty's whole utility was that she carried a biography and a household voice - \"was like the woman next door dropping in for a morning visit to share a new recipe\" - which is a surface with an author rather than an inert logo. Contestable, and recorded as such."
+    },
+    "the-answered-machine": {
+      "cat": "companion",
+      "sub": "object",
+      "why": "There is an object and you would be rationally able to replace it, and still not. The machine is answered to and never replies, and the whole relationship is carried by that unreplying."
+    },
+    "the-transfer-window": {
+      "cat": "cosmology",
+      "sub": "league-world",
+      "why": "The arrangement is the object, not any participant. The window is the calendar that structures the year, renewed on a schedule and legible in advance."
+    },
+    "the-nicene-creed": {
+      "cat": "cosmology",
+      "sub": "faith-as-structure",
+      "why": "Attached to a set of propositions and their authority rather than to a figure within them, which is precisely what separates this shelf from myth-deity."
+    },
+    "the-aten-that-was-removed": {
+      "cat": "divine",
+      "sub": "myth-deity",
+      "why": "The figure was served through a daily ritual rather than retold through narrative, which is the shelf's own test, and the cult's destruction is what proves the biography could go wrong."
+    },
+    "the-parrot-that-repeats": {
+      "cat": "companion",
+      "sub": "animal",
+      "why": "The far end is an animal with no agency of its own, and the case is worth writing because it is the control: when the imitation stops, so does the attachment."
+    },
+    "the-device-with-a-pet": {
+      "cat": "companion",
+      "sub": "anthropomorphised-tool",
+      "why": "A mind attributed to something that cannot have one, which is the shelf's whole claim, and the case survives its own not: it is operated rather than performed, and that is closer to played-role than to made."
+    },
+    "the-person-you-remember": {
+      "cat": "companion",
+      "sub": "social-agent",
+      "why": "The figure is a copy assembled from memory and never checked against the original, which is the shelf's own mechanism."
+    },
+    "the-character-you-invented": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "why": "The audience knows it made the figure - it authored it - and the attachment persists regardless, which is the finding rather than a problem."
+    },
+    "the-generation-you-belong-to": {
+      "cat": "divine",
+      "sub": "abstract-absolute",
+      "why": "The object is an absence met by negation - a cohort held by what its members are not - rather than a figure who can be petitioned, which separates it cleanly from myth-deity."
+    },
+    "the-two-mothers": {
+      "cat": "companion",
+      "sub": "animal",
+      "why": "The far end is an animal with no agency of its own, and the attachment persisted when the figure did nothing back and when a figure that could sustain them was placed beside it."
+    },
+    "the-league-that-closed": {
+      "cat": "cosmology",
+      "sub": "league-world",
+      "why": "The arrangement is the object, not any participant: the division, its table and its calendar are what the entry is about, and a club that barely filled its ground survived inside it."
+    },
+    "the-team-built-to-answer-a-rival": {
+      "cat": "companion",
+      "sub": "social-agent",
+      "why": "A set of characters whose behaviour was specified against a measurement of the audience rather than invented and then found, which is the social-agent case - a far side calibrated to what the person on this side already wants."
+    },
+    "the-death-they-scheduled": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "why": "Somebody described in a book and therefore available to an unlimited number of people at once, whose most consequential event was produced and timed by the people who own him."
     }
   }
 }

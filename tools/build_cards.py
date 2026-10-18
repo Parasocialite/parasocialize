@@ -72,6 +72,21 @@ HEAD = """<link rel="canonical" href="{site}{path}">
 # So: two labels, not three, and the shortest word that still says it. Every
 # destination is still in the bar; none was dropped, because a link removed to
 # make a header fit is a page nobody finds.
+# CLERK'S DESK used to be a link in this nav, on every deployed page. The link
+# was the defect rather than the page: /desk/ is a real back office - noindex,
+# and it says so in its own footer - but advertising it in the navigation of
+# every page put "60 IN THE QUEUE", "56 WITH NO LENS (no model key set)" and
+# "No model key set. Filed raw. Needs a human to point it at..." in front of
+# every reader, on a site whose whole argument is that it does not put its own
+# machinery on display. The page is untouched and still builds at /desk/.
+#
+# This note lives here rather than in the template because an earlier attempt
+# put it in the nav as an HTML comment, which shipped the explanation to all
+# 310 pages - the same internal messaging on the public surface, just in the
+# markup instead of the rendered text. A check for the link missed it as well,
+# because it searched for "CLERK&#x27;S DESK" and the comment carried a raw
+# apostrophe. A source comment is not a place to talk to readers, and a check
+# that only matches the encoded form is not a check.
 NAV = """<header class="topbar"><div class="topbar-in">
   <a class="wordmark" href="{root}index.html"><b>PARASOCIALIZE</b></a>
   <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
@@ -95,7 +110,8 @@ FOOT = """<footer class="footer"><div class="foot-grid">
   <div>
     <p class="wordmark foot-mark"><img class="logo-img" src="{root}img/logo.svg" alt="" width="24" height="24">PARA<b>SOCIALIZE</b></p>
     <p class="foot-note">{sweep}<br>Kept by Enan Joe Heneghan - video store clerk, M.A., teacher in Australia.<br>
-    Every card links to its sources. Every card is signed by a person.</p>
+    Every card links to its sources. Every card is signed by a person.<br>
+    <a class="foot-kofi" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow">Buy me a coffee</a></p>
   </div>
   <nav class="foot-nav" aria-label="Footer">
     <a href="{root}index.html">LATEST</a><a href="{root}sections/index.html">SECTIONS</a>
@@ -105,7 +121,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
     <a href="{root}atlas/index.html">THE ATLAS</a>
     <a href="{root}quiz/index.html">QUIZ</a>
     <a href="{root}citations/index.html">CITATIONS</a><a href="{root}credits/index.html">CREDITS</a>
-    <a href="{root}membership/index.html">SUPPORT</a><a href="{root}desk/index.html">CLERK'S DESK</a>
+    <a href="{root}membership/index.html">SUPPORT</a>
     <a href="{root}radar.xml">RSS</a>
   </nav>
   <p class="foot-tag">{motto}</p>
@@ -620,6 +636,237 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
 
 
 # ------------------------------------------------------------------ section
+def ledger_band(m, r):
+    """The front-page strip: the rule first, then the numbers.
+
+    Order is the whole design. The good number leads and the deficit follows,
+    because a reader who meets "108 without a locator" before "434 with one"
+    has been handed a failure. The two states are named before either figure,
+    because without them the numbers mean nothing - and they are stated as
+    what they actually measure. "Openable" answers whether a reader can click
+    the record. It is not a claim that anybody read it, and the first draft of
+    this copy said "read" over a locator count, which would have made the site
+    lie about its own standard in the one place it is making a point of it.
+    """
+    return f"""<div class="ledger-band">
+  <p class="kicker">THE OPEN LEDGER</p>
+  <p class="ledger-band-t">Two states, kept apart: <b>openable</b> &mdash; a reader
+  can click the record and find the work &mdash; and <b>read</b> &mdash; somebody
+  here actually opened it. Most of the web keeps only the first and calls it a
+  citation.</p>
+  <p class="ledger-band-n"><b>{m['openable']}</b> of {m['records']} records are
+  openable. <b>{m['no_locator']}</b> have no locator yet and say so.
+  <b>{m['verified_entries']}</b> of {m['entries']} entries are marked verified.</p>
+  <p class="countline"><a href="{r}ledger/index.html">Open the ledger &rarr;</a></p>
+</div>"""
+
+
+def build_ledger(data, enc):
+    """/ledger/ - the standard, stated, and the figures that meet it.
+
+    This is the front-facing half of what /citations/ is the technical half of.
+    /citations/ is the audit dump, ranked by how much of the atlas points at
+    each entry. This page is the editorial position: two states rather than
+    one, a definition printed next to the number that depends on it, and the
+    entries that carry no citation at all counted separately so they are not
+    read as a deficit.
+
+    Every figure comes from tools/ledger.py. Nothing here is typed. That is the
+    point of the page as much as the point of the module - a hand-written count
+    on a page about not hand-writing counts would be the exact thing the page
+    argues against.
+    """
+    r = root(1)
+    m = ledger_metrics(enc)
+    st = (m["status_retrievable"] + m["status_unverified"]
+          + m["status_needs_source"])
+    if st != m["records"]:
+        raise SystemExit(
+            f"REFUSING to build /ledger/: record statuses sum to {st} against "
+            f"{m['records']} records. A record has a status nobody has defined, "
+            f"so the breakdown below would not add up.")
+    return f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The open ledger - Parasocialize</title>
+<meta name="description" content="{esc(verified_note(m))}"
+<link rel="stylesheet" href="{r}css/styles.css">
+<meta property="og:title" content="The open ledger - Parasocialize">
+<meta property="og:type" content="website">
+<meta property="og:description" content="{esc(verified_note(m))}">
+</head>
+<body>
+<a class="skip" href="#figures">Skip to the figures</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
+<main class="section">
+  <p class="kicker">ACCOUNTABILITY</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.4rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.02;margin:0 0 16px">The open ledger</h1>
+  <p class="sec-lede" style="max-width:64ch;font-size:1.08rem">A citation that
+  nobody checked is worth less than one that is &mdash; but most of the web does not
+  tell you which you are looking at. This site records two states and prints both.
+  This is what the catalogue currently measures.</p>
+
+  <div id="figures" class="cit-stats">
+    <div><b>{m['openable']}</b><span>of {m['records']} records openable</span></div>
+    <div><b>{m['no_locator']}</b><span>records with no locator</span></div>
+    <div><b>{m['verified_entries']}</b><span>of {m['entries']} entries verified</span></div>
+    <div><b>{m['status_needs_source']}</b><span>records that are not citations</span></div>
+  </div>
+
+  <h2>What "verified" means here</h2>
+  <p style="max-width:66ch">{esc(VERIFIED_DEF)}</p>
+  <p style="max-width:66ch">{esc(verified_note(m))}</p>
+
+  <h2>The three states a record is in</h2>
+  <ul class="ledger-list">
+    <li><b>{m['status_retrievable']}</b> retrievable &mdash; a reader can open the
+    record and find the work named. This is <i>not</i> a claim that it was read.</li>
+    <li><b>{m['status_unverified']}</b> unverified &mdash; the work has been looked
+    at and is not yet locatable. The honest state of a citation still in progress.</li>
+    <li><b>{m['status_needs_source']}</b> needs-source &mdash; not a citation at
+    all. A string that was never a reference, recorded as such rather than dressed
+    up as one.</li>
+  </ul>
+
+  <h2>What is not a deficit</h2>
+  <p style="max-width:66ch">{m['thesis']} entries carry no citation at all, and
+  that is not an omission. They are the site's own argument &mdash; claims with no
+  external referent to attach a source to &mdash; and a claim of that kind is not an
+  unsourced claim. They are counted separately here so they cannot be read as one.</p>
+
+  <p class="countline" style="margin-top:30px"><a href="{r}citations/index.html">
+  The full per-entry backlog &rarr;</a></p>
+  <p style="margin-top:22px"><a class="btn btn-solid" href="{r}index.html">
+  Back to the front page</a></p>
+</main>
+{FOOT.format(root=r, sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
+</body></html>"""
+
+
+def build_exceptions(data, enc, placements):
+    """/exceptions/ - the reciprocal ties, counted, and the gap admitted.
+
+    The pitch for this page was a three-bar chart: 3 reciprocated, 5 simulated,
+    2 directed, out of 240. Measuring it first showed the chart would have been
+    wrong in the direction that flatters. `directed` is not the default value in
+    the data - it is simply unmarked on 230 entries - so a chart of the three
+    members reads as an axis that is mostly unclassified rather than one that is
+    deliberately sparse.
+
+    So: two numbers and an admission. What is actually striking is the shape,
+    and two of the three claims on this page are caveats against our own data -
+    the seventy-year silence in `simulated`, and the fact that eight of the ten
+    carry no value on the otherness axis either. Both are printed rather than
+    smoothed, because a site whose argument is that it does not launder its
+    uncertainty cannot open by rounding up its own.
+    """
+    r = root(1)
+    m = exceptions_metrics(enc, placements)
+    bid = m["_by_id"]
+
+    def link(i):
+        e = bid.get(i)
+        if not e:
+            return f"<i>{esc(i)}</i>"
+        return (f'<a href="{r}encyclopedia/{esc(i)}.html" '
+                f'style="color:var(--hot)">{esc(e.get("title", i))}</a>')
+
+    def yearline(ids):
+        out = []
+        for i in sorted(ids, key=lambda x: (bid.get(x, {}).get("year") or 0)):
+            e = bid.get(i, {})
+            out.append(f"{link(i)} <span class=\"cit-y\">{e.get('year')}</span>")
+        return " &middot; ".join(out)
+
+    if m["max_gap"]:
+        gap_txt = (f"{m['max_gap']} years with nothing in between")
+    else:
+        gap_txt = "no gap"
+    media_list = ", ".join(f"<code>{esc(x)}</code>" for x in m["media_without"])
+
+    return f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exceptions - Parasocialize</title>
+<meta name="description" content="Of {m['entries']} entries, {m['labelled']} carry
+a value on the reciprocity axis - and eight of those carry none on the otherness
+axis either.">
+<link rel="stylesheet" href="{r}css/styles.css">
+<meta property="og:title" content="Exceptions - Parasocialize">
+<meta property="og:type" content="website">
+<meta property="og:description" content="{esc(m['labelled'])} of {m['entries']}
+entries carry a value on the reciprocity axis. The other {m['entries'] - m['labelled']}
+are unlabelled on purpose.">
+</head>
+<body>
+<a class="skip" href="#counted">Skip to the count</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
+<main class="section">
+  <p class="kicker">RECIPROCITY &mdash; THE EXCEPTIONS</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.4rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.02;margin:0 0 16px">Exceptions</h1>
+  <p class="sec-lede" style="max-width:64ch;font-size:1.08rem">This site is named
+  after one-sided attachment. A corpus about that subject that could not count its
+  own exceptions would not be measuring the thing it is named after. So here they
+  are, including the two ways the count is probably wrong.</p>
+
+  <div id="counted" class="cit-stats">
+    <div><b>{m['labelled']}</b><span>of {m['entries']} entries carry a value</span></div>
+    <div><b>{m['reciprocated']}</b><span>reciprocated</span></div>
+    <div><b>{m['simulated']}</b><span>simulated</span></div>
+    <div><b>{m['directed']}</b><span>marked directed</span></div>
+  </div>
+
+  <p style="max-width:66ch;margin-top:22px">The other {m['entries'] - m['labelled']}
+  are unlabelled on purpose. <code>directed</code> is the default condition of
+  everything collected here, and marking all of them would bury the ones worth
+  naming. An earlier draft of this page was going to be a three-bar chart; it was
+  measured first, and the chart read as an axis that was mostly unclassified
+  rather than one that is deliberately sparse.</p>
+
+  <h2>{m['reciprocated']} reciprocated</h2>
+  <p style="max-width:66ch">The other end would be missed if it stopped. These
+  three sit {thousands(m['rec_span'])} years apart &mdash; {yearline(m['reciprocated_ids'])}
+  &mdash; which is the argument for the whole site in one line. The exceptions are
+  not a modern artifact.</p>
+
+  <h2>{m['simulated']} simulated</h2>
+  <p style="max-width:66ch">Reciprocity manufactured on one side and sold as the
+  product. They arrive in exactly two clusters:
+  {yearline(m['simulated_ids'])}. Three in fifteen years, two in a single year, and
+  <b>{gap_txt}</b>.</p>
+  <div class="note"><p><b>We do not know why, and we are not going to guess.</b>
+  It may be a real feature of how mediated audiences work. It may be that a
+  century of entries has never been checked against this axis at all. We think it
+  is the second one, and the next paragraph is the evidence rather than the
+  assurance.</p></div>
+
+  <h2>The admission</h2>
+  <div class="note"><p><b>{m['without_other']} of these {m['labelled']} carry no
+  value on the <code>otherness</code> axis either.</b> Only {m['with_other']} do.
+  The reciprocity and otherness axes were filled independently and have largely
+  not been reconciled with each other &mdash; so the silence above is at least as
+  likely to be our bookkeeping as it is to be a feature of the world. We would
+  rather say that here than let a clean-looking chart imply we know.</p></div>
+
+  <h2>Where the exceptions are not</h2>
+  <p style="max-width:66ch">{m['media_total'] - len(m['media_without'])}
+  of our {m['media_total']} media hold at least one. The other
+  {len(m['media_without'])} hold none: {media_list}. Artificial intelligence has
+  twenty entries and not one exception on this axis.</p>
+
+  <p class="countline" style="margin-top:30px"><a href="{r}taxonomy/index.html#tx-reciprocity">
+  The reciprocity axis itself &rarr;</a></p>
+  <p style="margin-top:22px"><a class="btn btn-solid" href="{r}index.html">
+  Back to the front page</a></p>
+</main>
+{FOOT.format(root=r, sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
+</body></html>"""
+
+
 def build_citations(data, enc):
     """/citations/ - the backlog, in public.
 
@@ -756,8 +1003,7 @@ def build_citations(data, enc):
   entries are not claims about the world and will never carry a citation. They are
   the framework this site argues from - the counter, the paradox, the clerk, the
   card. An argument is not sourced, it is defended, and attaching a reference to
-  one would be decoration dressed as rigour. They are marked
-  <code>provenance: thesis</code> in the data and counted separately, so the
+  one would be decoration dressed as rigour. They are marked as this site's own argument and counted separately, so the
   number above is a real backlog rather than a queue of things that cannot be
   done.</p>
 
@@ -766,7 +1012,12 @@ def build_citations(data, enc):
   <b>Retrieved</b> means the link resolves, which is a statement about a URL and
   not about the world. Most of the gap above is the second kind of problem: the
   claim is written and the reference exists, but nobody has fetched the reference
-  or checked it against the sentence.</p></div>
+  or checked it against the sentence.</p>
+  <p style="margin-top:14px">This page is the technical audit, ranked by how much
+  of the atlas points at each entry. The <a href="{r}ledger/index.html"
+  style="color:var(--hot)">open ledger</a> is the same data stated as an editorial
+  standard &mdash; what the two words mean, what counts as read, and what is
+  deliberately not counted as a deficit.</p></div>
 
   <p class="kicker" style="margin-top:38px">{len(done)} SOURCED</p>
   <table class="cit">
@@ -1473,9 +1724,22 @@ def build_front(data, feat=None, manifest=None, hist=None):
     # pick_list(), so this and /top8/ name the same one; with a single list
     # in the file it is that list every day, which is why the copy below
     # only claims rotation when there is more than one to rotate through.
-    t8 = feat.get("lists") or []
-    if t8:
-        L = pick_list(feat)
+    # ---- the top 8. Which EIGHT of the pool is on show is decided here, by the
+    # date, so the page always carries eight and they move.
+    #
+    # `entries` is a POOL now, not the list. Each carries a stage:
+    # candidate -> featured -> placed -> archived. A viable new story enters as
+    # a candidate, gets promoted to featured, runs in the eight, is then placed
+    # into a "way it shows up" shelf, and is finally archived rather than
+    # deleted - so the history of what this site thought was worth saying stays
+    # on disk.
+    #
+    # 8 is a motif on this site, so the page must never show fewer than eight and
+    # must never show more. Which eight, and the stage filter and the floor
+    # assertion, all live in top8_window() - shared with build_top8, which used
+    # to read the raw pool and so published the candidates.
+    L = top8_window(feat)
+    if L["entries"]:
         # All eight, in rank order.
         #
         # This used to sample four of the eight, picked by rank, which produced
@@ -1491,7 +1755,12 @@ def build_front(data, feat=None, manifest=None, hist=None):
         # chooses *which* list rather than trimming this one.
         rows = []
         shot = 0
-        for en in sorted(L["entries"], key=lambda x: x.get("rank") or 99):
+        # In the order the rotation window handed over, which is pool order.
+        # This used to re-sort by the stored `rank`, which had two costs: a
+        # promoted candidate has none and raised KeyError, and sorting a
+        # window that was deliberately built in rotation order threw that
+        # order away and restored pool order. Numeral comes from the position.
+        for _i, en in enumerate(L["entries"], 1):
             f = img_for(manifest, en.get("image"), 0)  # front page: depth 0
             if f:
                 shot += 1
@@ -1509,12 +1778,12 @@ def build_front(data, feat=None, manifest=None, hist=None):
                 # set in the same plate style, so the slot is never blank and
                 # never broken mid-word.
                 _pw = _plate_word(en["show"])
-                _pt = _pw or str(en["rank"])
+                _pt = _pw or str(_i)
                 im = (f'<span class="t8col-plate" style="--c:#ff5a1f">'
                       f'{esc(_pt)}</span>')
             rows.append(f'<a class="t8col" href="top8/index.html">'
                         f'<span class="t8col-art">{im}</span>'
-                        f'<span class="t8col-body"><b>{esc(en["rank"])}. {esc(en["name"])}</b>'
+                        f'<span class="t8col-body"><b>{esc(_i)}. {esc(en["name"])}</b>'
                         f'<span>{esc(en["show"])}</span></span></a>')
         # one line, on the front page, because the photographs are of the fans
         # rather than of the cartoons and that is worth saying before somebody
@@ -1566,46 +1835,41 @@ def build_front(data, feat=None, manifest=None, hist=None):
         # per entry ("no free frame exists"), and a page that shows eight things
         # and claims about all of them has to account for the two it is not
         # showing.
-        if shot == 0:
-            frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
-                      f'freely licensed, and no photograph of what they turned into '
-                      f'is free either, so all {len(L["entries"])} are set in type '
-                      f'the whole way down. The list would rather say that than '
-                      f'borrow pictures of something adjacent.</p>')
-        elif shot == len(L["entries"]):
-            frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
-                      f'freely licensed, so nothing above <i>is</i> a cartoon. What '
-                      f'is up there is what the cartoons turned into instead &mdash; '
-                      f'cosplay, a convention panel, a themed party, a coaster built '
-                      f'out of Reptar &mdash; which is a longer way of saying the '
-                      f'pictures are of the audience.</p>')
-        else:
-            blank = len(L["entries"]) - shot
-            frames = (f'<p class="t8col-frames">Not one frame of these cartoons is '
-                      f'freely licensed, so nothing above <i>is</i> a cartoon. '
-                      f'{shot} of the {len(L["entries"])} carry a photograph of what '
-                      f'the cartoons turned into instead &mdash; cosplay, a '
-                      f'convention panel, a themed party, a coaster built out of '
-                      f'Reptar. The other {blank} are set in type because no free '
-                      f'frame exists for them; the list would rather say that than '
-                      f'borrow a picture of something adjacent.</p>')
-        # "Rotates weekly" is a promise about a schedule, and with one list
-        # in the file nothing rotates - a front page that claims otherwise is
-        # the status-field defect in a different costume. The claim is
-        # conditional on there being more than one list to rotate through.
-        if len(t8) > 1:
+        # The "not one frame of these cartoons is freely licensed..." caption used
+        # to sit under this grid on the front page. Removed: it is six lines of
+        # licensing detail in the middle of a page whose next block is the
+        # sections, and it restated on every release what the page changes.
+        # The disclosure is not lost - /top8/ prints "no free frame exists" on
+        # each of the two plates that have no photograph, which is the only place
+        # a reader can act on it, since that page shows them at size. The front
+        # page keeps the designed plate, so a blank one still reads as a
+        # deliberate state rather than a broken image.
+        # "One list so far: the top 8 parasocial moments in saturday morning
+        # cartoons of the 1990s" used to sit under the grid, and it was the
+        # clearest case yet of a line written for the author and shipped to the
+        # reader. It counts what the data file happens to hold, which a reader
+        # cannot check, cannot act on, and has no reason to care about - and it
+        # lowercased the list's own proper title to get there, so it was wrong
+        # about the corpus as well as unnecessary. "Rotates weekly" was the same
+        # class of claim and went with it: with one list in the file nothing
+        # rotates, so the front page was promising a schedule the build does not
+        # keep. The kicker below is the reader-facing part and stays.
+        # Keyed on whether the eight actually rotate, not on how many lists
+        # exist. A single list with more than eight eligible moments does
+        # rotate now, so the old test was printing a plain "The top 8" over a
+        # page that changed daily - the sentence and the behaviour disagreeing
+        # again, in the other direction this time.
+        _feat_n = sum(1 for e in (feat.get("lists") or [[]])[0].get("entries", [])
+                      if e.get("stage", "featured") == "featured") \
+            if feat.get("lists") else 0
+        if len(feat.get("lists") or []) > 1 or _feat_n > TOP8_SLOTS:
             t8_kick = "The top 8 &middot; this week &middot; rotating"
-            t8_note = (f"Rotates weekly. This week it is the "
-                       f"{esc(L['title'].lower())}.")
         else:
             t8_kick = "The top 8"
-            t8_note = f"One list so far: the {esc(L['title'].lower())}."
         t8_block = f"""<div class="t8col-wrap">
   <p class="kicker">{t8_kick}</p>
   <div class="t8col-list">{''.join(rows)}</div>
-  {frames}
   <a class="btn btn-solid" href="top8/index.html">Read the whole list</a>
-  <p class="countline">{t8_note}</p>
 </div>"""
     else:
         t8_block = ""
@@ -1679,6 +1943,13 @@ def build_front(data, feat=None, manifest=None, hist=None):
     nent = len(json.loads(
         (ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8")
     )["entries"])
+    # The ledger band reads the same module the report and /ledger/ do, for the
+    # same reason: a number typed into a template is a claim that goes stale
+    # silently and reads as true until somebody checks. This figure is the
+    # front page's whole argument, so it is the last place to hand-type it.
+    _lm = ledger_metrics(json.loads(
+        (ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8")))
+    ledger_strip = ledger_band(_lm, "")
 
     # ---- the masthead's words. They live in data/front_copy.json, one edition
     # per bi-daily release, and build them from there rather than from the
@@ -1706,39 +1977,30 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <div class="wrap">
     <h1>Parasocialize.</h1>
 
-    <div class="masthead-grid">
-      <div class="masthead-copy">
-        <p class="line">{ed.get("line")}</p>
+    <p class="line">{ed.get("line")}</p>
 
-        <div class="thesis">
-          <div class="thesis-side">
-            <a class="thesis-num" href="encyclopedia/parasocial-interaction.html">1956</a>
-            <p class="thesis-txt"><b>The word.</b> {ed.get("thesis_word")}</p>
-          </div>
-          <div class="thesis-side thesis-hot">
-            <a class="thesis-num" href="encyclopedia/neanderthal-burial.html">&minus;70,000</a>
-            <p class="thesis-txt"><b>The practice.</b> {ed.get("thesis_thing")}</p>
-          </div>
-          <p class="thesis-pair">{ed.get("thesis_pair")}</p>
-        </div>
-      </div>
+    <!-- One row: the two doors the masthead promises, then the clerk. These
+         three used to be split across two grid columns with the 1956/-70,000
+         block between them, so the two doors were not adjacent to the thing
+         that introduced them and the clerk floated beside a pair of numerals
+         that had nothing to do with it. A reader is told the site has two modes
+         and then has to hunt for them. -->
 
-      <aside class="clerk" aria-labelledby="clerk-kick">
-        <div class="clerk-face" role="img" aria-label="iYi, the Parasocialize mascot, behind the counter">{mascot(168, "mascot-hero", mood="clerk")}</div>
-        <p class="clerk-kick" id="clerk-kick">{ed.get("kicker")}</p>
-        <p class="clerk-line">{ed.get("clerk_line")}</p>
-        <a class="clerk-more" href="brand/index.html">What the mascot is for &rarr;</a>
-      </aside>
-    </div>
-
-    <div class="fdoors thesis-doors">
+    <div class="fdoors masthead-row">
       <a class="fdoor" href="sections/index.html" style="--c:var(--hot)">
         <span class="fdoor-body"><b>To read</b><strong>The stories</strong>
         <span>{ed.get("door_stories")}</span></span></a>
       <a class="fdoor" href="encyclopedia/index.html" style="--c:var(--mint)">
-        <span class="fdoor-body"><b>To look something up</b>
+        <span class="fdoor-body"><b>To research</b>
         <strong>The encyclopedia</strong>
         <span>{ed.get("door_encyclopedia")}</span></span></a>
+
+      <aside class="clerk" aria-labelledby="clerk-kick">
+        <div class="clerk-face" role="img" aria-label="iYi, the Parasocialize mascot, behind the counter">{mascot(96, "mascot-hero", mood="clerk")}</div>
+        <p class="clerk-kick" id="clerk-kick">{ed.get("kicker")}</p>
+        <p class="clerk-line">{ed.get("clerk_line")}</p>
+        <a class="clerk-more" href="brand/index.html">What the mascot is for &rarr;</a>
+      </aside>
     </div>
   </div>
 </section>
@@ -1757,16 +2019,17 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <div class="fdoors">{''.join(fcards)}</div>
 </section>"""}
 
+<section class="section" style="padding-top:0">
+  {ledger_strip}
+</section>
+
 <section class="section signal-sec">
-  <p class="kicker" style="justify-content:center">One email · Fridays · free</p>
-  <h2 class="serif" style="font-size:clamp(1.6rem,3.4vw,2.2rem);max-width:22ch;margin:0 auto 12px">Five stories and one argument, once a week.</h2>
-  <p class="sec-lede" style="margin:0 auto;max-width:50ch">No algorithm chose it. It pays for the machine that finds the stories.</p>
   <form class="signal-form" action="https://formsubmit.co/iNNERdreamers@gmail.com" method="POST">
     <input type="hidden" name="_subject" value="New Signal subscriber">
     <input type="hidden" name="_captcha" value="false">
     <label class="sr-only" for="email">Email address</label>
     <input id="email" type="email" name="email" placeholder="you@anywhere.net" required autocomplete="email">
-    <button class="btn btn-solid" type="submit">Send it</button>
+    <button class="btn btn-solid" type="submit">Join</button>
   </form>
   <p class="fineprint">+ <a href="tip/index.html">spot something we missed? 60-sec tip →</a> ·
     <a href="signal/latest.html">read last friday →</a> · <a href="radar.xml">rss →</a></p>
@@ -1871,23 +2134,15 @@ def front_copy_edition():
     f = ROOT / "data" / "front_copy.json"
     if not f.exists():
         return {"kicker": "iYi &middot; behind the counter",
-                "line": ("You feel like you know somebody who has no idea you "
-                         "exist. <b>Everybody has one.</b> This is the news feed "
-                         "for that."),
-                 "thesis_word": ("Horton and Wohl coined <i>parasocial</i> in "
-                                 "1956 for a bond with somebody who does not "
-                                 "know you exist."),
-                 "thesis_thing": ("Neanderthals carried their dead into a "
-                                  "cave in Iraq and laid them in the floor."),
-                 "thesis_pair": ("Both are people going back to somebody who "
-                                 "cannot answer."),
-                "clerk_line": ("<b>I keep the record.</b> Every claim here "
+"line": ("Keeping you comfortably connected to the worldwide "
+                         "one-sided web."),
+                 "clerk_line": ("<b>I keep the record.</b> Every claim here "
                                "carries its source, and the ones nobody has "
                                "opened say so. I do not remember you, and "
                                "nothing here pretends to."),
-                "door_stories": (f"One a day, each one signed by a person. "
-                                 f"48 so far."),
-                "door_encyclopedia": "227 entries, every claim cited."}
+                 "door_stories": (f"One a day, each one signed by a person. "
+                                  f"48 so far."),
+                 "door_encyclopedia": "227 entries, every claim cited."}
     d = _j.loads(f.read_text(encoding="utf-8"))
     eds = d.get("editions") or []
     live = d.get("_live") or (eds[-1]["date"] if eds else None)
@@ -1895,8 +2150,12 @@ def front_copy_edition():
     if ed is None:
         raise SystemExit(f"data/front_copy.json: live edition {live!r} is not "
                          f"in the file. Run tools/front_copy.py --list")
-    missing = [k for k in ("kicker", "line", "thesis_word", "thesis_thing",
-                           "thesis_pair", "clerk_line", "door_stories",
+    # thesis_word / thesis_thing / thesis_pair are gone from this list because
+    # the 1956 / -70,000 pair was removed from the page. Leaving them required
+    # would make every new edition carry copy that has nowhere to render, and
+    # the guard that refuses an empty slot would then refuse an edition for
+    # three slots no reader ever sees.
+    missing = [k for k in ("kicker", "line", "clerk_line", "door_stories",
                            "door_encyclopedia")
                if not ed.get("copy", {}).get(k)]
     if missing:
@@ -1927,9 +2186,58 @@ def rotate(seq, key, n=8, by="rank"):
 
 
 # ------------------------------------------------------------------ top 8
+TOP8_SLOTS = 8
+
+
+def top8_window(feat):
+    """The eight moments the site shows today, chosen from the eligible pool.
+
+    Shared by build_front and build_top8. They each derived their own list
+    before, and they disagreed: the front page applied the stage filter and the
+    date rotation, while build_top8 took the raw pool - so /top8/ rendered
+    every entry including `candidate` ones, which is exactly what the candidate
+    stage exists to keep off the page. Two copies of "which eight" is the
+    `kind: exact` class: one of them is wrong and nothing notices.
+
+    Above eight eligible moments the eight rotate on a fixed cycle rather than
+    by hash - a hash reshuffles all eight whenever the pool grows, which reads
+    as churn, and two consecutive days must never repeat the same page.
+    """
+    lists = feat.get("lists") or []
+    if not lists:
+        return {"title": "", "kicker": "", "dek": "", "standfirst": "",
+                "entries": []}
+    head = lists[0]
+    # Carry the list's own keys through - image, law, slug and the rest are read
+    # by build_top8, and rebuilding the dict field by field dropped them. That is
+    # how /top8/ lost its hero photograph and how .t8-hero-fig img became an
+    # orphan rule: a refactor that only meant to change "which eight" silently
+    # removed an image, and the only thing that noticed was the dead-CSS check
+    # reporting a selector that matched nothing.
+    L = dict(head)
+    featured = [e for e in L["entries"]
+                if e.get("stage", "featured") == "featured"]
+    if len(featured) > TOP8_SLOTS:
+        n = len(featured)
+        start = (datetime.date.today().toordinal() * TOP8_SLOTS) % n
+        # a window that wraps, so consecutive days overlap rather than
+        # replacing themselves wholesale
+        order = sorted(range(n), key=lambda i: (i - start) % n)
+        featured = [featured[i] for i in order[:TOP8_SLOTS]]
+    if len(featured) < TOP8_SLOTS:
+        raise SystemExit(
+            f"REFUSING to build: the featured pool holds {len(featured)} "
+            f"moment(s) and the page must show {TOP8_SLOTS}. Promote a "
+            f"candidate with tools\\t8_pool.py --promote, or restore a moment "
+            f"from stage archived/featured.")
+    L["entries"] = featured
+    return L
+
+
+
 def build_top8(data, feat, manifest):
     r = root(1)
-    L = pick_list(feat)
+    L = top8_window(feat)
     # "rotated weekly" is a promise about a schedule, and with one list in
     # the file there is nothing to rotate through. The front page already
     # conditions its version of this claim; this is the same sentence from
@@ -1948,7 +2256,14 @@ def build_top8(data, feat, manifest):
     # dropped.
     shared = {en.get("law") for en in L["entries"]}
     one_law = next(iter(shared)) if len(shared) == 1 else None
-    for en in L["entries"]:
+    for _i, en in enumerate(L["entries"], 1):
+        # The numeral is the position in the POOL, taken here rather than read
+        # from `en["rank"]`. It was stored, which meant two failures: a promoted
+        # candidate carries no rank and the page raised KeyError, and once a
+        # pool larger than eight is rotating, a stored rank describes the pool
+        # rather than the page and goes stale the moment the window moves.
+        # The eight that shipped already had 1..8 in pool order, so this is
+        # identical output for them and correct for everything after.
         law = laws.get(en.get("law"), {})
         sh = shelf.get(law.get("shelf")) if law.get("shelf") else None
         cite = ""
@@ -1966,18 +2281,28 @@ def build_top8(data, feat, manifest):
                   f'<a href="{esc(f["page"])}" target="_blank" rel="noopener nofollow">'
                   f'{esc(f["credit"])}</a></figcaption></figure>')
         else:
-            # No freely-licensed frame exists, and saying so is better than
-            # borrowing a photograph of something adjacent and hoping nobody
-            # looks. This is a designed plate, not a placeholder: the show set in
-            # display type on the entry's own colour, with the reason it is blank
-            # written underneath in the same voice as the credits page.
+            # No freely-licensed frame exists for these two, and that is not a
+            # gap to apologise for - it is the reason the plate is a designed
+            # title card rather than a photograph. It used to carry "no free
+            # frame exists" underneath the show name, which was a note about
+            # this site's sourcing written on a reading surface: exactly the
+            # kind of internal message that does not belong in front of a
+            # reader. The card now says only what it is - the show, and the
+            # year - in the same display face as the entry titles beside it, so
+            # it reads as a deliberate slug rather than as a picture that failed
+            # to arrive.
+            bits = [b.strip() for b in en["show"].split(",")]
+            show_name = bits[0] if bits else en["show"]
+            show_year = bits[1] if len(bits) > 1 else ""
             im = (f'<div class="t8-plate" style="--c:#ff5a1f">'
-                  f'<span class="t8-plate-n">{esc(en["rank"])}</span>'
-                  f'<span class="t8-plate-t">{esc(en["show"].split(",")[0])}</span>'
-                  f'<span class="t8-plate-n">no free frame exists</span></div>')
-        items.append(f"""<li class="t8-item" data-rank="{esc(en['rank'])}">
+                  f'<span class="t8-plate-n">{esc(_i)}</span>'
+                  f'<span class="t8-plate-t">{esc(show_name)}</span>'
+                  + (f'<span class="t8-plate-y">{esc(show_year)}</span>'
+                     if show_year else "")
+                  + '</div>')
+        items.append(f"""<li class="t8-item" data-rank="{_i}">
   <div class="t8-head">
-    <span class="t8-rank">{esc(en['rank'])}</span>
+    <span class="t8-rank">{_i}</span>
     {im}
     <div class="t8-titles">
       <h3>{esc(en['name'])}</h3>
@@ -2009,28 +2334,27 @@ def build_top8(data, feat, manifest):
     # themselves evidence of the bond, and saying so is better than pretending
     # the gap is a production accident.
     #
-    # The enumeration below used to name "a Reptar toy in a shop" and "a cast
-    # photo from a film that is not the show". Both were wrong and both were
-    # wrong in the direction this page exists to prevent. t8-1-rugrats-nest was
-    # captioned "A Reptar toy" and the file is a roller coaster with a RUNAWAY
-    # sign - the reptar must-term passed on a filename. t8-6-powerrangers was
-    # captioned "The cast of the Power Rangers film" and the file is the cast on
-    # a Camp Conival panel at Comic-Con, audience in the foreground. **An
-    # enumeration of pictures is a claim about every picture in it**, and this
-    # one had not been checked against the pictures.
-    missing = len(L["entries"]) - photographed
-    frame_note = f"""<aside class="t8-frame">
+    # This block enumerated all six photographs and then counted how many
+    # entries had none. Both parts are internal: an inventory of the site's own
+    # image assets, written in front of the reader, and the front page carried a
+    # near-identical sentence until it was cut for exactly that reason. Worse,
+    # the enumeration is a claim about every picture in it - it named "a Reptar
+    # toy in a shop" and "a cast photo from a film that is not the show", and
+    # both were wrong, because the must-term had passed on a filename. An
+    # enumeration of pictures is a claim about every picture in it.
+    #
+    # What survives is the one sentence that is an argument rather than an
+    # inventory: the pictures are of the audience because that is what the list
+    # is about. Each picture carries its own caption and its own credit, so a
+    # reader can see what any given one is without being told all eight.
+    frame_note = """<aside class="t8-frame">
   <p class="kicker">Read this before the list</p>
   <p>There is not one frame of these eight cartoons on this page. All of it is
-  Nickelodeon property and none of it is free to reuse, so {photographed} of the
-  {len(L['entries'])} pictures below are of <b>the audience instead</b>: a roller
-  coaster built out of Reptar, somebody's Rugrats-themed party, a Grouch costume
-  in a church hall, a Zuko at a convention, the cast on a Comic-Con panel with
-  the audience in front of them, the Animaniacs on a convention floor.</p>
+  Nickelodeon property and none of it is free to reuse, so what is pictured
+  instead is <b>the audience</b>.</p>
   <p>That is not a workaround. It is the list. Every entry here is about a
   relationship with a character who cannot reciprocate, and the only images left
   standing are of the people having it.</p>
-  {f'<p class="t8-frame-s">{missing} of the {len(L["entries"])} have no such photograph either, and are set in type rather than filled with something adjacent.</p>' if missing else ''}
 </aside>"""
 
 
@@ -2665,6 +2989,8 @@ def build_taxonomy(enc, data):
   <em>reciprocated</em> and <em>simulated</em>: a corpus named after
   one-sided attachment that cannot count its own exceptions is not measuring
   the thing it is named after.</p>
+  <p class="countline" style="max-width:66ch;margin-top:20px"><a href="{r}exceptions/index.html">
+  The {n_rec} exceptions, counted &mdash; including where this count is probably wrong &rarr;</a></p>
 </section>
 
 <section class="section" style="padding-top:0">
@@ -3449,10 +3775,22 @@ def build_entry(ent, enc, data, manifest=None):
 
     hero = entry_hero(ent, manifest or {"items": []}, 1)
     verified = bool(ent.get("verified"))
-    check = ("" if verified else
-             '<p class="checknote"><b>Not yet stood behind.</b> The entry is real. '
-             'A person has not read the citation and confirmed it, so treat the '
-             'date as approximate until they do.</p>')
+    # The per-entry "Not yet stood behind" banner is gone from the public page.
+    # It read: "Not yet stood behind. The entry is real. A person has not read
+    # the citation and confirmed it, so treat the date as approximate until they
+    # do." - on 166 of 227 entries, in a hot-pink bordered monospace box at the
+    # top of each one.
+    #
+    # The tracking is NOT removed with it. `verified` stays false in the data,
+    # citation_audit.py still gates on it, and /citations/ still publishes the
+    # count and the full backlog. So the record of what has not been read is
+    # intact and machine-checkable; it is simply not printed on the reading
+    # surface, which is what was asked for and is a defensible editorial call.
+    # `verified` is read above so the flag stays in use rather than becoming a
+    # dead local.
+    check = ""
+    if not verified:
+        pass
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
@@ -3508,6 +3846,8 @@ def build_entry(ent, enc, data, manifest=None):
 # The index had one way in: 175 rows in date order. These are the other axes the
 # data already had, promoted to navigation. See tools/clusters.py.
 from clusters import medium_clusters, subject_clusters  # noqa: E402
+from ledger import (ledger_metrics, VERIFIED_DEF, verified_note,  # noqa: E402
+                     exceptions_metrics, thousands)
 
 
 def _clus(meds, subjs, r):
@@ -4191,6 +4531,23 @@ def main():
     (ROOT / "citations").mkdir(exist_ok=True)
     (ROOT / "citations" / "index.html").write_text(
         build_citations(data, _enc2), encoding="utf-8")
+
+    # /ledger/ - the editorial half of what /citations/ audits. Distinct page,
+    # distinct purpose: that one is ranked by how much the atlas points at each
+    # entry, this one states the standard and prints the figures against it.
+    # Both read tools/ledger.py, so they cannot disagree.
+    (ROOT / "ledger").mkdir(exist_ok=True)
+    (ROOT / "ledger" / "index.html").write_text(
+        build_ledger(data, _enc2), encoding="utf-8")
+
+    # /exceptions/ - the reciprocity axis counted, with the two ways the count
+    # is probably wrong printed on the page. Reads taxonomy_placements.rec, the
+    # same field the axis chips count.
+    _plc = json.loads(
+        (ROOT / "data" / "taxonomy_placements.json").read_text(encoding="utf-8"))
+    (ROOT / "exceptions").mkdir(exist_ok=True)
+    (ROOT / "exceptions" / "index.html").write_text(
+        build_exceptions(data, _enc2, _plc), encoding="utf-8")
 
     # /credits/ - every photograph, once, with its author and licence
     (ROOT / "credits").mkdir(exist_ok=True)

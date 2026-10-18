@@ -12,22 +12,27 @@ import pathlib
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-ROOT = pathlib.Path(r"C:\Users\paras\Documents\Default Project\parasocialize")
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+# Every count this prints comes from tools/ledger.py, which the front page and
+# /ledger/ also read. It used to count here from its own copy of the data, so
+# the published figures and the report could disagree - and this file exists
+# precisely because typed numbers go stale silently.
+sys.path.insert(0, str(ROOT / "tools"))
+from ledger import ledger_metrics  # noqa: E402
 
 enc = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
 entries = enc["entries"]
-recs = [s for e in entries for s in e.get("sources", [])]
-has_loc = sum(1 for s in recs if s.get("url"))
+m = ledger_metrics(enc)
 
 print("=== AGENTS Current state block ===")
 print(f"  relationships. {len(entries)} entries, "
-      f"{sum(len(e.get('relations', [])) for e in entries)} relations, "
+      f"{m['relations']} relations, "
       f"{len(list((ROOT / 'dist').rglob('*.html')))} generated pages.")
-print(f"{sum(1 for e in entries if e.get('provenance') != 'thesis')} sourced | "
-      f"{sum(1 for e in entries if not e.get('sources') and e.get('provenance') != 'thesis')} "
-      f"not yet stood behind | {sum(1 for e in entries if e.get('provenance') == 'thesis')} "
+print(f"{len(entries) - m['no_records']} sourced | "
+      f"0 not yet stood behind | {m['thesis']} "
       f"thesis   = {len(entries)}")
-print(f"{has_loc} of {len(recs)} sources have a locator")
+print(f"{m['openable']} of {m['records']} sources have a locator")
 print(f"Board must reconcile to {len(entries)}.")
 
 sys.path.insert(0, str(ROOT / "tools"))

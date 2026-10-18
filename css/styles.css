@@ -211,7 +211,7 @@ img{max-width:100%;display:block}
   .fu{grid-template-columns:1fr}
 }
 
-.masthead{padding:46px 0 8px;position:relative;overflow:hidden}
+.masthead{padding:62px 0 8px;position:relative;overflow:hidden}
 
 /* ---- the thesis, as a pair rather than a paragraph --------------------
    This was three prose blocks - 144 words, 778 characters - under the h1, and
@@ -219,22 +219,10 @@ img{max-width:100%;display:block}
    between a date and an age, so it is now set as one: two figures, side by
    side, each with one line under it. Twenty-two words instead of a hundred and
    forty-four, and the shape of the claim carries the claim. */
-.thesis{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:26px 0 4px;
-  border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
-.thesis-side{padding:20px 26px 20px 0;display:flex;gap:16px;align-items:baseline}
-.thesis-side+.thesis-side{border-left:1px solid var(--line2);padding-left:26px;padding-right:0}
 /* The two figures are links to the entries they are taken from, so a number on
    the front page has somewhere to go rather than being decoration. `.masthead a`
    would otherwise colour both hot - the specificity has to beat it, or the
    contrast the block is built on disappears. */
-.thesis .thesis-num{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,4.4vw,3.1rem);
-  line-height:.86;letter-spacing:-.04em;color:var(--dim);flex:none;min-width:4.6ch;
-  text-decoration:none}
-.thesis .thesis-num:hover,.thesis .thesis-num:focus-visible{text-decoration:underline;
-  text-decoration-thickness:2px;text-underline-offset:.14em}
-.thesis-hot .thesis-num{color:var(--hot)}
-.thesis-txt{font-size:.95rem;color:var(--dim);line-height:1.45;max-width:30ch;margin:0}
-.thesis-txt b{color:var(--paper);font-weight:600}
 /* The two figures are 1956 and -70,000 and a reader arriving cold has no way
    to know they belong together, or why either is on a site about one-sided
    attachment. Asking each door to carry its own justification made one of them
@@ -245,16 +233,7 @@ img{max-width:100%;display:block}
    to be a plain fact. It spans both columns and sits on the block's own
    baseline rule, so it reads as a caption on the pair rather than a third
    thing competing with them. */
-.thesis-pair{grid-column:1/-1;margin:0;padding:11px 0 13px;
-  border-top:1px solid var(--line2);
-  font-family:var(--label);font-size:.62rem;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--warm);opacity:.85}
-.thesis-doors{grid-template-columns:repeat(2,1fr);max-width:none;margin-top:22px}
 @media (max-width:760px){
-  .thesis{grid-template-columns:1fr}
-  .thesis-side+.thesis-side{border-left:0;border-top:1px solid var(--line2);
-    padding-left:0;padding-top:18px}
-  .thesis-doors{grid-template-columns:1fr}
 }
 .masthead h1{
   font-family:var(--serif);font-size:clamp(3rem,10vw,7.5rem);font-weight:900;
@@ -263,7 +242,11 @@ img{max-width:100%;display:block}
   -webkit-background-clip:text;background-clip:text;color:transparent;
   -webkit-text-fill-color:transparent;
 }
-.masthead .line{max-width:62ch;font-size:1.1rem;color:var(--dim);line-height:1.5}
+/* The standfirst is the sentence that says what the site IS, so it gets a real
+   measure and a step up in size. At 62ch and 1.1rem it sat at the same visual
+   weight as every other paragraph on the page and read as a caption on the
+   wordmark rather than as the argument. */
+.masthead .line{max-width:54ch;font-size:1.2rem;line-height:1.55;color:var(--dim)}
 .masthead .line b,.masthead .line strong{color:var(--paper);font-weight:600}
 .masthead a{color:var(--hot)}
 
@@ -326,14 +309,23 @@ is layered into the composition rather than plopped on it. The doors are a full
 row of their own underneath, which is what closes the masthead - with the doors
 inside the left column the clerk card ran a hundred pixels past them and the
 empty space just moved to the bottom left. */
-.masthead-grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;
-  gap:40px;align-items:stretch;margin-top:4px}
 .clerk{display:flex;flex-direction:column;position:relative;
   border:1px solid var(--line2);border-radius:14px;
   background:linear-gradient(180deg,var(--bg3),var(--bg2));
-  padding:6px 20px 16px;text-align:left}
-.clerk-face{display:flex;justify-content:center;margin:-52px 0 0}
-.clerk-face .mascot-hero{filter:drop-shadow(0 14px 30px rgba(255,90,31,.30))}
+  padding:6px 18px 14px;text-align:left}
+/* The mascot was 168px of eyes in a 330px card, breaking the top edge by 52px
+   behind a 30px orange glow - more than half the card's width, and the second
+   loudest thing on the page after the wordmark. It is a caption-bearing detail
+   on this page, not a second headline, so it is 116px now, overlapping by 28,
+   and the glow is pulled back to something that reads as depth rather than as
+   light.
+
+   The negative bottom margin is the other half: iYi's rig draws two eyes inside
+   a taller box, so a face sized to its element leaves roughly 50px of nothing
+   between the drawing and the first line of copy - which read as a gap in the
+   card rather than as air around a picture. */
+.clerk-face{display:flex;justify-content:center;margin:-28px 0 -20px}
+.clerk-face .mascot-hero{filter:drop-shadow(0 8px 16px rgba(255,90,31,.20))}
 .clerk-kick{font-family:var(--label);font-size:.56rem;letter-spacing:.22em;
   text-transform:uppercase;color:var(--warm);margin:8px 0 8px}
 .clerk-line{font-size:.95rem;line-height:1.5;color:var(--dim);margin:0 0 12px}
@@ -341,7 +333,20 @@ empty space just moved to the bottom left. */
 .clerk-more{font-family:var(--label);font-size:.56rem;letter-spacing:.16em;
   text-transform:uppercase;color:var(--hot)}
 .clerk-more:hover{color:var(--paper)}
-.thesis-doors{margin-top:22px}
+/* The three masthead modules - read, research, and the clerk - in one row.
+   `minmax(0,1.35fr)` on the clerk lets the copy column take what it needs and
+   the card take the rest, so the two doors keep equal width whatever the
+   clerk's caption does. These three were previously split across two grid
+   columns with the 1956/-70,000 pair between them, so the doors a reader was
+   just told about were not adjacent to the thing that introduced them. */
+.masthead-row{display:grid;grid-template-columns:1fr 1fr minmax(0,1.35fr);
+  gap:16px;margin-top:26px;align-items:stretch}
+.masthead-row .fdoor{padding:18px 20px;border-radius:var(--r);
+  border-left-width:4px;flex-direction:column;align-items:flex-start;
+  justify-content:center;gap:2px}
+.masthead-row .fdoor-body strong{font-size:1.24rem;letter-spacing:-.015em}
+.masthead-row .fdoor-body span{font-size:.86rem;line-height:1.45}
+.masthead-row .clerk{margin:0}
 /* ---- <code>: the author's machine keys, in the site's own label face -------
 The corpus marks classification values in backticks - `persona/idol`,
 `simulated`, `split_from` - and 468 of them, 412 on /taxonomy/, were reaching
@@ -358,15 +363,23 @@ code{font-family:var(--label);font-size:.88em;letter-spacing:0;
   border:1px solid rgba(255,90,31,.18);border-radius:3px;
   padding:.06em .32em;overflow-wrap:break-word;white-space:normal}
 @media (max-width:900px){
-  .masthead-grid{grid-template-columns:minmax(0,1fr);gap:24px}
-  .clerk{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 16px;
-    align-items:center;padding:14px 18px}
-  .clerk-face{margin:0;grid-row:span 3}
-  .clerk-face .mascot-hero{width:104px;height:104px}
-  .clerk-kick{margin:0}
-  .clerk-line{grid-column:2;margin:0 0 8px}
-  .clerk-more{grid-column:2;margin-top:0}
-  .thesis-doors{margin-top:18px}
+  /* This was a two-column grid: a 104px mascot in column one spanning three
+     rows, the copy in column two. On a 390px phone that leaves the copy about
+     200px, so "I keep the record. Every claim here carries its source, and the
+     ones nobody has opened say so. I do not remember you, and nothing here
+     pretends to." wrapped to seven lines beside two eyes - and a card with a
+     104px picture in it is not a caption, it is a second hero on a phone.
+
+     Stacked instead: the mascot sits centred above the copy, which then gets
+     the full width and reads in four lines. Same direction as the desktop
+     column, so it stops being a different layout at a smaller size. */
+  .clerk{display:flex;flex-direction:column;align-items:center;
+    text-align:center;padding:14px 20px 16px}
+  .clerk-face{margin:-22px 0 -16px}
+  .clerk-face .mascot-hero{width:92px;height:92px}
+  .clerk-kick{margin:4px 0 7px}
+  .clerk-line{margin:0 0 10px}
+  .clerk-more{margin-top:0}
 }
 /* The wordmark is 7.5rem at desktop and the clamp bottoms out at 3rem, which at
    390px wraps "Parasocialize." onto three lines and leaves the period alone on
@@ -410,67 +423,92 @@ code{font-family:var(--label);font-size:.88em;letter-spacing:0;
    ("AISLE 01 / IDOL / 6 stories / more in IDOL") read as noise and none of it
    was legible. Now: one name, one number, and the name is set large. */
 .hubs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:6px}
+/* Ten of these at full saturation were 55% of the page and the loudest thing on
+   it, while the wordmark and the thesis - the first thing anybody should read -
+   were the dimmest. The hierarchy was exactly backwards, and colour was doing
+   the work that size and position should do.
+
+   So the section colour stops flooding the tile and becomes an accent: a 3px
+   rule along the top, a tinted ground, a coloured border. Ten hues still read as
+   ten different shelves, but as a set they sit behind the page instead of
+   shouting over it. */
 .hub{
   position:relative;overflow:hidden;border-radius:var(--r);
-  padding:20px 22px 18px;min-height:210px;
+  padding:22px 22px 18px;min-height:132px;
   display:flex;flex-direction:column;
-  background:linear-gradient(158deg,var(--c) 0%,
-    color-mix(in srgb,var(--c) 46%,#1a0f08) 58%,#140b06 100%);
-  box-shadow:0 12px 30px rgba(0,0,0,.5);
-  transition:transform .24s cubic-bezier(.34,1.25,.64,1),box-shadow .24s;
+  background:linear-gradient(178deg,
+    color-mix(in srgb,var(--c) 17%,var(--bg2)) 0%,
+    color-mix(in srgb,var(--c) 6%,var(--bg2)) 44%,
+    var(--bg2) 100%);
+  border:1px solid color-mix(in srgb,var(--c) 26%,var(--line));
+  box-shadow:0 10px 26px rgba(0,0,0,.42);
+  transition:transform .24s cubic-bezier(.34,1.25,.64,1),box-shadow .24s,
+    border-color .24s;
 }
-.hub:hover{transform:translateY(-5px);
-  box-shadow:0 26px 52px rgba(0,0,0,.6),0 0 0 1px var(--c)}
-/* the art: a real photo of the subject matter, credited. The gradient sits
-   over it so the text stays legible, and the tile keeps its section colour. */
-.hub-art{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hub-art img{width:100%;height:100%;object-fit:cover;opacity:.62}
-/* Darkening the tile made it WORSE - worst 3.53 -> 3.14 - because the text is
-   near-black and darkening the ground converges the two. The contrast has to
-   come from the other end. Measured both directions rather than assuming. */
+.hub::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;z-index:3;
+  background:var(--c);
+}
+.hub:hover{transform:translateY(-4px);
+  border-color:color-mix(in srgb,var(--c) 72%,var(--hot));
+  box-shadow:0 22px 44px rgba(0,0,0,.55)}
+/* the art: a real photo of the subject matter, credited. It was the tile's
+   ground; it is now a texture behind the card, held down to 20% so ten of them
+   do not become ten competing pictures. The section colour stays legible because
+   the card's own ground is a mix of it. */
+.hub-art{position:absolute;inset:0;z-index:0;overflow:hidden;opacity:.2}
 .hub-art::after{content:"";position:absolute;inset:0;background:
-    linear-gradient(100deg,color-mix(in srgb,var(--c) 86%,#fff 14%) 30%,
-    color-mix(in srgb,var(--c) 74%,transparent) 58%,rgba(20,11,6,.55) 100%)}
+  linear-gradient(176deg,color-mix(in srgb,var(--c) 30%,transparent) 0%,
+    rgba(20,11,6,.72) 62%,rgba(20,11,6,.94) 100%)}
 /* The credit used to sit here, on every homepage tile. Ten identical
    strings made the front page read like a stock library and turned a
    licence obligation into decoration. It lives on the section front,
    where each photograph appears at size, and on /credits/. */
 .hub-glyph{
-  position:absolute;right:-10px;bottom:-26px;z-index:0;
-  font-family:var(--serif);font-weight:900;font-size:11rem;line-height:.7;
-  letter-spacing:-.08em;color:rgba(0,0,0,.15);pointer-events:none;
+  position:absolute;right:-6px;bottom:-18px;z-index:0;
+  font-family:var(--serif);font-weight:900;font-size:6.5rem;line-height:.7;
+  letter-spacing:-.08em;pointer-events:none;
+  color:color-mix(in srgb,var(--c) 46%,transparent);
 }
 .hub-name{
   position:relative;z-index:2;
-  font-family:var(--serif);font-size:1.5rem;font-weight:700;
-  letter-spacing:-.02em;color:#1d1008;margin-bottom:10px;
-  padding-bottom:9px;border-bottom:2px solid rgba(18,10,5,.22);
+  font-family:var(--serif);font-size:1.42rem;font-weight:700;
+  letter-spacing:-.02em;color:var(--paper);margin-bottom:9px;
+  padding-bottom:8px;
+  border-bottom:1px solid color-mix(in srgb,var(--c) 52%,transparent);
 }
 .hub h3{
   position:relative;z-index:2;font-family:var(--serif);font-weight:700;
-  font-size:clamp(1.1rem,1.9vw,1.42rem);line-height:1.14;letter-spacing:-.02em;
-  color:#120a05;margin:0 0 8px;max-width:30ch;
+  font-size:clamp(1.02rem,1.35vw,1.18rem);line-height:1.22;letter-spacing:-.01em;
+  color:var(--paper);margin:0 0 7px;max-width:34ch;
 }
 /* These were `rgba(18,10,5,.72)` and `.6` - hierarchy carried by alpha, over
    TEN different background colours. Measured off the pixels (two renders, text
    hidden, sampled where the text sits) that put the deck below 4.5:1 on seven
    of the ten tiles and the "N MORE" link below it on nine, worst 2.64:1.
 
-   **Alpha is not a way to express hierarchy on a variable background**, and
-   the site already had the proof: `.hub h3` is solid `#120a05` and is the only
-   text on these tiles that clears the large-text threshold on all ten. So the
-   hierarchy moves to size and weight - which is where it should have been - and
-   the deck and link are solid, a step lighter than the headline. */
+   The tiles are now dark, so alpha over a variable ground is no longer the
+   question at all: the deck is a solid `--dim` on `--bg2` and the link is a
+   solid `--hot2`, both measured again by probe_hub_contrast rather than
+   assumed. **Alpha is not a way to express hierarchy on a variable background**
+   - that much survived the redesign.
+
+   The link was first written as `color-mix(in srgb,var(--c) 62%,var(--paper))`
+   and measured 1.21:1 on all ten tiles - mixing most of the way to the section
+   colour walks it straight back down toward the ground it sits on. Ten out of
+   ten, worst 1.21, so the whole colour scheme for one element was wrong in the
+   same direction ten times. */
 .hub p{
-  position:relative;z-index:2;font-size:.88rem;line-height:1.45;flex:1;
-  color:#1e1108;
+  position:relative;z-index:2;font-size:.87rem;line-height:1.5;flex:1;
+  color:var(--dim);max-width:52ch;
 }
 .hub-go{
   position:relative;z-index:2;margin-top:12px;
   font-family:var(--label);font-size:.55rem;letter-spacing:.18em;
-  color:#1e1108;
+  color:var(--hot2);
 }
-.hub:hover .hub-name,.hub:hover .hub-go{color:#120a05}
+.hub:hover .hub-name{color:#fff}
+.hub:hover .hub-go{color:var(--paper)}
 
 /* ---- entry landmarks: h2 promoted from the author's own bold lead --------
 227 entries carried zero <h2>, which was reported as a corpus-wide reading
@@ -571,24 +609,32 @@ shape; sorted by year alone the block is just a list. */
   background:var(--bg3);display:flex;align-items:center;justify-content:center;
 }
 .t8col-art img{width:100%;height:100%;object-fit:cover}
-/* The front page showed a bare orange numeral where /top8/ shows a designed
-   plate reading "no free frame exists". Two of the eight are in that state, so
-   in a grid of eight where the other six are photographs, two read as broken
-   images - which is the one thing this site should not put on a page. Same idea
-   as /top8/, at 52px: the show in display type on its own colour. The reason is
-   stated once in the caption below rather than eight times over. */
+/* The front page showed a bare orange square where /top8/ shows a designed
+   plate. Two of the eight are in that state, so in a grid of eight where the
+   other six are photographs, two read as broken images - which is the one thing
+   this site should not put on a page. Same idea as /top8/, at 52px: the show in
+   display type on its own colour. The hatch behind it is gone for the same
+   reason as on the big plate: a diagonal texture is the grammar of a
+   placeholder, so it announced itself as one. A lit field and a hairline say
+   "this is a designed card" instead. The art box is a fixed 52px at every
+   width, so the type is sized against the box rather than the viewport - a
+   vw-based size fitted "DRAGON" at desktop and broke it to "DRAGO N" on a
+   phone. */
 .t8col-plate{width:100%;height:100%;display:flex;align-items:center;
   justify-content:center;text-align:center;padding:3px;line-height:1;
-  /* The art box is a fixed 52px at every width, so this must not scale with
-     the viewport - a vw-based size fitted "DRAGON" at desktop and broke it to
-     "DRAGO N" on a phone. Sized against the box instead. */
-  font-family:var(--serif);font-weight:900;font-size:9px;letter-spacing:-.01em;
-  color:rgba(255,246,234,.92);white-space:nowrap;overflow:hidden;
-  background:
-    repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 9px),
-    linear-gradient(150deg,var(--c),#1a0f08)}
+  font-family:var(--serif);font-weight:900;font-size:10px;letter-spacing:-.01em;
+  color:#fff6ea;white-space:nowrap;overflow:hidden;
+  background:radial-gradient(120% 110% at 50% 10%,
+    color-mix(in srgb,var(--c) 62%,#000) 0%,
+    color-mix(in srgb,var(--c) 26%,#170e08) 62%,#140c07 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,246,234,.14)}
 .t8col-body{min-width:0}
-.t8col-body b{display:block;font-family:var(--serif);font-size:.94rem;font-weight:700;line-height:1.15}
+/* Two of the eight titles wrapped to two lines and six did not, so the cards in
+   a row had ragged bottoms and the ranks did not line up. Two lines of room for
+   every one of them - the grid is rank-ordered, and a ranked list whose rows do
+   not align reads as unordered. */
+.t8col-body b{display:block;font-family:var(--serif);font-size:.94rem;font-weight:700;
+  line-height:1.18;min-height:2.36em}
 .t8col-body span{font-family:var(--label);font-size:.53rem;letter-spacing:.12em;color:var(--dimmer)}
 
 /* ---------- feature doors: history / moments / figures ---------- */
@@ -797,9 +843,10 @@ table.db a:hover{color:var(--hot)}
 .check{display:inline-block;margin-left:6px;font-family:var(--label);font-size:.58rem;
   color:var(--neon);border:1px solid rgba(255,45,111,.4);border-radius:2px;
   padding:0 4px;vertical-align:middle}
-.checknote{font-family:var(--label)!important;font-size:.6rem!important;letter-spacing:.1em;
-  color:var(--neon);border:1px solid rgba(255,45,111,.3);background:rgba(255,45,111,.06);
-  border-radius:6px;padding:11px 13px;margin-top:20px;line-height:1.6}
+/* .checknote went with the per-entry "Not yet stood behind" banner. The state
+   it described is still tracked - `verified` in the data, citation_audit.py,
+   and the count published on /citations/ - it is just not printed on the
+   reading surface any more. */
 .lane{display:inline-block;font-family:var(--label);font-size:.55rem;letter-spacing:.16em;
   text-transform:uppercase;padding:4px 10px;border-radius:99px;margin-right:7px;
   color:var(--c);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);
@@ -836,7 +883,6 @@ table.db a:hover{color:var(--hot)}
 .aisle::before{content:"";position:absolute;inset:0;background:var(--c);opacity:.12;transition:.2s}
 .aisle:hover{transform:translateY(-3px);border-color:var(--c)}
 .aisle:hover::before{opacity:.24}
-.aisle .n{position:relative;font-family:var(--label);font-size:.56rem;letter-spacing:.2em;color:var(--c)}
 .aisle b{position:relative;display:block;font-family:var(--serif);font-size:1.12rem;
   font-weight:700;margin:5px 0;letter-spacing:-.01em}
 .aisle p{position:relative;font-size:.8rem;color:var(--dim);line-height:1.38;margin-bottom:8px}
@@ -849,12 +895,7 @@ table.db a:hover{color:var(--hot)}
   background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--warm);
   border-radius:var(--r);padding:22px 24px;
 }
-.explain h2{
-  font-family:var(--label);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--warm);margin:0 0 12px;
-}
 .explain p{font-size:.98rem;color:var(--dim);margin-bottom:10px}
-.explain p:last-child{margin-bottom:0}
 .explain p b{color:var(--paper)}
 .explain .q{font-family:var(--serif);font-size:1.06rem;color:var(--paper);line-height:1.35;margin-bottom:12px}
 
@@ -863,7 +904,6 @@ table.db a:hover{color:var(--hot)}
 .kicker{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--warm);
   margin-bottom:14px;display:flex;align-items:center;gap:12px}
 .kicker::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(255,90,31,.35),transparent);max-width:150px}
-.kicker .more{margin-left:auto;font-size:.58rem;color:var(--dimmer);flex:none}
 .kicker .more:hover{color:var(--warm)}
 .sec-head h2{font-family:var(--serif);font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:700;
   letter-spacing:-.02em;line-height:1.1;margin-bottom:10px;max-width:26ch}
@@ -878,11 +918,6 @@ table.db a:hover{color:var(--hot)}
   background:linear-gradient(140deg,var(--bg2),var(--bg3));
   border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:26px;
   position:relative;overflow:hidden;
-}
-.lead .label{
-  position:absolute;top:0;left:0;background:var(--neon);color:#fff;
-  font-family:var(--label);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
-  padding:7px 16px;border-radius:0 0 12px 0;font-weight:500;
 }
 .lead .cover{border-radius:12px;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.6)}
 .lead h2{
@@ -1003,7 +1038,6 @@ table.db a:hover{color:var(--hot)}
   opacity:.1;transition:.2s}
 .aisle:hover{transform:translateY(-3px);border-color:var(--c)}
 .aisle:hover::before{opacity:.2}
-.aisle .n{position:relative;font-family:var(--label);font-size:.58rem;letter-spacing:.2em;color:var(--c)}
 .aisle b{position:relative;display:block;font-family:var(--serif);font-size:1.12rem;
   font-weight:700;margin:5px 0 5px;letter-spacing:-.01em}
 .aisle p{position:relative;font-size:.8rem;color:var(--dim);line-height:1.38;margin-bottom:9px}
@@ -1020,14 +1054,10 @@ table.db a:hover{color:var(--hot)}
 /* ---------- shelf / clerk's own work ---------- */
 .shelf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:18px}
 .shelf-item{display:block;transition:transform .22s}
-.shelf-item:hover{transform:translateY(-5px)}
-.shelf-item img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;
-  box-shadow:0 12px 28px rgba(0,0,0,.55);border:1px solid rgba(253,246,234,.1)}
 .shelf-item .kind{font-family:var(--label);font-size:.52rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--warm);margin-top:8px}
 .shelf-item .nm{font-family:var(--serif);font-size:.95rem;font-weight:700;line-height:1.2;margin-top:2px}
 .shelf-item .bl{font-size:.76rem;color:var(--dimmer);line-height:1.35;margin-top:3px}
-.shelf-item:hover .nm{color:var(--warm)}
 .bookwrap{position:relative}
 .album{padding:0;gap:8px}
 .album h3{font-size:.9rem}
@@ -1044,36 +1074,19 @@ table.db a:hover{color:var(--hot)}
   border-radius:3px;height:20%;animation:eq 1.4s ease-in-out infinite alternate}
 .equalizer span:nth-child(odd){animation-duration:1.1s}
 @keyframes eq{from{height:12%}to{height:100%}}
-.shelf-item .ev{display:inline-block;margin-top:6px;font-family:var(--label);font-size:.52rem;
-  letter-spacing:.12em;color:var(--mint);background:rgba(61,220,151,.12);
-  border:1px solid rgba(61,220,151,.3);border-radius:2px;padding:2px 7px}
-
 /* ---------- laws ---------- */
 .law-list{display:grid;gap:9px}
 .law{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;
   padding:14px 17px;border:1px solid var(--line);border-radius:10px;
   background:var(--bg2);transition:.2s}
-.law:hover{border-color:rgba(255,90,31,.45);background:rgba(255,90,31,.05)}
-.law .n{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--warm);line-height:1;min-width:30px}
-.law b{font-family:var(--serif);font-size:1rem;font-weight:700;display:block}
 .law span{font-size:.84rem;color:var(--dim);line-height:1.4}
 .law .go{font-family:var(--label);font-size:.54rem;letter-spacing:.16em;color:var(--dimmer);white-space:nowrap}
-.law:hover .go{color:var(--warm)}
-
 /* ---------- interactive: reason to come back ---------- */
 .quiz-sec{padding-top:0}
 .quiz{margin-top:26px}
-.quiz .box{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px}
 .quiz h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin-bottom:8px;letter-spacing:-.015em}
 .quiz p{color:var(--dim);margin-bottom:18px;max-width:56ch}
-.play p{color:var(--dim);margin-bottom:18px;max-width:56ch}
 .qs{display:grid;gap:10px;margin-bottom:20px}
-.qs label{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;
-  background:var(--bg3);border:1px solid var(--line);border-radius:10px;
-  padding:14px 16px;cursor:pointer;transition:.18s}
-.qs label:hover{border-color:rgba(255,90,31,.4)}
-.qs input{accent-color:var(--warm);margin-top:5px;width:16px;height:16px}
-.qs .t{font-family:var(--serif);font-size:1rem;font-weight:600;display:block;margin-bottom:2px}
 .qs .d{font-size:.82rem;color:var(--dimmer);line-height:1.35}
 .result{background:linear-gradient(150deg,rgba(255,90,31,.14),transparent);
   border:1px solid rgba(255,90,31,.35);border-radius:12px;padding:20px;display:none}
@@ -1153,7 +1166,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .sidebox{border:1px solid var(--line);border-radius:var(--r);padding:17px;background:var(--bg2)}
 .sidebox h4{font-family:var(--label);font-size:.56rem;letter-spacing:.22em;color:var(--warm);margin-bottom:11px}
 .sidebox p,.sidebox li{font-size:.85rem;color:var(--dim)}
-.sidebox ul{list-style:none;display:flex;flex-direction:column;gap:7px}
 .sidebox a{color:var(--warm)}
 
 /* ---------- the clerk's voice block ---------- */
@@ -1184,6 +1196,16 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;justify-content:space-between}
 .foot-mark{font-size:1.2rem;margin-bottom:12px;display:inline-block}
 .foot-note,.foot-tag{font-family:var(--label);font-size:.56rem;letter-spacing:.13em;color:var(--dimmer);line-height:2.1}
+/* A donation link, kept in the same register as the line it sits under: same
+   face, same size, same muted colour as the surrounding footer text. It becomes
+   legible on hover and on keyboard focus, and nothing else about it moves - a
+   link that announces itself in the footer is not a subtle one. It carries
+   rel="noopener nofollow" because it is the only outbound link on the page that
+   is not a citation. */
+.foot-kofi{color:var(--dimmer);border-bottom:1px solid transparent;
+  transition:color .16s,border-color .16s}
+.foot-kofi:hover,.foot-kofi:focus-visible{color:var(--warm);
+  border-bottom-color:color-mix(in srgb,var(--hot) 45%,transparent)}
 .foot-tag{text-align:right}
 .foot-nav{display:flex;gap:18px;flex-wrap:wrap;padding-top:5px}
 .foot-nav a{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:var(--dim);transition:.18s}
@@ -1321,6 +1343,10 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   .front{grid-template-columns:repeat(2,1fr)}
   .hubs{grid-template-columns:repeat(2,1fr)}
   .t8col-list{grid-template-columns:repeat(2,1fr)}
+/* Two lines of title room is only there so the four-across row aligns its ranks.
+   At two columns the cards are wide enough that most titles fit on one line,
+   and reserving two made every card carry a visible gap under its caption. */
+.t8col-body b{min-height:0}
   .fdoors{grid-template-columns:1fr 1fr}
   .hmod-body{grid-template-columns:1fr}
   .hfig{position:static;max-width:280px}
@@ -1422,6 +1448,7 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 @media (max-width:760px){
   .hubs{grid-template-columns:1fr}
   .t8col-list{grid-template-columns:1fr}
+.t8col-body b{min-height:0}
   .fdoors{grid-template-columns:1fr}
   .h-outline{grid-template-columns:1fr 1fr}
   .t8-item{padding:18px 16px}
@@ -1468,8 +1495,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .cr-by a:hover{color:var(--hot)}
 /* the section front's photograph, which is where the credit now lives */
 .fig.sec-mast{margin:26px 0 6px;max-width:880px}
-.fig.sec-mast img{max-height:420px;object-fit:cover}
-
 /* ------------------------------------------------- photographic card covers
    A card used to always be a gradient with a letter on it. Where a reviewed
    photograph exists the card is the photograph, with a veil at the bottom so
@@ -1482,16 +1507,10 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   object-fit:cover;display:block}
 .poster.shot .veil{position:absolute;inset:0;pointer-events:none}
 .poster.shot::after{background:linear-gradient(0deg,rgba(0,0,0,.42),transparent 46%)}
-.poster.shot .foot{position:relative;z-index:2;padding:0 10px 10px}
-
 /* the photograph at the top of an article, where the credit is discharged */
 .fig.article-photo{margin:0 0 26px;max-width:760px}
 .fig.article-photo img{max-height:460px;object-fit:cover;width:100%}
 .fig.article-photo.borrowed img{filter:saturate(.72) brightness(.9)}
-.fig.article-photo figcaption b{
-  display:block;color:var(--hot);letter-spacing:.06em;margin-bottom:4px;
-  text-transform:uppercase}
-
 /* ------------------------------------------------- the top 8, as a set piece
    The eight entries run down a rank spine and get smaller as the numbers get
    worse, so the list reads as a ranking at a glance without a single number
@@ -1515,19 +1534,27 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
    this is what they get: the show set in display type, the rank large, and the
    reason it is blank stated rather than disguised with a photograph of
    something adjacent. */
+/* A designed title card, not a picture that failed to arrive. It used to carry
+   a 45-degree hatch, which is the visual grammar of a placeholder - it says
+   "texture standing in for content". Replaced with a lit colour field, an inner
+   hairline and the show set in the same display face as the entry titles, so a
+   reader's eye reads it as a slug for a moment that has no still, not as a hole
+   where an image should be. */
 .t8-plate{height:150px;flex:none;width:min(300px,38%);border-radius:8px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:5px;text-align:center;padding:14px 12px;
+  gap:3px;text-align:center;padding:14px 12px;
   background:
-    repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 9px),
-    linear-gradient(150deg,
-      color-mix(in srgb,var(--c) 88%,#000) 0%,
-      color-mix(in srgb,var(--c) 44%,#170e08) 62%,#120b07 100%);
-  box-shadow:0 12px 30px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.09)}
-.t8-plate-n{font-family:var(--label);font-size:.46rem;letter-spacing:.16em;
-  text-transform:uppercase;color:rgba(255,246,234,.72)}
+    radial-gradient(130% 100% at 50% 4%,
+      color-mix(in srgb,var(--c) 58%,#000) 0%,
+      color-mix(in srgb,var(--c) 20%,#170e08) 58%,#120b07 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,246,234,.10),0 14px 34px rgba(0,0,0,.55)}
+.t8-plate-n{font-family:var(--label);font-size:.46rem;letter-spacing:.2em;
+  text-transform:uppercase;color:color-mix(in srgb,var(--c) 70%,#fff6ea)}
 .t8-plate-t{font-family:var(--serif);font-weight:900;font-size:clamp(1.5rem,4vw,2.3rem);
   line-height:1;color:#fff6ea;letter-spacing:-.03em;max-width:11ch}
+.t8-plate-y{font-family:var(--label);font-size:.5rem;letter-spacing:.24em;
+  color:rgba(255,246,234,.62);margin-top:6px;
+  padding-top:6px;border-top:1px solid rgba(255,246,234,.18)}
 
 /* the frame note - the page's argument, before the list rather than in a
    footnote at the bottom where a licensing caveat belongs and nobody reads */
@@ -1547,10 +1574,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .t8col-photo{position:relative}
 .t8col-photo::after{content:"";position:absolute;inset:0;
   background:linear-gradient(to top,rgba(10,6,4,.8),rgba(10,6,4,.05) 60%)}
-.t8col-photo span{position:relative;z-index:2}
-.t8col-frames{margin:12px 0 0;padding:0 2px;max-width:60ch;font-size:.86rem;
-  line-height:1.55;color:var(--dim)}
-.t8col-frames b{color:#efe3d3}
 .t8-sharedlaw{margin:0 0 30px;padding:14px 18px;border:1px solid var(--line2);
   border-radius:9px;background:rgba(255,246,234,.022);font-size:.95rem;line-height:1.6;
   max-width:78ch;color:var(--dim)}
@@ -1836,3 +1859,21 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   text-transform:uppercase;color:var(--dimmer);font-weight:500}
 .tx-arrow{color:var(--dimmer)}
 .tx-migr .tx-def{padding:0;margin:9px 0 0;color:var(--dim)}
+
+/* ---------- the open ledger: front-page band + /ledger/ ----------
+   Deliberately quieter than the doors above it. A trust signal that shouts
+   reads as insecurity, and this is the front page stating a standard rather
+   than selling a product - so it sits under the fold furniture on a hairline
+   border, and the figures are set in the label face the site already uses
+   whenever a machine speaks. */
+.ledger-band{border:1px solid var(--line);border-radius:var(--r);
+  background:var(--bg2);padding:22px 24px}
+.ledger-band .kicker{margin-top:0}
+.ledger-band-t{margin:12px 0 0;max-width:64ch;font-size:1.02rem;line-height:1.55;color:var(--ink)}
+.ledger-band-t b{color:var(--warm)}
+.ledger-band-n{margin:14px 0 0;max-width:64ch;font-family:var(--label);
+  font-size:.78rem;line-height:1.85;letter-spacing:.04em;color:var(--dim)}
+.ledger-band-n b{color:var(--hot);font-size:1.02rem}
+.ledger-list{max-width:66ch;margin:14px 0 0;padding-left:20px}
+.ledger-list li{margin:0 0 12px;font-size:1rem;line-height:1.6}
+.ledger-list b{color:var(--hot);font-family:var(--label);letter-spacing:.04em}

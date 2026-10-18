@@ -42,8 +42,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "front_copy.json"
 
-SLOTS = ["kicker", "line", "thesis_word", "thesis_thing", "thesis_pair",
-         "clerk_line", "door_stories", "door_encyclopedia"]
+SLOTS = ["kicker", "line", "clerk_line", "door_stories", "door_encyclopedia"]
 
 
 def _load():

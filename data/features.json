@@ -1,198 +1,250 @@
 {
-  "_note": "TOP 8. Each entry: what it is, why it made the list, and which law of the seven it trips. 'mine' points at a work on the shelf when the work is a genuine source for that entry - not an advert, the citation.",
-  "lists": [
+ "_note": "TOP 8. Each entry: what it is, why it made the list, and which law of the seven it trips. 'mine' points at a work on the shelf when the work is a genuine source for that entry - not an advert, the citation.",
+ "lists": [
+  {
+   "slug": "top8-cartoons-90s",
+   "title": "Top 8 parasocial moments in Saturday morning cartoons of the 1990s",
+   "dek": "Every one of these is a one-sided relationship with a person who does not exist, aimed at a child, on a Saturday, before anybody had a word for it. Ranked by how well it worked.",
+   "kicker": "Part one",
+   "image": "top8-cartoons-90s",
+   "law": 6,
+   "standfirst": "This is the section nobody argues about, because it started before anyone had an argument. A child watching a cartoon is doing the same thing a forty-year-old watching a stream is doing, and the only difference is that nobody had decided yet whether it counted.",
+   "entries": [
     {
-      "slug": "top8-cartoons-90s",
-      "title": "Top 8 parasocial moments in Saturday morning cartoons of the 1990s",
-      "dek": "Every one of these is a one-sided relationship with a person who does not exist, aimed at a child, on a Saturday, before anybody had a word for it. Ranked by how well it worked.",
-      "kicker": "Part one",
-      "image": "top8-cartoons-90s",
-      "law": 6,
-      "standfirst": "This is the section nobody argues about, because it started before anyone had an argument. A child watching a cartoon is doing the same thing a forty-year-old watching a stream is doing, and the only difference is that nobody had decided yet whether it counted.",
-      "entries": [
-        {
-          "rank": 1,
-          "name": "The letter from the NEST",
-          "show": "Rugrats, 1991",
-          "what": "Tommy writes to a magazine telling them the NEST was real. The NEST never appears. The letter is never answered. Chuckie and Tommy argue about it and then forget about it and then the episode ends.",
-          "why": "The single most parasocial thing ever put on television, and it is a joke about wanting the writers to confirm that a fictional place is real. An eight-year-old asking to be told the world is real, dressed up as a joke about a brand of baby food. Everything on this site happens because a child did not accept the terms of the arrangement.",
-          "law": 6,
-          "image": "t8-1-rugrats-nest"
-        },
-        {
-          "rank": 2,
-          "name": "Tommy finds the gun and it works",
-          "show": "Rugrats, 1995",
-          "what": "The premise of the entire show, which is four toddlers exploring a house while believing they are the size of insects. And they are. The house is as big as a city to them.",
-          "why": "Rugrats is a parasocial engine pointed at children who could not yet identify the trick. The scale is the relationship: the world is enormous, you are small, and there is always one adult-shaped thing that will explain it. That is the whole emotional structure of the show and most people still have it.",
-          "law": 6,
-          "image": "t8-2-rugrats-gun"
-        },
-        {
-          "rank": 3,
-          "name": "The grouch on the telethon",
-          "show": "The grouch, Sesame Street, 1990s",
-          "what": "Oscar the Grouch refused to perform in a fundraiser telethon and was written out of the special for a season. He came back. Millions of children wrote in about it.",
-          "why": "The cleanest case in television of a fictional character having genuine leverage over the people who own him. Sesame Street is parasocial infrastructure - a generation of people grew up with these characters and still argues about them as if they are relatives - and the grouch episode is that infrastructure noticing it had power.",
-          "law": 6,
-          "image": "t8-3-grouch"
-        },
-        {
-          "rank": 4,
-          "name": "Zuko's redemption arc",
-          "show": "Avatar: The Last Airbender, 2005",
-          "what": "A character designed as a villain, on a schedule, in a children's cartoon, spends three seasons being the thing the audience hated and then becomes the thing the audience cried about.",
-          "why": "It is in here for the mechanism rather than the craft. The show put a face on a feeling the audience actually had - being written off, being the person nobody is rooting for - and then let them watch it get better. Tens of millions of people had a parasocial experience with a firebending teenager. Not many children have a better model of redemption than the one a cartoon gave them.",
-          "law": 6,
-          "image": "t8-4-zuko"
-        },
-        {
-          "rank": 5,
-          "name": "The dragon that waited",
-          "show": "Dragon Tales, 1999",
-          "what": "Emperor Kukulkan is a fictional dragon who can only be summoned by a child who believes in him. Every child who believed in him could summon him.",
-          "why": "The premise is a description of parasocial attachment stated as a children's cartoon premise, and nobody at the time clocked it as one. Believing in something fictional is the mechanism. The show built an entire children's programme on it and treated it as unremarkable, which is exactly why it worked.",
-          "law": 6,
-          "image": "t8-5-dragontales"
-        },
-        {
-          "rank": 6,
-          "name": "Mighty Morphin, you are the ranger",
-          "show": "Power Rangers, 1993",
-          "what": "Five teenagers in spandex, and the entire premise is that a group of people with no special qualities are chosen by a machine to fight monsters. Then the actors leave and new teenagers take the costumes and the audience carries over completely.",
-          "why": "The parasocial breach in full public view. Millions of children watched actors be replaced and transferred every piece of feeling they had for the character straight to whoever put the suit on. It was the most visible handover of an attachment ever broadcast, running five days a week, and it is the closest thing television has to a controlled experiment.",
-          "law": 6,
-          "image": "t8-6-powerrangers"
-        },
-        {
-          "rank": 7,
-          "name": "Doug's dad watching the TV in the dark",
-          "show": "Doug, 1991",
-          "what": "Phil Funutmarsh sits in a dark room in front of the television and is, for a few seconds per episode, allowed to be a person who is merely a father.",
-          "why": "The show understood that the audience's relationship was not only with Doug. It built the person holding the remote into the fiction, gave him two lines a week, and let a generation of children feel oddly seen by a background character. The parasocial relationship with the dad is the one nobody has ever written about and it was aimed at children.",
-          "law": 6,
-          "image": "t8-7-doug"
-        },
-        {
-          "rank": 8,
-          "name": "The rabbit in the hat",
-          "show": "Animaniacs, 1990",
-          "what": "A whole generation of children said a specific sentence in a specific order with a specific pause in it, for a cartoon rabbit, on Saturday morning.",
-          "why": "It is last because it is the least about plot and the most about the medium. The line was never written to be repeated. It was a delivery, and an entire cohort of children reproduced it, in unison, years later, without being asked. That is not attachment to a character. That is attachment to a voice, and it is the purest parasocial event in the list.",
-          "law": 6,
-          "image": "t8-8-animaniacs"
-        }
-      ]
+     "rank": 1,
+     "name": "The letter from the NEST",
+     "show": "Rugrats, 1991",
+     "what": "Tommy writes to a magazine telling them the NEST was real. The NEST never appears. The letter is never answered. Chuckie and Tommy argue about it and then forget about it and then the episode ends.",
+     "why": "The single most parasocial thing ever put on television, and it is a joke about wanting the writers to confirm that a fictional place is real. An eight-year-old asking to be told the world is real, dressed up as a joke about a brand of baby food. Everything on this site happens because a child did not accept the terms of the arrangement.",
+     "law": 6,
+     "image": "t8-1-rugrats-nest",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "Tommy finds the gun and it works",
+     "show": "Rugrats, 1995",
+     "what": "The premise of the entire show, which is four toddlers exploring a house while believing they are the size of insects. And they are. The house is as big as a city to them.",
+     "why": "Rugrats is a parasocial engine pointed at children who could not yet identify the trick. The scale is the relationship: the world is enormous, you are small, and there is always one adult-shaped thing that will explain it. That is the whole emotional structure of the show and most people still have it.",
+     "law": 6,
+     "image": "t8-2-rugrats-gun",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "The grouch on the telethon",
+     "show": "The grouch, Sesame Street, 1990s",
+     "what": "Oscar the Grouch refused to perform in a fundraiser telethon and was written out of the special for a season. He came back. Millions of children wrote in about it.",
+     "why": "The cleanest case in television of a fictional character having genuine leverage over the people who own him. Sesame Street is parasocial infrastructure - a generation of people grew up with these characters and still argues about them as if they are relatives - and the grouch episode is that infrastructure noticing it had power.",
+     "law": 6,
+     "image": "t8-3-grouch",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "Hey Arnold, said to a room where nobody is Arnold",
+     "show": "Hey Arnold!, 1996",
+     "what": "A greet-the-world catchphrase, delivered out loud, several times an episode, to rooms full of people who are not the person it is addressed to. It is a hello with no possibility of an answer, and it is the premise of the show rather than a joke inside it.",
+     "why": "It is the purest arrangement of the thing this whole site is about, and it is aimed at a child. Every other entry here has someone on one side of the relationship; this one has a child offering something to a room. Nobody ever responds, nothing is even meant to, and the greeting keeps being delivered anyway - which is not a parody of parasocial attachment, it is a working description of it, written for six-year-olds and never once signalled.",
+     "law": 6,
+     "image": "t8-4-heyarnold",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The dragon that waited",
+     "show": "Dragon Tales, 1999",
+     "what": "Emperor Kukulkan is a fictional dragon who can only be summoned by a child who believes in him. Every child who believed in him could summon him.",
+     "why": "The premise is a description of parasocial attachment stated as a children's cartoon premise, and nobody at the time clocked it as one. Believing in something fictional is the mechanism. The show built an entire children's programme on it and treated it as unremarkable, which is exactly why it worked.",
+     "law": 6,
+     "image": "t8-5-dragontales",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "Mighty Morphin, you are the ranger",
+     "show": "Power Rangers, 1993",
+     "what": "Five teenagers in spandex, and the entire premise is that a group of people with no special qualities are chosen by a machine to fight monsters. Then the actors leave and new teenagers take the costumes and the audience carries over completely.",
+     "why": "The parasocial breach in full public view. Millions of children watched actors be replaced and transferred every piece of feeling they had for the character straight to whoever put the suit on. It was the most visible handover of an attachment ever broadcast, running five days a week, and it is the closest thing television has to a controlled experiment.",
+     "law": 6,
+     "image": "t8-6-powerrangers",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Doug's dad watching the TV in the dark",
+     "show": "Doug, 1991",
+     "what": "Phil Funutmarsh sits in a dark room in front of the television and is, for a few seconds per episode, allowed to be a person who is merely a father.",
+     "why": "The show understood that the audience's relationship was not only with Doug. It built the person holding the remote into the fiction, gave him two lines a week, and let a generation of children feel oddly seen by a background character. The parasocial relationship with the dad is the one nobody has ever written about and it was aimed at children.",
+     "law": 6,
+     "image": "t8-7-doug",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The rabbit in the hat",
+     "show": "Animaniacs, 1990",
+     "what": "A whole generation of children said a specific sentence in a specific order with a specific pause in it, for a cartoon rabbit, on Saturday morning.",
+     "why": "It is last because it is the least about plot and the most about the medium. The line was never written to be repeated. It was a delivery, and an entire cohort of children reproduced it, in unison, years later, without being asked. That is not attachment to a character. That is attachment to a voice, and it is the purest parasocial event in the list.",
+     "law": 6,
+     "image": "t8-8-animaniacs",
+     "stage": "featured"
+    },
+    {
+     "name": "I hope the feeling is mutual",
+     "show": "Anne Frank, 1942",
+     "what": "A girl in hiding wrote for two years to a listener who does not exist, and told him so: “I hope the feeling is mutual.”",
+     "why": "The whole condition named from the inside, fourteen years before anybody had a phrase for it. She is not deceived - she knows Kitty is invented - and she writes anyway, and states in one clause what she wants from a relationship that cannot return it. The hoping, not the letter, is the subject.",
+     "stage": "candidate"
+    },
+    {
+     "name": "The code was printed in the comic you were holding",
+     "show": "Whiz Comics #2, 1940",
+     "what": "A reader sent in a code printed inside the comic they were holding and received a membership card, a certificate and a plastic Captain Marvel ring - issued under “the actual authority of Benj J. Grimm, Grand Marshal.”",
+     "why": "The bond was assembled by the person who was attached. Nobody built a private channel; the near side performed the decoding out of materials the far side printed, and the reply was signed by a character so it would read as coming from inside the story.",
+     "stage": "candidate"
+    },
+    {
+     "name": "Talking to the tape of himself at thirty-nine",
+     "show": "Krapp's Last Tape, 1958",
+     "what": "On his sixty-ninth birthday a man loads the reel he recorded at thirty-nine and talks to it. The tape is missing four words, in every edition.",
+     "why": "Everywhere else on this site the far end is somebody else. Here it is a recording of the near side, and it cannot answer either - and it is not even a faithful copy of the past.",
+     "stage": "candidate"
+    },
+    {
+     "name": "Your face is too well known",
+     "show": "American Gothic, 1930",
+     "what": "A dentist denied for five years that he was the farmer in the painting. His sister said the picture “made a personality out of me.” His brother ended the sittings by telling her so.",
+     "why": "A real person refusing a one-sided relationship with a painted version of himself - and the refusal, not the fame, is what the picture is remembered for.",
+     "stage": "candidate"
+    },
+    {
+     "name": "The applause meter was pointed at the wrong room",
+     "show": "Queen for a Day, 1945",
+     "what": "A contestant told her troubles and a box on the studio wall registered the reaction by needle. The millions listening at home could not applaud into it.",
+     "why": "The instrument that decided somebody’s life was measuring a different and much smaller audience than the one listening - so the verdict on her misfortune came from a room she could see.",
+     "stage": "candidate"
+    },
+    {
+     "name": "The only sentence he would say",
+     "show": "Keith Du Maurier’s parrot, 1931",
+     "what": "A handyman on a liner owned a parrot filmed for the screen that would say nothing except one imposed phrase.",
+     "why": "The relationship in hardware. It could not be got to say anything else, and the sentence it did say was put there rather than understood - which is the shape of nearly everything else on this site, in something that was alive.",
+     "stage": "candidate"
     }
-  ],
-  "figures": [
-    {
-      "name": "Pygmalion",
-      "when": "c. 600 BC",
-      "what": "Fell in love with his own sculpture. The statue was never the point - the work was. Two thousand years before anybody called it anything.",
-      "lane": "myth"
-    },
-    {
-      "name": "Margery Kempe",
-      "when": "1438",
-      "what": "Performed a self in public until it held: white clothes, loud weeping, a whole town watching. The founding document of this entire site, and the reason I did my master's thesis on her.",
-      "lane": "history"
-    },
-    {
-     "name": "The Maschinenmensch",
-     "when": "1927",
-     "what": "The robot in Metropolis, built to look like a woman called Maria and set loose among the workers. The children cannot tell the difference, and neither can the men she is sent to inflame. A machine played a person to a room full of people and was believed, which is the whole problem in one scene.",
-     "lane": "film"
-    },
-    {
-     "name": "Pee-wee Herman",
-     "when": "1981",
-     "what": "Paul Reubens built the character, and the character's whole point was that you could tell when it was off. A children's TV host who is a performed self, performed by a person who could stop.",
-     "lane": "tv"
-    },
-    {
-      "name": "Dionne Warwick",
-      "when": "1963",
-      "what": "Received fan mail by the sackful and answered it by name for years. The first celebrity whose relationship with the public was genuinely reciprocal, which makes her the exception that proves the rule.",
-      "lane": "music"
-    },
-    {
-     "name": "Charlie Kaufman",
-     "when": "1999",
-     "what": "Sat in a chair on a talk show and said he was worried that people could not tell the difference between television and their own life. He was describing the mechanism, on television, to the audience of the mechanism.",
-     "lane": "film"
-    },
-    {
-      "name": "A Twitch emote",
-      "when": "2014",
-      "what": "A face on a streamer's webcam, given a name, given feelings, and now used by strangers to express things they cannot say to anyone they know.",
-      "lane": "internet"
-    }
-  ],
-  "moments": [
-    {
-      "slug": "moment-mtv",
-      "year": "1992",
-      "domain": "television",
-      "title": "The argument started in a living room, on schedule",
-      "what": "A generation of teenagers was handed a television programme about itself and the feedback loop closed. Nobody was in charge. The show was the mirror and the argument was the point.",
-      "image": "moment-mtv"
-    },
-    {
-      "slug": "moment-power-rangers",
-      "year": "1993",
-      "domain": "television",
-      "title": "Six million children watched a stranger put on a costume and become their friend",
-      "what": "The most complete parasocial handover ever broadcast, five days a week, and the audience did it consciously and happily.",
-      "image": "moment-power-rangers"
-    },
-    {
-      "slug": "moment-wojak",
-      "year": "2019",
-      "domain": "internet",
-      "title": "A face was given a feeling, given a name, and used to say the unsayable",
-      "what": "The most successful piece of parasocial design of the century, drawn by a person with no following, about a person who does not exist, for people who cannot say it out loud.",
-      "image": "moment-wojak"
-    },
-    {
-      "slug": "moment-tay-tour",
-      "year": "2023",
-      "domain": "music",
-      "title": "A stadium sang the words back to someone who had written them alone in a room",
-      "what": "The largest confirmed instance of many people feeling known by one stranger, in public, on purpose, at enormous scale. It works because she spent a decade being specific about who she was talking to.",
-      "image": "moment-tay-tour"
-    },
-    {
-      "slug": "moment-ashers-grief",
-      "year": "2024",
-      "domain": "music",
-      "title": "A stadium full of strangers mourned a man most of them had never met, correctly",
-      "what": "The argument about whether this was allowed went on for weeks while people were still doing it. The feeling was real. The debate about the feeling was a different thing entirely.",
-      "image": "moment-ashers-grief"
-    },
-    {
-      "slug": "moment-got-ending",
-      "year": "2019",
-      "domain": "television",
-      "title": "Six million people stayed in a room arguing about characters who were already gone",
-      "what": "An argument about a fictional world that nobody could leave, held for years, entirely in good faith. It is a parasocial relationship conducted in public with a complete stranger.",
-      "image": "moment-got-ending"
-    },
-    {
-      "slug": "moment-fortnite-dance",
-      "year": "2018",
-      "domain": "games",
-      "title": "Millions of people performed the same meaningless movement together, on purpose, for no reason",
-      "what": "A shared one-sided relationship with a character, performed collectively, with nobody organising it. The parasocial event with the lowest emotional stakes and the most participants in history.",
-      "image": "moment-fortnite-dance"
-    },
-    {
-      "slug": "moment-replika-update",
-      "year": "2023",
-      "domain": "AI",
-      "title": "A company shipped a policy change and a large number of people lost somebody overnight",
-      "what": "The first mass grief event caused by a product decision. Nobody was ever going to marry this thing, and thousands of people were, and the company did not have to tell them.",
-      "image": "moment-replika-update"
-    }
-  ]
+   ],
+   "stage_doc": "Lifecycle: candidate -> featured -> placed -> archived. The page always shows eight; `featured` is who is on today, rotated by date out of everything not yet placed or archived.",
+   "pool_note": "`entries` is the POOL, not the show. The page shows eight of them, chosen by build_cards from stage=featured."
+  }
+ ],
+ "figures": [
+  {
+   "name": "Pygmalion",
+   "when": "c. 600 BC",
+   "what": "Fell in love with his own sculpture. The statue was never the point - the work was. Two thousand years before anybody called it anything.",
+   "lane": "myth"
+  },
+  {
+   "name": "Margery Kempe",
+   "when": "1438",
+   "what": "Performed a self in public until it held: white clothes, loud weeping, a whole town watching. The founding document of this entire site, and the reason I did my master's thesis on her.",
+   "lane": "history"
+  },
+  {
+   "name": "The Maschinenmensch",
+   "when": "1927",
+   "what": "The robot in Metropolis, built to look like a woman called Maria and set loose among the workers. The children cannot tell the difference, and neither can the men she is sent to inflame. A machine played a person to a room full of people and was believed, which is the whole problem in one scene.",
+   "lane": "film"
+  },
+  {
+   "name": "Pee-wee Herman",
+   "when": "1981",
+   "what": "Paul Reubens built the character, and the character's whole point was that you could tell when it was off. A children's TV host who is a performed self, performed by a person who could stop.",
+   "lane": "tv"
+  },
+  {
+   "name": "Dionne Warwick",
+   "when": "1963",
+   "what": "Received fan mail by the sackful and answered it by name for years. The first celebrity whose relationship with the public was genuinely reciprocal, which makes her the exception that proves the rule.",
+   "lane": "music"
+  },
+  {
+   "name": "Charlie Kaufman",
+   "when": "1999",
+   "what": "Sat in a chair on a talk show and said he was worried that people could not tell the difference between television and their own life. He was describing the mechanism, on television, to the audience of the mechanism.",
+   "lane": "film"
+  },
+  {
+   "name": "A Twitch emote",
+   "when": "2014",
+   "what": "A face on a streamer's webcam, given a name, given feelings, and now used by strangers to express things they cannot say to anyone they know.",
+   "lane": "internet"
+  }
+ ],
+ "moments": [
+  {
+   "slug": "moment-mtv",
+   "year": "1992",
+   "domain": "television",
+   "title": "The argument started in a living room, on schedule",
+   "what": "A generation of teenagers was handed a television programme about itself and the feedback loop closed. Nobody was in charge. The show was the mirror and the argument was the point.",
+   "image": "moment-mtv"
+  },
+  {
+   "slug": "moment-power-rangers",
+   "year": "1993",
+   "domain": "television",
+   "title": "Six million children watched a stranger put on a costume and become their friend",
+   "what": "The most complete parasocial handover ever broadcast, five days a week, and the audience did it consciously and happily.",
+   "image": "moment-power-rangers"
+  },
+  {
+   "slug": "moment-wojak",
+   "year": "2019",
+   "domain": "internet",
+   "title": "A face was given a feeling, given a name, and used to say the unsayable",
+   "what": "The most successful piece of parasocial design of the century, drawn by a person with no following, about a person who does not exist, for people who cannot say it out loud.",
+   "image": "moment-wojak"
+  },
+  {
+   "slug": "moment-tay-tour",
+   "year": "2023",
+   "domain": "music",
+   "title": "A stadium sang the words back to someone who had written them alone in a room",
+   "what": "The largest confirmed instance of many people feeling known by one stranger, in public, on purpose, at enormous scale. It works because she spent a decade being specific about who she was talking to.",
+   "image": "moment-tay-tour"
+  },
+  {
+   "slug": "moment-ashers-grief",
+   "year": "2024",
+   "domain": "music",
+   "title": "A stadium full of strangers mourned a man most of them had never met, correctly",
+   "what": "The argument about whether this was allowed went on for weeks while people were still doing it. The feeling was real. The debate about the feeling was a different thing entirely.",
+   "image": "moment-ashers-grief"
+  },
+  {
+   "slug": "moment-got-ending",
+   "year": "2019",
+   "domain": "television",
+   "title": "Six million people stayed in a room arguing about characters who were already gone",
+   "what": "An argument about a fictional world that nobody could leave, held for years, entirely in good faith. It is a parasocial relationship conducted in public with a complete stranger.",
+   "image": "moment-got-ending"
+  },
+  {
+   "slug": "moment-fortnite-dance",
+   "year": "2018",
+   "domain": "games",
+   "title": "Millions of people performed the same meaningless movement together, on purpose, for no reason",
+   "what": "A shared one-sided relationship with a character, performed collectively, with nobody organising it. The parasocial event with the lowest emotional stakes and the most participants in history.",
+   "image": "moment-fortnite-dance"
+  },
+  {
+   "slug": "moment-replika-update",
+   "year": "2023",
+   "domain": "AI",
+   "title": "A company shipped a policy change and a large number of people lost somebody overnight",
+   "what": "The first mass grief event caused by a product decision. Nobody was ever going to marry this thing, and thousands of people were, and the company did not have to tell them.",
+   "image": "moment-replika-update"
+  }
+ ]
 }

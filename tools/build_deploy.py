@@ -87,17 +87,35 @@ IMG_MAX_W = 1400
 IMG_Q = 76
 
 HEADERS = """\
-# Cloudflare Pages headers. Static assets are content-addressed by the build in
-# spirit and never change under a given name, so they get a long cache; HTML
-# must not, or a deploy would never reach anybody.
+# Cloudflare Pages headers.
+#
+# /css/* and /js/* are content-addressed by fingerprint_assets() - the file is
+# named `styles.<sha256[:10]>.css`, so the URL changes whenever the bytes do.
+# That makes `immutable` TRUE rather than aspirational: a year-long cache is safe
+# precisely because a deploy cannot reuse a name whose content has changed.
+#
+# This used to serve stable names under the same header, which was a promise the
+# build did not keep: `css/styles.css` changes on every stylesheet edit, so a
+# browser that had seen it once would never ask again - not on reload, not on
+# deploy, not for a year. A front-page redesign was built, every gate ran green,
+# the folder was uploaded, and the site was unchanged, because the browser was
+# reading a year-old copy off disk while the server had the new one. Same family
+# as a `retrievable` citation with no URL: a header promising a property the
+# build did not provide. Dropping the header made deploys arrive but made every
+# reader re-fetch every asset; hashing the filename is what allows both.
+#
+# /img/* is deliberately NOT hashed - the photographs keep stable names, so they
+# get a bounded cache that revalidates rather than a year. An image that changes
+# can be a day late; a stylesheet that changes cannot, because a day of an
+# unstyled page is a broken page.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
 /css/*
   Cache-Control: public, max-age=31536000, immutable
 /js/*
   Cache-Control: public, max-age=31536000, immutable
 /img/*
-  Cache-Control: public, max-age=31536000, immutable
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /*
   X-Content-Type-Options: nosniff
@@ -191,6 +209,88 @@ def optimise():
     return mapping
 
 
+FINGERPRINT_DIRS = ("css", "js")
+# .svg is excluded on purpose: the wordmark and the plates are generated and
+# several are referenced from inside the stylesheet as well as from markup, so
+# renaming those needs the stylesheet rewrite to run before this. CSS and JS
+# are the assets that change on every meaningful edit, which is what made the
+# one-year `immutable` header unkeepable.
+FINGERPRINT_EXT = {".css", ".js"}
+
+
+def fingerprint_assets():
+    """Give every css and js file in dist a content-addressed name.
+
+    `Cache-Control: immutable` on `/css/*` used to be a promise the build did
+    not keep. `css/styles.css` is one stable filename that changes on every
+    stylesheet edit, so `max-age=31536000, immutable` meant a browser that had
+    seen it once would never ask again - not on reload, not on deploy, not for
+    a year. A front page was redesigned, every gate ran green, the folder was
+    uploaded, and the site was unchanged, because the browser was reading a
+    year-old copy off disk while the server had the new one. Nothing in the repo
+    could see it: the file on disk and the file in the cache had the same name.
+
+    Removing the header made deploys arrive, but left every reader re-fetching
+    every asset on every load. Hashing the filename makes the original claim
+    true instead of retracting it: the name changes when the bytes change, so
+    `immutable` is safe, a cache hit lasts a year, and a deploy reaches
+    everybody at once because it is a different URL.
+
+    Only dist/ is touched. The source tree keeps its stable names, so
+    `build_cards.py`'s templates, `test_front_copy.py` and anything else that
+    reads the source are unaffected.
+    """
+    import hashlib
+    mapping = {}
+    for sub in FINGERPRINT_DIRS:
+        d = DIST / sub
+        if not d.is_dir():
+            continue
+        for p in sorted(d.iterdir()):
+            if not p.is_file() or p.suffix.lower() not in FINGERPRINT_EXT:
+                continue
+            digest = hashlib.sha256(p.read_bytes()).hexdigest()[:10]
+            newname = f"{p.stem}.{digest}{p.suffix.lower()}"
+            (d / newname).write_bytes(p.read_bytes())
+            p.unlink()
+            mapping[f"{sub}/{p.name}"] = f"{sub}/{newname}"
+    if not mapping:
+        print("  no css or js in dist to fingerprint")
+        return {}
+
+    # one pass, so a replacement can never be rewritten again by a later key
+    pat = re.compile("|".join(re.escape(k) for k in
+                             sorted(mapping, key=len, reverse=True)))
+    n = 0
+    for f in DIST.rglob("*.html"):
+        t = f.read_text(encoding="utf-8", errors="replace")
+        new = pat.sub(lambda m: mapping[m.group(0)], t)
+        if new != t:
+            f.write_text(new, encoding="utf-8")
+            n += 1
+
+    for old, new in sorted(mapping.items()):
+        print(f"  {old} -> {new}")
+    print(f"  content-addressed {len(mapping)} asset(s), repointed {n} pages")
+
+    # The assertion that matters: nothing in dist may still ask for a name that
+    # is no longer there. A silent miss here is a 404 on the stylesheet, which
+    # renders as an unstyled page - and an unstyled page passes every layout
+    # gate on this site, which is documented in verify_narrow.py's preconditions.
+    stale = []
+    for f in DIST.rglob("*.html"):
+        t = f.read_text(encoding="utf-8", errors="replace")
+        for old in mapping:
+            if old in t:
+                stale.append((f.relative_to(DIST).as_posix(), old))
+    if stale:
+        seen = sorted({s[1] for s in stale})
+        sys.exit(f"refusing to ship: {len(stale)} reference(s) in dist still "
+                 f"ask for a pre-hash name. Unrewritten: {seen[:4]} "
+                 f"(first at {stale[0][0]})")
+    return mapping
+
+
 def rewrite_photos(mapping):
     """Point every reference at the optimised file.
 
@@ -239,6 +339,7 @@ def assemble(do_optimise=True):
         n += len(mapping) - sum(1 for p in (DIST / PHOTO_DIR).iterdir()
                                 if p.suffix.lower() != ".webp")
     rewrite_photos(mapping)
+    fingerprint_assets()
     (DIST / "_headers").write_text(HEADERS, encoding="utf-8")
     n += 1
     # /e/<id> - a short path to an encyclopedia entry, for video end cards.
