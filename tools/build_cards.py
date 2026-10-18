@@ -738,6 +738,8 @@ def build_ledger(data, enc):
 
   <p class="countline" style="margin-top:30px"><a href="{r}citations/index.html">
   The full per-entry backlog &rarr;</a></p>
+  <p class="countline"><a href="{r}ledger/feed.xml">Follow the ledger &mdash;
+  one item per day the figures moved &rarr;</a></p>
   <p style="margin-top:22px"><a class="btn btn-solid" href="{r}index.html">
   Back to the front page</a></p>
 </main>
@@ -865,6 +867,69 @@ are unlabelled on purpose.">
 </main>
 {FOOT.format(root=r, sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
 </body></html>"""
+
+
+def build_ledger_feed(m):
+    """/ledger/feed.xml - an item per day the figures actually moved.
+
+    A feed that republished today's numbers on every build would promise movement
+    and deliver the same item forever, so this is generated from
+    `data/ledger_history.json`, which only gains a day when a watched figure
+    changed. Each item therefore says what moved, in a sentence built from the
+    difference - never "updated".
+
+    This is deliberately low-noise. It is not a growth mechanic: there is no
+    streak, no count of how long you have subscribed, and nothing that rewards
+    daily return. The reader who wants it is the one who cares that the archive
+    says what it does not know, and an item on a day nothing changed would be the
+    opposite of that.
+    """
+    from ledger import HISTORY, snapshot_sentence, WATCHED
+    hist = (json.loads(HISTORY.read_text(encoding="utf-8"))
+            if HISTORY.exists() else {"days": []})
+    days = hist.get("days") or []
+    if not days:
+        # An empty feed is a broken promise, so say so in the channel itself
+        # rather than serving zero items and letting the reader conclude the
+        # archive stopped counting.
+        return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<rss version="2.0"><channel>'
+                '<title>Parasocialize &mdash; the open ledger</title>'
+                f'<link>{SITE}/ledger/</link>'
+                '<description>No movement recorded yet.</description>'
+                '</channel></rss>\n')
+    items = []
+    for d in reversed(days):
+        prev = days[days.index(d) - 1]["figures"] if days.index(d) else {}
+        sent = snapshot_sentence(prev, d["figures"]) if prev else \
+            "first recorded snapshot"
+        f = d["figures"]
+        body = (
+            f"<p>{esc(sent)}.</p>"
+            f"<p>{f['entries']} entries &middot; {f['records']} source records "
+            f"&middot; {f['openable']} openable &middot; {f['no_locator']} without "
+            f"a locator &middot; {f['verified_entries']} entries verified "
+            f"&middot; {f['status_needs_source']} records that are not "
+            f"citations.</p>"
+            f'<p><a href="{SITE}/ledger/">Open the ledger</a></p>')
+        items.append(
+            f'<item><title>{esc(sent)}</title>'
+            f'<link>{SITE}/ledger/</link>'
+            f'<guid isPermaLink="false">{SITE}/ledger/#d-{esc(d["date"])}</guid>'
+            f'<pubDate>{rfc822(d["date"])}</pubDate>'
+            f'<category>ledger</category>'
+            f'<description><![CDATA[{body}]]></description></item>')
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+            '<channel>\n<title>Parasocialize — the open ledger</title>\n'
+            f'<link>{SITE}/ledger/</link>\n'
+            f'<atom:link href="{SITE}/ledger/feed.xml" rel="self" '
+            'type="application/rss+xml"/>\n'
+            '<description>One item per day the archive\'s own figures moved. '
+            'No streak, no count, no daily prompt: the reader who wants this is '
+            'the one who cares that the archive says what it does not know.'
+            '</description>\n<language>en</language>\n'
+            + "\n".join(items) + "\n</channel>\n</rss>\n")
 
 
 def build_citations(data, enc):
@@ -3847,7 +3912,7 @@ def build_entry(ent, enc, data, manifest=None):
 # data already had, promoted to navigation. See tools/clusters.py.
 from clusters import medium_clusters, subject_clusters  # noqa: E402
 from ledger import (ledger_metrics, VERIFIED_DEF, verified_note,  # noqa: E402
-                     exceptions_metrics, thousands)
+                     exceptions_metrics, thousands, record_snapshot)
 
 
 def _clus(meds, subjs, r):
@@ -4539,6 +4604,11 @@ def main():
     (ROOT / "ledger").mkdir(exist_ok=True)
     (ROOT / "ledger" / "index.html").write_text(
         build_ledger(data, _enc2), encoding="utf-8")
+    # Record today's figures BEFORE the feed reads them, so the first build
+    # publishes a snapshot rather than an empty channel.
+    record_snapshot(_lm2 := ledger_metrics(_enc2))
+    (ROOT / "ledger" / "feed.xml").write_text(
+        build_ledger_feed(_lm2), encoding="utf-8")
 
     # /exceptions/ - the reciprocity axis counted, with the two ways the count
     # is probably wrong printed on the page. Reads taxonomy_placements.rec, the

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Parasocialize — the open ledger</title>
+<link>https://www.parasocialize.com/ledger/</link>
+<atom:link href="https://www.parasocialize.com/ledger/feed.xml" rel="self" type="application/rss+xml"/>
+<description>One item per day the archive's own figures moved. No streak, no count, no daily prompt: the reader who wants this is the one who cares that the archive says what it does not know.</description>
+<language>en</language>
+<item><title>first recorded snapshot</title><link>https://www.parasocialize.com/ledger/</link><guid isPermaLink="false">https://www.parasocialize.com/ledger/#d-2026-10-18</guid><pubDate>Sun, 18 Oct 2026 09:00:00 +0000</pubDate><category>ledger</category><description><![CDATA[<p>first recorded snapshot.</p><p>240 entries &middot; 542 source records &middot; 434 openable &middot; 108 without a locator &middot; 61 entries verified &middot; 46 records that are not citations.</p><p><a href="https://www.parasocialize.com/ledger/">Open the ledger</a></p>]]></description></item>
+</channel>
+</rss>

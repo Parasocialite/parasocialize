@@ -82,6 +82,10 @@ POST_CHECK = [
     # It got past every existing gate because they check links, selectors and
     # counts, and none of them reads prose for words that mean nothing.
     ("internal_leaks", ["check_internal_leaks.py"]),
+    # Both feeds must parse as XML. /ledger/feed.xml shipped with an HTML
+    # entity in its title, which no RSS reader can resolve, and nothing in
+    # this repository was looking at either feed.
+    ("feeds", ["check_feeds.py"]),
 ]
 
 VISUAL = [

@@ -13,11 +13,20 @@ was ambiguous in the data and was ruled on explicitly rather than picked by
 default - see VERIFIED_DEF and `verified_note`.
 """
 import collections
+import datetime
 import json
 import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+SNAPSHOT_NOTE = (
+    "A day-by-day record of the figures /ledger/ publishes, written by "
+    "tools/ledger.py and only when one of them moved. The feed at /ledger/feed.xml "
+    "is generated from this file: it is the only thing on the site that says the "
+    "numbers changed rather than the numbers as they stand. Appended, never "
+    "rewritten - the sequence of what the archive claimed over time is the point."
+)
 
 # The ruling. `verified: true` on an entry means the entry's core assertions
 # were checked against at least one source a human opened. It does NOT mean every
@@ -139,6 +148,72 @@ def exceptions_metrics(enc, placements):
 def thousands(n):
     """Format a span the way the page states it. 35020 -> '35,020'."""
     return f"{n:,}"
+
+
+# ---------------------------------------------------------------- ledger feed
+HISTORY = ROOT / "data" / "ledger_history.json"
+
+# The fields worth watching. A snapshot is only recorded when one of these moves,
+# so the feed says "the numbers changed" and is silent otherwise. Watching all of
+# them would publish an item every time a title was edited.
+WATCHED = ("entries", "records", "openable", "no_locator", "verified_entries",
+           "status_needs_source", "thesis")
+
+
+def record_snapshot(m, today=None):
+    """Append today's figures to the ledger history, if they moved.
+
+    A feed that republishes the same numbers on every build is worse than no
+    feed: it promises movement and delivers the same item forever. So this only
+    writes when a watched figure actually changed, and it collapses repeated
+    builds on one day into a single entry.
+
+    Returns (appended, entry).
+    """
+    today = today or datetime.date.today().isoformat()
+    fig = {k: m[k] for k in WATCHED}
+    hist = (json.loads(HISTORY.read_text(encoding="utf-8"))
+            if HISTORY.exists() else {"_note": SNAPSHOT_NOTE, "days": []})
+    days = hist.setdefault("days", [])
+    last = days[-1] if days else None
+    if last and last["date"] == today:
+        if last["figures"] == fig:
+            return False, last
+        days.pop()          # rebuild today's entry rather than duplicate it
+    if last and last["figures"] == fig:
+        return False, last  # nothing moved since the last recorded day
+    entry = {"date": today, "figures": fig}
+    days.append(entry)
+    # Keep it bounded but long enough to be a record: a build a day for two years.
+    del days[:-800]
+    HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    HISTORY.write_text(json.dumps(hist, ensure_ascii=False, indent=1) + "\n",
+                       encoding="utf-8")
+    return True, entry
+
+
+def snapshot_sentence(prev, cur):
+    """What moved between two figures, as a sentence. Never a vague 'updated'."""
+    parts = []
+    for k in WATCHED:
+        a, b = prev.get(k), cur.get(k)
+        if a == b:
+            continue
+        if k == "entries":
+            parts.append(f"{b - a:+d} entries" if b != a else "entries unchanged")
+        elif k == "records":
+            parts.append(f"{b - a:+d} source records")
+        elif k == "openable":
+            parts.append(f"{b - a:+d} records became openable")
+        elif k == "no_locator":
+            parts.append(f"{b - a:+d} records without a locator")
+        elif k == "verified_entries":
+            parts.append(f"{b - a:+d} entries verified")
+        elif k == "status_needs_source":
+            parts.append(f"{b - a:+d} records that are not citations")
+        elif k == "thesis":
+            parts.append(f"{b - a:+d} thesis entries")
+    return "; ".join(parts) if parts else "figures unchanged"
 
 
 def main():

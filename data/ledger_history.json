@@ -1,0 +1,17 @@
+{
+ "_note": "A day-by-day record of the figures /ledger/ publishes, written by tools/ledger.py and only when one of them moved. The feed at /ledger/feed.xml is generated from this file: it is the only thing on the site that says the numbers changed rather than the numbers as they stand. Appended, never rewritten - the sequence of what the archive claimed over time is the point.",
+ "days": [
+  {
+   "date": "2026-10-18",
+   "figures": {
+    "entries": 240,
+    "records": 542,
+    "openable": 434,
+    "no_locator": 108,
+    "verified_entries": 61,
+    "status_needs_source": 46,
+    "thesis": 17
+   }
+  }
+ ]
+}
