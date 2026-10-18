@@ -11,7 +11,7 @@ for a, v in man['sections'].items():
     if not got:
         print(f"  MISS {a}")
         continue
-    slug = 'section-' + a
+    slug = 'aisle-' + a
     stored, err = im.store(slug, got, 'illustrative')
     if not stored:
         print(f"  FAIL {a}: {err}")

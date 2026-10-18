@@ -1,6 +1,6 @@
 {
   "_note": "Front page copy, one edition per bi-daily release. `front_copy.py --stamp <date>` sets which one is live and `build_cards.py` renders it - the copy used to be written into build_cards.py's template, which made it impossible to rotate without editing a generator, and it was invisible there next to the counts. Appended, never rewritten: the sequence of what the front page said is the record. The hub teasers are NOT here - they come from each story's own `take`, cut at sentence boundaries by `deck()` in build_cards.py, so they change when the stories do.",
-  "_live": "2026-10-17",
+  "_live": "2026-10-18",
   "editions": [
     {
       "date": "2026-10-11",
@@ -38,6 +38,17 @@
         "clerk_line": "<b>I keep the record.</b> Every claim here carries its source, and the ones nobody has opened say so. I do not remember you, and nothing here pretends to.",
         "door_stories": "One a day, each one signed by a person. 48 so far.",
         "door_encyclopedia": "227 entries, every claim cited."
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "note": "encyclopedia door count: 248 entries; typography floor (labels no longer under .6rem)",
+      "copy": {
+        "kicker": "iYi &middot; behind the counter",
+        "line": "Keeping you comfortably connected to the worldwide one-sided web.",
+        "clerk_line": "<b>I keep the record.</b> Every claim here carries its source, and the ones nobody has opened say so. I do not remember you, and nothing here pretends to.",
+        "door_stories": "One a day, each one signed by a person. 48 so far.",
+        "door_encyclopedia": "248 entries, every claim cited."
       }
     }
   ]

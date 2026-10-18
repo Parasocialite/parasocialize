@@ -37,9 +37,11 @@ import http.server
 import json
 import pathlib
 import re
+import shutil
 import socketserver
 import subprocess
 import sys
+import tempfile
 import threading
 
 ROOT = pathlib.Path(r"C:\Users\paras\Documents\Default Project\parasocialize")
@@ -82,9 +84,25 @@ if not target.is_file():
 
 # The probe files go in the same directory as the page, so that a page's
 # relative stylesheet URLs still resolve for the copy the iframe loads.
-wrapper_rel = str(owner / "_narrow_probe.html")
-open_rel = str(owner / "_narrow_open.html")
+# as_posix() and not str(): on Windows, `owner / "x"` joins with a backslash,
+# and the same string went to two Chrome subcommands that treat a backslash in
+# a URL differently - dump-dom fetched `/top8\_narrow_probe.html` happily while
+# --screenshot refused the identical URL with exit 21. One form for the disk
+# AND the URL, and it is the URL's form.
+wrapper_rel = (owner / "_narrow_probe.html").as_posix()
+open_rel = (owner / "_narrow_open.html").as_posix()
+if wrapper_rel.startswith("./"):
+    wrapper_rel = wrapper_rel[2:]
+if open_rel.startswith("./"):
+    open_rel = open_rel[2:]
 png = (ROOT / "episode" / ".chrome" / shot) if shot else None
+
+# A profile of this run's own, deleted afterwards. The shared episode/.chrome
+# profile was two traps in one: two Chrome-based checks started at the same
+# time race for the singleton lock, and a persistent profile has already
+# served a cached stylesheet to a probe once (see probe_hub_contrast's note in
+# AGENTS). A fresh profile can do neither.
+PROFILE = pathlib.Path(tempfile.mkdtemp(prefix="pn-chrome-"))
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -137,18 +155,29 @@ function run() {{
     // page (signal/latest.html is an HTML email, inline-styled by necessity)
     // declares no stylesheet, and demanding one loaded would be inventing a
     // promise it never made. The check that matters is declared-vs-loaded.
-    const declared = [...d.querySelectorAll('link[rel~="stylesheet"]')].length;
+    // Same-origin only: the page's own CSS is local and fingerprinted, and its
+    // absence is what manufactures an unstyled pass; the Google Fonts sheet is
+    // a third-party CDN that a cold profile can still be fetching at measure
+    // time while both local sheets are applied - calling that "no CSS" made
+    // this gate go red on a page whose stylesheet was demonstrably live.
+    // Font loading is verify_measure.py's subject, not this file's.
+    const links = [...d.querySelectorAll('link[rel~="stylesheet"]')];
+    const here = new URL(location.href).origin;
+    const sameLinks = links.filter(l => new URL(l.href).origin === here);
+    const loadedSet = new Set([...d.styleSheets].map(s => s && s.href));
+    const sameLoaded = sameLinks.filter(l => loadedSet.has(l.href)).length;
     const triad = d.querySelector('.tx-triad');
     const css = {{
-      declared, loaded: d.styleSheets.length,
-      selfContained: declared === 0,
+      declared: links.length, loaded: d.styleSheets.length,
+      sameOrigin: sameLinks.length, sameLoaded,
+      selfContained: links.length === 0,
       triadDisplay: triad ? w.getComputedStyle(triad).display : 'n/a',
       bodyBg: w.getComputedStyle(d.body).backgroundColor
     }};
     const styled = css.triadDisplay === 'grid' ||
                    css.bodyBg !== 'rgba(0, 0, 0, 0)';
     const cssOK = css.selfContained ? true
-                                : (css.loaded >= css.declared && styled);
+                                : (sameLoaded >= sameLinks.length && styled);
 
     const doc = d.documentElement;
     // An element inside a horizontal scroll container is *allowed* to extend
@@ -242,7 +271,7 @@ note = ""
 try:
     dom = subprocess.run([
         CHROME, "--headless=new", "--disable-gpu",
-        f"--user-data-dir={ROOT / 'episode' / '.chrome'}",
+        f"--user-data-dir={PROFILE}",
         "--dump-dom", "--virtual-time-budget=8000",
         "--window-size=900,1700", url,
     ], check=True, capture_output=True, timeout=300, text=True,
@@ -261,10 +290,11 @@ try:
         bad.append(f"harness error: {r['error']}")
     elif not r["cssOK"]:
         bad.append(f"stylesheet did not load {r['css']} - the page declared "
-                   f"{r['css'].get('declared')} stylesheet(s) and "
-                   f"{r['css'].get('loaded')} arrived, so every measurement "
-                   "below would be of an unstyled page, which reports no "
-                   "overflow for anything")
+                   f"{r['css'].get('sameOrigin', r['css'].get('declared'))} "
+                   f"same-origin stylesheet(s) and "
+                   f"{r['css'].get('sameLoaded', r['css'].get('loaded'))} "
+                   "arrived, so every measurement below would be of an "
+                   "unstyled page, which reports no overflow for anything")
     elif r["got"] != width:
         bad.append(f"measured at {r['got']}px, asked for {width}px - the "
                    "harness is wrong, not the page")
@@ -315,7 +345,7 @@ try:
         subprocess.run([
             CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
             "--force-device-scale-factor=1",
-            f"--user-data-dir={ROOT / 'episode' / '.chrome'}",
+            f"--user-data-dir={PROFILE}",
             f"--screenshot={png}", f"--window-size={width + 40},1600", url,
         ], check=True, capture_output=True, timeout=240)
         sz = png.stat().st_size
@@ -327,6 +357,7 @@ finally:
     (DIST / wrapper_rel).unlink(missing_ok=True)
     (DIST / open_rel).unlink(missing_ok=True)
     srv.shutdown()
+    shutil.rmtree(PROFILE, ignore_errors=True)
 
 print()
 if note:

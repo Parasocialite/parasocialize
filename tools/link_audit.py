@@ -74,6 +74,11 @@ def main():
                 continue
             checked += 1
             base, _, frag = href.partition("#")
+            # A query string is not part of the filename. `../encyclopedia/
+            # index.html?m=film#db` is one existing page with a filter its own
+            # script applies, and resolving the whole string as a path reported
+            # the atlas's fifteen medium links as 404s on pages that exist.
+            base = base.partition("?")[0]
             if not base:
                 continue
             target = (html_file.parent / urllib.parse.unquote(base)).resolve()

@@ -338,24 +338,6 @@ def rel_days(iso):
 
 
 # ------------------------------------------------------------------- posters
-def poster(c, sections, wide=False):
-    a = next((x for x in sections if x["id"] == c["section"]), {})
-    col = a.get("colour", "#ffb454")
-    h = sum(ord(ch) for ch in c["slug"])
-    g = (c["headline"].strip() or "P")[0].upper()
-    label = c.get("kicker") or ("DO NOT RETURN" if c.get("state") == "OVERDUE" else "")
-    stripe = "#e63946" if c.get("state") == "OVERDUE" else col
-    lab = (f'<span style="position:absolute;top:12px;left:9px;z-index:2;background:{esc(stripe)};'
-           f'color:#fff;font-family:var(--label);font-size:.48rem;letter-spacing:.14em;'
-           f'text-transform:uppercase;padding:3px 6px;border-radius:2px;font-weight:500">'
-           f'{esc(label)}</span>') if label else ""
-    return (f'<div class="poster{" wide" if wide else ""}">'
-            f'<span class="stripe" style="background:{esc(stripe)}"></span>'
-            f'<span class="glyph">{esc(g)}</span>{lab}'
-            f'<span class="foot"><b>{esc(a.get("sign", c["section"].upper()))}</b>'
-            f'<span>{esc(c["headline"][:30])}</span></span></div>')
-
-
 def poster_bg(c, sections):
     """inline gradient for a lead cover"""
     a = next((x for x in sections if x["id"] == c["section"]), {})
@@ -365,17 +347,23 @@ def poster_bg(c, sections):
             f"color-mix(in srgb,{esc(col)} 30%,#1b1410) 55%,#120d0a 100%)")
 
 
-def cover(c, sections, manifest=None, depth=1, big=False):
-    """The picture on a card, or the lettered poster if there isn't one.
+def cover(c, sections, manifest=None, depth=1):
+    """The picture on a card, or nothing at all.
 
     The order is deliberate: this story's own photograph, then its section's
-    photograph, then the generated poster. Twenty-two of the forty-seven stories
-    have no photograph of their own after review - Commons has no freely-licensed
-    still of a Hungarian Twitch partner meeting, and the ones it did return for
-    those stories were wrong, so they were withdrawn rather than shipped. Those
-    cards fall back to the section photograph, which is a real photograph of the
-    subject matter, and only fall through to a letter if a section has no
-    photograph either.
+    photograph, then no picture. Twenty-two of the forty-eight stories have no
+    photograph of their own after review - Commons has no freely-licensed still
+    of a Hungarian Twitch partner meeting, and the ones it did return for those
+    stories were wrong, so they were withdrawn rather than shipped. Those cards
+    fall back to the section photograph, which is a real photograph of the
+    subject matter; where a section has no photograph either, the card is
+    text-forward, with no art box.
+
+    The third fallback used to be a generated lettered poster - the headline's
+    first letter, a stripe, a slash of the headline. It was drawn from the slug
+    and looked like nothing, and on a page about not pretending about pictures
+    a lettered block reads as a missing image rather than a design. An entry
+    with no source says so; a card with no free photograph now does the same.
 
     No credit on the card face, for the same reason the homepage tiles have none:
     it is a licence obligation, not decoration, and it lives on the article page
@@ -383,13 +371,13 @@ def cover(c, sections, manifest=None, depth=1, big=False):
     """
     f = img_for(manifest or {}, c.get("slug"), depth) or \
         img_aisle(manifest or {}, c.get("section"), depth)
-    if f:
-        return (f'<div class="poster shot">'
-                f'<img src="{esc(f["path"])}" alt="" loading="lazy">'
-                f'<span class="veil" style="background:'
-                f'linear-gradient(to top,rgba(12,8,5,.86) 0%,rgba(12,8,5,.12) 46%,'
-                f'rgba(12,8,5,0) 72%)"></span></div>')
-    return poster(c, sections, wide=big)
+    if not f:
+        return ""
+    return (f'<div class="poster shot">'
+            f'<img src="{esc(f["path"])}" alt="" loading="lazy">'
+            f'<span class="veil" style="background:'
+            f'linear-gradient(to top,rgba(12,8,5,.86) 0%,rgba(12,8,5,.12) 46%,'
+            f'rgba(12,8,5,0) 72%)"></span></div>')
 
 
 def clip(text, n=150):
@@ -424,9 +412,14 @@ def story(c, sections, laws, big=False, take=True, root_="", manifest=None, dept
     if law:
         tags.append(f'<span class="tag tag-law">LAW {c["law"]}</span>')
     tk = f'<p class="take">{esc(c["take"])}</p>' if take and c.get("take") else ""
+    # A card with no photograph carries no cover at all - the anchor used to
+    # render regardless, wrapping a lettered poster, and an empty link box is
+    # worse than nothing. See cover() below for why the poster was dropped.
+    art = cover(c, sections, manifest, depth)
+    cov = (f'<a class="cover" href="{root_}radar/{esc(c["slug"])}.html" '
+           f'tabindex="-1" aria-hidden="true">{art}</a>') if art else ""
     return (f'<article class="story{" story-lg" if big else ""}" style="--c:{esc(col)}">'
-            f'<a class="cover" href="{root_}radar/{esc(c["slug"])}.html" tabindex="-1" aria-hidden="true">'
-            f'{cover(c, sections, manifest, depth, big)}</a>'
+            f'{cov}'
             f'<div class="body"><div class="tags">{"".join(tags)}</div>'
             f'<h3><a href="{root_}radar/{esc(c["slug"])}.html">{esc(c["headline"])}</a></h3>'
             f'<p class="dek">{esc(c["one_line"])}</p>{tk}'
@@ -589,7 +582,7 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
     if own:
         article_photo = fig(manifest, c.get("slug"), d, "article-photo")
     else:
-        sec = f"section-{c.get('section')}"
+        sec = f"aisle-{c.get('section')}"
         if img_for(manifest, sec, d):
             article_photo = fig(manifest, sec, d, "article-photo borrowed")
     if article_photo and not own:
@@ -1487,13 +1480,13 @@ def build_section(a, data, manifest=None):
     <div class="sec-head-iyi" title="iYi, in the expression this section is about">{mascot(104, "", SECTION_MOOD.get(a['id'], 'watch'))}</div>
   </div>
 
-  {fig(manifest, f"section-{esc(a['id'])}", 2, "sec-mast")}
+  {fig(manifest, f"aisle-{esc(a['id'])}", 2, "sec-mast")}
 
   <div class="lead" style="margin-top:28px">
     <a class="cover" href="{r}radar/{esc(lead['slug'])}.html" tabindex="-1" aria-hidden="true"
        style="{poster_bg(lead, data['sections'])};border-radius:12px;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.6);aspect-ratio:2/3;display:flex;align-items:flex-end;padding:14px">
       <span style="position:relative;z-index:2">
-        <b style="display:block;font-family:var(--label);font-size:.5rem;letter-spacing:.2em;color:rgba(255,255,255,.8)">MOST RECENT</b>
+        <b style="display:block;font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:rgba(255,255,255,.8)">MOST RECENT</b>
         <span style="display:block;font-family:var(--serif);font-size:.9rem;font-weight:700;color:#fff;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.6)">{esc(lead['headline'][:44])}</span>
       </span>
     </a>
@@ -1535,24 +1528,28 @@ def build_aisle(data, feat=None, manifest=None):
     latest = "".join(story(c, sections, data["laws"], take=False, root_=r,
                              manifest=manifest, depth=1) for c in cards[:18])
 
-    # feature doors at the top: the lists, the history, the moments
+    # feature doors at the top: the lists, the history, the moments. A door
+    # whose photograph is missing carries no art box at all - an empty 56px
+    # rectangle reads as a broken image, and the door is a sentence anyway.
     fdoors = []
     for L in (feat.get("lists") or []):
         f = img_for(manifest, L.get("image"), 1)  # /sections/ is depth 1
-        im = f'<img src="{esc(f["path"])}" alt="" loading="lazy">' if f else ""
+        art = (f'<span class="fdoor-art"><img src="{esc(f["path"])}" alt="" '
+               f'loading="lazy"></span>') if f else ""
         fdoors.append(f'<a class="fdoor" href="{r}top8/index.html" style="--c:#ff5a1f">'
-                      f'<span class="fdoor-art">{im}</span>'
+                      f'{art}'
                       f'<span class="fdoor-body"><b>{esc(L["kicker"])}</b>'
                       f'<strong>Top 8</strong><span>{esc(L["title"])}</span></span></a>')
     for slug, name, kick, blurb, imslug in [
             ("history", "The history", "A course in eight modules",
              "The whole documented history of one-sided attachment, free.", "history-macy-store"),
             ("moments", "The moments", "The ones that moved it",
-             f"{len(feat.get('moments', []))} significant moments across every domain.", "moment-wojak")]:
+             f"{len(feat.get('moments', []))} significant moments across every domain.", "moment-power-rangers")]:
         f = img_for(manifest, imslug, 1)  # sections page: depth 1
-        im = f'<img src="{esc(f["path"])}" alt="" loading="lazy">' if f else ""
+        art = (f'<span class="fdoor-art"><img src="{esc(f["path"])}" alt="" '
+               f'loading="lazy"></span>') if f else ""
         fdoors.append(f'<a class="fdoor" href="{r}{esc(slug)}/index.html" style="--c:#a04dff">'
-                      f'<span class="fdoor-art">{im}</span>'
+                      f'{art}'
                       f'<span class="fdoor-body"><b>{esc(kick)}</b>'
                       f'<strong>{esc(name)}</strong><span>{esc(blurb)}</span></span></a>')
 
@@ -1636,22 +1633,40 @@ def cur_slot(now=None):
     return day * 2 + (0 if now.hour < 12 else 1)
 
 
-def pick_list(feat, now=None):
+def live_lists(feat, today=None):
+    """The lists that have been released, in file order.
+
+    A list is live once its `released` date has arrived; a list with no date
+    counts as the oldest and is always live, so a file holding a single
+    undated list still builds. This is the one place that rule lives -
+    pick_list, the archive and the front page's kicker all read it here -
+    because two answers to "which lists exist yet" is the defect that once put
+    `candidate` entries on /top8/: one of the answers is wrong, and nothing
+    notices.
+    """
+    lists = (feat or {}).get("lists") or []
+    today = today or datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    return [L for L in lists if (L.get("released") or "") <= today]
+
+
+def pick_list(feat, today=None):
     """Which top-8 list is on show, for the front page and /top8/ alike.
 
-    One selector because there were two: the front column said "this week it
-    is X" while the page it linked to read `feat["lists"][0]`, so the two
-    could name different lists and neither could tell. Indexing by ISO week
-    rather than by a stored counter keeps it derived from the calendar, so it
-    is the same for every reader on a given day and needs no state file.
-
-    With one list in the file this returns that list every day.
+    The newest live list - see live_lists() for what live means. Lists are
+    released whole, so the show is a property of the data and the date rather
+    than of the build clock: every reader and every build names the same list,
+    and there is no state file to drift. Ties keep file order, so a new list
+    becomes the show by being dated later, not by being moved.
     """
     lists = (feat or {}).get("lists") or []
     if not lists:
         raise ValueError("features.json holds no top-8 list to show")
-    now = now or datetime.datetime.now(datetime.timezone.utc)
-    return lists[now.isocalendar()[1] % len(lists)]
+    live = live_lists(feat, today)
+    if not live:
+        raise SystemExit(
+            "REFUSING to build: every top-8 list in features.json is dated in "
+            "the future, so there is nothing to show today.")
+    return max(live, key=lambda L: L.get("released") or "")
 
 
 def section_pool(cards, section, now=None):
@@ -1763,7 +1778,7 @@ def deck(take, words=20):
     return s.rstrip(" ,;-—") + ("." if s else "")
 
 
-def _plate_word(show, limit=11):
+def _plate_word(show, limit=11, wordfit=8):
     """The show name for a 52px plate, cut at a WORD boundary.
 
     The first attempt sliced to a fixed length and produced "DRAGONTA" for
@@ -1772,23 +1787,34 @@ def _plate_word(show, limit=11):
     their own last word and given an ellipsis. **A generated cut has to land
     somewhere a reader would have stopped.**
 
+    The second attempt still clipped in the render: the budget was 11
+    characters against a 52px box whose inner width fits about 8 at 10px
+    type, so "NANCY DREW" was `nowrap` and lost its last letters behind
+    `overflow:hidden`. So there are two budgets now, both measured against
+    the box: no single word over `wordfit`, and the kept string under
+    `limit`. The plate wraps at spaces (two lines fit), which is why a
+    two-word pick like "NANCY DREW" is kept whole.
+
     Leading articles go, because "The grouch" reduced to "THE" is worse than no
-    word at all. A single word longer than the limit is kept whole and wraps -
-    the plate sets `overflow-wrap:anywhere` for exactly that.
+    word at all, and a trailing fragment of a word ("QUEEN FOR A") is dropped.
+    A first word longer than the box holds is not broken - the caller falls
+    back to the rank instead ("DRAGO N" reads as a typo).
     """
     s = (show or "").split(",")[0].strip()
     s = re.sub(r"^(?:the|a|an)\s+", "", s, flags=re.I)
     if not s:
         return ""
-    if len(s) > limit:
-        cut = s.rfind(" ", 0, limit + 1)
-        if cut > 0:
-            s = s[:cut]
-        elif len(s) > limit:
-            # A single word with nowhere to cut. Breaking it mid-word reads as
-            # a typo ("DRAGO N"), so the caller falls back to the rank instead.
-            return ""
-    return s.upper()
+    words = s.split()
+    if not words or len(words[0]) > wordfit:
+        return ""
+    out = [words[0]]
+    for w in words[1:]:
+        if len(w) > wordfit or len(" ".join(out + [w])) > limit:
+            break
+        out.append(w)
+    while len(out) > 1 and len(out[-1]) <= 2:
+        out.pop()
+    return " ".join(out).upper()
 
 
 def build_front(data, feat=None, manifest=None, hist=None):
@@ -1797,19 +1823,16 @@ def build_front(data, feat=None, manifest=None, hist=None):
     manifest = manifest or {"items": []}
     hist = hist or {"modules": []}
 
-    # ---- the rotating top 8 column. Which list is on show comes from
-    # pick_list(), so this and /top8/ name the same one; with a single list
-    # in the file it is that list every day, which is why the copy below
-    # only claims rotation when there is more than one to rotate through.
-    # ---- the top 8. Which EIGHT of the pool is on show is decided here, by the
-    # date, so the page always carries eight and they move.
-    #
-    # `entries` is a POOL now, not the list. Each carries a stage:
-    # candidate -> featured -> placed -> archived. A viable new story enters as
-    # a candidate, gets promoted to featured, runs in the eight, is then placed
-    # into a "way it shows up" shelf, and is finally archived rather than
-    # deleted - so the history of what this site thought was worth saying stays
-    # on disk.
+    # ---- the rotating top 8 column. Which list is on show is the newest
+    # `released` date in features.json (pick_list), so this and /top8/ name
+    # the same one; former lists move to /top8/archive/. Which EIGHT of that
+    # list are on show is decided in top8_window(), by the date, so the page
+    # always carries eight.
+    # ---- the top 8. `entries` is the list as released, in rank order. Each
+    # still carries a stage: candidate while drafted for a future list,
+    # featured once the list ships. A former list is never edited to archive
+    # it - it is superseded by a newer `released`, so the history of what this
+    # site showed stays on disk.
     #
     # 8 is a motif on this site, so the page must never show fewer than eight and
     # must never show more. Which eight, and the stage filter and the floor
@@ -1841,8 +1864,15 @@ def build_front(data, feat=None, manifest=None, hist=None):
             f = img_for(manifest, en.get("image"), 0)  # front page: depth 0
             if f:
                 shot += 1
+                # Sizing inline rather than in a `.t8col-art img` rule: the
+                # state this markup is in is decided by the data (a list with
+                # no photographs renders plates), so a CSS rule for the img
+                # case matches nothing whenever the show has no pictures -
+                # which is what check_css --orphans reported. The plate branch
+                # below carries its own inline style for the same reason.
                 im = (f'<span class="t8col-photo"><img src="{esc(f["path"])}" alt="" '
-                      f'loading="lazy"></span>')
+                      f'loading="lazy" style="width:100%;height:100%;'
+                      f'object-fit:cover"></span>')
             else:
                 # A bare numeral in a grid where six of eight neighbours are
                 # photographs reads as a broken image, which is the one thing
@@ -1931,22 +1961,32 @@ def build_front(data, feat=None, manifest=None, hist=None):
         # class of claim and went with it: with one list in the file nothing
         # rotates, so the front page was promising a schedule the build does not
         # keep. The kicker below is the reader-facing part and stays.
-        # Keyed on whether the eight actually rotate, not on how many lists
-        # exist. A single list with more than eight eligible moments does
-        # rotate now, so the old test was printing a plain "The top 8" over a
-        # page that changed daily - the sentence and the behaviour disagreeing
-        # again, in the other direction this time.
-        _feat_n = sum(1 for e in (feat.get("lists") or [[]])[0].get("entries", [])
-                      if e.get("stage", "featured") == "featured") \
-            if feat.get("lists") else 0
-        if len(feat.get("lists") or []) > 1 or _feat_n > TOP8_SLOTS:
-            t8_kick = "The top 8 &middot; this week &middot; rotating"
+        # Two facts decide the kicker, and both come from the same place the
+        # block is built from. With more than one live list the honest label
+        # is which list is on show - the newest `released`, through
+        # pick_list - because "this week"/"rotating" claimed a schedule the
+        # build never had. Within one list, a pool larger than eight does
+        # rotate, and that claim comes from top8_window() itself rather than
+        # being re-derived here: the last time this sentence and the
+        # behaviour were measured in two places, they disagreed.
+        _live_n = len(live_lists(feat))
+        if _live_n > 1:
+            t8_kick = f"The top 8 &middot; {esc(L['kicker'].lower())}"
+        elif L.get("rotating"):
+            t8_kick = "The top 8 &middot; rotating"
         else:
             t8_kick = "The top 8"
+        # The archive link appears only when there is an archive to read: the
+        # page is built from the former lists, so before a second list is
+        # dated it is a placeholder. A door to a placeholder is a promise the
+        # data cannot keep yet.
+        ghost = ('<a class="btn btn-ghost" href="top8/archive/index.html">'
+                 'Past top 8s →</a>' if _live_n > 1 else "")
         t8_block = f"""<div class="t8col-wrap">
   <p class="kicker">{t8_kick}</p>
   <div class="t8col-list">{''.join(rows)}</div>
   <a class="btn btn-solid" href="top8/index.html">Read the whole list</a>
+  {ghost}
 </div>"""
     else:
         t8_block = ""
@@ -1960,7 +2000,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
     if feat.get("moments"):
         feats.append(('moments', 'The moments', '',
                       f"{len(feat['moments'])} significant moments across television, music, the internet, games and AI.",
-                      "moment-wojak", len(feat['moments'])))
+                      "moment-power-rangers", len(feat['moments'])))
     if feat.get("figures"):
         feats.append(('figures', 'The figures', '',
                       f"{len(feat['figures'])} people and characters who keep the sphere turning, from Pygmalion to a Twitch emote.",
@@ -1991,7 +2031,6 @@ def build_front(data, feat=None, manifest=None, hist=None):
         n = len([c for c in cards if c["section"] == a["id"]])
         if not top:
             continue
-        glyph = (top["headline"].strip() or "P")[0].upper()
         short = deck(top.get("take", ""))
         f = img_aisle(manifest, a["id"], 0) or img_for(manifest, top.get("image"), 0)
         if f:
@@ -2004,7 +2043,10 @@ def build_front(data, feat=None, manifest=None, hist=None):
             # keeps the page a page.
             img = f'<img src="{esc(f["path"])}" alt="">'
         else:
-            img = f'<span class="hub-glyph">{esc(glyph)}</span>'
+            # No photograph: the tile keeps the art span for its scrim and
+            # carries no letter. The 6.5rem glyph behind the copy was the old
+            # no-image state, and it read as a placeholder rather than a design.
+            img = ""
         tiles.append(f"""<a class="hub" style="--c:{esc(col)}" href="section/{esc(a['id'])}/index.html">
   <span class="hub-art">{img}</span>
   <b class="hub-name">{esc(a['sign'])}</b>
@@ -2153,7 +2195,7 @@ def img_aisle(manifest, aisle_id, depth=1):
     """The photograph standing in for a whole section. This is what stops the
     front page being ten gradients: every section has a real photograph of its
     subject matter, resolved once and credited."""
-    return img_for(manifest, f"section-{aisle_id}", depth)
+    return img_for(manifest, f"aisle-{aisle_id}", depth)
 
 
 def fig(manifest, slug, depth=1, cls="", wide=False):
@@ -2219,7 +2261,7 @@ def front_copy_edition():
                                "nothing here pretends to."),
                  "door_stories": (f"One a day, each one signed by a person. "
                                   f"48 so far."),
-                 "door_encyclopedia": "227 entries, every claim cited."}
+                 "door_encyclopedia": "248 entries, every claim cited."}
     d = _j.loads(f.read_text(encoding="utf-8"))
     eds = d.get("editions") or []
     live = d.get("_live") or (eds[-1]["date"] if eds else None)
@@ -2276,25 +2318,31 @@ def top8_window(feat):
     stage exists to keep off the page. Two copies of "which eight" is the
     `kind: exact` class: one of them is wrong and nothing notices.
 
-    Above eight eligible moments the eight rotate on a fixed cycle rather than
-    by hash - a hash reshuffles all eight whenever the pool grows, which reads
-    as churn, and two consecutive days must never repeat the same page.
+    The list itself is the newest `released` in the file, chosen through
+    pick_list() so the front page and /top8/ cannot name different ones.
+    Above eight eligible moments in a list, the eight rotate on a fixed cycle
+    rather than by hash - a hash reshuffles all eight whenever the pool grows,
+    which reads as churn, and two consecutive days must never repeat the same
+    page.
     """
     lists = feat.get("lists") or []
     if not lists:
         return {"title": "", "kicker": "", "dek": "", "standfirst": "",
                 "entries": []}
-    head = lists[0]
-    # Carry the list's own keys through - image, law, slug and the rest are read
-    # by build_top8, and rebuilding the dict field by field dropped them. That is
-    # how /top8/ lost its hero photograph and how .t8-hero-fig img became an
-    # orphan rule: a refactor that only meant to change "which eight" silently
-    # removed an image, and the only thing that noticed was the dead-CSS check
-    # reporting a selector that matched nothing.
-    L = dict(head)
+    # pick_list hands back the list's own dict with every key intact - image,
+    # law, slug and the rest are read by build_top8 as well as the window
+    # below, and a refactor that rebuilt the dict field by field once dropped
+    # them. That is how /top8/ lost its hero photograph and how .t8-hero-fig
+    # img became an orphan rule; the only thing that noticed was the dead-CSS
+    # check reporting a selector that matched nothing.
+    L = dict(pick_list(feat))
     featured = [e for e in L["entries"]
                 if e.get("stage", "featured") == "featured"]
-    if len(featured) > TOP8_SLOTS:
+    # Rotation is a property of the whole list, so it is measured before the
+    # window narrows it, and it rides on L because the front page's kicker
+    # asks the same question. One answer, in one place.
+    L["rotating"] = len(featured) > TOP8_SLOTS
+    if L["rotating"]:
         n = len(featured)
         start = (datetime.date.today().toordinal() * TOP8_SLOTS) % n
         # a window that wraps, so consecutive days overlap rather than
@@ -2312,130 +2360,130 @@ def top8_window(feat):
 
 
 
-def build_top8(data, feat, manifest):
-    r = root(1)
-    L = top8_window(feat)
-    # "rotated weekly" is a promise about a schedule, and with one list in
-    # the file there is nothing to rotate through. The front page already
-    # conditions its version of this claim; this is the same sentence from
-    # the other end.
-    outro = ("More top 8s coming, rotated weekly."
-             if len(feat.get("lists") or []) > 1 else "More top 8s to come.")
-    laws = {l["n"]: l for l in data["laws"]}
-    shelf = {s["id"]: s for s in data["shelf"]}
+def t8_entry(en, i, laws, shelf, manifest, depth, one_law):
+    """One moment of a top-8 list, as markup. Shared by /top8/ and the archive.
 
-    items = []
-    photographed = 0
-    # All eight entries are instances of Law 6, which is the point of the list
-    # rather than a tagging accident. Rendering the same shelf item in a source
-    # box eight times said nothing eight times over, so when the whole list
-    # shares one law it is stated once above the list and the per-entry box is
-    # dropped.
-    shared = {en.get("law") for en in L["entries"]}
-    one_law = next(iter(shared)) if len(shared) == 1 else None
-    for _i, en in enumerate(L["entries"], 1):
-        # The numeral is the position in the POOL, taken here rather than read
-        # from `en["rank"]`. It was stored, which meant two failures: a promoted
-        # candidate carries no rank and the page raised KeyError, and once a
-        # pool larger than eight is rotating, a stored rank describes the pool
-        # rather than the page and goes stale the moment the window moves.
-        # The eight that shipped already had 1..8 in pool order, so this is
-        # identical output for them and correct for everything after.
-        law = laws.get(en.get("law"), {})
-        sh = shelf.get(law.get("shelf")) if law.get("shelf") else None
-        cite = ""
-        if sh and one_law is None:
-            # the work is a source for this entry, cited like any other source
-            cite = (f'<div class="t8-cite"><p class="t8-cite-l">SOURCE</p>'
-                    f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
-                    f'{esc(sh["title"])}</a>'
-                    f'<p>{esc(sh["blurb"])}</p></div>')
-        f = img_for(manifest, en.get("image"), 1)   # /top8/index.html is depth 1
-        if f:
-            photographed += 1
-            im = (f'<figure class="t8-fig"><img src="{esc(f["path"])}" alt="" loading="lazy">'
-                  f'<figcaption>{esc(f["caption"])} &middot; '
-                  f'<a href="{esc(f["page"])}" target="_blank" rel="noopener nofollow">'
-                  f'{esc(f["credit"])}</a></figcaption></figure>')
-        else:
-            # No freely-licensed frame exists for these two, and that is not a
-            # gap to apologise for - it is the reason the plate is a designed
-            # title card rather than a photograph. It used to carry "no free
-            # frame exists" underneath the show name, which was a note about
-            # this site's sourcing written on a reading surface: exactly the
-            # kind of internal message that does not belong in front of a
-            # reader. The card now says only what it is - the show, and the
-            # year - in the same display face as the entry titles beside it, so
-            # it reads as a deliberate slug rather than as a picture that failed
-            # to arrive.
-            bits = [b.strip() for b in en["show"].split(",")]
-            show_name = bits[0] if bits else en["show"]
-            show_year = bits[1] if len(bits) > 1 else ""
-            im = (f'<div class="t8-plate" style="--c:#ff5a1f">'
-                  f'<span class="t8-plate-n">{esc(_i)}</span>'
-                  f'<span class="t8-plate-t">{esc(show_name)}</span>'
-                  + (f'<span class="t8-plate-y">{esc(show_year)}</span>'
-                     if show_year else "")
-                  + '</div>')
-        items.append(f"""<li class="t8-item" data-rank="{_i}">
+    A former list renders exactly what it rendered the day it was on show -
+    the entry's own words, its law, its photograph or its plate, and its shelf
+    line when the list mixes laws - so archiving is a change of address rather
+    than an edit. The numeral is the position on the page, taken at render
+    time: a stored rank describes the pool it was written for, and a promoted
+    candidate carries none at all.
+    """
+    law = laws.get(en.get("law"), {})
+    sh = shelf.get(law.get("shelf")) if law.get("shelf") else None
+    cite = ""
+    if sh and one_law is None:
+        # The shelf item is the site's own work on the same law - a book, a
+        # video, an episode the author made about the same material - not a
+        # source the entry was built from. This box said SOURCE, which is
+        # exactly the false credit: an invented reference in the place a
+        # reader goes to check the entry. What is true is that it sits on the
+        # same shelf.
+        cite = (f'<div class="t8-cite"><p class="t8-cite-l">ON THE SHELF</p>'
+                f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
+                f'{esc(sh["title"])}</a>'
+                f'<p>{esc(sh["blurb"])}</p></div>')
+    f = img_for(manifest, en.get("image"), depth)
+    if f:
+        im = (f'<figure class="t8-fig"><img src="{esc(f["path"])}" alt="" loading="lazy">'
+              f'<figcaption>{esc(f["caption"])} &middot; '
+              f'<a href="{esc(f["page"])}" target="_blank" rel="noopener nofollow">'
+              f'{esc(f["credit"])}</a></figcaption></figure>')
+    else:
+        # No freely-licensed photograph is a designed state, not a missing
+        # one. The plate used to carry "no free frame exists" underneath the
+        # show name - a note about this site's sourcing written on a reading
+        # surface - and now says only what it is, the show and the year, in
+        # the display face the entry titles use, so it reads as a deliberate
+        # slug rather than as a picture that failed to arrive.
+        bits = [b.strip() for b in en["show"].split(",")]
+        show_name = bits[0] if bits else en["show"]
+        show_year = bits[1] if len(bits) > 1 else ""
+        im = (f'<div class="t8-plate" style="--c:#ff5a1f">'
+              f'<span class="t8-plate-n">{esc(i)}</span>'
+              f'<span class="t8-plate-t">{esc(show_name)}</span>'
+              + (f'<span class="t8-plate-y">{esc(show_year)}</span>'
+                 if show_year else "")
+              + '</div>')
+    return f"""<li class="t8-item" data-rank="{i}">
   <div class="t8-head">
-    <span class="t8-rank">{_i}</span>
+    <span class="t8-rank">{i}</span>
     {im}
     <div class="t8-titles">
       <h3>{esc(en['name'])}</h3>
       <p class="t8-show">{esc(en['show'])}</p>
-      <a class="t8-law" href="../history/index.html#law-{esc(en.get('law',1))}">LAW {esc(en.get('law',1))} &middot; {esc(law.get('title',''))}</a>
+      <a class="t8-law" href="{root(depth)}history/index.html#law-{esc(en.get('law',1))}">LAW {esc(en.get('law',1))} &middot; {esc(law.get('title',''))}</a>
     </div>
   </div>
   <p class="t8-what"><b>What happens.</b> {esc(en['what'])}</p>
   <p class="t8-why"><b>Why it is on the list.</b> {esc(en['why'])}</p>
   {cite}
-</li>""")
+</li>"""
+
+
+def t8_shared_law(one_law, laws, shelf):
+    """The list's one law, stated once, when the whole list shares it.
+
+    Rendering the same shelf item in a per-entry box eight times says nothing
+    eight times over, so a list whose entries are all instances of one law
+    states it once above the list - the law, and the author's own work on the
+    same material - and the per-entry box is dropped.
+    """
+    if one_law is None:
+        return ""
+    l = laws.get(one_law, {})
+    sh = shelf.get(l.get("shelf")) if l.get("shelf") else None
+    src_line = (f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
+                f'{esc(sh["title"])}</a> &mdash; {esc(sh["blurb"])}') if sh else ""
+    return (f'<p class="t8-sharedlaw"><span class="t8-sharedlaw-n">'
+            f'LAW {esc(one_law)}</span> All eight entries are instances of '
+            f'<b>{esc(l.get("title", ""))}</b>, which is the reason they are '
+            f'on one list. {src_line}</p>')
+
+
+def t8_frame_note(L):
+    """The list's own note above the list, rendered from its data.
+
+    Optional per list, and it lives in the data rather than in the renderer:
+    the previous version was hardcoded and claimed that every picture in a set
+    of six was of the audience, which three of them were not - all six were
+    opened to check it, and the sentence survived its own correction because
+    the fix left it in the template. Part one carries one; Part two has no
+    photographs at all, so a note about frames would be a note about nothing.
+    """
+    body = (L.get("frame_note") or "").strip()
+    if not body:
+        return ""
+    paras = "".join(f"<p>{emph(p)}</p>" for p in body.split("\n\n")
+                    if p.strip())
+    return ('<aside class="t8-frame">\n  <p class="kicker">Read this '
+            f'before the list</p>\n  {paras}\n</aside>')
+
+
+def build_top8(data, feat, manifest):
+    r = root(1)
+    L = top8_window(feat)
+    # The outro used to promise "rotated weekly", which is a promise about a
+    # schedule the build does not keep - lists move when a newer one is dated,
+    # not on a timetable. With more than one live list the direction of travel
+    # that is true is the archive, which is where the former ones are.
+    outro = ('Earlier top 8s are in the <a href="archive/index.html">archive</a>.'
+             if len(live_lists(feat)) > 1 else "More top 8s to come.")
+    laws = {l["n"]: l for l in data["laws"]}
+    shelf = {s["id"]: s for s in data["shelf"]}
+
+    # When the whole list shares one law - which is the point of Part one
+    # rather than a tagging accident - the law is stated once above the list
+    # and the per-entry shelf box is dropped.
+    shared = {en.get("law") for en in L["entries"]}
+    one_law = next(iter(shared)) if len(shared) == 1 else None
+    items = "".join(t8_entry(en, i, laws, shelf, manifest, 1, one_law)
+                    for i, en in enumerate(L["entries"], 1))
 
     stand = fig(manifest, L.get("image"), 1, cls="t8-hero-fig")   # depth 1, as above
-    # the shared law, stated once above the list
-    shared_law = ""
-    if one_law is not None:
-        l = laws.get(one_law, {})
-        sh = shelf.get(l.get("shelf")) if l.get("shelf") else None
-        src_line = (f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
-                    f'{esc(sh["title"])}</a> &mdash; {esc(sh["blurb"])}') if sh else ""
-        shared_law = (f'<p class="t8-sharedlaw"><span class="t8-sharedlaw-n">'
-                      f'LAW {esc(one_law)}</span> All eight entries are instances of '
-                      f'<b>{esc(l.get("title", ""))}</b>, which is the reason they are '
-                      f'on one list. {src_line}</p>')
-    # The licensing constraint hands the page its argument. Not one frame of
-    # these cartoons is freely licensed, so every photograph here is of the
-    # audience instead: a toy in a shop, a party, a costume, a convention floor,
-    # a cast photo. For a list about one-sided bonds, the illustrations are
-    # themselves evidence of the bond, and saying so is better than pretending
-    # the gap is a production accident.
-    #
-    # This block enumerated all six photographs and then counted how many
-    # entries had none. Both parts are internal: an inventory of the site's own
-    # image assets, written in front of the reader, and the front page carried a
-    # near-identical sentence until it was cut for exactly that reason. Worse,
-    # the enumeration is a claim about every picture in it - it named "a Reptar
-    # toy in a shop" and "a cast photo from a film that is not the show", and
-    # both were wrong, because the must-term had passed on a filename. An
-    # enumeration of pictures is a claim about every picture in it.
-    #
-    # What survives is the one sentence that is an argument rather than an
-    # inventory: the pictures are of the audience because that is what the list
-    # is about. Each picture carries its own caption and its own credit, so a
-    # reader can see what any given one is without being told all eight.
-    frame_note = """<aside class="t8-frame">
-  <p class="kicker">Read this before the list</p>
-  <p>There is not one frame of these eight cartoons on this page. All of it is
-  Nickelodeon property and none of it is free to reuse, so what is pictured
-  instead is <b>the audience</b>.</p>
-  <p>That is not a workaround. It is the list. Every entry here is about a
-  relationship with a character who cannot reciprocate, and the only images left
-  standing are of the people having it.</p>
-</aside>"""
-
-
-    stand = fig(manifest, L.get("image"), 1, cls="t8-hero-fig")   # depth 1, as above
+    shared_law = t8_shared_law(one_law, laws, shelf)
+    frame_note = t8_frame_note(L)
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2469,7 +2517,94 @@ def build_top8(data, feat, manifest):
   <a href="{r}index.html">Back to the ten sections →</a></p>
 </section>
 </main>
-{FOOT.format(root=root(1), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
+    {FOOT.format(root=root(1), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
+</body></html>"""
+
+
+def build_top8_archive(data, feat, manifest):
+    """Every former top-8 list, rendered in full, newest first.
+
+    The show is the newest live list (pick_list), so a list becomes former by
+    a newer one being dated rather than by an edit: it is still in
+    data/features.json exactly as it shipped, and this page renders it with
+    the same entry renderer the show page uses. An archive that prints a
+    different version of the thing than the one that ran is a second,
+    conflicting record of it, so there is deliberately no trimmed or
+    summarised mode here.
+
+    A list dated in the future is neither the show nor former - it is not
+    live yet, so it is not anywhere on the site.
+    """
+    r = root(2)
+    laws = {l["n"]: l for l in data["laws"]}
+    shelf = {s["id"]: s for s in data["shelf"]}
+    show = pick_list(feat)
+    former = sorted((L for L in live_lists(feat)
+                     if L.get("slug") != show.get("slug")),
+                    key=lambda L: L.get("released") or "", reverse=True)
+
+    chunks = []
+    for L in former:
+        # Only `featured` entries are ever rendered: `candidate` is the stage
+        # that keeps a moment off the page until its list ships, and the
+        # archive is a page.
+        entries = [en for en in L["entries"]
+                   if en.get("stage", "featured") == "featured"]
+        shared = {en.get("law") for en in entries}
+        one_law = next(iter(shared)) if len(shared) == 1 else None
+        items = "".join(t8_entry(en, i, laws, shelf, manifest, 2, one_law)
+                        for i, en in enumerate(entries, 1))
+        stand = fig(manifest, L.get("image"), 2, cls="t8-hero-fig")
+        chunks.append(f"""<section class="section" id="{esc(L['slug'])}">
+  <p class="kicker">{esc(L['kicker'])} &middot; the top 8</p>
+  <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;max-width:24ch">{esc(L['title'])}</h2>
+  <p class="sec-lede" style="max-width:62ch">{esc(L['dek'])}</p>
+  {stand}
+  <div class="note" style="margin-top:24px"><p>{esc(L['standfirst'])}</p></div>
+  {t8_frame_note(L)}
+  {t8_shared_law(one_law, laws, shelf)}
+  <ol class="t8">{items}</ol>
+</section>""")
+
+    if not chunks:
+        chunks.append("""<section class="section">
+  <p class="sec-lede" style="max-width:62ch">Nothing has been put aside yet -
+  the first list is still on show, and this page fills in when a newer list is
+  dated and takes its place.</p>
+</section>""")
+
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 8 archive — Parasocialize</title>
+<meta name="description" content="Every top 8 this site has run, in full, newest first.">
+{HEAD.format(site=SITE, path="/top8/archive/", otype="website",
+             title="Top 8 archive",
+             desc="Every top 8 this site has run, in full, newest first.",
+             root=root(2))}
+</head>
+<body>
+<a class="skip" href="#lists">Skip to the lists</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=root(2), total=len(data['cards']), mk=wordmark("nav"))}
+<main id="lists">
+<section class="section" style="padding-bottom:6px">
+  <p class="kicker">The top 8 &middot; archive</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.02;margin:0 0 16px;max-width:22ch">Every top 8 this site has run</h1>
+  <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">A former list is not
+  trimmed or summarised here - it is the list exactly as it was on show. The
+  one on show now is at <a href="../index.html" style="color:var(--hot)">the
+  top 8</a>.</p>
+</section>
+{''.join(chunks)}
+<section class="section" style="padding-top:8px">
+  <p class="countline">Former lists are kept exactly as they shipped.
+  <a href="{r}index.html">Back to the ten sections →</a></p>
+</section>
+</main>
+{FOOT.format(root=root(2), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
 </body></html>"""
 
 
@@ -2479,9 +2614,10 @@ def build_history(data, hist, manifest):
     laws = {l["n"]: l for l in data["laws"]}
     shelf = {s["id"]: s for s in data["shelf"]}
 
-    law_bar = "".join(
-        f'<a class="hlaw" href="#law-{esc(l["n"])}"><b>{esc(l["n"])}</b>'
-        f'<span>{esc(l["title"])}</span></a>' for l in hist["laws"])
+    mod_bar = "".join(
+        f'<a class="hlaw" href="#m{esc(m["n"])}"><b>{esc(m["n"])}</b>'
+        f'<span>{esc(m["title"])}<i class="hlaw-y">{esc(m["years"])}</i></span></a>'
+        for m in hist["modules"])
 
     mods = []
     for m in hist["modules"]:
@@ -2541,7 +2677,7 @@ def build_history(data, hist, manifest):
   <h1 class="h-title">The history of feeling things at people who can't feel it back</h1>
   <p class="sec-lede" style="font-size:1.12rem;max-width:64ch">{esc(hist['intro'])}</p>
   <p class="countline">Ctrl/Cmd+P to print the whole thing. It is a course, not a blog post — modules, claims, evidence.</p>
-  <div class="h-outline">{law_bar}</div>
+  <div class="h-outline">{mod_bar}</div>
 </section>
 
 <section class="section" id="course" style="padding-top:0">
@@ -2555,7 +2691,7 @@ def build_history(data, hist, manifest):
   now, which is a different job and the more useful one. Notice, name, choose.</p></div>
   <div class="h-laws">{''.join(laws_html)}</div>
   <p class="countline" style="margin-top:26px">The full versions, with the worksheet, are in
-  </p>
+  <a href="{r}classroom/index.html">the classroom</a>.</p>
 </section>
 </main>
 {FOOT.format(root=root(1), sweep=MESSY, motto='SIX HUNDRED YEARS, EIGHT MODULES,<br>ONE UNCOMFORTABLE QUESTION.')}
@@ -3913,7 +4049,7 @@ def build_entry(ent, enc, data, manifest=None):
   <p class="countline" style="margin-top:20px">
     <a href="{r}timeline/index.html">The full timeline →</a> ·
     <a href="{r}encyclopedia/index.html">The database →</a> ·
-    <a href="{r}atlas/index.html#n={esc(ent['id'])}">See it in the atlas →</a></p>
+    <a href="{r}atlas/index.html">The atlas →</a></p>
 </main>
 {FOOT.format(root=r, sweep=MESSY, motto=f'{len(out_edges) + len(incoming)} CONNECTIONS.<br>ONE OF THEM IS THIS ONE.')}
 </body></html>"""
@@ -4108,6 +4244,19 @@ def build_encyclopedia(enc, data):
     meds = medium_clusters(enc["entries"])
     subjs = subject_clusters(enc["entries"])
     waysin = _clus(meds, subjs, r)
+    # The lane cards and the cluster ways-in sat above the table and pushed the
+    # search box most of a screen down: a reader arriving to search had to get
+    # through the whole exposition first, and the table is the page's job. They
+    # are expansions now, after it, which is also what makes the media chips'
+    # `#db` anchors coherent - their jump brings the filtered table back into
+    # view, which from the bottom of the page it otherwise would not be. The
+    # kicker counts its lanes rather than typing the number.
+    lanecards = (
+        f'<p class="kicker" style="margin-top:40px">The {len(enc["lanes"])} lanes</p>'
+        f'<div class="lanecards" style="margin-top:16px">'
+        + "".join(f'<div class="lanecard" style="--c:{esc(v["colour"])}"><b>{esc(v["name"])}</b>'
+                  f'<p>{esc(v["blurb"])}</p></div>' for v in enc["lanes"].values())
+        + "</div>")
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
@@ -4133,13 +4282,6 @@ def build_encyclopedia(enc, data):
   The ten sections on this site ask <i>where</i> attachment shows up. The lanes ask <i>why anyone is
   using it</i>. A fan club is application; the same fan club with a paid tier is manipulation; the
   study of both is consideration.</p>
-  <div class="lanecards" style="margin-top:24px">
-    {''.join(f'<div class="lanecard" style="--c:{esc(v["colour"])}"><b>{esc(v["name"])}</b>'
-             f'<p>{esc(v["blurb"])}</p></div>' for v in enc['lanes'].values())}
-  </div>
-
-  {waysin}
-
   <p class="kicker" style="margin-top:34px">All {n}, in date order</p>
   <div class="bar" style="margin-top:12px">
     <input class="search" id="q" type="search" placeholder="Search {n} entries…" aria-label="Search">
@@ -4160,6 +4302,10 @@ def build_encyclopedia(enc, data):
   <b>?</b> for a citation check. That is the work queue, not a failure: a timeline
   format tells the reader somebody checked, so unverified dates are marked rather than hidden.
   <a href="{r}timeline/index.html">Read it as a timeline →</a></p>
+
+  {lanecards}
+
+  {waysin}
 </section>
 </main>
 {FOOT.format(root=r, sweep=MESSY, motto='THE UNVERIFIED ONES ARE MARKED.<br>NOT HIDDEN.')}
@@ -4206,11 +4352,22 @@ def build_encyclopedia(enc, data):
   rb.forEach(function(b){{b.addEventListener('click',function(){{
     rec=(rec===b.dataset.rec?null:b.dataset.rec);
     rb.forEach(function(x){{x.classList.toggle('on',x.dataset.rec===rec);}});run();}});}});
-  mb.forEach(function(m){{m.addEventListener('click',function(ev){{
-    ev.preventDefault();
+  /* The media chips sit below the table, so their click must not swallow the
+     anchor's own #db jump: that jump is what puts the filtered table back in
+     front of the reader. Prevented, the filter applies off screen and the page
+     looks like it did nothing. */
+  mb.forEach(function(m){{m.addEventListener('click',function(){{
     med=(med===m.dataset.med)?null:m.dataset.med;
     mb.forEach(function(o){{o.classList.toggle('on',o.dataset.med===med);}});
     run();}});}});
+  /* The atlas links here with ?m=<medium> - a row label there is a filter, so
+     we arrive with that medium already on and the table already narrowed.
+     Guarded on the chip existing, because the query is a reader-facing tag on
+     a URL and a typed or hand-edited one must not break the page. */
+  try{{var wm=new URLSearchParams(location.search).get('m');
+    if(wm&&mb.some(function(o){{return o.dataset.med===wm;}})){{
+      med=wm;mb.forEach(function(o){{o.classList.toggle('on',o.dataset.med===med);}});
+    }}}}catch(e){{}}
   q.addEventListener('input',run);unv.addEventListener('change',run);run();
 }})();
 </script>
@@ -4258,7 +4415,7 @@ def build_shelf(data):
             img = (f'<img src="{s["img"] if str(s.get("img", "")).startswith("http") else r + s["img"]}" alt="{esc(s["title"])}" loading="lazy">'
                    if s.get("img") else '<div class="tileb">no art</div>')
             doors = "".join(
-                f'<a class="btn btn-ghost" style="padding:6px 11px;font-size:.52rem" href="{esc(u)}" '
+                f'<a class="btn btn-ghost" style="padding:6px 11px;font-size:.6rem" href="{esc(u)}" '
                 f'target="_blank" rel="noopener nofollow">{esc(DOOR_LABEL.get(d, d))} ↗</a>'
                 for d, u in doors_for(s))
             cite = (f'<p class="work-cite on">{n} stor{"y" if n == 1 else "ies"} lean on this</p>'
@@ -4461,6 +4618,10 @@ def build_sitemap(data):
             (f"{SITE}/signal/latest.html", "0.5", "weekly"), (f"{SITE}/tip/", "0.4", "monthly")]
     urls.append((f"{SITE}/atlas/", "0.6", "weekly"))
     urls.append((f"{SITE}/quiz/", "0.6", "monthly"))
+    # /top8/archive/ - former lists, kept in full. A real page from the first
+    # release (it carries a placeholder until a second list is dated), and a
+    # page a reader can reach but a crawler cannot is only half published.
+    urls.append((f"{SITE}/top8/archive/", "0.5", "monthly"))
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
     urls.append((f"{SITE}/citations/", "0.5", "weekly"))
     for a in data["sections"]:
@@ -4589,6 +4750,9 @@ def main():
     hist = json.loads((ROOT / "data" / "history.json").read_text(encoding="utf-8"))
     (ROOT / "top8").mkdir(exist_ok=True)
     (ROOT / "top8" / "index.html").write_text(build_top8(data, feat, manifest), encoding="utf-8")
+    (ROOT / "top8" / "archive").mkdir(exist_ok=True)
+    (ROOT / "top8" / "archive" / "index.html").write_text(
+        build_top8_archive(data, feat, manifest), encoding="utf-8")
     (ROOT / "history").mkdir(exist_ok=True)
     (ROOT / "history" / "index.html").write_text(build_history(data, hist, manifest), encoding="utf-8")
     (ROOT / "figures").mkdir(exist_ok=True)
@@ -4597,7 +4761,8 @@ def main():
     (ROOT / "brand").mkdir(exist_ok=True)
     (ROOT / "brand" / "index.html").write_text(build_brand(data, feat), encoding="utf-8")
 
-    # /atlas/ - the constellation, rebuilt from data/atlas.json
+    # /atlas/ - the era x medium grid, rebuilt from data/atlas.json, and
+    # /quiz/ behind it, which is scored out of the atlas.
     import subprocess as _sp
     _sp.run(["python", str(ROOT / "tools" / "atlas.py"), "--graph"], check=True,
            capture_output=True)

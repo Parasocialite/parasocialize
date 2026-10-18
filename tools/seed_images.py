@@ -206,7 +206,7 @@ def build():
     for slug, spec in FEATURES.items():
         add(slug, "feature", spec)
     for slug, a in (man.get("sections") or {}).items():
-        add("section-" + slug, "section",
+        add("aisle-" + slug, "section",
             (a.get("topic"), None, a.get("caption"), False), section=slug,
             topic=a.get("topic"))
 

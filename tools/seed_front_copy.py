@@ -26,7 +26,7 @@ COPY = {
                    "source, and the ones nobody has opened say so. I do not "
                    "remember you, and nothing here pretends to."),
     "door_stories": "One a day, each one signed by a person. 48 so far.",
-    "door_encyclopedia": "227 entries, every claim cited.",
+    "door_encyclopedia": "248 entries, every claim cited.",
 }
 
 if DATA.exists():

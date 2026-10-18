@@ -1,17 +1,20 @@
-"""The Top 8 lifecycle: candidate -> featured -> placed -> archived.
+"""The Top 8 lists: the newest `released` is on show, former lists are kept.
 
-The rule the whole thing serves: **8 is a motif**. The page must always carry
-eight moments, so the way to add to it is not to grow the list but to rotate it.
-A moment that has run its time moves on, and something else takes its slot.
+Lists are released whole. The show is the list with the newest `released`
+date that is not in the future - chosen by `build_cards.pick_list`, the one
+selector the front page and /top8/ both use - and former lists stay in
+`data/features.json` for the archive rather than being edited in place.
+**8 is a motif**: a list that ships carries exactly eight entries, and
+build_cards.py refuses to build a show with fewer.
 
-    candidate   written and vetted, not yet eligible
-    featured    ELIGIBLE. The page shows eight of these; the pool may hold
-                more, and that is the whole mechanism - an eight-slot pool can
-                never rotate, because anything promoted must first eject
-    placed      has been surfaced in a "way it shows up" shelf
+An entry's stage records where that entry is in its list's life:
+
+    candidate   drafted, not yet shipped
+    featured    shipped with the list it sits in
+    placed      has since been surfaced in a "way it shows up" shelf
     archived    has had its run; kept as history, never deleted
 
-    tools\\t8_pool.py                     the pool by stage
+    tools\\t8_pool.py                     the show list by stage
     tools\\t8_pool.py --stage <id> <stage>
     tools\\t8_pool.py --promote [n]       move n candidates into featured
     tools\\t8_pool.py --place <id> <shelf> record where it landed
@@ -31,6 +34,8 @@ import json, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
 DATA = ROOT.parent / "data" / "features.json"
+sys.path.insert(0, str(ROOT))
+import build_cards as bc  # noqa: E402  (the shared list selector lives there)
 sys.stdout.reconfigure(encoding="utf-8")
 
 STAGES = ("candidate", "featured", "placed", "archived")
@@ -39,12 +44,13 @@ SLOTS = 8
 
 def load():
     d = json.loads(DATA.read_text(encoding="utf-8"))
-    return d, d["lists"][0]
+    return d, bc.pick_list(d)
 
 
-def save(d, before_keys, before_n):
+def save(d, before_keys, before_slug, before_n):
     assert sorted(d) == before_keys, "top-level keys moved"
-    assert len(d["lists"][0]["entries"]) == before_n, "entry count moved"
+    L = next(x for x in d["lists"] if x["slug"] == before_slug)
+    assert len(L["entries"]) == before_n, "entry count moved"
     DATA.write_text(json.dumps(d, ensure_ascii=False, indent=1) + "\n",
                     encoding="utf-8")
 
@@ -57,6 +63,8 @@ def report(L):
     pool = L["entries"]
     by = {s: [e for e in pool if e.get("stage", "featured") == s]
           for s in STAGES}
+    print(f"list: {L['slug']} "
+          f"(released {L.get('released') or 'undated, sorts oldest'})\n")
     print(f"pool: {len(pool)} moment(s)\n")
     for s in STAGES:
         n = len(by[s])
@@ -81,7 +89,7 @@ def find(pool, ident):
 def main():
     argv = sys.argv[1:]
     d, L = load()
-    keys, n = sorted(d), len(L["entries"])
+    keys, slug, n = sorted(d), L["slug"], len(L["entries"])
     pool = L["entries"]
 
     if not argv or argv[0] in ("--list", "list"):
@@ -100,7 +108,7 @@ def main():
         # No cap. See the module docstring: capping featured at SLOTS made the
         # rotation branch in build_cards.py unreachable.
         e["stage"] = argv[2]
-        save(d, keys, n)
+        save(d, keys, slug, n)
         print(f"{eid(e)}: {was} -> {argv[2]}")
         return 0
 
@@ -108,15 +116,15 @@ def main():
         want = int(argv[1]) if len(argv) > 1 else 1
         cands = [e for e in pool if e.get("stage", "featured") == "candidate"]
         if not cands:
-            print("no candidates. add one to features.json lists[0].entries "
-                  "with \"stage\": \"candidate\"")
+            print(f"no candidates in {slug}. add one to that list in "
+                  f"features.json with \"stage\": \"candidate\"")
             return 1
         live = [e for e in pool if e.get("stage", "featured") == "featured"]
         # No cap on the pool. See the module docstring.
         take = cands[:want]
         for e in take:
             e["stage"] = "featured"
-        save(d, keys, n)
+        save(d, keys, slug, n)
         for e in take:
             print(f"promoted: {eid(e)}  {e.get('show','')}")
         print(f"featured pool now {len(live) + len(take)} "
@@ -129,7 +137,7 @@ def main():
             sys.exit(f"no moment matching {argv[1]!r}")
         e["shelf"] = argv[2]
         e["stage"] = "placed"
-        save(d, keys, n)
+        save(d, keys, slug, n)
         print(f"{eid(e)}: placed -> {argv[2]}")
         return 0
 
@@ -144,7 +152,7 @@ def main():
                 sys.exit(f"refusing: that is the only featured moment; the "
                          f"page must always show {SLOTS}.")
         e["stage"] = "archived"
-        save(d, keys, n)
+        save(d, keys, slug, n)
         print(f"{eid(e)}: archived (kept, not deleted)")
         return 0
 

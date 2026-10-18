@@ -1,5 +1,5 @@
 {
- "_note": "TOP 8. Each entry: what it is, why it made the list, and which law of the seven it trips. 'mine' points at a work on the shelf when the work is a genuine source for that entry - not an advert, the citation.",
+ "_note": "TOP 8. Each list is released whole; the newest `released` is on show and the rest are at /top8/archive/. Each entry: what it is, why it made the list, and which law of the seven it trips, at `rank` on its list. 'mine' points at a work on the shelf when the work is a genuine source for that entry - not an advert, the citation.",
  "lists": [
   {
    "slug": "top8-cartoons-90s",
@@ -9,6 +9,7 @@
    "image": "top8-cartoons-90s",
    "law": 6,
    "standfirst": "This is the section nobody argues about, because it started before anyone had an argument. A child watching a cartoon is doing the same thing a forty-year-old watching a stream is doing, and the only difference is that nobody had decided yet whether it counted.",
+   "frame_note": "There is not one frame of the shows themselves on this page. Whatever studio made each character, none of it is free to reuse, so what is pictured instead is **the audience**, and the life the shows had outside the screen: a roller coaster, a party, a costume, a panel at a convention.\n\nTwo of the eight have no photograph at all, so their entries carry the show name instead. That is not a workaround. Every entry here is a relationship with a character who cannot answer, and a relationship like that leaves the evidence on one side only - ours.",
    "entries": [
     {
      "rank": 1,
@@ -89,52 +90,92 @@
      "law": 6,
      "image": "t8-8-animaniacs",
      "stage": "featured"
+    }
+   ],
+   "stage_doc": "A list is released whole; the newest `released` date is the list on show and former lists move to /top8/archive/. Entries are `featured` when the list shipped with them, `candidate` while drafted for a future list.",
+   "pool_note": "`entries` is the list as released, in rank order. `released` orders the show/archive split; a list with no date sorts as the oldest."
+  },
+  {
+   "slug": "top8-manufactured-replies",
+   "title": "Top 8 parasocial moments when the reply was manufactured",
+   "dek": "Every reply on this list was manufactured on the near side. The far end is where it arrived from, not where it came from.",
+   "kicker": "Part two",
+   "released": "2026-10-18",
+   "standfirst": "Part one was cartoons, the version everyone agrees is harmless. This one is the machinery: the office that typed the reply, the card signed by a character, the meter that read the room, the tape that held the voice - and one entry where no reply ever came, from a girl who kept writing anyway. Ranked by how completely the reply was manufactured.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "A letter back from Carolyn Keene",
+     "show": "Nancy Drew, 1930–1984",
+     "what": "For fifty-four years young readers wrote to a detective who did not exist, and letters came back. The replies came from the Stratemeyer Syndicate's correspondence department under the house name Carolyn Keene, which was a slot in a production system rather than a person. The New York Public Library holds the letters themselves - boxes 56 and 57 - including a few written by parents on behalf of their children, and by adults who had read the books as kids.",
+     "why": "The reply was real, and it came from an office that had chosen not to have a face. Mildred Wirt Benson wrote 23 of the first 30 books and her identity was not made public until 1991, so almost every answer a child received arrived from a byline rather than a person. The tie as the reader lived it asked for nothing and was answered anyway - and the answering was manufactured, politely, for half a century.",
+     "law": 2,
+     "stage": "featured"
     },
     {
-     "name": "I hope the feeling is mutual",
-     "show": "Anne Frank, 1942",
-     "what": "A girl in hiding wrote for two years to a listener who does not exist, and told him so: “I hope the feeling is mutual.”",
-     "why": "The whole condition named from the inside, fourteen years before anybody had a phrase for it. She is not deceived - she knows Kitty is invented - and she writes anyway, and states in one clause what she wants from a relationship that cannot return it. The hoping, not the letter, is the subject.",
-     "stage": "candidate"
-    },
-    {
+     "rank": 2,
      "name": "The code was printed in the comic you were holding",
      "show": "Whiz Comics #2, 1940",
      "what": "A reader sent in a code printed inside the comic they were holding and received a membership card, a certificate and a plastic Captain Marvel ring - issued under “the actual authority of Benj J. Grimm, Grand Marshal.”",
      "why": "The bond was assembled by the person who was attached. Nobody built a private channel; the near side performed the decoding out of materials the far side printed, and the reply was signed by a character so it would read as coming from inside the story.",
-     "stage": "candidate"
+     "law": 6,
+     "stage": "featured"
     },
     {
-     "name": "Talking to the tape of himself at thirty-nine",
-     "show": "Krapp's Last Tape, 1958",
-     "what": "On his sixty-ninth birthday a man loads the reel he recorded at thirty-nine and talks to it. The tape is missing four words, in every edition.",
-     "why": "Everywhere else on this site the far end is somebody else. Here it is a recording of the near side, and it cannot answer either - and it is not even a faithful copy of the past.",
-     "stage": "candidate"
+     "rank": 3,
+     "name": "The night the audience was deputised",
+     "show": "Peter Pan, 1904",
+     "what": "Tinker Bell drinks the poison meant for Peter, and he turns to the audience: “Do you believe in fairies? Say quick that you believe! If you believe, clap your hands!” The published text carries the result as a stage direction - many clap, some do not, a few hiss, but Tink is saved.",
+     "why": "The one place on the list where the reply is scripted into the work itself - and manufactured in advance, in case the real one did not arrive: members of the orchestra were stationed to clap if the public declined, which a Smithsonian centenary account calls “an unnecessary precaution”. The far end is a fairy who has just been poisoned. The audience is asked to save a life out loud, and every night it does.",
+     "law": 1,
+     "stage": "featured"
     },
     {
-     "name": "Your face is too well known",
-     "show": "American Gothic, 1930",
-     "what": "A dentist denied for five years that he was the farmer in the painting. His sister said the picture “made a personality out of me.” His brother ended the sittings by telling her so.",
-     "why": "A real person refusing a one-sided relationship with a painted version of himself - and the refusal, not the fame, is what the picture is remembered for.",
-     "stage": "candidate"
-    },
-    {
+     "rank": 4,
      "name": "The applause meter was pointed at the wrong room",
      "show": "Queen for a Day, 1945",
      "what": "A contestant told her troubles and a box on the studio wall registered the reaction by needle. The millions listening at home could not applaud into it.",
      "why": "The instrument that decided somebody’s life was measuring a different and much smaller audience than the one listening - so the verdict on her misfortune came from a room she could see.",
-     "stage": "candidate"
+     "law": 3,
+     "stage": "featured"
     },
     {
-     "name": "The only sentence he would say",
-     "show": "Keith Du Maurier’s parrot, 1931",
-     "what": "A handyman on a liner owned a parrot filmed for the screen that would say nothing except one imposed phrase.",
-     "why": "The relationship in hardware. It could not be got to say anything else, and the sentence it did say was put there rather than understood - which is the shape of nearly everything else on this site, in something that was alive.",
-     "stage": "candidate"
+     "rank": 5,
+     "name": "I hope the feeling is mutual",
+     "show": "Anne Frank, 1942",
+     "what": "A girl in hiding wrote for two years to a listener who does not exist, and told him so: “I hope the feeling is mutual.”",
+     "why": "The whole condition named from the inside, fourteen years before anybody had a phrase for it. She is not deceived - she knows Kitty is invented - and she writes anyway, and states in one clause what she wants from a relationship that cannot return it. The hoping, not the letter, is the subject.",
+     "law": 6,
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "Your face is too well known",
+     "show": "American Gothic, 1930",
+     "what": "A dentist denied for five years that he was the farmer in the painting. His sister said the picture “made a personality out of me.” His brother ended the sittings by telling her so.",
+     "why": "A real person refusing a one-sided relationship with a painted version of himself - and the refusal, not the fame, is what the picture is remembered for.",
+     "law": 6,
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Talking to the tape of himself at thirty-nine",
+     "show": "Krapp's Last Tape, 1958",
+     "what": "On his sixty-ninth birthday a man loads the reel he recorded at thirty-nine and talks to it. The tape is missing four words, in every edition.",
+     "why": "Everywhere else on this site the far end is somebody else. Here it is a recording of the near side, and it cannot answer either - and it is not even a faithful copy of the past.",
+     "law": 4,
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The imitation, not the animal",
+     "show": "The parrot, 1920",
+     "what": "A bird produces fluent speech addressed to you - your name, in the right tone - with no comprehension behind it. The mimicry is accurate; there is no listener. People talk to it as though there were.",
+     "why": "The control case for the whole list: the far end is alive and still not there. People stop talking once they work out what is happening, and what they were attached to turns out to have been the imitation rather than the animal. The reply was manufactured so completely that understanding it ends it.",
+     "law": 5,
+     "stage": "featured"
     }
-   ],
-   "stage_doc": "Lifecycle: candidate -> featured -> placed -> archived. The page always shows eight; `featured` is who is on today, rotated by date out of everything not yet placed or archived.",
-   "pool_note": "`entries` is the POOL, not the show. The page shows eight of them, chosen by build_cards from stage=featured."
+   ]
   }
  ],
  "figures": [

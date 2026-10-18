@@ -156,7 +156,7 @@ PAGE = """<!DOCTYPE html>
 .quiz{{max-width:760px;margin:0 auto;padding:52px 5vw 70px}}
 .qbar{{height:3px;background:var(--line);border-radius:2px;margin:0 0 40px;overflow:hidden}}
 .qbar i{{display:block;height:100%;background:var(--hot);width:0;transition:width .35s ease}}
-.qcount{{font-family:var(--label);font-size:.55rem;letter-spacing:.2em;color:var(--dimmer);
+.qcount{{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:var(--dimmer);
   text-transform:uppercase;margin:0 0 12px}}
 .qtext{{font-size:clamp(1.5rem,3.6vw,2.35rem);line-height:1.16;margin:0 0 32px;max-width:22ch}}
 .opts{{display:grid;gap:9px;margin:0 0 26px;padding:0;border:0}}
@@ -169,12 +169,12 @@ PAGE = """<!DOCTYPE html>
 .opt b{{font-family:var(--label);font-size:.6rem;letter-spacing:.14em;color:var(--hot);
   flex:none;padding-top:3px;width:1.6em}}
 .back{{background:none;border:0;color:var(--dimmer);font-family:var(--label);
-  font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;padding:6px 0}}
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;padding:6px 0}}
 .back:hover{{color:var(--dim)}}
 .reshead{{display:flex;gap:26px;align-items:flex-start;margin:0 0 26px;flex-wrap:wrap}}
 .reshead .mascot{{flex:none;margin-top:4px}}
 .reshead h1{{font-size:clamp(1.9rem,5vw,3rem);line-height:1.05;margin:0 0 8px}}
-.resone{{font-family:var(--label);font-size:.58rem;letter-spacing:.18em;
+.resone{{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
   text-transform:uppercase;color:var(--hot);margin:0}}
 .resbody p{{font-size:1.06rem;line-height:1.62;margin:0 0 16px;max-width:60ch}}
 .resbody .lede2{{font-size:1.22rem;line-height:1.5}}
@@ -184,10 +184,10 @@ PAGE = """<!DOCTYPE html>
 .cardlink .kicker{{margin:0 0 5px}}
 .cardlink b{{font-family:var(--serif);font-size:1.24rem;display:block;color:#fff;margin:0 0 4px}}
 .cardlink span{{font-size:.85rem;color:var(--dim);line-height:1.45;display:block}}
-.cardlink .yrs{{color:var(--hot);font-family:var(--label);font-size:.55rem;
+.cardlink .yrs{{color:var(--hot);font-family:var(--label);font-size:.6rem;
   letter-spacing:.14em;text-transform:uppercase;display:block;margin:0 0 6px}}
 .also{{margin:0 0 26px}}
-.also h2{{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;
+.also h2{{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
   font-family:var(--label);color:var(--dimmer);margin:0 0 12px}}
 .also ul{{list-style:none;margin:0;padding:0;display:flex;gap:8px;flex-wrap:wrap}}
 .also a{{display:block;border:1px solid var(--line);border-radius:99px;padding:7px 14px;
