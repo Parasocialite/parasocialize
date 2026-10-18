@@ -1,7 +1,12 @@
 # AGENTS.md
 
 Parasocialize: a source-honest encyclopedia and video channel about one-sided
-relationships. 227 entries, 555 relations, 320 generated pages.
+relationships. 240 entries, 580 relations, 336 generated pages.
+
+Every count in this file is measured by `tools\report_current_state.py`, not
+refreshed by eye. Three of them were typed wrong during a single earlier session
+and the only reason they were caught was that something else was being verified
+at the time - which is luck, not a process.
 
 ## The rule that outranks everything
 
@@ -19,8 +24,42 @@ source to.
 ## Commands
 
 ```powershell
+python tools\gates.py            # THE entry point. Runs every check, in order
+python tools\gates.py --all      #   build, then post-build, visual, source
+python tools\gates.py --list     #   what it runs
+python tools\gates.py --only post,source
+python tools\gates.py --skip visual
+```
+
+**Run `gates.py` rather than the individual tools.** It exists because the tier
+order was being got wrong by hand, and a wrong order produces a *true* report of
+the tree it was handed and a *false* report of the project - the same shape as
+running `build_deploy.py` before `plate.py`. Three things it encodes that were
+each learned the hard way:
+
+- **post → visual → source.** The build goes first, or `link_audit` checks pages
+  that do not exist yet. `test_front_copy` goes last, because it legitimately
+  rewrites `data/front_copy.json`, which makes the source tier invalidate the
+  build the visual tier is about to check.
+- **It refuses to run a tier against a stale build.** `dist_is_fresh()` compares
+  the newest file under `data/`, `css/` and `js/` against `dist/`, and names the
+  file that is newer. The first version named the last directory in its own loop,
+  so it blamed `js/` for a file in `data/` and sent the reader to the wrong tree.
+- **Every check runs and the exit code is the result.** Never pipe a gate through
+  `Select-String`; see the filtering trap below.
+
+```powershell
 python tools\build_cards.py     # generate site from data/
 python tools\build_deploy.py    # build dist/ incl. _redirects and 404.html
+python tools\ledger.py          # every figure the site publishes, and it fails
+                                #   if the record statuses do not reconcile
+python tools\check_internal_leaks.py  # internal vocabulary in reader-visible
+                                #   prose: AGENTS.md, tool names, data filenames
+python tools\t8_pool.py         # the Top 8 lifecycle: candidate -> featured ->
+                                #   placed -> archived. `featured` is the ELIGIBLE
+                                #   pool and is deliberately uncapped
+python tools\expand.py --check data\expand-queue.json   # validate candidates
+python tools\expand.py --apply data\expand-queue.json   # place them, unverified
 python tools\link_audit.py      # MUST pass before every commit
 python tools\make_zip.py        # reproducible archive -> Desktop
 python tools\add_source.py --apply-provenance
@@ -34,8 +73,8 @@ python tools\record_image_size.py  # generation.final <- the PNG actually on dis
 python tools\verify_doi.py --from-citations  # does every DOI resolve to the work cited
 python tools\verify_taxonomy.py  # is the classification sound and complete
 python tools\report_current_state.py # the AGENTS Current-state block + media table, MEASURED
-python tools\verify_narrow.py    # does a generated page overflow at 390px
 python tools\report_missing_locators.py # the shape of the locator backlog, measured
+python tools\verify_narrow.py    # does a generated page overflow at 390px
 python tools\probe_nav.py --check  # does the HEADER fit at every width, 768-1600, row vs overlay
 python tools\shoot_nav.py   # 7 header screenshots incl. two body.nav-open cases; LOOK at them
 python tools\plate.py --check    # does every title plate match its entry
@@ -632,10 +671,35 @@ ship a falsehood on this site and it was done once already.
 
 ## Architecture
 
-- `data/encyclopedia.json` — the single source of truth. 227 entries.
+- `data/encyclopedia.json` — the single source of truth. 240 entries.
+- `tools/ledger.py` — **every figure the site publishes.** `/ledger/`, the
+  front-page band and `report_current_state.py` all read it, because two
+  definitions of "openable" on a site whose argument is that it does not blur
+  its own states is the exact defect the ledger exists to prevent. It refuses to
+  emit if the record statuses do not sum to the record total.
+- `/ledger/` — the editorial statement of the standard, and `/citations/` is the
+  technical audit of it. Distinct pages on purpose, mutually linked.
+- `/exceptions/` — the reciprocity axis counted, **including the two ways the
+  count is probably wrong.** 10 of 240 entries carry a value; 8 of those 10
+  carry none on `otherness` either. Read from `taxonomy_placements.json`'s `rec`
+  field, which is a real field — an earlier plan to recover it from placement
+  prose by regex would have been a number about the wrong layer.
+- `tools/check_internal_leaks.py` — scans `dist/` for project vocabulary in
+  reader-visible prose and is wired into the source tier.
+- `tools/gates.py` — the tiered runner. Use it instead of calling the tools in
+  your own order.
+- `tools/t8_pool.py` — the Top 8 lifecycle. **`featured` is uncapped on
+  purpose:** it is the eligible pool and the page shows eight of them, so a cap
+  makes rotation unreachable by construction.
+- `tools/expand.py` — validates and places candidates from `data/expand-queue.json`.
+  Everything lands `verified: false` and promotion is a separate, human step.
 - `tools/build_cards.py` — all page generation, the citation board, section
   fronts, and the entry Watch block (renders only when a real `video` URL exists).
-- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 227 entries.
+- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 240 entries, and
+  **CSS/JS fingerprinting.** Assets are emitted as `<stem>.<sha256[:10]>.ext`,
+  every reference is rewritten, and a stale unhashed name is refused — because
+  `immutable` caching on a stable filename is how a deploy goes out and nobody
+  sees it.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
@@ -715,20 +779,26 @@ Human voice only; no dataset sale.
 ## Current state
 
 ```
-214 sourced | 0 not yet stood behind | 13 thesis   = 227
-edges landing on an entry with no source: COMPUTED - do not type this number here, tools/citation_audit.py prints it on every run
-424 of 525 sources have a locator
-0 of 252 claim to be openable without one   (ratcheted; was 94)
+223 sourced | 0 not yet stood behind | 17 thesis   = 240
+edges landing on an entry with no citation record: 62 of 580
+434 of 542 sources have a locator
+108 records have no locator at all, and say so   (/ledger/ publishes this)
+0 of 542 claim to be openable without one   (ratcheted; was 94)
 0 relations contradict the years they point at
 0 relations point at themselves
 0 relations claim an order neither end can support
 0 citation strings are notes to self
 0 entries assert the far side perceives the reader   (tools/cull_audit.py)
 0 entries carry an unsourced claim                    (tools/add_source.py report)
+0 internal terms in reader-visible prose   (tools/check_internal_leaks.py, ratcheted)
+0 orphaned layout rules                    (tools/check_css.py --orphans, baseline 0)
 39 attachment sub-categories, up from 38
 6 otherness members, on a third axis
 3 reciprocity members, on a fourth axis recovered from the 2019 chart
 15 media values, up from 13 (stage and visual_art added)
+10 of 240 entries carry a reciprocity value; 8 of those 10 carry none on
+  `otherness` either, and /exceptions/ says so on the page
+8 of 15 media hold no reciprocity exception at all, `ai` among them
 ```
 
 Board must reconcile to 227. `add_source.py` is authoritative.
@@ -4036,3 +4106,102 @@ it gets resolved.
     "this gap cannot be closed without a schema change" conclusion is a claim
     about the schema, and the cheap test is whether the information is already
     written down somewhere nobody was looking.** It was, 86 times.
+
+74. **The Top 8 could not rotate, and could not have been caught, because the code
+    that would have rotated it had never run.** Four defects in one feature, and
+    three of them are only visible if you ask what code has actually executed.
+    - **`t8_pool.py` capped `featured` at eight, and `build_cards.py` only rotates
+      when `featured` exceeds eight.** The cap made the rotation branch
+      unreachable, so the front page showed the same eight moments for as long as
+      the cap held. Two files, each individually reasonable, whose combination
+      means the feature they implement cannot happen.
+    - **The unreachable branch referenced an undefined name** (`_j.date`, in a
+      file that imports `datetime`). Nothing raised, because nothing ran it. Same
+      family as the video-duration label in item 13: *a string that only executes
+      after the thing it describes changes is a string nobody checks.*
+    - **`build_top8` read the raw pool while `build_front` applied the stage
+      filter and the rotation, so `/top8/` rendered 14 items including
+      `candidate` ones.** Two derivations of "which eight", and the wrong one is
+      the one that publishes unreviewed material. This is the single most
+      dangerous class in this file: **a question answered twice is a question
+      answered wrong once**, and the fix is one function both call
+      (`top8_window()`), not better discipline at each site.
+    - **The numeral was a stored `rank`,** which describes the pool rather than
+      the page and goes stale the moment the window moves; a promoted candidate
+      has none at all, so the page raised `KeyError`. It is now the position in
+      the pool, taken at render time.
+    - **And the ceiling was enforced while the floor was not.** The comment said
+      "must never show fewer than eight" and archiving three moments left the
+      page quietly showing five. The half that bites is the one that produces a
+      valid page. Confirmed red by archiving one and watching the build refuse.
+    - **A refactor that changes "which eight" is not a refactor that only changes
+      "which eight".** `pick_list` returned a whole list object; replacing it with
+      a dict rebuilt from four of its keys silently dropped `image`, and `/top8/`
+      lost its hero photograph with no build error, no 404 and no broken link.
+      **The only thing that noticed was `check_css --orphans`**, because
+      `.t8-hero-fig img` had become a selector matching nothing - a bug that
+      manifested as a dead CSS rule one module away.
+
+75. **`git checkout` restores from HEAD, not from where you were, and it cost this
+    project twice.** Testing a build assertion by archiving a Top 8 entry, the
+    undo was `git checkout -- data/features.json`, which threw away the
+    uncommitted Hey Arnold swap that had been sitting in the tree for a session.
+    It was recovered from a backup taken *after* the mutation, so it only worked
+    by luck. The earlier loss was the front-page redesign, wiped the same way.
+    - **`Copy-Item` before the test and restore from the copy.** Or commit first.
+      The habit costs one line and `git checkout` on a dirty corpus file is a
+      coin flip.
+    - **A backup taken after the mutation is not a backup.** The recover script
+      also asserted nothing, so it reported a restore it had not verified.
+
+76. **Internal vocabulary reached the public pages, and reading them is the only
+    way it would ever have been found.** `/ledger/` shipped reading "...and
+    AGENTS is explicit that this is not a gap." `AGENTS.md` is a working file
+    for whoever maintains the repository; a reader has never opened it. Same class
+    as the `CLERK'S DESK` link and the "no free frame exists" note.
+    - **Reading the built page as text found five more,** all pre-existing: a data
+      field name (`provenance: thesis`) on `/citations/`, `AGENTS.md` and
+      `encyclopedia.json` in the taxonomy prose, and a baseline JSON path inside a
+      citation's own `claim` on `neanderthal-burial`.
+    - **Thirteen placement reasons read "Added by tools/expand.py; review the
+      reason."** A to-do, naming a tool, printed where an argument belongs - the
+      same shape as `claim: "the entry as a whole"` and the fourteen citation
+      strings that were literally the word "verify". `expand.py` now takes the
+      candidate's own `fits` text and **refuses** rather than falling back.
+    - **No gate could see any of it.** They check links, selectors, counts and
+      relations. None reads prose for words that mean nothing to a reader.
+      `tools/check_internal_leaks.py` scans `dist/`, not the source, and is wired
+      into the source tier with a justified allowlist for `/desk/`.
+    - **Its first run reported clean over zero pages,** because `ROOT` had one
+      `parent` too many and pointed outside the repository. It now asserts its own
+      root and **refuses to report on an empty tree**: a measurement that cannot
+      see its own subject will pass any test you give it, which is the eyelid-arc
+      rule applied to a checker.
+    - **The repair script was not atomic** - it wrote the first file, then aborted
+      on the second, reporting a clean abort that had already half-done the job.
+      It verifies every replacement before writing any, and is safe to run twice.
+
+77. **Two numbers were wrong in copy a person had already approved, and rendering
+    them from the data is the only reason either was caught.** The exceptions page
+    was pitched as "the reciprocated three span thirty-five thousand years" and
+    "nine of fifteen media hold none". The real span is **17,020** and the real
+    count is **eight**. I wrote a plausible number, believed it, and the number
+    was approved.
+    - **Every figure on `/ledger/` and `/exceptions/` is now computed from the
+      data at render time** - including the argument the page is making, the
+      longest silence between consecutive instances (70 years), which is derived
+      as a difference rather than typed.
+    - **The general form: a figure that carries the page's argument is the one
+      most likely to have been checked least.** A number in a paragraph is not
+      obviously a claim, which is what makes it the dangerous kind - item 43's
+      finding, and it applies just as much to copy written in a hurry at 2am.
+
+78. **`provenance` had a third value nobody had declared, and seven entries held
+    two at once.** The corpus has exactly two - `sourced` and `thesis` - and
+    `thesis` means "the site's own argument, takes no citation at all". Seven
+    entries, all from my own batches, set `provenance: thesis` *and* carried
+    citation strings: asserting both that the entry is an argument and that here
+    are references for it. `expand.py` refuses the combination and the seven are
+    now `sourced`.
+    - **A classification that cannot represent a real state will accumulate
+      entries that assert the impossible**, quietly, and nothing renders wrong.
