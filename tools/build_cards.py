@@ -799,6 +799,9 @@ def build_exceptions(data, enc, placements):
 
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{SITE}/radar.xml">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize - the open ledger" href="{SITE}/ledger/feed.xml">
+<link rel="icon" type="image/svg+xml" href="{SITE}/favicon.svg">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Exceptions - Parasocialize</title>
 <meta name="description" content="Of {m['entries']} entries, {m['labelled']} carry
