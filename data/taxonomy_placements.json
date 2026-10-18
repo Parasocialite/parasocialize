@@ -1194,27 +1194,32 @@
     "the-parrot-that-repeats": {
       "cat": "companion",
       "sub": "animal",
-      "why": "The far end is an animal with no agency of its own, and the case is worth writing because it is the control: when the imitation stops, so does the attachment."
+      "why": "The far end is an animal with no agency of its own, and the case is worth writing because it is the control: when the imitation stops, so does the attachment.",
+      "other": "made"
     },
     "the-device-with-a-pet": {
       "cat": "companion",
       "sub": "anthropomorphised-tool",
-      "why": "A mind attributed to something that cannot have one, which is the shelf's whole claim, and the case survives its own not: it is operated rather than performed, and that is closer to played-role than to made."
+      "why": "A mind attributed to something that cannot have one, which is the shelf's whole claim, and the case survives its own not: it is operated rather than performed, and that is closer to played-role than to made.",
+      "other": "animate"
     },
     "the-person-you-remember": {
       "cat": "companion",
       "sub": "social-agent",
-      "why": "The figure is a copy assembled from memory and never checked against the original, which is the shelf's own mechanism."
+      "why": "The figure is a copy assembled from memory and never checked against the original, which is the shelf's own mechanism.",
+      "other": "mirrored"
     },
     "the-character-you-invented": {
       "cat": "character",
       "sub": "fictional-protagonist",
-      "why": "The audience knows it made the figure - it authored it - and the attachment persists regardless, which is the finding rather than a problem."
+      "why": "The audience knows it made the figure - it authored it - and the attachment persists regardless, which is the finding rather than a problem.",
+      "other": "imagined"
     },
     "the-generation-you-belong-to": {
       "cat": "divine",
       "sub": "abstract-absolute",
-      "why": "The object is an absence met by negation - a cohort held by what its members are not - rather than a figure who can be petitioned, which separates it cleanly from myth-deity."
+      "why": "The object is an absence met by negation - a cohort held by what its members are not - rather than a figure who can be petitioned, which separates it cleanly from myth-deity.",
+      "other": "made"
     },
     "the-two-mothers": {
       "cat": "companion",
@@ -1234,7 +1239,51 @@
     "the-death-they-scheduled": {
       "cat": "character",
       "sub": "fictional-protagonist",
-      "why": "Somebody described in a book and therefore available to an unlimited number of people at once, whose most consequential event was produced and timed by the people who own him."
+      "why": "Somebody described in a book and therefore available to an unlimited number of people at once, whose most consequential event was produced and timed by the people who own him.",
+      "other": "made"
+    },
+    "florence-lawrence": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "A performer at enough distance that the work was finished before the audience arrived - so finished, in her case, that the public could be sold her death before it could buy her name. The crowd at Union Station could strip her coat and still not know who it had been mourning."
+    },
+    "rin-tin-tin": {
+      "cat": "companion",
+      "sub": "animal",
+      "why": "Alive, non-human, and unable to understand what it was being addressed for - the shelf's own test - while performing the half of the relationship that could be performed. The one other end here that ever physically answered back was the one that could never check what the letter said."
+    },
+    "murrow": {
+      "cat": "persona",
+      "sub": "presenter",
+      "why": "An institution put him at the microphone on a schedule, and he used the second person to a whole country, night after night, with a fixed opening and a borrowed sign-off. The shelf's 'not' is a creator who generates their own address; Murrow kept the address assigned to him and made it large."
+    },
+    "the-amateur-hour": {
+      "cat": "persona",
+      "sub": "presenter",
+      "why": "The show is a schedule, a studio and a second-person address - 'You within sound of my voice' - and the machinery belongs to the house. A presenter in the shelf's exact sense: the address is issued on a timetable, by the institution, to whoever is listening.",
+      "other": "made"
+    },
+    "will-rogers": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "A performer whose work arrived finished - a column at breakfast, a broadcast on Sunday night - and who was loved at a distance nobody on the near side could close. The twelve thousand dark screens measure the distance; it is where the tie lived."
+    },
+    "glenn-miller": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "A performer whose work was finished before anyone arrived, because it came to the audience pressed onto records - and whose disappearance made the distance literal. An idol with no grave has exactly one thing to visit, which is the work."
+    },
+    "peter-pan": {
+      "cat": "character",
+      "sub": "fictional-protagonist",
+      "why": "Somebody described on a page and embodied on a stage, available to a full house of strangers at once - and the shelf's definition becomes the plot, because the character's continuation is handed nightly to people she has never met.",
+      "other": "made"
+    },
+    "i-want-you": {
+      "cat": "character",
+      "sub": "mascot",
+      "why": "No body, no biography, no intention - a figure specified entirely by the institution that operates him, wearing the face of the man who drew him. The shelf's test asks whether he can be the author of his own behaviour; Uncle Sam's whole case is that he cannot, and the finger works because of it.",
+      "other": "made"
     }
   }
 }

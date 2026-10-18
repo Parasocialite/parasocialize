@@ -146,6 +146,8 @@ PAGE = """<!DOCTYPE html>
 <title>Which of these are you - Parasocialize</title>
 <meta name="description" content="Eight questions about one-sided relationships. The answers are people in the catalogue, not personality types.">
 <link rel="canonical" href="{site}/quiz/">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{site}/radar.xml">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize - the open ledger" href="{site}/ledger/feed.xml">
 <link rel="icon" type="image/svg+xml" href="{site}/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">

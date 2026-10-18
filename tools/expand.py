@@ -199,7 +199,13 @@ def apply(q):
 
     keys_before = sorted(enc) if isinstance(enc, dict) else None
     n_before = len(entries_of(enc))
-    places = load(PLACES)
+    # data/taxonomy_placements.json is indented 2 while encyclopedia.json is
+    # indented 1. Writing every corpus file at one space reformatted this file
+    # whole once - a two-key change arrived as a two-thousand-line diff (item
+    # 37 in AGENTS.md). Match what the committed file uses instead.
+    places_text = PLACES.read_text(encoding="utf-8")
+    places = json.loads(places_text)
+    pindent = 2 if places_text.split("\n", 2)[1].startswith("  ") else 1
     pkeys = sorted(places)
     shelves = shelf_tests(tax)
 
@@ -236,11 +242,14 @@ def apply(q):
             sys.exit(f"{cand['id']}: needs placement_why or fits. The reason "
                      f"is printed on the page, so a to-do is not acceptable "
                      f"and an empty cell would render a blank.")
-        a[cand["id"]] = {
-            "cat": parent,
-            "sub": shelf,
-            "why": why,
-        }
+        placement = {"cat": parent, "sub": shelf, "why": why}
+        # `other` is a placement field on the page: build_cards, ledger and
+        # verify_taxonomy all read it from this file, and every `made` /
+        # `haunted` entry carries it here. The death batch left it on the
+        # entry only, where nothing counts it, so carry it across.
+        if cand.get("other"):
+            placement["other"] = cand["other"]
+        a[cand["id"]] = placement
         added += 1
 
     assert len(entries_of(enc)) == n_before + added, "entry count wrong"
@@ -250,7 +259,7 @@ def apply(q):
 
     ENC.write_text(json.dumps(enc, ensure_ascii=False, indent=1) + "\n",
                    encoding="utf-8")
-    PLACES.write_text(json.dumps(places, ensure_ascii=False, indent=1) + "\n",
+    PLACES.write_text(json.dumps(places, ensure_ascii=False, indent=pindent) + "\n",
                       encoding="utf-8")
     print(f"added {added} entry/entries. encyclopedia {n_before} -> "
           f"{n_before + added}. All land verified=false / needs-source.")

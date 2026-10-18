@@ -4207,9 +4207,59 @@ it gets resolved.
 78. **`provenance` had a third value nobody had declared, and seven entries held
     two at once.** The corpus has exactly two - `sourced` and `thesis` - and
     `thesis` means "the site's own argument, takes no citation at all". Seven
-    entries, all from my own batches, set `provenance: thesis` *and* carried
+    entries, all of my own batches, set `provenance: thesis` *and* carried
     citation strings: asserting both that the entry is an argument and that here
     are references for it. `expand.py` refuses the combination and the seven are
     now `sourced`.
     - **A classification that cannot represent a real state will accumulate
       entries that assert the impossible**, quietly, and nothing renders wrong.
+
+79. **Eleven deployed pages were missing part or all of the head block, and the
+    tool that fixed heads only ever knew one file.** `unify_heads.py` inserted
+    the three links into every longhand head in `tools/build_cards.py` - but it
+    hardcodes that one file, and the project's heads live in four places:
+    `build_atlas.py`, `build_quiz.py`, `build_cards.build_404()`'s own template,
+    and **eight hand-written pages with no generator at all** (`membership/`,
+    `tip/`, `signal/latest.html`, `audit/`, `classroom/`, three `cases/*.html`).
+    So 404, atlas, quiz, membership, tip, signal, audit, classroom and the three
+    cases carried no `ledger/feed.xml`; of those, only atlas carried `radar.xml`
+    too; and `signal/latest.html` had **no `<head>` whatsoever**, so nothing at
+    all could be found on it. The 336-page count had been reported as "325 carry
+    both feeds" and read as one small queue rather than a tool whose coverage
+    ended at one file.
+    - **Fixed at the generator where a generator exists** - `build_404`'s
+      template, `build_atlas.py`'s `PAGE`, `build_quiz.py`'s `PAGE` - and by
+      hand for the eight that have none, which is the decision this item
+      records: **a hand-written deployed page is edited once and gated**, not
+      given a generator it does not need. Three of the eight are CRLF
+      throughout, so a `\n`-based multi-line replacement never matches them;
+      the write used an explicit newline-preserving read/write and asserted the
+      anchor appeared exactly once first.
+    - **`tools/check_heads.py` is the gate, and it reads `dist/`** - the
+      deployed tree, not the source - so it covers the pages nothing rebuilds.
+      It refuses to report on a tree under 100 pages for item 76's reason, and
+      it was confirmed red by stripping the ledger link from one deployed page
+      and green after restoring it. Wired into `gates.py`'s post tier beside
+      the other dist-reading checks.
+    - **The page it will catch again first is `signal/latest.html`**, which is
+      replaced by hand every Friday from the broadcast email - the one page
+      whose entire update process is "paste over it". Its head block is in the
+      deployed copy and not in any process, so the gate is the only thing
+      standing between the next paste and a page that silently stops offering
+      the feeds.
+    - A source-tree sweep confirms the state: **337 html files, 1 offender,
+      `v1-oxalpha-backup.html`** - which is correct, it is undeployed by name
+      and the gate never sees it.
+    - **And one page was carrying the block twice.** `exceptions/index.html`
+      shipped the radar and favicon `<link>`s twice - once from the standard
+      trio near the top of the head, once from a pair the template already
+      carried further down. A duplicated autodiscovery link is a feed every
+      reader's reader lists twice. It was found by a duplicate scan whose
+      first version was wrong in the other direction: it counted substrings,
+      and the shared `HEAD` constant carries an HTML comment explaining the
+      two feeds that names "radar.xml" and "ledger/feed.xml", so all 323
+      pages rendering that comment "duplicated" it. **A comment is not an
+      offer, and an explanation of a link is not a link.** `check_heads.py`
+      now counts `<link>` elements instead of substrings and fails on
+      `MISSING` or `DUPLICATE` per needle - confirmed red in both directions,
+      green after each restore.

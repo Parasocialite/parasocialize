@@ -17,7 +17,7 @@ important it feels:
                                       check_css, test_front_copy
   post     needs dist/, no browser     build_cards, plate, build_deploy, then
                                       check_css --orphans, verify_findable,
-                                      verify_landmarks, md_leak
+                                      verify_landmarks, md_leak, check_heads
   visual   needs Chrome and pixels     verify_narrow, probe_nav --check,
                                       probe_hub_contrast
 
@@ -86,6 +86,15 @@ POST_CHECK = [
     # entity in its title, which no RSS reader can resolve, and nothing in
     # this repository was looking at either feed.
     ("feeds", ["check_feeds.py"]),
+    # Every deployed page must offer both feeds and the favicon in its head.
+    # Eleven pages did not, because unify_heads.py only ever patched
+    # build_cards.py - build_atlas.py, build_quiz.py and the 404's own
+    # template were never covered, and the eight hand-written pages
+    # (membership, tip, signal, audit, classroom, three cases) have no
+    # generator, so nothing regenerates or checks them. This reads dist/,
+    # so it also covers signal/latest.html, which is replaced by hand every
+    # Friday and can drop the block again without anyone rebuilding it.
+    ("check_heads", ["check_heads.py"]),
 ]
 
 VISUAL = [

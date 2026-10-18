@@ -12,8 +12,13 @@ into every hand-rolled head that lacks them, and the shared block is defined
 once. Uniformity becomes the default rather than a thing to remember.
 
 It only touches `<head>` blocks, asserts how many it changed, and writes the
-file once at the end - and it is idempotent, because a head that already
-carries `radar.xml` is skipped.
+file once at the end - and it is idempotent, because a head is skipped when it
+already carries the links either literally or by interpolating `{HEAD}`. The
+delegate case is why the skip test is written as it is: `{HEAD.format(...)}`
+emits both feeds and the favicon while containing none of those words, so a
+window that only looks for the literal strings sees a full head as empty -
+`--apply` in that state would have re-created the `exceptions` duplicate on
+sixteen pages, which is exactly the state this tool was written to end.
 """
 import pathlib
 import re
@@ -59,8 +64,12 @@ while i < len(lines):
         # seventeen heads that were missing the new one. The run reported
         # "3 already carrying" and changed 17, and still left 11 pages without
         # ledger/feed.xml - the dist scan is what caught it, not the dry run.
+        # And a head may carry the links without naming them: `{HEAD}` /
+        # `{HEAD.format(...)}` renders all three while the source shows none,
+        # which a literal-only test reads as an empty head. Both cases skip.
         window = "\n".join(lines[i:i + WIN])
-        if "ledger/feed.xml" in window and "radar.xml" in window:
+        if ("ledger/feed.xml" in window and "radar.xml" in window) \
+                or "{HEAD" in window:
             skipped += 1
         else:
             out.extend(BLOCK)

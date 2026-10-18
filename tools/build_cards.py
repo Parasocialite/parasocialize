@@ -808,8 +808,6 @@ def build_exceptions(data, enc, placements):
 a value on the reciprocity axis - and eight of those carry none on the otherness
 axis either.">
 <link rel="stylesheet" href="{r}css/styles.css">
-<link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{SITE}/radar.xml">
-<link rel="icon" type="image/svg+xml" href="{SITE}/favicon.svg">
 <meta property="og:title" content="Exceptions - Parasocialize">
 <meta property="og:type" content="website">
 <meta property="og:description" content="{esc(m['labelled'])} of {m['entries']}
@@ -4527,6 +4525,8 @@ def build_404(data):
 <title>Nothing here - Parasocialize</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="That address does not exist. Here is what does.">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{SITE}/radar.xml">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize - the open ledger" href="{SITE}/ledger/feed.xml">
 <link rel="icon" type="image/svg+xml" href="{SITE}/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

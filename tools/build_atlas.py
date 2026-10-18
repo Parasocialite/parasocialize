@@ -85,6 +85,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="description" content="Every significant instance of the parasocial, as a graph. Drag it. It arranges itself.">
 <link rel="canonical" href="{site}/atlas/">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{site}/radar.xml">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize - the open ledger" href="{site}/ledger/feed.xml">
 <link rel="icon" type="image/svg+xml" href="{site}/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

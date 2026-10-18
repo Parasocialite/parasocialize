@@ -1,46 +1,311 @@
 {
-  "_note": "Fifth batch, one entry. Comics is one of the two thinnest media in the corpus. Every figure here was read off the Wikipedia article and cross-checked against Britannica and a named retailer account; the retailer's own recollection is recorded as what a retailer said, not as industry fact.",
+  "_note": "Sixth batch, eight entries, closing the 1900s-1950s hole: the silent-era star system, the first film dog, the Blitz on the radio, amateur-hour participation, a mass-media death, a wartime disappearance, the stage's first clap-for-belief, and the recruiting poster. Facts were read from search-index extracts of the sources listed; pages were not opened in a browser this session, so every record is `retrievable` with a URL and nothing here is `verified`. Where sources disagree - the date of Rogers' crash, Rin Tin Tin's film count, the Amateur Hour's 1934/1935 start - the entry says so rather than picking silently. All eight land verified:false.",
   "entries": [
     {
-      "id": "the-death-they-scheduled",
-      "title": "The death they scheduled",
-      "year": 1992,
-      "summary": "A publisher announced in advance that its most famous character was about to die, delayed every book in the line so the death could not be disproved by the next issue, and sold the gap.",
-      "significance": "It is the clearest case on this site of grief being manufactured and sold as a product, and the direction is unusual: everywhere else the far side is indifferent, unavailable or gone, and the near side does the rest. Here the absence itself was commissioned, scheduled and promoted by the people who owned the character, with no intention of it being permanent. The one detail that earns the entry is from a comic retailer who opposed it at the time and heard about it for the next decade: he still had non-readers a month telling him they had felt ripped off to have been tricked into believing Superman was really going to die. Everybody else grieved, and nobody on the far side ever noticed, but a handful of readers worked out that the feeling had been delivered to them on purpose - which is the moment the arrangement becomes visible from the near side, and the only time on this site where that happens by arithmetic rather than by somebody writing it down.",
-      "kind": "work",
-      "medium": ["comics"],
+      "id": "florence-lawrence",
+      "title": "They killed her in the papers",
+      "year": 1910,
+      "summary": "The Biograph Girl was reported killed under a streetcar, publicly resurrected by the producer who had just hired her, and brought to St. Louis to be mobbed in person - proof that an audience's grief could be produced on schedule.",
+      "significance": "**Nobody knew her name, and the whole stunt was about fixing that.** By 1910 Florence Lawrence was the most recognisable face in American pictures after two years of D. W. Griffith's Biograph films, and the audience had no name to put to it, because Biograph refused to credit anybody. When Carl Laemmle hired her away to his new company, IMP, he staged an elaborate ruse to promote his leading lady: a newspaper story in early 1910 that the Biograph Girl had been struck and killed by a streetcar, followed by a full-page advertisement in the industry press headlined 'We Nail a Lie', which blamed rival studios for a deception of Laemmle's own manufacture and announced that not only was Lawrence alive, she would star in IMP's next film. Then he sent her to St. Louis, and the public appearance on 25 March 1910 did the rest. The crowd at Union Station was frantic enough to strip the buttons from her coat; the reporters recorded her reaction - that she had no idea so many people were interested in her, and that it was strange to be greeted by strangers who knew her only from the pictures. **The details after that are where the story refuses to hold still.** Film historian Eileen Bowser has challenged the one-stunt version of events, and accounts of who started the death rumour do not agree. What the sources do agree on is the machine it left behind: within a year, picture audiences were being sold named performers on purpose, and Lawrence - afterwards widely acclaimed as the first movie star - became the first actor to be credited by name on a motion picture. The audience had grieved a woman it could not name, which was cheap. Naming her was the business.",
+      "kind": "person",
+      "medium": ["film"],
       "provenance": "sourced",
-      "other": "made",
-      "shelf": "fictional-protagonist",
-      "fits": "Somebody described in a book and therefore available to an unlimited number of people at once, whose most consequential event was produced and timed by the people who own him.",
+      "shelf": "idol",
+      "fits": "A performer at enough distance that the work was finished before the audience arrived - so finished, in her case, that the public could be sold her death before it could buy her name. The crowd at Union Station could strip her coat and still not know who it had been mourning.",
       "fits_verified": true,
       "sources": [
         {
-          "citation": "Wikipedia (2024). The Death of Superman.",
-          "claim": "Superman #75 sold over six million copies and became the top-selling comic of 1992; Adventures of Superman #500, which began his resurrection, was the best-selling comic of 1993. The teams delayed all Superman comics for three months to create the illusion that he had really been killed, because the solicitation cycle would have spoiled the resurrection. The issue brought in about US$30 million on its first day on sale, and sales from Superman #75 doubled DC's market share in November 1992.",
+          "citation": "Brown, Kelly R. 'Florence Lawrence.' Women Film Pioneers Project, Columbia University.",
+          "claim": "Fired by Biograph with Harry Solter in 1910 and hired by Laemmle's IMP; the widely announced 'death' and the St. Louis appearance of 25 March 1910; the 'We Nail a Lie' advertisement; Eileen Bowser's challenge to the single-stunt account.",
           "status": "retrievable",
-          "url": "https://en.wikipedia.org/wiki/The_Death_of_Superman"
+          "url": "https://wfpp.columbia.edu/pioneer/ccp-florence-lawrence/"
         },
         {
-          "citation": "Wikipedia (2024). The Death of Superman.",
-          "claim": "Commentators have retrospectively dismissed the story as a publicity stunt; each series' sales immediately declined following the resurrection, and Wizard compared the phenomenon to the New Coke debacle.",
+          "citation": "Heidenry, Margaret. 'Introducing Florence Lawrence, Hollywood's Forgotten First Movie Star.' Vanity Fair, 25 May 2018.",
+          "claim": "The Union Station scene on 25 March 1910: the crowd stripped the buttons from her coat, and she found it strange that a crowd would gather to welcome someone they had only seen in pictures.",
           "status": "retrievable",
-          "url": "https://en.wikipedia.org/wiki/The_Death_of_Superman"
+          "url": "https://www.vanityfair.com/hollywood/2018/05/florence-lawrence-first-movie-star-old-hollywood"
         },
         {
-          "citation": "Rozanski, C. Tales From the Database, CBG #127. Mile High Comics.",
-          "claim": "A named retailer opposing the plan at the time, saying DC President Paul Levitz told him there was no turning back and that publicist Martha Thomases had saturated the news media with the word that Superman was about to die; and that he continued 'to hear from at least one non-comics fan a month about how they felt ripped off when they were tricked into believing that Superman was really going to die.' One retailer's account of what he was told in 1991, and of reader reaction afterwards; recorded as his recollection, not as industry fact.",
+          "citation": "Klein, Christopher. 'Florence Lawrence: The First Movie Star.' HISTORY, 7 December 2015.",
+          "claim": "The February 1910 planted story that the 'Biograph Girl' had been struck and killed by a streetcar; the 'We Nail a Lie' ad blaming rival studios and announcing her next IMP film; the St. Louis public appearance that showed her alive; 'widely acclaimed as the first movie star'; 'the first actor to be credited by name on a motion picture'.",
           "status": "retrievable",
-          "url": "https://www.milehighcomics.com/tales/cbg127.html"
-        },
-        {
-          "citation": "Britannica (2024). DC Comics.",
-          "claim": "During the early 1990s the comic book industry experienced a boom in sales, with books tied to DC's The Death of Superman crossover selling millions of copies; such growth proved unsustainable, as sales soon declined to a fraction of their previous levels.",
-          "status": "retrievable",
-          "url": "https://www.britannica.com/money/DC-Comics"
+          "url": "https://www.history.com/articles/florence-lawrence-the-first-movie-star"
         }
       ],
       "relations": [
+        {"type": "preceded", "to": "the-fan-magazine"},
+        {"type": "preceded", "to": "mary-pickford"},
+        {"type": "depicts", "to": "parasocial-interaction"}
+      ]
+    },
+    {
+      "id": "rin-tin-tin",
+      "title": "Most faithfully, Rin Tin Tin",
+      "year": 1922,
+      "summary": "A German Shepherd found on a battlefield became one of the biggest silent-film stars, and the fan mail that arrived for him was answered with a glossy portrait signed by a paw.",
+      "significance": "**The credit read 'Played by himself', and the fan mail was answered by a paw.** Rin Tin Tin was found in a French field in September 1918 by Lee Duncan, an American soldier, and came home with him; the dog got his first film work in 1922, when a director needed something more reliable than a camera-shy wolf in The Man from Hell's River, and his first starring role - Where the North Begins, opposite Claire Adams in 1923 - made him a star. A dog who could not read received the mail of a matinee idol, by the thousands of letters a week, and the reply was manufactured exactly the way a human star's would have been: a glossy portrait, signed with an inked paw print, over the line Duncan wrote for him - 'Most faithfully, Rin Tin Tin'. The studio leaned on him whenever it got into trouble, and the films were known inside the trade as the mortgage lifters; by 1927 the most sophisticated film audience in Europe had made him the most popular actor in Berlin. **The audience knew perfectly well he was a dog, and that was the condition of the whole thing.** The one performer in this corpus who ever came physically close to answering back was the one who could not possibly understand what he was being addressed for, and the attachment has outlived him by a century of dog after dog. Two honesty notes belong here. The sources disagree on the count of his films - the New Yorker gives twenty-three silent pictures, Wikipedia twenty-seven Hollywood films - and the battlefield rescue is Duncan's own story, retold with variations ever since.",
+      "kind": "person",
+      "medium": ["film"],
+      "provenance": "sourced",
+      "shelf": "animal",
+      "fits": "Alive, non-human, and unable to understand what it was being addressed for - the shelf's own test - while performing the half of the relationship that could be performed. The one other end here that ever physically answered back was the one that could never check what the letter said.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Orlean, Susan. 'The Dog Star.' The New Yorker, 29 August 2011.",
+          "claim": "The career at scale: twenty-three silent films, the 'mortgage lifter' tag, fan letters by the thousands answered with a glossy portrait signed with an inked paw print over the line 'Most faithfully, Rin Tin Tin', and his standing as Berlin's most popular actor by 1927.",
+          "status": "retrievable",
+          "url": "https://www.newyorker.com/magazine/2011/08/29/the-dog-star"
+        },
+        {
+          "citation": "Wikipedia. 'Rin Tin Tin.'",
+          "claim": "Born 10 October 1918 in Flirey, France; found and rescued from a First World War battlefield in September 1918 by Lee Duncan; first cast replacing a camera-shy wolf in The Man from Hell's River (1922) and billed as 'Rin Tan'; credited in My Dad (1922) as 'Rin Tin Tin - Played by himself'; first starring role in Where the North Begins (1923); 'went on to appear in 27 Hollywood films'; endorsement and merchandise use; Duncan wrote the 'Most faithfully' replies.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Rin_Tin_Tin"
+        },
+        {
+          "citation": "Wikipedia. 'Where the North Begins.'",
+          "claim": "Released 1 July 1923 by Warner Bros.; Rin Tin Tin's first starring role, a silent drama opposite Claire Adams; commonly credited with rescuing the studio from bankruptcy.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Where_the_North_Begins"
+        }
+      ],
+      "relations": [
+        {"type": "succeeded", "to": "fan-mail"},
+        {"type": "succeeded", "to": "the-dog"}
+      ]
+    },
+    {
+      "id": "murrow",
+      "title": "This is London",
+      "year": 1940,
+      "summary": "The live rooftop broadcasts that carried the Blitz into American homes, and the sign-off that made a reporter and a city the same thing.",
+      "significance": "**Every broadcast went out live, because the sound of the raid was the report.** Murrow was, in Philip Seib's account, the only journalist allowed to broadcast live during the air raids on London - a permission arranged with Winston Churchill's intervention - and the recordings that survive were, Seib says, klutzy; Murrow's argument was the silence and the anti-aircraft fire, transmitted while they were happening. The opening line, 'This is London', with its deliberate pause after This, was his speech teacher Ida Lou Anderson's suggestion, and it turned a city into a dateline. He closed with the farewell Londoners were already saying to each other in the blackout - 'Good night, and good luck'. On the roof of Broadcasting House he described the flags: 'No one ordered these people to put out the flags... No one told them to do it, and no flag up there was white.' Millions of Americans spent the autumn of 1940 in a city they had never visited, listening. **The reply came later, at a dinner in December 1941.** The Librarian of Congress, Archibald MacLeish, told Murrow what the broadcasts had done: 'You laid the dead of London at our doors and we knew that the dead were our dead, were mankind's dead. You have destroyed the superstition that what is done beyond 3,000 miles of water is not really done at all.' Nothing in the exchange was private; everything in it was personal. That is the whole subject of this site, worked out on a London rooftop, overnight radio, with the sky doing the sound effects.",
+      "kind": "person",
+      "medium": ["radio"],
+      "provenance": "sourced",
+      "shelf": "presenter",
+      "fits": "An institution put him at the microphone on a schedule, and he used the second person to a whole country, night after night, with a fixed opening and a borrowed sign-off. The shelf's 'not' is a creator who generates their own address; Murrow kept the address assigned to him and made it large.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "NPR. 'Murrow, the Blitz and the Race to War.' Talk of the Nation, 22 May 2006 (interview with Philip Seib).",
+          "claim": "Rooftop broadcast excerpts including 'no flag up there was white'; Seib on the broadcasts going out live, Murrow as the only journalist allowed to broadcast live during the air raids, Churchill's intervention to arrange it, and the broadcast from the top of Broadcasting House.",
+          "status": "retrievable",
+          "url": "https://www.npr.org/transcripts/5422698"
+        },
+        {
+          "citation": "Wikipedia. 'Edward R. Murrow.'",
+          "claim": "'This is London' as his signature opening, suggested by Ida Lou Anderson; 'Good night, and good luck' from the farewell Londoners used during the Blitz; the December 1941 dinner at which Archibald MacLeish delivered the encomium on the London broadcasts.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Edward_R._Murrow"
+        }
+      ],
+      "relations": [
+        {"type": "contemporary", "to": "sinatra-bobby-soxers"},
+        {"type": "succeeded", "to": "war-of-the-worlds"},
+        {"type": "depicts", "to": "parasocial-interaction"}
+      ]
+    },
+    {
+      "id": "the-amateur-hour",
+      "title": "You within sound of my voice",
+      "year": 1935,
+      "summary": "A gong, a wheel and a mailbag turned amateur acts into a national radio ritual - while telling everyone listening at home that they were part of the show and could vote its acts out.",
+      "significance": "**The machine was a gong, a wheel and a mailbag, and the point of the address was the second person.** Amateur hours had failed twice on New York's WHN before a third try in 1934 put a gong in the studio, an idea the host, Perry Charles, took from a wrestling match; Major Edward Bowes absorbed the format, signed with Chase & Sanborn, and launched it nationally on NBC on 24 March 1935. Listeners voted by telephone, telegram and mail; he spun the wheel - 'Round and round she goes, and where she stops nobody knows' - and gonged the failures. By June the programme was the most listened-to in the United States, and at the summer 1936 peak the Library of Congress counts 10,000 applications arriving weekly, 600 amateurs auditioned, 16 acts on air, and a live audience of 2,000 in Radio City. The first broadcast told the country what it was for: 'You within sound of my voice are just as much part of this show as the youngsters that come to the microphone. Telephone your choice, telephone early, telephone often. You decide the winners.' **A machine for one-sided intimacy with a working return path**, funded by a coffee company: a listener who would never see the studio could end a stranger's act from a kitchen chair, and the vote landed - winners left with immediate professional engagement. The bill arrived afterwards. Applicants crossed the country on hope and were turned away; and Bowes, looking at the crowd of hopefuls below the window, was quoted saying, 'Look at those poor boobs down there.' The gong was the honesty of the arrangement: it never pretended to be anything but a verdict.",
+      "kind": "mechanism",
+      "medium": ["radio"],
+      "provenance": "sourced",
+      "other": "made",
+      "shelf": "presenter",
+      "fits": "The show is a schedule, a studio and a second-person address - 'You within sound of my voice' - and the machinery belongs to the house. A presenter in the shelf's exact sense: the address is issued on a timetable, by the institution, to whoever is listening.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Jenemann, Laura. 'About Major Bowes.' Major Bowes and the Original Amateur Hour, Library of Congress research guide.",
+          "claim": "The third WHN edition under host Perry Charles premiered 28 March 1934, the gong idea taken from a Madison Square Garden wrestling match; Bowes's national premiere on NBC on 24 March 1935; the wheel catchphrase; by June 1935 the most listened-to programme in the United States; at the summer 1936 peak 10,000 applications weekly, 600 auditions, 16 acts on air, and a 2,000-seat studio audience at Radio City.",
+          "status": "retrievable",
+          "url": "https://guides.loc.gov/original-amateur-hour/about-major-bowes"
+        },
+        {
+          "citation": "Ramsburg, Jim. 'Major Bowes' Original Money Machine.' worldradiohistory.com.",
+          "claim": "The March 1935 move to NBC and the ratings that followed; Newsweek's account of the crowds of applicants, the relief rolls, and Bowes's 'Look at those poor boobs down there'; Frank Sinatra as the show's most famous alumnus; the touring units.",
+          "status": "retrievable",
+          "url": "https://www.worldradiohistory.com/GOLDTIME-RADIO/major-bowes-original-money-machine.html"
+        },
+        {
+          "citation": "Heuser, Harry. 'Gong-ho: A Time-Delayed Cheer for Going Live.' 24 March 2009.",
+          "claim": "The show went national on 24 March 1935; Bowes's address to listeners - 'You within sound of my voice are just as much part of this show as the youngsters that come to the microphone', and 'telephone your choice, telephone early, telephone often. You decide the winners, and the winners will receive immediate professional engagement'; 200 special telephone lines installed by 1936.",
+          "status": "retrievable",
+          "url": "https://harryheuser.com/2009/03/24/gong-ho-a-time-delayed-cheer-for-going-live/"
+        }
+      ],
+      "relations": [
+        {"type": "preceded", "to": "queen-for-a-day"},
+        {"type": "instance_of", "to": "parasocial-interaction"}
+      ]
+    },
+    {
+      "id": "will-rogers",
+      "title": "The most widely known citizen",
+      "year": 1935,
+      "summary": "When Will Rogers died with Wiley Post in Alaska, flags went to half-staff and twelve thousand cinema screens went dark - for a man most of the country knew only as a column and a Sunday-night voice.",
+      "significance": "**The country mourned him the way it mourns presidents, and almost nobody who mourned him had ever been in a room with him.** Rogers died on 15 August 1935 near Point Barrow, Alaska, in a plane flown by his friend Wiley Post; it failed on take-off from a lagoon in fog. Federal and state authorities ordered flags to half-staff; both houses of Congress suspended their proceedings when the news came; newspaper editorials asked Franklin Roosevelt to declare a national day of mourning. At two in the afternoon on 22 August, twelve thousand motion picture screens across the country went dark for two minutes - a tribute the National Air and Space Museum describes as the kind of mourning the nation has rarely undertaken outside the death of a president. He earned that with the two cheapest channels of intimacy available: a syndicated daily column and a Sunday-night radio programme, read and heard by millions who had never seen him and never would. The New York Times put the fit in one line: 'the most widely-known citizen of the U.S. . . . and the best beloved.' **The mourning was real, entirely one-sided, and perfectly legible** - the site's claim stated in a single week of August 1935. Twelve thousand dark screens are the audience's half of a conversation the other half never had to have, and the size of the answer is the measure of how many people were asking. (The accounts split by one day on the crash: the National Air and Space Museum gives the 15th, the National Park Service the 16th.)",
+      "kind": "person",
+      "medium": ["radio"],
+      "provenance": "sourced",
+      "shelf": "idol",
+      "fits": "A performer whose work arrived finished - a column at breakfast, a broadcast on Sunday night - and who was loved at a distance nobody on the near side could close. The twelve thousand dark screens measure the distance; it is where the tie lived.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "National Air and Space Museum. 'Remembering Wiley Post and Will Rogers.' 16 August 2013.",
+          "claim": "The 15 August 1935 crash near Point Barrow after take-off from a lagoon in fog; a state of mourning rarely undertaken outside the death of a president; federal and state flags at half-staff; 12,000 motion picture screens dark for two minutes at 2 p.m. on 22 August; editorials urging a national day of mourning; Hollywood studios banning actors from flying.",
+          "status": "retrievable",
+          "url": "https://airandspace.si.edu/stories/editorial/remembering-wiley-post-and-will-rogers"
+        },
+        {
+          "citation": "U.S. National Park Service. 'Rogers-Post Site.'",
+          "claim": "The New York Times' description of Rogers as 'the most widely-known citizen of the U.S. . . . and the best beloved'; both houses of Congress suspending deliberations on hearing of the deaths; the crash after take-off from Walakpa Bay near Point Barrow.",
+          "status": "retrievable",
+          "url": "https://www.nps.gov/articles/rogers-post-site.htm"
+        }
+      ],
+      "relations": [
+        {"type": "contemporary", "to": "the-amateur-hour"},
+        {"type": "succeeded", "to": "fireside-chats"}
+      ]
+    },
+    {
+      "id": "glenn-miller",
+      "title": "The band played without him",
+      "year": 1944,
+      "summary": "The most popular bandleader in America gave up the job to enlist, took his orchestra to England, and vanished over the Channel on a small plane to Paris - while the band played on.",
+      "significance": "**He was at the top of the business, and he gave the business up to put on a uniform.** Glenn Miller was the biggest star on the American pop-music scene when he set aside his career at its peak in 1942 - his orchestra had run off an unprecedented string of hits, and 'Chattanooga Choo Choo' was the number-one record in the country when Pearl Harbor was attacked - and he organised a band in uniform: 'I Sustain The Wings' on radio first, then the Major Glenn Miller Army Air Force Orchestra, which crossed to England in the summer of 1944 and gave more than three hundred live performances and some five hundred broadcasts to the troops. His commander, General Jimmy Doolittle, told him on a stage in July 1944: 'Next to a letter from home, Captain Miller, your organization is the greatest morale builder in the European Theater of Operations.' **On 15 December 1944 he took a small plane to Paris and vanished.** The UC-64A Norseman took off from RAF Twinwood Farm near Bedford on the afternoon of the 15th and was never seen again; no trace of the aircraft has ever been found and the cause has never been established. Miller had taken a casual flight his travel orders did not authorise and had told nobody, so the army needed three days to realise he was missing. He was declared dead a year and a day later, and the case is filed, still, as non-recoverable, his name on the Wall of the Missing at Cambridge. The band went on: a Christmas Day broadcast from Paris to England and America was already scheduled. **The far side of the bond was now a voice with no man behind it** - records, broadcasts, an orchestra still booked under his name - and his listeners could not know. Of every idol in this corpus, he is the one with no grave and nothing to visit but the work, and the work is still playing.",
+      "kind": "person",
+      "medium": ["music"],
+      "provenance": "sourced",
+      "shelf": "idol",
+      "fits": "A performer whose work was finished before anyone arrived, because it came to the audience pressed onto records - and whose disappearance made the distance literal. An idol with no grave has exactly one thing to visit, which is the work.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Defense POW/MIA Accounting Agency. 'Maj. Alton G. Miller' service member profile.",
+          "claim": "The UC-64A Norseman's 15 December 1944 disappearance en route from RAF Twinwood Farm near Bedford to Paris; never seen again, cause unknown; the AAF orchestra's England morale broadcasts; the Wall of the Missing at Cambridge American Cemetery; the case's category, non-recoverable.",
+          "status": "retrievable",
+          "url": "https://dpaa-mil.sites.crmforce.mil/dpaaProfile?id=a0Jt000001nzU0gEAE"
+        },
+        {
+          "citation": "Wikipedia. 'Glenn Miller.'",
+          "claim": "The cancelled bookings of 13-14 December 1944 and the unauthorised 'casual' flight; the three days before the military realised he was missing; the Christmas Day broadcast from Paris to England and the United States that was scheduled; the official declaration of death a year and a day after the disappearance.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Glenn_Miller"
+        },
+        {
+          "citation": "HISTORY.com. 'Legendary bandleader Glenn Miller disappears over the English Channel.' This Day in History, 15 December.",
+          "claim": "'The biggest star on the American pop-music scene' who set aside his career at its peak in 1942; the last concert under his direction on 27 September 1942 in Passaic, New Jersey; 'I Sustain The Wings' broadcast weekly from New York; Doolittle's 'greatest morale builder' line.",
+          "status": "retrievable",
+          "url": "https://www.history.com/this-day-in-history/december-15/legendary-bandleader-glenn-miller-disappears-over-the-english-channel"
+        },
+        {
+          "citation": "Air University. 'Glenn Miller Holiday Concert: The origins of an annual tradition.' 3 December 2018.",
+          "claim": "The band arrived in England in mid-June 1944; 300 live performances in England and 500 radio broadcasts to Allied troops; December approval for live performances in liberated Paris; departure from England on 15 December 1944; the aircraft disappeared over the English Channel.",
+          "status": "retrievable",
+          "url": "https://www.airuniversity.af.edu/News/Display/Article/1703504/glenn-miller-holiday-concert-the-origins-of-an-annual-tradition/"
+        }
+      ],
+      "relations": [
+        {"type": "succeeded", "to": "rudolph-valentino"},
+        {"type": "depicts", "to": "parasocial-interaction"}
+      ]
+    },
+    {
+      "id": "peter-pan",
+      "title": "If you believe, clap your hands",
+      "year": 1904,
+      "summary": "The play that asks the whole audience to save a dying fairy by clapping - and has received the same answer, in the same room, for more than a century.",
+      "significance": "**The audience is asked to save a life, out loud, and every night it does.** Peter Pan premiered at the Duke of York's Theatre on 27 December 1904, produced by Charles Frohman, with Gerald du Maurier doubling as Captain Hook and Mr. Darling and Nina Boucicault in the title role - a woman as the boy, which then became the tradition. Near the end, Tinker Bell drinks the poison that was meant for Peter, and Peter turns outward, to 'the boys and girls of whom he is not one': 'Do you believe in fairies? Say quick that you believe! If you believe, clap your hands!' The published text carries the result as a stage direction - many clap, some don't, a few hiss, but Tink is saved - and Barrie had not trusted the audience to produce it: members of the orchestra were stationed to clap if the public declined, which a Smithsonian centenary account calls 'an unnecessary precaution'. **The fourth wall is not broken here; it is made load-bearing.** For one minute a night, the survival of a fiction depends on real strangers in a real room choosing to believe in public - the one moment in this corpus when the audience's feeling is not inferred from sales or letters but is itself the plot. And the gesture outlived the production it was written for: clapping for Tinker Bell is now a habit of the theatre rather than a request from a stage. The clap is not a metaphor for belonging. It is the price of the ticket, paid in belief, with the house lights down.",
+      "kind": "work",
+      "medium": ["stage"],
+      "provenance": "sourced",
+      "other": "made",
+      "shelf": "fictional-protagonist",
+      "fits": "Somebody described on a page and embodied on a stage, available to a full house of strangers at once - and the shelf's definition becomes the plot, because the character's continuation is handed nightly to people she has never met.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Wikipedia. 'Peter Pan (play and novel).'",
+          "claim": "Premiere 27 December 1904 at the Duke of York's Theatre, London, with Nina Boucicault as Peter and Gerald du Maurier as Captain Hook and Mr. Darling; the play script published in 1928 as Peter Pan; or, The Boy Who Would Not Grow Up.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Peter_Pan_(play_and_novel)"
+        },
+        {
+          "citation": "Allen, Norman. 'Peter Pan Turns 100.' Smithsonian Magazine, December 2004.",
+          "claim": "Two days after Christmas 1904 the play first flew onto the Duke of York's stage; when Tinker Bell lay dying and Peter asked the audience to clap to save her, members of the orchestra were ready to oblige if the public declined - which 'proved an unnecessary precaution'.",
+          "status": "retrievable",
+          "url": "https://www.smithsonianmag.com/arts-culture/peter-pan-turns-100-98366891/"
+        },
+        {
+          "citation": "Wikiquote. 'Peter Pan.' Quoting Barrie, Peter Pan, Act IV (1904; published 1928).",
+          "claim": "The full appeal and its stage direction: 'Do you believe in fairies? Say quick that you believe! If you believe, clap your hands! (Many clap, some don't, a few hiss... But Tink is saved.)', preceded by Peter rising and throwing out his arms 'he knows not to whom, perhaps to the boys and girls of whom he is not one'.",
+          "status": "retrievable",
+          "url": "https://en.wikiquote.org/wiki/Peter_Pan"
+        },
+        {
+          "citation": "The British Newspaper Archive. 'The World Premiere of Peter Pan - The Duke of York's Theatre, London, 27 December 1904.' 19 December 2013.",
+          "claim": "The world premiere on 27 December 1904 and a reproduction of a review of the production published on 28 December 1904.",
+          "status": "retrievable",
+          "url": "https://www.britishnewspaperarchive.com/blog/the-world-premiere-of-peter-pan-the-duke-of-yorks-theatre-london-27-december-1904"
+        }
+      ],
+      "relations": [
+        {"type": "succeeded", "to": "the-fourth-wall"},
+        {"type": "depicts", "to": "parasocial-interaction"}
+      ]
+    },
+    {
+      "id": "i-want-you",
+      "title": "The face he painted for the army was his own",
+      "year": 1917,
+      "summary": "James Montgomery Flagg drew the most famous recruiting poster in the world and modelled the figure from a mirror - so the finger points at you with the artist's own face.",
+      "significance": "**The mechanism is the address: three words, second person, no name.** 'I Want YOU for U.S. Army.' The image began as the cover of Leslie's Weekly on 6 July 1916, titled 'What Are You Doing for Preparedness?', while America argued about the war in Europe. When the country entered the war in April 1917 the copyright passed to the government, the caption changed to the three words, and the presses ran - more than four million copies printed in 1917 and 1918 alone, and the poster was pulled out again for the Second World War. The pose was borrowed from the British recruiting poster of Lord Kitchener, which pointed in the same direction; the figure was Uncle Sam, a personification with no biography and no private life to disappoint anybody. And the face was James Montgomery Flagg's own. He modelled it in a mirror, adding wrinkles and grey hair, and admitted the choice later when he presented a copy to President Roosevelt - he had been his own model, he said, to save the modelling fee. **A poster is the one medium in this corpus where the second person is aimed at millions and received alone.** One design, addressed to every man in the country, greeting each of them as an individual summons; there was never any way to write back, and none was expected, because the intended answer was the reader's body, in person, at a recruiting depot. Uncle Sam's eyes have been met by more people than any performer who lived in his own century, and under the hat is a commercial illustrator who saved himself the modelling fee.",
+      "kind": "work",
+      "medium": ["visual_art"],
+      "provenance": "sourced",
+      "other": "made",
+      "shelf": "mascot",
+      "fits": "No body, no biography, no intention - a figure specified entirely by the institution that operates him, wearing the face of the man who drew him. The shelf's test asks whether he can be the author of his own behaviour; Uncle Sam's whole case is that he cannot, and the finger works because of it.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Library of Congress. 'I Want You.' Echoes of the Great War: American Experiences of World War I (exhibition).",
+          "claim": "The image first appeared as the cover of Leslie's Weekly, 6 July 1916, titled 'What Are You Doing for Preparedness?'; more than four million copies printed in 1917-1918; the design reissued during the Second World War; Flagg's own description of it as 'the most famous poster in the world'.",
+          "status": "retrievable",
+          "url": "https://www.loc.gov/exhibitions/world-war-i-american-experiences/about-this-exhibition/over-here/raising-an-army/i-want-you/"
+        },
+        {
+          "citation": "National Museum of American History. 'Uncle Sam: The man and the meme.' 13 September 2013.",
+          "claim": "Flagg's drawing adapted from the pose and language of the earlier British Lord Kitchener recruiting poster; the direct address to the viewer; four million posters printed in 1917-1918 and reuse in the Second World War; the Smithsonian's holdings of the original drawing and related materials.",
+          "status": "retrievable",
+          "url": "https://www.americanhistory.si.edu/explore/stories/uncle-sam-man-and-meme"
+        },
+        {
+          "citation": "PBS American Experience. '\"I Want You,\" Remixed.' 24 February 2017.",
+          "claim": "The Leslie's Weekly 6 July 1916 cover in the context of the Preparedness Movement; the copyright transferred to the government and the caption changed to 'I Want You' when the United States entered the war in April 1917.",
+          "status": "retrievable",
+          "url": "https://www.pbs.org/wgbh/americanexperience/features/the-great-war-I-want-you-remixed/"
+        },
+        {
+          "citation": "Teaching American History. 'Recruitment Poster: I Want YOU for U.S. Army.' 2 August 2024.",
+          "claim": "Flagg drew the face using his own reflection as a model, adding wrinkles and grey hair; the pose drawn from the British Kitchener poster; nearly four million copies printed in 1917-1918.",
+          "status": "retrievable",
+          "url": "https://teachingamericanhistory.org/document/recruitment-poster/"
+        }
+      ],
+      "relations": [
+        {"type": "preceded", "to": "betty-crocker"},
+        {"type": "preceded", "to": "fireside-chats"},
         {"type": "depicts", "to": "parasocial-interaction"}
       ]
     }
