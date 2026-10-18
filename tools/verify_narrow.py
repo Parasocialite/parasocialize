@@ -151,10 +151,15 @@ function run() {{
 
     // Prove the stylesheet is live BEFORE measuring. Unstyled reports no
     // overflow for everything, so a clean result without this check is void.
-    // But only demand what the page asked for: a deliberately self-contained
-    // page (signal/latest.html is an HTML email, inline-styled by necessity)
-    // declares no stylesheet, and demanding one loaded would be inventing a
-    // promise it never made. The check that matters is declared-vs-loaded.
+    // But a page is only excused for what it actually declared, and "declared"
+    // means an ELEMENT. /ledger/ shipped with a missing `>` after its
+    // description meta; the open tag ate the stylesheet link that followed, so
+    // the DOM had no stylesheet while the source text still contained one.
+    // A substring test - and the first draft of this check - read the text and
+    // waved through an unstyled page. signal/latest.html is the one page that
+    // truly declares none (it is an HTML email, inline-styled by necessity),
+    // and it still has to prove it is styled: the background test below is
+    // what separates "styles itself inline" from "no styles arrived at all".
     // Same-origin only: the page's own CSS is local and fingerprinted, and its
     // absence is what manufactures an unstyled pass; the Google Fonts sheet is
     // a third-party CDN that a cold profile can still be fetching at measure
@@ -176,8 +181,7 @@ function run() {{
     }};
     const styled = css.triadDisplay === 'grid' ||
                    css.bodyBg !== 'rgba(0, 0, 0, 0)';
-    const cssOK = css.selfContained ? true
-                                : (sameLoaded >= sameLinks.length && styled);
+    const cssOK = sameLoaded >= sameLinks.length && styled;
 
     const doc = d.documentElement;
     // An element inside a horizontal scroll container is *allowed* to extend
@@ -289,12 +293,19 @@ try:
     if "error" in r:
         bad.append(f"harness error: {r['error']}")
     elif not r["cssOK"]:
-        bad.append(f"stylesheet did not load {r['css']} - the page declared "
-                   f"{r['css'].get('sameOrigin', r['css'].get('declared'))} "
-                   f"same-origin stylesheet(s) and "
-                   f"{r['css'].get('sameLoaded', r['css'].get('loaded'))} "
-                   "arrived, so every measurement below would be of an "
-                   "unstyled page, which reports no overflow for anything")
+        if not r["css"].get("declared"):
+            bad.append("the page declares no stylesheet link ELEMENT and is "
+                       "not styled by anything else - if its source has a "
+                       "<link rel=stylesheet>, a tag before it is unclosed "
+                       "and swallowing it (that is exactly how /ledger/ "
+                       "shipped unstyled for every reader)")
+        else:
+            bad.append(f"stylesheet did not load {r['css']} - the page declared "
+                       f"{r['css'].get('sameOrigin', r['css'].get('declared'))} "
+                       f"same-origin stylesheet(s) and "
+                       f"{r['css'].get('sameLoaded', r['css'].get('loaded'))} "
+                       "arrived, so every measurement below would be of an "
+                       "unstyled page, which reports no overflow for anything")
     elif r["got"] != width:
         bad.append(f"measured at {r['got']}px, asked for {width}px - the "
                    "harness is wrong, not the page")

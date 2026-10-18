@@ -649,10 +649,10 @@ def ledger_band(m, r):
     """
     return f"""<div class="ledger-band">
   <p class="kicker">THE OPEN LEDGER</p>
-  <p class="ledger-band-t">Two states, kept apart: <b>openable</b> &mdash; a reader
-  can click the record and find the work &mdash; and <b>read</b> &mdash; somebody
-  here actually opened it. Most of the web keeps only the first and calls it a
-  citation.</p>
+  <p class="ledger-band-t">The sourcing standard this whole site is held to,
+  stated in full: two states, kept apart &mdash; <b>openable</b>, a reader can
+  click the record and find the work, and <b>read</b>, somebody here actually
+  opened it. Most of the web keeps only the first and calls it a citation.</p>
   <p class="ledger-band-n"><b>{m['openable']}</b> of {m['records']} records are
   openable. <b>{m['no_locator']}</b> have no locator yet and say so.
   <b>{m['verified_entries']}</b> of {m['entries']} entries are marked verified.</p>
@@ -688,7 +688,7 @@ def build_ledger(data, enc):
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The open ledger - Parasocialize</title>
-<meta name="description" content="{esc(verified_note(m))}"
+<meta name="description" content="{esc(verified_note(m))}">
 <link rel="stylesheet" href="{r}css/styles.css">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize" href="{SITE}/radar.xml">
 <link rel="alternate" type="application/rss+xml" title="Parasocialize - the open ledger" href="{SITE}/ledger/feed.xml">
@@ -702,13 +702,14 @@ def build_ledger(data, enc):
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
 <main class="section">
-  <p class="kicker">ACCOUNTABILITY</p>
+  <p class="kicker">THE STANDARD</p>
   <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.4rem);font-weight:900;
      letter-spacing:-.03em;line-height:1.02;margin:0 0 16px">The open ledger</h1>
-  <p class="sec-lede" style="max-width:64ch;font-size:1.08rem">A citation that
-  nobody checked is worth less than one that is &mdash; but most of the web does not
-  tell you which you are looking at. This site records two states and prints both.
-  This is what the catalogue currently measures.</p>
+  <p class="sec-lede" style="max-width:64ch;font-size:1.08rem">This is the
+  standard every claim on this site is held to, and the tally of where the
+  catalogue stands against it. A citation that nobody checked is worth less
+  than one that is &mdash; but most of the web does not tell you which you are
+  looking at. This site records two states and prints both.</p>
 
   <div id="figures" class="cit-stats">
     <div><b>{m['openable']}</b><span>of {m['records']} records openable</span></div>
@@ -2115,7 +2116,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
         <span>{ed.get("door_encyclopedia")}</span></span></a>
 
       <aside class="clerk" aria-labelledby="clerk-kick">
-        <div class="clerk-face" role="img" aria-label="iYi, the Parasocialize mascot, behind the counter">{mascot(96, "mascot-hero", mood="clerk")}</div>
+        <div class="clerk-face" role="img" aria-label="iYi, the Parasocialize mascot, behind the counter">{mascot(88, "mascot-hero", mood="clerk")}</div>
         <p class="clerk-kick" id="clerk-kick">{ed.get("kicker")}</p>
         <p class="clerk-line">{ed.get("clerk_line")}</p>
         <a class="clerk-more" href="brand/index.html">What the mascot is for &rarr;</a>

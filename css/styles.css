@@ -312,23 +312,27 @@ empty space just moved to the bottom left. */
 .clerk{display:flex;flex-direction:column;position:relative;
   border:1px solid var(--line2);border-radius:14px;
   background:linear-gradient(180deg,var(--bg3),var(--bg2));
-  padding:6px 18px 14px;text-align:left}
+  padding:4px 16px 10px;text-align:left}
 /* The mascot was 168px of eyes in a 330px card, breaking the top edge by 52px
    behind a 30px orange glow - more than half the card's width, and the second
    loudest thing on the page after the wordmark. It is a caption-bearing detail
-   on this page, not a second headline, so it is 116px now, overlapping by 28,
+   on this page, not a second headline, so it is 88px now, overlapping by 30,
    and the glow is pulled back to something that reads as depth rather than as
    light.
 
    The negative bottom margin is the other half: iYi's rig draws two eyes inside
-   a taller box, so a face sized to its element leaves roughly 50px of nothing
+   a taller box, so a face sized to its element leaves roughly 35px of nothing
    between the drawing and the first line of copy - which read as a gap in the
-   card rather than as air around a picture. */
-.clerk-face{display:flex;justify-content:center;margin:-28px 0 -20px}
+   card rather than as air around a picture.
+
+   This card is the tallest of the masthead row's three, so its height is the
+   row's height - the two doors stretch to it - and every trim here moves all
+   three. Measured after the trim by tools/probe_cards.py, not guessed. */
+.clerk-face{display:flex;justify-content:center;margin:-30px 0 -26px}
 .clerk-face .mascot-hero{filter:drop-shadow(0 8px 16px rgba(255,90,31,.20))}
 .clerk-kick{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--warm);margin:8px 0 8px}
-.clerk-line{font-size:.95rem;line-height:1.5;color:var(--dim);margin:0 0 12px}
+  text-transform:uppercase;color:var(--warm);margin:5px 0 5px}
+.clerk-line{font-size:.9rem;line-height:1.42;color:var(--dim);margin:0 0 9px}
 .clerk-line b{color:var(--paper);font-weight:600}
 .clerk-more{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
   text-transform:uppercase;color:var(--hot)}
@@ -340,12 +344,12 @@ empty space just moved to the bottom left. */
    columns with the 1956/-70,000 pair between them, so the doors a reader was
    just told about were not adjacent to the thing that introduced them. */
 .masthead-row{display:grid;grid-template-columns:1fr 1fr minmax(0,1.35fr);
-  gap:16px;margin-top:26px;align-items:stretch}
-.masthead-row .fdoor{padding:18px 20px;border-radius:var(--r);
+  gap:14px;margin-top:22px;align-items:stretch}
+.masthead-row .fdoor{padding:14px 16px;border-radius:var(--r);
   border-left-width:4px;flex-direction:column;align-items:flex-start;
   justify-content:center;gap:2px}
-.masthead-row .fdoor-body strong{font-size:1.24rem;letter-spacing:-.015em}
-.masthead-row .fdoor-body span{font-size:.86rem;line-height:1.45}
+.masthead-row .fdoor-body strong{font-size:1.18rem;letter-spacing:-.015em}
+.masthead-row .fdoor-body span{font-size:.83rem;line-height:1.42}
 .masthead-row .clerk{margin:0}
 /* ---- <code>: the author's machine keys, in the site's own label face -------
 The corpus marks classification values in backticks - `persona/idol`,
@@ -374,11 +378,11 @@ code{font-family:var(--label);font-size:.88em;letter-spacing:0;
      the full width and reads in four lines. Same direction as the desktop
      column, so it stops being a different layout at a smaller size. */
   .clerk{display:flex;flex-direction:column;align-items:center;
-    text-align:center;padding:14px 20px 16px}
-  .clerk-face{margin:-22px 0 -16px}
-  .clerk-face .mascot-hero{width:92px;height:92px}
-  .clerk-kick{margin:4px 0 7px}
-  .clerk-line{margin:0 0 10px}
+    text-align:center;padding:10px 18px 14px}
+  .clerk-face{margin:-24px 0 -18px}
+  .clerk-face .mascot-hero{width:84px;height:84px}
+  .clerk-kick{margin:3px 0 5px}
+  .clerk-line{margin:0 0 8px}
   .clerk-more{margin-top:0}
 }
 /* The wordmark is 7.5rem at desktop and the clamp bottoms out at 3rem, which at
@@ -434,7 +438,7 @@ code{font-family:var(--label);font-size:.88em;letter-spacing:0;
    shouting over it. */
 .hub{
   position:relative;overflow:hidden;border-radius:var(--r);
-  padding:22px 22px 18px;min-height:132px;
+  padding:16px 18px 12px;min-height:118px;
   display:flex;flex-direction:column;
   background:linear-gradient(178deg,
     color-mix(in srgb,var(--c) 17%,var(--bg2)) 0%,
@@ -466,15 +470,15 @@ code{font-family:var(--label);font-size:.88em;letter-spacing:0;
    where each photograph appears at size, and on /credits/. */
 .hub-name{
   position:relative;z-index:2;
-  font-family:var(--serif);font-size:1.42rem;font-weight:700;
-  letter-spacing:-.02em;color:var(--paper);margin-bottom:9px;
-  padding-bottom:8px;
+  font-family:var(--serif);font-size:1.2rem;font-weight:700;
+  letter-spacing:-.02em;color:var(--paper);margin-bottom:7px;
+  padding-bottom:7px;
   border-bottom:1px solid color-mix(in srgb,var(--c) 52%,transparent);
 }
 .hub h3{
   position:relative;z-index:2;font-family:var(--serif);font-weight:700;
-  font-size:clamp(1.02rem,1.35vw,1.18rem);line-height:1.22;letter-spacing:-.01em;
-  color:var(--paper);margin:0 0 7px;max-width:34ch;
+  font-size:clamp(.98rem,1.2vw,1.08rem);line-height:1.25;letter-spacing:-.01em;
+  color:var(--paper);margin:0 0 6px;max-width:34ch;
 }
 /* These were `rgba(18,10,5,.72)` and `.6` - hierarchy carried by alpha, over
    TEN different background colours. Measured off the pixels (two renders, text
@@ -493,11 +497,11 @@ code{font-family:var(--label);font-size:.88em;letter-spacing:0;
    ten, worst 1.21, so the whole colour scheme for one element was wrong in the
    same direction ten times. */
 .hub p{
-  position:relative;z-index:2;font-size:.87rem;line-height:1.5;flex:1;
+  position:relative;z-index:2;font-size:.84rem;line-height:1.45;flex:1;
   color:var(--dim);max-width:52ch;
 }
 .hub-go{
-  position:relative;z-index:2;margin-top:12px;
+  position:relative;z-index:2;margin-top:10px;
   font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
   color:var(--hot2);
 }
