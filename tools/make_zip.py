@@ -27,7 +27,11 @@ DIST = pathlib.Path("dist")
 STAMP = (2026, 1, 1, 0, 0, 0)
 
 # Pages serves index.html at /, and these are load-bearing for the site chrome.
-REQUIRED_AT_ROOT = ["index.html", "css/styles.css", "css/mascot.css"]
+# `build_deploy.py` content-addresses css/ and js/, so the stylesheets exist as
+# `styles.<sha256[:10]>.css` and never under their plain names - checking for
+# the unhashed name refused every fingerprinted build outright.
+REQUIRED_AT_ROOT = ["index.html"]
+REQUIRED_PATTERNS = ["css/styles*.css", "css/mascot*.css"]
 
 
 def main():
@@ -41,6 +45,7 @@ def main():
         sys.exit(f"  {DIST}/ is empty - run tools/build_deploy.py first")
 
     missing = [r for r in REQUIRED_AT_ROOT if not (DIST / r).is_file()]
+    missing += [p for p in REQUIRED_PATTERNS if not list(DIST.glob(p))]
     if missing:
         sys.exit(f"  {DIST}/ is missing {missing} - refusing to package a broken tree")
 
