@@ -63,7 +63,7 @@ def main(argv):
     print(f"curation slots: {SLOTS} over one week from "
           f"{start.strftime('%Y-%m-%d %H:%M')} UTC")
     print(f"today is slot {bc.cur_slot(start)}")
-    print(f"top-8 list on show: {bc.pick_list(feat)['title']}")
+    print(f"top-8 list on show: {bc.show_list(feat)['title']}")
     print()
 
     head = f"{'section':11s} {'cards':>5s} {'pool':>4s} {'now':>4s}  " \

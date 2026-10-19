@@ -1,312 +1,158 @@
 {
-  "_note": "Sixth batch, eight entries, closing the 1900s-1950s hole: the silent-era star system, the first film dog, the Blitz on the radio, amateur-hour participation, a mass-media death, a wartime disappearance, the stage's first clap-for-belief, and the recruiting poster. Facts were read from search-index extracts of the sources listed; pages were not opened in a browser this session, so every record is `retrievable` with a URL and nothing here is `verified`. Where sources disagree - the date of Rogers' crash, Rin Tin Tin's film count, the Amateur Hour's 1934/1935 start - the entry says so rather than picking silently. All eight land verified:false.",
+  "_note": "Seventh batch, five entries: the drawn standard of the 1890s, the studio-made Vamp, the forces' voice, a parish for a footballer, and the address at Tepeyac. Facts were read this session from the full-text extracts fetched into episode/.chrome/b7src; no page was opened in a browser, so every record is retrievable with its URL and nothing here is upgraded to verified. Where the sources disagree - the Gibson Girl's 1890 debut against a caption reading 'created 1898' - the entry says so rather than picking silently. All five land verified:false.",
   "entries": [
     {
-      "id": "florence-lawrence",
-      "title": "They killed her in the papers",
-      "year": 1910,
-      "summary": "The Biograph Girl was reported killed under a streetcar, publicly resurrected by the producer who had just hired her, and brought to St. Louis to be mobbed in person - proof that an audience's grief could be produced on schedule.",
-      "significance": "**Nobody knew her name, and the whole stunt was about fixing that.** By 1910 Florence Lawrence was the most recognisable face in American pictures after two years of D. W. Griffith's Biograph films, and the audience had no name to put to it, because Biograph refused to credit anybody. When Carl Laemmle hired her away to his new company, IMP, he staged an elaborate ruse to promote his leading lady: a newspaper story in early 1910 that the Biograph Girl had been struck and killed by a streetcar, followed by a full-page advertisement in the industry press headlined 'We Nail a Lie', which blamed rival studios for a deception of Laemmle's own manufacture and announced that not only was Lawrence alive, she would star in IMP's next film. Then he sent her to St. Louis, and the public appearance on 25 March 1910 did the rest. The crowd at Union Station was frantic enough to strip the buttons from her coat; the reporters recorded her reaction - that she had no idea so many people were interested in her, and that it was strange to be greeted by strangers who knew her only from the pictures. **The details after that are where the story refuses to hold still.** Film historian Eileen Bowser has challenged the one-stunt version of events, and accounts of who started the death rumour do not agree. What the sources do agree on is the machine it left behind: within a year, picture audiences were being sold named performers on purpose, and Lawrence - afterwards widely acclaimed as the first movie star - became the first actor to be credited by name on a motion picture. The audience had grieved a woman it could not name, which was cheap. Naming her was the business.",
-      "kind": "person",
-      "medium": ["film"],
-      "provenance": "sourced",
-      "shelf": "idol",
-      "fits": "A performer at enough distance that the work was finished before the audience arrived - so finished, in her case, that the public could be sold her death before it could buy her name. The crowd at Union Station could strip her coat and still not know who it had been mourning.",
-      "fits_verified": true,
-      "sources": [
-        {
-          "citation": "Brown, Kelly R. 'Florence Lawrence.' Women Film Pioneers Project, Columbia University.",
-          "claim": "Fired by Biograph with Harry Solter in 1910 and hired by Laemmle's IMP; the widely announced 'death' and the St. Louis appearance of 25 March 1910; the 'We Nail a Lie' advertisement; Eileen Bowser's challenge to the single-stunt account.",
-          "status": "retrievable",
-          "url": "https://wfpp.columbia.edu/pioneer/ccp-florence-lawrence/"
-        },
-        {
-          "citation": "Heidenry, Margaret. 'Introducing Florence Lawrence, Hollywood's Forgotten First Movie Star.' Vanity Fair, 25 May 2018.",
-          "claim": "The Union Station scene on 25 March 1910: the crowd stripped the buttons from her coat, and she found it strange that a crowd would gather to welcome someone they had only seen in pictures.",
-          "status": "retrievable",
-          "url": "https://www.vanityfair.com/hollywood/2018/05/florence-lawrence-first-movie-star-old-hollywood"
-        },
-        {
-          "citation": "Klein, Christopher. 'Florence Lawrence: The First Movie Star.' HISTORY, 7 December 2015.",
-          "claim": "The February 1910 planted story that the 'Biograph Girl' had been struck and killed by a streetcar; the 'We Nail a Lie' ad blaming rival studios and announcing her next IMP film; the St. Louis public appearance that showed her alive; 'widely acclaimed as the first movie star'; 'the first actor to be credited by name on a motion picture'.",
-          "status": "retrievable",
-          "url": "https://www.history.com/articles/florence-lawrence-the-first-movie-star"
-        }
-      ],
-      "relations": [
-        {"type": "preceded", "to": "the-fan-magazine"},
-        {"type": "preceded", "to": "mary-pickford"},
-        {"type": "depicts", "to": "parasocial-interaction"}
-      ]
-    },
-    {
-      "id": "rin-tin-tin",
-      "title": "Most faithfully, Rin Tin Tin",
-      "year": 1922,
-      "summary": "A German Shepherd found on a battlefield became one of the biggest silent-film stars, and the fan mail that arrived for him was answered with a glossy portrait signed by a paw.",
-      "significance": "**The credit read 'Played by himself', and the fan mail was answered by a paw.** Rin Tin Tin was found in a French field in September 1918 by Lee Duncan, an American soldier, and came home with him; the dog got his first film work in 1922, when a director needed something more reliable than a camera-shy wolf in The Man from Hell's River, and his first starring role - Where the North Begins, opposite Claire Adams in 1923 - made him a star. A dog who could not read received the mail of a matinee idol, by the thousands of letters a week, and the reply was manufactured exactly the way a human star's would have been: a glossy portrait, signed with an inked paw print, over the line Duncan wrote for him - 'Most faithfully, Rin Tin Tin'. The studio leaned on him whenever it got into trouble, and the films were known inside the trade as the mortgage lifters; by 1927 the most sophisticated film audience in Europe had made him the most popular actor in Berlin. **The audience knew perfectly well he was a dog, and that was the condition of the whole thing.** The one performer in this corpus who ever came physically close to answering back was the one who could not possibly understand what he was being addressed for, and the attachment has outlived him by a century of dog after dog. Two honesty notes belong here. The sources disagree on the count of his films - the New Yorker gives twenty-three silent pictures, Wikipedia twenty-seven Hollywood films - and the battlefield rescue is Duncan's own story, retold with variations ever since.",
-      "kind": "person",
-      "medium": ["film"],
-      "provenance": "sourced",
-      "shelf": "animal",
-      "fits": "Alive, non-human, and unable to understand what it was being addressed for - the shelf's own test - while performing the half of the relationship that could be performed. The one other end here that ever physically answered back was the one that could never check what the letter said.",
-      "fits_verified": true,
-      "sources": [
-        {
-          "citation": "Orlean, Susan. 'The Dog Star.' The New Yorker, 29 August 2011.",
-          "claim": "The career at scale: twenty-three silent films, the 'mortgage lifter' tag, fan letters by the thousands answered with a glossy portrait signed with an inked paw print over the line 'Most faithfully, Rin Tin Tin', and his standing as Berlin's most popular actor by 1927.",
-          "status": "retrievable",
-          "url": "https://www.newyorker.com/magazine/2011/08/29/the-dog-star"
-        },
-        {
-          "citation": "Wikipedia. 'Rin Tin Tin.'",
-          "claim": "Born 10 October 1918 in Flirey, France; found and rescued from a First World War battlefield in September 1918 by Lee Duncan; first cast replacing a camera-shy wolf in The Man from Hell's River (1922) and billed as 'Rin Tan'; credited in My Dad (1922) as 'Rin Tin Tin - Played by himself'; first starring role in Where the North Begins (1923); 'went on to appear in 27 Hollywood films'; endorsement and merchandise use; Duncan wrote the 'Most faithfully' replies.",
-          "status": "retrievable",
-          "url": "https://en.wikipedia.org/wiki/Rin_Tin_Tin"
-        },
-        {
-          "citation": "Wikipedia. 'Where the North Begins.'",
-          "claim": "Released 1 July 1923 by Warner Bros.; Rin Tin Tin's first starring role, a silent drama opposite Claire Adams; commonly credited with rescuing the studio from bankruptcy.",
-          "status": "retrievable",
-          "url": "https://en.wikipedia.org/wiki/Where_the_North_Begins"
-        }
-      ],
-      "relations": [
-        {"type": "succeeded", "to": "fan-mail"},
-        {"type": "succeeded", "to": "the-dog"}
-      ]
-    },
-    {
-      "id": "murrow",
-      "title": "This is London",
-      "year": 1940,
-      "summary": "The live rooftop broadcasts that carried the Blitz into American homes, and the sign-off that made a reporter and a city the same thing.",
-      "significance": "**Every broadcast went out live, because the sound of the raid was the report.** Murrow was, in Philip Seib's account, the only journalist allowed to broadcast live during the air raids on London - a permission arranged with Winston Churchill's intervention - and the recordings that survive were, Seib says, klutzy; Murrow's argument was the silence and the anti-aircraft fire, transmitted while they were happening. The opening line, 'This is London', with its deliberate pause after This, was his speech teacher Ida Lou Anderson's suggestion, and it turned a city into a dateline. He closed with the farewell Londoners were already saying to each other in the blackout - 'Good night, and good luck'. On the roof of Broadcasting House he described the flags: 'No one ordered these people to put out the flags... No one told them to do it, and no flag up there was white.' Millions of Americans spent the autumn of 1940 in a city they had never visited, listening. **The reply came later, at a dinner in December 1941.** The Librarian of Congress, Archibald MacLeish, told Murrow what the broadcasts had done: 'You laid the dead of London at our doors and we knew that the dead were our dead, were mankind's dead. You have destroyed the superstition that what is done beyond 3,000 miles of water is not really done at all.' Nothing in the exchange was private; everything in it was personal. That is the whole subject of this site, worked out on a London rooftop, overnight radio, with the sky doing the sound effects.",
-      "kind": "person",
-      "medium": ["radio"],
-      "provenance": "sourced",
-      "shelf": "presenter",
-      "fits": "An institution put him at the microphone on a schedule, and he used the second person to a whole country, night after night, with a fixed opening and a borrowed sign-off. The shelf's 'not' is a creator who generates their own address; Murrow kept the address assigned to him and made it large.",
-      "fits_verified": true,
-      "sources": [
-        {
-          "citation": "NPR. 'Murrow, the Blitz and the Race to War.' Talk of the Nation, 22 May 2006 (interview with Philip Seib).",
-          "claim": "Rooftop broadcast excerpts including 'no flag up there was white'; Seib on the broadcasts going out live, Murrow as the only journalist allowed to broadcast live during the air raids, Churchill's intervention to arrange it, and the broadcast from the top of Broadcasting House.",
-          "status": "retrievable",
-          "url": "https://www.npr.org/transcripts/5422698"
-        },
-        {
-          "citation": "Wikipedia. 'Edward R. Murrow.'",
-          "claim": "'This is London' as his signature opening, suggested by Ida Lou Anderson; 'Good night, and good luck' from the farewell Londoners used during the Blitz; the December 1941 dinner at which Archibald MacLeish delivered the encomium on the London broadcasts.",
-          "status": "retrievable",
-          "url": "https://en.wikipedia.org/wiki/Edward_R._Murrow"
-        }
-      ],
-      "relations": [
-        {"type": "contemporary", "to": "sinatra-bobby-soxers"},
-        {"type": "succeeded", "to": "war-of-the-worlds"},
-        {"type": "depicts", "to": "parasocial-interaction"}
-      ]
-    },
-    {
-      "id": "the-amateur-hour",
-      "title": "You within sound of my voice",
-      "year": 1935,
-      "summary": "A gong, a wheel and a mailbag turned amateur acts into a national radio ritual - while telling everyone listening at home that they were part of the show and could vote its acts out.",
-      "significance": "**The machine was a gong, a wheel and a mailbag, and the point of the address was the second person.** Amateur hours had failed twice on New York's WHN before a third try in 1934 put a gong in the studio, an idea the host, Perry Charles, took from a wrestling match; Major Edward Bowes absorbed the format, signed with Chase & Sanborn, and launched it nationally on NBC on 24 March 1935. Listeners voted by telephone, telegram and mail; he spun the wheel - 'Round and round she goes, and where she stops nobody knows' - and gonged the failures. By June the programme was the most listened-to in the United States, and at the summer 1936 peak the Library of Congress counts 10,000 applications arriving weekly, 600 amateurs auditioned, 16 acts on air, and a live audience of 2,000 in Radio City. The first broadcast told the country what it was for: 'You within sound of my voice are just as much part of this show as the youngsters that come to the microphone. Telephone your choice, telephone early, telephone often. You decide the winners.' **A machine for one-sided intimacy with a working return path**, funded by a coffee company: a listener who would never see the studio could end a stranger's act from a kitchen chair, and the vote landed - winners left with immediate professional engagement. The bill arrived afterwards. Applicants crossed the country on hope and were turned away; and Bowes, looking at the crowd of hopefuls below the window, was quoted saying, 'Look at those poor boobs down there.' The gong was the honesty of the arrangement: it never pretended to be anything but a verdict.",
-      "kind": "mechanism",
-      "medium": ["radio"],
-      "provenance": "sourced",
-      "other": "made",
-      "shelf": "presenter",
-      "fits": "The show is a schedule, a studio and a second-person address - 'You within sound of my voice' - and the machinery belongs to the house. A presenter in the shelf's exact sense: the address is issued on a timetable, by the institution, to whoever is listening.",
-      "fits_verified": true,
-      "sources": [
-        {
-          "citation": "Jenemann, Laura. 'About Major Bowes.' Major Bowes and the Original Amateur Hour, Library of Congress research guide.",
-          "claim": "The third WHN edition under host Perry Charles premiered 28 March 1934, the gong idea taken from a Madison Square Garden wrestling match; Bowes's national premiere on NBC on 24 March 1935; the wheel catchphrase; by June 1935 the most listened-to programme in the United States; at the summer 1936 peak 10,000 applications weekly, 600 auditions, 16 acts on air, and a 2,000-seat studio audience at Radio City.",
-          "status": "retrievable",
-          "url": "https://guides.loc.gov/original-amateur-hour/about-major-bowes"
-        },
-        {
-          "citation": "Ramsburg, Jim. 'Major Bowes' Original Money Machine.' worldradiohistory.com.",
-          "claim": "The March 1935 move to NBC and the ratings that followed; Newsweek's account of the crowds of applicants, the relief rolls, and Bowes's 'Look at those poor boobs down there'; Frank Sinatra as the show's most famous alumnus; the touring units.",
-          "status": "retrievable",
-          "url": "https://www.worldradiohistory.com/GOLDTIME-RADIO/major-bowes-original-money-machine.html"
-        },
-        {
-          "citation": "Heuser, Harry. 'Gong-ho: A Time-Delayed Cheer for Going Live.' 24 March 2009.",
-          "claim": "The show went national on 24 March 1935; Bowes's address to listeners - 'You within sound of my voice are just as much part of this show as the youngsters that come to the microphone', and 'telephone your choice, telephone early, telephone often. You decide the winners, and the winners will receive immediate professional engagement'; 200 special telephone lines installed by 1936.",
-          "status": "retrievable",
-          "url": "https://harryheuser.com/2009/03/24/gong-ho-a-time-delayed-cheer-for-going-live/"
-        }
-      ],
-      "relations": [
-        {"type": "preceded", "to": "queen-for-a-day"},
-        {"type": "instance_of", "to": "parasocial-interaction"}
-      ]
-    },
-    {
-      "id": "will-rogers",
-      "title": "The most widely known citizen",
-      "year": 1935,
-      "summary": "When Will Rogers died with Wiley Post in Alaska, flags went to half-staff and twelve thousand cinema screens went dark - for a man most of the country knew only as a column and a Sunday-night voice.",
-      "significance": "**The country mourned him the way it mourns presidents, and almost nobody who mourned him had ever been in a room with him.** Rogers died on 15 August 1935 near Point Barrow, Alaska, in a plane flown by his friend Wiley Post; it failed on take-off from a lagoon in fog. Federal and state authorities ordered flags to half-staff; both houses of Congress suspended their proceedings when the news came; newspaper editorials asked Franklin Roosevelt to declare a national day of mourning. At two in the afternoon on 22 August, twelve thousand motion picture screens across the country went dark for two minutes - a tribute the National Air and Space Museum describes as the kind of mourning the nation has rarely undertaken outside the death of a president. He earned that with the two cheapest channels of intimacy available: a syndicated daily column and a Sunday-night radio programme, read and heard by millions who had never seen him and never would. The New York Times put the fit in one line: 'the most widely-known citizen of the U.S. . . . and the best beloved.' **The mourning was real, entirely one-sided, and perfectly legible** - the site's claim stated in a single week of August 1935. Twelve thousand dark screens are the audience's half of a conversation the other half never had to have, and the size of the answer is the measure of how many people were asking. (The accounts split by one day on the crash: the National Air and Space Museum gives the 15th, the National Park Service the 16th.)",
-      "kind": "person",
-      "medium": ["radio"],
-      "provenance": "sourced",
-      "shelf": "idol",
-      "fits": "A performer whose work arrived finished - a column at breakfast, a broadcast on Sunday night - and who was loved at a distance nobody on the near side could close. The twelve thousand dark screens measure the distance; it is where the tie lived.",
-      "fits_verified": true,
-      "sources": [
-        {
-          "citation": "National Air and Space Museum. 'Remembering Wiley Post and Will Rogers.' 16 August 2013.",
-          "claim": "The 15 August 1935 crash near Point Barrow after take-off from a lagoon in fog; a state of mourning rarely undertaken outside the death of a president; federal and state flags at half-staff; 12,000 motion picture screens dark for two minutes at 2 p.m. on 22 August; editorials urging a national day of mourning; Hollywood studios banning actors from flying.",
-          "status": "retrievable",
-          "url": "https://airandspace.si.edu/stories/editorial/remembering-wiley-post-and-will-rogers"
-        },
-        {
-          "citation": "U.S. National Park Service. 'Rogers-Post Site.'",
-          "claim": "The New York Times' description of Rogers as 'the most widely-known citizen of the U.S. . . . and the best beloved'; both houses of Congress suspending deliberations on hearing of the deaths; the crash after take-off from Walakpa Bay near Point Barrow.",
-          "status": "retrievable",
-          "url": "https://www.nps.gov/articles/rogers-post-site.htm"
-        }
-      ],
-      "relations": [
-        {"type": "contemporary", "to": "the-amateur-hour"},
-        {"type": "succeeded", "to": "fireside-chats"}
-      ]
-    },
-    {
-      "id": "glenn-miller",
-      "title": "The band played without him",
-      "year": 1944,
-      "summary": "The most popular bandleader in America gave up the job to enlist, took his orchestra to England, and vanished over the Channel on a small plane to Paris - while the band played on.",
-      "significance": "**He was at the top of the business, and he gave the business up to put on a uniform.** Glenn Miller was the biggest star on the American pop-music scene when he set aside his career at its peak in 1942 - his orchestra had run off an unprecedented string of hits, and 'Chattanooga Choo Choo' was the number-one record in the country when Pearl Harbor was attacked - and he organised a band in uniform: 'I Sustain The Wings' on radio first, then the Major Glenn Miller Army Air Force Orchestra, which crossed to England in the summer of 1944 and gave more than three hundred live performances and some five hundred broadcasts to the troops. His commander, General Jimmy Doolittle, told him on a stage in July 1944: 'Next to a letter from home, Captain Miller, your organization is the greatest morale builder in the European Theater of Operations.' **On 15 December 1944 he took a small plane to Paris and vanished.** The UC-64A Norseman took off from RAF Twinwood Farm near Bedford on the afternoon of the 15th and was never seen again; no trace of the aircraft has ever been found and the cause has never been established. Miller had taken a casual flight his travel orders did not authorise and had told nobody, so the army needed three days to realise he was missing. He was declared dead a year and a day later, and the case is filed, still, as non-recoverable, his name on the Wall of the Missing at Cambridge. The band went on: a Christmas Day broadcast from Paris to England and America was already scheduled. **The far side of the bond was now a voice with no man behind it** - records, broadcasts, an orchestra still booked under his name - and his listeners could not know. Of every idol in this corpus, he is the one with no grave and nothing to visit but the work, and the work is still playing.",
-      "kind": "person",
-      "medium": ["music"],
-      "provenance": "sourced",
-      "shelf": "idol",
-      "fits": "A performer whose work was finished before anyone arrived, because it came to the audience pressed onto records - and whose disappearance made the distance literal. An idol with no grave has exactly one thing to visit, which is the work.",
-      "fits_verified": true,
-      "sources": [
-        {
-          "citation": "Defense POW/MIA Accounting Agency. 'Maj. Alton G. Miller' service member profile.",
-          "claim": "The UC-64A Norseman's 15 December 1944 disappearance en route from RAF Twinwood Farm near Bedford to Paris; never seen again, cause unknown; the AAF orchestra's England morale broadcasts; the Wall of the Missing at Cambridge American Cemetery; the case's category, non-recoverable.",
-          "status": "retrievable",
-          "url": "https://dpaa-mil.sites.crmforce.mil/dpaaProfile?id=a0Jt000001nzU0gEAE"
-        },
-        {
-          "citation": "Wikipedia. 'Glenn Miller.'",
-          "claim": "The cancelled bookings of 13-14 December 1944 and the unauthorised 'casual' flight; the three days before the military realised he was missing; the Christmas Day broadcast from Paris to England and the United States that was scheduled; the official declaration of death a year and a day after the disappearance.",
-          "status": "retrievable",
-          "url": "https://en.wikipedia.org/wiki/Glenn_Miller"
-        },
-        {
-          "citation": "HISTORY.com. 'Legendary bandleader Glenn Miller disappears over the English Channel.' This Day in History, 15 December.",
-          "claim": "'The biggest star on the American pop-music scene' who set aside his career at its peak in 1942; the last concert under his direction on 27 September 1942 in Passaic, New Jersey; 'I Sustain The Wings' broadcast weekly from New York; Doolittle's 'greatest morale builder' line.",
-          "status": "retrievable",
-          "url": "https://www.history.com/this-day-in-history/december-15/legendary-bandleader-glenn-miller-disappears-over-the-english-channel"
-        },
-        {
-          "citation": "Air University. 'Glenn Miller Holiday Concert: The origins of an annual tradition.' 3 December 2018.",
-          "claim": "The band arrived in England in mid-June 1944; 300 live performances in England and 500 radio broadcasts to Allied troops; December approval for live performances in liberated Paris; departure from England on 15 December 1944; the aircraft disappeared over the English Channel.",
-          "status": "retrievable",
-          "url": "https://www.airuniversity.af.edu/News/Display/Article/1703504/glenn-miller-holiday-concert-the-origins-of-an-annual-tradition/"
-        }
-      ],
-      "relations": [
-        {"type": "succeeded", "to": "rudolph-valentino"},
-        {"type": "depicts", "to": "parasocial-interaction"}
-      ]
-    },
-    {
-      "id": "peter-pan",
-      "title": "If you believe, clap your hands",
-      "year": 1904,
-      "summary": "The play that asks the whole audience to save a dying fairy by clapping - and has received the same answer, in the same room, for more than a century.",
-      "significance": "**The audience is asked to save a life, out loud, and every night it does.** Peter Pan premiered at the Duke of York's Theatre on 27 December 1904, produced by Charles Frohman, with Gerald du Maurier doubling as Captain Hook and Mr. Darling and Nina Boucicault in the title role - a woman as the boy, which then became the tradition. Near the end, Tinker Bell drinks the poison that was meant for Peter, and Peter turns outward, to 'the boys and girls of whom he is not one': 'Do you believe in fairies? Say quick that you believe! If you believe, clap your hands!' The published text carries the result as a stage direction - many clap, some don't, a few hiss, but Tink is saved - and Barrie had not trusted the audience to produce it: members of the orchestra were stationed to clap if the public declined, which a Smithsonian centenary account calls 'an unnecessary precaution'. **The fourth wall is not broken here; it is made load-bearing.** For one minute a night, the survival of a fiction depends on real strangers in a real room choosing to believe in public - the one moment in this corpus when the audience's feeling is not inferred from sales or letters but is itself the plot. And the gesture outlived the production it was written for: clapping for Tinker Bell is now a habit of the theatre rather than a request from a stage. The clap is not a metaphor for belonging. It is the price of the ticket, paid in belief, with the house lights down.",
-      "kind": "work",
-      "medium": ["stage"],
-      "provenance": "sourced",
-      "other": "made",
-      "shelf": "fictional-protagonist",
-      "fits": "Somebody described on a page and embodied on a stage, available to a full house of strangers at once - and the shelf's definition becomes the plot, because the character's continuation is handed nightly to people she has never met.",
-      "fits_verified": true,
-      "sources": [
-        {
-          "citation": "Wikipedia. 'Peter Pan (play and novel).'",
-          "claim": "Premiere 27 December 1904 at the Duke of York's Theatre, London, with Nina Boucicault as Peter and Gerald du Maurier as Captain Hook and Mr. Darling; the play script published in 1928 as Peter Pan; or, The Boy Who Would Not Grow Up.",
-          "status": "retrievable",
-          "url": "https://en.wikipedia.org/wiki/Peter_Pan_(play_and_novel)"
-        },
-        {
-          "citation": "Allen, Norman. 'Peter Pan Turns 100.' Smithsonian Magazine, December 2004.",
-          "claim": "Two days after Christmas 1904 the play first flew onto the Duke of York's stage; when Tinker Bell lay dying and Peter asked the audience to clap to save her, members of the orchestra were ready to oblige if the public declined - which 'proved an unnecessary precaution'.",
-          "status": "retrievable",
-          "url": "https://www.smithsonianmag.com/arts-culture/peter-pan-turns-100-98366891/"
-        },
-        {
-          "citation": "Wikiquote. 'Peter Pan.' Quoting Barrie, Peter Pan, Act IV (1904; published 1928).",
-          "claim": "The full appeal and its stage direction: 'Do you believe in fairies? Say quick that you believe! If you believe, clap your hands! (Many clap, some don't, a few hiss... But Tink is saved.)', preceded by Peter rising and throwing out his arms 'he knows not to whom, perhaps to the boys and girls of whom he is not one'.",
-          "status": "retrievable",
-          "url": "https://en.wikiquote.org/wiki/Peter_Pan"
-        },
-        {
-          "citation": "The British Newspaper Archive. 'The World Premiere of Peter Pan - The Duke of York's Theatre, London, 27 December 1904.' 19 December 2013.",
-          "claim": "The world premiere on 27 December 1904 and a reproduction of a review of the production published on 28 December 1904.",
-          "status": "retrievable",
-          "url": "https://www.britishnewspaperarchive.com/blog/the-world-premiere-of-peter-pan-the-duke-of-yorks-theatre-london-27-december-1904"
-        }
-      ],
-      "relations": [
-        {"type": "succeeded", "to": "the-fourth-wall"},
-        {"type": "depicts", "to": "parasocial-interaction"}
-      ]
-    },
-    {
-      "id": "i-want-you",
-      "title": "The face he painted for the army was his own",
-      "year": 1917,
-      "summary": "James Montgomery Flagg drew the most famous recruiting poster in the world and modelled the figure from a mirror - so the finger points at you with the artist's own face.",
-      "significance": "**The mechanism is the address: three words, second person, no name.** 'I Want YOU for U.S. Army.' The image began as the cover of Leslie's Weekly on 6 July 1916, titled 'What Are You Doing for Preparedness?', while America argued about the war in Europe. When the country entered the war in April 1917 the copyright passed to the government, the caption changed to the three words, and the presses ran - more than four million copies printed in 1917 and 1918 alone, and the poster was pulled out again for the Second World War. The pose was borrowed from the British recruiting poster of Lord Kitchener, which pointed in the same direction; the figure was Uncle Sam, a personification with no biography and no private life to disappoint anybody. And the face was James Montgomery Flagg's own. He modelled it in a mirror, adding wrinkles and grey hair, and admitted the choice later when he presented a copy to President Roosevelt - he had been his own model, he said, to save the modelling fee. **A poster is the one medium in this corpus where the second person is aimed at millions and received alone.** One design, addressed to every man in the country, greeting each of them as an individual summons; there was never any way to write back, and none was expected, because the intended answer was the reader's body, in person, at a recruiting depot. Uncle Sam's eyes have been met by more people than any performer who lived in his own century, and under the hat is a commercial illustrator who saved himself the modelling fee.",
+      "id": "gibson-girl",
+      "title": "Trying to live up to the standard of his girls",
+      "year": 1890,
+      "summary": "A pen-and-ink standard of American womanhood, sold through the magazines and advertisements of the 1890s, that thousands of real women were documented trying to live up to - and that could never be disappointed, because it was never a person.",
+      "significance": "**She was a drawing, and the labour of living up to her was real.** The Gibson Girl - the character created by Charles Dana Gibson in the 1890s for advertisements, run through the magazines of the Gilded Age - had no body, no biography and no lines. In 1894 Life printed the sentence that gives this entry its title: a writer wondering whether Gibson knew 'there are thousands of American girls, from Oshkosh to Key West, who are trying to live up to the standard of his girls.' The direction of the traffic is the point. Ink specified a standard; the readers supplied the posture, the interior and the life. **Nothing she was said to want could ever be disconfirmed, which is what her shelf is for.** The test is whether the figure can be the author of its own behaviour, and a pen-and-ink figure cannot: she could not contradict the women who rearranged themselves around her, and she could not disappoint them either. The sources make the same point from the other side, and the honest entry keeps their disagreement. The popular legend says Gibson's wife, Irene Langhorne, and her sisters were the originals; the article on the character will allow only that she 'may have been the original model', while the article on Gibson says the legend is contrary to fact - 'The first Gibson Girl appeared in 1890, more than two years before Gibson met the Langhorne family.' The face the audience organised itself around was not a portrait of anyone in particular. **And the blank surface carried whatever its maker believed.** The same accounts connect the figure to Gibson's own views of the United States as a white nation and to his eugenicist ideology - the reminder that a surface with no interior is a perfect vehicle for the person holding the pen. The dating is left visibly imperfect rather than smoothed: one article commits to 1890 and carries a portrait caption reading 'created 1898'; the other will say only 'in the 1890s'. This entry takes the sentence that commits. The name outlived the fashion once, oddly: the SCR-578 survival radio carried by wartime aircraft was nicknamed the Gibson Girl for its shape. A standard drawn for magazines, adopted as a life, and finally a piece of equipment in a life raft.",
       "kind": "work",
       "medium": ["visual_art"],
       "provenance": "sourced",
       "other": "made",
       "shelf": "mascot",
-      "fits": "No body, no biography, no intention - a figure specified entirely by the institution that operates him, wearing the face of the man who drew him. The shelf's test asks whether he can be the author of his own behaviour; Uncle Sam's whole case is that he cannot, and the finger works because of it.",
+      "fits": "Specified entirely by a pen and the pages that bought it: there is no interior anybody could get wrong, because there is no interior at all - the test's first half answers itself, and 'can it be the author of its own behaviour' is answered by the medium. That incapacity is the point of the attachment: a drawing cannot contradict the thousands of girls living up to it, cannot be caught failing, and cannot be disappointed by them either. Not a written character, who could at least talk back on the page.",
       "fits_verified": true,
       "sources": [
         {
-          "citation": "Library of Congress. 'I Want You.' Echoes of the Great War: American Experiences of World War I (exhibition).",
-          "claim": "The image first appeared as the cover of Leslie's Weekly, 6 July 1916, titled 'What Are You Doing for Preparedness?'; more than four million copies printed in 1917-1918; the design reissued during the Second World War; Flagg's own description of it as 'the most famous poster in the world'.",
+          "citation": "Wikipedia. 'Gibson Girl.'",
+          "claim": "The character created by Charles Dana Gibson in the 1890s for advertisements, spanning the late Gilded Age and Progressive Era; the 1894 Life line, 'there are thousands of American girls, from Oshkosh to Key West, who are trying to live up to the standard of his girls'; the connection drawn to Gibson's views of the United States as a white nation and his eugenicist ideology; Irene Langhorne 'may have been the original model'; the SCR-578 survival radio nickname.",
           "status": "retrievable",
-          "url": "https://www.loc.gov/exhibitions/world-war-i-american-experiences/about-this-exhibition/over-here/raising-an-army/i-want-you/"
+          "url": "https://en.wikipedia.org/wiki/Gibson_Girl"
         },
         {
-          "citation": "National Museum of American History. 'Uncle Sam: The man and the meme.' 13 September 2013.",
-          "claim": "Flagg's drawing adapted from the pose and language of the earlier British Lord Kitchener recruiting poster; the direct address to the viewer; four million posters printed in 1917-1918 and reuse in the Second World War; the Smithsonian's holdings of the original drawing and related materials.",
+          "citation": "Wikipedia. 'Charles Dana Gibson.'",
+          "claim": "Contrary to popular legend, Gibson's wife and her Langhorne sisters did not inspire the Gibson Girls: 'The first Gibson Girl appeared in 1890, more than two years before Gibson met the Langhorne family.' The same article carries a portrait caption reading 'Gibson Girl, created 1898', which the entry records as a disagreement rather than resolving it.",
           "status": "retrievable",
-          "url": "https://www.americanhistory.si.edu/explore/stories/uncle-sam-man-and-meme"
-        },
-        {
-          "citation": "PBS American Experience. '\"I Want You,\" Remixed.' 24 February 2017.",
-          "claim": "The Leslie's Weekly 6 July 1916 cover in the context of the Preparedness Movement; the copyright transferred to the government and the caption changed to 'I Want You' when the United States entered the war in April 1917.",
-          "status": "retrievable",
-          "url": "https://www.pbs.org/wgbh/americanexperience/features/the-great-war-I-want-you-remixed/"
-        },
-        {
-          "citation": "Teaching American History. 'Recruitment Poster: I Want YOU for U.S. Army.' 2 August 2024.",
-          "claim": "Flagg drew the face using his own reflection as a model, adding wrinkles and grey hair; the pose drawn from the British Kitchener poster; nearly four million copies printed in 1917-1918.",
-          "status": "retrievable",
-          "url": "https://teachingamericanhistory.org/document/recruitment-poster/"
+          "url": "https://en.wikipedia.org/wiki/Charles_Dana_Gibson"
         }
       ],
       "relations": [
-        {"type": "preceded", "to": "betty-crocker"},
-        {"type": "preceded", "to": "fireside-chats"},
+        {"type": "contemporary", "to": "dorian-gray"},
+        {"type": "preceded", "to": "mary-pickford"},
         {"type": "depicts", "to": "parasocial-interaction"}
+      ]
+    },
+    {
+      "id": "theda-bara",
+      "title": "Anagram of Arab death",
+      "year": 1915,
+      "summary": "A studio invented an Egyptian past for its newest star, told the press the invention was a hoax, and the audience kept the invention anyway - the Vamp, whose films are now mostly ash.",
+      "significance": "**The studio wrote her a past, and the past is what the audience bought.** Theda Bara was born Theodosia Burr Goodman in 1885; the Vamp was assembled at a press conference. When A Fool There Was opened in January 1915 - produced by William Fox, directed by Frank Powell, with Bara billed simply as 'The Vampire' - Fox gave the press an elaborate fictional biography making her an exotic Arabian actress, presented her in a flamboyant fur outfit, and then deliberately leaked that the whole thing was a hoax, which the film's record calls one of Hollywood's first publicity stunts. The invented origin ran further than the stunt: the star was said to be Egyptian-born, interested in the occult, the daughter of an Arab sheik and a French woman, born in the Sahara, and the name, per the studio's own account, was 'an anagram of Arab death'. **The distance was not a side effect of the star system; it was the product.** The film 'popularised the word vamp (short for vampire)', a femme fatale who fascinates and ruins the men she meets, and by her own quoted line - 'I will continue doing vampires as long as people sin.' - the arrangement had her consent. She was Fox's biggest star from 1915 to 1919, paid $4,000 a week at her peak, and made 43 films between 1914 and 1926 before marrying Charles Brabin in 1921 and retiring in 1926. **And almost nothing of what the audiences loved is left to check.** Complete prints of six of the 43 films survive; the 1937 Fox vault fire took most of the rest. So the object here is manufactured twice over - a real woman under a written biography, sold with a wink, and then mostly lost to fire. The record holds about six honest documents of what the crowds were actually watching, one of them A Fool There Was, entered into the National Film Registry in 2015. The rest of the relationship runs on press materials.",
+      "kind": "person",
+      "medium": ["film"],
+      "provenance": "sourced",
+      "shelf": "idol",
+      "fits": "A publicity office assembled the figure the audience attached to, and the shelf expects exactly this case: 'if the work was assembled for them, they are still a persona but the manufacturing is the story.' The distance the shelf names is doubled here - a finished film cannot be caught changing, and a finished false biography never had to be revised, because the audience bought its terms up front. Not a fiction, which is the shelf's 'not': behind the Vamp there was a real woman, whose retirement simply stopped the printing.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Wikipedia. 'Theda Bara.'",
+          "claim": "Born Theodosia Burr Goodman, 29 July 1885 - 7 April 1955; Fox 'concocted a fictitious persona for her as an Egyptian-born woman interested in the occult'; the name recorded as 'an anagram of Arab death'; the promoted origins (an Arab sheik's and a French woman's daughter, born in the Sahara); 'I will continue doing vampires as long as people sin'; Fox's biggest star 1915-1919 at $4,000 a week; 43 films 1914-1926; complete prints of only six survive; married Charles Brabin 1921, retired 1926.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Theda_Bara"
+        },
+        {
+          "citation": "Wikipedia. 'A Fool There Was (1915 film).'",
+          "claim": "1915 silent drama produced by William Fox, directed by Frank Powell, starring Theda Bara as 'The Vampire'; controversial intertitles including 'Kiss me, my fool!'; 'popularised the word vamp (short for vampire)'; based on the 1909 Broadway play from Rudyard Kipling's poem 'The Vampire'; the January 1915 press conference, the fur outfit and the intentional leak that the biography was a hoax - 'one of Hollywood's first publicity stunts'; one of the few extant Bara films; selected for the National Film Registry in 2015.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/A_Fool_There_Was_(1915_film)"
+        }
+      ],
+      "relations": [
+        {"type": "succeeded", "to": "florence-lawrence"},
+        {"type": "preceded", "to": "rudolph-valentino"},
+        {"type": "preceded", "to": "clara-bow"}
+      ]
+    },
+    {
+      "id": "vera-lynn",
+      "title": "A letter in words and music",
+      "year": 1941,
+      "summary": "A radio programme addressed the men of the forces as a letter in words and music, and the voice behind it kept the address running for the rest of her life.",
+      "significance": "**An institution pointed a microphone at a nation at war and put one voice behind it.** Vera Lynn's wartime programme, Sincerely Yours, went out on 9 November 1941 at half past nine, and its opening line reads like a job description for this site's whole subject: a letter in words and music, to the men of the forces. The Oxford Dictionary of National Biography's summary is the flat one: 'Her reassuring voice and mastery of radio made her the forces' sweetheart in the Second World War - a connection she fostered with her ongoing commitment to veterans and memory of the war.' Everything in the tie was addressed to people she would never meet, on a schedule, by name of service. She was taken off the air after the broadcast of 22 March 1942 and stayed off for eighteen months; the successor programme, 'It's Time for Vera Lynn', began on 31 October 1943. **The work was finished before the audience arrived, which is the shelf's property.** 'We'll Meet Again' - written by Ross Parker and Hughie Charles - was first recorded on 28 September 1939, in the opening weeks of the war, by Lynn with Arthur Young; most of the people who would spend five years with the song had not yet been sent anywhere. A pressed recording cannot be caught changing and a broadcaster was never in the room, which is the distance this shelf describes. **And then the address outlived its occasion, which is the unusual part.** The commitment ran for decades after the war - the article records a Burma Star received in 1985 - and in 1953 she re-recorded the song with British Armed Forces personnel included on the recording. A 2000 poll made her the Briton who best exemplified the spirit of the 20th century; in 2009, at 92, she became the oldest living artist to top the UK album chart; and shortly before her death in June 2020 she addressed the country once more, ahead of the Queen's broadcast at the start of the pandemic. Broadcast bonds are not answered; the rare thing here is a near side that never stopped sending. Recorded in the first weeks of the war and played in a Cold War broadcast plan for use after a nuclear attack, the song kept being aimed at whoever was still listening.",
+      "kind": "person",
+      "medium": ["music", "radio"],
+      "provenance": "sourced",
+      "shelf": "idol",
+      "fits": "The work was finished before the audience arrived - the song was recorded on 28 September 1939, and the forces who spent the war with it heard it in places she would never see, which is the shelf's distance in its literal form. There is a version of her that exists whether or not anyone is watching: pressed, broadcast, and still being sent long after the war it was sent to had ended, which is why the attachment survives the person. Not an athlete, whose tie moves with a role, and not an office: what was addressed was a voice and a body of work, on a schedule, for five years and then for the rest of her life.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Wikipedia. 'Vera Lynn.'",
+          "claim": "Born 20 March 1917, died 18 June 2020; ODNB: 'Her reassuring voice and mastery of radio made her the forces' sweetheart in the Second World War - a connection she fostered with her ongoing commitment to veterans and memory of the war'; Sincerely Yours premiered 9 November 1941 at 21:30 with the greeting 'to the men of the forces - a letter in words and Music'; off air after the 22 March 1942 broadcast for eighteen months; 'It's Time for Vera Lynn' from 31 October 1943; the 1953 re-recording with British Armed Forces personnel; the 1985 Burma Star; the 2000 poll ('the Briton who best exemplified the spirit of the 20th century'); in 2009 she became the oldest living artist to top the UK album chart; the 2020 message ahead of the Queen's broadcast.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Vera_Lynn"
+        },
+        {
+          "citation": "Wikipedia. \"We'll Meet Again.\"",
+          "claim": "A 1939 song by Ross Parker and Hughie Charles; first recorded on 28 September 1939 by Vera Lynn with Arthur Young; later included in the BBC's Cold War plan for broadcasting after a nuclear attack (the Wartime Broadcasting Service); re-recorded in 1953.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/We%27ll_Meet_Again"
+        }
+      ],
+      "relations": [
+        {"type": "succeeded", "to": "murrow"},
+        {"type": "preceded", "to": "glenn-miller"},
+        {"type": "depicts", "to": "parasocial-interaction"}
+      ]
+    },
+    {
+      "id": "iglesia-maradoniana",
+      "title": "After Diego",
+      "year": 1998,
+      "summary": "A church founded in Rosario on Maradona's thirty-eighth birthday, with a calendar counted from him and a baptism performed with a football - the fan bond that wrote itself a liturgy while its god was still playing.",
+      "significance": "**They built a church out of a football player, and they date everything from him.** The Iglesia Maradoniana describes itself as a parody religion centred on Diego Maradona, and it was founded in Rosario, the city of his birth, on 30 October 1998 - his thirty-eighth birthday - by Héctor Campomar, Alejandro Verón and Hernán Amez. Its years are counted from his name: d. D., después de Diego, 'after Diego'; its god is written D10S, a joke across Dios and the ten on his shirt; and the phrase the sources record for what he is, in Argentina, is 'God of football'. **One founder said the whole subject out loud.** Verón's explanation: 'I have a rational religion and that's the Catholic Church and I have a religion passed on my heart and passion and that's Diego Maradona.' Nothing in the relation is reciprocal and nothing about it is a mistake - a real man was promoted into a position where the vocabulary of address already existed, and the vocabulary fit. The church kept the form of the thing it parodies: it baptises, and the record describes the rite as heading a football in front of an altered photograph associated with the 1986 Hand of God goal. **The member count is self-reported, and the entry keeps it that way.** The church claims more than 40,000 members worldwide, with over 9,000 in Spain; those are its own figures, reported as such. What needs no counting is the shape: a fan bond that built itself a liturgy, on a schedule, with witnesses, while its figure was still on the pitch. The athlete shelf watches for whether an attachment survives the person leaving, and Rosario answered the question in writing, on a birthday, years early.",
+      "kind": "institution",
+      "medium": ["sport"],
+      "provenance": "sourced",
+      "shelf": "sport-figure",
+      "fits": "The far end of the attachment is the player, and the shelf's question - does it survive the person leaving - has an unusually early answer here: the members opened a church with a calendar counted from his birthday while he was still playing. Nothing about the tie could be handed to a successor, which is the shelf's line between an athlete and a club; and he remains in motion, the athlete's defining property, since the god of this church is a man who could be watched live. Not an idol's finished oeuvre - the addressing continues, in the present tense, on the church's own schedule.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Wikipedia. 'Iglesia Maradoniana.'",
+          "claim": "'Parody religion centered around Diego Maradona'; founded 30 October 1998, Maradona's 38th birthday, in Rosario by Héctor Campomar, Alejandro Verón and Hernán Amez; Verón's quotation on a rational religion and a religion passed on the heart; d. D. (después de Diego, 'after Diego') and D10S; 'God of football'; the baptism rite of heading a football before an altered photograph associated with the 1986 Hand of God goal; a claim of more than 40,000 members worldwide and over 9,000 in Spain.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Iglesia_Maradoniana"
+        }
+      ],
+      "relations": [
+        {"type": "preceded", "to": "kobe"},
+        {"type": "succeeded", "to": "the-atletefan-bond"}
+      ]
+    },
+    {
+      "id": "our-lady-of-guadalupe",
+      "title": "Am I not here, I who am your mother?",
+      "year": 1531,
+      "summary": "Four apparitions to a Chichimec farmer and one to his uncle, a single Nahuatl sentence that gave the devotion its title, and a cloth image the Catholic world has organised itself around ever since.",
+      "significance": "**The entire relationship is address, and the founding story is one reply.** According to the Nican Mopohua, written in Nahuatl, the Virgin appeared four times to Juan Diego, a Chichimec peasant, and once to his uncle Juan Bernardino, beginning on the morning of 9 December 1531. She spoke to him in his own language - Nahuatl, the language of the former Aztec empire - and identified herself as the mother of the very true deity. The sign he was sent to gather was Castile roses, not native to Mexico, blooming out of season on the summit of Tepeyac Hill; he carried them in his tilma, the cloak that bears the image venerated ever since. And the sentence the devotion is built on is her answer to his worry: '¿No estoy yo aquí que soy tu madre?' - 'Am I not here, I who am your mother?' - which the record calls the most famous phrase of the apparitions, and which is inscribed above the main entrance to the Basilica of Our Lady of Guadalupe, on Tepeyac Hill in Mexico City, the most-visited Catholic shrine in the world and, the article says, the third most-visited sacred site. **The shelf's test is address rather than watching, with the other end understood to hear, and that is the whole cult - built on one reply that nobody but a single man is recorded to have received.** The evidence has been contested from the beginning. The 1556 inquiry records an attack on devotion to an image 'painted yesterday by the Indian Marcos'; Sahagún recorded his suspicion that it was 'a Satanic invention to cloak idolatry under the confusion of this name, Tonantzin' - 'They come from distant lands to this Tonantzin as in olden times'. Juan Diego himself is doubted: Zumárraga's own writings never mention him, the 1556 inquiry omits him, he appears in no document before the mid-17th century, and in 1996 the abbot of the Basilica was forced to resign after saying Juan Diego was 'a symbol, not a reality'. None of it stopped anything. In 1754 the Sacred Congregation of Rites confirmed the apparitions and the December 12 feast; Leo XIII granted the decree of canonical coronation in 1887, executed in 1895; and in 2002 Juan Diego was canonised as the first indigenous American saint. **The image's own history is a record of being handled, defended and examined.** In 1887-88 the ten-point crown painted on the Virgin's head disappeared - the change was noticed on 23 February 1888, and eventually a painter confessed on his deathbed that a clergyman had instructed him to remove it. In 1921 a bomb left under the tilma by an anti-Catholic secularist damaged the altar and left the image unharmed; the survival is called miraculous by devotees. In 1981, examining the cloth under infrared light, Philip Serna Callahan and Jody Brant Smith found no trace of sizing or sketching underneath the paint, and no explanation for the original parts of the image or their preservation. That is the honest shape of the whole entry: the most-visited shrine in the Catholic world rests on a Nahuatl text and a piece of cloth, and the address has been going up to both, undiminished, for five hundred years.",
+      "kind": "work",
+      "medium": ["visual_art", "theology"],
+      "provenance": "sourced",
+      "other": "transcendent",
+      "shelf": "christ",
+      "fits": "Addressed, never met: nobody in the record meets her, and the other end is understood to hear - the founding sentence of the devotion is her answer to a worried man. The shelf is for the terminal addressee, where silence is read as meaningful rather than as failure, and this silence carries one exception on the record: a reply in Nahuatl to a man who was never able to prove he heard it. What the archive holds in place of a conversation is a text, a cloth, a calendar and five centuries of witnesses.",
+      "fits_verified": true,
+      "sources": [
+        {
+          "citation": "Wikipedia. 'Our Lady of Guadalupe.'",
+          "claim": "Four Marian apparitions to Juan Diego and one to his uncle Juan Bernardino, beginning the morning of Saturday 9 December 1531; the Nican Mopohua written in Nahuatl; she spoke to him in Nahuatl and identified herself as 'mother of the very true deity'; '¿No estoy yo aquí que soy tu madre?' ('Am I not here, I who am your mother?') as the most famous phrase, inscribed above the Basilica's main entrance; Castile roses gathered from Tepeyac in the December cold; the tilma image; the shrine as the most-visited Catholic shrine and third most-visited sacred site; the 1556 inquiry and the charge the image was 'painted yesterday by the Indian Marcos'; Sahagún on Tonantzin; the transfer of the feast from 8 September to 12 December (Informaciones Jurídicas de 1666; confirmed by the Sacred Congregation of Rites in 1754); the 1887 canonical coronation decree and its 1895 execution; the crown's disappearance in 1887-88 and the painter's deathbed confession; the 1921 bomb; Callahan and Smith's 1981 infrared examination finding no sizing or sketching and no explanation for the original parts.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Our_Lady_of_Guadalupe"
+        },
+        {
+          "citation": "Wikipedia. 'Juan Diego.'",
+          "claim": "Juan Diego as a Chichimec peasant, living at Tlacopan at the time of the apparitions; the doubts: Zumárraga's writings never refer to him, the 1556 inquiry omits him, he is unmentioned in documentation before the mid-17th century, and in 1996 the abbot Guillermo Schulenburg was forced to resign after calling him 'a symbol, not a reality'; the 1883 conclusion of García Icazbalceta that Juan Diego had not existed; the Codex Escalada announced in 1995; beatified 1990 and canonised by John Paul II on 31 July 2002 as the first indigenous American saint.",
+          "status": "retrievable",
+          "url": "https://en.wikipedia.org/wiki/Juan_Diego"
+        }
+      ],
+      "relations": [
+        {"type": "succeeded", "to": "the-icon"},
+        {"type": "succeeded", "to": "congregation"}
       ]
     }
   ]

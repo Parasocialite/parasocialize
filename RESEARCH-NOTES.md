@@ -580,3 +580,227 @@ Research-specific decisions worth keeping:
   `--apply`, and all three placements say "Contestable, and recorded as such".
   One fragment was caught by the checker on the first pass ("has enough" for
   the taxonomy's "with enough") and corrected.
+
+## 2026-10-18 - sixth batch: promotion review, five corrections, and two records
+
+The sixth batch (`97238e4`) left eight entries with their citation records in
+place and `verified: false`: `florence-lawrence`, `rin-tin-tin`, `murrow`,
+`the-amateur-hour`, `will-rogers`, `glenn-miller`, `peter-pan`, `i-want-you`.
+This review opened the listed sources for each and checked the entry's central
+claims against what the source actually says. The standard applied is the
+ledger's ruling (`tools/ledger.py`, `VERIFIED_DEF`): entry-level - an entry is
+marked verified once a person here has checked its central claims against
+source material they actually opened, and every record keeps its own status.
+All eight meet it. **61 -> 69 verified entries of 248; the counter that read
+"187 of 248" now reads "179 of 248"; records 567 -> 569; plates 69 CITED and
+179 NOT CITATION-CHECKED, reconciling to 248.** No existing record status
+changed, and the two new records are `retrievable` - a locator is not a
+reading.
+
+Five prose corrections and one record-claim correction landed with the
+promotion, each because the source read did not say what the entry said:
+
+- **`murrow` - the word was the interviewer's, and about the technology, not
+  the tapes.** The entry had "the recordings that survive were, Seib says,
+  klutzy"; the NPR transcript (Talk of the Nation, 22 May 2006, transcript
+  5422698) has CONAN saying "There was technology to do recordings at the
+  time, but it was very klutzy", with Seib answering "That's right." Corrected
+  to name both the speaker and what was klutzy. Everything else the entry
+  carries - Churchill's intervention, the only-journalist permission, the
+  silence transmitted live, the MacLeish encomium - checked against the
+  transcript and Wikipedia.
+- **`the-amateur-hour` - no source records mail, and the engagement was a
+  promise.** "Listeners voted by telephone, telegram and mail" became
+  "by telephone and telegram": the loc.gov guide describes national telephone
+  voting ("highly unscientific and often accused of being rigged", 30-50
+  operators), Ramsburg has telephone and telegram, and the only occurrence of
+  "mail" anywhere in the entry's own text is "mailbag" in its summary - no
+  source read says mail. "winners left with immediate professional engagement"
+  became "winners were promised immediate professional engagement, a promise
+  that in practice was very rarely acted upon" - loc.gov: "Major Bowes
+  promised to assign each week's winner to one of his touring vaudeville
+  troupes. In practice, this promise was very rarely acted upon"; Heuser
+  quotes the on-air promise verbatim.
+- **`glenn-miller` - the cause was not "never established".** Wikipedia
+  carries the Eighth Air Force Board of Inquiry in England, January 1945: the
+  plane "went down over the English Channel due to a combination of human
+  error, mechanical failure, and weather"; the DPAA profile still records
+  "The actual cause of the aircraft's loss remains unknown", the case
+  non-recoverable, the name on the Wall of the Missing at Cambridge. The old
+  sentence flattened both into a false negative; the new one carries both.
+- **`peter-pan` - the prelude is not on the Wikiquote page.** That record's
+  claim had attributed the "boys and girls" line to Wikiquote; the raw page
+  carries the appeal and its stage direction only. The claim now quotes only
+  what the page holds - the appeal and "(Many clap, some don't, a few hiss.
+  But Tink is saved.)", Act IV - and a Wikisource record was added for the
+  prelude, verbatim from page 162 of the 1928 scan (book page 122): "Peter
+  rises and throws out his arms he knows not to whom, perhaps to the boys and
+  girls of whom he is not one", and a stage direction that ends "But TINK is
+  saved."
+- **`florence-lawrence` - the flat "first" is qualified.** history.com and
+  Vanity Fair both run the flat claim; Wikipedia records the 2019 evidence
+  that the first named film star was Max Linder, and the significance now
+  carries that caveat. A Wikipedia record was added for it (which also carries
+  Eileen Bowser, *The Transformation of Cinema, 1907-1915*, pp. 112-13 - the
+  access route the WFPP page could not provide).
+
+Discrepancies kept rather than smoothed, per this file's convention: the
+loc.gov guide's telephone-only description of the Amateur Hour vote against
+Ramsburg's telephone-and-telegram; auditions 600 (guide) against 500
+(Ramsburg); the two flat "first" tributes against Wikipedia's Bowser-sourced
+caveat; the board of inquiry's attribution against the DPAA's "cause
+unknown".
+
+What each entry's review confirmed (opened sources in parentheses):
+
+- `florence-lawrence` (Vanity Fair, history.com, Wikipedia): the Union
+  Station buttons stripped, the "strange" epithet, the 302-film count, "the
+  Girl of a Thousand Faces", the headstone paid by Roddy McDowall in 1991.
+- `rin-tin-tin` (The New Yorker, Wikipedia): claims held as written; the
+  Wikipedia page for *Where the North Begins* remains unopened - minor, and
+  recorded.
+- `murrow` (NPR transcript, Wikipedia): confirmed with the correction above.
+- `the-amateur-hour` (loc.gov guide, Ramsburg, Heuser - 3 of 3): the March
+  1935 NBC premiere, the gong's origin, the wheel, the ratings, the promise -
+  confirmed, with the two corrections above.
+- `will-rogers` (National Park Service, opened): claims held; one
+  corroborating record (Air & Space, airandspace.si.edu) remains unopened -
+  403 live, Wayback 429 on 2026-10-18.
+- `glenn-miller` (Wikipedia, history.com, DPAA, Air University - 4 of 4):
+  the entry matches the DPAA profile nearly verbatim on the disappearance;
+  corrected as above.
+- `peter-pan` (Wikipedia, Wikiquote, Wikisource page 162): the premiere
+  facts, the appeal and its stage direction, and the prelude - all confirmed;
+  record split as above.
+- `i-want-you` (Wikipedia, teachingamericanhistory.org, PBS "I Want You,
+  Remixed"): the July 6 1916 Leslie's Weekly "What Are You Doing For
+  Preparedness?", the mirror/own-face detail, Kitchener/Leete 1914, four
+  million posters in 1917 - confirmed.
+
+Access failures this round (2026-10-18):
+
+- `wfpp.columbia.edu` - Anubis proof-of-work challenge; Wayback retries
+  /2021id_/, /2023/, /2024id_/ all 429. Surrogate kept: the Bowser citation
+  carried by the Wikipedia record added here.
+- Smithsonian Magazine, "Peter Pan Turns 100" - live 403; Wayback /2020/ 429.
+- airandspace.si.edu, "Remembering Wiley Post and Will Rogers" - live 403;
+  Wayback /2024/ 429.
+- The British Newspaper Archive premiere blog - 403 throughout.
+- guides.loc.gov "I Want You" exhibition - 403; read through a search index
+  only, and the record says so.
+
+Result: 248 entries, 69 verified, 179 not yet stood behind; 569 records, 461
+openable, 108 with no locator; all three gate tiers green (post, visual,
+source).
+
+## 2026-10-19 - seventh batch: promotion review, fourteen corrections, five flips
+
+The seventh batch (`tools/expand.py --apply`, 248 to 253) left five entries with
+their records in place and `verified: false`: `gibson-girl`, `theda-bara`,
+`vera-lynn`, `iglesia-maradoniana`, `our-lady-of-guadalupe`. This review read
+the session's fetched plain-text extractions for each
+(`episode/.chrome/b7src`; all five entries' sources are Wikipedia articles) and
+checked the central claims against them. The standard applied is the ledger's
+ruling (`tools/ledger.py`, `VERIFIED_DEF`): entry-level - an entry is marked
+verified once a person here has checked its central claims against source
+material they actually opened, and every record keeps its own status.
+**69 -> 74 verified entries of 253; the counter that read "184 of 253" now
+reads "179 of 253"; records 578 unchanged; plates 74 CITED and 179 NOT
+CITATION-CHECKED, reconciling to 253.** No record status changed and no records
+were added: a locator is not a reading, and this round was reading.
+
+Fourteen corrections landed with the promotion, each because the source read
+did not say what the entry said:
+
+- **`gibson-girl` - the white-nation sentence named the wrong accounts.** "The
+  same accounts connect..." became "The article on the character connects...":
+  grep across the batch's extracts finds "white nation"/"eugenicist" only in
+  the character article (gibson-girl.txt), and the entry's own prose already
+  distinguishes "the article on the character" from "the article on Gibson".
+- **`theda-bara` - a hedge was dropped, in two places.** The film's record says
+  "This **may** have been one of Hollywood's first publicity stunts." The
+  significance ("calls one of...") and the `A_Fool_There_Was` claim ("'one
+  of...'") both stated it flat; both now carry the hedge - "says may have
+  been" and "'may have been one of...'".
+- **`vera-lynn` - the 2020 sentence was in neither source.** "shortly before
+  her death in June 2020 she addressed the country once more, ahead of the
+  Queen's broadcast at the start of the pandemic" appears nowhere in
+  vera-lynn.txt or well-meet-again.txt. What the extracts record: on 5 April
+  2020 Queen Elizabeth II referenced the song in a rare televised address that
+  aired to Britain and the Commonwealth, "just some months before Lynn died"
+  (well-meet-again.txt). The sentence now says that. Two smaller fixes in the
+  same entry: "its opening line reads like a job description..." attributed
+  the quoted phrase beyond what the source does (vera-lynn.txt: "Described as
+  'to the men of the forces - a letter in words and Music'"), so the entry now
+  says it was described that way; and "She was taken off the air" became "The
+  programme was taken off the air" - the 22 March 1942 removal and
+  eighteen-month absence belong to the programme, not to Lynn. The record
+  claim carried the same faults and now reads "9 November 1941 at 21:30,
+  described as..." and "the Queen's televised address of 5 April 2020
+  referencing the song."
+- **`iglesia-maradoniana` - "still playing" was false at the founding, and the
+  birth-city was unsourced specificity.** Maradona retired in October 1997;
+  the church was founded on his 38th birthday, 30 October 1998, and he died in
+  2020. "while its god was still playing" / "while its figure was still on the
+  pitch" / "while he was still playing" became "still alive", and the fits
+  line "he remains in motion, the athlete's defining property, since the god
+  of this church is a man who could be watched live" became "the god of this
+  church is a man whose playing days the audience could watch live, which is
+  the athlete's defining property" - the live-performance property kept, the
+  present tense dropped. And "founded in Rosario, the city of his birth"
+  became "founded in Rosario, Argentina": the extract's infobox names Rosario,
+  Santa Fe as the founding place and says nothing about a birthplace (Maradona
+  was born in Lanus).
+- **`our-lady-of-guadalupe` - the Juan Diego record described the other
+  article.** The claim said "a Chichimec peasant, living at Tlacopan at the
+  time of the apparitions", which is not what the Juan Diego article records:
+  it has "a Nahua peasant" (juan-diego.txt:369), born in Cuauhtitlan and
+  living "there or in Tolpetlac" at the time of the apparitions (:394-395).
+  The claim now says that, with the disagreement kept in the open - "(the
+  article on Our Lady of Guadalupe calls him a Chichimec peasant)", which is
+  where the entry's prose gets "Chichimec" from (guadalupe.txt:443).
+
+Discrepancies kept rather than smoothed, per this file's convention: the two
+articles' Chichimec against Nahua on Juan Diego's ethnicity, now visible in
+both places; the legend dating for the first Gibson Girl (1890 flat in one
+article against "in the 1890s" in the other), already carried on the entry.
+
+What each entry's review confirmed (extract files read in parentheses):
+
+- `gibson-girl` (gibson-girl.txt, charles-dana-gibson.txt): the 1894 *Life*
+  sentence and "trying to live up to the standard", "may have been the
+  original model" against the biographical article's contrary-to-fact dating,
+  the "created 1898" caption, the SCR-578 survival-radio nickname.
+- `theda-bara` (theda-bara.txt, a-fool-there-was.txt): the studio biography
+  and its variants (Egyptian-born, the sheik and the French woman, the Sahara,
+  "an anagram of Arab death"), the fur-outfit press conference, the "The
+  Vampire" billing, the vamp etymology, "I will continue doing vampires as
+  long as people sin.", $4,000 a week, 43 films with six surviving, the 1937
+  Fox vault fire, the 2015 National Film Registry entry.
+- `vera-lynn` (vera-lynn.txt, well-meet-again.txt): the ODNB summary, the
+  9 November 1941 9:30 p.m. premiere with messages to British troops abroad,
+  the 22 March 1942 removal for eighteen months, 'It's Time for Vera Lynn'
+  from 31 October 1943, the first recording on 28 September 1939 by Lynn with
+  Arthur Young, the 1953 re-recording, the 1985 Burma Star, the 2000 poll, the
+  2009 oldest-living-artist chart record.
+- `iglesia-maradoniana` (iglesia-maradoniana.txt): founded 30 October 1998 in
+  Rosario on the 38th birthday, Campomar / Veron / Amez, d. D. and D10S, "God
+  of football", the Veron quote, the baptism rite, the self-reported 40,000
+  world / 9,000 Spain member figures.
+- `our-lady-of-guadalupe` (guadalupe.txt, juan-diego.txt): the Nican Mopohua
+  in Nahuatl, the apparitions from December 1531, the Castile roses, "No estoy
+  yo aqui que soy tu madre?", the 1556 inquiry, Sahagun's Tonantzin, the 1754
+  confirmation, the 1887 / 1895 coronation, the 1921 bomb, Callahan & Smith
+  1981, the 1996 Schulenburg resignation; and from the Juan Diego article, the
+  doubts kept on the entry and the 2002 canonisation as the first indigenous
+  American saint.
+
+Access failures this round: none new. All five entries' sources are Wikipedia
+pages already fetched and extracted in the batch's own research pass; this
+review read those extractions rather than re-opening the pages live, and the
+sixth batch's access-failure list (WFPP, Smithsonian, airandspace, BNA) still
+stands for the records it concerns.
+
+Result: 253 entries, 74 verified, 179 not yet stood behind; 578 records, 470
+openable, 108 with no locator; all three gate tiers green (post, visual,
+source).

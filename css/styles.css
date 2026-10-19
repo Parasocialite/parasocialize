@@ -1570,6 +1570,27 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .t8-sharedlaw-n{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
   color:var(--hot);margin-right:10px}
 
+/* the day record under /top8/: which list was on show and what it carried.
+   Newest first, one run per contiguous stretch of the same selection; the
+   green tag is the only colour signal, because "on show today" is a state
+   and not a section. */
+.t8rec{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:0}
+.t8rec-run{padding:15px 0;border-top:1px solid var(--line)}
+.t8rec-run:last-child{border-bottom:1px solid var(--line)}
+.t8rec-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;
+  margin:0}
+.t8rec-date{font-family:var(--label);font-size:.6rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dimmer);white-space:nowrap}
+.t8rec-list{font-family:var(--serif);font-weight:900;font-size:1.06rem;
+  color:#fff6ea;letter-spacing:-.01em}
+.t8rec-list:hover{color:var(--hot)}
+.t8rec-cat{font-family:var(--label);font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--hot)}
+.t8rec-now{font-family:var(--label);font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:#7bd88f}
+.t8rec-names{margin:7px 0 0;font-size:.88rem;line-height:1.65;color:var(--dim);
+  max-width:74ch}
+
 /* ------------------------------------------------- /citations/
    The sourcing backlog, in public. Four numbers first, because a table of 122
    rows is a filing cabinet and four numbers are an argument. The degree
@@ -1823,6 +1844,32 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   color:var(--dimmer);font-variant-numeric:tabular-nums}
 .tx-count-0{color:var(--dimmer);opacity:.75;letter-spacing:.04em;
   text-transform:none;font-style:italic}
+/* The register of the day. The eight take turns, one per UTC day, so the page
+   says which one is up before the list explains what a register is. The strip
+   is not a member list - a register is a definition - so what it links to is
+   the definition below, the register's anchor when it has one, and the index
+   search for every entry that mentions it. */
+.tx-day{border:1px solid var(--line);border-left:3px solid var(--hot);
+  border-radius:8px;background:var(--ink);padding:13px 16px;margin:0 0 14px}
+.tx-day .kicker{margin:0}
+.tx-day .tx-note{padding:0;margin:8px 0 0;font-size:.82rem}
+.tx-day-line{display:flex;flex-wrap:wrap;gap:7px 16px;align-items:baseline;
+  margin:8px 0 0;font-size:1.02rem}
+.tx-day-line b{font-size:1.05rem}
+.tx-day-line a{font-family:var(--label);font-size:.6rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);text-decoration:none;
+  border-bottom:1px solid var(--line)}
+.tx-day-line a:hover{color:var(--ink);border-bottom-color:var(--hot)}
+.tx-today{border-color:var(--hot)}
+.tx-today-tag{font-family:var(--label);font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--hot)}
+.tx-dayrec{margin-top:14px}
+.tx-days{list-style:none;margin:10px 0 0;padding:0}
+.tx-days li{border-top:1px solid var(--line2);padding:9px 0;
+  font-size:.84rem;line-height:1.5;color:var(--dim)}
+.tx-days b{color:var(--ink);margin-left:8px}
+.tx-day-date{font-family:var(--label);font-size:.6rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dimmer);white-space:nowrap}
 .tx-lit{list-style:none;margin:12px 0 0;padding:0;max-width:78ch}
 .tx-lit li{border-top:1px solid var(--line2);padding:10px 0;
   font-size:.84rem;line-height:1.6;color:var(--dim)}

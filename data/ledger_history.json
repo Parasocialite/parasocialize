@@ -5,10 +5,22 @@
    "date": "2026-10-18",
    "figures": {
     "entries": 248,
-    "records": 567,
-    "openable": 459,
+    "records": 569,
+    "openable": 461,
     "no_locator": 108,
-    "verified_entries": 61,
+    "verified_entries": 69,
+    "status_needs_source": 46,
+    "thesis": 17
+   }
+  },
+  {
+   "date": "2026-10-19",
+   "figures": {
+    "entries": 253,
+    "records": 578,
+    "openable": 470,
+    "no_locator": 108,
+    "verified_entries": 74,
     "status_needs_source": 46,
     "thesis": 17
    }

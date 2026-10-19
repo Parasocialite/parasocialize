@@ -1,9 +1,12 @@
-"""The Top 8 lists: the newest `released` is on show, former lists are kept.
+"""The Top 8 lists: the live lists rotate the show, and every day is recorded.
 
-Lists are released whole. The show is the list with the newest `released`
-date that is not in the future - chosen by `build_cards.pick_list`, the one
-selector the front page and /top8/ both use - and former lists stay in
-`data/features.json` for the archive rather than being edited in place.
+Lists are released whole. What the front page and /top8/ put on show is
+today's pick in `build_cards.show_list()`: the live lists ordered newest
+first, anchored on the newest `released` day, taking turns one per UTC day.
+`build_cards.pick_list` names the newest live list - what this tool curates -
+and `build_cards.record_top8_day()` appends the day's show to
+`data/top8_history.json`, which /top8/ renders as its day record. Lists stay
+in `data/features.json` for the archive rather than being edited in place.
 **8 is a motif**: a list that ships carries exactly eight entries, and
 build_cards.py refuses to build a show with fewer.
 
@@ -44,6 +47,9 @@ SLOTS = 8
 
 def load():
     d = json.loads(DATA.read_text(encoding="utf-8"))
+    # pick_list, not show_list: this tool edits the newest live list - the
+    # pool being curated - rather than whichever list the day happens to put
+    # on the page.
     return d, bc.pick_list(d)
 
 
@@ -75,7 +81,9 @@ def report(L):
                   f" {e.get('name','')[:44]}")
     if len(by["featured"]) != SLOTS:
         print(f"\n  NOTE: {len(by['featured'])} featured, page shows {SLOTS}. "
-              f"Rotation only starts changing the page above {SLOTS}.")
+              f"A pool larger than {SLOTS} rotates the eight internally; the "
+              f"show itself takes turns across the live lists day by day "
+              f"whatever the pool size.")
     return by
 
 

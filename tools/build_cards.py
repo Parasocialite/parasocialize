@@ -1640,10 +1640,10 @@ def live_lists(feat, today=None):
     A list is live once its `released` date has arrived; a list with no date
     counts as the oldest and is always live, so a file holding a single
     undated list still builds. This is the one place that rule lives -
-    pick_list, the archive and the front page's kicker all read it here -
-    because two answers to "which lists exist yet" is the defect that once put
-    `candidate` entries on /top8/: one of the answers is wrong, and nothing
-    notices.
+    pick_list, show_list, the archive and the front page's kicker all read it
+    here - because two answers to "which lists exist yet" is the defect that
+    once put `candidate` entries on /top8/: one of the answers is wrong, and
+    nothing notices.
     """
     lists = (feat or {}).get("lists") or []
     today = today or datetime.datetime.now(datetime.timezone.utc).date().isoformat()
@@ -1651,13 +1651,19 @@ def live_lists(feat, today=None):
 
 
 def pick_list(feat, today=None):
-    """Which top-8 list is on show, for the front page and /top8/ alike.
+    """The newest live list - the one the pool tools curate.
 
-    The newest live list - see live_lists() for what live means. Lists are
-    released whole, so the show is a property of the data and the date rather
-    than of the build clock: every reader and every build names the same list,
-    and there is no state file to drift. Ties keep file order, so a new list
-    becomes the show by being dated later, not by being moved.
+    See live_lists() for what live means. Lists are released whole, so "the
+    newest" is a property of the data and the date rather than of the build
+    clock: every reader and every build names the same list, and there is no
+    state file to drift. Ties keep file order, so a new list becomes the
+    newest by being dated later, not by being moved.
+
+    This is NOT what the front page and /top8/ put on show - that rotates
+    across the live lists day by day and is show_list() below. This answer is
+    "which list is being worked on": it is the list tools/t8_pool.py edits
+    and it carries the refusal for an empty live set, and it deliberately
+    does not move when the day does.
     """
     lists = (feat or {}).get("lists") or []
     if not lists:
@@ -1668,6 +1674,48 @@ def pick_list(feat, today=None):
             "REFUSING to build: every top-8 list in features.json is dated in "
             "the future, so there is nothing to show today.")
     return max(live, key=lambda L: L.get("released") or "")
+
+
+def show_list(feat, today=None):
+    """Which live list the front page and /top8/ put on show today.
+
+    The daily rotation, and it turns on the lists rather than on the eight
+    within one. The live lists are ordered newest first, the newest one's
+    release day is the anchor, and the show steps one list per day from
+    there: the newest list takes the page on its release day, and every UTC
+    day after that a different one does, cycling through the live set. With
+    two live lists the page therefore never shows the same list two days
+    running - which is the promise the front page already made about the
+    eight inside a list, kept on the axis that is guaranteed to have more
+    than one member.
+
+    Reproducible from the data and the date alone - no state file, no build
+    clock - and measured in UTC for the reason cur_slot() gives: a selection
+    that depends on the builder's timezone is a selection nobody can
+    reproduce.
+
+    Two cases degrade silently rather than lying. Ties in `released` keep
+    file order (sorted() is stable), so two lists dated the same day take
+    turns in the order they sit in the file. And a live set with no dates at
+    all has no release day to anchor the cycle on, so the oldest file order
+    holds and the rotation is still - which is the honest reading of a file
+    that has not said when its lists came out, not an error.
+
+    An empty live set is refused by pick_list, which this calls; the refusal
+    lives there because it describes the live set rather than the show.
+    """
+    live = live_lists(feat, today)
+    newest = pick_list(feat, today)   # refuses an empty live set
+    anchor = newest.get("released") or ""
+    if len(live) < 2 or not anchor:
+        return newest
+    day = today or datetime.datetime.now(
+        datetime.timezone.utc).date().isoformat()
+    steps = (datetime.date.fromisoformat(str(day)[:10])
+             - datetime.date.fromisoformat(str(anchor)[:10])).days
+    ordered = sorted(live, key=lambda L: L.get("released") or "",
+                     reverse=True)
+    return ordered[steps % len(ordered)]
 
 
 def section_pool(cards, section, now=None):
@@ -1824,11 +1872,12 @@ def build_front(data, feat=None, manifest=None, hist=None):
     manifest = manifest or {"items": []}
     hist = hist or {"modules": []}
 
-    # ---- the rotating top 8 column. Which list is on show is the newest
-    # `released` date in features.json (pick_list), so this and /top8/ name
-    # the same one; former lists move to /top8/archive/. Which EIGHT of that
-    # list are on show is decided in top8_window(), by the date, so the page
-    # always carries eight.
+    # ---- the rotating top 8 column. Which list is on show is today's pick
+    # in the daily rotation (show_list): the live lists take turns, one per
+    # UTC day, anchored on the newest `released`, so this and /top8/ name the
+    # same one; the lists not up today are at /top8/archive/. Which EIGHT of
+    # that list are on show is decided in top8_window(), by the date, so the
+    # page always carries eight.
     # ---- the top 8. `entries` is the list as released, in rank order. Each
     # still carries a stage: candidate while drafted for a future list,
     # featured once the list ships. A former list is never edited to archive
@@ -1964,12 +2013,12 @@ def build_front(data, feat=None, manifest=None, hist=None):
         # keep. The kicker below is the reader-facing part and stays.
         # Two facts decide the kicker, and both come from the same place the
         # block is built from. With more than one live list the honest label
-        # is which list is on show - the newest `released`, through
-        # pick_list - because "this week"/"rotating" claimed a schedule the
-        # build never had. Within one list, a pool larger than eight does
-        # rotate, and that claim comes from top8_window() itself rather than
-        # being re-derived here: the last time this sentence and the
-        # behaviour were measured in two places, they disagreed.
+        # is which list is on show - today's pick in the daily rotation,
+        # through show_list - because "this week"/"rotating" claimed a
+        # schedule the build never had. Within one list, a pool larger than
+        # eight does rotate, and that claim comes from top8_window() itself
+        # rather than being re-derived here: the last time this sentence and
+        # the behaviour were measured in two places, they disagreed.
         _live_n = len(live_lists(feat))
         if _live_n > 1:
             t8_kick = f"The top 8 &middot; {esc(L['kicker'].lower())}"
@@ -2309,7 +2358,7 @@ def rotate(seq, key, n=8, by="rank"):
 TOP8_SLOTS = 8
 
 
-def top8_window(feat):
+def top8_window(feat, today=None):
     """The eight moments the site shows today, chosen from the eligible pool.
 
     Shared by build_front and build_top8. They each derived their own list
@@ -2319,24 +2368,31 @@ def top8_window(feat):
     stage exists to keep off the page. Two copies of "which eight" is the
     `kind: exact` class: one of them is wrong and nothing notices.
 
-    The list itself is the newest `released` in the file, chosen through
-    pick_list() so the front page and /top8/ cannot name different ones.
-    Above eight eligible moments in a list, the eight rotate on a fixed cycle
-    rather than by hash - a hash reshuffles all eight whenever the pool grows,
-    which reads as churn, and two consecutive days must never repeat the same
-    page.
+    The list itself is today's show, chosen through show_list() - the live
+    lists take turns one per UTC day, anchored on the newest release - so the
+    front page and /top8/ cannot name different ones. Above eight eligible
+    moments in a list, the eight also rotate on a fixed cycle rather than by
+    hash - a hash reshuffles all eight whenever the pool grows, which reads as
+    churn, and two consecutive days must never repeat the same page. That
+    inner branch is unreachable while every pool holds exactly eight, which is
+    the state both live lists are in; the daily change a reader sees comes
+    from show_list, and this window only adds to it once a pool grows past
+    eight.
+
+    `today` is an ISO date and overrides the UTC clock, so record_top8_day()
+    can be exercised across days; production callers omit it.
     """
     lists = feat.get("lists") or []
     if not lists:
         return {"title": "", "kicker": "", "dek": "", "standfirst": "",
                 "entries": []}
-    # pick_list hands back the list's own dict with every key intact - image,
+    # show_list hands back the list's own dict with every key intact - image,
     # law, slug and the rest are read by build_top8 as well as the window
     # below, and a refactor that rebuilt the dict field by field once dropped
     # them. That is how /top8/ lost its hero photograph and how .t8-hero-fig
     # img became an orphan rule; the only thing that noticed was the dead-CSS
     # check reporting a selector that matched nothing.
-    L = dict(pick_list(feat))
+    L = dict(show_list(feat, today))
     featured = [e for e in L["entries"]
                 if e.get("stage", "featured") == "featured"]
     # Rotation is a property of the whole list, so it is measured before the
@@ -2345,7 +2401,13 @@ def top8_window(feat):
     L["rotating"] = len(featured) > TOP8_SLOTS
     if L["rotating"]:
         n = len(featured)
-        start = (datetime.date.today().toordinal() * TOP8_SLOTS) % n
+        # UTC, like show_list and cur_slot: a local date turns at a different
+        # moment in every timezone, and a window that moves on one machine's
+        # clock is a page nobody can reproduce.
+        d = (datetime.date.fromisoformat(today) if today else
+             datetime.datetime.now(datetime.timezone.utc).date())
+        day = d.toordinal()
+        start = (day * TOP8_SLOTS) % n
         # a window that wraps, so consecutive days overlap rather than
         # replacing themselves wholesale
         order = sorted(range(n), key=lambda i: (i - start) % n)
@@ -2359,6 +2421,169 @@ def top8_window(feat):
     L["entries"] = featured
     return L
 
+
+# --------------------------------------------------------------- the record
+# Which list is on show is a property of the date and is not stored. What is
+# stored is which day it happened on, because a date is not recomputable: no
+# rebuild can reconstruct a show from a day nobody built on.
+TOP8_HISTORY = ROOT / "data" / "top8_history.json"
+TOP8_HISTORY_NOTE = (
+    "STATEFUL. One record per day: which top-8 list was on show and the eight "
+    "moments it carried, appended by build_cards.record_top8_day() and never "
+    "rewritten. Do not regenerate this file and do not delete it to clean up "
+    "- the sequence of what was on show is the thing it holds, and a rebuild "
+    "from scratch cannot reconstruct a day nobody was there for. Rendered as "
+    "the day record on /top8/ by build_cards.t8_record().")
+
+
+def t8_eid(en):
+    """A moment's durable identity in the record, mirroring t8_pool.eid().
+
+    id, then image, then show - never rank or name, which are display fields
+    and move. The record stores identities so the names it prints are
+    resolved from data/features.json at render time rather than frozen into
+    a history entry.
+    """
+    return en.get("id") or en.get("image") or en.get("show", "?")
+
+
+def record_top8_day(feat, today=None):
+    """Record which list and which eight moments are on show today.
+
+    Called from main() before the pages are written, so the record and the
+    render read the same top8_window() and cannot describe different shows.
+    The entry is {date, list, items} - the list by slug, the items by the
+    identities t8_eid() keeps, because a slug and an id outlive renames of
+    the display fields.
+
+    Idempotent within a day: running the build five times appends one record.
+    If the selection changes later the same day - a pool edited mid-day - the
+    day's entry is replaced rather than duplicated, because one date with two
+    shows in it is a record that cannot be read. Across days it is append
+    only, never rewritten, and there is deliberately no cap: the whole point
+    of the file is that it is the sequence.
+
+    Returns (appended, entry) so the caller can say what happened.
+    """
+    today = today or datetime.datetime.now(
+        datetime.timezone.utc).date().isoformat()
+    L = top8_window(feat, today)   # the same window the pages render
+    entry = {"date": today, "list": L.get("slug") or "",
+             "items": [t8_eid(en) for en in L["entries"]]}
+    hist = (json.loads(TOP8_HISTORY.read_text(encoding="utf-8"))
+            if TOP8_HISTORY.exists()
+            else {"_note": TOP8_HISTORY_NOTE, "days": []})
+    days = hist.setdefault("days", [])
+    if days and str(days[-1].get("date")) == today:
+        if (days[-1].get("list"), days[-1].get("items")) == \
+                (entry["list"], entry["items"]):
+            return False, days[-1]
+        days.pop()
+    days.append(entry)
+    hist.setdefault("_note", TOP8_HISTORY_NOTE)
+    TOP8_HISTORY.parent.mkdir(exist_ok=True)
+    TOP8_HISTORY.write_text(
+        json.dumps(hist, ensure_ascii=False, indent=1) + "\n",
+        encoding="utf-8")
+    return True, entry
+
+
+def _t8_day_before(day_iso, candidate_iso):
+    """Whether candidate_iso is the calendar day before day_iso."""
+    try:
+        a = datetime.date.fromisoformat(candidate_iso)
+        b = datetime.date.fromisoformat(day_iso)
+    except ValueError:
+        return False
+    return (b - a).days == 1
+
+
+def t8_runs(days):
+    """The recorded days, newest run first, contiguous same-show days merged.
+
+    A run only grows across days that are actually consecutive: a day with no
+    build is a day this record claims nothing about, so a gap breaks the run
+    rather than being spanned by it. The record is what happened, not what
+    would have been true if somebody had built.
+    """
+    runs = []
+    for d in reversed(days):
+        date = str(d.get("date") or "")
+        key = (str(d.get("list") or ""), tuple(d.get("items") or []))
+        if runs and runs[-1]["key"] == key and \
+                _t8_day_before(runs[-1]["lo"], date):
+            runs[-1]["lo"] = date
+        else:
+            runs.append({"key": key, "lo": date, "hi": date})
+    return runs
+
+
+def t8_record(feat, today=None):
+    """/top8/'s day record: every day this site chose a show, newest first.
+
+    The show is a property of the date and is not stored; what is stored is
+    the day it happened on - data/top8_history.json, written by
+    record_top8_day() from the same window() that renders the page. This
+    renders that file, so the record and the page cannot disagree.
+
+    Names are resolved from the current data at render time: the record
+    stores identities, and a moment's id or image outlives any rename of its
+    display fields. A day whose list is missing from the file, or whose
+    moments no longer resolve, degrades in place rather than printing a
+    slug or an id at a reader.
+
+    Consecutive days with the same selection collapse into one run, but only
+    when the days are contiguous - see t8_runs - and the run that includes
+    today says so.
+    """
+    if not TOP8_HISTORY.exists():
+        return ""
+    hist = json.loads(TOP8_HISTORY.read_text(encoding="utf-8"))
+    days = hist.get("days") or []
+    if not days:
+        return ""
+    lists = feat.get("lists") or []
+    by_slug = {L.get("slug"): L for L in lists}
+    by_eid = {}
+    for L in lists:
+        for en in L.get("entries") or []:
+            for key in ("id", "image", "show"):
+                v = en.get(key)
+                if v and v not in by_eid:
+                    by_eid[v] = en
+    show = show_list(feat, today).get("slug")
+    today = today or datetime.datetime.now(
+        datetime.timezone.utc).date().isoformat()
+    rows = []
+    for run in t8_runs(days):
+        slug, items = run["key"]
+        L = by_slug.get(slug)
+        span = (fmt_date(run["lo"]) if run["lo"] == run["hi"]
+                else f'{fmt_date(run["lo"])} &rarr; {fmt_date(run["hi"])}')
+        if L and L.get("title"):
+            href = "#list" if slug == show else \
+                f'archive/index.html#{esc(slug)}'
+            title = (f'<a class="t8rec-list" href="{href}">'
+                     f'{esc(L["title"])}</a>')
+        else:
+            title = ('<span class="t8rec-list">A list that is no longer in '
+                     'the file</span>')
+        head = [f'<span class="t8rec-date">{span}</span>', title]
+        if L and L.get("kicker"):
+            head.append(f'<span class="t8rec-cat">{esc(L["kicker"])}</span>')
+        if slug == show and run["hi"] == today:
+            head.append('<span class="t8rec-now">on show today</span>')
+        names = [by_eid[v].get("name") for v in items
+                 if v in by_eid and by_eid[v].get("name")]
+        names_p = ('<p class="t8rec-names">'
+                   + " &middot; ".join(esc(n) for n in names) + '</p>'
+                   ) if names else ""
+        rows.append(f'<li class="t8rec-run">'
+                    f'<p class="t8rec-head">{" ".join(head)}</p>'
+                    f'{names_p}</li>')
+    if not rows:
+        return ""
+    return f'<ol class="t8rec">{"".join(rows)}</ol>'
 
 
 def t8_entry(en, i, laws, shelf, manifest, depth, one_law):
@@ -2466,10 +2691,13 @@ def build_top8(data, feat, manifest):
     r = root(1)
     L = top8_window(feat)
     # The outro used to promise "rotated weekly", which is a promise about a
-    # schedule the build does not keep - lists move when a newer one is dated,
-    # not on a timetable. With more than one live list the direction of travel
-    # that is true is the archive, which is where the former ones are.
-    outro = ('Earlier top 8s are in the <a href="archive/index.html">archive</a>.'
+    # schedule the build does not keep. The rotation now is the lists
+    # themselves, one per UTC day through show_list - so what is true to say
+    # is that the lists not on show today are in the archive. "Earlier" went
+    # with the old wording: the lists that are not up today are not
+    # necessarily older, they are the ones this day did not land on.
+    outro = ('The lists not on show today are in the '
+             '<a href="archive/index.html">archive</a>.'
              if len(live_lists(feat)) > 1 else "More top 8s to come.")
     laws = {l["n"]: l for l in data["laws"]}
     shelf = {s["id"]: s for s in data["shelf"]}
@@ -2485,6 +2713,21 @@ def build_top8(data, feat, manifest):
     stand = fig(manifest, L.get("image"), 1, cls="t8-hero-fig")   # depth 1, as above
     shared_law = t8_shared_law(one_law, laws, shelf)
     frame_note = t8_frame_note(L)
+    # The day record, under the list. Absent on a first build (nothing
+    # recorded yet) and rendered from data/top8_history.json otherwise - see
+    # t8_record for why the dates are stored rather than recomputed.
+    record = t8_record(feat)
+    record_html = f"""
+<section class="section" id="record" style="padding-top:8px">
+  <p class="kicker">The record</p>
+  <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;max-width:24ch">Every day, one of the lists</h2>
+  <p class="sec-lede" style="max-width:62ch">The show is decided by the date rather
+  than by hand: the newest list takes this page on its release day, and from there
+  the live lists take turns, one per day. This is what was on show, recorded as it
+  happened.</p>
+  {record}
+</section>""" if record else ""
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2517,29 +2760,30 @@ def build_top8(data, feat, manifest):
   <p class="countline" style="margin-top:30px">{outro}
   <a href="{r}index.html">Back to the ten sections →</a></p>
 </section>
+{record_html}
 </main>
     {FOOT.format(root=root(1), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
 </body></html>"""
 
 
 def build_top8_archive(data, feat, manifest):
-    """Every former top-8 list, rendered in full, newest first.
+    """Every top-8 list that is not today's show, rendered in full, newest first.
 
-    The show is the newest live list (pick_list), so a list becomes former by
-    a newer one being dated rather than by an edit: it is still in
+    The show is today's pick in the daily rotation (show_list), so a list
+    lands on this page by the calendar rather than by an edit: it is still in
     data/features.json exactly as it shipped, and this page renders it with
     the same entry renderer the show page uses. An archive that prints a
     different version of the thing than the one that ran is a second,
     conflicting record of it, so there is deliberately no trimmed or
     summarised mode here.
 
-    A list dated in the future is neither the show nor former - it is not
+    A list dated in the future is neither the show nor archived - it is not
     live yet, so it is not anywhere on the site.
     """
     r = root(2)
     laws = {l["n"]: l for l in data["laws"]}
     shelf = {s["id"]: s for s in data["shelf"]}
-    show = pick_list(feat)
+    show = show_list(feat)
     former = sorted((L for L in live_lists(feat)
                      if L.get("slug") != show.get("slug")),
                     key=lambda L: L.get("released") or "", reverse=True)
@@ -2570,9 +2814,10 @@ def build_top8_archive(data, feat, manifest):
 
     if not chunks:
         chunks.append("""<section class="section">
-  <p class="sec-lede" style="max-width:62ch">Nothing has been put aside yet -
-  the first list is still on show, and this page fills in when a newer list is
-  dated and takes its place.</p>
+  <p class="sec-lede" style="max-width:62ch">Nothing is put aside yet - one list
+  is live, so it is also the one always on show, and this page fills in when a
+  second list is dated. From then on the lists not on show that day sit
+  here.</p>
 </section>""")
 
     return f"""<!DOCTYPE html>
@@ -2594,14 +2839,14 @@ def build_top8_archive(data, feat, manifest):
   <p class="kicker">The top 8 &middot; archive</p>
   <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;
      letter-spacing:-.03em;line-height:1.02;margin:0 0 16px;max-width:22ch">Every top 8 this site has run</h1>
-  <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">A former list is not
-  trimmed or summarised here - it is the list exactly as it was on show. The
-  one on show now is at <a href="../index.html" style="color:var(--hot)">the
+  <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">A list that is not
+  up today is not trimmed or summarised here - it is the list exactly as it was
+  on show. The one on show now is at <a href="../index.html" style="color:var(--hot)">the
   top 8</a>.</p>
 </section>
 {''.join(chunks)}
 <section class="section" style="padding-top:8px">
-  <p class="countline">Former lists are kept exactly as they shipped.
+  <p class="countline">The lists here are kept exactly as they shipped.
   <a href="{r}index.html">Back to the ten sections →</a></p>
 </section>
 </main>
@@ -2893,6 +3138,145 @@ def _era_key(e):
 
 
 # ------------------------------------------------------------------ taxonomy
+# --------------------------------------------------- the register of the day
+#
+# A register is a definition and not a shelf: data/taxonomy.json's register
+# list has no `members` key, no placement carries a register value, and the
+# entry schema has no field for one - a field nothing counts is this project's
+# own "promises more than it keeps" family. So the one editorial action that
+# does not need the membership question answered is the day: the eight
+# registers take turns, one per UTC day, and the page puts the day's one
+# forward as itself - its definition, its anchor when it has one, and the
+# search that finds every entry whose own prose mentions it (the search route
+# is what item 73 of AGENTS.md sanctions, and _register_check asserts it).
+#
+# The membership question was measured before this was built, because "which
+# entries are in register X" is the natural thing to want and it was worth
+# knowing whether the corpus could answer it. Grepping placement reasons and
+# entry prose for each register's name: `bond` 26 hits and 0 register
+# assertions (all ordinary bond-talk - the site's own subject word);
+# `encounter` 1 hit and 0 assertions; `contest` 4 hits of which 2 are real
+# ("contestable" and literal contests inflated the rest); `harm` 4 plausible
+# and none explicit; `cog` and `reciprocal-edge` and `archive` mostly real
+# because their names are technical. A member list built by word matching
+# would file generic sentences under a register, which is how a register
+# becomes confident noise. The search hands the reader the set and says what
+# it is.
+REGISTER_HISTORY = ROOT / "data" / "register_history.json"
+REGISTER_HISTORY_NOTE = (
+    "STATEFUL. One record per UTC day: which register was put forward on "
+    "/taxonomy/, appended by build_cards.record_register_day() and never "
+    "rewritten. Do not regenerate this file and do not delete it to clean up - "
+    "the rotation is recomputable from the date and the register order, and "
+    "that recomputability is exactly why the file exists: if either changes, "
+    "only this sequence shows what the page actually said. Rendered under the "
+    "register list by build_cards.register_record()."
+)
+# The day the rotation shipped. The registers have no release dates to anchor
+# on the way the top-8 lists do, so the anchor is the day this went live;
+# dates before it cycle backward through the same order and are not claimed
+# to have shown anything.
+REGISTER_EPOCH = datetime.date(2026, 10, 19)
+
+
+def register_of_day(tax, today=None):
+    """The register the taxonomy page puts forward on a given UTC day.
+
+    One register per UTC day, taking turns in the order they are defined in
+    data/taxonomy.json, anchored on REGISTER_EPOCH. Deterministic and
+    stateless: the same date always gives the same register, which is what
+    lets the record and the page be checked against each other. Python's
+    modulo makes dates before the epoch cycle backward rather than error.
+    """
+    regs = tax.get("register") or []
+    if not regs:
+        return None
+    iso = today or datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    try:
+        d = datetime.date.fromisoformat(str(iso)[:10])
+    except ValueError:
+        d = datetime.datetime.now(datetime.timezone.utc).date()
+    return regs[(d - REGISTER_EPOCH).days % len(regs)]
+
+
+def record_register_day(tax=None, today=None):
+    """Append today's register to data/register_history.json.
+
+    Called before /taxonomy/ renders - the ledger's snapshot-before-feed
+    ordering, the same reason record_top8_day runs before the front page - so
+    the record and the page cannot describe different days. It loads the
+    taxonomy itself because main() has not loaded it yet at that point.
+
+    One entry per date, {date, register} by id; names resolve at render time
+    so renaming a register does not rewrite history. A same-day rebuild is a
+    no-op; if the day's register changes mid-day - the register list edited,
+    or the epoch moved - the day's entry is replaced rather than appended,
+    because one date with two registers is a record nobody can read.
+    Returns (changed, entry).
+    """
+    if tax is None:
+        tax = json.loads((ROOT / "data" / "taxonomy.json")
+                         .read_text(encoding="utf-8"))
+    reg = register_of_day(tax, today)
+    if not reg:
+        return False, {}
+    iso = str(today or
+              datetime.datetime.now(datetime.timezone.utc).date().isoformat())[:10]
+    entry = {"date": iso, "register": reg["id"]}
+    if REGISTER_HISTORY.exists():
+        hist = json.loads(REGISTER_HISTORY.read_text(encoding="utf-8"))
+    else:
+        hist = {"_note": REGISTER_HISTORY_NOTE, "days": []}
+    days = hist.setdefault("days", [])
+    if days and str(days[-1].get("date")) == iso:
+        if days[-1].get("register") == entry["register"]:
+            return False, days[-1]
+        days.pop()
+    days.append(entry)
+    hist.setdefault("_note", REGISTER_HISTORY_NOTE)
+    REGISTER_HISTORY.parent.mkdir(exist_ok=True)
+    REGISTER_HISTORY.write_text(
+        json.dumps(hist, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return True, entry
+
+
+def register_record(tax, today=None):
+    """The day record under the register list, newest first.
+
+    A plain dated list rather than the run-collapsed shape /top8/ uses: the
+    rotation is a cycle of eight, so no two consecutive days can share a
+    register and there are no runs to collapse. A register that is no longer
+    defined is shown as such rather than dropped, because a day that happened
+    is a fact even when the thing it showed is gone. Degrades to nothing if
+    the file is missing, unreadable or empty.
+    """
+    if not REGISTER_HISTORY.exists():
+        return ""
+    try:
+        hist = json.loads(REGISTER_HISTORY.read_text(encoding="utf-8"))
+    except ValueError:
+        return ""
+    days = hist.get("days") or []
+    if not days:
+        return ""
+    names = {r["id"]: r.get("name", r["id"]) for r in tax.get("register", [])}
+    iso = str(today or
+              datetime.datetime.now(datetime.timezone.utc).date().isoformat())[:10]
+    rows = []
+    for d in reversed(days):
+        name = names.get(d.get("register"))
+        label = (f'<b>{esc(name)}</b>' if name
+                 else '<b>A register no longer defined</b>')
+        now = (' <span class="tx-today-tag">today</span>'
+               if str(d.get("date")) == iso else "")
+        rows.append(f'<li><span class="tx-day-date">{esc(fmt_date(d.get("date")))}</span>'
+                    f'{label}{now}</li>')
+    return (f'<details class="tx-reg tx-dayrec" id="tx-reg-record">'
+            f'<summary><b>The record</b>'
+            f'<span class="tx-count">{len(days)}</span></summary>'
+            f'<ul class="tx-days">{"".join(rows)}</ul></details>')
+
+
 def build_taxonomy(enc, data):
     """The classification itself, as a page.
 
@@ -3002,6 +3386,8 @@ def build_taxonomy(enc, data):
   {''.join(subs)}
 </section>""")
 
+    day_reg = register_of_day(tax)
+    day_term = day_reg["id"].split("-")[0] if day_reg else ""
     regs = []
     for g in tax["register"]:
         note = f'<p class="tx-note">{emph(g["note"])}</p>' if g.get("note") else ""
@@ -3017,10 +3403,31 @@ def build_taxonomy(enc, data):
                               f'<span class="tx-triad-k">{label}</span>'
                               f'<p>{emph(g[key])}</p></div>')
         triad = f'<div class="tx-triad">{cells}</div>' if cells else ""
-        regs.append(f"""<details class="tx-reg" id="tx-{esc(g['id'])}">
-  <summary><b>{emph(g['name'])}</b></summary>
+        is_today = bool(day_reg) and g["id"] == day_reg["id"]
+        regs.append(f"""<details class="tx-reg{' tx-today' if is_today else ''}" id="tx-{esc(g['id'])}"{' open' if is_today else ''}>
+  <summary><b>{emph(g['name'])}</b>{'<span class="tx-today-tag">today</span>' if is_today else ''}</summary>
   <p class="tx-def">{emph(g['def'])}</p>{triad}{note}{anchor_span(g.get('anchor'))}
 </details>""")
+
+    # The register of the day, on the page rather than in a comment. The term
+    # is the id's first segment (reciprocal-edge -> "reciprocal") because the
+    # corpus uses both the spaced and the hyphenated form; a substring of the
+    # id is a superset of either, so no entry naming the register is missed.
+    today_iso = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    if day_reg:
+        day_html = f"""<div class="tx-day">
+    <p class="kicker">Register of the day · {esc(fmt_date(today_iso))}</p>
+    <p class="tx-day-line"><b>{esc(day_reg['name'])}</b>
+      <a href="#tx-{esc(day_reg['id'])}">Read the definition</a>
+      <a href="{r}encyclopedia/index.html?q={esc(day_term)}#db">Everything that mentions it</a>
+      {anchor_span(day_reg.get('anchor'))}</p>
+    <p class="tx-note">The eight registers take turns, one per UTC day. Today's is
+    marked in the list below, opened on arrival, and the days behind it are
+    recorded under the list.</p>
+  </div>"""
+    else:
+        day_html = ""
+    reg_rec_html = register_record(tax, today_iso)
 
     # The third axis is rendered with the same four fields as the other two, for
     # the same reason: a member you cannot test is a heading. It carries a count
@@ -3158,7 +3565,9 @@ def build_taxonomy(enc, data):
 
 <section class="section" style="padding-top:0">
   <p class="kicker">Register · what is happening in the tie · {n_reg}</p>
+  {day_html}
   <div class="tx-regs">{''.join(regs)}</div>
+  {reg_rec_html}
 </section>
 
 <section class="section" style="padding-top:0">
@@ -3177,16 +3586,6 @@ def build_taxonomy(enc, data):
   the same move as filling a hole to make a chart look even. A member with
   nothing placed against it is printed as an empty shelf on purpose — that list
   is the writing still owed.</p>
-</section>
-
-<section class="section" style="padding-top:0">
-  <p class="kicker">Register · what is happening in the tie · {n_reg}</p>
-  <div class="tx-regs">{''.join(regs)}</div>
-</section>
-
-<section class="section" style="padding-top:0">
-  <p class="kicker">Attachment · who or what is on the other end · {n_cat}</p>
-  {''.join(blocks)}
 </section>
 
 <section class="section" style="padding-top:0" id="tx-reciprocity">
@@ -4369,6 +4768,13 @@ def build_encyclopedia(enc, data):
     if(wm&&mb.some(function(o){{return o.dataset.med===wm;}})){{
       med=wm;mb.forEach(function(o){{o.classList.toggle('on',o.dataset.med===med);}});
     }}}}catch(e){{}}
+  /* The register of the day on /taxonomy/ links here with ?q=<word>: a register
+     is a definition rather than a member list, so the spotlight hands the word
+     to the same box a reader would type into. The initial run() below picks it
+     up - and it is guarded like ?m=, because a hand-edited query must not
+     break the page. */
+  try{{var wq=new URLSearchParams(location.search).get('q');
+    if(wq){{q.value=wq;}}}}catch(e){{}}
   q.addEventListener('input',run);unv.addEventListener('change',run);run();
 }})();
 </script>
@@ -4749,6 +5155,12 @@ def main():
     # the feature pages: top8, history, figures, moments
     feat = json.loads((ROOT / "data" / "features.json").read_text(encoding="utf-8"))
     hist = json.loads((ROOT / "data" / "history.json").read_text(encoding="utf-8"))
+    # Record which list and which eight are on show BEFORE /top8/ renders so
+    # the day record includes today - the same ordering as the ledger's
+    # snapshot before its feed. record_top8_day() reads the same
+    # top8_window() the page does, so the record and the render cannot
+    # describe different shows, and a second build on the same day is a no-op.
+    record_top8_day(feat)
     (ROOT / "top8").mkdir(exist_ok=True)
     (ROOT / "top8" / "index.html").write_text(build_top8(data, feat, manifest), encoding="utf-8")
     (ROOT / "top8" / "archive").mkdir(exist_ok=True)
@@ -4818,6 +5230,13 @@ def main():
 
     # the encyclopedia: database, entry pages, master timeline, one timeline per section
     enc = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
+
+    # Record which register is on today BEFORE /taxonomy/ renders, from the
+    # same date and order the page uses - the ledger's snapshot-before-feed
+    # ordering, and the same reason the top-8 day is recorded before the front
+    # page builds. Loads the taxonomy itself because main() has not loaded it
+    # yet at this point.
+    record_register_day()
 
     # /taxonomy/ - the classification itself, generated from the data so the
     # page cannot drift from the taxonomy it describes. After the encyclopedia is

@@ -1,0 +1,19 @@
+{
+ "_note": "STATEFUL. One record per day: which top-8 list was on show and the eight moments it carried, appended by build_cards.record_top8_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the sequence of what was on show is the thing it holds, and a rebuild from scratch cannot reconstruct a day nobody was there for. Rendered as the day record on /top8/ by build_cards.t8_record().",
+ "days": [
+  {
+   "date": "2026-10-19",
+   "list": "top8-cartoons-90s",
+   "items": [
+    "t8-1-rugrats-nest",
+    "t8-2-rugrats-gun",
+    "t8-3-grouch",
+    "t8-4-heyarnold",
+    "t8-5-dragontales",
+    "t8-6-powerrangers",
+    "t8-7-doug",
+    "t8-8-animaniacs"
+   ]
+  }
+ ]
+}

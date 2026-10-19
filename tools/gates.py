@@ -14,7 +14,8 @@ important it feels:
 
   source   no build, no browser        link_audit, citation_audit, cull_audit,
                                       verify_taxonomy, card_audit, image_audit,
-                                      check_css, test_front_copy
+                                      check_css, test_front_copy,
+                                      test_register_rotation
   post     needs dist/, no browser     build_cards, plate, build_deploy, then
                                       check_css --orphans, verify_findable,
                                       verify_landmarks, md_leak, check_heads
@@ -50,6 +51,7 @@ SOURCE = [
     ("card_audit", ["card_audit.py"]),
     ("image_audit", ["image_audit.py"]),
     ("test_front_copy", ["test_front_copy.py"]),
+    ("test_register_rotation", ["test_register_rotation.py"]),
     ("link_audit", ["link_audit.py"]),
 ]
 

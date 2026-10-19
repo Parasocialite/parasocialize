@@ -690,7 +690,9 @@ ship a falsehood on this site and it was done once already.
   your own order.
 - `tools/t8_pool.py` — the Top 8 lifecycle. **`featured` is uncapped on
   purpose:** it is the eligible pool and the page shows eight of them, so a cap
-  makes rotation unreachable by construction.
+  makes rotation unreachable by construction. It curates the newest live list
+  (`pick_list`); what is *on show* on a given day is `show_list()` — the live
+  lists take turns, one per UTC day, anchored on the newest `released`.
 - `tools/expand.py` — validates and places candidates from `data/expand-queue.json`.
   Everything lands `verified: false` and promotion is a separate, human step.
 - `tools/build_cards.py` — all page generation, the citation board, section
@@ -708,6 +710,24 @@ ship a falsehood on this site and it was done once already.
   scratch loses the history and the feed restarts at "first recorded snapshot",
   which is exactly the silent reset the feed exists to avoid. It is the one data
   file in the repository whose value is its *sequence*.
+- `data/top8_history.json` — **STATEFUL AND TRACKED IN GIT.** One record per
+  UTC day: which top-8 list was on show and the eight moments it carried,
+  appended by `build_cards.record_top8_day()` from the same `top8_window()`
+  the page renders from, so the record and the page cannot describe different
+  shows. **Do not regenerate it, and do not delete it to "clean up"** — the
+  sequence of what was on show is the file's whole value, and a day nobody
+  built on cannot be reconstructed. `/top8/` renders it as the day record
+  (`.t8rec`), names resolved from the current data at render time.
+- `data/register_history.json` — **STATEFUL AND TRACKED IN GIT.** One record
+  per UTC day: which register was put forward on `/taxonomy/`, appended by
+  `build_cards.record_register_day()` from the same `register_of_day()` the
+  page renders from, so the record and the page cannot describe different
+  days. **Do not regenerate it, and do not delete it to "clean up"** — the
+  rotation is recomputable from the date and the register order, and that
+  recomputability is exactly why the file exists: if either changes, only
+  this sequence shows what the page actually said. `/taxonomy/` renders it
+  as the day record (`.tx-days`), names resolved from the current data at
+  render time.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
@@ -723,7 +743,7 @@ ship a falsehood on this site and it was done once already.
   reproducible from the URL in the citation, and 1.7MB of Wikipedia markup is
   not worth carrying.
 - `data/taxonomy.json` — **the classification, on three axes.** Eight attachment
-  categories (who or what is on the other end), six registers (what is happening
+  categories (who or what is on the other end), eight registers (what is happening
   in the tie), and — added 2026-10-03 — six **otherness** members (what the other
   end is *made of*), with 39 attachment sub-categories. This replaced the ten
   sections, which were reverse-engineered from the 47 stories and could not hold
@@ -2595,10 +2615,11 @@ the false premise.
 **The prose is balanced.** Entries whose own text is about harm: 18. Entries about
 warmth, consolation or a reply: 18. One to one. The journalism does not skew dark.
 
-**The classification is not.** The register axis has six members: Encounter, Bond,
-The reciprocal edge, Archive, Contest, Harm. Five describe the **form** of a
-one-sided tie. One carries an **ethical verdict**, and its own `not` says so:
-*"harm is a register that any of the eight can carry."* **Valence therefore occurs
+**The classification is not.** The register axis has eight members: Encounter,
+Bond, The reciprocal edge, Archive, Contest, Harm, Cog, Undemanded. Seven
+describe the **form** of a one-sided tie. One carries an **ethical verdict**, and
+its own `def` says so: *"harm is a register that any of the eight can be in."*
+**Valence therefore occurs
 exactly once in the classification, and only for harm.** Bond is the proof: its
 test is *"Is there a history?"*, which is structural - a sasaeng bond and a parish
 congregation are both Bonds, and nothing in the register separates them.
@@ -2614,9 +2635,10 @@ significant one-sided relations, manipulative or otherwise, throughout the ages.
 
 ## The register the axis was missing
 
-Proposed, and it will sit empty until somebody writes for it, which is the correct
-state - the rule about not filling a hole to make a chart look even applies to a
-new member exactly as it applies to a sub-category.
+Proposed here and **adopted 2026-10-06** - it and `cog` are the two members added
+after the first six. Nothing was moved into it to make the chart look even, which
+is the rule for a new member as much as for a sub-category: it was filled by
+entries written to argue it instead, `dear-kitty` first.
 
     id    undemanded
     name  Undemanded
@@ -4263,3 +4285,91 @@ it gets resolved.
       now counts `<link>` elements instead of substrings and fails on
       `MISSING` or `DUPLICATE` per needle - confirmed red in both directions,
       green after each restore.
+
+80. **The top 8 rotated nothing a reader could see, and the missing half was
+    the list rather than the eight.** `top8_window()` rotates the eight moments
+    inside a list, and its own comment promised two consecutive days would
+    never repeat the same page - but both live lists hold exactly eight
+    featured entries, so the window branch (`len(featured) > 8`) could not
+    fire, and "the show" was the newest `released` list every day, forever.
+    Item 74's shape a second time: **a rotation that lives in a branch nothing
+    enters is not a rotation**, and the fix is not a bigger pool - it is
+    running the cycle on the axis that is guaranteed to have more than one
+    member.
+    - **`show_list()` rotates the show across the live lists**: ordered newest
+      first, anchored on the newest `released`, one list per UTC day. The
+      newest list takes the page on its release day and the lists cycle from
+      there, so with two live lists the page never shows the same list two
+      days running. Ties keep file order (stable sort); a file with no dates
+      at all has no anchor, so the oldest file order holds and the rotation is
+      silently still - the honest reading of a file that has not said when its
+      lists came out. `pick_list` is deliberately unchanged: it is the
+      curator's target (`t8_pool.py` edits the newest list, not whichever is
+      up today) and it carries the empty live-set refusal.
+    - **The day's show is recorded, because a date is not recomputable.**
+      `record_top8_day()` appends `{date, list, items}` to
+      `data/top8_history.json` before the pages render - the ledger's
+      snapshot-before-feed ordering - from the same `top8_window()` call the
+      page uses, so the record and the render cannot disagree. Identities are
+      `t8_eid()` (id, then image, then show; never rank or name), same-day
+      rebuilds are a no-op, and a mid-day pool change replaces the day's entry
+      rather than writing a second one.
+    - **`/top8/` carries the record under the list**, newest first, with
+      consecutive days sharing a selection collapsed into one run - but only
+      when the days are contiguous, so a skipped build is a gap in the record
+      rather than something a run spans. Names resolve from the current data
+      at render time.
+    - **`top8_window()` measured its day in the machine's timezone**
+      (`datetime.date.today()`) while `cur_slot`, `live_lists` and the new
+      `show_list` all measure in UTC, so the inner eight could turn at a
+      different moment than the show. Fixed to UTC in the same pass.
+    - `curate.py` now prints `show_list()` (its line is labelled "on show"),
+      the archive selects "not today's show" through `show_list()`, and the
+      `/top8/` outro no longer says "Earlier top 8s" - the archived lists are
+      not necessarily older, they are the ones this day did not land on.
+81. **The eight registers take turns on `/taxonomy/`, the day is recorded, and
+    the register section had been on the page twice - for two weeks - where no
+    gate could see it.** The rotation runs on the definitions in file order (the
+    axis is definitions rather than shelves; item 35), `register_of_day()` is
+    deterministic from the UTC date, anchored on `REGISTER_EPOCH` (2026-10-19,
+    the day it shipped), and `record_register_day()` appends the day's register
+    through `data/register_history.json` before the page renders - the ledger's
+    snapshot-before-feed ordering. One entry per date; a same-day rebuild is a
+    no-op; a mid-day change replaces the day rather than writing a second one;
+    names resolve at render time so renaming a register does not rewrite
+    history. The spotlight above the list names the day's register and links to
+    its definition and to a search for it; the record under the list is the
+    sequence, and a register that is no longer defined is shown as such rather
+    than dropped, because a day that happened is a fact even when the thing it
+    showed is gone.
+    - **The section had been duplicated since 2026-10-03 and no gate could see
+      it.** The commit that added the third axis re-added the register and
+      attachment sections above otherness while the originals were still in the
+      template, so `/taxonomy/` carried both sections twice for two weeks -
+      every card in them with a duplicated DOM id (the deployed page carried
+      `tx-archive` twice). `link_audit` checks links, `check_css` checks
+      selectors, `verify_taxonomy` checks the data; none of them reads a page
+      for a section appearing twice. Found while adding the spotlight; the
+      second pair is removed and the page now runs register -> attachment ->
+      otherness -> reciprocity, once each.
+    - **Membership is measured, and measuring it is why it is not printed.**
+      Grepping placement reasons and entry prose for each register's name:
+      `bond` 26 hits and 0 register assertions (all ordinary bond-talk - the
+      site's own subject word); `encounter` 1 and 0; `contest` 4 of which 2 are
+      real; `harm` 4 plausible and none explicit; `reciprocal-edge` and
+      `archive` mostly real because their names are technical; `cog` 2 of 2. A
+      member list built by word matching would file generic sentences under a
+      register, which is how a register turns into confident noise - so the
+      section links to a search for each register instead of printing a set,
+      and the hub now reads `?q=` off the URL so "Everything that mentions it"
+      lands in a filled search box.
+    - **The stale counts went with it**, because shipping a definition that
+      miscounts its own axis is this file's own defect family one field over:
+      `taxonomy.json`'s `_axes.register` said "Six", the otherness `_note`
+      named six registers, and the paragraph in "Why this site exists" still
+      read "six members" and quoted the harm definition as "can carry" where
+      the data says "can be in". All corrected in this pass.
+    - `tools/test_register_rotation.py` covers the cycle and the wrap, dates
+      before the epoch, the ledger's append/no-op/replace rules, the
+      unknown-register rendering and the section as rendered, in the source
+      tier beside `test_front_copy.py`.

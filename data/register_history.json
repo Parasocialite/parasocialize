@@ -1,0 +1,9 @@
+{
+ "_note": "STATEFUL. One record per UTC day: which register was put forward on /taxonomy/, appended by build_cards.record_register_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the rotation is recomputable from the date and the register order, and that recomputability is exactly why the file exists: if either changes, only this sequence shows what the page actually said. Rendered under the register list by build_cards.register_record().",
+ "days": [
+  {
+   "date": "2026-10-19",
+   "register": "archive"
+  }
+ ]
+}

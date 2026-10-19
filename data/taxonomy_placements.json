@@ -1284,6 +1284,33 @@
       "sub": "mascot",
       "why": "No body, no biography, no intention - a figure specified entirely by the institution that operates him, wearing the face of the man who drew him. The shelf's test asks whether he can be the author of his own behaviour; Uncle Sam's whole case is that he cannot, and the finger works because of it.",
       "other": "made"
+    },
+    "gibson-girl": {
+      "cat": "character",
+      "sub": "mascot",
+      "why": "Specified entirely by a pen and the pages that bought it: there is no interior anybody could get wrong, because there is no interior at all - the test's first half answers itself, and 'can it be the author of its own behaviour' is answered by the medium. That incapacity is the point of the attachment: a drawing cannot contradict the thousands of girls living up to it, cannot be caught failing, and cannot be disappointed by them either. Not a written character, who could at least talk back on the page.",
+      "other": "made"
+    },
+    "theda-bara": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "A publicity office assembled the figure the audience attached to, and the shelf expects exactly this case: 'if the work was assembled for them, they are still a persona but the manufacturing is the story.' The distance the shelf names is doubled here - a finished film cannot be caught changing, and a finished false biography never had to be revised, because the audience bought its terms up front. Not a fiction, which is the shelf's 'not': behind the Vamp there was a real woman, whose retirement simply stopped the printing."
+    },
+    "vera-lynn": {
+      "cat": "persona",
+      "sub": "idol",
+      "why": "The work was finished before the audience arrived - the song was recorded on 28 September 1939, and the forces who spent the war with it heard it in places she would never see, which is the shelf's distance in its literal form. There is a version of her that exists whether or not anyone is watching: pressed, broadcast, and still being sent long after the war it was sent to had ended, which is why the attachment survives the person. Not an athlete, whose tie moves with a role, and not an office: what was addressed was a voice and a body of work, on a schedule, for five years and then for the rest of her life."
+    },
+    "iglesia-maradoniana": {
+      "cat": "persona",
+      "sub": "sport-figure",
+      "why": "The far end of the attachment is the player, and the shelf's question - does it survive the person leaving - has an unusually early answer here: the members opened a church with a calendar counted from his birthday while he was still playing. Nothing about the tie could be handed to a successor, which is the shelf's line between an athlete and a club; and he remains in motion, the athlete's defining property, since the god of this church is a man who could be watched live. Not an idol's finished oeuvre - the addressing continues, in the present tense, on the church's own schedule."
+    },
+    "our-lady-of-guadalupe": {
+      "cat": "divine",
+      "sub": "christ",
+      "why": "Addressed, never met: nobody in the record meets her, and the other end is understood to hear - the founding sentence of the devotion is her answer to a worried man. The shelf is for the terminal addressee, where silence is read as meaningful rather than as failure, and this silence carries one exception on the record: a reply in Nahuatl to a man who was never able to prove he heard it. What the archive holds in place of a conversation is a text, a cloth, a calendar and five centuries of witnesses.",
+      "other": "transcendent"
     }
   }
 }
