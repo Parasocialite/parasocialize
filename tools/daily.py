@@ -71,7 +71,10 @@ def utc_today() -> datetime.date:
 
 
 def run(name: str, argv: list[str], capture: bool = False):
-    print(f"\n=== {name} ===")
+    # flush=True because CI redirects stdout to a file: without it the section
+    # headers arrive after the child output they introduce, which made the
+    # first CI failure read as if `package` had run after the traceback.
+    print(f"\n=== {name} ===", flush=True)
     cmd = [sys.executable, "-X", "utf8", str(TOOLS / argv[0])] + argv[1:]
     proc = subprocess.run(cmd, cwd=ROOT, text=True,
                           stdout=subprocess.PIPE if capture else None,

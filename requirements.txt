@@ -1,0 +1,5 @@
+# The only third-party package the daily build needs. `build_deploy.py`
+# re-encodes the cached photographs to WebP with Pillow; every other tool on
+# the non-browser path is standard library. The visual gates also import numpy,
+# but they are run locally with Chrome and are deliberately not part of CI.
+pillow>=10.0
