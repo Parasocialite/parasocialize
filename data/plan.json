@@ -21,8 +21,8 @@
   },
   {
    "medium": "music",
-   "entries": 8,
-   "days": 4.0
+   "entries": 9,
+   "days": 4.5
   },
   {
    "medium": "sport",
@@ -50,12 +50,12 @@
    "days": 8.5
   },
   {
-   "medium": "ai",
-   "entries": 20,
-   "days": 10.0
+   "medium": "games",
+   "entries": 19,
+   "days": 9.5
   },
   {
-   "medium": "games",
+   "medium": "ai",
    "entries": 20,
    "days": 10.0
   },
@@ -206,10 +206,10 @@
   },
   {
    "rank": 5,
-   "score": 86.0,
+   "score": 85.5,
    "kind": "medium",
    "target": "music",
-   "why": "music: 8 entries, 4.0 days at two entries per release.",
+   "why": "music: 9 entries, 4.5 days at two entries per release.",
    "command": "find and source the next music entry; the atlas filter is already live for it"
   },
   {

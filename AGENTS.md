@@ -5211,7 +5211,11 @@ it gets resolved.
     news anchor* on officer, *Fandom wars* on predator. A dry run for
     2026-11-01 chose theme `religion`, figure **Margery Kempe**, and eight
     entries with **zero overlap** with today's, which is the daily-change
-    contract made measurable.
+    contract made measurable. Reading the persona way page also exposed a
+    medium error the generated block made visible: `boybands` was filed
+    `games`, while its own summary is fan clubs, fan voting and fan-financed
+    releases. It is now `music`; the entry count and top-level keys were
+    asserted unchanged.
 
     **Verification.** `python tools\daily.py` exit 0; source, post and visual
     tiers green, including `editor --check`, `test_editor_rotation`,
@@ -5220,7 +5224,7 @@ it gets resolved.
     phone render were opened: the figure card reads **REAL FIGURE**, **Babe
     Ruth**, **Why today** with the wire link, and **Top 8: The Team** below it.
     `make_zip` wrote `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **752
-    files, 15.2 MB, tree sha `2fdcc44483494240`**. **Cloudflare has not been
+    files, 15.2 MB, tree sha `57d27212ce8e1e09`**. **Cloudflare has not been
     re-uploaded**; the live site is still the pre-editor build until the user
     uploads `dist/` again.
 
