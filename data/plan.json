@@ -163,19 +163,11 @@
    "windows": 4
   }
  ],
- "sweep_age_days": 32,
+ "sweep_age_days": 0,
  "queue_awaiting": 3,
  "actions": [
   {
    "rank": 1,
-   "score": 100,
-   "kind": "pipeline",
-   "target": "the sweeper",
-   "why": "The counter has not run for 32 days; its queue cannot grow while it is asleep.",
-   "command": "python tools/counter.py && python tools/build_cards.py"
-  },
-  {
-   "rank": 2,
    "score": 96,
    "kind": "story",
    "target": "divine",
@@ -183,7 +175,7 @@
    "command": "write one story for this category, or say on /ways/ that the entries are the whole of it"
   },
   {
-   "rank": 3,
+   "rank": 2,
    "score": 87.5,
    "kind": "medium",
    "target": "stage",
@@ -191,7 +183,7 @@
    "command": "find and source the next stage entry; the atlas filter is already live for it"
   },
   {
-   "rank": 4,
+   "rank": 3,
    "score": 86.5,
    "kind": "medium",
    "target": "comics",
@@ -199,7 +191,7 @@
    "command": "find and source the next comics entry; the atlas filter is already live for it"
   },
   {
-   "rank": 5,
+   "rank": 4,
    "score": 86.5,
    "kind": "medium",
    "target": "visual_art",
@@ -207,7 +199,7 @@
    "command": "find and source the next visual_art entry; the atlas filter is already live for it"
   },
   {
-   "rank": 6,
+   "rank": 5,
    "score": 86.0,
    "kind": "medium",
    "target": "music",
@@ -215,7 +207,7 @@
    "command": "find and source the next music entry; the atlas filter is already live for it"
   },
   {
-   "rank": 7,
+   "rank": 6,
    "score": 72,
    "kind": "axis",
    "target": "history + technology",
@@ -223,7 +215,7 @@
    "command": "re-file an entry only where its own medium is stated; do not move one to make the distribution look even"
   },
   {
-   "rank": 8,
+   "rank": 7,
    "score": 63,
    "kind": "decade",
    "target": "1150s",
@@ -231,7 +223,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 9,
+   "rank": 8,
    "score": 63,
    "kind": "decade",
    "target": "1350s",
@@ -239,7 +231,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 10,
+   "rank": 9,
    "score": 63,
    "kind": "decade",
    "target": "1370s",
@@ -247,7 +239,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 11,
+   "rank": 10,
    "score": 63,
    "kind": "decade",
    "target": "1530s",
@@ -255,7 +247,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 12,
+   "rank": 11,
    "score": 63,
    "kind": "decade",
    "target": "1540s",
@@ -263,7 +255,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 13,
+   "rank": 12,
    "score": 50,
    "kind": "queue",
    "target": "3 drafts awaiting signoff",
