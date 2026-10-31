@@ -21,7 +21,7 @@ import subprocess
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-ROOT = pathlib.Path(r"C:\Users\paras\Documents\Default Project\parasocialize")
+ROOT = pathlib.Path(__file__).resolve().parent.parent
 p = ROOT / "data" / "taxonomy_placements.json"
 ADDED = ["dear-kitty", "the-figure-you-buy"]
 

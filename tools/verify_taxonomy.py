@@ -24,7 +24,7 @@ import json
 import pathlib
 from collections import Counter
 
-ROOT = pathlib.Path(r"C:\Users\paras\Documents\Default Project\parasocialize")
+ROOT = pathlib.Path(__file__).resolve().parent.parent
 tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
 pla = json.loads((ROOT / "data" / "taxonomy_placements.json").read_text(encoding="utf-8"))
 enc = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))

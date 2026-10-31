@@ -55,7 +55,7 @@ import pathlib
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-ROOT = pathlib.Path(r"C:\Users\paras\Documents\Default Project\parasocialize")
+ROOT = pathlib.Path(__file__).resolve().parent.parent
 APPLY = "--apply" in sys.argv
 
 NEW = {

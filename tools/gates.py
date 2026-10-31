@@ -179,13 +179,21 @@ def run(tier, only=None, skip=None):
             if skip and name in skip:
                 print(f"  skip  {name}")
                 continue
-            rc = subprocess.run([sys.executable, str(TOOLS / argv[0])] + argv[1:],
-                                cwd=ROOT, capture_output=True,
-                                text=True, errors="replace").returncode
-            if rc == 0:
+            proc = subprocess.run(
+                [sys.executable, str(TOOLS / argv[0])] + argv[1:],
+                cwd=ROOT, capture_output=True, text=True, errors="replace")
+            if proc.returncode == 0:
                 print(f"  green {name}")
             else:
-                print(f"  RED   {name}  (exit {rc})")
+                print(f"  RED   {name}  (exit {proc.returncode})")
+                # A red gate that prints only its name is a red gate whose
+                # reason is in a variable nobody reads. The first CI run of
+                # tools/daily.py failed on verify_taxonomy and the log said
+                # exactly that and nothing else, which cost a round trip to
+                # discover a one-line difference.
+                for stream in (proc.stdout, proc.stderr):
+                    for line in (stream or "").splitlines():
+                        print(f"        {line}")
                 failures.append(name)
         print()
 

@@ -38,7 +38,7 @@ import urllib.parse
 import urllib.request
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-ROOT = pathlib.Path(r"C:\Users\paras\Documents\Default Project\parasocialize")
+ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "encyclopedia.json"
 
 DOI = re.compile(r"\b(10\.\d{4,9}/[^\s,;)\]]+)", re.I)

@@ -164,6 +164,11 @@ def wanted(p: pathlib.Path):
     # does not get deployed.
     if rel.name == "v1-oxalpha-backup.html":
         return False
+    # requirements.txt is build metadata for the runner, not site content. It
+    # is a .txt, so the extension filter would otherwise ship it at the root of
+    # the deploy tree beside robots.txt.
+    if rel.name == "requirements.txt":
+        return False
     if any(part in EXCLUDE_NAMES for part in rel.parts):
         return False
     if rel.parts and rel.parts[0] in INCLUDE_DIRS:
