@@ -1167,17 +1167,27 @@ LAWS = {1: "Binding is public", 2: "Clerks beat algorithms",
 
 
 def _since(iso):
-    """How long ago, in words. Plain, because the page is read by one person."""
+    """How long ago, by UTC day. Plain, because the page is read by one person.
+
+    Day granularity on purpose. Minute-level output made every rebuild produce
+    a different desk page - "5m ago" became "9m ago" with nothing else changed -
+    and the daily job committed that no-op every run. The page answers "is the
+    sweeper alive", which is a day-scale question; the exact timestamp is on the
+    card's title attribute for anyone who needs it.
+    """
     try:
-        mins = int((datetime.datetime.now(datetime.timezone.utc)
-                    - datetime.datetime.fromisoformat(iso)).total_seconds() // 60)
+        when = datetime.datetime.fromisoformat(str(iso))
+        if when.tzinfo is None:
+            when = when.replace(tzinfo=datetime.timezone.utc)
+        days = (datetime.datetime.now(datetime.timezone.utc).date()
+                - when.astimezone(datetime.timezone.utc).date()).days
     except Exception:
         return "at an unknown time"
-    if mins < 60:
-        return f"{mins}m ago"
-    if mins < 60 * 48:
-        return f"{mins // 60}h ago"
-    return f"{mins // 1440}d ago"
+    if days <= 0:
+        return "today"
+    if days == 1:
+        return "yesterday"
+    return f"{days}d ago"
 
 
 def build_desk(data):
@@ -1308,7 +1318,7 @@ def build_desk(data):
 
   <div class="front front-3" style="margin-top:28px">
     <div class="price" style="gap:4px"><p class="flag">Last sweep</p>
-      <div class="amt" style="font-size:1.4rem">{_since(sweep.get("last_run", ""))}</div>
+      <div class="amt" style="font-size:1.4rem" title="last sweep {esc(str(sweep.get('last_run') or 'unknown'))}">{_since(sweep.get("last_run", ""))}</div>
       <p style="color:var(--dim);font-size:.84rem">{sweep.get("duration_s", 0)}s &middot;
       {sweep.get("candidates", 0)} candidates seen</p></div>
     <div class="price" style="gap:4px"><p class="flag">Feeds reached</p>
