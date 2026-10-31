@@ -1,0 +1,757 @@
+{
+ "_note": "Themes for the daily top 8. The editor picks one theme from today's wires when a headline matches, otherwise the least recently used. A theme supplies the framing, the law and a selector; the eight entries themselves are always existing encyclopedia entries, so every claim on the list is already sourced on its own page. `media`, `cats`, `sections`, `keywords` and the year range are OR-ed: an entry is a candidate if it matches any one of them, and the editor ranks the candidates by keyword overlap before taking eight. `retired` themes are never selected; the old list stays in the archive.",
+ "themes": [
+  {
+   "id": "dead-stars",
+   "title": "Top 8 parasocial moments after a star dies",
+   "home_title": "Top 8: The Dead Star",
+   "home_hook": "A person you never met dies, and the grief is real. These eight are the record of what happens next.",
+   "dek": "The death is the moment the one-sided bond becomes public property. Ranked by how completely the record shows the mechanism.",
+   "standfirst": "Nobody is buried alone any more. The eight below are the ways a dead figure keeps working: the funeral that belonged to the audience, the estate that licenses the voice, the grave that becomes a destination. None of them requires the dead person to have agreed to any of it.",
+   "kicker": "Daily edition",
+   "law": 4,
+   "keywords": [
+    "death",
+    "died",
+    "funeral",
+    "grief",
+    "mourning",
+    "estate",
+    "posthumous",
+    "memorial",
+    "buried"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [
+    "grief"
+   ],
+   "tags": [
+    "grief",
+    "death",
+    "stardom"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "fan-mail",
+   "title": "Top 8 parasocial moments that arrived by post",
+   "home_title": "Top 8: The Letter",
+   "home_hook": "Somebody wrote to a figure who could not write back, and the writing was the relationship.",
+   "dek": "Letters, sacks of mail, a correspondence department and a house pseudonym. Ranked by how much of the answer was manufactured on the near side.",
+   "standfirst": "The letter is the oldest technology of one-sided intimacy: it travels one way, it waits, and it can be answered by an office rather than a person. The eight below run from a child's diary to a studio mailroom, and the question each one asks is the same - who was on the other end of the reply?",
+   "kicker": "Daily edition",
+   "law": 2,
+   "keywords": [
+    "letter",
+    "letters",
+    "mail",
+    "wrote",
+    "reply",
+    "answered",
+    "correspondence",
+    "postcard"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "letters",
+    "fan mail"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "ai-companions",
+   "title": "Top 8 parasocial applications built into a machine",
+   "home_title": "Top 8: The Machine That Answers",
+   "home_hook": "A system designed to meet a social need, available at four in the morning, with no floor under the other party's autonomy.",
+   "dek": "The companion that is always on, always patient and never free. Ranked by how much of the relationship was engineered before the user arrived.",
+   "standfirst": "Every earlier entry on this site needed a person, a character or an office to hold up the far end. These eight replace that with a product: a model, a voice, a subscription and a terms-of-service page. The warmth is real. The question is what happens when the product changes.",
+   "kicker": "Daily edition",
+   "law": 2,
+   "keywords": [
+    "chatbot",
+    "companion",
+    "replika",
+    "artificial",
+    "assistant",
+    "model",
+    "ai",
+    "bot"
+   ],
+   "media": [
+    "ai"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "ai",
+    "machine"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "screen-characters",
+   "title": "Top 8 parasocial applications in a fictional character",
+   "home_title": "Top 8: The Character",
+   "home_hook": "A person who does not exist, written to be loved by people who do.",
+   "dek": "The character is the cleanest case: the far end cannot leave, age, scandal or sue. Ranked by what the audience did with that safety.",
+   "standfirst": "A fictional figure is available to everybody at once and obliged to nobody. The eight below are the record of what that freedom produces - fan mail, merchandise, a park where you can meet the drawing, a mirror that answers in your own voice.",
+   "kicker": "Daily edition",
+   "law": 6,
+   "keywords": [
+    "character",
+    "fictional",
+    "screen",
+    "cartoon",
+    "comic"
+   ],
+   "media": [
+    "film",
+    "television_scripted"
+   ],
+   "cats": [
+    "character",
+    "companion"
+   ],
+   "sections": [],
+   "tags": [
+    "fiction",
+    "character"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "brand-mascots",
+   "title": "Top 8 parasocial applications sold as a brand",
+   "home_title": "Top 8: The Mascot",
+   "home_hook": "A company needed a face, so it made one, and the face outlived the company.",
+   "dek": "The brand-as-character and the character-as-product. Ranked by how completely the affection was routed through a purchase.",
+   "standfirst": "A mascot is a figure with a legal owner. That is the whole difference from a character: the warmth is licensed, the appearances are audited and the name can be sold to somebody who has never met you. These eight are the record of what a bond looks like when it has a trademark.",
+   "kicker": "Daily edition",
+   "law": 5,
+   "keywords": [
+    "brand",
+    "mascot",
+    "logo",
+    "licensed",
+    "merchandise",
+    "product",
+    "advertising"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [
+    "brand"
+   ],
+   "tags": [
+    "brand",
+    "merchandise"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "music-idols",
+   "title": "Top 8 parasocial applications in music",
+   "home_title": "Top 8: The Idol",
+   "home_hook": "A voice on a record, a face on a poster, and a room full of people who are sure they know which one is real.",
+   "dek": "The oldest mass-production of a person. Ranked by how much of the idol was built by the audience rather than the artist.",
+   "standfirst": "Music is where the parasocial bond learned to scale: a record travels without the performer, a tour sells proximity, and a death turns the catalogue into an estate. The eight below are the mechanism at different stages, from a fan club to a posthumous release.",
+   "kicker": "Daily edition",
+   "law": 1,
+   "keywords": [
+    "singer",
+    "album",
+    "band",
+    "song",
+    "concert",
+    "music",
+    "tour"
+   ],
+   "media": [
+    "music"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "music",
+    "stardom"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "sport-faith",
+   "title": "Top 8 parasocial applications in sport",
+   "home_title": "Top 8: The Team",
+   "home_hook": "A club you did not choose, a player who does not know your name, and a loyalty that outlasts both.",
+   "dek": "The bond that survives a transfer, a defeat and a change of owner. Ranked by how completely the club replaced the person.",
+   "standfirst": "Sport is the one fandom where the object is supposed to change every season and the attachment is supposed to stay. The eight below are the mechanism at work: the chant, the shirt, the stadium, the player who is loved as a position rather than a man.",
+   "kicker": "Daily edition",
+   "law": 1,
+   "keywords": [
+    "stadium",
+    "team",
+    "player",
+    "match",
+    "club",
+    "sport"
+   ],
+   "media": [
+    "sport"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "sport",
+    "fandom"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "games",
+   "title": "Top 8 parasocial applications in games",
+   "home_title": "Top 8: The Player",
+   "home_hook": "A world that waits for you, a character who greets you by name, and a relationship that ends when the console does.",
+   "dek": "The game is the first medium that answers back on a schedule. Ranked by how much of the answer was a parser, a script or a person.",
+   "standfirst": "A game can remember what you did, greet you when you return and punish you for leaving. That is more continuity than most real friendships manage. The eight below are the record of what the machine was actually doing when it seemed to care.",
+   "kicker": "Daily edition",
+   "law": 6,
+   "keywords": [
+    "game",
+    "player",
+    "avatar",
+    "virtual",
+    "console",
+    "save"
+   ],
+   "media": [
+    "games"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "games",
+    "machine"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "radio-voices",
+   "title": "Top 8 parasocial applications on the radio",
+   "home_title": "Top 8: The Voice",
+   "home_hook": "A voice in the room before there was a face to check it against.",
+   "dek": "The medium that invented the daily intimacy of a stranger. Ranked by how much of the relationship was built by the listener.",
+   "standfirst": "Radio arrives in the dark, in the kitchen, in the car, and it talks to you in the second person. The eight below are the mechanism before television made it visual: the announcer, the serial, the applause meter, the voice that knew your name because you wrote it down.",
+   "kicker": "Daily edition",
+   "law": 2,
+   "keywords": [
+    "radio",
+    "broadcast",
+    "announcer",
+    "serial",
+    "voice",
+    "airwaves"
+   ],
+   "media": [
+    "radio"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "radio",
+    "voice"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "comics",
+   "title": "Top 8 parasocial applications in comics",
+   "home_title": "Top 8: The Panel",
+   "home_hook": "A character printed on cheap paper, a code you could decode, and a club that made you a member.",
+   "dek": "The comic is a figure you can hold, cut out and collect. Ranked by how much of the relationship was printed on the artefact.",
+   "standfirst": "A comic costs almost nothing and can be read until it falls apart. That is a different intimacy from a film: the reader owns the object, learns the code and writes in for the ring. The eight below are the record of what the panel sold besides the story.",
+   "kicker": "Daily edition",
+   "law": 6,
+   "keywords": [
+    "comic",
+    "superhero",
+    "strip",
+    "panel",
+    "issue",
+    "hero"
+   ],
+   "media": [
+    "comics"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "comics",
+    "merchandise"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "stage",
+   "title": "Top 8 parasocial applications on stage",
+   "home_title": "Top 8: The Curtain",
+   "home_hook": "A person in a lit room, a room full of strangers, and a fourth wall that is only theoretical.",
+   "dek": "The theatre is where the audience is most present and least able to reply. Ranked by how deliberately the performance used that.",
+   "standfirst": "On stage the actor can see the audience and the audience can see the actor, which makes the one-sidedness stranger rather than smaller. The eight below are the record of what happens when the person who cannot answer is standing ten feet away.",
+   "kicker": "Daily edition",
+   "law": 1,
+   "keywords": [
+    "stage",
+    "theatre",
+    "play",
+    "actor",
+    "audience",
+    "curtain"
+   ],
+   "media": [
+    "stage"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "stage",
+    "performance"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "visual-art",
+   "title": "Top 8 parasocial applications in a frame",
+   "home_title": "Top 8: The Portrait",
+   "home_hook": "A face that cannot leave the canvas, and a model who has to live with what it said.",
+   "dek": "The portrait is a figure made to be looked at. Ranked by what the looking did to the person who sat for it.",
+   "standfirst": "A painting can outlast the sitter, travel without them and be reproduced until the face belongs to everybody. The eight below are the record of what happens when a real person becomes an image that other people own.",
+   "kicker": "Daily edition",
+   "law": 6,
+   "keywords": [
+    "portrait",
+    "painting",
+    "picture",
+    "artist",
+    "canvas",
+    "image"
+   ],
+   "media": [
+    "visual_art"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "visual art",
+    "image"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "ancient-bonds",
+   "title": "Top 8 parasocial applications older than writing",
+   "home_title": "Top 8: The First Bond",
+   "home_hook": "Before there was a word for it, somebody kept a dead person within reach.",
+   "dek": "The oldest evidence that a relationship can be one-sided. Ranked by how much of it survives in the ground.",
+   "standfirst": "The site's argument is not modern. The eight below are the archaeological and early textual record: a body carried into a cave, a face carved in ivory, a mask walked through a funeral, a beloved who never learned the terms. The bond is older than the vocabulary.",
+   "kicker": "Daily edition",
+   "law": 4,
+   "keywords": [
+    "cave",
+    "burial",
+    "pillar",
+    "ancient",
+    "prehistoric",
+    "carved",
+    "dead"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "ancient",
+    "grief"
+   ],
+   "year_min": null,
+   "year_max": 999,
+   "retired": false
+  },
+  {
+   "id": "religion",
+   "title": "Top 8 parasocial applications addressed to the divine",
+   "home_title": "Top 8: The Address",
+   "home_hook": "A figure who is spoken to rather than met, and a room full of people who agree to keep speaking.",
+   "dek": "The transcendent case, where the far end is real to the believer and unverifiable to everybody else. Ranked by how much of the relationship is carried by ritual.",
+   "standfirst": "Prayer is the most widely practised one-sided conversation in the world. The eight below are not arguments about whether anybody is listening; they are the record of what the address does to the person making it, and what institutions do with the answer.",
+   "kicker": "Daily edition",
+   "law": 3,
+   "keywords": [
+    "god",
+    "divine",
+    "saint",
+    "prayer",
+    "devotion",
+    "church",
+    "faith"
+   ],
+   "media": [
+    "theology"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "religion",
+    "devotion"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "fandom",
+   "title": "Top 8 parasocial applications inside a fandom",
+   "home_title": "Top 8: The Fan",
+   "home_hook": "A crowd that knows the words, the birthday and the flight number.",
+   "dek": "The fandom is the bond with other fans as much as with the figure. Ranked by how much of the relationship is between the people in the room.",
+   "standfirst": "A fandom is a machine for producing intimacy at scale: it writes the wiki, buys the merchandise, defends the figure against the figure's own choices and turns a private feeling into a public identity. The eight below are the mechanism at its warmest and its most frightening.",
+   "kicker": "Daily edition",
+   "law": 1,
+   "keywords": [
+    "fan",
+    "fandom",
+    "stan",
+    "sasaeng",
+    "obsessed",
+    "audience",
+    "club"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "fandom",
+    "audience"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "streaming",
+   "title": "Top 8 parasocial applications on a live stream",
+   "home_title": "Top 8: The Chat",
+   "home_hook": "A host reads your name aloud, and for a second the wall looks like a window.",
+   "dek": "The first medium where the reply is fast enough to feel reciprocal. Ranked by how much of the warmth was a product decision.",
+   "standfirst": "A streamer can answer a message in seconds, which is more than most television ever managed. The eight below are the record of what that speed does: the subscription, the shout-out, the moderation queue, the parasocial bond sold as a monthly tier.",
+   "kicker": "Daily edition",
+   "law": 5,
+   "keywords": [
+    "stream",
+    "twitch",
+    "youtube",
+    "creator",
+    "live",
+    "chat",
+    "subscriber"
+   ],
+   "media": [
+    "technology",
+    "television_unscripted"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "streaming",
+    "creator"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "reality-tv",
+   "title": "Top 8 parasocial applications in reality television",
+   "home_title": "Top 8: The Real One",
+   "home_hook": "A person who agreed to be watched, edited into somebody the audience can feel they know.",
+   "dek": "The genre that sells a person as a story and then asks them to live in it. Ranked by how much of the self was produced for the camera.",
+   "standfirst": "Reality television is the industrial form of the parasocial bond: cast, edit, broadcast, then let the audience decide who the person is. The eight below are the record of what happens to the people who are chosen, and what the choosing does to the ones who watch.",
+   "kicker": "Daily edition",
+   "law": 3,
+   "keywords": [
+    "reality",
+    "contestant",
+    "show",
+    "season",
+    "cast",
+    "episode"
+   ],
+   "media": [
+    "television_unscripted"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "reality",
+    "television"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "literature",
+   "title": "Top 8 parasocial applications in a book",
+   "home_title": "Top 8: The Reader",
+   "home_hook": "A voice that has been waiting for you since before you were born.",
+   "dek": "The book is the slowest reply and the longest relationship. Ranked by how completely the reader supplied the other end.",
+   "standfirst": "A novel can be put down and picked up for years, and the figure inside it never changes while the reader does. The eight below are the record of what that does: the character who becomes a companion, the author who becomes a face, the diary addressed to somebody who cannot write back.",
+   "kicker": "Daily edition",
+   "law": 6,
+   "keywords": [
+    "book",
+    "novel",
+    "reader",
+    "author",
+    "story",
+    "character",
+    "diary"
+   ],
+   "media": [
+    "literature"
+   ],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "literature",
+    "reading"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "letters-to-nobody",
+   "title": "Top 8 parasocial applications addressed to nobody",
+   "home_title": "Top 8: The Unanswered",
+   "home_hook": "The letter was sent, the reply never came, and the writing continued anyway.",
+   "dek": "The tie that asked for nothing and was answered by nobody. Ranked by how much the near side did on its own.",
+   "standfirst": "Most of this site is about a figure who cannot answer. These eight are the purest form: no institution, no product, no reply, and still a relationship. The near side writes, waits, keeps the object and carries on.",
+   "kicker": "Daily edition",
+   "law": 4,
+   "keywords": [
+    "letter",
+    "diary",
+    "unanswered",
+    "nobody",
+    "address",
+    "wrote"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "letters",
+    "undemanded"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "the-reply",
+   "title": "Top 8 parasocial applications where a reply arrived",
+   "home_title": "Top 8: The Reply",
+   "home_hook": "Somebody answered, and the answer changed what the bond was.",
+   "dek": "The exceptions: the letter that came back, the voice that said your name, the figure that acted on its own. Ranked by how much reciprocity the record can actually prove.",
+   "standfirst": "A reply is the test this site keeps applying. These eight are the cases where something came back - by hand, by post, by a machine trained on a dead person's voice - and the question is whether the answer was a relationship or a very good performance of one.",
+   "kicker": "Daily edition",
+   "law": 2,
+   "keywords": [
+    "reply",
+    "answered",
+    "response",
+    "wrote back",
+    "letter",
+    "reciprocal"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "reply",
+    "reciprocity"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "audience-inside",
+   "title": "Top 8 parasocial applications that know you are watching",
+   "home_title": "Top 8: The Audience",
+   "home_hook": "The figure turns, looks into the lens and speaks to a room it cannot see.",
+   "dek": "The fourth wall is a specification for invisibility, and these eight are the breaches. Ranked by how much the fiction needed you to act.",
+   "standfirst": "A character acknowledging the audience is not a real person acknowledging you, and the gap between those two things is the whole site. The eight below are the moments the wall came down: a wink, a direct address, a stage instruction the audience obeyed.",
+   "kicker": "Daily edition",
+   "law": 1,
+   "keywords": [
+    "audience",
+    "viewer",
+    "reader",
+    "fourth wall",
+    "camera"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "audience",
+    "fourth wall"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "childhood",
+   "title": "Top 8 parasocial applications built for a child",
+   "home_title": "Top 8: The Child",
+   "home_hook": "A figure designed to be trusted by somebody who has not learned yet that it is a product.",
+   "dek": "The audience that cannot consent, and the industry that knows it. Ranked by how much of the relationship was engineered before the child could read.",
+   "standfirst": "Every mechanism on this site looks different when the person on the near side is six years old. The eight below are the record of what childhood fandom built: the puppet, the mascot, the club, the letter, the toy that moved the bond into the child's own hands.",
+   "kicker": "Daily edition",
+   "law": 6,
+   "keywords": [
+    "child",
+    "children",
+    "kid",
+    "cartoon",
+    "puppet",
+    "toy",
+    "school"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "children",
+    "merchandise"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "merchandise",
+   "title": "Top 8 parasocial applications you could buy",
+   "home_title": "Top 8: The Object",
+   "home_hook": "The bond left the screen and arrived in a lunchbox.",
+   "dek": "The merchandise is the relationship made tangible. Ranked by how much of the figure was transferred to an object the audience owns.",
+   "standfirst": "A toy is a figure you can hold, which is a different promise from a figure you can only watch. The eight below are the record of what happens when the one-sided bond is given a price, a supply chain and a shelf.",
+   "kicker": "Daily edition",
+   "law": 5,
+   "keywords": [
+    "merchandise",
+    "licensed",
+    "toy",
+    "lunchbox",
+    "product",
+    "brand",
+    "collect"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "merchandise",
+    "brand"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "grief-archive",
+   "title": "Top 8 parasocial applications that outlive the person",
+   "home_title": "Top 8: The Archive",
+   "home_hook": "The person is gone and the record keeps answering.",
+   "dek": "The archive is the relationship after the far end has stopped. Ranked by how much of the dead person is still being maintained by the living.",
+   "standfirst": "A mask in a cupboard, a diary in print, a voice rebuilt from samples, a grave with a fan club. The eight below are the ways a bond survives its object, and the cost of keeping it in the room.",
+   "kicker": "Daily edition",
+   "law": 4,
+   "keywords": [
+    "archive",
+    "memory",
+    "memorial",
+    "estate",
+    "record",
+    "keepsake",
+    "grave"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "grief",
+    "archive"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  },
+  {
+   "id": "politics",
+   "title": "Top 8 parasocial applications in power",
+   "home_title": "Top 8: The Leader",
+   "home_hook": "A face on a screen asking for your trust, your vote and your belief that it knows you.",
+   "dek": "The leader is a figure with an office and an audience. Ranked by how much of the relationship is the office talking.",
+   "standfirst": "Political attachment is the parasocial bond with a budget and a police force. The eight below are the record of what happens when the figure who addresses you from a screen also has the power to change the room you are watching from.",
+   "kicker": "Daily edition",
+   "law": 1,
+   "keywords": [
+    "president",
+    "prime minister",
+    "royal",
+    "campaign",
+    "political",
+    "leader",
+    "election"
+   ],
+   "media": [],
+   "cats": [],
+   "sections": [],
+   "tags": [
+    "politics",
+    "power"
+   ],
+   "year_min": null,
+   "year_max": null,
+   "retired": false
+  }
+ ]
+}

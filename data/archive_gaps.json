@@ -1,0 +1,4 @@
+{
+ "_note": "Declared, unrecoverable days in the three daily records. The daily top 8 and the parasocialite are selected from that day's wires and theme, so a later build cannot know what the page would have shown. tools/archive.py --reconcile writes one of these instead of inventing a day; --check accepts the day as a visible gap. Do not delete a declaration to make a report look clean.",
+ "gaps": []
+}

@@ -1,53 +1,982 @@
 {
-  "_note": "The front page's parasocialite of the day: one figure taking turns, one per UTC day, anchored on build_cards.PARASOCIALITE_EPOCH (2026-10-19, the day the rotation shipped). The order is the rotation order and alternates the warm cases with the engineered ones - the alternation is a contract, and tools/test_parasocialite_rotation.py holds it. `valence` is editorial: harmonious, manipulative or obsessive, the last two being the two flavours of the one-sided tie that costs somebody something. `breakdown` is the block's two-sentence copy, written for the front page rather than taken from the entry summary; medium and era are read from encyclopedia.json at render time and the link resolves by id. Adding or reordering members changes what the rotation shows: check data/parasocialite_history.json before editing, because the sequence of what the page actually said is the thing that file holds.",
+  "_note": "The figure bank behind the parasocialite spotlight. Every selectable member is a real person or a fictional character - never a show, a format, an institution or a mechanism. `selectable: false` is reserved for a figure that once appeared in data/parasocialite_history.json and must still resolve by name in the record; it is never chosen. `entry` is the encyclopedia page the block links to, `aliases` are the strings the daily editor matches against current wire headlines, and `context` is required for a name that is also an ordinary word ('prince', 'harvey'). `valence` is editorial: harmonious, manipulative or obsessive. Breakdowns are the entry's own summary unless a hand-written line from the old roster was better. The editor may replace this file; the record is data/parasocialite_history.json.",
   "members": [
     {
       "id": "nathan-fielder",
       "name": "Nathan Fielder",
+      "kind": "real",
+      "selectable": true,
       "valence": "manipulative",
+      "entry": "nathan-fielder",
+      "aliases": [
+        "nathan fielder",
+        "fielder"
+      ],
+      "context": [
+        "comedy",
+        "show"
+      ],
+      "tags": [
+        "television",
+        "comedy",
+        "persona",
+        "manufactured"
+      ],
       "breakdown": "A comedian who stages real situations for people who have not read the script, performing a slightly more awkward version of himself inside them. The manufacturing is not the secret - it is the show, and the audience was told so in the premise."
     },
     {
       "id": "dionne-warwick",
       "name": "Dionne Warwick",
+      "kind": "real",
+      "selectable": true,
       "valence": "harmonious",
+      "entry": "dionne-warwick",
+      "aliases": [
+        "dionne warwick",
+        "warwick"
+      ],
+      "context": [
+        "singer",
+        "music"
+      ],
+      "tags": [
+        "music",
+        "fan mail",
+        "reply",
+        "reciprocity"
+      ],
       "breakdown": "Letters arrived by the sackful, and she answered them by hand, by name, one at a time, for years. The closest thing the twentieth century produced to a genuinely reciprocal parasocial bond."
     },
     {
       "id": "the-beaver",
       "name": "The Beaver",
+      "kind": "fictional",
+      "selectable": true,
       "valence": "obsessive",
+      "entry": "the-beaver",
+      "aliases": [
+        "the beaver",
+        "beaver"
+      ],
+      "context": [
+        "puppet",
+        "film"
+      ],
+      "tags": [
+        "film",
+        "puppet",
+        "family",
+        "grief"
+      ],
       "breakdown": "A man who can speak to his family only through a beaver hand puppet he found in the trash, and the arrangement works - the family reopens, the company revives, the puppet gets a product line. When he decides it has to end, the beaver resists, and the arm goes with it."
     },
     {
       "id": "howdy-doody",
       "name": "Howdy Doody",
+      "kind": "fictional",
+      "selectable": true,
       "valence": "harmonious",
+      "entry": "howdy-doody",
+      "aliases": [
+        "howdy doody"
+      ],
+      "context": [],
+      "tags": [
+        "television",
+        "puppet",
+        "children",
+        "merchandise"
+      ],
       "breakdown": "The first television character a generation answered by name, shouting a chant back at the screen every afternoon for thirteen years while the voice came off a recording. The tie was engineered down to the theme song, and the puppets were sold as toys, which moved it into the children's own hands."
     },
     {
       "id": "queen-for-a-day",
       "name": "Queen for a Day",
+      "kind": "format",
+      "selectable": false,
       "valence": "manipulative",
+      "entry": "queen-for-a-day",
+      "aliases": [
+        "queen for a day"
+      ],
+      "context": [],
+      "tags": [
+        "radio",
+        "contest",
+        "applause"
+      ],
       "breakdown": "A radio contest where a woman told a studio audience her troubles, a machine turned the applause into a number, and the number chose her. The throne ran on sponsors: five minutes of performed gratitude while the audience applauded the thing it had just pitied."
     },
     {
       "id": "nancy-drew",
       "name": "Nancy Drew",
+      "kind": "fictional",
+      "selectable": true,
       "valence": "harmonious",
+      "entry": "nancy-drew",
+      "aliases": [
+        "nancy drew"
+      ],
+      "context": [],
+      "tags": [
+        "literature",
+        "detective",
+        "fan mail",
+        "letters"
+      ],
       "breakdown": "Fifty-four years of children's letters to a detective who did not exist, posted to an office that had chosen not to have a face - the woman who wrote most of the books was a house pseudonym, unnamed until 1991. The correspondence asked nothing of the far end, and a mailroom answered anyway."
     },
     {
       "id": "the-shadow",
       "name": "The Shadow",
+      "kind": "fictional",
+      "selectable": true,
       "valence": "manipulative",
+      "entry": "the-shadow",
+      "aliases": [
+        "the shadow"
+      ],
+      "context": [
+        "radio",
+        "pulp",
+        "magazine"
+      ],
+      "tags": [
+        "radio",
+        "pulp",
+        "mystery",
+        "merchandise"
+      ],
       "breakdown": "A publisher hired two men to sell a magazine on the radio, and they invented a voice instead. Listeners went to newsdealers asking for the Shadow detective magazine the voice implied, which did not exist - demand for a physical object, manufactured by a performance."
     },
     {
       "id": "mickey-mouse",
       "name": "Mickey Mouse",
+      "kind": "fictional",
+      "selectable": true,
       "valence": "harmonious",
+      "entry": "mickey-mouse",
+      "aliases": [
+        "mickey mouse"
+      ],
+      "context": [],
+      "tags": [
+        "animation",
+        "brand",
+        "mascot",
+        "merchandise"
+      ],
       "breakdown": "A drawn mouse licensed onto merchandise from his earliest years, with a licensing agent deciding what he was allowed to appear on. He became meetable at the parks and got a star on the Walk of Fame - a figure made as an object and then put back in the room with you."
+    },
+    {
+      "id": "aimee-semple-mcpherson",
+      "name": "Aimee Semple McPherson",
+      "kind": "real",
+      "selectable": true,
+      "valence": "manipulative",
+      "entry": "aimee-semple-mcpherson",
+      "aliases": [
+        "aimee semple mcpherson",
+        "sister aimee"
+      ],
+      "context": [],
+      "tags": [
+        "radio",
+        "religion",
+        "celebrity",
+        "performance"
+      ],
+      "breakdown": "Her church went on the air on 6 February 1924: KFSG - 'Kall Foursquare Gospel' - broadcasting at 500 watts from Angelus Temple, listener-supported one day at a time."
+    },
+    {
+      "id": "babe-ruth",
+      "name": "Babe Ruth",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "babe-ruth",
+      "aliases": [
+        "babe ruth"
+      ],
+      "context": [],
+      "tags": [
+        "sport",
+        "press",
+        "legend",
+        "fandom"
+      ],
+      "breakdown": "In 1927 Babe Ruth hit sixty home runs and became the most replayed figure in a game most fans knew through print. His bylined column ran in syndication, much of it ghostwritten, and radio was beginning to carry him into rooms the stadium never reached. The 1920s press manufactured a 'hot romance' and he was its star."
+    },
+    {
+      "id": "cervantes",
+      "name": "Miguel de Cervantes",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "cervantes",
+      "aliases": [
+        "miguel de cervantes",
+        "cervantes"
+      ],
+      "context": [],
+      "tags": [
+        "literature",
+        "author",
+        "character"
+      ],
+      "breakdown": "Author of Don Quixote, and of a narrator who keeps having to explain away the reality of what his character is doing."
+    },
+    {
+      "id": "charlie-chaplin",
+      "name": "Charlie Chaplin",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "charlie-chaplin",
+      "aliases": [
+        "charlie chaplin",
+        "chaplin"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "stardom",
+        "persona"
+      ],
+      "breakdown": "By 1917 nine out of ten men at a costume ball came as him, a hold-up man in Cincinnati borrowed his costume as a disguise, and in 1916 somebody was paging him in more than eight hundred hotels at the same moment. Later, fans sent letters with a doodle of his face where the address should have been. The likeness had stopped being a picture and started being an instruction."
+    },
+    {
+      "id": "clara-bow",
+      "name": "Clara Bow",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "clara-bow",
+      "aliases": [
+        "clara bow"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "fandom",
+        "studio",
+        "letters"
+      ],
+      "breakdown": "Paramount signed Clara Bow in 1926 and released six of her pictures in 1927, one of which - It - put a novelist's definition of 'It' onto a face and left the language with the phrase 'It Girl'."
+    },
+    {
+      "id": "dickens",
+      "name": "Charles Dickens",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "dickens",
+      "aliases": [
+        "charles dickens",
+        "dickens"
+      ],
+      "context": [],
+      "tags": [
+        "literature",
+        "author",
+        "reading"
+      ],
+      "breakdown": "Serialised fiction to a mass audience, weekly, to people who could not afford a book but could not afford not to read it."
+    },
+    {
+      "id": "elvis",
+      "name": "Elvis Presley",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "elvis",
+      "aliases": [
+        "elvis presley",
+        "elvis"
+      ],
+      "context": [
+        "music",
+        "singer",
+        "memphis",
+        "estate"
+      ],
+      "tags": [
+        "music",
+        "stardom",
+        "grief",
+        "merchandise"
+      ],
+      "breakdown": "A national simultaneous viewing event, and an industry that learned within two years that the appeal was not the music."
+    },
+    {
+      "id": "greta-garbo",
+      "name": "Greta Garbo",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "greta-garbo",
+      "aliases": [
+        "greta garbo",
+        "garbo"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "recluse",
+        "stardom"
+      ],
+      "breakdown": "In Grand Hotel (1932) Greta Garbo said 'I want to be alone', and the line became her biography: the press called her the Swedish Sphinx and MGM capitalised on the mystery."
+    },
+    {
+      "id": "hitchcock",
+      "name": "Alfred Hitchcock",
+      "kind": "real",
+      "selectable": true,
+      "valence": "manipulative",
+      "entry": "hitchcock",
+      "aliases": [
+        "alfred hitchcock",
+        "hitchcock"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "director",
+        "audience",
+        "suspense"
+      ],
+      "breakdown": "Director who said he made films about the tension between a man and the thing he cannot have."
+    },
+    {
+      "id": "margery-kempe",
+      "name": "Margery Kempe",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "margery-kempe",
+      "aliases": [
+        "margery kempe",
+        "kempe"
+      ],
+      "context": [],
+      "tags": [
+        "religion",
+        "medieval",
+        "devotion",
+        "memoir"
+      ],
+      "breakdown": "English woman who experienced what she described as an unbreakable bond with Jesus, was mocked for weeping in church, was reviled by her family, and in 1438 dictated a book about it that persuaded other women to do the same."
+    },
+    {
+      "id": "mary-pickford",
+      "name": "Mary Pickford",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "mary-pickford",
+      "aliases": [
+        "mary pickford",
+        "pickford"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "stardom",
+        "fans",
+        "letters"
+      ],
+      "breakdown": "The first film performer whose value could be counted instead of guessed. She was on the cover of the New York Dramatic Mirror in 1911, an honour then kept for theatrical stars; by 1916 her fan following had become ten thousand dollars a week, half her film profits and a production company of her own."
+    },
+    {
+      "id": "nick-drake",
+      "name": "Nick Drake",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "nick-drake",
+      "aliases": [
+        "nick drake"
+      ],
+      "context": [],
+      "tags": [
+        "music",
+        "grief",
+        "posthumous"
+      ],
+      "breakdown": "Made three records, withdrew from touring, and left behind an audience that argues about what he meant for fifty years."
+    },
+    {
+      "id": "rudolph-valentino",
+      "name": "Rudolph Valentino",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "rudolph-valentino",
+      "aliases": [
+        "rudolph valentino",
+        "valentino"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "stardom",
+        "grief",
+        "fandom"
+      ],
+      "breakdown": "A screen persona called the Latin Lover, and a death at thirty-one that produced public mourning on a scale nothing before it had managed - including a woman claiming an engagement he had never mentioned to anyone."
+    },
+    {
+      "id": "sarah-bernhardt",
+      "name": "Sarah Bernhardt",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "sarah-bernhardt",
+      "aliases": [
+        "sarah bernhardt",
+        "bernhardt"
+      ],
+      "context": [],
+      "tags": [
+        "stage",
+        "stardom",
+        "performance"
+      ],
+      "breakdown": "Sarah Bernhardt toured more like a head of state than a player: when she sailed for New York in 1891 the crossing was covered the way a royal visit is, and 'Divine Sarah' was by then the whole public's phrase for her. Mark Twain's note put it exactly - there were five kinds of actresses, and Sarah Bernhardt. An idol built at distance."
+    },
+    {
+      "id": "florence-lawrence",
+      "name": "Florence Lawrence",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "florence-lawrence",
+      "aliases": [
+        "florence lawrence"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "press",
+        "scandal",
+        "stardom"
+      ],
+      "breakdown": "The Biograph Girl was reported killed under a streetcar, publicly resurrected by the producer who had just hired her, and brought to St. Louis to be mobbed in person - proof that an audience's grief could be produced on schedule."
+    },
+    {
+      "id": "murrow",
+      "name": "Edward R. Murrow",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "murrow",
+      "aliases": [
+        "edward r murrow",
+        "edward murrow",
+        "murrow"
+      ],
+      "context": [],
+      "tags": [
+        "radio",
+        "war",
+        "broadcast",
+        "voice"
+      ],
+      "breakdown": "The live rooftop broadcasts that carried the Blitz into American homes, and the sign-off that made a reporter and a city the same thing."
+    },
+    {
+      "id": "will-rogers",
+      "name": "Will Rogers",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "will-rogers",
+      "aliases": [
+        "will rogers"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "radio",
+        "celebrity",
+        "press"
+      ],
+      "breakdown": "When Will Rogers died with Wiley Post in Alaska, flags went to half-staff and twelve thousand cinema screens went dark - for a man most of the country knew only as a column and a Sunday-night voice."
+    },
+    {
+      "id": "glenn-miller",
+      "name": "Glenn Miller",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "glenn-miller",
+      "aliases": [
+        "glenn miller"
+      ],
+      "context": [],
+      "tags": [
+        "music",
+        "war",
+        "grief",
+        "radio"
+      ],
+      "breakdown": "The most popular bandleader in America gave up the job to enlist, took his orchestra to England, and vanished over the Channel on a small plane to Paris - while the band played on."
+    },
+    {
+      "id": "theda-bara",
+      "name": "Theda Bara",
+      "kind": "real",
+      "selectable": true,
+      "valence": "manipulative",
+      "entry": "theda-bara",
+      "aliases": [
+        "theda bara",
+        "vamp"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "studio",
+        "persona",
+        "press"
+      ],
+      "breakdown": "A studio invented an Egyptian past for its newest star, told the press the invention was a hoax, and the audience kept the invention anyway - the Vamp, whose films are now mostly ash."
+    },
+    {
+      "id": "vera-lynn",
+      "name": "Vera Lynn",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "vera-lynn",
+      "aliases": [
+        "vera lynn",
+        "forces sweetheart"
+      ],
+      "context": [],
+      "tags": [
+        "music",
+        "radio",
+        "war",
+        "letters"
+      ],
+      "breakdown": "A radio programme addressed the men of the forces as a letter in words and music, and the voice behind it kept the address running for the rest of her life."
+    },
+    {
+      "id": "rin-tin-tin",
+      "name": "Rin Tin Tin",
+      "kind": "real",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "rin-tin-tin",
+      "aliases": [
+        "rin tin tin",
+        "rinty"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "animal",
+        "fans",
+        "letters"
+      ],
+      "breakdown": "A German Shepherd found on a battlefield became one of the biggest silent-film stars, and the fan mail that arrived for him was answered with a glossy portrait signed by a paw."
+    },
+    {
+      "id": "betty-crocker",
+      "name": "Betty Crocker",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "manipulative",
+      "entry": "betty-crocker",
+      "aliases": [
+        "betty crocker"
+      ],
+      "context": [],
+      "tags": [
+        "brand",
+        "radio",
+        "persona",
+        "domestic"
+      ],
+      "breakdown": "In 1921 a flour company's advertising department needed one woman's name for the kitchen advice its all-female home-service staff was already writing. Betty Crocker was a signature and a persona, not a person: she answered letters, then took a radio voice in 1924, and gave millions a correspondent who signed herself \"Cordially yours.\""
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "prince",
+      "aliases": [
+        "prince"
+      ],
+      "context": [
+        "music",
+        "singer",
+        "album",
+        "estate",
+        "paisley"
+      ],
+      "tags": [
+        "music",
+        "grief",
+        "stardom"
+      ],
+      "breakdown": "A death announced through an initialism, and a global response before anybody knew the details."
+    },
+    {
+      "id": "michael-jackson",
+      "name": "Michael Jackson",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "michael-jackson",
+      "aliases": [
+        "michael jackson"
+      ],
+      "context": [],
+      "tags": [
+        "music",
+        "grief",
+        "stardom"
+      ],
+      "breakdown": "Public mourning in a way that produced its own genre of documentary and speculation."
+    },
+    {
+      "id": "kurt-cobain",
+      "name": "Kurt Cobain",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "cobain",
+      "aliases": [
+        "kurt cobain",
+        "cobain"
+      ],
+      "context": [],
+      "tags": [
+        "music",
+        "grief",
+        "fandom"
+      ],
+      "breakdown": "A death broadcast in real time to a generation that had grown up with a songwriter's complaints as a soundtrack."
+    },
+    {
+      "id": "bela-lugosi",
+      "name": "Bela Lugosi",
+      "kind": "real",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "lugosi-burial",
+      "aliases": [
+        "bela lugosi",
+        "lugosi"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "horror",
+        "fandom",
+        "myth"
+      ],
+      "breakdown": "The most reproduced image in the horror canon - a man interred in his character's cape - is true, and the story that he chose it is false. His mother chose it."
+    },
+    {
+      "id": "harvey",
+      "name": "Harvey",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "harvey",
+      "aliases": [
+        "harvey"
+      ],
+      "context": [
+        "rabbit",
+        "film",
+        "pooka"
+      ],
+      "tags": [
+        "film",
+        "imaginary",
+        "comedy",
+        "complicity"
+      ],
+      "breakdown": "A man nobody else can see kept drinking with him for years, and it worked because nobody in his life would say the sentence that ended it. It stops when two doctors who cannot see the rabbit go looking for him in it."
+    },
+    {
+      "id": "casper",
+      "name": "Casper",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "casper",
+      "aliases": [
+        "casper"
+      ],
+      "context": [
+        "ghost",
+        "cartoon"
+      ],
+      "tags": [
+        "animation",
+        "ghost",
+        "children"
+      ],
+      "breakdown": "Made to answer a four-year-old's fear of the dark, by a man who made a cardboard cutout and hung it in a tree. Two men then claimed to have invented him."
+    },
+    {
+      "id": "alf",
+      "name": "ALF",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "alf",
+      "aliases": [
+        "alf"
+      ],
+      "context": [
+        "alien",
+        "sitcom"
+      ],
+      "tags": [
+        "television",
+        "puppet",
+        "alien",
+        "family"
+      ],
+      "breakdown": "An alien with a kitchen and a family, performed by a man who refused for four years to say how. Children cried when it ended, and the character was invited to birthday parties."
+    },
+    {
+      "id": "dorian-gray",
+      "name": "Dorian Gray",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "dorian-gray",
+      "aliases": [
+        "dorian gray"
+      ],
+      "context": [],
+      "tags": [
+        "literature",
+        "portrait",
+        "mirror"
+      ],
+      "breakdown": "The painter stands in front of the figure he made and asks whether the man is really like it. He is. And it will never alter, which is the only thing about it anybody wanted."
+    },
+    {
+      "id": "deadpool",
+      "name": "Deadpool",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "manipulative",
+      "entry": "deadpool",
+      "aliases": [
+        "deadpool"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "comics",
+        "fourth wall",
+        "persona"
+      ],
+      "breakdown": "A character whose defining trait is looking at you, taken from the comics rather than invented for the film - and on a fifty-eight million dollar budget the address turned out to be the marketing."
+    },
+    {
+      "id": "superman",
+      "name": "Superman",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "superman-comic",
+      "aliases": [
+        "superman"
+      ],
+      "context": [],
+      "tags": [
+        "comics",
+        "hero",
+        "merchandise"
+      ],
+      "breakdown": "A character who cannot die, printed in a newspaper, read by a generation of children on the same day."
+    },
+    {
+      "id": "king-kong",
+      "name": "King Kong",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "king-kong",
+      "aliases": [
+        "king kong"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "monster",
+        "spectacle"
+      ],
+      "breakdown": "A gorilla who feels affection for the woman offered to him, premiered to a city that had just had King Tut, was cut by censors, and did not get the missing scenes back until thirty-seven years later."
+    },
+    {
+      "id": "tyler-durden",
+      "name": "Tyler Durden",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "fight-club",
+      "aliases": [
+        "tyler durden",
+        "fight club"
+      ],
+      "context": [],
+      "tags": [
+        "film",
+        "split",
+        "mirror",
+        "concealment"
+      ],
+      "breakdown": "Two hours of a man telling you about his best friend. The friend does not exist, the man telling you does not know it, and you are being addressed by somebody who is also being lied to."
+    },
+    {
+      "id": "don-quixote",
+      "name": "Don Quixote",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "don-quixote",
+      "aliases": [
+        "don quixote",
+        "quixote"
+      ],
+      "context": [],
+      "tags": [
+        "literature",
+        "chivalry",
+        "delusion"
+      ],
+      "breakdown": "An old man who reads so many books about chivalry that he goes out to live as a knight, against all evidence."
+    },
+    {
+      "id": "werther",
+      "name": "Werther",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "werther",
+      "aliases": [
+        "werther"
+      ],
+      "context": [],
+      "tags": [
+        "literature",
+        "romantic",
+        "grief"
+      ],
+      "breakdown": "The young man of Goethe's novel who reads too much, loves a woman who does not love him back, and kills himself, in a book that made that behaviour fashionable across Europe for a decade."
+    },
+    {
+      "id": "miss-havisham",
+      "name": "Miss Havisham",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "dickens-miss-havisham",
+      "aliases": [
+        "miss havisham",
+        "havisham"
+      ],
+      "context": [],
+      "tags": [
+        "literature",
+        "recluse",
+        "wedding"
+      ],
+      "breakdown": "A woman in Great Expectations who is left jilted at the altar, stops eating, ages, and arranges to be found the way she was on her wedding day - decades later, in a wedding dress, in a darkened room."
+    },
+    {
+      "id": "gigi",
+      "name": "Gigi",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "gigi",
+      "aliases": [
+        "gigi"
+      ],
+      "context": [
+        "film",
+        "novel",
+        "colette"
+      ],
+      "tags": [
+        "literature",
+        "courtesan",
+        "training"
+      ],
+      "breakdown": "The song where the singer pleads to be given the exact shape a man wants: a French phrase, a café in the dark. A whole musical built around wanting to be a specific imaginary person for somebody."
+    },
+    {
+      "id": "pamela",
+      "name": "Pamela",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "pamela",
+      "aliases": [
+        "pamela"
+      ],
+      "context": [
+        "novel",
+        "richardson"
+      ],
+      "tags": [
+        "literature",
+        "virtue",
+        "letters"
+      ],
+      "breakdown": "The novel that turned its readers into a correspondent. Pamela Andrews writes home about her master's pursuit, and the reader takes the seat of the parents - receiving every letter, sending none. Published anonymously in November 1740, it became the first English best-seller and the first novel whose readers wrote back demanding more of it."
+    },
+    {
+      "id": "peter-pan",
+      "name": "Peter Pan",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "harmonious",
+      "entry": "peter-pan",
+      "aliases": [
+        "peter pan"
+      ],
+      "context": [],
+      "tags": [
+        "stage",
+        "children",
+        "fiction",
+        "belief"
+      ],
+      "breakdown": "The play that asks the whole audience to save a dying fairy by clapping - and has received the same answer, in the same room, for more than a century."
+    },
+    {
+      "id": "edwin-drood",
+      "name": "Edwin Drood",
+      "kind": "fictional",
+      "selectable": true,
+      "valence": "obsessive",
+      "entry": "edwin-drood",
+      "aliases": [
+        "edwin drood",
+        "drood"
+      ],
+      "context": [],
+      "tags": [
+        "literature",
+        "mystery",
+        "unfinished"
+      ],
+      "breakdown": "A musical of Dickens' unfinished novel that stops where the novel stops and turns the cliffhanger over to the seats: the audience votes who murdered Edwin Drood, who the disguised Dick Datchery is and which two characters end up together, and the cast performs the chosen ending that night. The house was promised 1,200 possible endings and that it 'won't be rigged in any way'."
     }
   ]
 }

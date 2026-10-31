@@ -12,23 +12,26 @@ there.
 
 So this tool does the two things that were missing:
 
-  --check        say out loud which days have no record, and fail. A silent
-                 gap is the defect; a reported one is a work queue.
+  --check        say out loud which days have no record, and fail on the ones
+                 that are not declared. A silent gap is the defect; a reported
+                 one is a work queue.
 
-  --reconcile    close a gap that is PROVABLE. A missed day can be recomputed
-                 from the same deterministic rotation only when the inputs
-                 that feed it were already frozen before that day. If
-                 features.json, taxonomy.json or parasocialite.json was edited
-                 on or after the day in question, the state that build would
-                 have seen is unknowable, and this refuses rather than
-                 inventing a plausible record.
+  --reconcile    close a gap that is PROVABLE, or declare it. The register is
+                 still a deterministic rotation, so a missed day can be
+                 recomputed when its inputs were frozen before it. The top 8
+                 and the parasocialite are selected from that day's wires and
+                 theme; a later build cannot know what the page would have
+                 shown, so those gaps are written into data/archive_gaps.json
+                 as declared, unrecoverable days rather than invented.
 
 A reconstructed day is marked, never passed off as observed. The entry carries
 `reconstructed: true`, `reconstructed_on` and `inputs_sha256`, and every page
-that prints the record prints a `rebuilt` tag beside it. That distinction is
-the point: the sequence of what the site actually showed and a later
-recomputation of what it would have shown are different claims, and a reader
-is entitled to tell them apart.
+that prints the record prints a `rebuilt` tag beside it. A declared day is not
+a reconstruction: it is a permanent, visible gap, and the site keeps publishing
+the next day's edition instead of stopping forever on a hole it cannot fill.
+That distinction is the point: what the site showed, what it could recompute,
+and what it never had are three different claims, and a reader is entitled to
+tell them apart.
 
 WHAT THIS DOES NOT DO
 It does not regenerate the files, reorder existing days, or rewrite a record
@@ -41,9 +44,10 @@ Usage:
     python tools/archive.py --reconcile
     python tools/archive.py --reconcile --dry-run
 
-Exit codes: --check is 1 when any day has no record, or when a file is
-duplicated, out of order, dated in the future or outside its own epoch. A
-reconstruction that cannot be proved leaves the gap in place and exits 1.
+Exit codes: --check is 1 when a day has no record and no declaration, or when
+a file is duplicated, out of order, dated in the future or outside its own
+epoch. --reconcile exits 0 after reconstructing or declaring; a declaration is
+not a success at filling a hole, it is a success at naming one without lying.
 """
 from __future__ import annotations
 
@@ -70,6 +74,65 @@ sys.stdout.reconfigure(encoding="utf-8")
 # register and parasocialite epochs live in build_cards because their pages
 # compute from them.
 TOP8_EPOCH = datetime.date(2026, 10, 19)
+# A gap that cannot be reconstructed is declared here rather than fabricated or
+# allowed to stop every future edition. The archive check reads it; the record
+# pages still show the sequence, and a declared day is a fact about the record
+# (no edition was generated) rather than a silent hole.
+GAPS = ROOT / "data" / "archive_gaps.json"
+GAPS_NOTE = ("Declared, unrecoverable days in the three daily records. The "
+             "daily top 8 and the parasocialite are selected from that day's "
+             "wires and theme, so a later build cannot know what the page "
+             "would have shown. tools/archive.py --reconcile writes one of "
+             "these instead of inventing a day; --check accepts the day as a "
+             "visible gap. Do not delete a declaration to make a report look "
+             "clean.")
+
+
+def load_gaps() -> dict:
+    try:
+        d = json.loads(GAPS.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        d = {"_note": GAPS_NOTE, "gaps": []}
+    d.setdefault("_note", GAPS_NOTE)
+    d.setdefault("gaps", [])
+    return d
+
+
+def gap_reason(gaps: dict, history: str, iso: str) -> str:
+    for g in gaps.get("gaps") or []:
+        if g.get("history") == history and \
+                str(g.get("from", "")) <= iso <= str(g.get("to", "")):
+            return str(g.get("reason") or "")
+    return ""
+
+
+def declare_gap(gaps: dict, history: str, dates: list[str], reason: str,
+                today: datetime.date) -> bool:
+    """Merge a range into the declaration file. Returns whether it changed."""
+    if not dates:
+        return False
+    lo, hi = min(dates), max(dates)
+    for g in gaps["gaps"]:
+        if g.get("history") != history:
+            continue
+        if str(g.get("to", "")) < lo or str(g.get("from", "")) > hi:
+            continue
+        before = (g.get("from"), g.get("to"), g.get("reason"), g.get("declared"))
+        g["from"] = min(str(g.get("from") or lo), lo)
+        g["to"] = max(str(g.get("to") or hi), hi)
+        g["reason"] = reason or g.get("reason") or ""
+        g["declared"] = today.isoformat()
+        return before != (g["from"], g["to"], g["reason"], g["declared"])
+    gaps["gaps"].append({"history": history, "from": lo, "to": hi,
+                         "reason": reason, "declared": today.isoformat()})
+    return True
+
+
+def save_gaps(gaps: dict) -> None:
+    gaps["_note"] = GAPS_NOTE
+    gaps["gaps"].sort(key=lambda g: (g.get("history", ""), g.get("from", "")))
+    GAPS.write_text(json.dumps(gaps, ensure_ascii=False, indent=1) + "\n",
+                    encoding="utf-8")
 
 
 def utc_today() -> datetime.date:
@@ -154,15 +217,18 @@ def specs() -> list[dict]:
 
     return [
         {"name": "top8", "path": bc.TOP8_HISTORY, "note": bc.TOP8_HISTORY_NOTE,
-         "start": TOP8_EPOCH, "build": top8,
-         "inputs": [ROOT / "data" / "features.json"]},
+         "start": TOP8_EPOCH, "build": None, "reconstructable": False,
+         "inputs": [ROOT / "data" / "features.json",
+                    ROOT / "data" / "editorial_today.json"]},
         {"name": "register", "path": bc.REGISTER_HISTORY,
          "note": bc.REGISTER_HISTORY_NOTE, "start": bc.REGISTER_EPOCH,
-         "build": register, "inputs": [ROOT / "data" / "taxonomy.json"]},
+         "build": register, "reconstructable": True,
+         "inputs": [ROOT / "data" / "taxonomy.json"]},
         {"name": "parasocialite", "path": bc.PARASOCIALITE_HISTORY,
          "note": bc.PARASOCIALITE_HISTORY_NOTE, "start": bc.PARASOCIALITE_EPOCH,
-         "build": parasocialite,
-         "inputs": [ROOT / "data" / "parasocialite.json"]},
+         "build": None, "reconstructable": False,
+         "inputs": [ROOT / "data" / "parasocialite.json",
+                    ROOT / "data" / "editorial_today.json"]},
     ]
 
 
@@ -211,8 +277,13 @@ def audit(spec: dict, today: datetime.date) -> dict:
                 d.get("reconstructed_on") and d.get("inputs_sha256")):
             unmarked.append(str(d.get("date")))
 
+    gaps = load_gaps()
+    declared = [d for d in missing if gap_reason(gaps, spec["name"], d)]
+    unexplained = [d for d in missing if d not in declared]
+
     return {"name": spec["name"], "path": spec["path"], "days": days,
             "dates": dates, "problems": problems, "missing": missing,
+            "unexplained": unexplained, "declared": declared,
             "reconstructed": reconstructed, "unmarked": unmarked,
             "data": data}
 
@@ -235,22 +306,29 @@ def check(specs_list, today: datetime.date) -> int:
             print("  FAIL rebuilt day(s) with no provenance: "
                   f"{a['unmarked']} - a rebuilt record must carry "
                   "reconstructed_on and inputs_sha256")
-        if a["missing"]:
+        if a["unexplained"]:
             failed = True
-            print(f"  FAIL {len(a['missing'])} day(s) have no record: "
-                  f"{a['missing'][0]} -> {a['missing'][-1]}")
+            print(f"  FAIL {len(a['unexplained'])} day(s) have no record: "
+                  f"{a['unexplained'][0]} -> {a['unexplained'][-1]}")
             print("       run `python tools/archive.py --reconcile` (it will "
-                  "only close a gap whose inputs were frozen before it), then "
-                  "rebuild so today is recorded live")
+                  "reconstruct a provable register day and declare what it "
+                  "cannot know), then rebuild so today is recorded live")
         else:
-            print("  ok   every day from the epoch to today has a record")
+            print("  ok   every day from the epoch to today has a record"
+                  + (f", except {len(a['declared'])} declared gap(s)"
+                     if a["declared"] else ""))
+        if a["declared"]:
+            print(f"  note {len(a['declared'])} declared day(s): "
+                  f"{a['declared'][0]} -> {a['declared'][-1]} - the edition "
+                  f"cannot be reconstructed, so the gap stays visible")
     print("\n" + ("archive: RED" if failed else "archive: green"))
     return 1 if failed else 0
 
 
 def reconcile(specs_list, today: datetime.date, dry: bool) -> int:
-    """Append marked reconstructions for provable gaps. Never rewrites a day."""
-    blocked = 0
+    """Reconstruct what is provable; declare what is not. Never invents a day."""
+    changed = False
+    gaps = load_gaps()
     for spec in specs_list:
         a = audit(spec, today)
         # Today is deliberately excluded: it is written live by the build that
@@ -260,6 +338,17 @@ def reconcile(specs_list, today: datetime.date, dry: bool) -> int:
         if not target:
             print(f"{a['name']}: nothing to close "
                   f"({len(a['missing'])} open day(s), today excluded)")
+            continue
+        if not spec.get("reconstructable", True):
+            reason = ("No daily edition was generated on this day. The top 8 "
+                      "and the parasocialite are selected from that day's "
+                      "wires and theme, so a later build cannot know what the "
+                      "page would have shown.")
+            if declare_gap(gaps, spec["name"], target, reason, today):
+                changed = True
+            verb = "would declare" if dry else "declared"
+            print(f"{spec['name']}: {verb} {len(target)} unrecoverable day(s) "
+                  f"({target[0]} -> {target[-1]})")
             continue
         newest = max(input_date(p) for p in spec["inputs"])
         sha = input_digest(spec["inputs"])
@@ -303,13 +392,15 @@ def reconcile(specs_list, today: datetime.date, dry: bool) -> int:
             print(f"{a['name']}: {verb} {len(added)} day(s) as rebuilt "
                   f"({added[0]['date']} -> {added[-1]['date']})")
         for iso, why in refused:
-            blocked += 1
-            print(f"{a['name']}: REFUSED {iso} - {why}")
+            if declare_gap(gaps, spec["name"], [iso], why, today):
+                changed = True
+            verb = "would declare" if dry else "declared"
+            print(f"{a['name']}: {verb} {iso} - {why}")
 
-    if blocked:
-        print(f"\n{blocked} day(s) cannot be proved from the current data. "
-              "They stay gaps: a plausible record is worse than a visible one.")
-        return 1
+    if changed and not dry:
+        save_gaps(gaps)
+        print(f"\narchive: declared unrecoverable day(s) in "
+              f"{GAPS.relative_to(ROOT).as_posix()}; they stay visible")
     return 0
 
 
@@ -333,7 +424,7 @@ def main() -> int:
             open_gaps, bad = [], []
             for spec in s:
                 a2 = audit(spec, today)
-                open_gaps += [d for d in a2["missing"]
+                open_gaps += [d for d in a2["unexplained"]
                               if d < today.isoformat()]
                 bad += a2["problems"]
             if bad or open_gaps:

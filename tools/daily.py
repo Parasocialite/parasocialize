@@ -131,6 +131,18 @@ def check() -> int:
     if rc.returncode:
         hard.append("the archive has missing or malformed days")
 
+    # 1b. the daily edition: a figure, a new top 8 and eight way picks
+    rc = subprocess.run([sys.executable, "-X", "utf8",
+                         str(TOOLS / "editor.py"), "--check"],
+                        cwd=ROOT, text=True, capture_output=True)
+    if rc.returncode:
+        for line in (rc.stdout or "").splitlines():
+            if line.startswith(("FAIL", "editor:")):
+                print("  " + line.strip())
+        hard.append("today's edition is missing or invalid")
+    else:
+        print(f"  ok   edition: {(rc.stdout or '').strip()}")
+
     # 2. today is recorded live in all three, not reconstructed
     for name, path in HISTORIES.items():
         days = history_days(path)
@@ -241,6 +253,10 @@ def main() -> int:
     closed = after - before
 
     run("plan", ["plan_next.py"])
+    # The edition must exist before build_cards: show_list refuses a day with
+    # no list dated today. The editor is idempotent for a date, so the noon run
+    # keeps the morning's edition rather than replacing it mid-day.
+    run("editor", ["editor.py"])
     run("build_cards", ["build_cards.py"])
     run("plate", ["plate.py"])
     run("package", ["build_deploy.py", "--no-build"])

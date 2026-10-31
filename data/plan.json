@@ -161,6 +161,12 @@
    "title": "Top 8 parasocial moments when the reply was manufactured",
    "pool": 32,
    "windows": 4
+  },
+  {
+   "slug": "top8-2026-10-31-sport-faith",
+   "title": "Top 8 parasocial applications in sport",
+   "pool": 8,
+   "windows": 1
   }
  ],
  "sweep_age_days": 0,
@@ -208,6 +214,14 @@
   },
   {
    "rank": 6,
+   "score": 84,
+   "kind": "top8",
+   "target": "top8-2026-10-31-sport-faith",
+   "why": "8 moments produce only 1 distinct window(s) at a stride of 8; the page will repeat sooner than readers expect.",
+   "command": "grow the pool with tools/t8_grow.py, checking the show string as well as the eid"
+  },
+  {
+   "rank": 7,
    "score": 72,
    "kind": "axis",
    "target": "history + technology",
@@ -215,7 +229,7 @@
    "command": "re-file an entry only where its own medium is stated; do not move one to make the distribution look even"
   },
   {
-   "rank": 7,
+   "rank": 8,
    "score": 63,
    "kind": "decade",
    "target": "1150s",
@@ -223,7 +237,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 8,
+   "rank": 9,
    "score": 63,
    "kind": "decade",
    "target": "1350s",
@@ -231,7 +245,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 9,
+   "rank": 10,
    "score": 63,
    "kind": "decade",
    "target": "1370s",
@@ -239,7 +253,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 10,
+   "rank": 11,
    "score": 63,
    "kind": "decade",
    "target": "1530s",
@@ -247,7 +261,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 11,
+   "rank": 12,
    "score": 63,
    "kind": "decade",
    "target": "1540s",
@@ -255,7 +269,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 12,
+   "rank": 13,
    "score": 50,
    "kind": "queue",
    "target": "3 drafts awaiting signoff",

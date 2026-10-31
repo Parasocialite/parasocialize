@@ -195,16 +195,17 @@
   },
   {
    "date": "2026-10-31",
-   "list": "top8-cartoons-90s",
+   "list": "top8-2026-10-31-sport-faith",
+   "theme": "sport-faith",
    "items": [
-    "t8-1-rugrats-nest",
-    "Batman: The Animated Series, 1992",
-    "Blue's Clues, 1996",
-    "t8-2-rugrats-gun",
-    "Where on Earth Is Carmen Sandiego?, 1994",
-    "Sailor Moon, 1995",
-    "t8-3-grouch",
-    "ReBoot, 1994"
+    "sports-identification",
+    "babe-ruth",
+    "the-atletefan-bond",
+    "the-transfer",
+    "kobe",
+    "the-league-that-closed",
+    "the-coach",
+    "iglesia-maradoniana"
    ]
   }
  ]

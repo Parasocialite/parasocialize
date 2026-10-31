@@ -1,0 +1,74 @@
+{
+ "_note": "STATEFUL. One record per UTC day: the top 8 theme and the eight way picks as they were shown. Written by tools/editor.py; do not regenerate or delete - the sequence is the record.",
+ "days": [
+  {
+   "date": "2026-10-31",
+   "picks": {
+    "persona": {
+     "kind": "entry",
+     "id": "boybands",
+     "title": "The boy band",
+     "why": "Assembled for a market, with fan clubs, fan voting and fan-financed releases. A manufactured persona is still a persona, and this is the case where the manufacturing is documented rather than inferred.",
+     "href": "encyclopedia/boybands.html",
+     "meta": "Games · 1997"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "lugosi-burial",
+     "title": "He did not ask to be buried as Dracula",
+     "why": "A man interred in his character's costume, where the costume's owner chose nothing at all: his son and mother decided. played-role because the entry is entirely about where a role ends and a person starts.",
+     "href": "encyclopedia/lugosi-burial.html",
+     "meta": "Film · 1956"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "the-team-built-to-answer-a-rival",
+     "title": "A team built to answer a competitor",
+     "why": "A set of characters whose behaviour was specified against a measurement of the audience rather than invented and then found, which is the social-agent case - a far side calibrated to what the person on this side already wants.",
+     "href": "encyclopedia/the-team-built-to-answer-a-rival.html",
+     "meta": "Comics · 1961"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "the-book-of-my-first-showings",
+     "title": "The Book of My First Showings",
+     "why": "Dictated by Margery Kempe describing her experiences of Christ's love, her suffering, and her certainty that she had been chosen. The oldest surviving parasocial document on the site, and the reason DIVINE had to be built.",
+     "href": "encyclopedia/the-book-of-my-first-showings.html",
+     "meta": "Theology / Literature · 1438"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "transnational-fandom",
+     "title": "Transnational fandom",
+     "why": "Fans organising across national borders around media, with a shared calendar of releases and a shared language. A body that ignores the state, which is why it is institutional rather than a sub-culture.",
+     "href": "encyclopedia/transnational-fandom.html",
+     "meta": "Games · 2001"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "anime-import",
+     "title": "The anime import boom",
+     "why": "The subject is a body of work crossing a border and acquiring a fandom that then organises around it. The attachment is to a canon with no author present, which is what makes the transnational part matter.",
+     "href": "encyclopedia/anime-import.html",
+     "meta": "Games · 1998"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-local-anchor",
+     "title": "The local news anchor",
+     "why": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset. Proximity, not charisma, and the clearest case of the attachment accruing from duration.",
+     "href": "encyclopedia/the-local-anchor.html",
+     "meta": "Scripted television · 1950"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "fandom-wars",
+     "title": "Fandom wars",
+     "why": "Organised conflict between fanbases with brigading, ratioing and coalition behaviour, conducted with the grammar of war. Two attachments turned on each other, which is the only new thing the contest register does.",
+     "href": "encyclopedia/fandom-wars.html",
+     "meta": "Games · 2012"
+    }
+   }
+  }
+ ]
+}

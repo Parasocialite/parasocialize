@@ -14,7 +14,7 @@ important it feels:
 
   source   no build, no browser        link_audit, citation_audit, cull_audit,
                                       verify_taxonomy, card_audit, image_audit,
-                                      check_css, archive,
+                                      check_css, archive, editor,
                                       test_front_copy,
                                       test_register_rotation,
                                       test_parasocialite_rotation
@@ -49,12 +49,14 @@ sys.stdout.reconfigure(encoding="utf-8")
 SOURCE = [
     ("check_css", ["check_css.py"]),
     ("archive", ["archive.py", "--check"]),
+    ("editor", ["editor.py", "--check"]),
     ("citation_audit", ["citation_audit.py"]),
     ("cull_audit", ["cull_audit.py"]),
     ("verify_taxonomy", ["verify_taxonomy.py"]),
     ("card_audit", ["card_audit.py"]),
     ("image_audit", ["image_audit.py"]),
     ("test_front_copy", ["test_front_copy.py"]),
+    ("test_editor_rotation", ["test_editor_rotation.py"]),
     ("test_register_rotation", ["test_register_rotation.py"]),
     ("test_parasocialite_rotation", ["test_parasocialite_rotation.py"]),
     ("link_audit", ["link_audit.py"]),

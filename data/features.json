@@ -232,7 +232,7 @@
     {
      "name": "The paw that signed the fan mail",
      "show": "Rin Tin Tin, 1922",
-      "what": "Rin Tin Tin was found as a puppy in France in September 1918 and became a film star after Lee Duncan brought him to California. As his fame grew, fan letters arrived by the thousands, and the replies went out on a glossy portrait signed with an inked paw print above the words 'Most faithfully, Rin Tin Tin.'",
+     "what": "Rin Tin Tin was found as a puppy in France in September 1918 and became a film star after Lee Duncan brought him to California. As his fame grew, fan letters arrived by the thousands, and the replies went out on a glossy portrait signed with an inked paw print above the words 'Most faithfully, Rin Tin Tin.'",
      "why": "The paw was a signature the dog could not write. Somebody on the near side inked the print and sent the portrait, so the answer looked like an act of the animal rather than a piece of office work. The photograph was the reply, and the bond it answered was real.",
      "law": 2
     },
@@ -295,7 +295,7 @@
     {
      "name": "The smile from inside the costume",
      "show": "Disneyland, 1955",
-      "what": "Mickey Mouse has been a central figure at Disneyland since the park opened in 1955. The figure who poses for photographs with guests is a non-speaking costumed performer; the face is a mask and the reply is a body.",
+     "what": "Mickey Mouse has been a central figure at Disneyland since the park opened in 1955. The figure who poses for photographs with guests is a non-speaking costumed performer; the face is a mask and the reply is a body.",
      "why": "The guest can know the figure is a costume and still asks the character, not the performer, to respond. The photograph is the receipt: it records a meeting with a figure who cannot speak, staged by someone who can. The smile is manufactured on the near side and worn on the far one.",
      "law": 6
     },
@@ -326,7 +326,7 @@
     {
      "name": "The queue behind Miss Cleo",
      "show": "The Psychic Readers Network, 1997",
-      "what": "In the late 1990s the television ads said 'Call me now' and promised Miss Cleo, a psychic. The calls went to the Psychic Readers Network, where other readers took them; lawsuits later alleged that some were actors reading scripts. Miss Cleo was a character performed by Youree Dell Harris.",
+     "what": "In the late 1990s the television ads said 'Call me now' and promised Miss Cleo, a psychic. The calls went to the Psychic Readers Network, where other readers took them; lawsuits later alleged that some were actors reading scripts. Miss Cleo was a character performed by Youree Dell Harris.",
      "why": "The ad made the far end one named woman; the line made her a queue. The caller paid by the minute for a private reading and got a reply manufactured by a staff. The voice was real, the attention was a product, and the meter was the relationship.",
      "law": 5
     },
@@ -388,7 +388,7 @@
     {
      "name": "The performer inside the avatar",
      "show": "Kizuna AI, 2016",
-      "what": "Kizuna AI debuted in November 2016 as a virtual YouTuber who called herself an artificial intelligence. The character was performed by a voice actor, Nozomi Kasuga, whose role was not disclosed until 2020; the avatar was animated with MikuMikuDance. The videos presented a personality who addressed the viewer directly from a room that did not exist.",
+     "what": "Kizuna AI debuted in November 2016 as a virtual YouTuber who called herself an artificial intelligence. The character was performed by a voice actor, Nozomi Kasuga, whose role was not disclosed until 2020; the avatar was animated with MikuMikuDance. The videos presented a personality who addressed the viewer directly from a room that did not exist.",
      "why": "The performer was real, the face was drawn, and the claim of artificial intelligence was part of the act. The viewer could know the person was not in the room and still talk back to the avatar. The reply was manufactured by a body and a rig on the near side, and the character was held by the people who built her.",
      "law": 3
     },
@@ -420,7 +420,7 @@
      "name": "The influencer who was written by a team",
      "show": "Lil Miquela, 2016",
      "what": "Lil Miquela appeared on Instagram in 2016 as a 19-year-old Brazilian American model and musician. She was a computer-generated character created by Trevor McFedries and Sara DeCou at the Los Angeles studio Brud, and maintained by a nine-person team that included a designer, brand manager, creative producer, stylist and software engineer.",
-      "why": "The account spoke in the first person and posted about its own unrealness; the voice was a production. A follower could know the figure was an illustration and still feel addressed by a person who was not there. The reply was manufactured by a team, and the figure who appeared to send it was the far end.",
+     "why": "The account spoke in the first person and posted about its own unrealness; the voice was a production. A follower could know the figure was an illustration and still feel addressed by a person who was not there. The reply was manufactured by a team, and the figure who appeared to send it was the far end.",
      "law": 3
     },
     {
@@ -450,7 +450,7 @@
     {
      "name": "The girlfriend who came back as text",
      "show": "Project December, 2020",
-      "what": "On Sept. 24, 2020 Joshua Barbeau paid $5 for an account on Project December and built a chatbot from Jessica Pereira's text messages. Pereira had died in 2012 at 23; Barbeau called her his fiancee after her death, with her family's blessing. The bot answered in a voice built from her writing, and the conversation had a finite number of exchanges before its credits ran out.",
+     "what": "On Sept. 24, 2020 Joshua Barbeau paid $5 for an account on Project December and built a chatbot from Jessica Pereira's text messages. Pereira had died in 2012 at 23; Barbeau called her his fiancee after her death, with her family's blessing. The bot answered in a voice built from her writing, and the conversation had a finite number of exchanges before its credits ran out.",
      "why": "The reply was generated by a model that had never met her, from a sample of her writing. The grief was real and the companion was manufactured, and the limit was the point: the bot could die again when the credits ran out, so Barbeau conserved her time. A conversation with the dead was sold by the credit.",
      "law": 4
     },
@@ -470,6 +470,125 @@
      "law": 6
     }
    ]
+  },
+  {
+   "slug": "top8-2026-10-31-sport-faith",
+   "title": "Top 8 parasocial applications in sport",
+   "home_title": "Top 8: The Team",
+   "home_hook": "A club you did not choose, a player who does not know your name, and a loyalty that outlasts both.",
+   "dek": "The bond that survives a transfer, a defeat and a change of owner. Ranked by how completely the club replaced the person.",
+   "kicker": "Daily edition · 31 OCT 2026",
+   "image": null,
+   "law": 1,
+   "standfirst": "Sport is the one fandom where the object is supposed to change every season and the attachment is supposed to stay. The eight below are the mechanism at work: the chant, the shirt, the stadium, the player who is loved as a position rather than a man.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "Identification with a team",
+     "show": "Sport · 1880",
+     "what": "Supporting a club as a condition of belonging to a place, a class, a family, or a city.",
+     "why": "A parasocial bond with an address. The team is the only large-scale attachment in modern life that arrives with geography attached, which is why a relegation is felt as a personal event by people who have never met the players.",
+     "law": 1,
+     "entry": "sports-identification",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "The baseball the papers built",
+     "show": "Sport · 1927",
+     "what": "In 1927 Babe Ruth hit sixty home runs and became the most replayed figure in a game most fans knew through print.",
+     "why": "The season the man and the persona arrived together. Ruth's 1927 season - sixty home runs in a 154-game schedule, a single-season record that stood until Roger Maris hit sixty-one in 1961, with the Yankees' Murderers' Row around him - is the on-field anchor this entry leans on without being about.",
+     "law": 1,
+     "entry": "babe-ruth",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "The athlete and the city",
+     "show": "Sport · 1920",
+     "what": "Support for a team or an athlete as a bond with a person, a place and a lineage, frequently inherited from a parent.",
+     "why": "The most durable parasocial bond in the world and the one least discussed as parasocial, because it is assumed to be about sport. The transfer window is the standard betrayal story, which is a parasocial grievance wearing a football shirt.",
+     "law": 1,
+     "entry": "the-atletefan-bond",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The transfer",
+     "show": "Sport · 1900",
+     "what": "A player who has been attached to for years leaves, and the grievance is felt as betrayal by the entire locality.",
+     "why": "The standard parasocial grievance story, and the one nobody frames as parasocial. The word for the feeling is betrayal, which is a relationship word, applied to a person who never signed anything.",
+     "law": 1,
+     "entry": "the-transfer",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "Kobe Bryant",
+     "show": "Sport · 2020",
+     "what": "Public mourning for an athlete that drew on the athlete's own stated bond with a young fan.",
+     "why": "The clearest documented case of a parasocial bond being reciprocated deliberately for decades and then cashed in publicly after death. The fans were not being had; they were being shown the receipt.",
+     "law": 1,
+     "entry": "kobe",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "The table that carried a club nobody came to",
+     "show": "Sport · 1992",
+     "what": "Twenty-two clubs left the Football League in one move to found a closed competition, and in its first season the twelfth-placed club was the one with the smallest crowds in the division.",
+     "why": "This is the league-world shelf in its purest documented form: the object is the arrangement, not anyone in it. Wimbledon played a Premier League fixture on 26 January 1993 before a crowd of just over 3,000 - still the lowest attendance recorded in the competition - and finished twelfth, clear of the relegation battle.",
+     "law": 1,
+     "entry": "the-league-that-closed",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "The coach",
+     "show": "Sport · 1900",
+     "what": "An adult with authority over a child for years, who is remembered partly by how they made them feel at nine.",
+     "why": "A bond that shapes adult attachment patterns decades later, entirely outside anything the parasocial literature studies. Most people's template for one-sided attachment is a coach and they have never been asked about it.",
+     "law": 1,
+     "entry": "the-coach",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "After Diego",
+     "show": "Sport · 1998",
+     "what": "A church founded in Rosario on Maradona's thirty-eighth birthday, with a calendar counted from him and a baptism performed with a football - the fan bond that wrote itself a liturgy while its god was still alive.",
+     "why": "They built a church out of a football player, and they date everything from him. The Iglesia Maradoniana describes itself as a parody religion centred on Diego Maradona, and it was founded in Rosario, Argentina, on 30 October 1998 - his thirty-eighth birthday - by Héctor Campomar, Alejandro Verón and Hernán Amez. Its years are counted from his name: d.",
+     "law": 1,
+     "entry": "iglesia-maradoniana",
+     "stage": "featured"
+    }
+   ],
+   "theme": "sport-faith",
+   "released": "2026-10-31",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Pope Leo tells Villanova and Notre Dame basketball teams he is neutral. Prevost has other ideas",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOekMwbGFxOXU2eGtKaWxCVUtwWjhYU0J4RWhqcnJ1LXgtUjFubGtpZ2FxcGgtRVE3Z1h1ZVgwemVpWGduRjRJdTZwampiNlBKSnEtRkZVNnVRSGNfVldzSmRIaXUxeDI2WGRkMDdwcDN6UGhoX0lncExHWWYtMGFtTjMxdktIVmZGZnlqRlZtRE4wU09zM3VwNEVfejRxOEtyY3VnOTRfelNJRjlaclhsNWhpRFR6WldZRjZhT0NMRHRJVVJqbmo4?oc=5",
+     "publisher": "WTOP News",
+     "at": "2026-10-31T13:12:58+00:00"
+    },
+    {
+     "title": "Inbox: That night belonged to Wisconsin sports fans",
+     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNclh4QkVqWk9oZzZuYUhDZnNSdHI1NHh6eC04dFFEbkUzckttQ2VNcmpwOWhIX1VuSkk1MF9RSVRJV1ZON1FnTVQweW4zaGRrTG40WVFzVkY4cGJBVTJHNmxmRFV0czdwbmFoSm9WbXh5R19GeVNYQUFKZ3pKMHpXbWhsZjRJTkcyb3JPcnVkY3YweUZoOFE?oc=5",
+     "publisher": "Green Bay Packers – packers.com",
+     "at": "2026-10-31T13:01:20+00:00"
+    },
+    {
+     "title": "I was never a sports fan. Then came the Valkyries",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1QZ0NMd2dqTldQMkhqQ2VvbnVRTl9ZdGZXaTVrUWpNQzJaVHBHY09Sb0pUY1hZSllfSGhudFNMaWdsWEFaeXJtbWs1THptRDBtd25YemRlTzBsOFcwNWRuMmJ2cXJzRE9vUDdOUjNaUHZoRnJUbDAyZA?oc=5",
+     "publisher": "The San Francisco Standard",
+     "at": "2026-10-31T13:00:00+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
