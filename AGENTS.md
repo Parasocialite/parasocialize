@@ -5027,16 +5027,44 @@ it gets resolved.
       `tools/install_daily_task.ps1`, is a dry run by default and registers a
       Windows task only with `-Register`; it was not registered here.
     - **`origin` was corrected** to
-      `https://github.com/Parasocialite/parasocialize.git` (config only).
-      Nothing was committed, pushed or uploaded: the repository is still empty,
-      so as of this entry the scheduled job is *ready* rather than *running*.
-      That is the one remaining action, and it is a publishing decision rather
-      than a code fix.
+      `https://github.com/Parasocialite/parasocialize.git` and, with the
+      author's approval, the local history was committed and pushed. The
+      repository now has `main`, both workflows are active, and a dispatched
+      `daily` run completed green (run **41203448336**, 2m00s) with **no
+      follow-up commit**: the Linux build matched the committed tree byte for
+      byte. Cloudflare upload is still manual and has not happened.
+    - **The first CI runs were the audit the local machine could not perform,
+      and every failure was a local-only assumption.**
+      - `build_deploy.optimise()` imports Pillow and the runner had none.
+        `requirements.txt` names it and the workflow installs it.
+      - `verify_taxonomy.py` still carried a hardcoded
+        `C:\Users\...\parasocialize` root - item 53's landmine, surviving in
+        the source tier. On Linux it read nothing and failed. **Fourteen tools**
+        with the same literal were converted to
+        `pathlib.Path(__file__).resolve().parent.parent`; every gate on the
+        daily path now computes its root.
+      - `gates.py` captured a red check's stdout and threw it away, so the log
+        said `RED verify_taxonomy` and nothing else. It now prints the failed
+        check's output. **A gate that cannot say why it failed costs a round
+        trip per failure.**
+      - `test_front_copy.py` wrote CRLF unconditionally, invisible on Windows
+        and a 130-line rewrite of `data/front_copy.json` on Linux, which the
+        daily job then committed. It now preserves the fixture's newline style
+        and asserts the restored bytes exactly.
+      - `requirements.txt` is a `.txt`, so `build_deploy` copied it into the
+        deploy root beside `robots.txt`. Excluded by name.
+    - **The pattern:** a loop that has only ever run on the machine that wrote
+      it is a loop with an untested half. None of those defects was visible to
+      the local gates, and each would have stopped the first scheduled run -
+      which is exactly the failure the scheduler was supposed to prevent.
 
     **Verification.** `python tools\daily.py` exit 0. All three histories now
     span **2026-10-19 -> 2026-10-31**, 13 days each, **8 rebuilt and today
     observed**; `archive.py --check` green; `gates.py --source`, `--post` and
-    `--visual` all green; `plan_next.py --check` green. Today's show is the
+    `--visual` all green; `plan_next.py --check` green; the GitHub `daily` run
+    **41203448336** green in 2m00s with its artifact uploaded and **no new
+    commit**, which is the proof that the Linux build and the committed tree
+    agree. Today's show is the
     cartoons list, the register is **Encounter**, the parasocialite is **Queen
     for a Day**. `dist/` is 752 files, and `make_zip` wrote
     `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **752 files, 15.17 MB,
