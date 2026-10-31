@@ -5053,6 +5053,19 @@ it gets resolved.
         and asserts the restored bytes exactly.
       - `requirements.txt` is a `.txt`, so `build_deploy` copied it into the
         deploy root beside `robots.txt`. Excluded by name.
+    - **The counter's first live run found the last two.** Its commit step
+      staged only `data radar radar.xml aisle shelf`; `aisle` no longer exists,
+      and the `|| true` hid the pathspec error. More importantly, the pages
+      `build_cards.py` had just rewritten were left unstaged, so the new
+      `git pull --rebase` refused with "You have unstaged changes" and the job
+      died before pushing anything. Both writers now share a `repo-write`
+      concurrency group, stage the whole tree, and **a failed push fails the
+      job** instead of printing an annotation over a green run. The sweep ran
+      **2026-10-31T13:09Z**: 12 candidates, 11 fresh, 11 filed raw (no model
+      key), queue 60. The plan's top action then moved from `the sweeper` to
+      `divine` - 15 entries and still no story - which is the planner doing the
+      one thing a hand-written queue could not: noticing that the pipeline is
+      awake and the next gap is editorial.
     - **The pattern:** a loop that has only ever run on the machine that wrote
       it is a loop with an untested half. None of those defects was visible to
       the local gates, and each would have stopped the first scheduled run -
@@ -5063,12 +5076,12 @@ it gets resolved.
     observed**; `archive.py --check` green; `gates.py --source`, `--post` and
     `--visual` all green; `plan_next.py --check` green; the GitHub `daily` run
     **41203448336** green in 2m00s with its artifact uploaded and **no new
-    commit**, which is the proof that the Linux build and the committed tree
-    agree. Today's show is the
+    commit**, and the `counter` run **41204273465** green after the commit-step
+    fix. Today's show is the
     cartoons list, the register is **Encounter**, the parasocialite is **Queen
     for a Day**. `dist/` is 752 files, and `make_zip` wrote
     `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **752 files, 15.17 MB,
-    tree sha `28051a8316491f4b`**, index at root, no nested `dist/`, integrity
+    tree sha `c7c887c237758599`**, index at root, no nested `dist/`, integrity
     ok. **Not uploaded.**
     - **The general form.** A green gate is a statement about the artefact it
       read, and none of these gates read the *calendar*. The date-seeded pages
