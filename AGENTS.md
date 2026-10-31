@@ -49,8 +49,14 @@ each learned the hard way:
   `Select-String`; see the filtering trap below.
 
 ```powershell
-python tools\build_cards.py     # generate site from data/
-python tools\build_deploy.py    # build dist/ incl. _redirects and 404.html
+python tools\daily.py           # THE daily loop: reconcile, plan, build, gates,
+                                #   package; --check reports without writing
+python tools\archive.py --check # every day since the epoch has a record
+python tools\archive.py --reconcile  # close a provable gap, marked rebuilt
+python tools\plan_next.py       # measured categorical work order -> data/plan.json
+python tools\build_cards.py     # generate site from data/ (build_deploy does too)
+python tools\build_deploy.py    # rebuild pages, then build dist/ incl. _redirects
+                                #   and 404.html; --no-build packages the pages on disk
 python tools\ledger.py          # every figure the site publishes, and it fails
                                 #   if the record statuses do not reconcile
 python tools\check_internal_leaks.py  # internal vocabulary in reader-visible
@@ -137,7 +143,7 @@ gate is how a red gate gets committed — see the `the-shadow` chronology item i
 Traps for the round that actually happened. In PowerShell:
 
 ```powershell
-foreach ($g in @('build_cards','build_deploy','citation_audit','cull_audit',
+foreach ($g in @('build_deploy','citation_audit','cull_audit',
                  'verify_taxonomy','verify_narrow','link_audit')) {
   python "tools\$g.py" > $null 2>&1
   if ($LASTEXITCODE -ne 0) { Write-Output "RED: $g" }
@@ -672,8 +678,8 @@ ship a falsehood on this site and it was done once already.
 ## Architecture
 
 - `data/encyclopedia.json` — the single source of truth. 240 entries.
-- `tools/ledger.py` — **every figure the site publishes.** `/ledger/`, the
-  front-page band and `report_current_state.py` all read it, because two
+- `tools/ledger.py` — **every figure the site publishes.** `/ledger/` and
+  `report_current_state.py` both read it, because two
   definitions of "openable" on a site whose argument is that it does not blur
   its own states is the exact defect the ledger exists to prevent. It refuses to
   emit if the record statuses do not sum to the record total.
@@ -688,6 +694,25 @@ ship a falsehood on this site and it was done once already.
   reader-visible prose and is wired into the source tier.
 - `tools/gates.py` — the tiered runner. Use it instead of calling the tools in
   your own order.
+- `tools/daily.py` — **the daily loop.** Reconciles the three daily records,
+  measures the categorical plan, rebuilds, draws plates, packages `dist/`, runs
+  the post and source tiers, writes `data/daily.json`, packages again and then
+  proves the deployed tree carries today's rotation. `--check` is the same
+  contract without writes and is the thing a scheduler or a returning agent runs
+  first. `--visual` adds the Chrome tier; `--no-zip` skips the archive.
+- `tools/archive.py` — **the daily records' auditor and repair path.**
+  `--check` fails on a day with no record. `--reconcile` closes a gap only when
+  the inputs behind that day were frozen before it, and marks the entry
+  `reconstructed` with `reconstructed_on` and `inputs_sha256`; every record page
+  prints a `rebuilt` tag beside it. Wired into the source tier.
+- `tools/plan_next.py` — **the measured categorical work order.** Counts media
+  days, catch-all share, storyless categories, thin decades, top-8 window
+  arithmetic and pipeline staleness, writes `data/plan.json`, and prints the
+  ranking. It names gaps and never authors a source; `/desk/` renders the top six.
+- `tools/install_daily_task.ps1` — **local scheduler fallback.** Dry-runs unless
+  `-Register` is passed. It exists because the GitHub workflow cannot run until
+  the local history reaches a real remote, and a repository that is never pushed
+  has no automation however green its cron file looks.
 - `tools/t8_pool.py` — the Top 8 lifecycle. **`featured` is uncapped on
   purpose:** it is the eligible pool and the page shows eight of them, so a cap
   makes rotation unreachable by construction. It curates the newest live list
@@ -697,11 +722,14 @@ ship a falsehood on this site and it was done once already.
   Everything lands `verified: false` and promotion is a separate, human step.
 - `tools/build_cards.py` — all page generation, the citation board, section
   fronts, and the entry Watch block (renders only when a real `video` URL exists).
-- `tools/build_deploy.py` — `dist/`, `/e/<id>` redirects for all 240 entries, and
-  **CSS/JS fingerprinting.** Assets are emitted as `<stem>.<sha256[:10]>.ext`,
-  every reference is rewritten, and a stale unhashed name is refused — because
-  `immutable` caching on a stable filename is how a deploy goes out and nobody
-  sees it.
+- `tools/build_deploy.py` — **the fresh-build entry point.** Runs
+  `build_cards.py` then `plate.py`, so the date-seeded features are computed for
+  today, then builds `dist/`, `/e/<id>` redirects for all 240 entries, and
+  **CSS/JS fingerprinting.** `--no-build` packages the pages already on disk and
+  is what `gates.py` uses after it has run the two builders itself. Assets are
+  emitted as `<stem>.<sha256[:10]>.ext`, every reference is rewritten, and a
+  stale unhashed name is refused — because `immutable` caching on a stable
+  filename is how a deploy goes out and nobody sees it.
 - `data/ledger_history.json` — **STATEFUL AND TRACKED IN GIT.** Appended by
   `record_snapshot()` only when a watched figure moves, one entry per day however
   many builds run. `/ledger/feed.xml` is generated from it, so the feed is the
@@ -717,7 +745,9 @@ ship a falsehood on this site and it was done once already.
   shows. **Do not regenerate it, and do not delete it to "clean up"** — the
   sequence of what was on show is the file's whole value, and a day nobody
   built on cannot be reconstructed. `/top8/` renders it as the day record
-  (`.t8rec`), names resolved from the current data at render time.
+  (`.t8rec`), names resolved from the current data at render time, and
+  `/top8/record/` renders the whole sequence at full length, one line per
+  day, from the same file.
 - `data/register_history.json` — **STATEFUL AND TRACKED IN GIT.** One record
   per UTC day: which register was put forward on `/taxonomy/`, appended by
   `build_cards.record_register_day()` from the same `register_of_day()` the
@@ -727,7 +757,27 @@ ship a falsehood on this site and it was done once already.
   recomputability is exactly why the file exists: if either changes, only
   this sequence shows what the page actually said. `/taxonomy/` renders it
   as the day record (`.tx-days`), names resolved from the current data at
-  render time.
+  render time, and `/taxonomy/record/` renders the whole sequence at full
+  length, one line per day, from the same file.
+- `data/parasocialite.json` — the eight-figure roster behind the front page's
+  daily spotlight: id, display name, `valence` (`harmonious`, `manipulative`
+  or `obsessive`) and the two-sentence `breakdown` printed in the block. **The
+  roster is an editorial instrument** — membership and the copies are the
+  author's call — and the one mechanical contract is that `harmonious` sits on
+  odd indices, so the page alternates a warm case and a costly case rather
+  than opening on two bleak days in a row. `tools/test_parasocialite_rotation.py`
+  holds that contract.
+- `data/parasocialite_history.json` — **STATEFUL AND TRACKED IN GIT.** One
+  record per UTC day: which parasocialite was put forward on the front page,
+  appended by `build_cards.record_parasocialite_day()` from the same
+  `parasocialite_of_day()` the block renders from, so the record and the block
+  cannot describe different figures. **Do not regenerate it, and do not delete
+  it to "clean up"** — the rotation is recomputable from the date and the
+  roster order, and that recomputability is exactly why the file exists: if
+  either changes, only this sequence shows what the page actually said. The
+  block renders it as the day record (`.psotd-days`), names resolved from the
+  current roster at render time, and a member no longer in the roster is shown
+  as such rather than dropped.
 - `tools/add_source.py` — citation insertion + the THESIS set.
 - `tools/citation_audit.py` — status fields vs what they promise. Ratcheted, and
   wired into `link_audit.py`.
@@ -841,15 +891,28 @@ is luck rather than a gate. **The durable fix is to compute this block**, and
 until it is computed, treat any number in it as a claim awaiting a tool.
 
 **Gate order matters.** `plate.py` draws from the data, so it must run *after*
-`build_cards.py` and *before* `build_deploy.py`:
+`build_cards.py` and *before* `build_deploy.py`. `build_deploy.py` enforces
+that order itself, because a packaging step that only copies ships whatever day
+the pages were last generated - which is how the date-seeded top 8, register and
+parasocialite sat on 21 October while every gate was green. The full daily loop,
+including the archive reconciliation, the measured plan and both non-browser
+gate tiers, is one command:
 
 ```powershell
-python tools\build_cards.py; python tools\plate.py; python tools\build_deploy.py
+python tools\daily.py
 ```
 
-Run the other way round and `build_deploy` reports 404s on plates that do not
-exist yet, which is a true report of the tree it was given and a false report of
-the project.
+`python tools\build_deploy.py` remains the fresh packaging command when only the
+deploy tree is wanted. `gates.py` keeps the explicit three-step build sequence
+and passes `--no-build` to `build_deploy`, because the post tier has just run
+`build_cards` and `plate` and running them twice would append the day's history
+twice (a no-op, but a second build is still a second build). `--no-build` is for
+a caller that has just run those steps; used by hand it packages whatever is on
+disk, and can ship a stale day.
+
+Run the sequence the other way round and `build_deploy` reports 404s on plates
+that do not exist yet, which is a true report of the tree it was given and a
+false report of the project.
 
 ## Open work
 
@@ -1760,7 +1823,11 @@ the project.
 ## Deploy note
 
 `dist/` must be re-uploaded after each build. It is routinely ahead of
-production.
+production. `python tools\daily.py` reconciles the day's record, rebuilds,
+runs the post and source gates and packages `dist/` in one pass, so it is the
+command to run before an upload. `python tools\build_deploy.py` is the
+packaging half on its own; `--no-build` is for `gates.py` and for the daily
+loop's final re-package, never for a deploy by hand.
 
 13. **Asked to cull the extra-sensory references, the honest answer was that
    there are none — and the check that looked like it found thirty was wrong.**
@@ -4373,3 +4440,612 @@ it gets resolved.
       before the epoch, the ledger's append/no-op/replace rules, the
       unknown-register rendering and the section as rendered, in the source
       tier beside `test_front_copy.py`.
+82. **The front page puts one figure forward per UTC day, and the day is
+    recorded, because the same contract has now been wrong three times in this
+    repository and this one was built to it from the first line.** The roster
+    lives in `data/parasocialite.json` - eight members with a `valence` and a
+    two-sentence `breakdown` - and `parasocialite_of_day()` is deterministic
+    from the UTC date and the roster's file order, anchored on
+    `PARASOCIALITE_EPOCH` (2026-10-19, the day it shipped, because the roster
+    has no release dates to anchor on the way the top-8 lists do).
+    `record_parasocialite_day()` appends the day through
+    `data/parasocialite_history.json` before the front page renders - the
+    ledger's snapshot-before-feed ordering - from the same function the block
+    renders from, so the record and the block cannot describe different
+    figures. One entry per date; a same-day rebuild is a no-op; a mid-day
+    change replaces the day rather than writing a second one; names resolve at
+    render time so renaming a member does not rewrite history.
+    - **Roster membership and the valence labels are editorial instruments and
+      are the author's call.** The two entries the brief mandated
+      (`nathan-fielder`, `the-beaver`) sit at the head of the cycle, and the
+      other six were chosen to make the alternation mean something - and the
+      one mechanical contract the test enforces is that `harmonious` sits on
+      odd indices, so consecutive days never open on two bleak cases. **If the
+      roster is ever reordered, that contract is what the test is for.**
+    - **The block names the medium *family*, not the chip values.** The entry
+      page prints "television scripted" and "television unscripted" as chips
+      and that is right there; the front-page line reads "television", because
+      the other spelling reads like a database. First segment, deduplicated,
+      order kept.
+    - **A roster entry whose encyclopedia record is gone degrades to the hub
+      rather than printing a dead link with a name on it**, and a missing
+      roster file degrades the page to no block rather than taking every other
+      page down with it - the block is a spotlight, not the site's spine.
+    - **The record shows a member no longer in the roster as "A figure no
+      longer in the roster"** rather than dropping the day: a day that
+      happened is a fact even when the thing it showed is gone, the same rule
+      the register record follows for a register that is no longer defined.
+    - `tools/test_parasocialite_rotation.py` covers the cycle and the wrap,
+      dates before the epoch, the alternation contract, the append/no-op/
+      replace rules, the unknown-member rendering and the block as rendered on
+      the front page, in the source tier beside `test_register_rotation.py`.
+      **Confirmed red by moving the epoch** - the failure names the anchor
+      before anything writes, which is the property that matters for a test
+      whose later steps append to a tracked file.
+83. **The front page's research door was publishing a count seven behind the
+    corpus, and the code comment above it said the count was computed.** Found
+    by *looking at the front page* while shipping the parasocialite block: the
+    live copy edition (2026-10-18) rendered "248 entries, every claim cited."
+    while `data/encyclopedia.json` held 255. No gate had an opinion about it -
+    `link_audit`, `check_css`, `md_leak` and `check_internal_leaks` all read
+    the page and none of them reads a number in a sentence, which is the defect
+    this file names twice already (items 43 and 77): **a number inside a
+    paragraph is not obviously a claim, which is what makes it the dangerous
+    kind.**
+    - **The mechanism was that the count was typed, twice.** `build_front`'s
+      comment claimed "`total` and `nent` stay computed ... a count read from
+      the data cannot drift", and then nothing rendered either number: the door
+      lines are prose from `data/front_copy.json`, both the live edition and
+      the fallback carried literal counts, and the door's f-string interpolated
+      nothing. A comment describing a property the code does not have is this
+      file's own family one more time, and the tell was that the fallback's
+      `f"48 so far."` had no interpolation to do.
+    - **Fixed as tokens, not as a new number.** `door_stories` carries
+      `{total}` and `door_encyclopedia` carries `{nent}`, substituted at render
+      in `build_front()` from the same measured values the rest of the page
+      uses - so the number cannot go stale again, which retyping it would only
+      postpone.
+    - **The 2026-10-18 edition is left exactly as it was**, typed 248 included:
+      the sequence of what the front page actually said is the record, and the
+      substitution is a no-op on an edition from before the tokens. The new
+      edition (2026-10-19) carries the tokens, and `front_copy.py`'s docstring
+      now says never to type a count into a slot.
+    - The general form is worth keeping next to item 82 rather than under it: a
+      rotation that ships on the front page is a reason to read the front page
+      end to end,       because the page is older than the feature being added to it.
+84. **Doubling the top-8 pools exposed a rotation the build did not have.**
+    Batch one of the 365-per-list authoring added eight moments to each live
+    list and interleaved them among the originals; both pools went 8 -> 16.
+    Two defects were found by measuring the result rather than by reading the
+    code, and both are this file's recurring shape: a sentence and a behaviour
+    measured in two places.
+    - **The window would not have rotated past eight per list.** `top8_window`
+      started each day at `(day * 8) % n`. With one list of eight that *was*
+      the list, so nothing could look wrong. With two live lists alternating
+      daily, `(day * 8) % 16` is constant for each list - the parity of the
+      days it appears on never changes - so every showing would have repeated
+      the same eight forever, and the repetition would have looked like a
+      plausible schedule. Fixed by advancing the window once per **showing**
+      of the list: anchor on `released`, order live lists newest-first,
+      `steps = (date - anchor).days`, `showing = (steps - index) // k`,
+      `start = (showing * 8) % n`. With n=16 that is two windows per list;
+      with n=365 and stride 8 the pool is walked completely because
+      gcd(8, 365) = 1. Verified over a week: two distinct windows per list and
+      all 16 moments reached. The script that proves this is not a gate
+      because its assertions depend on pool size; check it when the pools
+      change.
+    - **"8 is the show, not the list."** The pool is every `featured` entry;
+      the page shows eight at a time. That reading is what makes growth safe,
+      and it is why the archive deliberately renders a former list's full pool
+      (16 now) rather than a historical eight. Pagination on the archive
+      becomes mechanical as the pools grow.
+    - **The frame note's count is tokenised.** `t8_frame_note(L, entries,
+      manifest)` carries `{blank}` and `{total}`, filled at render from the
+      same absent-image test `t8_entry` uses, so the sentence cannot disagree
+      with the plates. The typed "two have no photograph" was correct for the
+      shipped eight and false the day the pool grew - item 83's defect in a
+      different sentence. The archive call passes the full pool, so a list
+      with 10 blanks of 16 says so.
+    - **Batch one is interleaved, not appended.** Appending eight imageless
+      moments behind eight photographed ones would have produced an all-plate
+      day followed by an all-photo day per list. New moments sit among the
+      originals at `floor(j * old_n / new_n)`. New entries carry no `image`,
+      no `rank` and no `stage` key, so they default to `featured`.
+    - **`tools/t8_grow.py` is the only writer for a batch.** It validates the
+      required keys, refuses unknown keys, checks each `law` against
+      `data/shop.json`, checks eids across every list and names within the
+      target list, asserts the count, writes `indent=1, ensure_ascii=False`,
+      and dry-runs unless `--apply`. Re-running a batch is refused by the
+      duplicate checks, which is the idempotence that matters for a file this
+      expensive to regenerate by hand.
+    - **Law tags for batch one.** List one's eight are all instances of the
+      shared law 6, so `t8_shared_law` still reads true. List two is mixed and
+      keeps per-entry laws: Crocker 2, No-Prize 5, ELIZA 2, Vera Lynn 3,
+      Amateur Hour 3, answering machine 5, fan magazine 2, Siri 6.
+    - **The list-one title now under-promises its own subject.** "top 8
+      parasocial moments in saturday morning cartoons of the 1990s" cannot
+      honestly hold 365 moments; widening the theme is an editorial call
+      queued for the batch report and needed before the pool outgrows the
+      title further. The title stays until the author rules on it.
+    - The 2026-10-18 record keeps the eight that were on show that day: the
+      history is the record, and windows are never recomputed for past dates.
+      The 2026-10-19 record was replaced in place by the build, as designed.
+
+85. **The front page now presents the eight attachment categories as the
+    front door to the whole corpus, and each one is a real page generated from
+    the placements rather than a tile with nowhere to go.** The standing
+    direction was to build the site "around the top 8 and the 8 ways
+    foundationally". The top 8 was already foundational (items 74, 80, 84);
+    the eight ways were a taxonomy page section. The hub was ten section tiles
+    whose copy promised "one story from each" - a claim that was true when it
+    was written and could not stay true, because the tiles were fed by a
+    rotating window over stories while the categories are the site's actual
+    classification. It also could not change when the corpus changed: a new
+    entry per medium moved nothing on the front page.
+    - **`/ways/<cat>/` is a new generated page type** (`build_way()` in
+      `build_cards.py`, written for all eight categories in `main()` after the
+      encyclopedia loads, because the pages resolve entry ids to titles). Each
+      page carries the category's definition and link into the taxonomy, a
+      rotating lead story drawn from the same ranked pool the top 8 uses, and
+      one shelf per sub-category: every story placed there as a card, every
+      entry placed there with the written reason its placement record gives,
+      and the sub-category's own def/test/not. **The placement reason is the
+      argument, so it is printed rather than kept in a commit.** The eight
+      pages link each other; the taxonomy page links each way back.
+    - **A category with no story says so, in both places a reader looks.**
+      `divine` holds 15 entries and 0 stories. Its front-page tile shows the
+      category blurb and note with "15 entries →" instead of a headline and
+      "stories →", and its ways page shows the honest line "No story is filed
+      on this way yet. The entries below are what the way holds." The
+      alternative - keeping a story tile by faking a lead, or hiding the gap -
+      is the same defect family as `kind: exact` and five of ten hub decks
+      measuring under WCAG AA: **a tile that promises a story it does not
+      have.** The kicker changed from "one story from each" to "Eight ways it
+      shows up · one way in to each", which is true of all eight.
+    - **`verify_ways.py` holds it and is in the post tier.** It reads the
+      deployed tree and asserts: eight `.hub` tiles each linking its way;
+      every placed story and entry appears on its category's page (from
+      `story_placements.json` and `taxonomy_placements.json`, so a placement
+      that moves must move on the page); every page links its definition and
+      the other seven; a storyless category shows the empty state and its tile
+      counts entries rather than stories; and the sitemap lists all eight
+      URLs. **Confirmed red** by mutating a copy of `dist/index.html` (tile
+      repointed, kicker changed) and deleting a story link from a ways page -
+      it named all three faults, then went green on rebuild.
+    - **The tile/deck material is read from `data/`, never rewritten here:**
+      `taxonomy.json` supplies the copy and the sign; `story_placements.json`
+      supplies story assignment and the reason; `taxonomy_placements.json`
+      supplies entry assignment and the reason. A category that gains its
+      first story changes the tile from entries to stories automatically,
+      which is the property that was missing from the section-tile hub.
+    - **A rotation test caught an unrequested move.** The parasocialite
+      spotlight was moved below the top 8 in the same pass, and
+      `test_parasocialite_rotation.py` - written for item 82 - failed on
+      exactly that: the block's position is part of the feature. Restored
+      above the top 8 rather than weakening the test. **The order is masthead,
+      spotlight, top 8, eight ways, deeper.**
+    - **The lead poster was slicing headlines at 44 characters and cutting
+      mid-word** - "An economics think tank argues parasocial re" - and the
+      defect was found by screenshotting the new page, not by a gate. The
+      slice was not new: `build_section()` has done it since the section
+      fronts shipped, so ten deployed pages were cutting their lead headline
+      the same way. The cut has to land where a person would have stopped
+      (third time this file says it), so both now carry the full headline
+      under `-webkit-line-clamp:3`, which hides whole lines and never a
+      fragment. **The new page inherited the defect from the pattern it was
+      copied from, which is the argument for copying patterns rather than
+      describing them - and for looking at what the pattern renders.**
+    - `probe_hub_contrast.py` still measures the tiles and now refuses unless
+      it finds eight, and `probe_cards.py`'s docstring matches. The `hubs`
+      grid is two columns at desktop and one at phone width; eight tiles are
+      four rows.
+    - **Still owed, and it is editorial:** the taxonomy's ten-section mapping
+      (`/taxonomy/` publishes it) now has a second front door competing with
+      it; whether the section fronts stay equally prominent in the nav is the
+      author's call, not a build's. Nothing was removed to make the eight ways
+      fit.
+
+86. **The top-8 pools took their second grown batch, and list two now runs the
+    manufactured reply from 1894 to 2011 with the thin decades filled.** Eight
+    new moments interleaved among the sixteen already there, pool 16 -> 24,
+    all near-side replies because that is the list's frame. The placement was
+    chosen from item 19's chronological census (1900s 4 entries, 1910s 2,
+    1920s 3, 1940s 6), so the batch is weighted 1894-1950 and every entry
+    carries its own law tag.
+    - **The eight**: Beatrice Fairfax (1898-1920, law 2); the US Post Office
+      answering as Santa (1894-1912, law 3); the secretary to Sherlock Holmes
+      (1932-2005, law 6); Bess Houdini's séances (1926-1936, law 4); Patience
+      Worth (1913-1937, law 6); the autopen (1937-1942, law 5); the Royal
+      Historian of Oz (1919-1942, law 1); Mickey Mouse's mailroom (1933,
+      law 2). Prose in `data/features.json`; per-claim limits and rejected
+      claims in the 2026-10-20 `RESEARCH-NOTES.md` section.
+    - **The batch json is an input, not an artefact.** `tools/t8_grow.py` is
+      the only writer; the file lives in the temp directory because the repo
+      carries the writer and the data rather than the intermediate. It
+      validates required keys (`name, show, what, why, law`), rejects unknown
+      keys and any stage other than `featured`, checks laws against
+      `shop.json`, enforces unique names within the list and unique eids (id,
+      then image, then show) across every list, asserts the pool size before
+      and after, interleaves at `floor(j * old_n / new_n)`, writes
+      `indent=1, ensure_ascii=False`, and dry-runs unless `--apply`. Re-running
+      is refused by the duplicate checks.
+    - **The frame note's count is real, and list two correctly has none.**
+      `t8_frame_note()` carries `{blank}` and `{total}` filled at render, so
+      list one's sentence counts imageless entries in the set actually shown
+      (4 of the 8 on the build day). List two has no photographs at all, so
+      its note is absent by data rather than by omission.
+    - **The rotation was checked on the three showings list two will land on**
+      rather than inferred: 2026-10-20 carries 2 of the new eight, 2026-10-22
+      carries 3, 2026-10-24 carries the remaining 3 - three distinct windows
+      over the 24-moment pool, and all eight appear across the cycle. Both
+      signatures were read from the source rather than remembered:
+      `top8_window(feat, day)` takes the day as a string and returns the list
+      object whose `entries` is the eight; `show_list(feat, today)` returns the
+      list object, not a tuple.
+    - **Rejected or deferred, recorded so batch three does not rediscover
+      them**: Clara Bow's 33,727 April 1928 letters answered by three
+      secretaries (deferred - same shape as the autopen at this distance, and
+      the natural first candidate for a human-labour cluster); Dorothy Dix
+      (shape duplicate of Fairfax); Little Orphan Annie's decoder badge
+      (duplicates the Whiz Comics shape); the Tom Mix club (one fan page,
+      nothing corroborating); "Yes, Virginia" 1897 (outside the window, and
+      the reply came openly from an editor rather than from a manufactured far
+      end).
+    - `gates.py --all` green across all three tiers after the batch, including
+      `verify_ways`, `md_leak`, `citation_audit`, `card_audit` and
+      `image_audit`; the post tier rebuilt `dist/`. No history entry was
+      rewritten - the batch changed a pool, not a past day's show.
+    - **Still owed, unchanged**: list one's title says "Saturday morning
+      cartoons of the 1990s" and cannot hold a growing pool; the retitle is the
+      author's call and is now overdue after batch three. Batch three has since
+      landed; see item 87.
+
+87. **The top-8 pools took their third grown batch, and list one now runs from
+    a comic-book frame to a basement client - while the list's own title became
+    the open editorial debt.** Eight new moments interleaved among the sixteen
+    already there, pool 16 -> 24, all law 6. The batch is all 1990s cartoons,
+    but it deliberately includes weekday, PBS and afternoon shows as well as
+    Saturday-morning ones, because the existing sixteen already do the same.
+    - **The eight**: Batman: The Animated Series, "The client in the basement"
+      (1992); Where on Earth Is Carmen Sandiego?, "The player at the keyboard"
+      (1994); ReBoot, "The User outside the Net" (1994); The Magic School Bus,
+      "The producer takes your call" (1994); KaBlam!, "The hosts in the comic
+      book" (1996); Nick in the Afternoon, "The popsicle stick who read your
+      mail" (1995); Tiny Toon Adventures, "The fan letter with a trap in it"
+      (1991); Freakazoid!, "The fan who had no life" (1995). Prose in
+      `data/features.json`; per-claim limits and rejected candidates in the
+      2026-10-20 `RESEARCH-NOTES.md` section.
+    - **Animaniacs was dropped after being verified, because the show was
+      already on the list.** The existing rank-8 entry "The rabbit in the hat"
+      is the "Good night, everybody!" moment, and its `show` was wrong: it said
+      `Animaniacs, 1990`, while the series premiered 13 September 1993. The
+      field is now `Animaniacs, 1993`. The eid is unchanged because the entry
+      has an image (`t8-8-animaniacs`), so the day record still resolves.
+      **This is a duplicate the batch writer cannot see: not a repeated name or
+      eid, but a repeated show.** The writer checks names within the list and
+      eids across all lists; it does not stop two moments from the same series.
+      Check the show string, not only the eid.
+    - **The window spread was checked on the three list-one showings rather
+      than inferred**: 2026-10-21 carries the Magic School Bus and KaBlam!
+      moments, 2026-10-23 carries Stick Stickly, Tiny Toons and Freakazoid,
+      2026-10-25 carries Batman, Carmen Sandiego and ReBoot - 2/3/3, three
+      distinct windows, all eight across the cycle.
+    - **Rejected or deferred, recorded so batch four does not rediscover them**:
+      Space Ghost Coast to Coast (deferred - strong, but adult late-night and a
+      candidate for a future late-night list); Pepper Ann (the opening
+      object-to-camera gesture is a sight gag, not a reply); Sabrina: The
+      Animated Series (no evidence found for the remembered "Sabrina's Secrets"
+      segment); Beavis and Butt-Head and The Simpsons' "Poochie"
+      (adult/prime-time, off register); Batman's "Legends of the Dark Knight"
+      (a second Batman in one batch).
+    - **The title is now overdue, and it was not changed by a script.** List
+      one reads "Top 8 parasocial moments in Saturday morning cartoons of the
+      1990s"; at 24 moments it still holds as a frame, but it cannot carry the
+      365-moment pool the project is growing toward, and this batch includes
+      weekday, PBS and afternoon entries. Item 86 said the retitle was needed
+      before ~batch 3; batch 3 has landed, so the honest state is that the
+      title is the next editorial decision, not that the batch was blocked on
+      it.
+    - `gates.py --all` green across all three tiers after the batch; dist
+      rebuilt. The deploy zip is regenerated separately and its tree sha is the
+      state to publish, not the previous one.
+
+88. **The top-8 pools took their fourth grown batch, and list two now carries
+    the manufactured reply from a silent-film dog to a chatbot built out of a
+    dead woman's texts.** Eight new moments interleaved among the twenty-four
+    already there, pool 24 -> 32. Each entry carries its own law tag; the
+    list-level law stays `None`. The per-claim limits, rejected claims and
+    source disagreements are in the 2026-10-20 `RESEARCH-NOTES.md` section.
+    - **The eight**: Rin Tin Tin, "The paw that signed the fan mail" (1922,
+      law 2); Clara Bow, "The three secretaries who answered as Clara Bow"
+      (1928, law 2); Disneyland, "The smile from inside the costume" (1955,
+      law 6); The Psychic Readers Network, "The queue behind Miss Cleo" (1997,
+      law 5); Animal Crossing, "The villager who read your letter" (2001,
+      law 6); Kizuna AI, "The performer inside the avatar" (2016, law 3);
+      Lil Miquela, "The influencer who was written by a team" (2016, law 3);
+      Project December, "The girlfriend who came back as text" (2020, law 4).
+    - **Three claims were corrected during review, not accepted from the
+      batch draft.** Rin Tin Tin's "thousands of letters a week" became "fan
+      letters arrived by the thousands" because neither the New Yorker profile
+      nor Wikipedia gives a weekly rate. Kizuna AI's "production crew stayed
+      anonymous" became the sourced fact that Nozomi Kasuga's voice role was not
+      disclosed until 2020; the crew was known. Lil Miquela's `why` put the team
+      at the far end when the team is the near side - the figure who appears to
+      send the reply is the far end.
+    - **The source boundaries that matter for future batches.** Clara Bow is
+      33,727 items in April 1928 with three full-time secretaries, not the
+      encyclopedia's separate 45,000 January 1929 figure; one secondary says
+      May and is recorded rather than followed. Disney's entry claims only a
+      non-speaking costumed performer who poses for photographs; modern Disney
+      characters sign autographs, so "no hugs/no autographs" is not a claim the
+      site can make. Miss Cleo's show year is the network campaign date, not a
+      claim that Harris was on screen in 1997; the entry says "late 1990s" and
+      keeps the script allegation at "lawsuits later alleged" and "some."
+      Project December was a $5 account, the first chat was 24 September 2020,
+      and 3 March 2021 was a later chat the day after Barbeau's 34th birthday;
+      the fiancee framing began after Pereira's death and is not a formal
+      engagement. Animal Crossing's reply is a parser scoring punctuation,
+      capitals, trigrams and word lengths, not comprehension. Lil Miquela was
+      created by McFedries and DeCou at Brud and maintained by a nine-person
+      team.
+    - **The window spread was checked on all four list-two showings, not
+      inferred**: 2026-10-18 carries Rin Tin Tin and Clara Bow; 2026-10-20
+      carries Disneyland and Miss Cleo; 2026-10-22 carries Animal Crossing and
+      Kizuna AI; 2026-10-24 carries Lil Miquela and Project December. Each has
+      exactly two of the new eight, and all eight appear across the cycle. List
+      one remains at 24. `top8_history.json` now records 2026-10-20 alongside
+      2026-10-19.
+    - **Rejected or deferred, recorded so batch five does not rediscover
+      them**: Shirley Temple 1936 (mail volume, but the secretary shape
+      duplicates Clara Bow); Replika 2017; deepfake grief 2024; Aimee Semple
+      McPherson 1924; Cabbage Patch Kids/American Girl/Furby; Kermit/Garfield;
+      Dionne Warwick. Candidates noted but not researched, not rejected:
+      Neopets (1999), SmarterChild (2001), Clippy (1997), The Sims (2000).
+      Disney's Daveland source failed twice with transport errors and was not
+      used; the modern-autograph boundary was checked against Disney's own
+      character page.
+    - `gates.py --all` green across all three tiers after the batch and after
+      the review corrections; `dist/` rebuilt. The deploy zip is
+      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, 774 files, 15.47 MB,
+      tree sha **235dcf30c4e2cf49**, index at root, no nested `dist/`, archive
+      integrity ok. **It has not been uploaded yet.**
+    - **Still owed, unchanged**: list one's title says "Saturday morning
+      cartoons of the 1990s" and cannot hold a growing pool; the retitle is the
+      author's call and is now overdue after batch four. The list-two pool is
+      32 entries, all-no-photo, with its frame note absent by data.
+
+89. **The front-page top 8 lost its 52px art tiles.** They were type-only
+    abbreviations of the show name, not sourced images, and on an all-no-photo
+    list they read as icons without context. The strip is now text-only: rank,
+    title and show, four across on desktop, two at 1080px and one at 760px.
+    `/top8/` keeps its large `.t8-plate` cards, where the show name has room and
+    the no-photo state is explained per entry. Removed `_plate_word()` and the
+    `.t8col-art`, `.t8col-plate` and `.t8col-photo` styles. Checked the 1440px
+    desktop and 390px phone renders; `gates.py --all` green across all three
+    tiers. New deploy zip: `C:\Users\paras\Desktop\parasocialize-SITE.zip`,
+    774 files, 15.47 MB, tree sha **81cee41dcc579913**, index at root, no nested
+    `dist/`, integrity ok. **Not uploaded yet.**
+
+90. **The top-8 page lost its entry plates, and the cartoon list lost its hero
+    photograph.** On `/top8/` and `/top8/archive/`, an entry with no sourced
+    photograph is now text-only: rank, title, show and law. The 300px plate was
+    a show-name icon beside a title that already said the same thing, and on
+    the all-no-photo Part Two it repeated eight times. Removed the plate branch
+    from `t8_entry` and the `.t8-plate*` styles; the six sourced photographs in
+    the cartoon archive remain. Removed Part One's `image` (a 238x240
+    woman-beside-TV photograph shown more than 1000px wide) and removed the
+    `stand` and `.t8-hero-fig` hero from both list renderers, so no list page
+    carries a hero. The frame note now says 18 of 24 carry no picture and calls
+    the absence part of the record. Checked the 1440px `/top8/` and archive
+    renders; `gates.py --all` green. New deploy zip:
+    `C:\Users\paras\Desktop\parasocialize-SITE.zip`, 774 files, 15.46 MB, tree
+    sha **205a8444ad08940b**, index at root, no nested `dist/`, integrity ok.
+    **Not uploaded yet.**
+
+91. **The front page's top 8 is now a live card grid that links into the
+    moment it names, and the homepage's blocks have explicit boundaries.** The
+    section is still `top8_window()`, so the eight are whichever the day's show
+    carries, but each card now has a stable fragment on `/top8/`:
+    `t8_anchor()` builds `t8-{list slug}-{entry name/show}`, never the raw rank,
+    and both `build_top8()` and the archive refuse duplicates. Eight cards
+    carry rank, show, title, hook and `Read this entry`; the title and standfirst
+    come from the list's `home_title`/`home_hook`, the kicker from `kicker` and
+    the raw list's year span, the footer from the exact
+    `View Full Top 8 Analysis & Archive History →` CTA, the archive link only
+    when a second live list exists, and the count from the raw list rather than
+    the eight-entry window.
+    - **The hook is bounded by pixels, not words.** `deck(..., 16)` kept 46-word
+      first sentences whole, so `t8_hook()` now prefers the first sentence at
+      <=24 words and <=118 characters, otherwise the shortest later sentence in
+      that budget, otherwise a clause ending before the limit. The 118 is what
+      fits two lines at the card's measure; a 22-word/150-character ELIZA
+      sentence was the proof. On phone the clamp is three lines, because two
+      clipped the Peter Pan hook at `Do...` while leaving every other card
+      two-line on desktop.
+    - **The section is bounded by two bands rather than ending at the grid.**
+      `hub-band` holds `One way in to each` / `Eight ways it shows up.` and the
+      taxonomy link; `ledger-band` carries the mint edge, `The standard, and the
+      tally.`, the ledger/citations actions, and the boundary copy. The PSOTD
+      record gap was closed by removing the later `.psotd-sec{padding-top:0}`
+      override. Its undefined `var(--ink)` was replaced **only there** with
+      `var(--bg2)`/`var(--paper)`; no global `--ink` was invented.
+    - **The nav breakpoint moved from 1024 to 1160px.** With `Works` after
+      `History` and the longer labels, the canonical row needs 981px; at 1100px
+      it wrapped into a 74px row inside the 64px bar. `probe_nav --check` is
+      green at 1180px row and 1100px overlay. Item 47's 1024px value is
+      superseded; the requirement is the 64px bar and the measured row.
+    - `test_front_copy.py` now asserts the generated page carries the live
+      title, kicker, hook, eight cards with sequential ranks and anchors, a
+      matching anchor target on `/top8/`, the exact CTA, and the raw-list count.
+      `gates.py --all` is green across post, visual and source; screenshots were
+      checked at 1440, 1180 and 390, including the lower bands. New deploy zip:
+      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, 774 files, 15.48 MB,
+      tree sha **e052cb01d7b69fc8**, index at root, no nested `dist/`, integrity
+      ok. **Not uploaded yet.**
+    - **Still owed, unchanged**: list one's title says "Saturday morning
+      cartoons of the 1990s" and cannot hold a growing pool; the retitle is the
+      author's call. List two remains 32 entries with no photographs, so its
+      frame note is absent by data.
+
+92. **The Open Ledger band left the reader flow, the support route got its name
+    back, and the footer became four groups instead of a row of links.** The
+    front page had a full-width ledger band between the top 8 and the ways; it is
+    gone from `build_front` and its CSS, including the 760px rules, is gone too.
+    The standard is still published at `/ledger/` and linked from "The project"
+    in the footer, so the page states the standard without stopping the reader
+    to pitch it.
+    - **Nav labels now match what the pages sell.** `/membership/` was labelled
+      Support and the Ko-fi link was Coffee; the membership page is a $6/month
+      tier titled "Renewals", so Support on it was the wrong word. Membership is
+      now `.cta-quiet` and Support is the orange `.cta` pointing at Ko-fi with
+      `aria-label="Support the archive on Ko-fi"`.
+    - **Footer is brand plus four columns**: Read, Look up, The project, Follow,
+      with About -> credits, Contact -> tip, Archive -> top8/archive, Ledger,
+      Membership, and Support the archive/RSS/Signal/iYi in Follow. The old
+      `.foot-kofi` button is removed. `.foot-grid` is
+      `minmax(250px,1.1fr) minmax(0,2.9fr)`; `.foot-nav` is four equal columns;
+      1040px stacks the brand and keeps four columns, 760px uses two.
+    - **The generated and hand-written footers share the shape.**
+      `build_taxonomy`'s custom footer was changed to the same four groups, and
+      the seven hand-written pages carry `foot-grid foot-mini` so they do not
+      inherit the tall grid. `desk/` uses the mini footer too.
+    - **The 390px support link is one line.** The first pass tightened
+      `.foot-support` but `.foot-col a` outranked it, so the arrow still wrapped;
+      `.foot-col a.foot-support{letter-spacing:.09em}` fixes it, and the arrow
+      uses a non-breaking space so it cannot be orphaned. Checked at 1440, 1180,
+      980 and 390 in a fresh Chrome profile.
+    - `test_front_copy.py` now asserts no `ledger-band`, no Coffee/Buy me a
+      coffee, exact Membership/Support nav markup, About/Contact/Archive/Ledger/
+      RSS/Support footer links, and four `.foot-col` groups in the generated
+      page. `probe_nav --check` is green at 1180px; the row needs 1013px against
+      1075px available, so the 1160px breakpoint is unchanged.
+    - `gates.py --all` green across post, visual and source; `build_deploy` 362
+      pages / 774 files, CSS hash `styles.de6648da76.css`; `make_zip`
+      **2e24ad07d39dab3e**, 774 files, 15.50 MB, index at root, no nested
+      `dist/`, integrity ok. **Not uploaded yet.**
+
+93. **The deploy command had no build step, so a correct rotation shipped a
+    stale day.** For four days the front page's date-seeded Top 8, register and
+    parasocialite stayed on 21 October while every gate was green. The rotation
+    was not the defect: `build_cards.py` computes all three from the UTC date at
+    build time, and the three history files were correct up to the last build.
+    The defect was `build_deploy.py`, whose entire job was to copy the existing
+    HTML into `dist/`. Running it packaged whatever day the tree was last
+    generated, and every check passed because the stale tree was internally
+    consistent. **A packaging step that only copies cannot freshen a
+    date-seeded page, and no link check can see the difference.**
+    - **Fixed at the command people actually run.** `build_deploy.py` now runs
+      `build_cards.py` and then `plate.py` before it touches `dist/`, so
+      `python tools\build_deploy.py` is the one fresh-deploy command. The order
+      is enforced where the packaging happens rather than remembered by the
+      operator. `--no-build` packages the pages already on disk and is what
+      `gates.py` passes, because the post tier has just run the same two
+      builders and must not run them twice. `--check-only` deliberately never
+      builds: a check that rebuilt would be checking its own work.
+    - **The stale history was the tell, and it is now the proof.** Before the
+      fix, `data/top8_history.json`, `data/register_history.json` and
+      `data/parasocialite_history.json` all stopped at **2026-10-21**. After one
+      `python tools\build_deploy.py`: each carries **2026-10-25** exactly once,
+      Top 8 is on the cartoons list with a window different from 21 October's,
+      the register is `reciprocal-edge` (was `cog`), and the parasocialite is
+      The Shadow (was The Beaver). The homepage reads **Part One · 1990–1999**
+      with **Top 8: 90s Saturday Morning Cartoons**, not the manufactured-reply
+      list that was live.
+    - **Verification:** `build_deploy` exit 0, **362 pages / 752 files /
+      20.7 MB**, every local link resolving; `gates.py --all` exit 0 across
+      post, visual and source; a final `--no-build` assembly followed by the
+      post and visual tiers also exit 0, so the package was checked in the tree
+      it was built from rather than an earlier one. `make_zip` wrote
+      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **752 files, 15.16 MB,
+      tree sha `ea63e6add08bd6d6`**, `index.html` at root, no nested `dist/`,
+      archive integrity ok. **Not uploaded yet.**
+
+94. **The automation was a cron file pointed at a repository that does not
+    exist, and the daily record had nine holes nobody could see.** Measured on
+    2026-10-31 rather than inferred: all three histories ran 2026-10-19, 20, 21
+    then jumped to 25 and stopped; **22, 23, 24 and 26-31 had no record at all**
+    (nine days, not the six the last session's note assumed). The front page was
+    still a valid page for 25 October, every gate was green, and nothing in the
+    project asked whether yesterday existed. Three separate deficiencies, one
+    shape: **a process whose failure produces a valid artefact.**
+    - **The scheduler had never run, anywhere.** `origin` pointed at
+      `https://github.com/YOUR-USER/parasocialize.git`, a placeholder. The real
+      repository `Parasocialite/parasocialize` exists and `gh repo view` reports
+      `"isEmpty": true`, `defaultBranchRef.name: ""`, and
+      `actions/workflows` returns `total_count: 0`. So no cron, no workflow, no
+      runner - the YAML was decoration, and the "twice-daily" comment on it was
+      a claim about a machine that had never been switched on. The sweeper's
+      last run was **2026-09-29, 32 days earlier**, which is the same defect on
+      the content side. **A cron on a repository nobody pushed to is not
+      automation.**
+    - **The archive could not distinguish "nobody built" from "nothing
+      happened".** `top8/record/` said "a gap stays a gap", which was honest and
+      also the whole problem: it had no way to say how many gaps, or which days,
+      and no gate read the sequence. `data/daily.json` now records the last run;
+      `tools/archive.py --check` fails on any missing day and is wired into the
+      source tier, so the next gap is red before it is ten days old.
+
+    **The fixes, all three of them commands rather than intentions:**
+    - **`tools/daily.py`** is the loop: reconcile the archive, measure the plan,
+      rebuild, draw plates, package, run the post and source tiers, write the run
+      record, package again (the record is under `data/`, and the freshness gate
+      reads `data/`), prove the deployed tree carries today's rotation, then zip.
+      `--check` is the same contract with no writes and is the first thing a
+      returning agent or a scheduler should run. It aborts on the first non-zero
+      exit; nothing is piped or swallowed.
+    - **`tools/archive.py`** closes a gap only when it is *provable*: the inputs
+      behind that day must have been frozen before the day began. The evidence
+      here is exact - `features.json` was last written **21 October**,
+      `taxonomy.json` and `parasocialite.json` on **19 October**, all before the
+      first missed day. Eight days (22-30 October) were recomputed and written
+      with `reconstructed: true`, `reconstructed_on: 2026-10-31` and an
+      `inputs_sha256`; today (31 October) was left for the live build. Existing
+      records are compared before and after every write and the tool asserts
+      they did not move. Every record surface now prints a **rebuilt** tag with
+      the date and the reason, because an observed day and a recomputation of
+      what would have happened are different claims and a reader can tell them
+      apart. If an input had been edited on or after a missed day, the tool
+      refuses and the gap stays visible. The proof reads the **last commit
+      date** for a clean tracked file and falls back to mtime only when the
+      working tree is dirty, because git does not preserve mtimes: a fresh CI
+      checkout stamps every file at checkout time, which would make every gap
+      unprovable exactly when the scheduler needs the repair path.
+    - **`tools/plan_next.py`** replaces the memory-based batch with a measured
+      work order. It counts media (days at two entries per release), the
+      catch-all share, categories with no story, thin decades, top-8 window
+      arithmetic (`n // gcd(8, n)`), sweeper age and queue depth, and writes
+      `data/plan.json`. `/desk/` renders the top six with the exact command. It
+      authors nothing: `divine` is reported as 15 entries and **0 stories**, and
+      left that way. The first measured order is: the sweeper (32 days asleep),
+      `divine` (no story), `stage` (2.5 days), `comics` and `visual_art` (3.5),
+      then the catch-all share (**91 of 255, 36%**).
+    - **The workflows now match the commands.** `curate-twice-daily.yml` calls
+      `daily.py`, uploads `dist/` and the zip as an artifact, and commits only
+      after the gates pass. `refresh-hourly.yml` lost the `|| true` on
+      `link_audit` - a gate that is allowed to fail is a gate that is off - and
+      now also runs `archive.py --check`. The local fallback,
+      `tools/install_daily_task.ps1`, is a dry run by default and registers a
+      Windows task only with `-Register`; it was not registered here.
+    - **`origin` was corrected** to
+      `https://github.com/Parasocialite/parasocialize.git` (config only).
+      Nothing was committed, pushed or uploaded: the repository is still empty,
+      so as of this entry the scheduled job is *ready* rather than *running*.
+      That is the one remaining action, and it is a publishing decision rather
+      than a code fix.
+
+    **Verification.** `python tools\daily.py` exit 0. All three histories now
+    span **2026-10-19 -> 2026-10-31**, 13 days each, **8 rebuilt and today
+    observed**; `archive.py --check` green; `gates.py --source`, `--post` and
+    `--visual` all green; `plan_next.py --check` green. Today's show is the
+    cartoons list, the register is **Encounter**, the parasocialite is **Queen
+    for a Day**. `dist/` is 752 files, and `make_zip` wrote
+    `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **752 files, 15.17 MB,
+    tree sha `28051a8316491f4b`**, index at root, no nested `dist/`, integrity
+    ok. **Not uploaded.**
+    - **The general form.** A green gate is a statement about the artefact it
+      read, and none of these gates read the *calendar*. The date-seeded pages
+      were valid, the links resolved and the sources reconciled while the site
+      was nine days old and its schedules had never executed. **The missing
+      check was not "is this page correct" but "is this page today's"** - which
+      is now asserted in four places (today's record in each history, the plan's
+      date, the deployed date string and the eight anchors) rather than trusted.

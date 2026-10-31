@@ -1,5 +1,5 @@
 {
- "_note": "Editorial images. Wikimedia Commons, cached locally. Each entry carries a query plus `must` terms that have to appear in the file's own title - a candidate missing one is the wrong picture, not a worse choice. `caption` describes what is IN THE FRAME and never what the story is about. `kind` is exact (the thing itself) or illustrative (the subject matter). An entry with local:null and no available photograph is a real answer.",
+ "_note": "Editorial images. Wikimedia Commons, cached locally. Each entry carries a query plus `must` terms that have to appear in the file's own title - a candidate missing one is the wrong picture, not a worse choice. `caption` describes what is IN THE FRAME and never what the story is about. `kind` is exact (the thing itself) or illustrative (the subject matter). An entry with local:null and no available photograph is a real answer. Distilled records carry `style: distilled` and a `transform` recipe; their `kind` is `illustrative` because the pinned source record, not the frame, establishes identity and date.",
  "aisles": {
   "idol": {
    "topic": "idol",
@@ -1606,31 +1606,67 @@
   {
    "slug": "the-deaf-beloved",
    "for": "encyclopedia",
-   "caption": "Atmosphere for this entry: printed paper, ink and margin, lamplight on a page. Nothing in it can be dated or identified.",
-   "q": "empty landscape atmosphere",
-   "must": [],
+   "caption": "A distilled photograph of the Plato bust, with the inscription behind it.",
    "kind": "illustrative",
-   "note": "GENERATED with FLUX.1-schnell. Author-owned by construction. NOT YET OPENED, so it carries no looked date and no claim of kind beyond unchecked. One in four of the first eight frames rendered a recognisable human figure despite the prompt forbidding one, so generated art here is never trustworthy unopened.",
-   "local": "img/generated/the-deaf-beloved-67ac5a792303.png",
+   "style": "distilled",
+   "note": "DISTILLED from a public-domain or CC0 Commons source with the deterministic recipe in `transform`. The frame is a stylized derivative; `kind: illustrative` means the pinned source record, not the pixels, establishes identity and date.",
+   "local": "img/distilled/the-deaf-beloved-64099c6398-ee050b.png",
    "src": {
-    "title": "Generated locally: FLUX.1-schnell atmosphere",
-    "author": "Parasocialize (generated on the site owner's own machine)",
-    "licence": "Author-owned. Generated, not a third-party work.",
-    "credit": "Generated on this site machine with FLUX.1-schnell. Author-owned.",
-    "page": "https://www.parasocialize.com/encyclopedia/the-deaf-beloved.html"
+    "title": "Plato, MC 571, Roman - Musei Capitolini - Rome, Italy - DSC05999",
+    "author": "Daderot",
+    "licence": "Public domain",
+    "credit": "Daderot / Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Plato,_MC_571,_Roman_-_Musei_Capitolini_-_Rome,_Italy_-_DSC05999.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Plato%2C_MC_571%2C_Roman_-_Musei_Capitolini_-_Rome%2C_Italy_-_DSC05999.jpg",
+    "date": "2019-04-15 08:29:26"
    },
-   "generation": {
-    "model": "flux1-schnell-fp8.safetensors",
-    "seed": 20261053,
-    "steps": 4,
-    "cfg": 1.0,
-    "sampler": "euler/simple",
-    "size": "1152x560",
-    "prompt": "Minimal painterly illustration: printed paper, ink and margin, lamplight on a page. cold clear dawn light, bare ground and long shadow. something made and finished, seen from outside. Composed as atmosphere rather than subject: wide empty space, a few small unidentifiable shapes far from the viewer, no detail, no focal point, deep distance. Grainy print texture. No text, no lettering, no faces, no recognisable animals, no named objects, no architecture, no signage, not a photograph, nothing that can be dated or counted.",
-    "final": "1084x528"
+   "transform": {
+    "source_title": "File:Plato, MC 571, Roman - Musei Capitolini - Rome, Italy - DSC05999.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Plato,_MC_571,_Roman_-_Musei_Capitolini_-_Rome,_Italy_-_DSC05999.jpg",
+    "source_sha256": "64099c639859f8b9ae2b51c36537041b1f714ffe0fb9f97645eba026b5b59ab1",
+    "output_sha256": "fbc2c2dfc6c9225bb89ab796e7d0dbc034a8fca7dd94c3c2321615782ad38b6c",
+    "width": 1600,
+    "height": 900,
+    "crop": "16:9",
+    "focus": [
+     0.5,
+     0.14
+    ],
+    "gamma": 1.04,
+    "seed": 14,
+    "autocontrast": 1,
+    "median_filter": 3,
+    "tones": 6,
+    "palette": [
+     "#0e0804",
+     "#ff5a1f",
+     "#58362a",
+     "#815d4c",
+     "#bea68d",
+     "#f1e7d4"
+    ],
+    "thresholds": [
+     35,
+     75,
+     115,
+     160,
+     210
+    ],
+    "glitch_bands": 3,
+    "band_height": [
+     8,
+     34
+    ],
+    "band_shift": [
+     6,
+     26
+    ],
+    "source_width": 3648,
+    "source_height": 5472
    },
-   "looked": "2026-10-05",
-   "look_reason": "Monochrome, low sun, one distant unidentifiable silhouette walking away. Plato's Phaedrus has the beast shag-eared and deaf, and closes with the lover fleeing while the beast pursues; a figure too far off to be a portrait is the right register. Illustrative, not exact: nothing in frame identifies anyone or dates anything."
+   "cached": "2026-10-21",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: the bust's face, beard, curls and the inscribed stone behind it are clear; the eyes fall into shadow. The identification as Plato comes from the museum record, not from the frame."
   },
   {
    "slug": "roman-imagines",
@@ -1681,6 +1717,396 @@
    },
    "looked": "2026-10-17",
    "look_note": "Opened and checked: two costumed cosplayers standing in a convention hall, wearing Gerald's football jersey and Phoebe's jumper and glasses. The caption describes the frame and nothing the frame cannot support. Illustrative rather than exact - it settles who is in it, not anything about the entry's subject."
+  },
+  {
+   "slug": "clara-bow",
+   "for": "encyclopedia",
+   "caption": "A distilled profile portrait of Clara Bow, from a 1927 studio photograph.",
+   "kind": "illustrative",
+   "style": "distilled",
+   "note": "DISTILLED from a public-domain or CC0 Commons source with the deterministic recipe in `transform`. The frame is a stylized derivative; `kind: illustrative` means the pinned source record, not the pixels, establishes identity and date.",
+   "local": "img/distilled/clara-bow-71ee5e9c18-103ed4.png",
+   "src": {
+    "title": "Clara Bow 1927",
+    "author": "Paramount Photos",
+    "licence": "Public domain",
+    "credit": "Paramount Photos / Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Clara_Bow_1927.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Clara_Bow_1927.jpg",
+    "date": "1927"
+   },
+   "transform": {
+    "source_title": "File:Clara Bow 1927.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Clara_Bow_1927.jpg",
+    "source_sha256": "71ee5e9c189937bbab3998200e4808b4bcbbe4a7a8282525ae6058a7e8c0c0a2",
+    "output_sha256": "48bfe4d5569ff89aff9ea2dff0a2aa8f3607c7a63b455cec6a1ac3ab5ceb45b7",
+    "width": 1600,
+    "height": 900,
+    "crop": "16:9",
+    "focus": [
+     0.5,
+     0.18
+    ],
+    "gamma": 1.1,
+    "seed": 11,
+    "autocontrast": 1,
+    "median_filter": 3,
+    "tones": 6,
+    "palette": [
+     "#0e0804",
+     "#ff5a1f",
+     "#58362a",
+     "#815d4c",
+     "#bea68d",
+     "#f1e7d4"
+    ],
+    "thresholds": [
+     35,
+     75,
+     115,
+     160,
+     210
+    ],
+    "glitch_bands": 3,
+    "band_height": [
+     8,
+     34
+    ],
+    "band_shift": [
+     6,
+     26
+    ],
+    "source_width": 1078,
+    "source_height": 1500
+   },
+   "cached": "2026-10-21",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: Bow's profile fills the right half, with the ear, eye, nose and lips clear; the dark hair and pale wall hold the silhouette. The 1927 date and the identification as Bow come from the Commons record, not from the frame."
+  },
+  {
+   "slug": "gibson-girl",
+   "for": "encyclopedia",
+   "caption": "A distilled close-up of the Gibson Girl, from Charles Dana Gibson's drawing.",
+   "kind": "illustrative",
+   "style": "distilled",
+   "note": "DISTILLED from a public-domain or CC0 Commons source with the deterministic recipe in `transform`. The frame is a stylized derivative; `kind: illustrative` means the pinned source record, not the pixels, establishes identity and date.",
+   "local": "img/distilled/gibson-girl-ff18d01e58-43f929.png",
+   "src": {
+    "title": "Gibson Girl by Charles Dana Gibson",
+    "author": "Charles Dana Gibson",
+    "licence": "Public domain",
+    "credit": "Charles Dana Gibson / Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Gibson_Girl_by_Charles_Dana_Gibson.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Gibson_Girl_by_Charles_Dana_Gibson.jpg",
+    "date": "circa 1891"
+   },
+   "transform": {
+    "source_title": "File:Gibson Girl by Charles Dana Gibson.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Girl_by_Charles_Dana_Gibson.jpg",
+    "source_sha256": "ff18d01e58e004ef2d88e47ce143634b69ddb90133123191b25fce70478f1119",
+    "output_sha256": "62ac03d785ae8363249a531461a9a6879e453f9c299a4e8aa05e3b0d22900566",
+    "width": 1600,
+    "height": 900,
+    "crop": "16:9",
+    "focus": [
+     0.5,
+     0.38
+    ],
+    "gamma": 1.0,
+    "seed": 12,
+    "autocontrast": 1,
+    "median_filter": 3,
+    "tones": 6,
+    "palette": [
+     "#0e0804",
+     "#ff5a1f",
+     "#58362a",
+     "#815d4c",
+     "#bea68d",
+     "#f1e7d4"
+    ],
+    "thresholds": [
+     35,
+     75,
+     115,
+     160,
+     210
+    ],
+    "glitch_bands": 3,
+    "band_height": [
+     8,
+     34
+    ],
+    "band_shift": [
+     6,
+     26
+    ],
+    "source_width": 981,
+    "source_height": 1196
+   },
+   "cached": "2026-10-21",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: both eyes, brows, nose and mouth are clear, and the pen strokes of the hair read across the top; the crown is cropped a little but the face is intact. The Gibson attribution and date come from the source record."
+  },
+  {
+   "slug": "mickey-mouse",
+   "for": "encyclopedia",
+   "caption": "A distilled frame from Steamboat Willie, with Mickey Mouse at a ship's wheel.",
+   "kind": "illustrative",
+   "style": "distilled",
+   "note": "DISTILLED from a public-domain or CC0 Commons source with the deterministic recipe in `transform`. The frame is a stylized derivative; `kind: illustrative` means the pinned source record, not the pixels, establishes identity and date.",
+   "local": "img/distilled/mickey-mouse-b5a21efab9-10f066.png",
+   "src": {
+    "title": "Mickey Mouse - Steamboat Willie (1928)",
+    "author": "Walt Disney / Ub Iwerks",
+    "licence": "Public domain",
+    "credit": "Walt Disney / Ub Iwerks / Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Mickey_Mouse_-_Steamboat_Willie_(1928).jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Mickey_Mouse_-_Steamboat_Willie_%281928%29.jpg",
+    "date": "1928"
+   },
+   "transform": {
+    "source_title": "File:Mickey Mouse - Steamboat Willie (1928).jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Mickey_Mouse_-_Steamboat_Willie_(1928).jpg",
+    "source_sha256": "b5a21efab962cd26debeec72d0fae6ff4438a7674be307a3df28255f3c5b0869",
+    "output_sha256": "1b5a4f7d89c7da949e0de4abcb5c39fd16fbac0ced671143935e15a5dfa99e5e",
+    "width": 1600,
+    "height": 900,
+    "crop": "16:9",
+    "focus": [
+     0.5,
+     0.1
+    ],
+    "gamma": 1.0,
+    "seed": 13,
+    "autocontrast": 1,
+    "median_filter": 3,
+    "tones": 6,
+    "palette": [
+     "#0e0804",
+     "#ff5a1f",
+     "#58362a",
+     "#815d4c",
+     "#bea68d",
+     "#f1e7d4"
+    ],
+    "thresholds": [
+     35,
+     75,
+     115,
+     160,
+     210
+    ],
+    "glitch_bands": 3,
+    "band_height": [
+     8,
+     34
+    ],
+    "band_shift": [
+     6,
+     26
+    ],
+    "source_width": 1000,
+    "source_height": 871
+   },
+   "cached": "2026-10-21",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: Mickey's head, ears, muzzle, body and tail are clear against the deck; a ship's wheel sits at the left. The 1928 film and the character's identification come from the Commons record, not from the frame."
+  },
+  {
+   "slug": "p",
+   "for": "encyclopedia",
+   "caption": "A distilled detail of Pygmalion and Galatea, with the sculptor, the statue and the cupid.",
+   "kind": "illustrative",
+   "style": "distilled",
+   "note": "DISTILLED from a public-domain or CC0 Commons source with the deterministic recipe in `transform`. The frame is a stylized derivative; `kind: illustrative` means the pinned source record, not the pixels, establishes identity and date.",
+   "local": "img/distilled/p-57bf750138-ac82c1.png",
+   "src": {
+    "title": "Pygmalion and Galatea MET DT1969",
+    "author": "Jean-Léon Gérôme",
+    "licence": "CC0",
+    "credit": "Jean-Léon Gérôme / Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Pygmalion_and_Galatea_MET_DT1969.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Pygmalion_and_Galatea_MET_DT1969.jpg",
+    "date": "circa 1890"
+   },
+   "transform": {
+    "source_title": "File:Pygmalion and Galatea MET DT1969.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Pygmalion_and_Galatea_MET_DT1969.jpg",
+    "source_sha256": "57bf75013865ce7befc197ea4a463601e826e4efcbda483cc653b838d50bcb25",
+    "output_sha256": "7452dab56d16527de98790de599c52b68c3c24983d1a8a16ebb988b6354026aa",
+    "width": 1600,
+    "height": 900,
+    "crop": "16:9",
+    "focus": [
+     0.5,
+     0.16
+    ],
+    "gamma": 1.0,
+    "seed": 15,
+    "autocontrast": 1,
+    "median_filter": 3,
+    "tones": 6,
+    "palette": [
+     "#0e0804",
+     "#ff5a1f",
+     "#58362a",
+     "#815d4c",
+     "#bea68d",
+     "#f1e7d4"
+    ],
+    "thresholds": [
+     35,
+     75,
+     115,
+     160,
+     210
+    ],
+    "glitch_bands": 3,
+    "band_height": [
+     8,
+     34
+    ],
+    "band_shift": [
+     6,
+     26
+    ],
+    "source_width": 2938,
+    "source_height": 3722
+   },
+   "cached": "2026-10-21",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: Galatea's back and turned head are central, Pygmalion stands at the left, and the cupid is at the right; the faces are partly shadowed. The title and attribution come from the Met record, not from the frame."
+  },
+  {
+   "slug": "sarah-bernhardt",
+   "for": "encyclopedia",
+   "caption": "A distilled portrait of Sarah Bernhardt, from Nadar's 1864 photograph.",
+   "kind": "illustrative",
+   "style": "distilled",
+   "note": "DISTILLED from a public-domain or CC0 Commons source with the deterministic recipe in `transform`. The frame is a stylized derivative; `kind: illustrative` means the pinned source record, not the pixels, establishes identity and date.",
+   "local": "img/distilled/sarah-bernhardt-9a55bb4dbb-4143b9.png",
+   "src": {
+    "title": "Sarah Bernhardt, par Nadar, 1864",
+    "author": "Nadar",
+    "licence": "Public domain",
+    "credit": "Nadar / Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Sarah_Bernhardt,_par_Nadar,_1864.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Sarah_Bernhardt%2C_par_Nadar%2C_1864.jpg",
+    "date": "circa 1864"
+   },
+   "transform": {
+    "source_title": "File:Sarah Bernhardt, par Nadar, 1864.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Sarah_Bernhardt,_par_Nadar,_1864.jpg",
+    "source_sha256": "9a55bb4dbbcf657e7fe9c3e26180053b802488d59fffae7cd5b07baacf22c5f8",
+    "output_sha256": "0f40f22a7caf4d997261466f4a207d5eaa7716c05697cab1444e905bf0212452",
+    "width": 1600,
+    "height": 900,
+    "crop": "16:9",
+    "focus": [
+     0.5,
+     0.16
+    ],
+    "gamma": 1.45,
+    "seed": 16,
+    "autocontrast": 1,
+    "median_filter": 3,
+    "tones": 6,
+    "palette": [
+     "#0e0804",
+     "#ff5a1f",
+     "#58362a",
+     "#815d4c",
+     "#bea68d",
+     "#f1e7d4"
+    ],
+    "thresholds": [
+     35,
+     75,
+     115,
+     160,
+     210
+    ],
+    "glitch_bands": 3,
+    "band_height": [
+     8,
+     34
+    ],
+    "band_shift": [
+     6,
+     26
+    ],
+    "source_width": 2968,
+    "source_height": 3932
+   },
+   "cached": "2026-10-21",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: Bernhardt's profile, eye, nose, lips and hair are clear against the dark ground; the right shoulder and dress are cropped. The 1864 date and the identification come from Nadar's Commons record."
+  },
+  {
+   "slug": "nancy-drew",
+   "for": "encyclopedia",
+   "caption": "A distilled view of the 1930 cover of The Hidden Staircase, with the title lettering and a figure in the foreground.",
+   "kind": "illustrative",
+   "style": "distilled",
+   "note": "DISTILLED from a public-domain or CC0 Commons source with the deterministic recipe in `transform`. The frame is a stylized derivative; `kind: illustrative` means the pinned source record, not the pixels, establishes identity and date.",
+   "local": "img/distilled/nancy-drew-bf5e2d737a-dae5f6.png",
+   "src": {
+    "title": "The Hidden Staircase - Cover",
+    "author": "Carolyn Keene; R. H. Tandy",
+    "licence": "Public domain",
+    "credit": "Carolyn Keene; R. H. Tandy / Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Hidden_Staircase_-_Cover.png",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/The_Hidden_Staircase_-_Cover.png",
+    "date": "1930"
+   },
+   "transform": {
+    "source_title": "File:The Hidden Staircase - Cover.png",
+    "source_page": "https://commons.wikimedia.org/wiki/File:The_Hidden_Staircase_-_Cover.png",
+    "source_sha256": "bf5e2d737a2e912508163c4aa790013dc087d8a466387337eb86fc5b7e9654c5",
+    "output_sha256": "7a3d2d8970f5869964e2c91cf430d8903916abd71d27efc6218582691b1c3c58",
+    "width": 1600,
+    "height": 900,
+    "crop": "16:9",
+    "focus": [
+     0.5,
+     0.14
+    ],
+    "gamma": 1.05,
+    "seed": 17,
+    "autocontrast": 1,
+    "median_filter": 3,
+    "tones": 6,
+    "palette": [
+     "#0e0804",
+     "#ff5a1f",
+     "#58362a",
+     "#815d4c",
+     "#bea68d",
+     "#f1e7d4"
+    ],
+    "thresholds": [
+     35,
+     75,
+     115,
+     160,
+     210
+    ],
+    "glitch_bands": 3,
+    "band_height": [
+     8,
+     34
+    ],
+    "band_shift": [
+     6,
+     26
+    ],
+    "source_width": 2466,
+    "source_height": 3828
+   },
+   "cached": "2026-10-21",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: 'THE HIDDEN STAIRCASE' is legible across the top, with the two figures and the stair shape below; the top of the title sits close to the crop. The 1930 cover identification comes from the Commons record."
   }
  ]
 }

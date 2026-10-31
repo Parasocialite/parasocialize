@@ -1,29 +1,32 @@
-name: curation
+name: daily
 
-# The front page's ten section tiles are chosen by pick_top(), which reads a
-# twice-daily UTC slot. That selection is only worth anything if the site is
-# rebuilt after the slot flips, so this runs at 00:17 and 12:17 UTC - just
-# after 00:00 and 12:00, and offset from the hourly counter's minute 7 so the
-# two never queue behind each other.
+# The one scheduled job that leaves the repository current: rebuild the
+# date-seeded pages, reconcile the daily record, run the non-browser gates,
+# package dist/ and publish it as a workflow artifact.
 #
-# IT DOES NOT DEPLOY. Production is a manual upload of dist/ to Cloudflare
-# Pages, and nothing here changes that: this rebuilds the tracked pages and
-# commits them, so the repository is never behind the clock, and the upload
-# picks up whatever was last built. Run `python tools/build_deploy.py` and
-# upload dist/ when you want readers to see it.
+# IT DOES NOT DEPLOY. Production is still a manual upload of dist/ to Cloudflare
+# Pages. What this job changes is that the artifact is guaranteed to be today's
+# tree and to have passed the gates, instead of a folder somebody packaged from
+# whatever day they last opened the repository.
 #
-# GATES FAIL LOUDLY. Every gate below is written to exit non-zero rather than
-# print a warning, and no step here swallows that with `|| true`. A red gate
-# stops the job before the commit step, so a bad build is never pushed. The
-# only thing skipped is the Chrome layout gates (probe_front, verify_narrow,
-# probe_nav): they need a local Chrome binary and they measure design, not
-# data, and they are run by hand before a layout change is shipped.
+# THIS FILE WAS DECORATION UNTIL 2026-10-31. `origin` points at
+# `YOUR-USER/parasocialize`, so no scheduled workflow had ever executed; the
+# three daily records stopped at 21 October and the sweeper at 29 September
+# while every check in the repo was green. A cron on a repository nobody
+# pushed to is not automation. Set a real origin (or run tools/daily.py from a
+# local scheduler) or this job is still a comment.
 #
-# Nothing here writes content. It rebuilds what is already signed; no card,
-# claim or citation is authored by this job.
+# GATES FAIL LOUDLY. Every step is run through tools/daily.py, which aborts on
+# the first non-zero exit. Nothing is swallowed with `|| true`; the previous
+# version of this job passed link_audit that way. The Chrome layout gates
+# (verify_narrow, probe_nav, probe_hub_contrast) are deliberately not run here:
+# they need a local browser and they measure design, not data.
 
 on:
   schedule:
+    # 00:17 UTC writes the new day's record as soon as the UTC date turns.
+    # 12:17 is a no-op on the records by design and exists so a morning build
+    # failure is retried inside the same day.
     - cron: "17 0,12 * * *"
   workflow_dispatch:
 
@@ -31,13 +34,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: curation
+  group: daily
   cancel-in-progress: false   # never let two rebuilds race the same commit
 
 jobs:
-  rebuild:
+  daily:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -45,45 +48,31 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Slot in force
-        run: python -c "import sys; sys.path.insert(0, 'tools'); import datetime, build_cards as bc; n = datetime.datetime.now(datetime.timezone.utc); print('now', n.isoformat(), 'slot', bc.cur_slot(n))"
-
-      - name: Rebuild the site
-        run: python tools/build_cards.py
-
-      - name: Regenerate the title plates
-        run: python tools/plate.py
-
-      - name: Curation must actually rotate
-        run: python tools/curate.py --check
-
-      - name: Plates must match their data
-        run: python tools/plate.py --check
-
-      - name: Internal links
-        run: python tools/link_audit.py
-
-      - name: Citations
-        run: python tools/citation_audit.py
-
-      - name: Cull report
-        run: python tools/cull_audit.py
-
-      - name: Taxonomy
-        run: python tools/verify_taxonomy.py
-
-      - name: Cards
-        run: python tools/card_audit.py
-
-      - name: Images
-        run: python tools/image_audit.py
-
-      - name: Commit
+      - name: What the loop thinks the day is
         run: |
-          git config user.name "curation"
-          git config user.email "curation@parasocialize.com"
+          python -c "import datetime; print('utc', datetime.datetime.now(datetime.timezone.utc).isoformat())"
+          python tools/archive.py --check || true   # before the build today is legitimately missing
+
+      - name: Daily build, record, gates and package
+        run: >
+          python tools/daily.py
+          --zip "$RUNNER_TEMP/parasocialize-SITE.zip"
+
+      - name: Keep the deploy tree for upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: parasocialize-dist
+          path: |
+            dist/
+            ${{ runner.temp }}/parasocialize-SITE.zip
+          retention-days: 14
+
+      - name: Commit the rebuilt pages and the day's record
+        run: |
+          git config user.name "daily"
+          git config user.email "daily@parasocialize.com"
           git add -A
-          git diff --cached --quiet || git commit -m "curate $(date -u +%FT%TZ)"
-          # A failed push must be loud. The counter was three weeks stale once
-          # because a push failure was allowed to pass without anybody reading it.
+          git diff --cached --quiet || git commit -m "daily $(date -u +%FT%TZ)"
+          # A failed push must be loud. A push failure once left the counter
+          # three weeks stale while every job reported success.
           git push || echo "::error::could not push - the rebuilt pages are not in the repository"

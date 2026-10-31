@@ -13,6 +13,8 @@
   <url><loc>https://www.parasocialize.com/atlas/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.parasocialize.com/quiz/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.parasocialize.com/top8/archive/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.parasocialize.com/top8/record/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.parasocialize.com/taxonomy/record/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.parasocialize.com/credits/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.parasocialize.com/citations/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.parasocialize.com/section/idol/</loc><lastmod>2026-09-28</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
@@ -35,6 +37,14 @@
   <url><loc>https://www.parasocialize.com/timeline/grief/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.parasocialize.com/section/danger/</loc><lastmod>2026-09-28</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.parasocialize.com/timeline/danger/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.parasocialize.com/ways/persona/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/ways/character/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/ways/companion/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/ways/divine/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/ways/institution/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/ways/cosmology/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/ways/officer/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.parasocialize.com/ways/predator/</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.parasocialize.com/timeline/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.parasocialize.com/encyclopedia/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.parasocialize.com/brand/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -296,6 +306,8 @@
   <url><loc>https://www.parasocialize.com/encyclopedia/vera-lynn.html</loc><lastmod>2026-09-28</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.parasocialize.com/encyclopedia/iglesia-maradoniana.html</loc><lastmod>2026-09-28</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.parasocialize.com/encyclopedia/our-lady-of-guadalupe.html</loc><lastmod>2026-09-28</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.parasocialize.com/encyclopedia/nathan-fielder.html</loc><lastmod>2026-09-28</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.parasocialize.com/encyclopedia/the-beaver.html</loc><lastmod>2026-09-28</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.parasocialize.com/radar/celebrity-death-feels-like-loss.html</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.parasocialize.com/radar/youve-got-that-one.html</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.parasocialize.com/radar/madeonyoutube-spending-on-scoreboard.html</loc><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>

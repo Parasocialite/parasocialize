@@ -1,0 +1,81 @@
+{
+ "_note": "STATEFUL. One record per UTC day: which parasocialite was put forward on the front page, appended by build_cards.record_parasocialite_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the rotation is recomputable from the date and the roster order, and that recomputability is exactly why the file exists: if either changes, only this sequence shows what the page actually said. A day that tools/archive.py had to close after the fact carries `reconstructed: true` with the date and input hash that made the recomputation provable, and the record pages print it as rebuilt rather than observed. Rendered under the front-page block by build_cards.parasocialite_record().",
+ "days": [
+  {
+   "date": "2026-10-19",
+   "member": "nathan-fielder"
+  },
+  {
+   "date": "2026-10-20",
+   "member": "dionne-warwick"
+  },
+  {
+   "date": "2026-10-21",
+   "member": "the-beaver"
+  },
+  {
+   "date": "2026-10-22",
+   "member": "howdy-doody",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "7463ce90e7b1"
+  },
+  {
+   "date": "2026-10-23",
+   "member": "queen-for-a-day",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "7463ce90e7b1"
+  },
+  {
+   "date": "2026-10-24",
+   "member": "nancy-drew",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "7463ce90e7b1"
+  },
+  {
+   "date": "2026-10-25",
+   "member": "the-shadow"
+  },
+  {
+   "date": "2026-10-26",
+   "member": "mickey-mouse",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "7463ce90e7b1"
+  },
+  {
+   "date": "2026-10-27",
+   "member": "nathan-fielder",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "7463ce90e7b1"
+  },
+  {
+   "date": "2026-10-28",
+   "member": "dionne-warwick",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "7463ce90e7b1"
+  },
+  {
+   "date": "2026-10-29",
+   "member": "the-beaver",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "7463ce90e7b1"
+  },
+  {
+   "date": "2026-10-30",
+   "member": "howdy-doody",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "7463ce90e7b1"
+  },
+  {
+   "date": "2026-10-31",
+   "member": "queen-for-a-day"
+  }
+ ]
+}

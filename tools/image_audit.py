@@ -47,6 +47,7 @@ mostly fine, the *claim* about them is what was false.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import pathlib
 import re
@@ -124,6 +125,40 @@ for i in items:
                 problems.append(f"{slug}: cached image with no src.{k} - a file "
                                 f"with no licence and no source page is the "
                                 f"unattributable case")
+    if i.get("style") == "distilled":
+        t = i.get("transform") or {}
+        if kind != "illustrative":
+            problems.append(f"{slug}: style='distilled' but kind={kind!r} - "
+                            f"a distilled frame is illustrative, never exact")
+        if not str(i.get("local") or "").startswith("img/distilled/"):
+            problems.append(f"{slug}: distilled image is not under img/distilled/")
+        for k in ("source_title", "source_page", "source_sha256",
+                  "output_sha256", "focus", "gamma", "seed"):
+            if not t.get(k):
+                problems.append(f"{slug}: distilled record has no transform.{k}")
+        if (t.get("width"), t.get("height")) != (1600, 900):
+            problems.append(f"{slug}: distilled transform is not 1600x900")
+        for k in ("source_sha256", "output_sha256"):
+            value = t.get(k)
+            if value and (not isinstance(value, str)
+                          or not re.fullmatch(r"[0-9a-f]{64}", value)):
+                problems.append(f"{slug}: transform.{k} is not a sha256")
+        if t.get("source_page") and not t["source_page"].startswith(
+                "https://commons.wikimedia.org/wiki/File:"):
+            problems.append(f"{slug}: distilled source_page is not a Commons file page")
+        if t.get("source_page") and src.get("page") != t["source_page"]:
+            problems.append(f"{slug}: src.page and transform.source_page disagree")
+        licence = (src.get("licence") or "").lower().strip()
+        if not (licence in {"public domain", "pd", "cc0", "cc-zero",
+                            "cc zero", "public domain mark"}
+                or licence.startswith("pd-")):
+            problems.append(f"{slug}: distilled source is not public domain or CC0: "
+                            f"{src.get('licence')!r}")
+        if i.get("local") and (ROOT / i["local"]).exists() and t.get("output_sha256"):
+            digest = hashlib.sha256((ROOT / i["local"]).read_bytes()).hexdigest()
+            if digest != t["output_sha256"]:
+                problems.append(f"{slug}: transform.output_sha256 does not match "
+                                f"the file on disk ({digest[:12]})")
     # A caption describes what is IN THE FRAME. A caption that describes the
     # story instead is a caption the reader cannot check against the picture.
     if i.get("caption") and re.search(r"\b(parasocial|bond|attachment|one-sided)\b",
@@ -147,8 +182,6 @@ for i in items:
 # on the first and the second kept the false claim through the correction and
 # through two commits. The two Taylor Swift records are the same picture the
 # same way. Hashing the bytes is the only thing that sees it.
-import hashlib
-
 by_digest = {}
 for i in items:
     loc = i.get("local")

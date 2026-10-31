@@ -10,6 +10,7 @@ build owns proves nothing.
 Now the copy is data behind a pointer, and the test exercises the real path:
 set the pointer, rebuild, grep the output, put it back, rebuild again.
 """
+import html
 import json
 import pathlib
 import re
@@ -20,6 +21,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "front_copy.json"
 PAGE = ROOT / "index.html"
+sys.path.insert(0, str(ROOT / "tools"))
+import build_cards as bc
 
 
 def run(*args, tool="front_copy.py"):
@@ -65,6 +68,29 @@ orig = PAGE.read_bytes()
 # pull the row out and check what is actually inside it. Renaming the assertion
 # to the new class name would have kept the test exactly as blind as before.
 doc_html = PAGE.read_text(encoding="utf-8")
+if "ledger-band" in doc_html:
+    sys.exit("FAIL: the open ledger band is back in the primary reader flow")
+if ">Coffee</a>" in doc_html or "Buy me a coffee" in doc_html:
+    sys.exit("FAIL: the old Coffee invitation is still on the front page")
+if ('<a href="membership/index.html" class="cta-quiet">Membership</a>'
+        not in doc_html):
+    sys.exit("FAIL: the membership route is not labelled Membership")
+if ('<a class="cta" href="https://ko-fi.com/parasocialing" target="_blank" '
+        'rel="noopener nofollow" aria-label="Support the archive on Ko-fi">'
+        'Support</a>') not in doc_html:
+    sys.exit("FAIL: the Ko-fi route is not the labelled Support action")
+for needle, label in (
+    ('<a href="credits/index.html">About</a>', "About"),
+    ('<a href="tip/index.html">Contact</a>', "Contact"),
+    ('<a href="top8/archive/index.html">Archive</a>', "Archive"),
+    ('<a href="ledger/index.html">Ledger</a>', "Ledger"),
+    ('<a href="radar.xml">RSS feed</a>', "RSS"),
+    ('class="foot-support"', "Support the archive"),
+):
+    if needle not in doc_html:
+        sys.exit(f"FAIL: the footer has no {label} link")
+if doc_html.count('<div class="foot-col">') != 4:
+    sys.exit("FAIL: the footer is not the four-column grid")
 row = re.search(r'<div class="fdoors masthead-row">(.*?)\n    </div>', doc_html,
                 re.S)
 if not row:
@@ -85,6 +111,58 @@ if 'mood="clerk"' not in (ROOT / "tools" / "build_cards.py").read_text(
         encoding="utf-8"):
     sys.exit("FAIL: build_cards.py no longer asks for the clerk mood")
 print("  ok   two doors and the clerk in one row, with the clerk mood")
+
+# 1b. the top 8 band is the live list, and each card lands on its entry.
+#     The band is generated from `top8_window`, so the test uses the same
+#     function rather than a remembered title or a hardcoded day.
+feat = json.loads((ROOT / "data" / "features.json").read_text(encoding="utf-8"))
+shown = bc.top8_window(feat)
+raw = next((L for L in (feat.get("lists") or [])
+            if L.get("slug") == shown.get("slug")), shown)
+want_title = shown.get("home_title") or shown.get("title") or "The Top 8"
+want_hook = (shown.get("home_hook")
+             or bc.deck(shown.get("dek"), 30)).strip()
+want_meta = bc.esc(str(shown.get("kicker") or "").title())
+span = bc.t8_year_span(raw)
+if span:
+    want_meta = f"{want_meta} &middot; {span}" if want_meta else span
+if f'<h2 id="t8front-title">{bc.esc(want_title)}</h2>' not in doc_html:
+    sys.exit(f"FAIL: the top 8 band does not carry the live title {want_title!r}")
+if f'<span class="t8front-kick">{want_meta}</span>' not in doc_html:
+    sys.exit(f"FAIL: the top 8 kicker is not {want_meta!r}")
+if f'<p class="t8front-hook">{bc.esc(want_hook)}</p>' not in doc_html:
+    sys.exit("FAIL: the top 8 band does not carry the live hook")
+cta = ("View Full Top 8 Analysis &amp; Archive History &rarr;")
+if f'href="top8/index.html">{cta}</a>' not in doc_html:
+    sys.exit("FAIL: the full Top 8 CTA is missing")
+cards = re.findall(r'<a class="t8card" href="top8/index\.html#([^"]+)">(.*?)</a>',
+                   doc_html, re.S)
+if len(cards) != 8:
+    sys.exit(f"FAIL: the front page has {len(cards)} top 8 cards, expected 8")
+want_anchors = [bc.t8_anchor(shown, en) for en in shown["entries"]]
+if [a for a, _ in cards] != want_anchors:
+    sys.exit("FAIL: the top 8 cards are not the live window, in order")
+for i, (anchor, body) in enumerate(cards, 1):
+    en = shown["entries"][i - 1]
+    for needle, label in (
+        (f'<span class="t8card-rank">{i:02d}</span>', "rank"),
+        (f'<span class="t8card-tag">{bc.esc(en.get("show", ""))}</span>', "show"),
+        (f'<b>{bc.esc(en["name"])}</b>', "name"),
+        (f'<span class="t8card-hook">{bc.esc(bc.t8_hook(en))}</span>', "hook"),
+        ('<span class="t8card-go">Read this entry &rarr;</span>', "read link"),
+    ):
+        if needle not in body:
+            sys.exit(f"FAIL: card {i} has no {label}")
+t8page = (ROOT / "top8" / "index.html").read_text(encoding="utf-8")
+ids = set(re.findall(r'<li class="t8-item" id="([^"]+)"', t8page))
+missing = [a for a in want_anchors if a not in ids]
+if missing:
+    sys.exit(f"FAIL: {len(missing)} front-page anchors are not on /top8/: {missing}")
+if len(ids) != 8:
+    sys.exit(f"FAIL: /top8/ carries {len(ids)} anchored entries, expected 8")
+if f"Eight of {len(raw.get('entries') or shown['entries'])} from this list" not in doc_html:
+    sys.exit("FAIL: the top 8 count note does not match the list")
+print("  ok   live top 8 title, hook, eight anchored cards and the full-list CTA")
 
 # 2. a new edition's copy reaches it.
 #    --save refuses to overwrite today's date, so the probe gets a date the

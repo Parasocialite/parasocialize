@@ -1,18 +1,210 @@
 {
- "_note": "STATEFUL. One record per day: which top-8 list was on show and the eight moments it carried, appended by build_cards.record_top8_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the sequence of what was on show is the thing it holds, and a rebuild from scratch cannot reconstruct a day nobody was there for. Rendered as the day record on /top8/ by build_cards.t8_record().",
+ "_note": "STATEFUL. One record per day: which top-8 list was on show and the eight moments it carried, appended by build_cards.record_top8_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the sequence of what was on show is the thing it holds, and a rebuild from scratch cannot reconstruct a day nobody was there for. A day that tools/archive.py had to close after the fact carries `reconstructed: true` with the date and input hash that made the recomputation provable, and the record pages print it as rebuilt rather than observed. Rendered as the day record on /top8/ by build_cards.t8_record().",
  "days": [
   {
    "date": "2026-10-19",
    "list": "top8-cartoons-90s",
    "items": [
     "t8-1-rugrats-nest",
+    "Batman: The Animated Series, 1992",
+    "Blue's Clues, 1996",
     "t8-2-rugrats-gun",
+    "Where on Earth Is Carmen Sandiego?, 1994",
+    "Sailor Moon, 1995",
     "t8-3-grouch",
+    "ReBoot, 1994"
+   ]
+  },
+  {
+   "date": "2026-10-20",
+   "list": "top8-manufactured-replies",
+   "items": [
+    "Peter Pan, 1904",
+    "Disneyland, 1955",
+    "221B Baker Street, 1932–2005",
+    "ELIZA, 1966",
+    "Queen for a Day, 1945",
+    "The Psychic Readers Network, 1997",
+    "Bess Houdini's séances, 1926–1936",
+    "Sincerely Yours, 1941"
+   ]
+  },
+  {
+   "date": "2026-10-21",
+   "list": "top8-cartoons-90s",
+   "items": [
+    "Pokémon, 1998",
     "t8-4-heyarnold",
+    "The Magic School Bus, 1994",
+    "Adventures of Sonic the Hedgehog, 1993",
     "t8-5-dragontales",
-    "t8-6-powerrangers",
+    "KaBlam!, 1996",
+    "Captain Planet, 1990",
+    "t8-6-powerrangers"
+   ]
+  },
+  {
+   "date": "2026-10-22",
+   "list": "top8-manufactured-replies",
+   "items": [
+    "Anne Frank, 1942",
+    "Animal Crossing, 2001",
+    "Patience Worth, 1913–1937",
+    "Major Bowes' Amateur Hour, 1935",
+    "American Gothic, 1930",
+    "Kizuna AI, 2016",
+    "The autopen, 1937–1942",
+    "The answering machine, 1979"
+   ],
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "09c42cd38370"
+  },
+  {
+   "date": "2026-10-23",
+   "list": "top8-cartoons-90s",
+   "items": [
+    "Nick in the Afternoon, 1995",
+    "Teenage Mutant Ninja Turtles, 1990",
     "t8-7-doug",
-    "t8-8-animaniacs"
+    "Tiny Toon Adventures, 1991",
+    "Mighty Morphin Power Rangers, 1994",
+    "t8-8-animaniacs",
+    "Freakazoid!, 1995",
+    "Sesame Street, 1996"
+   ],
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "09c42cd38370"
+  },
+  {
+   "date": "2026-10-24",
+   "list": "top8-manufactured-replies",
+   "items": [
+    "Krapp's Last Tape, 1958",
+    "Lil Miquela, 2016",
+    "The Oz books, 1919–1942",
+    "Motion Picture Story Magazine, 1911",
+    "The parrot, 1920",
+    "Project December, 2020",
+    "Mickey Mouse, 1933",
+    "Siri, 2011"
+   ],
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "09c42cd38370"
+  },
+  {
+   "date": "2026-10-25",
+   "list": "top8-cartoons-90s",
+   "items": [
+    "t8-1-rugrats-nest",
+    "Batman: The Animated Series, 1992",
+    "Blue's Clues, 1996",
+    "t8-2-rugrats-gun",
+    "Where on Earth Is Carmen Sandiego?, 1994",
+    "Sailor Moon, 1995",
+    "t8-3-grouch",
+    "ReBoot, 1994"
+   ]
+  },
+  {
+   "date": "2026-10-26",
+   "list": "top8-manufactured-replies",
+   "items": [
+    "nancy-drew",
+    "Rin Tin Tin, 1922",
+    "The New York Evening Journal, 1898–1920",
+    "Betty Crocker, 1921",
+    "Whiz Comics #2, 1940",
+    "clara-bow",
+    "The United States Post Office, 1894–1912",
+    "Fantastic Four, 1962"
+   ],
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "09c42cd38370"
+  },
+  {
+   "date": "2026-10-27",
+   "list": "top8-cartoons-90s",
+   "items": [
+    "Pokémon, 1998",
+    "t8-4-heyarnold",
+    "The Magic School Bus, 1994",
+    "Adventures of Sonic the Hedgehog, 1993",
+    "t8-5-dragontales",
+    "KaBlam!, 1996",
+    "Captain Planet, 1990",
+    "t8-6-powerrangers"
+   ],
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "09c42cd38370"
+  },
+  {
+   "date": "2026-10-28",
+   "list": "top8-manufactured-replies",
+   "items": [
+    "Peter Pan, 1904",
+    "Disneyland, 1955",
+    "221B Baker Street, 1932–2005",
+    "ELIZA, 1966",
+    "Queen for a Day, 1945",
+    "The Psychic Readers Network, 1997",
+    "Bess Houdini's séances, 1926–1936",
+    "Sincerely Yours, 1941"
+   ],
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "09c42cd38370"
+  },
+  {
+   "date": "2026-10-29",
+   "list": "top8-cartoons-90s",
+   "items": [
+    "Nick in the Afternoon, 1995",
+    "Teenage Mutant Ninja Turtles, 1990",
+    "t8-7-doug",
+    "Tiny Toon Adventures, 1991",
+    "Mighty Morphin Power Rangers, 1994",
+    "t8-8-animaniacs",
+    "Freakazoid!, 1995",
+    "Sesame Street, 1996"
+   ],
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "09c42cd38370"
+  },
+  {
+   "date": "2026-10-30",
+   "list": "top8-manufactured-replies",
+   "items": [
+    "Anne Frank, 1942",
+    "Animal Crossing, 2001",
+    "Patience Worth, 1913–1937",
+    "Major Bowes' Amateur Hour, 1935",
+    "American Gothic, 1930",
+    "Kizuna AI, 2016",
+    "The autopen, 1937–1942",
+    "The answering machine, 1979"
+   ],
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "09c42cd38370"
+  },
+  {
+   "date": "2026-10-31",
+   "list": "top8-cartoons-90s",
+   "items": [
+    "t8-1-rugrats-nest",
+    "Batman: The Animated Series, 1992",
+    "Blue's Clues, 1996",
+    "t8-2-rugrats-gun",
+    "Where on Earth Is Carmen Sandiego?, 1994",
+    "Sailor Moon, 1995",
+    "t8-3-grouch",
+    "ReBoot, 1994"
    ]
   }
  ]

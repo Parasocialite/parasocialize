@@ -14,18 +14,21 @@ important it feels:
 
   source   no build, no browser        link_audit, citation_audit, cull_audit,
                                       verify_taxonomy, card_audit, image_audit,
-                                      check_css, test_front_copy,
-                                      test_register_rotation
-  post     needs dist/, no browser     build_cards, plate, build_deploy, then
-                                      check_css --orphans, verify_findable,
-                                      verify_landmarks, md_leak, check_heads
+                                      check_css, archive,
+                                      test_front_copy,
+                                      test_register_rotation,
+                                      test_parasocialite_rotation
+  post     needs dist/, no browser     build_cards, plate, build_deploy
+                                      --no-build, then check_css --orphans,
+                                      verify_findable, verify_landmarks,
+                                      md_leak, check_heads
   visual   needs Chrome and pixels     verify_narrow, probe_nav --check,
                                       probe_hub_contrast
 
 `post` is the default because that is the tier the new checks belong to: they
 all read the deployed tree, which is what a reader actually gets. `visual` stays
 manual on purpose - AGENTS item 65 records `probe_hub_contrast.py` needing a
-fresh profile per render and refusing to report if it cannot find ten tiles,
+fresh profile per render and refusing to report if it cannot find eight tiles,
 which is the behaviour of a gate you run deliberately rather than one you inherit
 on every commit.
 
@@ -45,6 +48,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 SOURCE = [
     ("check_css", ["check_css.py"]),
+    ("archive", ["archive.py", "--check"]),
     ("citation_audit", ["citation_audit.py"]),
     ("cull_audit", ["cull_audit.py"]),
     ("verify_taxonomy", ["verify_taxonomy.py"]),
@@ -52,6 +56,7 @@ SOURCE = [
     ("image_audit", ["image_audit.py"]),
     ("test_front_copy", ["test_front_copy.py"]),
     ("test_register_rotation", ["test_register_rotation.py"]),
+    ("test_parasocialite_rotation", ["test_parasocialite_rotation.py"]),
     ("link_audit", ["link_audit.py"]),
 ]
 
@@ -59,6 +64,12 @@ SOURCE = [
 # from the data, build_deploy copies - running build_deploy before plate makes
 # it report 404s on plates that do not exist yet, which is a true report of the
 # tree it was given and a false report of the project.
+#
+# build_deploy now runs those two steps itself, because a packaging command
+# that only copies ships whatever day the pages were last generated. This tier
+# passes --no-build because it has just run them in this exact order; without
+# the flag the post tier would build the site twice, and the second build would
+# be the one that appended the day's history.
 #
 # BUILD and CHECK are separate because the freshness assertion cannot run before
 # the build: the first version of this file refused the whole tier because dist/
@@ -68,13 +79,14 @@ SOURCE = [
 POST_BUILD = [
     ("build_cards", ["build_cards.py"]),
     ("plate", ["plate.py"]),
-    ("build_deploy", ["build_deploy.py"]),
+    ("build_deploy", ["build_deploy.py", "--no-build"]),
 ]
 POST_CHECK = [
     ("plate --check", ["plate.py", "--check"]),
     ("check_css --orphans", ["check_css.py", "--orphans"]),
     ("verify_findable", ["verify_findable.py"]),
     ("verify_landmarks", ["verify_landmarks.py"]),
+    ("verify_ways", ["verify_ways.py"]),
     ("md_leak", ["md_leak.py"]),
     # Internal vocabulary in reader-visible prose. Added after /ledger/ shipped
     # reading "...and AGENTS is explicit that this is not a gap" - AGENTS.md is

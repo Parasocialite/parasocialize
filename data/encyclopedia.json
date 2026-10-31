@@ -12922,6 +12922,80 @@
     }
    ],
    "verified": true
+  },
+  {
+   "id": "nathan-fielder",
+   "title": "A slightly more awkward version of himself",
+   "year": 2013,
+   "summary": "A comedian who stages real situations for people who have not read the script, and performs a slightly more awkward version of himself inside them - the manufacturing is the show, and the audience has been told so from the beginning.",
+   "significance": "**The figure the audience attaches to is a written character performed by its author, and the show says so in its own premise.** Nathan for You (2013-2017) is the show in which he \"portrays a slightly more awkward version of himself, who offers advice to struggling businesses\", built on him \"playing a persona loosely based on himself\" for local small businesses. The usual idol is assembled by other people and the manufacturing is the concealment; the shelf's test - did they make the thing - is answered here by the man himself, who co-created the show, wrote it, directed it and starred in it. There is a version of him that exists whether or not anyone is watching: the finished seasons. The difference is what the audience is told. The mask is not a secret kept from the audience; it is the format, stated in the premise, and the show's material is what happens when people who have not read the script meet a figure who has. **And it kept stepping outside the studio into things the public could investigate.** On the morning of February 7, 2014, a coffee shop called Dumb Starbucks Coffee opened in the Los Feliz neighborhood of Los Angeles, parodying the chain's signage and cups with \"Dumb\" in every product name and distributing beverages and pastries free of charge. For three days the public theorised Banksy or Tim & Eric - the latter's production company \"had applied for a filming permit\" at the location. The shop was closed on February 10, 2014 by the Los Angeles County Department of Public Health for not having the permits required to operate a coffee shop; shortly afterwards Fielder announced he was behind it, and the explanation the character gives inside the episode for his parody-law defence is \"based off what I read on Wikipedia\". The reveal was not a correction of the audience's relationship to the joke. It was the episode. **The Rehearsal is the machinery described plainly, and part of the audience recognised the description as its own condition.** The show rehearses social encounters with actors in replica sets before living them; its first season (2022) drew critical acclaim and the Independent Spirit Award for Best New Non-Scripted or Documentary Series, and among the responses the article records is a reading no other entry here has: the show's central idea \"resonated with many autistic viewers, who viewed it as an analogy for autistic masking\". An audience that experiences social performance as choreography watched a man build the choreography as apparatus, and did not need the metaphor explained to it. Season two (2025) turned the method on aviation safety; the FAA denied the show's central claim about pilot communication, and Fielder answered on CNN: \"That's dumb. They're dumb.\" He then became an FAA-certified Boeing 737 commercial pilot in February 2025 and works as a ferry pilot for Nomadic Aviation Group, a company that transports empty planes around the world. **And the public figure is maintained on purpose, which is the shelf's distance turned inside out.** The idol shelf describes a finished body of work and a public image that the person is not required to maintain for you. Fielder maintains his constantly, in public, as the material - Emma Stone, adding him to Time's list of the most influential people in 2023, described him moving \"fluidly between directing, writing, acting, and producing, all while editing The Rehearsal\" and called it a \"staggering feat\". The influences he has named, Chris Morris and Stephen Colbert, come from the same tradition: a public figure performed as the material rather than lived beneath it. Even the non-comedy work runs the same way. Summit Ice Apparel, founded in 2015 after he learned that an organisation he had previously supported published \"a tribute to the Holocaust denier Doug Collins\", took \"close to $500,000 in sales in the first three months\", with the profits going to the Vancouver Holocaust Education Centre - and the Nathan for You episode that launched it was later removed by Paramount+ over a German division's concerns, so even the merchandise carries an edited record. Fielder has called Summit Ice his \"proudest achievement\". It fits: the most durable thing the figure ever produced was real money going to the right place.",
+   "kind": "person",
+   "medium": [
+    "television_scripted",
+    "television_unscripted"
+   ],
+   "provenance": "sourced",
+   "shelf": "idol",
+   "fits": "The shelf's test is answered by the man himself: he co-created the thing, wrote it, directed it and starred in it, and the figure the audience knows is \"a slightly more awkward version of himself\" - a construction with an author, not a life being watched. The shelf's concession covers the unusual part: where an idol assembled by others is still a persona but the manufacturing is the story, here the manufacturing is not the exposure of the persona, it is the persona's whole subject, and the audience is told so in the premise. There is a version of him that exists whether or not anyone is watching - the finished seasons, the completed films - which is the shelf's line by which the work, not the person, is what is addressed. Not a fiction, which is the shelf's \"not\": the man and the figure share a name, a face and a legal identity, and the seam between them is what the shows are about.",
+   "fits_verified": true,
+   "sources": [
+    {
+     "citation": "Wikipedia. 'Nathan Fielder.'",
+     "claim": "Born 12 May 1983 in Vancouver; Bachelor of Commerce, University of Victoria, 2005; Humber College comedy programme 2006 after briefly working for a brokerage firm; correspondent on This Hour Has 22 Minutes with 'Nathan on Your Side', 2008-2009; co-created, wrote, directed and starred in Nathan for You (2013-2017), in which he 'portrays a slightly more awkward version of himself, who offers advice to struggling businesses', the premise featuring him 'playing a persona loosely based on himself, providing advice for local small businesses'; Dumb Starbucks Coffee opened the morning of February 7, 2014 in Los Feliz, with identities theorised as Banksy or Tim & Eric (Abso Lutely Productions 'had applied for a filming permit' at the location), closed February 10, 2014 by the Los Angeles County Department of Public Health, and the in-episode account of parody law, 'based off what I read on Wikipedia'; The Rehearsal (2022-) and the Independent Spirit Award for Best New Non-Scripted or Documentary Series; the show's central idea 'resonated with many autistic viewers, who viewed it as an analogy for autistic masking'; Season 2's aviation-safety focus, the FAA's denial of the show's central claim, and 'That's dumb. They're dumb.'; FAA-certified Boeing 737 commercial pilot, February 2025, and ferry pilot for Nomadic Aviation Group, 'a company that transports empty planes around the world'; Time 100 in 2023, added by Emma Stone, describing him moving 'fluidly between directing, writing, acting, and producing, all while editing The Rehearsal' as a 'staggering feat'; Summit Ice Apparel founded 2015, 'close to $500,000 in sales in the first three months', profits to the Vancouver Holocaust Education Centre, its origin in Taiga's 'tribute to the Holocaust denier Doug Collins', the 2017 Vancouver pop-up trade-in, the Paramount+ removal of the episode, and Fielder calling it his 'proudest achievement'; influences named as Chris Morris and Stephen Colbert.",
+     "status": "retrievable",
+     "url": "https://en.wikipedia.org/wiki/Nathan_Fielder"
+    }
+   ],
+   "relations": [
+    {
+     "type": "preceded",
+     "to": "peak-tv"
+    },
+    {
+     "type": "depicts",
+     "to": "parasocial-interaction"
+    }
+   ],
+   "verified": false
+  },
+  {
+   "id": "the-beaver",
+   "title": "But the beaver resists",
+   "year": 2011,
+   "summary": "A depressed man finds a beaver hand puppet in the trash and can speak to his family only as the beaver; the arrangement repairs the family, survives the discovery that it was built on a lie, and removing it costs him an arm.",
+   "significance": "**The other end of the family's bond is a puppet with no interior, and the film never pretends otherwise.** Walter Black, \"a depressed CEO of Jerry Co., a toy company nearing bankruptcy\", is kicked out of the house by his wife, moves into a hotel, and after several suicide attempts \"develops an alternate personality represented by a beaver hand puppet found in the trash\". He wears the puppet constantly, \"communicating solely by speaking as the beaver, which helps him to recover\": he reestablishes a bond with his younger son Henry and then with his wife, though not with his elder son Porter, and at work the recovery becomes a product line - Mr. Beaver Building Kits for children. The film keeps the machinery visible in its own cast list, which credits Mel Gibson twice: as Walter Black, and as \"The Beaver, a hand puppet found in the trash\". Where a made figure usually conceals its operator, this one is an arm and a voice the audience can see for the entire runtime, and the family keeps talking through it anyway. **Every conversation the family has with the beaver is authored at one end and answered at the same end, and being shown that does not end the address.** The arrangement breaks only when the transparency is exposed as a lie: his wife moves out \"because he lied to her about the puppet being part of a treatment plan monitored by his psychiatrist\", and she reads the relationship as \"a dissociative identity disorder, with the beaver taking him over\". What ends the family's use of the puppet is not the puppet. It is the discovery that the treatment story was another performance on top of it. **And when the purpose has gone, the object persists - which is the shelf's actual test.** \"Part of Walter's personality realizes what he has put his family through and wants to get rid of the beaver to get back together with his family, but the beaver resists.\" He ends the arrangement by cutting off his arm at the elbow with a circular saw; after surgery, \"he is equipped with a prosthetic hand and is placed in a psychiatric hospital\". The film closes with recovery - Porter reunites with him at the hospital, and \"Walter Black becomes himself again and returns to a normal life\" - so the title is the precise thing: the bond could not be ended by the decision of the person keeping it alive, because the object of the bond had become part of the body that would have to make the decision. **And the film's own release was a second one-sided relationship, with the audience on the near side.** Before release, \"much of the coverage focused on the unavoidable association between the protagonist's issues and Mel Gibson's own well-publicized personal and legal problems, including a conviction of battery of his ex-girlfriend in March\", a series of \"controversies and criticisms surrounding Gibson\" that the article records as having \"affected the film's business\". Time reviewed the news story and the film simultaneously: \"The Beaver is a somber, sad domestic drama featuring an alcoholic in acute crisis. Sound familiar, almost like a documentary? It's hard to separate Gibson's true-life story from what's happening onscreen.\" The film premiered at SXSW on March 16, 2011 to \"a relatively warm embrace\", opened in 22 theaters on May 9, took $107,577 over its opening weekend - $4,890 per theater against a $21 million budget, the \"worst debut for a film directed by Foster\" - and Summit Entertainment abandoned its planned wide release as the returns came in. It closed a flop: Roger Ebert gave it two and a half stars, writing, \"The Beaver is almost successful, despite the premise of its screenplay, which I was simply unable to accept.\" The premise he could not accept is one in which a family relates to a made figure instead of a person. The film's public life is the same substitution in reverse: the audience read the actor's own story into the role, and the run was cut short by it.",
+   "kind": "work",
+   "medium": [
+    "film"
+   ],
+   "provenance": "sourced",
+   "other": "made",
+   "shelf": "anthropomorphised-tool",
+   "fits": "A tool that acquired a name, a history and a tone, which is the shelf's definition almost line by line: a puppet found in the trash becomes The Beaver, a credited character, a treatment story and a product line, and gets addressed as a person long before anybody designed it to be. The shelf's test is \"persistence after the purpose has gone\", and the film runs the test as its climax - the purpose was a recovery, the treatment story is exposed as a lie, and the beaver resists its own removal, so the arm goes because the object will not. Not a companion chatbot, which was built to be a companion; not a mascot, which is inert - the beaver answers constantly, and every answer is Walter's own hand. Placed as the made thing on otherness because its defining condition is transparency: a made figure's \"transparency is a design choice\", and this film makes it the whole image - the audience sees the hand inside the puppet for the entire runtime.",
+   "fits_verified": true,
+   "sources": [
+    {
+     "citation": "Wikipedia. 'The Beaver (film).'",
+     "claim": "2011 psychological drama directed by Jodie Foster, written by Kyle Killen, starring Mel Gibson, Foster, Anton Yelchin and Jennifer Lawrence; Walter Black, 'a depressed CEO of Jerry Co., a toy company nearing bankruptcy'; the beaver hand puppet found in the trash and 'communicating solely by speaking as the beaver, which helps him to recover'; Mr. Beaver Building Kits; the wife's departure 'because he lied to her about the puppet being part of a treatment plan monitored by his psychiatrist' and her reading of 'a dissociative identity disorder, with the beaver taking him over'; 'Part of Walter's personality realizes what he has put his family through and wants to get rid of the beaver to get back together with his family, but the beaver resists'; the circular saw, the elbow, the prosthetic hand and the psychiatric hospital; 'Walter Black becomes himself again and returns to a normal life'; the cast list crediting Gibson as both Walter Black and 'The Beaver, a hand puppet found in the trash'; SXSW premiere 16 March 2011 and the Los Angeles Times's 'a relatively warm embrace'; US release 6 May 2011 by Summit Entertainment, limited to 22 theaters on 9 May 2011; $107,577 opening weekend, $4,890 per theater against the $21 million budget, 'the worst debut for a film directed by Foster', grossing just $7.3 million against $21 million; the Cieply 'flop' note and Summit's abandoned wide release; 'the unavoidable association between the protagonist's issues and Mel Gibson's own well-publicized personal and legal problems, including a conviction of battery of his ex-girlfriend in March'; the Time quotation; Rotten Tomatoes 62% from 185 critics and Metacritic 60 from 40; Ebert's two and a half stars and 'The Beaver is almost successful, despite the premise of its screenplay, which I was simply unable to accept.'; the Black List 2008; Carell and Carrey previously attached; filmed in Westchester County and New York City, completed November 2009.",
+     "status": "retrievable",
+     "url": "https://en.wikipedia.org/wiki/The_Beaver_(film)"
+    }
+   ],
+   "relations": [
+    {
+     "type": "succeeded",
+     "to": "howdy-doody"
+    },
+    {
+     "type": "contemporary",
+     "to": "siri"
+    },
+    {
+     "type": "depicts",
+     "to": "parasocial-interaction"
+    }
+   ],
+   "verified": false
   }
  ],
  "stories": {

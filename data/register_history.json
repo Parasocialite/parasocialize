@@ -1,9 +1,81 @@
 {
- "_note": "STATEFUL. One record per UTC day: which register was put forward on /taxonomy/, appended by build_cards.record_register_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the rotation is recomputable from the date and the register order, and that recomputability is exactly why the file exists: if either changes, only this sequence shows what the page actually said. Rendered under the register list by build_cards.register_record().",
+ "_note": "STATEFUL. One record per UTC day: which register was put forward on /taxonomy/, appended by build_cards.record_register_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the rotation is recomputable from the date and the register order, and that recomputability is exactly why the file exists: if either changes, only this sequence shows what the page actually said. A day that tools/archive.py had to close after the fact carries `reconstructed: true` with the date and input hash that made the recomputation provable, and the record pages print it as rebuilt rather than observed. Rendered under the register list by build_cards.register_record().",
  "days": [
   {
    "date": "2026-10-19",
    "register": "archive"
+  },
+  {
+   "date": "2026-10-20",
+   "register": "bond"
+  },
+  {
+   "date": "2026-10-21",
+   "register": "cog"
+  },
+  {
+   "date": "2026-10-22",
+   "register": "contest",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-10-23",
+   "register": "encounter",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-10-24",
+   "register": "harm",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-10-25",
+   "register": "reciprocal-edge"
+  },
+  {
+   "date": "2026-10-26",
+   "register": "undemanded",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-10-27",
+   "register": "archive",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-10-28",
+   "register": "bond",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-10-29",
+   "register": "cog",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-10-30",
+   "register": "contest",
+   "reconstructed": true,
+   "reconstructed_on": "2026-10-31",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-10-31",
+   "register": "encounter"
   }
  ]
 }

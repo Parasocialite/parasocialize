@@ -1,7 +1,7 @@
 """The figures the public ledger publishes.
 
-Single source of truth for every number that appears on the front page or on
-/ledger/. `report_current_state.py` and `build_cards.py` both import this rather
+Single source of truth for every number that appears on /ledger/.
+`report_current_state.py` and `build_cards.py` both import this rather
 than each counting for itself, because two definitions of "openable" on a site
 whose entire argument is that it does not blur its own states would be the exact
 defect the ledger exists to prevent. This is the `kind: exact` lesson at the

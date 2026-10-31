@@ -157,6 +157,17 @@ img{max-width:100%;display:block}
 .nav .cta{background:var(--warm);color:#1b1410;border-radius:99px;padding:9px 15px;font-weight:500}
 .nav .cta::after{display:none}
 .nav .cta:hover{background:var(--warm-hot);color:#1b1410}
+/* Support is the one outbound link a reader may act on, so it carries the
+   primary button and the membership route steps back to a quiet outline.
+   The old pairing had these inverted and labelled Support twice. */
+.nav .cta-quiet{
+  color:var(--warm-hot);border:1px solid rgba(255,90,31,.55);border-radius:99px;
+  padding:8px 12px;font-weight:500;
+}
+.nav .cta-quiet::after{display:none}
+.nav .cta-quiet:hover,.nav .cta-quiet:focus-visible{
+  background:rgba(255,90,31,.12);border-color:var(--warm);color:#fff6ea;
+}
 .onair{display:flex;align-items:center;gap:7px;font-family:var(--label);font-size:.6rem;letter-spacing:.14em;color:var(--dimmer);white-space:nowrap}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 9px var(--mint);flex:none}
 .dot.stale{background:var(--neon);box-shadow:0 0 9px var(--neon)}
@@ -592,53 +603,74 @@ shape; sorted by year alone the block is just a list. */
 .fig figcaption a{color:var(--dimmer);border-bottom:1px solid var(--line)}
 .fig figcaption a:hover{color:var(--hot)}
 
-/* ---------- the rotating top 8 column ---------- */
-.t8col-wrap{margin-bottom:8px}
-.t8col-list{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 18px;
-}
-.t8col{
-  display:flex;gap:12px;align-items:center;background:var(--bg2);
-  border:1px solid var(--line);border-radius:10px;padding:12px;transition:.2s;
-}
-.t8col:hover{border-color:var(--hot);transform:translateY(-3px);background:rgba(255,90,31,.06)}
-.t8col-art{
-  width:52px;height:52px;flex:none;border-radius:6px;overflow:hidden;
-  background:var(--bg3);display:flex;align-items:center;justify-content:center;
-}
-/* The tile image's own sizing moved onto the element. This rule used to live
-   here, and it matched nothing in any generated page the day Part two took
-   over - a list with no photographs renders plates instead, so a rule about
-   the img state is data-dependent and check_css --orphans was right to flag
-   it. The plate branch already carries its own inline --c for the same
-   reason: the state this markup is in is decided by the data. */
-/* The front page showed a bare orange square where /top8/ shows a designed
-   plate. Two of the eight are in that state, so in a grid of eight where the
-   other six are photographs, two read as broken images - which is the one thing
-   this site should not put on a page. Same idea as /top8/, at 52px: the show in
-   display type on its own colour. The hatch behind it is gone for the same
-   reason as on the big plate: a diagonal texture is the grammar of a
-   placeholder, so it announced itself as one. A lit field and a hairline say
-   "this is a designed card" instead. The art box is a fixed 52px at every
-   width, so the type is sized against the box rather than the viewport - a
-   vw-based size fitted "DRAGON" at desktop and broke it to "DRAGO N" on a
-   phone. */
-.t8col-plate{width:100%;height:100%;display:flex;align-items:center;
-  justify-content:center;text-align:center;padding:3px;line-height:1.06;
-  font-family:var(--serif);font-weight:900;font-size:10px;letter-spacing:-.01em;
-  color:#fff6ea;overflow-wrap:break-word;overflow:hidden;
-  background:radial-gradient(120% 110% at 50% 10%,
-    color-mix(in srgb,var(--c) 62%,#000) 0%,
-    color-mix(in srgb,var(--c) 26%,#170e08) 62%,#140c07 100%);
-  box-shadow:inset 0 0 0 1px rgba(255,246,234,.14)}
-.t8col-body{min-width:0}
-/* Two of the eight titles wrapped to two lines and six did not, so the cards in
-   a row had ragged bottoms and the ranks did not line up. Two lines of room for
-   every one of them - the grid is rank-ordered, and a ranked list whose rows do
-   not align reads as unordered. */
-.t8col-body b{display:block;font-family:var(--serif);font-size:.94rem;font-weight:700;
-  line-height:1.18;min-height:2.36em}
-.t8col-body span{font-family:var(--label);font-size:.6rem;letter-spacing:.12em;color:var(--dimmer)}
+/* ---------- the front page's top 8, as a set piece ----------
+   The strip used to be eight text cards with a rank, a title and a show. That
+   said which list was on show but not why any one moment was on it, and the
+   eight were visually identical. The band now carries the live list's own
+   title and thesis, and each card carries the hook that earns its place. The
+   whole card links to the moment's stable fragment on /top8/, so a reader who
+   picks one arrives at that entry rather than at the top of the list. */
+.t8front{position:relative;overflow:hidden;margin:24px auto 0;padding:28px 28px 24px;
+  border:1px solid var(--line);border-radius:18px;
+  background:
+    radial-gradient(120% 130% at 12% 0%,rgba(255,90,31,.11),transparent 56%),
+    linear-gradient(180deg,var(--bg2),color-mix(in srgb,var(--bg2) 88%,#000));
+  box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.t8front::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,var(--hot),var(--warm) 42%,transparent 86%)}
+.t8front-head{max-width:76ch}
+.t8front .kicker{margin:0 0 10px;flex-wrap:wrap}
+.t8front .kicker::after{display:none}
+.t8front-kick{display:inline-block;font-family:var(--label);font-size:.58rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--paper);
+  border:1px solid color-mix(in srgb,var(--hot) 42%,var(--line));border-radius:999px;
+  padding:3px 9px;white-space:nowrap}
+.t8front h2{font-family:var(--serif);font-weight:900;font-size:clamp(1.75rem,3.4vw,2.55rem);
+  line-height:1.02;letter-spacing:-.035em;margin:0 0 10px;max-width:24ch;color:var(--paper)}
+.t8front-hook{margin:0 0 22px;max-width:62ch;font-size:1.04rem;line-height:1.55;color:var(--dim)}
+.t8cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-auto-rows:1fr;gap:10px}
+.t8card{display:grid;grid-template-columns:54px minmax(0,1fr);gap:14px;align-items:start;
+  padding:14px 16px;border:1px solid var(--line);border-radius:10px;
+  background:rgba(0,0,0,.16);color:inherit;text-decoration:none;transition:.2s}
+.t8card:hover{border-color:var(--hot);background:rgba(255,90,31,.06);transform:translateY(-2px)}
+.t8card-rank{font-family:var(--serif);font-weight:900;font-size:1.9rem;line-height:.86;
+  color:var(--hot);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.t8card-body{display:flex;flex-direction:column;min-width:0}
+.t8card-tag{font-family:var(--label);font-size:.58rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.t8card b{font-family:var(--serif);font-size:1.04rem;font-weight:700;line-height:1.18;
+  letter-spacing:-.01em;color:var(--paper);margin-bottom:5px}
+.t8card-hook{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;font-size:.87rem;line-height:1.45;color:var(--dim)}
+.t8card-go{margin-top:auto;padding-top:9px;font-family:var(--label);font-size:.58rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--hot);width:max-content;
+  border-bottom:1px solid transparent}
+.t8card:hover .t8card-go{border-bottom-color:var(--hot)}
+.t8front-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;
+  margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.t8front-cta{padding:11px 20px}
+.t8front-archive{font-family:var(--label);font-size:.6rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line);
+  padding-bottom:3px;text-decoration:none}
+.t8front-archive:hover{color:var(--paper);border-bottom-color:var(--hot)}
+.t8front-note{margin:12px 0 0;font-family:var(--label);font-size:.6rem;letter-spacing:.07em;
+  line-height:1.6;color:var(--dim)}
+.psotd-sec{border-top:1px solid var(--line);padding-top:26px;padding-bottom:28px}
+
+/* ---------- the eight ways, as a bounded band ---------- */
+.hub-band{border-top:1px solid var(--line);padding-top:36px}
+.band-head{display:flex;align-items:flex-end;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;margin:0 0 18px}
+.band-head>div{min-width:0}
+.band-head .kicker{margin:0 0 5px}
+.band-head h2{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;
+  letter-spacing:-.03em;line-height:1.02;margin:0;color:var(--paper)}
+.band-link{font-family:var(--label);font-size:.6rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--hot);text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb,var(--hot) 40%,transparent);
+  padding-bottom:3px;white-space:nowrap}
+.band-link:hover{color:var(--paper);border-bottom-color:var(--paper)}
 
 /* ---------- feature doors: history / moments / figures ---------- */
 .fdoors{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -665,7 +697,7 @@ shape; sorted by year alone the block is just a list. */
 .t8{list-style:none;counter-reset:none;display:grid;gap:22px}
 .t8-item{
   background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);
-  padding:24px 26px;position:relative;overflow:hidden;
+  padding:24px 26px;position:relative;overflow:hidden;scroll-margin-top:90px;
 }
 .t8-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--hot)}
 .t8-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:16px}
@@ -676,7 +708,7 @@ shape; sorted by year alone the block is just a list. */
 .t8-art{width:92px;height:92px;flex:none;border-radius:6px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,.5)}
 /* .t8-art-none was a no-image plate designed for this list and never wired to
    anything - it is one of the orphans `check_css --orphans` reported. The
-   front page now uses .t8col-plate and /top8/ uses .t8-plate, so the third
+   front page top 8 and photo-less /top8/ entries are text-only, so the third
    version of the same idea is removed rather than left to drift again. */
 .t8-titles{min-width:0;flex:1}
 .t8-titles h3{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:700;line-height:1.1;letter-spacing:-.02em}
@@ -687,17 +719,6 @@ shape; sorted by year alone the block is just a list. */
 .t8-what b{color:var(--paper)}
 .t8-why{font-family:var(--serif);font-size:1.06rem;line-height:1.55;color:var(--paper)}
 .t8-why b{color:var(--warm-hot);font-family:var(--label);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:6px}
-.t8-cite{
-  margin-top:16px;padding:14px 16px;border-radius:8px;
-  background:rgba(255,90,31,.08);border:1px solid rgba(255,90,31,.25);
-}
-.t8-cite-l{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:var(--hot);margin-bottom:4px}
-.t8-cite a{font-family:var(--serif);font-weight:700;font-size:1.02rem}
-.t8-cite a:hover{color:var(--hot)}
-.t8-cite p:last-child{font-size:.84rem;color:var(--dim);line-height:1.4;margin-top:3px}
-.t8-hero-fig{margin:24px 0 0}
-.t8-hero-fig img{max-height:380px;object-fit:cover;width:100%}
-
 /* ---------- the history course ---------- */
 .h-title{
   font-family:var(--serif);font-size:clamp(1.9rem,5vw,3.4rem);font-weight:900;
@@ -1179,25 +1200,43 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .chip.on{background:var(--c,var(--warm));border-color:var(--c,var(--warm));color:#1b1410;font-weight:500}
 
 /* ---------- footer ---------- */
-.footer{border-top:1px solid var(--line);background:var(--bg2);padding:46px 0 34px;margin-top:40px}
+.footer{border-top:1px solid var(--line);background:var(--bg2);padding:48px 0 36px;margin-top:40px}
 .foot-grid{max-width:var(--w);margin:0 auto;padding:0 24px;
-  display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start;justify-content:space-between}
+  display:grid;grid-template-columns:minmax(250px,1.1fr) minmax(0,2.9fr);
+  gap:38px 52px;align-items:start}
+.foot-brand{max-width:370px}
 .foot-mark{font-size:1.2rem;margin-bottom:12px;display:inline-block}
-.foot-note,.foot-tag{font-family:var(--label);font-size:.6rem;letter-spacing:.13em;color:var(--dimmer);line-height:2.1}
-/* A donation link, kept in the same register as the line it sits under: same
-   face, same size, same muted colour as the surrounding footer text. It becomes
-   legible on hover and on keyboard focus, and nothing else about it moves - a
-   link that announces itself in the footer is not a subtle one. It carries
-   rel="noopener nofollow" because it is the only outbound link on the page that
-   is not a citation. */
-.foot-kofi{color:var(--dimmer);border-bottom:1px solid transparent;
-  transition:color .16s,border-color .16s}
-.foot-kofi:hover,.foot-kofi:focus-visible{color:var(--warm);
-  border-bottom-color:color-mix(in srgb,var(--hot) 45%,transparent)}
-.foot-tag{text-align:right}
-.foot-nav{display:flex;gap:18px;flex-wrap:wrap;padding-top:5px}
-.foot-nav a{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:var(--dim);transition:.18s}
-.foot-nav a:hover{color:var(--warm)}
+.foot-note,.foot-tag{font-family:var(--label);font-size:.6rem;letter-spacing:.13em;color:var(--dimmer);line-height:1.9}
+.foot-tag{margin:16px 0 0;text-align:left}
+/* One long wrapping nav was reading as a third, accidental column. Four named
+   groups put every destination in a place the eye can return to, and keep the
+   Support route beside the other ways out rather than floating under the prose. */
+.foot-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 26px;padding-top:2px}
+.foot-col{min-width:0}
+.foot-head{font-family:var(--label);font-size:.58rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dimmer);line-height:1.4;margin:0 0 10px}
+.foot-col a{display:block;font-family:var(--label);font-size:.64rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--dim);line-height:1.45;padding:5px 0;transition:.18s}
+.foot-col a:hover,.foot-col a:focus-visible{color:var(--warm)}
+.foot-col a.foot-support{color:var(--warm)}
+.foot-support::after{content:"\00a0\2197";font-size:.86em}
+/* A short one-line footer is its own component. Without this, the five-column
+   grid would strand its single sentence in the brand track. */
+.foot-grid.foot-mini{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:16px 28px}
+.foot-mini .foot-note{line-height:1.8}
+.foot-mini .foot-nav{display:flex;flex-wrap:wrap;gap:18px;padding:0}
+.foot-mini .foot-tag{text-align:right;margin:0}
+@media (max-width:1040px){
+  .foot-grid{grid-template-columns:1fr;gap:28px}
+  .foot-brand{max-width:none}
+  .foot-nav{grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px}
+}
+@media (max-width:760px){
+  .foot-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 24px}
+  .foot-col a.foot-support{letter-spacing:.09em}
+  .foot-mini .foot-tag{text-align:left}
+}
 
 /* ---------- utility ---------- */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -1330,11 +1369,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 @media (max-width:1080px){
   .front{grid-template-columns:repeat(2,1fr)}
   .hubs{grid-template-columns:repeat(2,1fr)}
-  .t8col-list{grid-template-columns:repeat(2,1fr)}
-/* Two lines of title room is only there so the four-across row aligns its ranks.
-   At two columns the cards are wide enough that most titles fit on one line,
-   and reserving two made every card carry a visible gap under its caption. */
-.t8col-body b{min-height:0}
   .fdoors{grid-template-columns:1fr 1fr}
   .hmod-body{grid-template-columns:1fr}
   .hfig{position:static;max-width:280px}
@@ -1342,15 +1376,20 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   .moment-body{padding:0 20px 20px}
   .moment-art{min-height:190px;max-height:230px}
 }
-/* The nav becomes a menu at 1024px, not 760px. Measured, not guessed: the
+/* The nav becomes a menu at 1160px, not 760px. Measured, not guessed: the
    desktop nav needs 835px plus 48px of bar padding, the wordmark and a 22px gap,
    so it fits one line down to about 1000px and wrapped below that - two lines
    inside a 64px bar, which is not a clipped nav and not a scrollable one but an
    overlapping one. **Every viewport between 761px and 1024px had a broken
    header**, and nothing in this project could see it: `verify_narrow.py` measures
    only at 390px, where the nav *is* this overlay. `tools/probe_nav.py` now
-   measures the desktop row across a width ladder and is the gate for it. */
-@media (max-width:1024px){
+   measures the desktop row across a width ladder and is the gate for it.
+
+   Raised to 1160 when Works and Coffee joined the canonical row: the measured
+   no-wrap need became 981px and 1100px wrapped to 74px inside the 64px bar.
+   The gate still measures both modes, so this number is checked rather than
+   maintained by hand. */
+@media (max-width:1160px){
   /* THE MOBILE MENU WAS 130px TALL AND NOT A FULL-SCREEN OVERLAY AT ALL, for
      an undeclared reason. `.topbar` carries `backdrop-filter: blur(14px)`, and
      **`backdrop-filter` makes an element a containing block for its
@@ -1428,6 +1467,7 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   .nav-lab:first-child{padding-top:0}
   .nav a{font-size:.72rem;width:min(340px,84vw);text-align:center;padding:15px;border-radius:8px}
   .nav .cta{margin-top:12px}
+  .nav .cta-quiet{margin-top:8px;padding:14px}
   body.nav-open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   body.nav-open .menu-btn span:nth-child(2){opacity:0}
   /* Was written twice, identically, in a copy-paste slip. */
@@ -1435,8 +1475,13 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 }
 @media (max-width:760px){
   .hubs{grid-template-columns:1fr}
-  .t8col-list{grid-template-columns:1fr}
-.t8col-body b{min-height:0}
+  .t8front{padding:22px 18px 20px}
+  .t8cards{grid-template-columns:1fr}
+  .t8card{grid-template-columns:46px minmax(0,1fr);gap:12px;padding:13px 14px}
+  .t8card-rank{font-size:1.65rem}
+  .t8card-hook{-webkit-line-clamp:3}
+  .t8front-foot{margin-top:16px;padding-top:16px}
+  .t8front-cta{width:100%;text-align:center}
   .fdoors{grid-template-columns:1fr}
   .h-outline{grid-template-columns:1fr 1fr}
   .t8-item{padding:18px 16px}
@@ -1505,44 +1550,15 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
    having to be counted. The photographs are all of the audience rather than of
    the cartoons - see the frame note on /top8/ - so the caption sits under the
    picture at full contrast rather than being hidden in a credit line. */
-.t8-item[data-rank="1"] .t8-fig img,
-.t8-item[data-rank="1"] .t8-plate{height:250px}
-.t8-item[data-rank="2"] .t8-fig img,
-.t8-item[data-rank="2"] .t8-plate{height:210px}
-.t8-item[data-rank="3"] .t8-fig img,
-.t8-item[data-rank="3"] .t8-plate{height:180px}
+.t8-item[data-rank="1"] .t8-fig img{height:250px}
+.t8-item[data-rank="2"] .t8-fig img{height:210px}
+.t8-item[data-rank="3"] .t8-fig img{height:180px}
 .t8-fig{margin:0;flex:none;width:min(300px,38%)}
 .t8-fig img{width:100%;height:150px;object-fit:cover;border-radius:8px;
   box-shadow:0 12px 30px rgba(0,0,0,.55);display:block}
 .t8-fig figcaption{font-family:var(--label);font-size:.6rem;letter-spacing:.08em;
   color:var(--dimmer);margin-top:7px;line-height:1.5}
 .t8-fig figcaption a{color:var(--dim);border-bottom:1px solid var(--line)}
-
-/* The designed plate. Three of the eight have no freely-licensed photograph and
-   this is what they get: the show set in display type, the rank large, and the
-   reason it is blank stated rather than disguised with a photograph of
-   something adjacent. */
-/* A designed title card, not a picture that failed to arrive. It used to carry
-   a 45-degree hatch, which is the visual grammar of a placeholder - it says
-   "texture standing in for content". Replaced with a lit colour field, an inner
-   hairline and the show set in the same display face as the entry titles, so a
-   reader's eye reads it as a slug for a moment that has no still, not as a hole
-   where an image should be. */
-.t8-plate{height:150px;flex:none;width:min(300px,38%);border-radius:8px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:3px;text-align:center;padding:14px 12px;
-  background:
-    radial-gradient(130% 100% at 50% 4%,
-      color-mix(in srgb,var(--c) 58%,#000) 0%,
-      color-mix(in srgb,var(--c) 20%,#170e08) 58%,#120b07 100%);
-  box-shadow:inset 0 0 0 1px rgba(255,246,234,.10),0 14px 34px rgba(0,0,0,.55)}
-.t8-plate-n{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
-  text-transform:uppercase;color:color-mix(in srgb,var(--c) 70%,#fff6ea)}
-.t8-plate-t{font-family:var(--serif);font-weight:900;font-size:clamp(1.5rem,4vw,2.3rem);
-  line-height:1;color:#fff6ea;letter-spacing:-.03em;max-width:11ch}
-.t8-plate-y{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
-  color:rgba(255,246,234,.62);margin-top:6px;
-  padding-top:6px;border-top:1px solid rgba(255,246,234,.18)}
 
 /* the frame note - the page's argument, before the list rather than in a
    footnote at the bottom where a licensing caveat belongs and nobody reads */
@@ -1557,16 +1573,10 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .t8-frame-s{font-family:var(--label);font-size:.6rem;letter-spacing:.11em;
   text-transform:uppercase;color:var(--dimmer);line-height:1.65}
 
-/* the homepage strip, photo-led */
-.t8col-art{background:linear-gradient(150deg,#2a1a10,#140c07)}
-.t8col-photo{position:relative}
-.t8col-photo::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(10,6,4,.8),rgba(10,6,4,.05) 60%)}
 .t8-sharedlaw{margin:0 0 30px;padding:14px 18px;border:1px solid var(--line2);
   border-radius:9px;background:rgba(255,246,234,.022);font-size:.95rem;line-height:1.6;
   max-width:78ch;color:var(--dim)}
 .t8-sharedlaw b{color:#fff6ea}
-.t8-sharedlaw a{color:var(--hot);border-bottom:1px solid rgba(255,90,31,.4)}
 .t8-sharedlaw-n{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
   color:var(--hot);margin-right:10px}
 
@@ -1588,6 +1598,15 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   text-transform:uppercase;color:var(--hot)}
 .t8rec-now{font-family:var(--label);font-size:.6rem;letter-spacing:.12em;
   text-transform:uppercase;color:#7bd88f}
+/* The marker for a day tools/archive.py recomputed after the fact. It has to be
+   visible on the dark record rows and on the front page's spotlight record, so
+   it is one shared class rather than three near-copies - and it is deliberately
+   quieter than "on show today" and legible against --line, which is 0.06 alpha
+   and would disappear as a border here. */
+.rec-rebuilt{display:inline-block;font-family:var(--label);font-size:.56rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+  border:1px solid rgba(255,246,234,.26);border-radius:999px;
+  padding:1px 7px;line-height:1.5;white-space:nowrap}
 .t8rec-names{margin:7px 0 0;font-size:.88rem;line-height:1.65;color:var(--dim);
   max-width:74ch}
 
@@ -1763,6 +1782,8 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between}
 .ent-hero .ent-by{font-family:var(--label);font-size:.6rem;letter-spacing:.09em;
   text-transform:uppercase;color:var(--dimmer);white-space:nowrap}
+.ent-hero .ent-by a{color:inherit;border-bottom:1px solid var(--line)}
+.ent-hero .ent-by a:hover{color:var(--hot)}
 
 /* A title plate is 16:9 and is the only picture on the page, so it can afford
    to be large. Below the phone breakpoint it keeps the ratio rather than
@@ -1895,20 +1916,53 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .tx-arrow{color:var(--dimmer)}
 .tx-migr .tx-def{padding:0;margin:9px 0 0;color:var(--dim)}
 
-/* ---------- the open ledger: front-page band + /ledger/ ----------
-   Deliberately quieter than the doors above it. A trust signal that shouts
-   reads as insecurity, and this is the front page stating a standard rather
-   than selling a product - so it sits under the fold furniture on a hairline
-   border, and the figures are set in the label face the site already uses
-   whenever a machine speaks. */
-.ledger-band{border:1px solid var(--line);border-radius:var(--r);
-  background:var(--bg2);padding:22px 24px}
-.ledger-band .kicker{margin-top:0}
-.ledger-band-t{margin:12px 0 0;max-width:64ch;font-size:1.02rem;line-height:1.55;color:var(--ink)}
-.ledger-band-t b{color:var(--warm)}
-.ledger-band-n{margin:14px 0 0;max-width:64ch;font-family:var(--label);
-  font-size:.78rem;line-height:1.85;letter-spacing:.04em;color:var(--dim)}
-.ledger-band-n b{color:var(--hot);font-size:1.02rem}
+/* ---------- the open ledger ---------- */
 .ledger-list{max-width:66ch;margin:14px 0 0;padding-left:20px}
 .ledger-list li{margin:0 0 12px;font-size:1rem;line-height:1.6}
 .ledger-list b{color:var(--hot);font-family:var(--label);letter-spacing:.04em}
+
+/* ---------- the parasocialite of the day ----------
+   The front page's daily spotlight, between the masthead and the top 8, so it
+   reads as a spotlight rather than another section: one card, one name, one
+   line for the record. The valence chip is the only place the site labels the
+   temperature of the tie, and the two expensive flavours get their own hues -
+   manipulative and obsessive are different kinds of cost, and a shared grey
+   would say they are the same. The modifiers set --c on the chip itself; the
+   chip is a single-class rule, so a valence that is not on today's page is
+   not an orphan (check_css only holds descendant selectors to matching). */
+.psotd-card{border:1px solid var(--line);border-left:3px solid var(--hot);
+  border-radius:10px;background:var(--bg2);padding:16px 18px}
+.psotd-val{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--c);border:1px solid var(--line);
+  border-radius:999px;padding:3px 9px}
+.psotd-val-manipulative{--c:var(--hot)}
+.psotd-val-obsessive{--c:var(--warm)}
+.psotd-val-harmonious{--c:var(--mint)}
+.psotd-name{margin:0;font-family:var(--serif);font-weight:900;
+  font-size:clamp(1.5rem,3vw,1.95rem);line-height:1.12}
+.psotd-name a{color:var(--paper);text-decoration:none}
+.psotd-name a:hover{color:var(--hot)}
+.psotd-meta{margin:6px 0 0;font-family:var(--label);font-size:.62rem;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--dimmer)}
+.psotd-break{margin:8px 0 0;font-size:1.02rem;line-height:1.62;
+  color:var(--dim);max-width:72ch}
+.psotd-more{margin:10px 0 0}
+.psotd-more a{font-family:var(--label);font-size:.6rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);text-decoration:none;
+  border-bottom:1px solid var(--line)}
+.psotd-more a:hover{color:var(--paper);border-bottom-color:var(--hot)}
+.psotd-dayrec{margin-top:14px}
+.psotd-dayrec>summary{cursor:pointer;font-size:.95rem;list-style:none;
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.psotd-dayrec>summary::-webkit-details-marker{display:none}
+.psotd-dayrec>summary>b{flex:1 1 auto;min-width:0}
+.psotd-count{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--dimmer);font-variant-numeric:tabular-nums}
+.psotd-days{list-style:none;margin:10px 0 0;padding:0}
+.psotd-days li{border-top:1px solid var(--line2);padding:9px 0;
+  font-size:.84rem;line-height:1.5;color:var(--dim)}
+.psotd-days b{color:var(--paper);margin-left:8px}
+.psotd-day-date{font-family:var(--label);font-size:.6rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dimmer);white-space:nowrap}
+.psotd-today{font-family:var(--label);font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--hot)}

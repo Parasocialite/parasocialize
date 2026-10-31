@@ -1,0 +1,53 @@
+{
+  "_note": "The front page's parasocialite of the day: one figure taking turns, one per UTC day, anchored on build_cards.PARASOCIALITE_EPOCH (2026-10-19, the day the rotation shipped). The order is the rotation order and alternates the warm cases with the engineered ones - the alternation is a contract, and tools/test_parasocialite_rotation.py holds it. `valence` is editorial: harmonious, manipulative or obsessive, the last two being the two flavours of the one-sided tie that costs somebody something. `breakdown` is the block's two-sentence copy, written for the front page rather than taken from the entry summary; medium and era are read from encyclopedia.json at render time and the link resolves by id. Adding or reordering members changes what the rotation shows: check data/parasocialite_history.json before editing, because the sequence of what the page actually said is the thing that file holds.",
+  "members": [
+    {
+      "id": "nathan-fielder",
+      "name": "Nathan Fielder",
+      "valence": "manipulative",
+      "breakdown": "A comedian who stages real situations for people who have not read the script, performing a slightly more awkward version of himself inside them. The manufacturing is not the secret - it is the show, and the audience was told so in the premise."
+    },
+    {
+      "id": "dionne-warwick",
+      "name": "Dionne Warwick",
+      "valence": "harmonious",
+      "breakdown": "Letters arrived by the sackful, and she answered them by hand, by name, one at a time, for years. The closest thing the twentieth century produced to a genuinely reciprocal parasocial bond."
+    },
+    {
+      "id": "the-beaver",
+      "name": "The Beaver",
+      "valence": "obsessive",
+      "breakdown": "A man who can speak to his family only through a beaver hand puppet he found in the trash, and the arrangement works - the family reopens, the company revives, the puppet gets a product line. When he decides it has to end, the beaver resists, and the arm goes with it."
+    },
+    {
+      "id": "howdy-doody",
+      "name": "Howdy Doody",
+      "valence": "harmonious",
+      "breakdown": "The first television character a generation answered by name, shouting a chant back at the screen every afternoon for thirteen years while the voice came off a recording. The tie was engineered down to the theme song, and the puppets were sold as toys, which moved it into the children's own hands."
+    },
+    {
+      "id": "queen-for-a-day",
+      "name": "Queen for a Day",
+      "valence": "manipulative",
+      "breakdown": "A radio contest where a woman told a studio audience her troubles, a machine turned the applause into a number, and the number chose her. The throne ran on sponsors: five minutes of performed gratitude while the audience applauded the thing it had just pitied."
+    },
+    {
+      "id": "nancy-drew",
+      "name": "Nancy Drew",
+      "valence": "harmonious",
+      "breakdown": "Fifty-four years of children's letters to a detective who did not exist, posted to an office that had chosen not to have a face - the woman who wrote most of the books was a house pseudonym, unnamed until 1991. The correspondence asked nothing of the far end, and a mailroom answered anyway."
+    },
+    {
+      "id": "the-shadow",
+      "name": "The Shadow",
+      "valence": "manipulative",
+      "breakdown": "A publisher hired two men to sell a magazine on the radio, and they invented a voice instead. Listeners went to newsdealers asking for the Shadow detective magazine the voice implied, which did not exist - demand for a physical object, manufactured by a performance."
+    },
+    {
+      "id": "mickey-mouse",
+      "name": "Mickey Mouse",
+      "valence": "harmonious",
+      "breakdown": "A drawn mouse licensed onto merchandise from his earliest years, with a licensing agent deciding what he was allowed to appear on. He became meetable at the parks and got a star on the Walk of Fame - a figure made as an object and then put back in the room with you."
+    }
+  ]
+}

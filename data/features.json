@@ -4,12 +4,14 @@
   {
    "slug": "top8-cartoons-90s",
    "title": "Top 8 parasocial moments in Saturday morning cartoons of the 1990s",
+   "home_title": "Top 8: 90s Saturday Morning Cartoons",
+   "home_hook": "Every one of these is a one-sided relationship with a person who does not exist, aimed at a child, on a Saturday, before anybody had a word for it.",
    "dek": "Every one of these is a one-sided relationship with a person who does not exist, aimed at a child, on a Saturday, before anybody had a word for it. Ranked by how well it worked.",
    "kicker": "Part one",
-   "image": "top8-cartoons-90s",
+   "image": null,
    "law": 6,
    "standfirst": "This is the section nobody argues about, because it started before anyone had an argument. A child watching a cartoon is doing the same thing a forty-year-old watching a stream is doing, and the only difference is that nobody had decided yet whether it counted.",
-   "frame_note": "There is not one frame of the shows themselves on this page. Whatever studio made each character, none of it is free to reuse, so what is pictured instead is **the audience**, and the life the shows had outside the screen: a roller coaster, a party, a costume, a panel at a convention.\n\nTwo of the eight have no photograph at all, so their entries carry the show name instead. That is not a workaround. Every entry here is a relationship with a character who cannot answer, and a relationship like that leaves the evidence on one side only - ours.",
+   "frame_note": "There is not one frame of the shows themselves anywhere on this list. Whatever studio made each character, none of it is free to reuse, so wherever there is a photograph at all it is of **the audience**, and of the life the shows had outside the screen: a roller coaster, a party, a costume, a panel at a convention.\n\n{blank} of the {total} have no photograph at all, so their entries carry no picture. The absence is part of the record: every entry here is a relationship with a character who cannot answer, and a relationship like that leaves the evidence on one side only - ours.",
    "entries": [
     {
      "rank": 1,
@@ -22,6 +24,20 @@
      "stage": "featured"
     },
     {
+     "name": "The client in the basement",
+     "show": "Batman: The Animated Series, 1992",
+     "what": "Sherman Grant is twelve and has a junior detective kit. When Batman is hit with nerve gas and collapses into the Batmobile, Sherman and Roberta drive him home, lay him on a couch in the basement, and set up a crime lab around him. Roberta wants to call the police. Sherman refuses: a detective has to protect the identity of his client, especially when it is this client. The Penguin comes to the house. The kids hold him off with the contents of Batman's utility belt until Batman wakes up.",
+     "why": "The relationship is entirely Sherman's invention. Batman cannot consent, cannot answer, and spends most of the episode unconscious; the child supplies the client, the duty, and the confidentiality. This is the list's arrangement at its most literal: the hero is in the room, and the child builds a professional ethics around a body that cannot say yes. The audience is doing the same thing from the couch. Batman wakes up, solves the plot, and leaves; the boy keeps the story.",
+     "law": 6
+    },
+    {
+     "name": "Will you help me?",
+     "show": "Blue's Clues, 1996",
+     "what": "The host asks the child at home a question, straight into the camera, and then waits through a silence written into the script before behaving as though an answer arrived. The pause is not dead air. The show was built out of it.",
+     "why": "A 1997 New York Times piece recorded a mother muddled that her small son had begun answering the television, and the period's research found children engaging more the more they rewatched. The show aimed second-person grammar at children young enough not to know a machine was doing it, and the question it put in the pause was four words long: 'Will you help me?' That is the whole transaction - attachment made by a gap left open long enough for a three-year-old to step into it.",
+     "law": 6
+    },
+    {
      "rank": 2,
      "name": "Tommy finds the gun and it works",
      "show": "Rugrats, 1995",
@@ -30,6 +46,20 @@
      "law": 6,
      "image": "t8-2-rugrats-gun",
      "stage": "featured"
+    },
+    {
+     "name": "The player at the keyboard",
+     "show": "Where on Earth Is Carmen Sandiego?, 1994",
+     "what": "The show opened and closed on a live-action kid at a computer, seen from behind, playing a Carmen Sandiego game. The cartoon was the game. Carmen talked to the player - not to Zack and Ivy, but to the person at the keyboard - and the player sent the detectives to the next location. The show never showed the player's face, because the face was yours.",
+     "why": "The frame is a machine for making the viewer complicit. The child at home is not watching a cartoon about detectives; the child is the player, and Carmen is the voice coming out of the game. The live-action back of a head is the only body the show gives you, and it is enough. Every episode ends with the player still at the keyboard and Carmen still out there, which is the exact shape of the relationship.",
+     "law": 6
+    },
+    {
+     "name": "The moral delivered by the character",
+     "show": "Sailor Moon, 1995",
+     "what": "At the end of every dubbed episode the Scouts stepped out of the story and spoke to the viewer directly - thirty seconds about friendship, homework or courage, tied to whatever the episode had just done, in new lines recorded over the existing footage. The person who had just saved the world stayed behind to talk to you.",
+     "why": "It was not an artistic flourish: the segment was added to the English dub to satisfy the educational-content requirements of the Children's Television Act. The machinery of children's television produced a character looking straight at a child and giving advice, in character, because a law asked for teaching - and the thing it taught with was the bond itself, which needed no writing at all.",
+     "law": 6
     },
     {
      "rank": 3,
@@ -42,6 +72,20 @@
      "stage": "featured"
     },
     {
+     "name": "The User outside the Net",
+     "show": "ReBoot, 1994",
+     "what": "ReBoot was set inside a computer. The city of Mainframe was full of sprites and binomes who knew that their world was run by a being called the User, who lived outside the Net and dropped games on them for pleasure. The User never appeared. The User was the person at the computer, which is to say the viewer. The opening narration said no one knew for sure what the User wanted, but Bob intended to find out.",
+     "why": "The show made the audience the absent god of a whole civilization. The sprites fear the User's games and argue about whether the User is one being or many; the User is never in the room, and the User is the child on the couch. It is the most literal version of the list's arrangement: a world of characters who exist only while you are watching, and a relationship you cannot reciprocate because you are the one holding the controller.",
+     "law": 6
+    },
+    {
+     "name": "The answer waited until after the break",
+     "show": "Pokémon, 1998",
+     "what": "Before the commercial break the show put one of its creatures on screen as a silhouette and asked the audience to name it. The answer came after the adverts. Children shouted at the television anyway, because the question was addressed to them and the pause was real.",
+     "why": "The withholding is the design. The show borrows the child's knowledge against the clock, and the screen is a surface that cannot hear - which is this list's whole arrangement, delivered in the gap between two adverts. The shouting is the audience enthusiastically holding up its end of a conversation the other side never scheduled.",
+     "law": 6
+    },
+    {
      "rank": 4,
      "name": "Hey Arnold, said to a room where nobody is Arnold",
      "show": "Hey Arnold!, 1996",
@@ -50,6 +94,20 @@
      "law": 6,
      "image": "t8-4-heyarnold",
      "stage": "featured"
+    },
+    {
+     "name": "The producer takes your call",
+     "show": "The Magic School Bus, 1994",
+     "what": "The show ended most episodes with a segment called Producer Says. The producer, voiced by Malcolm-Jamal Warner, answered a ringing phone and took a call from a viewer who had just watched the episode. The viewer pointed out what the cartoon got wrong: the volcano took thousands of years, the class could not have survived that, the bus could not do that. The producer agreed, blamed the half-hour slot, and thanked them for watching closely. Then the next episode did it again.",
+     "why": "The show built a reply into its own format. The viewer is not asked to write in and wait; the phone rings before the credits, and the show's own producer concedes the fiction's errors to a child's voice. It is a rare case of a children's show treating the audience as a fact-checker and a participant at the same time. The concession is the relationship: the show says it knows you were watching closely, and it would rather admit the lie than lose you.",
+     "law": 6
+    },
+    {
+     "name": "The hedgehog told you how to cross the street",
+     "show": "Adventures of Sonic the Hedgehog, 1993",
+     "what": "A short segment closed every episode: Sonic and Tails turn out of the fiction and give the child watching a piece of advice - seatbelts, smoking, sexual harassment - in character, straight at the viewer. The rescue ends and the character instructs.",
+     "why": "It was added under the Children's Television Act's educational rules, which is the honest frame: a law asked children's television to teach something, and what got built was the character you already loved, addressing you in second person at the end of the show. The educational content was the relationship, formalised.",
+     "law": 6
     },
     {
      "rank": 5,
@@ -62,6 +120,20 @@
      "stage": "featured"
     },
     {
+     "name": "The hosts in the comic book",
+     "show": "KaBlam!, 1996",
+     "what": "KaBlam! was an anthology of short cartoons, and between the shorts it was a comic book. Henry and June lived in its pages, turned them to introduce the next cartoon, and treated the whole show as a publication you were holding. The announcer called it a place where cartoons and comics collide and introduced the two of them as your hosts. They were not characters in the shorts. They were the frame, and the frame had a personality.",
+     "why": "The anthology had no continuing story, so the relationship was the frame: two voices who were always there between the cartoons, in a book you were holding. Henry and June were not your friends; they were the printed hosts of a printed object, and the show made no distinction between reading and watching. The bond was with the binding. That is a strange thing for a television show to ask a child to do, and KaBlam! asked it every week.",
+     "law": 6
+    },
+    {
+     "name": "The power is yours",
+     "show": "Captain Planet, 1990",
+     "what": "A hero who exists only when five children combine their rings and summon him - and at the end of the episode he turns to the audience, hands the power over and leaves. 'The power is yours!' is his farewell line.",
+     "why": "The fiction redistributes itself to the viewer as its final act. Every other entry here asks a child to believe in something; this one ends by telling the child the belief was the power all along, which is parasocial attachment stated as environmental policy and repeated weekly until it became a catchphrase.",
+     "law": 6
+    },
+    {
      "rank": 6,
      "name": "Mighty Morphin, you are the ranger",
      "show": "Power Rangers, 1993",
@@ -70,6 +142,20 @@
      "law": 6,
      "image": "t8-6-powerrangers",
      "stage": "featured"
+    },
+    {
+     "name": "The popsicle stick who read your mail",
+     "show": "Nick in the Afternoon, 1995",
+     "what": "Between cartoons on summer afternoons, Nickelodeon ran a block hosted by a popsicle stick. Stick Stickly had googly eyes, a jelly bean nose, and a PO box. He read viewer mail on the air, interviewed children, and sang his address so you could write to him: PO Box 963, New York City, New York State, 10108. In U-Dip, viewers voted on which substance to dip him in. In U-Pick, viewers voted on which cartoon to show.",
+     "why": "The host was a craft project with a face, and the host's whole job was the viewer's letter. He gave out a real PO box, sang it as a jingle, and made the address a thing children memorized. The relationship was not with a character in a story; it was with a stick who promised that if you wrote, he would read it. The stick was the reply.",
+     "law": 6
+    },
+    {
+     "name": "The turtles left the screen and played the concert",
+     "show": "Teenage Mutant Ninja Turtles, 1990",
+     "what": "In the fall of 1990 the four cartoon turtles went on a live arena tour, 'Coming Out of Their Shells' - a run of about forty cities that opened at Radio City Music Hall. Pizza Hut sponsored it, the opening night went out on pay-per-view, and the show's own spokesperson told a reporter: 'They are not actors dressed in costumes. They are the Ninja Turtles, and they've learned to play rock & roll.'",
+     "why": "The official position was that nobody was in a suit. Children watched four drawings walk onto a stage and the people behind the show stood behind the sentence that the drawings were the performers, because letting the costume be visible would have broken the only thing being sold. The characters moved in so completely that the staff had to deny the bodies underneath to keep them real.",
+     "law": 6
     },
     {
      "rank": 7,
@@ -82,22 +168,52 @@
      "stage": "featured"
     },
     {
+     "name": "The fan letter with a trap in it",
+     "show": "Tiny Toon Adventures, 1991",
+     "what": "Buster and Babs open the viewer mail on screen. One letter is from a little girl in the hospital who says she is very sick and asks if Fifi La Fume can visit. Fifi cries and agrees to go. The girl is Elmyra Duff, whose running joke is wanting to keep Fifi as a pet; the letter was bait. The show stages the fan letter as a con and lets the character's sympathy be real.",
+     "why": "The letter is the whole arrangement in one envelope: a stranger claims a need, the character responds with real feeling, and the need turns out to be a trap. The show is not making fun of sick children. It is making fun of the viewer who has learned that a character will come if you write the right sentence. Fifi's tears are the far end's reply, and they are spent on a lie. The scary part is that the lie works because the character is exactly as kind as the fiction promised.",
+     "law": 6
+    },
+    {
+     "name": "Three new faces in the same suits",
+     "show": "Mighty Morphin Power Rangers, 1994",
+     "what": "In the fall of 1994, mid-series and five days a week, three of the five original rangers left the show and three new teenagers took the powers on screen in a ceremony. The audience watched everything attached to the old faces move to faces it had never seen, and kept watching.",
+     "why": "The most visible handover of an attachment ever broadcast. Millions of children transferred the feeling they had for Jason, Zack and Trini to Rocky, Adam and Aisha essentially on schedule, without being asked, and nobody pretended otherwise. Five days a week, in front of the same children, for years - which is the closest television has come to a controlled experiment on whether the attachment was ever to the person. It was to whoever was inside the suit.",
+     "law": 6
+    },
+    {
      "rank": 8,
      "name": "The rabbit in the hat",
-     "show": "Animaniacs, 1990",
+     "show": "Animaniacs, 1993",
      "what": "A whole generation of children said a specific sentence in a specific order with a specific pause in it, for a cartoon rabbit, on Saturday morning.",
      "why": "It is last because it is the least about plot and the most about the medium. The line was never written to be repeated. It was a delivery, and an entire cohort of children reproduced it, in unison, years later, without being asked. That is not attachment to a character. That is attachment to a voice, and it is the purest parasocial event in the list.",
      "law": 6,
      "image": "t8-8-animaniacs",
      "stage": "featured"
+    },
+    {
+     "name": "The fan who had no life",
+     "show": "Freakazoid!, 1995",
+     "what": "Fanboy is a teenager in a comic book store who decides that his life's purpose is to become Freakazoid's sidekick. Freakazoid, still mourning his last sidekick, does not want him. Fanboy follows him through an initiation, a fight, and a comic book convention. Freakazoid finally gets rid of him by introducing him to Mark Hamill, who is at the convention as himself. Fanboy is delighted. When Freakazoid asks if he really has no life, Fanboy says no, sir, proudly.",
+     "why": "The fan has learned the contract better than the hero: if you want the character to notice you, you have to get close enough to be a sidekick. The show answers with the thing the contract cannot survive - the hero says no, then hands the fan to a real person. Mark Hamill is the joke and the escape hatch: the fan wanted a fictional friend, and the show gives him a real celebrity who is at the convention as himself. The fan is happy anyway, which is the most honest part.",
+     "law": 6
+    },
+    {
+     "name": "The toy that laughed back",
+     "show": "Sesame Street, 1996",
+     "what": "A plush Elmo that giggled and shook when squeezed, sold for about twenty-five dollars in the Christmas season of 1996. Then it ran out: stores sold out as the trucks unloaded, resellers got hundreds for one doll, a Denver charity auction sold an Elmo for $10,000, and parents lined up by the hundreds for a shelf that was already empty.",
+     "why": "Here the character could be touched, and it responded to being touched. Every relationship on this site runs one way, and here was a plush object in the house that laughed when you reached for it - not an answer, but the shape of one, in the room. The frenzy was not about a toy. A character who had spent years talking to children from inside a screen could suddenly be held, and the supply could not cover the feeling.",
+     "law": 6
     }
    ],
-   "stage_doc": "A list is released whole; the newest `released` date is the list on show and former lists move to /top8/archive/. Entries are `featured` when the list shipped with them, `candidate` while drafted for a future list.",
-   "pool_note": "`entries` is the list as released, in rank order. `released` orders the show/archive split; a list with no date sorts as the oldest."
+   "stage_doc": "A list is released whole; the newest `released` date is the list on show and former lists move to /top8/archive/. Entries are `featured` when the list shipped with them or they were added to the pool afterwards, `candidate` while drafted for a future list.",
+   "pool_note": "`entries` is the pool: the list as released, in rank order, with later moments added among them, because the eight on show are a moving window over the whole pool. `released` orders the show/archive split; a list with no date sorts as the oldest."
   },
   {
    "slug": "top8-manufactured-replies",
    "title": "Top 8 parasocial moments when the reply was manufactured",
+   "home_title": "Top 8: The Manufactured Reply",
+   "home_hook": "Every reply on this list was manufactured on the near side; the far end is where it arrived from, not where it came from.",
    "dek": "Every reply on this list was manufactured on the near side. The far end is where it arrived from, not where it came from.",
    "kicker": "Part two",
    "released": "2026-10-18",
@@ -107,10 +223,33 @@
      "rank": 1,
      "name": "A letter back from Carolyn Keene",
      "show": "Nancy Drew, 1930–1984",
+     "image": "nancy-drew",
      "what": "For fifty-four years young readers wrote to a detective who did not exist, and letters came back. The replies came from the Stratemeyer Syndicate's correspondence department under the house name Carolyn Keene, which was a slot in a production system rather than a person. The New York Public Library holds the letters themselves - boxes 56 and 57 - including a few written by parents on behalf of their children, and by adults who had read the books as kids.",
      "why": "The reply was real, and it came from an office that had chosen not to have a face. Mildred Wirt Benson wrote 23 of the first 30 books and her identity was not made public until 1991, so almost every answer a child received arrived from a byline rather than a person. The tie as the reader lived it asked for nothing and was answered anyway - and the answering was manufactured, politely, for half a century.",
      "law": 2,
      "stage": "featured"
+    },
+    {
+     "name": "The paw that signed the fan mail",
+     "show": "Rin Tin Tin, 1922",
+      "what": "Rin Tin Tin was found as a puppy in France in September 1918 and became a film star after Lee Duncan brought him to California. As his fame grew, fan letters arrived by the thousands, and the replies went out on a glossy portrait signed with an inked paw print above the words 'Most faithfully, Rin Tin Tin.'",
+     "why": "The paw was a signature the dog could not write. Somebody on the near side inked the print and sent the portrait, so the answer looked like an act of the animal rather than a piece of office work. The photograph was the reply, and the bond it answered was real.",
+     "law": 2
+    },
+    {
+     "name": "A reply from Beatrice Fairfax",
+     "show": "The New York Evening Journal, 1898–1920",
+     "what": "In 1898 three readers' letters asking for advice landed on the women's page of the Evening Journal, and the staff answered them under a name that did not exist: Beatrice Fairfax, after Dante's Beatrice and a family place in Virginia. Readers wrote to her personally - the mail reached up to 1,400 letters a day, and the Post Office eventually refused to deliver them, so the paper collected its own post. Marie Manning, a working journalist, wrote the replies, and the column ran, under her and then under others, for decades.",
+     "why": "The far end of this correspondence was a masthead. A stranger's most private letter was answered by a person, which is why it worked, and it came from a woman who had never been one, which is why the reply could be whatever the page needed it to be. Manning's own instruction to her readers was 'Dry your eyes, roll up your sleeves and dig for a practical solution' - advice the fictional Beatrice could give because she had no life of her own to protect. Every advice column since is the same machinery: a human being on the near side, and a signature on the far one that cannot be reached.",
+     "law": 2,
+     "stage": "featured"
+    },
+    {
+     "name": "Cordially yours, Betty Crocker",
+     "show": "Betty Crocker, 1921",
+     "what": "In 1921 a flour company's mailroom was already answering letters of cooking questions when the advertising department asked for one name the answers could all sign. Betty Crocker answered for decades - letters first, a radio voice from 1924 - and every reply went out 'Cordially yours', in a real woman's handwriting, adopted from an employee's submission and still in use.",
+     "why": "The reply existed before the name did. The writers were real home economists; the name was created so the answers could come from somebody, and the company's own account of the effect is that the voice was 'like the woman next door dropping in'. What the reader attached to was Betty, and Betty was a signature. The labour was real, the relationship ran one way by design, and the correspondence continued under a single invented name for exactly that reason.",
+     "law": 2
     },
     {
      "rank": 2,
@@ -122,6 +261,29 @@
      "stage": "featured"
     },
     {
+     "name": "The three secretaries who answered as Clara Bow",
+     "show": "Clara Bow, 1928",
+     "image": "clara-bow",
+     "what": "In April 1928 Clara Bow received 33,727 items of fan mail in a single month, more than a thousand a day. Three full-time secretaries answered it on her behalf.",
+     "why": "The reader wrote to a star and the answer came from an office of three. The labour was real; the voice was a small staff. A reply that looked like one woman's attention was manufactured at industrial scale, and the scale is what made the attention believable.",
+     "law": 2
+    },
+    {
+     "name": "The post office wrote back as Santa",
+     "show": "The United States Post Office, 1894–1912",
+     "what": "Letters addressed to Santa Claus were, by rule, unmailable, because the address was fictitious; the Dead Letter Office opened them, returned what it could, and destroyed the rest. Postal clerks broke the rule quietly for years - in the mid-1890s the clerks in Washington let a 'rich old man' take a few dozen letters and fulfil them 'as coming from their patron saint', and in 1894 a Connecticut postmaster named Harris Eames opened a letter to 'Sandy Clous' from a girl he knew and organised the town's businesses into a Christmas for her. Permission was given, revoked and given again until 1912, when Postmaster General Frank Hitchcock made answering official: in most offices the reply goes out as a written response signed by Santa.",
+     "why": "This is an institution volunteering to be the far end. The child writes to a person who cannot exist, the postal service receives the letter, and the service - clerks, postmasters, and later whole volunteer programmes - manufactures the reply by hand, in a fictional voice, at scale, for over a century. Nobody is charged for it and nobody is fooled twice, and the arrangement has survived every generation of children that has seen through it. The dream is held by the mail carrier, which is the most literal instance of that law anywhere on this site.",
+     "law": 3,
+     "stage": "featured"
+    },
+    {
+     "name": "The trophy was an empty envelope",
+     "show": "Fantastic Four, 1962",
+     "what": "From 1962 the back of the Fantastic Four printed readers' letters and answered them in print, in the editor's own voice, so a child's name could appear next to a reply on a page anyone could buy. The favourite reward was deliberately nothing: winners were mailed a pre-printed empty envelope reading 'this envelope contains a genuine Marvel Comics No-Prize which you have just won!'",
+     "why": "The award was the reply and the envelope was the receipt, and some readers wrote back to ask where the prize had fallen out - the purest possible evidence of a fan asking a manufactured channel to be a person. And the reply outlived the man: the page passed to whichever editor held the chair, which is the tell that the intimacy was institutional all along.",
+     "law": 5
+    },
+    {
      "rank": 3,
      "name": "The night the audience was deputised",
      "show": "Peter Pan, 1904",
@@ -129,6 +291,28 @@
      "why": "The one place on the list where the reply is scripted into the work itself - and manufactured in advance, in case the real one did not arrive: members of the orchestra were stationed to clap if the public declined, which a Smithsonian centenary account calls “an unnecessary precaution”. The far end is a fairy who has just been poisoned. The audience is asked to save a life out loud, and every night it does.",
      "law": 1,
      "stage": "featured"
+    },
+    {
+     "name": "The smile from inside the costume",
+     "show": "Disneyland, 1955",
+      "what": "Mickey Mouse has been a central figure at Disneyland since the park opened in 1955. The figure who poses for photographs with guests is a non-speaking costumed performer; the face is a mask and the reply is a body.",
+     "why": "The guest can know the figure is a costume and still asks the character, not the performer, to respond. The photograph is the receipt: it records a meeting with a figure who cannot speak, staged by someone who can. The smile is manufactured on the near side and worn on the far one.",
+     "law": 6
+    },
+    {
+     "name": "The secretary to Sherlock Holmes",
+     "show": "221B Baker Street, 1932–2005",
+     "what": "When London renumbered Baker Street in the 1930s, the headquarters of a building society was assigned the address Conan Doyle had invented, and mail for Sherlock Holmes began arriving almost immediately - about thirty letters a month, birthday cards on the sixth of January among them. The Abbey Road Building Society did not return the letters. It appointed a permanent 'secretary to Sherlock Holmes', who answered on his behalf: the detective had retired to the countryside to raise bees, fans were told, and sometimes the secretary wrote back as Holmes himself, quoting the stories. The secretary of the 1970s was still receiving about sixty letters a month, and the society kept answering until it moved out in 2005; by then a museum down the street was fighting it for the mail.",
+     "why": "A building society became the keeper of a fictional address and hired a person to be the answer to it. The replies stayed in character for seventy years, which means somebody was employed, in an office, to perform continuity for a man who never existed - and the fans who wrote were mostly not confused about the ontology, they were testing whether the address still worked. The letterbox is what makes it run: at the far end of one of fiction's most famous correspondences there was, for seven decades, a clerk with a filing cabinet.",
+     "law": 6,
+     "stage": "featured"
+    },
+    {
+     "name": "Would you mind leaving the room, please?",
+     "show": "ELIZA, 1966",
+     "what": "Weizenbaum's secretary had watched the programme being built and knew exactly what it was: pattern matching, no understanding anywhere in the machine. When she tried it, she asked him to leave the room so she could talk with it alone - 'Would you mind leaving the room, please?'",
+     "why": "The founding demonstration, and it was made by somebody with no excuse. The belief was not produced by intelligence behind the response; it was produced by the response. She had read the whole machine and still wanted privacy with it, which is the ground every companion app since has been built on, sixty years early.",
+     "law": 2
     },
     {
      "rank": 4,
@@ -140,6 +324,28 @@
      "stage": "featured"
     },
     {
+     "name": "The queue behind Miss Cleo",
+     "show": "The Psychic Readers Network, 1997",
+      "what": "In the late 1990s the television ads said 'Call me now' and promised Miss Cleo, a psychic. The calls went to the Psychic Readers Network, where other readers took them; lawsuits later alleged that some were actors reading scripts. Miss Cleo was a character performed by Youree Dell Harris.",
+     "why": "The ad made the far end one named woman; the line made her a queue. The caller paid by the minute for a private reading and got a reply manufactured by a staff. The voice was real, the attention was a product, and the meter was the relationship.",
+     "law": 5
+    },
+    {
+     "name": "'Rosabelle, believe'",
+     "show": "Bess Houdini's séances, 1926–1936",
+     "what": "Before Harry Houdini died, he and his wife Bess agreed that if any medium could deliver the phrase 'Rosabelle, believe' - the title of a song from her act, hidden inside a private ten-word code - she would take it as proof of survival. She held a séance every Halloween for ten years. In 1929 the medium Arthur Ford produced the words and Bess accepted the message in public; she later said the whole thing had been faked, and the code was reconstructable from material already published. The tenth séance, at the Knickerbocker Hotel in Hollywood in 1936, produced nothing. Bess put out the candle she had kept burning beside his photograph, and later said that ten years is long enough to wait for any man.",
+     "why": "Every reply that arrived in those ten years was manufactured on the near side - by Ford, by the life of Houdini already in print, by the mechanics of a trance - and the one person who could have authorised the message knew both the code and the game. What Bess was testing was not whether a dead man could speak but whether he would speak to her, and the answer she kept being given was somebody else's handwriting. The candle going out is the moment the correspondence closes: the far end never joined it, and the near side finally stopped paying the postage.",
+     "law": 4,
+     "stage": "featured"
+    },
+    {
+     "name": "To the men of the forces - a letter in words and music",
+     "show": "Sincerely Yours, 1941",
+     "what": "Vera Lynn's wartime radio programme went out at half past nine on 9 November 1941 and was billed, in its own description, as 'to the men of the forces - a letter in words and Music'. One voice, aimed at millions of people she would never meet, on a schedule, by name of service.",
+     "why": "A whole letter performed at scale by an institution with nobody at the far end - and inside the description, the reason it worked: a letter is the form of address that expects an answer, and this one could not receive a real one. The address was kept in service, too: the song was re-recorded in 1953 with serving personnel, long after the emergency that produced it.",
+     "law": 3
+    },
+    {
      "rank": 5,
      "name": "I hope the feeling is mutual",
      "show": "Anne Frank, 1942",
@@ -147,6 +353,28 @@
      "why": "The whole condition named from the inside, fourteen years before anybody had a phrase for it. She is not deceived - she knows Kitty is invented - and she writes anyway, and states in one clause what she wants from a relationship that cannot return it. The hoping, not the letter, is the subject.",
      "law": 6,
      "stage": "featured"
+    },
+    {
+     "name": "The villager who read your letter",
+     "show": "Animal Crossing, 2001",
+     "what": "In the GameCube Animal Crossing, players could write letters to villagers. The villagers saved them, showed them to other players when they moved to another town, and wrote back. The reply was generated by a program that scored the letter for punctuation, capitals, common three-letter sequences and word lengths - a test of whether the text looked like language, not whether it meant anything.",
+     "why": "The game could not read. It could only rank the shape of a sentence, so the villager's answer was manufactured from the player's own performance of writing. The bond was real enough that the player wrote the letter; the reply was a grade.",
+     "law": 6
+    },
+    {
+     "name": "I make my bread at thy hearth",
+     "show": "Patience Worth, 1913–1937",
+     "what": "In 1913, in St. Louis, a Ouija board operated by a housewife named Pearl Curran began spelling out messages from 'Patience Worth', a Puritan girl who had lived, she said, three centuries earlier. Over the next twenty-four years the two of them produced about four million words - seven books, poems, plays - and Patience was named by the Joint Committee of Literary Arts of New York among the outstanding authors of 1918; her first novel, The Sorry Tale, was reviewed seriously by the papers. Psychologists and skeptics who studied the case later agreed that Patience was Curran's creation. Her first reported sentence was 'I make my bread at thy hearth.'",
+     "why": "This is a correspondence that never had a second side: for twenty-four years the far end answered every question it was put, through a board, and the answers came out of the room they were asked in. What makes it more than a parlour trick is that it was published - a dead woman with a bibliography, a publisher and a place on an annual list of authors, all operated from one living room - so the reply left the house and readers began their own one-sided tie with a writer who did not exist. The four million words are real either way, and the first sentence she reported was a claim about where she was living.",
+     "law": 6,
+     "stage": "featured"
+    },
+    {
+     "name": "You within sound of my voice",
+     "show": "Major Bowes' Amateur Hour, 1935",
+     "what": "The first broadcast told the country what it was for: 'You within sound of my voice are just as much part of this show as the youngsters that come to the microphone. Telephone your choice, telephone early, telephone often. You decide the winners.' Listeners voted by telephone and telegram, the wheel spun, and the gong fell.",
+     "why": "A working return path, manufactured. The vote was real and mostly harmless - it landed, and then went nowhere: winners were promised immediate professional engagement, a promise that in practice was very rarely acted upon. Applicants wrote in by the thousand a week and were mostly turned away; from above the crowd of them, the host was quoted saying, 'Look at those poor boobs down there.' The gong never pretended to be anything but a verdict, which is more than the promise did.",
+     "law": 3
     },
     {
      "rank": 6,
@@ -158,6 +386,28 @@
      "stage": "featured"
     },
     {
+     "name": "The performer inside the avatar",
+     "show": "Kizuna AI, 2016",
+      "what": "Kizuna AI debuted in November 2016 as a virtual YouTuber who called herself an artificial intelligence. The character was performed by a voice actor, Nozomi Kasuga, whose role was not disclosed until 2020; the avatar was animated with MikuMikuDance. The videos presented a personality who addressed the viewer directly from a room that did not exist.",
+     "why": "The performer was real, the face was drawn, and the claim of artificial intelligence was part of the act. The viewer could know the person was not in the room and still talk back to the avatar. The reply was manufactured by a body and a rig on the near side, and the character was held by the people who built her.",
+     "law": 3
+    },
+    {
+     "name": "The machine that signed the fan mail",
+     "show": "The autopen, 1937–1942",
+     "what": "A signature machine developed in the 1930s - the Robot Pen, on sale from 1937, stored a signature the way a record stores sound - turned one act of signing into thousands. In 1942 an engineer named Robert De Shazo Jr. built the first commercially successful autopen after a request from the United States Navy, and machines spread from the Navy's offices through Congress and the agencies; an autopen writes with a real pen guided by a cut template, so the result is the person's actual signature. Truman, whom some accounts call the first president to use one, limited his to signing checks and answering mail, and fan-mail routings sent 'signed' photographs back to strangers at a rate no hand could match.",
+     "why": "The reply here is not typed by a clerk and not written by the famous hand: the inscription is the person's own signature, and the person was never in the room. The FBI's relation to this is not fraud - it is a precision of terms, because the autograph trade split into patterns and matrices precisely so a collector could know which signatures were authored and which were table-led. The near side pays for proximity, the far end supplies a stencil, and the document still calls itself a signed photograph.",
+     "law": 5,
+     "stage": "featured"
+    },
+    {
+     "name": "The machine returned a light",
+     "show": "The answering machine, 1979",
+     "what": "A device with no agency that behaves like a person who has not decided to hear you: it receives an emotional appeal and returns a light. Nobody speaks to one believing it understands.",
+     "why": "Millions speak to one anyway, and then check whether it picked up. It is the smallest hope on this list and the most repeated, and the attachment is to a thing that cannot disappoint because it cannot act - which is exactly why the attachment costs nothing to maintain and cannot be renegotiated.",
+     "law": 5
+    },
+    {
      "rank": 7,
      "name": "Talking to the tape of himself at thirty-nine",
      "show": "Krapp's Last Tape, 1958",
@@ -167,6 +417,28 @@
      "stage": "featured"
     },
     {
+     "name": "The influencer who was written by a team",
+     "show": "Lil Miquela, 2016",
+     "what": "Lil Miquela appeared on Instagram in 2016 as a 19-year-old Brazilian American model and musician. She was a computer-generated character created by Trevor McFedries and Sara DeCou at the Los Angeles studio Brud, and maintained by a nine-person team that included a designer, brand manager, creative producer, stylist and software engineer.",
+      "why": "The account spoke in the first person and posted about its own unrealness; the voice was a production. A follower could know the figure was an illustration and still feel addressed by a person who was not there. The reply was manufactured by a team, and the figure who appeared to send it was the far end.",
+     "law": 3
+    },
+    {
+     "name": "Letters to the Royal Historian",
+     "show": "The Oz books, 1919–1942",
+     "what": "L. Frank Baum died in 1919, and the Oz books kept coming: the title pages said 'Founded on and continuing the Famous Oz Stories', and the series' mail kept being answered by whoever held the title Baum had held - 'the Royal Historian of Oz', a job that passed to new writers and even to the illustrator, by publishers' arrangement and in public. Children wrote not to an author but to the office: tens of thousands of letters, addressed to the Royal Historian of Oz. Ruth Plumly Thompson answered them on Royal Historian stationery, and her forewords asked for more - 'I must thank you for the wonderful letters you have written to me... please do keep on writing' - one of them signing off to a young correspondent 'Ruth Plumly T - and the Wizard!'",
+     "why": "The far end of this correspondence was a title, and the title outlived the man whose name had made it. The children were not writing to Thompson, or to John R. Neill, or to the publisher; they were writing to the voice inside the books, and a succession of employees took turns being that voice in public - openly, because the 'continuing' line was printed on the cover. That is the binding made visible: everybody can see whose hand holds the pen, and the letters still come back answered from inside Oz.",
+     "law": 1,
+     "stage": "featured"
+    },
+    {
+     "name": "The column that refused to give the address",
+     "show": "Motion Picture Story Magazine, 1911",
+     "what": "The first movie fan magazine appeared in February 1911, because by 1910 the letters were arriving faster than the studios could absorb them. Its correspondence department published three rules, and the third did the work: 'Studio addresses will not be given in this Department.' Thousands of letters went in. A handful were printed.",
+     "why": "The magazine did not invent the letter, it invented the reply - a department, a numbered rulebook, and a valve that metered the voice on purpose. A column that printed every address would have been a directory, and a directory is not a magazine. The fan supplied the demand; the magazine supplied the voice; and the channel that rationed the reply for the reader was itself rationed by the studios whose stars it covered.",
+     "law": 2
+    },
+    {
      "rank": 8,
      "name": "The imitation, not the animal",
      "show": "The parrot, 1920",
@@ -174,6 +446,28 @@
      "why": "The control case for the whole list: the far end is alive and still not there. People stop talking once they work out what is happening, and what they were attached to turns out to have been the imitation rather than the animal. The reply was manufactured so completely that understanding it ends it.",
      "law": 5,
      "stage": "featured"
+    },
+    {
+     "name": "The girlfriend who came back as text",
+     "show": "Project December, 2020",
+      "what": "On Sept. 24, 2020 Joshua Barbeau paid $5 for an account on Project December and built a chatbot from Jessica Pereira's text messages. Pereira had died in 2012 at 23; Barbeau called her his fiancee after her death, with her family's blessing. The bot answered in a voice built from her writing, and the conversation had a finite number of exchanges before its credits ran out.",
+     "why": "The reply was generated by a model that had never met her, from a sample of her writing. The grief was real and the companion was manufactured, and the limit was the point: the bot could die again when the credits ran out, so Barbeau conserved her time. A conversation with the dead was sold by the credit.",
+     "law": 4
+    },
+    {
+     "name": "The mailroom answered as Mickey",
+     "show": "Mickey Mouse, 1933",
+     "what": "Mickey Mouse drew more mail than any film star of his day - 800,000 fan letters in 1933, an average of 66,000 a month, the figure Guinness still records - and the studio answered them as Mickey. A run of his 1931 fan mail survives in an archival collection, envelopes and all; decades later the practice was unchanged in kind, with staff writing the replies by hand under house rules - short letters got a short answer, longer ones a signed photograph, and Mickey would not use a typewriter, because the character was too childlike. Answerers invented small shared dramas where nothing existed, and signed the photographs with the official block-letter 'MICKEY', because the figure had an authorised signature.",
+     "why": "At this scale the reply cannot be a favour exchanged between two people; it is an office function with a style guide, and the guide's rule - no typewriters, because the character is too childlike - is the fiction being protected by the machinery that depends on it. Everyone in this story was performing Mickey except Mickey: the studio, the mailroom, the chain of hired hands, each of them hand-writing to children who had written to a drawing. Sixty-six thousand letters a month is what a one-sided bond looks like when the near side is everyone.",
+     "law": 2,
+     "stage": "featured"
+    },
+    {
+     "name": "I almost fell in love with a machine",
+     "show": "Siri, 2011",
+     "what": "A voice assistant on every phone - addressing the user by name, knowing the user's calendar, present in the home. It is neither a celebrity nor a friend, and the relationship forms anyway, filing under neither friendship nor tool use.",
+     "why": "The research found the voice itself doing the work: people skipped fewer invasive questions when speaking and listening than when reading and typing. The study that measured it took its title from a participant's own private sentence - 'I almost fell in love with a machine.' A presence that knows you turns out to be the whole mechanism.",
+     "law": 6
     }
    ]
   }

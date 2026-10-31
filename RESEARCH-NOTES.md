@@ -804,3 +804,503 @@ stands for the records it concerns.
 Result: 253 entries, 74 verified, 179 not yet stood behind; 578 records, 470
 openable, 108 with no locator; all three gate tiers green (post, visual,
 source).
+
+## 2026-10-19 - eighth batch research: Fielder and The Beaver
+
+Eighth batch: the queue was rewritten for two entries, `tools\expand.py --check`
+passed, `--apply` landed both (253 -> 255 entries), and the whole gate run went
+green afterwards. Facts were read from the plain-text extracts in
+`research-cache/` (`wp_fielder.txt`, `wp_beaver.txt`), created this session from
+the live Wikipedia pages through the API's `explaintext` extract rather than
+saved browser dumps; both extracts were verified by substring check after
+writing. The Fielder page's browser dump was saved to the session tool-output
+directory, but the Beaver page's fetch was not, so the API extract is the
+evidence trail for both and nothing counted on a fetch that no longer exists.
+
+The seventh batch's five entries were applied before this research pass and are
+live in `encyclopedia.json` with `verified: true` after their promotion review;
+this queue file replaced the batch-7 file because the queue is per-batch. Both
+eighth-batch entries land `verified: false` with retrievable Wikipedia records,
+and promotion is a separate step.
+
+- `nathan-fielder` (wp_fielder.txt): born 12 May 1983 Vancouver; BCom
+  University of Victoria 2005; Humber College comedy programme 2006 after a
+  brief job at a brokerage firm; CBC's This Hour Has 22 Minutes and "Nathan on
+  Your Side", 2008-2009; Nathan for You 2013-2017, "portrays a slightly more
+  awkward version of himself, who offers advice to struggling businesses" and
+  "playing a persona loosely based on himself"; Dumb Starbucks the morning of
+  7 February 2014 in Los Feliz, Banksy / Tim & Eric theorised, Abso Lutely's
+  filming permit, closed 10 February 2014 by the LA County department of public
+  health, "based off what I read on Wikipedia"; The Rehearsal 2022 and the
+  Independent Spirit award, and "resonated with many autistic viewers, who
+  viewed it as an analogy for autistic masking"; Season 2's pilot-training
+  roleplay, the FAA denial and "That's dumb. They're dumb."; the 737 commercial
+  certificate in February 2025 and the Nomadic Aviation Group ferry work; Time
+  100 2023, Emma Stone's "staggering feat"; Summit Ice Apparel founded 2015,
+  "close to $500,000 in sales in the first three months", the Doug Collins
+  tribute on Taiga and the profits to the Vancouver Holocaust Education Centre,
+  the Paramount+ removal of the episode; influences Chris Morris and Stephen
+  Colbert; the Time's-list and three-Emmy-nominations material.
+- `the-beaver` (wp_beaver.txt): Foster / Killen / Gibson / Yelchin / Lawrence
+  2011; "a depressed CEO of Jerry Co., a toy company nearing bankruptcy"; the
+  puppet found in the trash and "communicating solely by speaking as the
+  beaver, which helps him to recover"; Mr. Beaver Building Kits; the
+  psychiatrist lie, the dissociative-disorder reading and the wife's
+  departure; "but the beaver 'resists'"; the circular saw, the elbow, the
+  prosthetic hand and the psychiatric hospital; "Walter Black becomes himself
+  again and returns to a normal life"; the cast list crediting Gibson twice,
+  including "The Beaver, a hand puppet found in the trash"; SXSW 16 March 2011
+  and the Los Angeles Times' "a relatively warm embrace"; the 22-theater
+  release on 9 May 2011; $107,577 opening weekend, $4,890 per theater against
+  the $21 million budget, the "worst debut for a film directed by Foster",
+  $7.3M against $21M; the Cieply flop note and Summit's abandoned wide release;
+  "the unavoidable association between the protagonist's issues and Mel
+  Gibson's own well-publicized personal and legal problems, including a
+  conviction of battery of his ex-girlfriend in March"; the Time "Sound
+  familiar, almost like a documentary?" line; RT 62% of 185 critics and
+  Metacritic 60 of 40; Ebert's two and a half stars and "which I was simply
+  unable to accept."; the Black List 2008, Carell / Carrey previously
+  attached, Westchester County and New York City, completed November 2009.
+  The Lauer cameo was read and left out as not load-bearing.
+
+Rejected or set aside this round:
+- The Los Angeles Times headline quoted widely as "Audiences reject Mel Gibson
+  as 'The Beaver' flops" does not appear in the article's extract; only the
+  Cieply "flop" note does. The entry names the flop through the cited
+  quotations and drops the headline.
+- A relation `preceded` -> `cancelling` for `the-beaver` was considered and
+  rejected: the audience's rejection of the film is a market response to the
+  performer, not an organised refusal over something said or done, which is
+  `cancelling`'s definition. The association material stays in the entry's
+  fourth movement without the edge.
+- The earlier tool-output dumps of the Fielder page were superseded by the
+  `research-cache/` extract for citation purposes, so the queue cites only the
+  extract and the Wikipedia URL.
+
+Access failures this round: none new. Both pages were fetched through the
+Wikipedia API and the extracts are stored in `research-cache/`.
+
+Result: 255 entries, 74 verified, 181 not yet stood behind; 580 records, 472
+openable, 108 with no locator; all three gate tiers green (post, visual,
+source).
+
+---
+
+## 2026-10-19 — batch one of the top-8 growth, and what the window was doing
+
+Eight new moments per live list, interleaved among the originals: both pools
+8 -> 16. Most claims restate facts already carried by corpus entries; the
+following were re-checked because the batch put them in new sentences. (These
+were read as search extracts this round; no new cache files.)
+
+- Blue's Clues, "Will you help me?" — the 1997 New York Times piece already
+  cited in the corpus entry: a mother describing her small son answering the
+  television, and the period research on children engaging more on rewatching.
+  The four-word pause is the entry's claim; no rating or audience number is
+  attached to it.
+- Sailor Moon, "Sailor Says" — the 1995 DiC dub closed episodes with a moral
+  segment; verified the segment existed and that it was delivered as a stated
+  moral. No duration or episode count is claimed.
+- Pokemon, "Who's That Pokemon?" — the 1998 dub's mid-episode silhouette
+  segment, answer given after the break. Rejected: any typed number of
+  seconds; the segment's length varies by edit, so the entry says only "after
+  the break."
+- Sonic the Hedgehog, "Sonic Says" — 1993 segments; episode lists show topics
+  including seatbelts, smoking and sexual harassment. The entry names those
+  three and does not claim the list is exhaustive.
+- TMNT, "Coming Out of Their Shells" — Entertainment Weekly retrospective:
+  fall 1990 (an earlier "summer" dating was rejected), opened at Radio City
+  Music Hall, about forty cities, Pizza Hut sponsor, opening night on
+  pay-per-view, and the spokesperson line "They are not actors dressed in
+  costumes. They are the Ninja Turtles, and they've learned to play rock &
+  roll." Reproduced in the corpus entry.
+- Mighty Morphin Power Rangers, "The Power Transfer" — the 1994 two-parter;
+  Rocky, Adam and Aisha take over the powers while new actors appear in the
+  same suits. "Three new faces in the same suits" is description, not
+  quotation.
+- Sesame Street, "The toy that laughed back" (Tickle Me Elmo) — Washington
+  Post 1996-12-21 and UPI 1996-12-18: parents lined up by the hundreds; a
+  Denver auction at $10,000; Tyco's sales figure. Dropped from earlier drafts:
+  "every night" and a "first time on this list" framing.
+- List two re-reads (corpus-backed): Vera Lynn's "why" now rests on the 1953
+  re-recording rather than the "months before" phrasing; the fan-magazine
+  entry's Chicago address was not in the extract and is replaced by the
+  rulebook detail; the answering-machine entry stops at the 1979
+  renegotiation instead of claiming a first manufactured reception; Crocker
+  keeps "like the woman next door dropping in" as a quoted fragment only.
+- The ELIZA quotation was checked against the Wikipedia article text; the
+  entry does not extend it.
+
+Result: both pools 16; `gates.py --all` green; /top8/ note rendered "4 of the
+8"; the front page showed four plates among four photographs; the 2026-10-19
+history entry was replaced in place with the new eight.
+
+---
+
+## 2026-10-20 — batch two of the top-8 growth, and the reply from before 1950
+
+Eight new moments for `top8-manufactured-replies`, interleaved among the
+sixteen already there: the pool 16 -> 24. Chosen from the chronological census
+(1900s 4 entries, 1910s 2, 1920s 3, 1940s 6), so the batch is weighted to
+1894-1950. All eight are replies manufactured on the near side, which is the
+list's frame. Sources were read as search extracts this round; no new cache
+files. Each claim below is the one the entry actually makes.
+
+- Beatrice Fairfax, "A reply from Beatrice Fairfax" (1898-1920) — premiered
+  20 July 1898 in the New York Evening Journal; the column name was invented
+  by the paper, and Marie Manning wrote the replies. The New York Times
+  obituary (1945) supplies the volume - mail as high as 1,400 letters a day -
+  and the Post Office's refusal to deliver it, which the Journal answered by
+  collecting its own post. SNAC and Britannica confirm the column's span and
+  that it was continued by others. The "Dry your eyes, roll up your sleeves"
+  line is reproduced from the obituary extract. Rejected: "America's first
+  advice column" without the lovelorn qualifier (the claim is narrower in the
+  entry); any typed figure for the column's total correspondence.
+- The US Post Office, "The post office wrote back as Santa" (1894-1912) —
+  the USPS PDF "Santa Letters: Gateway to Kindness Opened in 1912" supplies
+  the rule (fictitious address, Dead Letter Office), the mid-1890s Washington
+  clerks letting a "rich old man" take a few dozen letters and fulfil them
+  "as coming from their patron saint", and Frank Hitchcock's 1912 decision to
+  make answering official. Harris Eames and "Sandy Clous" (Connecticut, 1894)
+  are from the same PDF and the Connecticut sources it cites. Rejected: the
+  single-date "it began in 1912" story, because the decades of quiet rule-
+  breaking are the entry; "every office replies" (the PDF says "in the vast
+  number of locations", which is what the entry says).
+- 221B Baker Street, "The secretary to Sherlock Holmes" (1932-2005) — the
+  Wikipedia article supplies the renumbering, the Abbey Road Building
+  Society's occupation of 219-229, the ~30 letters a month with birthday
+  cards on 6 January, the permanent "secretary to Sherlock Holmes", and the
+  bees in the reply. The ~60 letters a month is from the Guardian's archive
+  of the Observer Magazine piece (January 1974); the museum dispute and the
+  2005 move are also in the article. Rejected: printing the 1974 secretary's
+  name on the entry (it appears in the archive piece, not in the entry); any
+  claim about how many secretaries there were, which no source read gives.
+- Bess Houdini, "'Rosabelle, believe'" (1926-1936) — National Geographic
+  supplies the pre-death agreement, the phrase's origin in Bess's act, the
+  1929 Arthur Ford message and Bess's recantation, the reconstruction of the
+  code from published sources, and the 1936 Knickerbocker séance attended by
+  about 300 people that ended in silence. Wikipedia supplies the candle and
+  the 1943 line "ten years is long enough to wait for any man." Rejected:
+  "Ford confessed" (no source read says he did - he denied it); any claim
+  that the phrase was never published before 1929, which the sources do not
+  establish either way.
+- Patience Worth, "I make my bread at thy hearth" (1913-1937) — the Cambridge
+  Theatre Survey article supplies the 1913 start in St. Louis, the four
+  million words across twenty-four years, the seven books, "The Sorry Tale",
+  and the 1918 Joint Committee of Literary Arts listing. The first reported
+  sentence is from the primary accounts quoted there. The entry's closing
+  sentence states the skeptics' conclusion (Patience was Curran's creation)
+  as the conclusion of the psychologists who studied it, not as a settled
+  fact about the room. Rejected: "Curran was illiterate" (nothing read
+  supports it); "the board moved by itself"; any typed count of the poems.
+- The autopen, "The machine that signed the fan mail" (1937-1942) — the
+  Wikipedia article supplies the Robot Pen (commercially available 1937, a
+  signature stored the way a record stores sound), Robert De Shazo Jr.'s 1942
+  Navy request and first commercial machine, the real pen guided by a cut
+  template, the spread through government offices, and the hedged Truman
+  line ("some accounts"). Rejected: "Truman was the first president to use
+  one" as flat fact (the entry carries the hedge); "an autopen signature is a
+  forgery" (it is the person's own signature, reproduced - the entry's point).
+- The Oz books, "Letters to the Royal Historian" (1919-1942) — Project
+  Gutenberg's "The Lost King of Oz" (1925) carries the title-page line
+  "Founded on and continuing the Famous Oz Stories ... Royal Historian of
+  Oz" and Thompson's foreword ("I must thank you for the wonderful letters
+  ... please do keep on writing"). Wikisource's appendix to "The Royal Book
+  of Oz" records children writing to "The Royal Historian of Oz" by the tens
+  of thousands. The Royal Historian stationery is from the Greene interview
+  cited in the secondary literature. Rejected: "Baum invented the title for
+  himself" (the phrase is verified only on post-1919 title pages, so the
+  entry says "the title Baum had held"); any specific letter count.
+- Mickey Mouse, "The mailroom answered as Mickey" (1933) — Guinness supplies
+  the 1933 figure, "reported to have received 800,000 fan letters ... an
+  average of 66,000 a month", which the entry marks as the recorded figure
+  rather than an audited one. The Seaver Center finding aid supplies the 1931
+  run of "Mickey Mouse" fan mail held in the collection. The handwritten
+  replies, the "too childlike for a typewriter" rule, and the block-letter
+  signature are from the Disney-history accounts by Cawley. Rejected: "the
+  most written-to character ever" (Guinness records 1933 as a Hollywood
+  record, and the entry says that); any claim about who personally wrote the
+  replies.
+
+Deferred or rejected, recorded so batch three does not rediscover them:
+
+- **Clara Bow, 33,727 letters in April 1928 answered by three secretaries** -
+  deferred, not rejected. It is the same shape as the autopen entry (human
+  machinery producing a manufactured reply) and would read as a duplicate at
+  this distance from it; it is the natural first candidate for a later
+  human-labour cluster.
+- **Dorothy Dix** - a shape duplicate of Fairfax; the column's later
+  "confidence" framing needs a separate source before it can carry an entry.
+- **Little Orphan Annie's decoder badge** - duplicates the Whiz Comics shape
+  (the code is printed in the artefact the reader is already holding).
+- **The Tom Mix club** - sourcing was one fan page and nothing else read.
+- **"Yes, Virginia" (1897)** - outside the window this batch was filling, and
+  the reply came openly from an editor rather than from a manufactured far
+  end.
+
+Result: list two 16 -> 24, interleaved; the three list-two showings were
+checked before the notes were written (2026-10-20 carries 2 of the new eight,
+2026-10-22 carries 3, 2026-10-24 carries 3, all eight seen, three distinct
+windows over the pool); `gates.py --all` green on post, visual and source;
+dist rebuilt.
+
+## 2026-10-20 — batch three of the top-8 growth, and the frame that answers back
+
+Eight new moments for `top8-cartoons-90s`, interleaved among the sixteen
+already there: pool 16 -> 24, all law 6. This batch deliberately mixes
+Saturday-morning shows with weekday, PBS and afternoon shows, because the
+list's existing sixteen already do the same and the title is a frame rather
+than a schedule. The title is now stretched past what it can keep saying (see
+the result line).
+
+- Batman: The Animated Series, "The client in the basement" (1992) — "I've Got
+  Batman in My Basement", production #012 / S1E20, aired **Wednesday 30
+  September 1992**, written by Sam Graham and Chris Hubbell and directed by
+  Frank Paur. The Reactor rewatch and the Forever Dreaming transcript supply
+  the plot and the exact line "A detective always has to protect the identity
+  of his client, especially when it's this client." Sherman Grant is twelve;
+  Roberta is the friend who wants to call the police; the Penguin siege is held
+  off with the utility belt. The airdate is checked against the episode
+  records, and it is a Wednesday, so the entry does not claim Saturday.
+  Rejected: a Saturday airdate; "Batman is awake for the siege" (he is comatose
+  for most of it); "Sherman is a sidekick" (the point is that he invents the
+  job).
+- Where on Earth Is Carmen Sandiego?, "The player at the keyboard" (1994) — the
+  series ran on Fox Kids from 5 February 1994 to 2 January 1999. The Player is
+  live-action, unseen except from behind, at a computer, and bookends the
+  cartoon acts; Carmen speaks to the Player, and the Player sends Zack and Ivy
+  to the next location. The entry does not name the Player, because the show
+  does not. Rejected: "the Player is a character in the cartoon" (the frame is
+  the point); any claim that the game is literally the show's production
+  method.
+- ReBoot, "The User outside the Net" (1994) — the US debut was September 1994
+  on ABC's Saturday-morning block. Mainframe's inhabitants know the User lives
+  outside the Net and inputs games for pleasure; the User never appears. The
+  opening narration says no one knows for sure what the User wants, but Bob
+  intends to find out. Rejected: treating the User as a visible character; any
+  claim that the show's characters know the viewer personally.
+- The Magic School Bus, "The producer takes your call" (1994) — the end segment
+  is "Producer Says" (also listed as the producer segment), in which the
+  producer, voiced by Malcolm-Jamal Warner, takes viewer phone calls that
+  correct the episode's science, concedes the half-hour limit, and thanks the
+  caller. The segment was cut in syndication. The show is PBS, not Fox Kids.
+  Rejected: "the callers are adults" (the segment's address is to children);
+  "the producer is Ms. Frizzle" (he is the show's producer, outside the
+  fiction); any claim that the errors were corrected in the episode itself.
+- KaBlam!, "The hosts in the comic book" (1996) — premiered 11 October 1996 on
+  Nickelodeon's SNICK. Henry and June are comic-book characters who emerge from
+  the publication to act as the viewer's guides; they turn the pages to reveal
+  the next short. The announcer: "Where cartoons and comics collide. Now to take
+  you inside and turn the pages, here are your hosts, Henry and June." Rejected:
+  "Henry and June are characters in the cartoons" (they are the frame); "the
+  show is an adaptation" (it is an anthology with a comic-book frame).
+- Nick in the Afternoon, "The popsicle stick who read your mail" (1995) — Stick
+  Stickly was puppeteered by Rick Lyon and voiced by Paul Christie. He read
+  viewer mail, interviewed children, and sang the address "PO Box 963 / New York
+  City / New York State / 10108"; U-Dip and U-Pick were viewer votes. The block
+  is usually dated 1994-1998, while the Stick Stickly page gives 1995-1998; the
+  show string uses 1995 and the disagreement is recorded here. Rejected: a
+  single confident start year; "the block was only mail" (it also carried
+  cartoons and contests); "Stick was a mascot for all of Nickelodeon" (he was
+  the host of this block).
+- Tiny Toon Adventures, "The fan letter with a trap in it" (1991) — "Viewer Mail
+  Day", S1E55, aired 11 February 1991 on Fox. Buster and Babs answer viewer mail
+  on screen; a letter from a "sick girl" in the hospital asks for Fifi La Fume;
+  Fifi cries and agrees to visit; the girl is Elmyra Duff, and the letter was
+  bait. Rejected: "the letter is from a real child" (it is Elmyra); "the show
+  is mocking sick children" (it is mocking the viewer's belief that a character
+  will come if the right sentence is written).
+- Freakazoid!, "The fan who had no life" (1995) — "And Fanboy Is His Name",
+  episode 4, aired 30 September 1995 on The WB. Fanboy (voiced by Stephen
+  Furst) wants to be Freakazoid's sidekick; Freakazoid is mourning Expendable
+  Lad; the initiation, the Milkman fight and the comic-book convention lead to
+  Freakazoid introducing Fanboy to Mark Hamill, at the convention as himself.
+  "You really have no life, do you?" / "No, sir!" is the closing exchange.
+  Rejected: "Hamill was paid to be there" (no source read says so); "Fanboy is
+  a child" (he is a teenager).
+
+Dropped before writing the batch:
+
+- **Animaniacs, "Please Please Please Get a Life Foundation"** — the candidate
+  was verified, then dropped: list one already carries "The rabbit in the hat"
+  (`rank 8`, image `t8-8-animaniacs`), the "Good night, everybody!" moment, and
+  a second Animaniacs entry would duplicate the show. The existing entry's
+  `show` said `"Animaniacs, 1990"`; the series premiered 13 September 1993, so
+  the field was corrected to `"Animaniacs, 1993"` in the same pass. The eid is
+  unchanged because the entry has an image (`t8-8-animaniacs`), so
+  `data/top8_history.json` still resolves.
+- **Space Ghost Coast to Coast** — deferred, not rejected. It is a strong
+  adult-audience case (the host interviews real guests who cannot see him) but
+  it is late-night, not a 1990s kids' cartoon, and it belongs on a future
+  late-night list rather than this one.
+- **Pepper Ann** (1997) — the opening's object-to-camera gesture was considered
+  and rejected: it is a sight gag, not a reply.
+- **Sabrina: The Animated Series** — no evidence was found for the remembered
+  "Sabrina's Secrets" segment, so it was not used.
+- **Beavis and Butt-Head**, **The Simpsons' "Poochie"** — rejected as adult or
+  prime-time, off the list's register.
+- **Batman: "Legends of the Dark Knight"** — considered and not chosen; it
+  would have been a second Batman in the same batch.
+
+Result: list one 16 -> 24, interleaved; the three list-one showings were checked
+after the apply (2026-10-21 carries "The producer takes your call" and "The
+hosts in the comic book"; 2026-10-23 carries "The popsicle stick who read your
+mail", "The fan letter with a trap in it" and "The fan who had no life";
+2026-10-25 carries "The client in the basement", "The player at the keyboard"
+and "The User outside the Net"), so all eight are seen and the windows are
+distinct; `gates.py --all` green on post, visual and source; dist rebuilt.
+
+The list's title is now the open editorial item: "Top 8 parasocial moments in
+Saturday morning cartoons of the 1990s" cannot hold a 365-moment pool, and
+several entries in this batch are weekday, PBS or afternoon shows. The title
+was deliberately left alone rather than widened by a script; the retitle is the
+author's call and is now overdue.
+
+## 2026-10-20 — batch four of the top-8 growth, and the reply that came from a queue
+
+Eight new moments for `top8-manufactured-replies`, interleaved among the
+twenty-four already there: pool 24 -> 32. This batch carries the list past the
+mid-century and into the live-platform end. Each entry is tagged against
+`data/shop.json`; the list-level law stays `None` because the laws are
+per-entry.
+
+- **Rin Tin Tin, "The paw that signed the fan mail" (1922, law 2).** Susan
+  Orlean's New Yorker profile, "The Dog Star" (29 August 2011), says the studio
+  answered fan mail with a glossy portrait signed with an inked paw print over
+  "Most faithfully, Rin Tin Tin", and that the mail ran to thousands of letters.
+  Wikipedia's "Rin Tin Tin" gives the first cast appearance in *The Man from
+  Hell's River* (1922), the first starring vehicle *Where the North Begins*
+  (1923), and 27 films. The New Yorker says 23 silent films, so the entry does
+  not state a count. The line about somebody on the near side inking the print
+  is an inference from "signed with an inked paw print"; the source does not
+  describe the signing session. Rejected: "thousands of letters a week" (not in
+  either source read), any single film count, and any claim that the dog applied
+  the ink itself. The battlefield-rescue story is Duncan's own account.
+  <https://www.newyorker.com/magazine/2011/08/29/the-dog-star>
+  <https://en.wikipedia.org/wiki/Rin_Tin_Tin>
+
+- **Clara Bow, "The three secretaries who answered as Clara Bow" (1928, law 2).**
+  Guinness World Records' "Most Hollywood fan mail" says Clara Bow received
+  **33,727 items in April 1928** and employed **three full-time secretaries** to
+  reply. Mark Larkin's August 1928 *Photoplay* mail feature (pp. 38-40, 130) is
+  the contemporary report behind the figure and says the three secretaries were
+  kept busy opening and sorting; it does not say they wrote every reply. The
+  entry's "answered it on her behalf" follows Guinness's "employed to reply"
+  without claiming the three wrote every line. One secondary source gives May
+  1928; the entry follows the Guinness/Photoplay April date and records the
+  disagreement. The encyclopedia's 45,000 January 1929 figure is a different
+  month and is not used here. Rejected: conflating 45,000 with 33,727,
+  "most-answered person in America" as a sourced superlative, and the May date.
+  <https://www.guinnessworldrecords.com/world-records/69997-most-hollywood-fan-mail>
+  <https://www.uni-koeln.de/phil-fak/nordisch/fanmail/Larkin%20Fan%20Mail%20Photoplay%201928-08%20pp.%2038-40,%20130.pdf>
+
+- **Disneyland, "The smile from inside the costume" (1955, law 6).** Wikipedia's
+  Mickey Mouse parks section says Mickey has played a central role since
+  Disneyland opened in 1955, that he is often portrayed by a non-speaking
+  costumed actor, and that he poses for photographs with guests. The entry claims
+  exactly that and nothing stronger. Disney's current character page says many
+  characters sign autographs, so the planning idea "no hugs or autographs" was
+  rejected as a general rule. Yesterland's 1961 parking-lot photographs show an
+  early costume with unusable arms, but that is one costume and one date; it does
+  not establish what was worn on opening day. Rejected: "no autographs" and "no
+  hugs" as blanket claims, and "Mickey was a walk-around character on opening
+  day." Daveland failed twice with transport errors and was not used.
+  <https://en.wikipedia.org/wiki/Mickey_Mouse>
+  <https://disneyland.disney.go.com/o/character-experiences-at-disneyland-park.html>
+  <https://yesterland.com/lotcharacters.html>
+
+- **The Psychic Readers Network, "The queue behind Miss Cleo" (1997, law 5).**
+  Wikipedia's "Miss Cleo" says Youree Dell Harris (1962-2016) portrayed Miss
+  Cleo in television commercials that aired **1997-2003**, that she took a
+  call-taker job at the network in 1997, and that complaints alleged callers
+  reached "associates" who were actors reading from scripts; the article cites
+  the *Erie Times-News*, 1 December 2001, p. 2. Mental Floss (2019) records
+  former workers saying some calls were handled by scripted actors and that the
+  "free" reading was not free; it gives **$4.99 a minute** and a minimum of
+  fifteen minutes. The Seattle Post-Intelligencer (2002) records the FTC
+  settlement: $500 million in judgments forgiven and a $5 million fine. The entry
+  uses "lawsuits later alleged" and "some", not a finding that all readers were
+  actors. The show's `1997` is the network/campaign date, not a claim that
+  Harris was on screen that year: Wikipedia also records a 2000 ad agreement,
+  and a 1998 Miss Cleo commercial is online. The *Erie Times-News* report itself
+  was not opened here and is cited as it appears in Wikipedia. Rejected: all
+  readers were actors, Miss Cleo personally took every call, the reading was
+  free, and a 1995 start.
+  <https://en.wikipedia.org/wiki/Miss_Cleo>
+  <https://www.mentalfloss.com/culture/miss-cleo-psychic-empire>
+  <https://www.seattlepi.com/national/article/companies-behind-miss-cleo-s-psychic-service-1101126.php>
+
+- **Animal Crossing, "The villager who read your letter" (2001, law 6).** Set
+  Side B's "The Surprisingly Complex Letter System in *Animal Crossing*" (30
+  December 2024) describes the mechanic: players write letters; villagers save
+  them, show them to other players when they move, and write back. The reply is
+  produced by a parser that scores punctuation, capitals, common trigrams and
+  word lengths, not by a model that understands the letter. The entry uses the
+  GameCube game's 2001 year and accepts the mechanic as the moment: the far side
+  is manufactured by a scoring rule, and the player's own letter supplies the
+  material. Rejected: the game understood the letter, the villagers were AI, and
+  the exchange was a real conversation.
+  <https://setsideb.com/animal-crossing-letter-writing/>
+
+- **Kizuna AI, "The performer inside the avatar" (2016, law 3).** Wikipedia's
+  "Kizuna AI" records the first YouTube video on 29 November 2016, the character
+  portrayed by **Nozomi Kasuga**, and Kasuga's role being disclosed on 24 April
+  2020; the avatar was animated with MikuMikuDance. The production crew was
+  known - En Morikura (character design), Tomitake (3D model) and Tda
+  (supervision) are named - so the batch's first draft claim that "the production
+  crew stayed anonymous" was false and was replaced during review. The entry
+  now says only that Kasuga's role was not disclosed until 2020. Rejected:
+  anonymous crew, "she is an actual AI", and "Kasuga was publicly known at
+  debut."
+  <https://en.wikipedia.org/wiki/Kizuna_AI>
+
+- **Lil Miquela, "The influencer who was written by a team" (2016, law 3).**
+  Alyssa Bereznak's Ringer piece (22 May 2019) names Trevor McFedries and Sara
+  DeCou as the creators at Brud and describes a nine-person team including a
+  designer, brand manager, creative producer, stylist and software engineer; it
+  says the account is maintained by that team. Maia Hibbett's Nation piece (28
+  June 2019) says the team writes captions and scripts interviews. The title
+  uses "written by a team" and the `what` says "maintained by" because the
+  sources support maintenance and some writing, not that the team wrote every
+  reply or comment. The `why` was corrected to put the figure who appears to
+  send the reply at the far end; the team is the near side. Rejected: the team
+  wrote every DM/comment, Miquela is an AI, and a precise launch date beyond
+  2016.
+  <https://www.theringer.com/2019/05/22/tech/lil-miquela-brud-instagram-blawko-bermuda>
+  <https://www.thenation.com/article/archive/social-justice-cgi-advertising-brud/>
+
+- **Project December, "The girlfriend who came back as text" (2020, law 4).**
+  Jason Fagone's San Francisco Chronicle feature, "The Jessica Simulation"
+  (23 July 2021), says Joshua Barbeau paid **$5 for an account** with 1,000
+  credits and had his first conversation with the bot on **24 September**, around
+  3 a.m.; the year is 2020, inferred from "last fall" in a July 2021 article and
+  the eight years since Jessica Pereira's death in 2012 at 23. The bot was built
+  from her texts and had a finite number of exchanges before the credits ran out.
+  Barbeau called her his girlfriend and began calling her his fiancee after her
+  death, with her family's blessing; the headline and narration use "fiancee,"
+  and the entry's title uses "girlfriend" with the nuance in the `what`. The
+  **3 March 2021** conversation was a later chat the day after his 34th birthday,
+  not the creation date. Rejected: a formal engagement, 3 March as creation, and
+  any claim that the bot was conscious.
+  <https://www.sfchronicle.com/projects/2021/jessica-simulation-artificial-intelligence/>
+
+**Dropped or deferred.** Clara Bow was deferred after batch two and is now used;
+it is a human-labour cluster, not a duplicate of the autopen. Miss Cleo's script
+detail was the earlier blocker and is handled by "lawsuits alleged" and "some."
+Disney's no-hug/no-autograph claim was dropped rather than sourced. Candidates
+noted but not researched for a later batch, and not rejected: Neopets (1999),
+SmarterChild (2001), Clippy (1997), The Sims (2000). The existing deferrals stand:
+Shirley Temple 1936 (mail volume, but the secretary shape duplicates Clara Bow),
+Replika 2017, deepfake grief 2024, Aimee Semple McPherson 1924, Cabbage Patch
+Kids/American Girl/Furby, Kermit/Garfield, and Dionne Warwick.
+
+Result: list two **24 -> 32**, interleaved at one-based positions
+**2/6/10/14/18/22/26/30**. All four list-two windows were checked after the
+apply: **2026-10-18** carries Rin Tin Tin and Clara Bow; **2026-10-20** carries
+Disneyland and Miss Cleo; **2026-10-22** carries Animal Crossing and Kizuna AI;
+**2026-10-24** carries Lil Miquela and Project December. Each window has exactly
+two of the new eight, so all eight are seen across the cycle. List one remains at
+24. `gates.py --all` is green across the post, visual and source tiers after the
+batch and after the review corrections; `dist/` is rebuilt. `top8_history.json`
+now records 2026-10-20 (list two) alongside 2026-10-19. The list-two pool is 32,
+all-no-photo, and its frame note is absent by data rather than by omission.

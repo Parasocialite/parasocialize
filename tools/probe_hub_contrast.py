@@ -1,17 +1,17 @@
-"""Contrast of the ten hub tiles on the front page, measured off the pixels.
+"""Contrast of the eight hub tiles on the front page, measured off the pixels.
 
 The tiles are the one place on the front page where body copy is set on a
 saturated background rather than on the dark page colour, and the copy used to
 be carried by ALPHA - `rgba(18,10,5,.72)` for the deck and `.6` for the "N MORE"
-link - over ten different colours. Measured, seven of ten tiles had the deck
+link - over eight different colours. Measured, seven of ten tiles had the deck
 below WCAG AA 4.5:1 and nine had the link below it, worst 2.64:1.
 
 **Alpha is not a way to express hierarchy on a variable background.** The site
 already had the counter-example on the same tile: `.hub h3` is solid `#120a05`
-and was the only text that cleared the large-text threshold on all ten.
+and was the only text that cleared the large-text threshold on every tile.
 
 WHY IT SAMPLES PIXELS, and the two probes that got it wrong first
-  1. Reading `backgroundColor` returned the PAGE colour for all ten tiles at
+  1. Reading `backgroundColor` returned the PAGE colour for every tile at
      1.02:1, because `.hub` paints with a `background` gradient and never sets a
      background-colour. Obviously wrong, and still a confident number.
   2. Computing the gradient arithmetically would need `color-mix(--c 70%,
@@ -149,8 +149,8 @@ if not m:
     sys.exit("NO GEOMETRY - refusing to report contrast from a probe that read nothing")
 boxes = [ln.split("|") for ln in html.unescape(m.group(1)).strip().split("\n")]
 worst = 99.0
-if len(boxes) != 10:
-    sys.exit(f"refusing: found {len(boxes)} hub tiles, expected 10. A changed "
+if len(boxes) != 8:
+    sys.exit(f"refusing: found {len(boxes)} hub tiles, expected 8. A changed "
              f"tile count means the geometry below is measuring something else.")
 
 render("", None, OUT / "hub-text.png")

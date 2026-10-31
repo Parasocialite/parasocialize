@@ -1,7 +1,7 @@
 """Measure the front page's card geometry, before and after the resize.
 
 The report: the three masthead modules ("To read", "To research", the clerk)
-are oversized and the ten hub tiles are chunky. This prints box heights and
+are oversized and the eight hub tiles are chunky. This prints box heights and
 the font sizes that drive them at every ladder width, so the change is sized
 against numbers rather than impressions - and so "less chunky" cannot quietly
 become "worse at 760px".

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-build_deploy.py - assemble dist/ and prove it holds together.
+build_deploy.py - rebuild the site, assemble dist/, and prove it holds together.
 
 WHY THIS EXISTS
 The first upload to Cloudflare Pages failed: "Your upload exceeds the limit of
@@ -14,6 +14,21 @@ So the fix is not the 20,000-file Wrangler path, which also needs Node. The fix
 is to upload a directory that contains the website and nothing else. 439 files
 becomes about 385, which is comfortably under the limit and needs no new
 tooling on the machine.
+
+WHY IT BUILDS BEFORE IT PACKAGES
+A packaging step that only copies is a packaging step that ships whatever day
+the pages were last generated. In October 2026 the front page's date-seeded top
+8, register and parasocialite stayed on 21 October while every gate was green:
+the rotation was correct, the copy was faithful, and the tree being copied had
+simply stopped being current. The deploy command was the defect, not the
+rotation.
+
+So this now runs `build_cards.py` and then `plate.py` before it touches dist/,
+which makes `python tools/build_deploy.py` the one fresh-deploy command.
+`--no-build` exists for `gates.py`, which already runs those two steps in order
+and must not run them twice. `--check-only` inspects existing dist/ and never
+builds, because a check that quietly rebuilt would no longer be checking what
+was handed to it.
 
 WHAT IS IN, AND WHY
     *.html      every page, including the 177 encyclopedia entries
@@ -57,10 +72,11 @@ this wrong, and the link verifier at the end is what catches it if the mapping
 and the filenames ever stop agreeing.
 
   python tools/build_deploy.py
+  python tools/build_deploy.py --no-build
   python tools/build_deploy.py --check-only
   python tools/build_deploy.py --no-optimise
 """
-import pathlib, shutil, sys, re, urllib.parse, argparse, io, json
+import pathlib, shutil, sys, re, urllib.parse, argparse, io, json, subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
@@ -77,8 +93,21 @@ EXTS = {g.lstrip("*") for g in INCLUDE_GLOBS}
 # the verifier refused it, which is the check earning its keep: nothing about a
 # 71MB upload looks wrong until something refuses it.
 EXCLUDE_NAMES = {".git", "__pycache__", "tools", "data", "node_modules", "dist",
-                  ".github", "audit_out", "__dist__", "episode"}
+                  ".github", "audit_out", "__dist__", "episode", "research-cache"}
 LIMIT = 1000
+
+# Order matters: build_cards writes the pages and the day records, plate draws
+# its SVGs from the data build_cards just read, and only then may anything be
+# copied. Running plate first would draw plates from yesterday's corpus, which
+# is the same defect as shipping yesterday's HTML with better colours.
+#
+# These run as subprocesses rather than imported functions because both files
+# are programs with their own module-level paths and output, and importing one
+# into a packaging script would make a build failure look like an import error.
+BUILD_STEPS = (
+    ("build_cards", ["build_cards.py"]),
+    ("plate", ["plate.py"]),
+)
 
 # only these get re-encoded. the mascot and the logo are vectors, already a few
 # hundred bytes, and re-rendering them would be a waste of a build.
@@ -439,18 +468,48 @@ def verify():
     return pages, broken, clamped, external
 
 
+def build_site():
+    """Regenerate every page and plate before dist/ is assembled.
+
+    The date-seeded features are computed from the UTC date at build time, so
+    there is no way to make yesterday's HTML current by copying it. The only
+    correct move is to run the generator, and the failure this prevents is
+    silent: a stale tree has no broken links, no missing assets and no failing
+    gate, because it is a perfectly valid copy of the wrong day.
+    """
+    for name, argv in BUILD_STEPS:
+        print(f"rebuilding: {name}")
+        rc = subprocess.run(
+            [sys.executable, "-X", "utf8", str(ROOT / "tools" / argv[0])] + argv[1:],
+            cwd=ROOT,
+        ).returncode
+        if rc:
+            raise SystemExit(
+                f"{name} failed with exit {rc}; dist/ was left untouched")
+    print()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check-only", action="store_true")
+    ap.add_argument("--no-build", action="store_true",
+                    help="package the pages already on disk instead of "
+                         "rebuilding them first")
     ap.add_argument("--no-optimise", action="store_true",
                     help="copy the photographs as they are, no webp")
     a = ap.parse_args()
-    if not a.check_only:
-        n = assemble(not a.no_optimise)
-        print(f"assembled {n} files -> {DIST}")
-    else:
+    if a.check_only:
+        # --check-only exists to inspect a tree something else produced. It
+        # deliberately does not build, or it would be checking its own work.
         n = sum(1 for p in DIST.rglob("*") if p.is_file())
         print(f"checking {n} files in {DIST}")
+    else:
+        if a.no_build:
+            print("packaging the existing pages (--no-build)\n")
+        else:
+            build_site()
+        n = assemble(not a.no_optimise)
+        print(f"assembled {n} files -> {DIST}")
 
     pages, broken, clamped, external = verify()
     size = sum(p.stat().st_size for p in DIST.rglob("*") if p.is_file())

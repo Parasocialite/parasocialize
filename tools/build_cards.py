@@ -101,6 +101,7 @@ NAV = """<header class="topbar"><div class="topbar-in">
     <a href="{root}sections/index.html">Stories</a>
     <a href="{root}top8/index.html">Top 8</a>
     <a href="{root}history/index.html">History</a>
+    <a href="{root}shelf/index.html">Works</a>
     <span class="nav-lab">Look up</span>
     <a href="{root}encyclopedia/index.html">Encyclopedia</a>
     <a href="{root}atlas/index.html">Atlas</a>
@@ -108,29 +109,53 @@ NAV = """<header class="topbar"><div class="topbar-in">
     <a href="{root}citations/index.html">Citations</a>
     <a href="{root}quiz/index.html">Quiz</a>
     <a class="nav-iyi" href="{root}brand/index.html">iYi</a>
-    <a href="{root}membership/index.html" class="cta">Support</a>
+    <a href="{root}membership/index.html" class="cta-quiet">Membership</a>
+    <a class="cta" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow" aria-label="Support the archive on Ko-fi">Support</a>
   </nav>
 </div></header>"""
 
 FOOT = """<footer class="footer"><div class="foot-grid">
-  <div>
+  <div class="foot-brand">
     <p class="wordmark foot-mark"><img class="logo-img" src="{root}img/logo.svg" alt="" width="24" height="24">PARA<b>SOCIALIZE</b></p>
     <p class="foot-note">{sweep}<br>Kept by Enan Joe Heneghan - video store clerk, M.A., teacher in Australia.<br>
-    Every card links to its sources. Every card is signed by a person.<br>
-    <a class="foot-kofi" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow">Buy me a coffee</a></p>
+    Every card links to its sources. Every card is signed by a person.</p>
+    <p class="foot-tag">{motto}</p>
   </div>
   <nav class="foot-nav" aria-label="Footer">
-    <a href="{root}index.html">LATEST</a><a href="{root}sections/index.html">SECTIONS</a>
-    <a href="{root}top8/index.html">TOP 8</a><a href="{root}timeline/index.html">TIMELINE</a>
-    <a href="{root}moments/index.html">MOMENTS</a>
-    <a href="{root}taxonomy/index.html">TAXONOMY</a>
-    <a href="{root}atlas/index.html">THE ATLAS</a>
-    <a href="{root}quiz/index.html">QUIZ</a>
-    <a href="{root}citations/index.html">CITATIONS</a><a href="{root}credits/index.html">CREDITS</a>
-    <a href="{root}membership/index.html">SUPPORT</a>
-    <a href="{root}radar.xml">RSS</a>
+    <div class="foot-col">
+      <p class="foot-head">Read</p>
+      <a href="{root}index.html">Latest</a>
+      <a href="{root}sections/index.html">Stories</a>
+      <a href="{root}top8/index.html">Top 8</a>
+      <a href="{root}history/index.html">History</a>
+      <a href="{root}shelf/index.html">Works</a>
+      <a href="{root}moments/index.html">Moments</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">Look up</p>
+      <a href="{root}encyclopedia/index.html">Encyclopedia</a>
+      <a href="{root}atlas/index.html">Atlas</a>
+      <a href="{root}timeline/index.html">Timeline</a>
+      <a href="{root}taxonomy/index.html">Taxonomy</a>
+      <a href="{root}citations/index.html">Citations</a>
+      <a href="{root}quiz/index.html">Quiz</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">The project</p>
+      <a href="{root}credits/index.html">About</a>
+      <a href="{root}tip/index.html">Contact</a>
+      <a href="{root}top8/archive/index.html">Archive</a>
+      <a href="{root}ledger/index.html">Ledger</a>
+      <a href="{root}membership/index.html">Membership</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">Follow</p>
+      <a class="foot-support" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow">Support the archive</a>
+      <a href="{root}signal/latest.html">The Signal</a>
+      <a href="{root}radar.xml">RSS feed</a>
+      <a href="{root}brand/index.html">iYi</a>
+    </div>
   </nav>
-  <p class="foot-tag">{motto}</p>
 </div></footer>
 <script>
 (function(){{
@@ -309,6 +334,33 @@ def toc_html(toc):
 
 def root(depth):
     return "../" * depth
+
+
+def rebuilt_tag(day) -> str:
+    """The marker for a day that was computed after the fact.
+
+    The three records are append-only evidence of what a page actually showed.
+    tools/archive.py can close a gap only when the data feeding the rotation
+    was frozen before the missed day, and when it does, the entry says so. A
+    reader is entitled to tell an observed day from a recomputation of what
+    would have happened, so every renderer prints this beside the date rather
+    than letting a rebuilt entry look identical to a live one.
+    """
+    if not isinstance(day, dict) or not day.get("reconstructed"):
+        return ""
+    on = esc(str(day.get("reconstructed_on") or "an unrecorded date"))
+    return (f' <span class="rec-rebuilt" title="No build ran on this day. '
+            f'The rotation was recomputed on {on} from the same data and '
+            f'recorded as rebuilt rather than observed.">rebuilt</span>')
+
+
+def rebuilt_run_tag(run) -> str:
+    """The same marker for a run that contains at least one rebuilt day."""
+    if not run.get("recon"):
+        return ""
+    return (' <span class="rec-rebuilt" title="At least one day in this run '
+            'was computed after the fact. The per-day record on '
+            '/top8/record/ marks which.">includes rebuilt</span>')
 
 
 def fmt_date(iso):
@@ -635,31 +687,6 @@ def build_card(c, sections, laws, shelf, data, manifest=None):
 
 
 # ------------------------------------------------------------------ section
-def ledger_band(m, r):
-    """The front-page strip: the rule first, then the numbers.
-
-    Order is the whole design. The good number leads and the deficit follows,
-    because a reader who meets "108 without a locator" before "434 with one"
-    has been handed a failure. The two states are named before either figure,
-    because without them the numbers mean nothing - and they are stated as
-    what they actually measure. "Openable" answers whether a reader can click
-    the record. It is not a claim that anybody read it, and the first draft of
-    this copy said "read" over a locator count, which would have made the site
-    lie about its own standard in the one place it is making a point of it.
-    """
-    return f"""<div class="ledger-band">
-  <p class="kicker">THE OPEN LEDGER</p>
-  <p class="ledger-band-t">The sourcing standard this whole site is held to,
-  stated in full: two states, kept apart &mdash; <b>openable</b>, a reader can
-  click the record and find the work, and <b>read</b>, somebody here actually
-  opened it. Most of the web keeps only the first and calls it a citation.</p>
-  <p class="ledger-band-n"><b>{m['openable']}</b> of {m['records']} records are
-  openable. <b>{m['no_locator']}</b> have no locator yet and say so.
-  <b>{m['verified_entries']}</b> of {m['entries']} entries are marked verified.</p>
-  <p class="countline"><a href="{r}ledger/index.html">Open the ledger &rarr;</a></p>
-</div>"""
-
-
 def build_ledger(data, enc):
     """/ledger/ - the standard, stated, and the figures that meet it.
 
@@ -1223,6 +1250,36 @@ def build_desk(data):
                    'nothing down in the history of this pipeline, so this '
                    'section is a promise rather than a record.</span></span></div>')
 
+    # The measured work order. This is the desk's answer to "what should be
+    # written next": tools/plan_next.py derives it from the corpus every daily
+    # run, and printing it here is what turns a planner into a queue somebody
+    # actually reads. A missing plan is said out loud rather than rendered as
+    # an empty heading, the same rule the rejected list above follows.
+    plan = {}
+    pp = ROOT / "data" / "plan.json"
+    if pp.exists():
+        try:
+            plan = json.loads(pp.read_text(encoding="utf-8"))
+        except ValueError:
+            plan = {}
+    work = []
+    for a in (plan.get("actions") or [])[:6]:
+        why = esc(str(a.get("why") or ""))
+        cmd = esc(str(a.get("command") or ""))
+        work.append(
+            f'<div class="log-row"><span class="tick" style="--c:var(--mint)">'
+            f'</span><span><b>{esc(str(a.get("target") or ""))}</b>'
+            f'<span class="meta">{why}'
+            + (f'<br><code>{cmd}</code>' if cmd else "")
+            + f'</span></span><span class="tag tag-law">'
+              f'{esc(str(a.get("kind") or ""))}</span></div>')
+    if not work:
+        work.append('<div class="log-row"><span class="tick" style="--c:#3d2e23">'
+                     '</span><span><b style="color:var(--dimmer)">No plan has '
+                     'been measured yet.</b><span class="meta">Run '
+                     '<code>python tools/plan_next.py</code>. A desk with no '
+                     'work order is a desk guessing.</span></span></div>')
+
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1262,6 +1319,13 @@ def build_desk(data):
       <p style="color:var(--dim);font-size:.84rem">{rejected} turned down this sweep</p></div>
   </div>
 
+  <p class="kicker" style="margin-top:44px">Next categorical work, measured {esc(plan.get("generated") or "never")}</p>
+  <p class="sec-lede" style="margin-bottom:14px;font-size:.96rem">Not a mood
+  board. <b>tools/plan_next.py</b> counts the corpus every daily run and ranks
+  what is thinnest - the media, the categories, the decades and the pipeline
+  itself. A gap is named, never filled by a script.</p>
+  <div class="ledger">{"".join(work)}</div>
+
   <p class="kicker" style="margin-top:44px">The queue</p>
   <div class="bar">
     <input class="search" id="q" type="search" placeholder="Filter by headline, source or section&hellip;" aria-label="Filter the queue">
@@ -1298,7 +1362,7 @@ def build_desk(data):
   </div>
 </section>
 </main>
-<footer class="footer"><div class="foot-grid">
+<footer class="footer"><div class="foot-grid foot-mini">
   <div>
     <p class="wordmark foot-mark"><img class="logo-img lg" src="{r}img/logo.svg" alt="">PARA<b>SOCIALIZE</b></p>
     <p class="foot-note">NOINDEX &middot; THIS PAGE IS NOT FOR READERS</p>
@@ -1488,7 +1552,7 @@ def build_section(a, data, manifest=None):
        style="{poster_bg(lead, data['sections'])};border-radius:12px;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.6);aspect-ratio:2/3;display:flex;align-items:flex-end;padding:14px">
       <span style="position:relative;z-index:2">
         <b style="display:block;font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:rgba(255,255,255,.8)">MOST RECENT</b>
-        <span style="display:block;font-family:var(--serif);font-size:.9rem;font-weight:700;color:#fff;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.6)">{esc(lead['headline'][:44])}</span>
+        <span style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-family:var(--serif);font-size:.9rem;font-weight:700;color:#fff;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.6)">{esc(lead['headline'])}</span>
       </span>
     </a>
     <div>
@@ -1508,6 +1572,149 @@ def build_section(a, data, manifest=None):
 </section>
 </main>
 {FOOT.format(root=r, sweep=MESSY, motto='TEN SECTIONS.<br>SEVEN OF THEM ARE NEW HERE.')}
+</body></html>"""
+
+
+# ------------------------------------------------------------------ the eight ways
+WAY_MOOD = {
+    "persona": "wink", "character": "hollow", "companion": "watch",
+    "divine": "watch", "institution": "clerk", "cosmology": "hollow",
+    "officer": "watch", "predator": "panic",
+}
+
+
+def build_way(a, tax, enc, data, manifest=None):
+    """One of the eight ways it shows up, as a page.
+
+    Built from the placements rather than written out, for the same reason
+    /taxonomy/ is: a category page that can drift from the category is a
+    second, wrong set of facts about the same subject, published. Every story
+    and entry listed here was filed on this way in data/, and a shelf with
+    nothing on it says so rather than disappearing.
+    """
+    r = root(2)
+    col = a.get("colour", "#ffb454")
+    manifest = manifest or {"items": []}
+    pla = json.loads((ROOT / "data" / "taxonomy_placements.json")
+                     .read_text(encoding="utf-8"))["assignments"]
+    spl = story_placements()
+    byid = {e["id"]: e for e in enc["entries"]}
+
+    mine = sorted(cards_on_way(data["cards"], a["id"], spl),
+                  key=lambda c: str(c.get("filed", "")), reverse=True)
+    lead = pick_from_pool(ranked_pool(mine))
+    rest = [c for c in mine if lead is None or c["slug"] != lead["slug"]]
+
+    cat_n = sum(1 for v in pla.values() if v.get("cat") == a["id"])
+    story_n = len(mine)
+    story_word = f"{story_n} stor{'y' if story_n == 1 else 'ies'}"
+    entry_word = f"{cat_n} entr{'y' if cat_n == 1 else 'ies'}"
+
+    def entry_rows(sub):
+        out = []
+        for eid, v in sorted(pla.items()):
+            if v.get("sub") != sub:
+                continue
+            e = byid.get(eid)
+            if not e:
+                continue
+            out.append(
+                f'<li><a href="{r}encyclopedia/{esc(eid)}.html">'
+                f'<b>{esc(e.get("title"))}</b>'
+                f'<span class="tx-why">{esc(e.get("year") or "")} · '
+                f'{esc(enc["kinds"].get(e.get("kind", ""), ""))}</span>'
+                f'<span class="tx-r">{emph(v.get("why") or "")}</span></a></li>')
+        return "".join(out)
+
+    subs = []
+    for s in a["sub"]:
+        in_sub = [c for c in rest
+                  if (spl.get(c["slug"]) or {}).get("sub") == s["id"]]
+        rows = entry_rows(s["id"])
+        ns, ne = len(in_sub), sum(1 for v in pla.values()
+                                  if v.get("sub") == s["id"])
+        label = (f"{ns} stor{'y' if ns == 1 else 'ies'} · "
+                 f"{ne} entr{'y' if ne == 1 else 'ies'}")
+        if rows:
+            body = f'<ul class="tx-entries">{rows}</ul>'
+        else:
+            body = ('<p class="tx-empty">Nothing is filed on this shelf yet. '
+                    'The gap is recorded rather than hidden.</p>')
+        cards_html = "".join(
+            story(c, data["sections"], data["laws"], take=False, root_=r,
+                  manifest=manifest, depth=2) for c in in_sub)
+        if cards_html:
+            body = f'<div class="front">{cards_html}</div>' + body
+        subs.append(f"""<details class="tx-sub" id="w-{esc(s['id'])}">
+  <summary><span class="tx-name">{esc(s['name'])}</span>
+    <span class="tx-n">{esc(label)}</span></summary>
+  <p class="tx-def">{emph(s['def'])}</p>
+  {body}
+</details>""")
+
+    lead_html = ""
+    if not mine:
+        lead_html = ('<p class="countline">No story is filed on this way yet. '
+                     'The entries below are what the way holds.</p>')
+    if lead:
+        lead_html = f"""<div class="lead" style="margin-top:28px">
+  <a class="cover" href="{r}radar/{esc(lead['slug'])}.html" tabindex="-1" aria-hidden="true"
+     style="{poster_bg(lead, data['sections'])};border-radius:12px;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.6);aspect-ratio:2/3;display:flex;align-items:flex-end;padding:14px">
+    <span style="position:relative;z-index:2">
+      <b style="display:block;font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:rgba(255,255,255,.8)">ON THIS WAY NOW</b>
+      <span style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-family:var(--serif);font-size:.9rem;font-weight:700;color:#fff;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.6)">{esc(lead['headline'])}</span>
+    </span>
+  </a>
+  <div>
+    <h2><a href="{r}radar/{esc(lead['slug'])}.html">{esc(lead['headline'])}</a></h2>
+    <p class="dek">{esc(lead['one_line'])}</p>
+    <p class="take">{esc(lead['take'])}</p>
+    <a class="btn btn-solid" href="{r}radar/{esc(lead['slug'])}.html">Read the full thing</a>
+  </div>
+</div>"""
+
+    others = [x for x in tax["attachment"] if x["id"] != a["id"]]
+    nav = "".join(
+        f'<a class="chip" style="--c:{esc(x.get("colour", "#ffb454"))}" '
+        f'href="{r}ways/{esc(x["id"])}/index.html">{esc(x["sign"])}</a>'
+        for x in others)
+
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(a['sign'])} - one of the eight ways - Parasocialize</title>
+<meta name="description" content="{esc(a['blurb'])}">
+{HEAD.format(site=SITE, path=f"/ways/{a['id']}/", otype="website",
+             title=f"{a['sign']} - Parasocialize", desc=esc(a['blurb']), root=r)}
+</head>
+<body>
+<a class="skip" href="#w">Skip to the way</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
+<div style="height:5px;background:{esc(col)}"></div>
+<main>
+<section class="section" id="w">
+  <p class="kicker" style="color:{esc(col)}">One of eight ways · {story_word} · {entry_word}</p>
+  <div class="sec-head">
+    <div class="sec-head-txt">
+      <h1 style="color:{esc(col)}">{esc(a['sign'])}</h1>
+      <p class="sec-lede">{esc(a['blurb'])} <em style="color:var(--dim)">{esc(a['note'])}</em></p>
+    </div>
+    <div class="sec-head-iyi" title="iYi, in the expression this way is about">{mascot(104, "", WAY_MOOD.get(a['id'], 'watch'))}</div>
+  </div>
+
+  <p class="countline"><a href="{r}taxonomy/index.html#tx-{esc(a['id'])}">The definition, the test and the boundary →</a></p>
+
+  {lead_html}
+
+  {''.join(subs)}
+
+  <p class="kicker" style="margin-top:48px">Other ways</p>
+  <div class="chips">{nav}</div>
+  <p class="countline"><a href="{r}taxonomy/index.html">All eight ways, and the registers underneath them →</a></p>
+</section>
+</main>
+{FOOT.format(root=r, sweep=MESSY, motto='EIGHT WAYS IT SHOWS UP.<br>ONE WAY IN.')}
 </body></html>"""
 
 
@@ -1718,16 +1925,17 @@ def show_list(feat, today=None):
     return ordered[steps % len(ordered)]
 
 
-def section_pool(cards, section, now=None):
-    """The stories eligible for a section's tile, best first.
+def ranked_pool(mine, now=None):
+    """The stories eligible for a tile, best first.
 
-    RANK - importance (`res`), the state bonuses, and a freshness window
-    measured in weeks rather than days.
+    Takes an already-filtered list, so the same ranking and rotation serve a
+    section's tile and a category's. RANK - importance (`res`), the state
+    bonuses, and a freshness window measured in weeks rather than days.
 
     ROTATE - the best-scoring card would otherwise hold the tile until
     something outranked it, and nothing does. So a pool forms and
-    `pick_top` picks one out of it by slot: ranked, so the pool is always
-    the section's best stories, and rotating, so the tile moves twice a day
+    `pick_from_pool` picks one out of it by slot: ranked, so the pool is
+    always the best stories, and rotating, so the tile moves twice a day
     instead of sitting for months.
 
     Two gates on the pool, each of which failed without the other. A score
@@ -1737,11 +1945,10 @@ def section_pool(cards, section, now=None):
     stale". A freshness gate alone closed the band until the state tiers
     pulled it apart and a five-card section had a pool of one. So a card
     must be within ROTATE_SPREAD of the leader AND no more than
-    ROTATE_FRESH_DAYS behind the section's own newest card.
+    ROTATE_FRESH_DAYS behind the set's own newest card.
 
-    A section with one card has a pool of one and the rotation is silent.
+    A set with one card has a pool of one and the rotation is silent.
     """
-    mine = [c for c in cards if c["section"] == section]
     if not mine:
         return []
     now = now or datetime.datetime.now(datetime.timezone.utc)
@@ -1780,16 +1987,40 @@ def section_pool(cards, section, now=None):
     return [c for c in ranked if in_pool(c)][:ROTATE_POOL] or ranked[:1]
 
 
-def pick_top(cards, section, now=None):
-    """The one story that represents the section right now: one out of
-    `section_pool`, chosen by the slot. See there for why it is a pool
-    rather than a sort.
+def section_pool(cards, section, now=None):
+    """The stories eligible for a section's tile, best first."""
+    return ranked_pool([c for c in cards if c["section"] == section], now)
+
+
+def pick_from_pool(pool, now=None):
+    """The one story that represents the set right now: one out of the pool,
+    chosen by the slot. See ranked_pool for why it is a pool rather than a
+    sort.
     """
-    now = now or datetime.datetime.now(datetime.timezone.utc)
-    pool = section_pool(cards, section, now=now)
     if not pool:
         return None
+    now = now or datetime.datetime.now(datetime.timezone.utc)
     return pool[cur_slot(now) % len(pool)]
+
+
+def pick_top(cards, section, now=None):
+    """The story that represents the section right now."""
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    return pick_from_pool(section_pool(cards, section, now=now), now)
+
+
+def story_placements():
+    """The story side of the classification: slug -> category placement."""
+    p = ROOT / "data" / "story_placements.json"
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text(encoding="utf-8")).get("placements") or {}
+
+
+def cards_on_way(cards, cat, spl=None):
+    """The stories filed on one of the eight attachment ways."""
+    spl = story_placements() if spl is None else spl
+    return [c for c in cards if (spl.get(c["slug"]) or {}).get("cat") == cat]
 
 
 def deck(take, words=20):
@@ -1827,50 +2058,16 @@ def deck(take, words=20):
     return s.rstrip(" ,;-—") + ("." if s else "")
 
 
-def _plate_word(show, limit=11, wordfit=8):
-    """The show name for a 52px plate, cut at a WORD boundary.
-
-    The first attempt sliced to a fixed length and produced "DRAGONTA" for
-    Dragon Tales - a truncation that reads as a typo rather than a decision,
-    which is the same defect as the front-page teasers that used to be cut at
-    their own last word and given an ellipsis. **A generated cut has to land
-    somewhere a reader would have stopped.**
-
-    The second attempt still clipped in the render: the budget was 11
-    characters against a 52px box whose inner width fits about 8 at 10px
-    type, so "NANCY DREW" was `nowrap` and lost its last letters behind
-    `overflow:hidden`. So there are two budgets now, both measured against
-    the box: no single word over `wordfit`, and the kept string under
-    `limit`. The plate wraps at spaces (two lines fit), which is why a
-    two-word pick like "NANCY DREW" is kept whole.
-
-    Leading articles go, because "The grouch" reduced to "THE" is worse than no
-    word at all, and a trailing fragment of a word ("QUEEN FOR A") is dropped.
-    A first word longer than the box holds is not broken - the caller falls
-    back to the rank instead ("DRAGO N" reads as a typo).
-    """
-    s = (show or "").split(",")[0].strip()
-    s = re.sub(r"^(?:the|a|an)\s+", "", s, flags=re.I)
-    if not s:
-        return ""
-    words = s.split()
-    if not words or len(words[0]) > wordfit:
-        return ""
-    out = [words[0]]
-    for w in words[1:]:
-        if len(w) > wordfit or len(" ".join(out + [w])) > limit:
-            break
-        out.append(w)
-    while len(out) > 1 and len(out[-1]) <= 2:
-        out.pop()
-    return " ".join(out).upper()
-
-
 def build_front(data, feat=None, manifest=None, hist=None):
     sections, laws, shelf, cards = data["sections"], data["laws"], data["shelf"], data["cards"]
     feat = feat or {"lists": [], "moments": [], "figures": []}
     manifest = manifest or {"items": []}
     hist = hist or {"modules": []}
+    tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+    spl = story_placements()
+    pla = json.loads((ROOT / "data" / "taxonomy_placements.json")
+                     .read_text(encoding="utf-8"))["assignments"]
+    cat_entries = Counter(v.get("cat") for v in pla.values())
 
     # ---- the rotating top 8 column. Which list is on show is today's pick
     # in the daily rotation (show_list): the live lists take turns, one per
@@ -1903,45 +2100,29 @@ def build_front(data, feat=None, manifest=None, hist=None):
         # list IS a top 8, the front page is where it should be readable, and
         # there is room. So: all eight, sequentially, and the rotation now
         # chooses *which* list rather than trimming this one.
+        _raw = next((x for x in (feat.get("lists") or [])
+                     if x.get("slug") == L.get("slug")), L)
+        _span = t8_year_span(_raw)
+        _home_title = L.get("home_title") or L.get("title") or "The Top 8"
+        _home_hook = (L.get("home_hook") or deck(L.get("dek"), 30)).strip()
         rows = []
-        shot = 0
         # In the order the rotation window handed over, which is pool order.
         # This used to re-sort by the stored `rank`, which had two costs: a
         # promoted candidate has none and raised KeyError, and sorting a
         # window that was deliberately built in rotation order threw that
         # order away and restored pool order. Numeral comes from the position.
         for _i, en in enumerate(L["entries"], 1):
-            f = img_for(manifest, en.get("image"), 0)  # front page: depth 0
-            if f:
-                shot += 1
-                # Sizing inline rather than in a `.t8col-art img` rule: the
-                # state this markup is in is decided by the data (a list with
-                # no photographs renders plates), so a CSS rule for the img
-                # case matches nothing whenever the show has no pictures -
-                # which is what check_css --orphans reported. The plate branch
-                # below carries its own inline style for the same reason.
-                im = (f'<span class="t8col-photo"><img src="{esc(f["path"])}" alt="" '
-                      f'loading="lazy" style="width:100%;height:100%;'
-                      f'object-fit:cover"></span>')
-            else:
-                # A bare numeral in a grid where six of eight neighbours are
-                # photographs reads as a broken image, which is the one thing
-                # this site is not supposed to put on a page. /top8/ already
-                # does this properly - the show set in display type on its own
-                # colour with the reason written underneath - so the front page
-                # now uses the same idea at 52px. The reason itself is stated
-                # once in the caption below rather than eight times.
-                # A show name too long for a 52px box falls back to the rank,
-                # set in the same plate style, so the slot is never blank and
-                # never broken mid-word.
-                _pw = _plate_word(en["show"])
-                _pt = _pw or str(_i)
-                im = (f'<span class="t8col-plate" style="--c:#ff5a1f">'
-                      f'{esc(_pt)}</span>')
-            rows.append(f'<a class="t8col" href="top8/index.html">'
-                        f'<span class="t8col-art">{im}</span>'
-                        f'<span class="t8col-body"><b>{esc(_i)}. {esc(en["name"])}</b>'
-                        f'<span>{esc(en["show"])}</span></span></a>')
+            _anchor = t8_anchor(L, en)
+            _hook = t8_hook(en)
+            rows.append(
+                f'<a class="t8card" href="top8/index.html#{_anchor}">'
+                f'<span class="t8card-rank">{_i:02d}</span>'
+                f'<span class="t8card-body">'
+                f'<span class="t8card-tag">{esc(en.get("show", ""))}</span>'
+                f'<b>{esc(en["name"])}</b>'
+                f'<span class="t8card-hook">{esc(_hook)}</span>'
+                f'<span class="t8card-go">Read this entry &rarr;</span>'
+                f'</span></a>')
         # one line, on the front page, because the photographs are of the fans
         # rather than of the cartoons and that is worth saying before somebody
         # wonders why a list about cartoons is illustrated with a toy
@@ -2020,24 +2201,30 @@ def build_front(data, feat=None, manifest=None, hist=None):
         # rather than being re-derived here: the last time this sentence and
         # the behaviour were measured in two places, they disagreed.
         _live_n = len(live_lists(feat))
-        if _live_n > 1:
-            t8_kick = f"The top 8 &middot; {esc(L['kicker'].lower())}"
-        elif L.get("rotating"):
-            t8_kick = "The top 8 &middot; rotating"
-        else:
-            t8_kick = "The top 8"
+        _meta = esc(str(L.get("kicker") or "").title())
+        if _span:
+            _meta = f"{_meta} &middot; {_span}" if _meta else _span
         # The archive link appears only when there is an archive to read: the
         # page is built from the former lists, so before a second list is
         # dated it is a placeholder. A door to a placeholder is a promise the
         # data cannot keep yet.
-        ghost = ('<a class="btn btn-ghost" href="top8/archive/index.html">'
-                 'Past top 8s →</a>' if _live_n > 1 else "")
-        t8_block = f"""<div class="t8col-wrap">
-  <p class="kicker">{t8_kick}</p>
-  <div class="t8col-list">{''.join(rows)}</div>
-  <a class="btn btn-solid" href="top8/index.html">Read the whole list</a>
-  {ghost}
-</div>"""
+        _ghost = ('<a class="t8front-archive" '
+                  'href="top8/archive/index.html">Browse every list &rarr;</a>'
+                  if _live_n > 1 else "")
+        _raw_n = len(_raw.get("entries") or L["entries"])
+        t8_block = f"""<section class="section t8front" id="top8" aria-labelledby="t8front-title">
+  <div class="t8front-head">
+    <p class="kicker">Today's top 8 <span class="t8front-kick">{_meta}</span></p>
+    <h2 id="t8front-title">{esc(_home_title)}</h2>
+    <p class="t8front-hook">{esc(_home_hook)}</p>
+  </div>
+  <div class="t8cards">{''.join(rows)}</div>
+  <div class="t8front-foot">
+    <a class="btn btn-solid t8front-cta" href="top8/index.html">View Full Top 8 Analysis &amp; Archive History &rarr;</a>
+    {_ghost}
+  </div>
+  <p class="t8front-note">Eight of {_raw_n} from this list, chosen for today. The full list and the day record are on the Top 8 page.</p>
+</section>"""
     else:
         t8_block = ""
 
@@ -2072,61 +2259,119 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <span class="fdoor-body"><strong>{esc(name)}</strong><span>{esc(blurb)}</span></span>
 </a>""")
 
-    # ten tiles, one per section, each showing that section's top story. nothing
-    # else competes for the front page.
+    # eight tiles, one per attachment category, each showing the story that
+    # represents that way now. A category with no story filed yet carries its
+    # definition and its entry count instead of borrowing a story from
+    # somewhere else - the gap is true, and a tile that pretended otherwise
+    # would be the one thing this page cannot do.
     tiles = []
-    for a in sections:
+    for a in tax["attachment"]:
         col = a.get("colour", "#ff5a1f")
-        top = pick_top(cards, a["id"])
-        n = len([c for c in cards if c["section"] == a["id"]])
-        if not top:
-            continue
-        short = deck(top.get("take", ""))
-        f = img_aisle(manifest, a["id"], 0) or img_for(manifest, top.get("image"), 0)
-        if f:
+        mine = cards_on_way(cards, a["id"], spl)
+        top = pick_from_pool(ranked_pool(mine))
+        if top:
+            n = len(mine)
+            body = (f"<h3>{esc(top['headline'])}</h3>"
+                    f"<p>{esc(deck(top.get('take', '')))}</p>")
+            go = f"{n} stor{'y' if n == 1 else 'ies'} →"
             # No caption and no credit on the tile. The credit is a licence
             # obligation, not decoration, so it cannot simply be dropped - but
-            # stamping it on all ten faces made the homepage read like a stock
-            # library. The same photograph appears at size on the section front,
+            # stamping it on every face made the homepage read like a stock
+            # library. The same photograph appears at size on the story page,
             # which carries the credit, and every file is listed once on
             # /credits/. That satisfies attribution in a reasonable manner and
             # keeps the page a page.
-            img = f'<img src="{esc(f["path"])}" alt="">'
+            f = (img_for(manifest, top.get("image"), 0)
+                 or img_for(manifest, top.get("slug"), 0)
+                 or img_aisle(manifest, top.get("section"), 0))
+            img = f'<img src="{esc(f["path"])}" alt="">' if f else ""
         else:
-            # No photograph: the tile keeps the art span for its scrim and
-            # carries no letter. The 6.5rem glyph behind the copy was the old
-            # no-image state, and it read as a placeholder rather than a design.
+            ne = cat_entries.get(a["id"], 0)
+            body = (f"<h3>{esc(a['blurb'])}</h3>"
+                    f"<p>{esc(a['note'])}</p>")
+            go = f"{ne} entr{'y' if ne == 1 else 'ies'} →"
             img = ""
-        tiles.append(f"""<a class="hub" style="--c:{esc(col)}" href="section/{esc(a['id'])}/index.html">
+        tiles.append(f"""<a class="hub" style="--c:{esc(col)}" href="ways/{esc(a['id'])}/index.html">
   <span class="hub-art">{img}</span>
   <b class="hub-name">{esc(a['sign'])}</b>
-  <h3>{esc(top['headline'])}</h3>
-  <p>{esc(short)}</p>
-  <span class="hub-go">{n} more →</span>
+  {body}
+  <span class="hub-go">{go}</span>
 </a>""")
 
     total = len(cards)
     # The encyclopedia's size is read, not typed. A number written into a
     # template is a number that goes stale silently and reads as true until
     # someone checks - the `kind: exact` from a filename, in a different place.
-    nent = len(json.loads(
-        (ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8")
-    )["entries"])
-    # The ledger band reads the same module the report and /ledger/ do, for the
-    # same reason: a number typed into a template is a claim that goes stale
-    # silently and reads as true until somebody checks. This figure is the
-    # front page's whole argument, so it is the last place to hand-type it.
-    _lm = ledger_metrics(json.loads(
-        (ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8")))
-    ledger_strip = ledger_band(_lm, "")
-
+    # The loaded file is kept rather than discarded: the parasocialite block
+    # below resolves its figure against this same copy, so the page cannot
+    # describe an entry set the count was not measured against.
+    _enc = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
+    nent = len(_enc["entries"])
     # ---- the masthead's words. They live in data/front_copy.json, one edition
-    # per bi-daily release, and build them from there rather than from the
+    # per bi-daily release, and are built from there rather than from the
     # template - a number or a sentence written into a template is a claim that
-    # goes stale silently and reads as true until somebody checks. `total` and
-    # `nent` stay computed: they are counts of things, and a count read from the
-    # data cannot drift. See tools/front_copy.py.
-    ed = front_copy_edition()
+    # goes stale silently and reads as true until somebody checks. The door
+    # lines are the one place a count hides inside a sentence, so they carry
+    # {total} and {nent} tokens substituted HERE, at render, from the numbers
+    # measured above: the edition of 2026-10-18 read "248 entries, every claim
+    # cited." while the corpus held 255, which is this defect live on the front
+    # page. An edition written before the tokens existed carries its literal
+    # number and is left exactly as it is - the sequence of what the page
+    # actually said is the record, and the substitution is a no-op there.
+    # See tools/front_copy.py.
+    ed = dict(front_copy_edition())
+    ed["door_stories"] = (ed.get("door_stories") or "").replace(
+        "{total}", str(total))
+    ed["door_encyclopedia"] = (ed.get("door_encyclopedia") or "").replace(
+        "{nent}", str(nent))
+
+    # ---- the parasocialite of the day, above the fold: one figure taking
+    # turns, one per UTC day, chosen by date from data/parasocialite.json -
+    # the same arithmetic as the register rotation, and the same rule as the
+    # top 8: what is on show is a property of the date; what is stored is the
+    # day it happened on. The block resolves its entry from the copy loaded
+    # above, so medium, era and the link come from the data rather than the
+    # roster, and record_parasocialite_day() in main() runs before this page
+    # renders, so the record under the block and the block itself cannot name
+    # different figures.
+    _psotd = parasocialite_of_day(parasocialite_roster())
+    psotd_block = ""
+    if _psotd:
+        _pse = next((e for e in _enc["entries"]
+                     if e.get("id") == _psotd.get("id")), None)
+        if _pse:
+            _phref = f'encyclopedia/{esc(_pse["id"])}.html'
+            # The block names the medium family, not the chip values: "television
+            # scripted, television unscripted" is right on the entry page and
+            # reads like a database on a front-page line. First segment,
+            # deduplicated, order kept.
+            _pfam = []
+            for m in (_pse.get("medium") or []):
+                fam = str(m).split("_")[0]
+                if fam and fam not in _pfam:
+                    _pfam.append(fam)
+            _pmed = " &middot; ".join(esc(m) for m in _pfam)
+            _pmeta = (f'{_pmed} &middot; {esc(_fmt_span(_pse))}' if _pmed
+                      else esc(_fmt_span(_pse)))
+        else:
+            # A roster entry whose encyclopedia record is gone degrades to the
+            # hub rather than printing a dead link with a name on it.
+            _phref = "encyclopedia/index.html"
+            _pmeta = ""
+        _pmline = f'<p class="psotd-meta">{_pmeta}</p>' if _pmeta else ""
+        _plabel = esc(_psotd.get("name") or _psotd.get("id") or "")
+        _pval = esc(_psotd.get("valence") or "")
+        psotd_block = f"""<section class="section psotd-sec" aria-labelledby="psotd-kick">
+  <p class="kicker" id="psotd-kick">Parasocialite of the day
+    <span class="psotd-val psotd-val-{_pval}">{_pval}</span></p>
+  <div class="psotd-card">
+    <h2 class="psotd-name"><a href="{_phref}">{_plabel}</a></h2>
+    {_pmline}
+    <p class="psotd-break">{esc(_psotd.get("breakdown") or "")}</p>
+    <p class="psotd-more"><a href="{_phref}">The whole entry &rarr;</a></p>
+  </div>
+  {parasocialite_record()}
+</section>"""
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
@@ -2137,7 +2382,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
              desc="News, argument, research and the definitive history. Free.", root="")}
 </head>
 <body>
-<a class="skip" href="#hub">Skip to the sections</a>
+<a class="skip" href="#hub">Skip to the eight ways</a>
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root="", total=total, mk=wordmark("nav"))}
 
@@ -2174,23 +2419,25 @@ def build_front(data, feat=None, manifest=None, hist=None):
   </div>
 </section>
 
-<section class="section" style="padding-top:8px">
-  {t8_block}
-</section>
+{psotd_block}
 
-<section class="section" id="hub" style="padding-top:0">
-  <p class="kicker">Ten ways it shows up · one story from each</p>
+{t8_block}
+
+<section class="section hub-band" id="hub">
+  <div class="band-head">
+    <div>
+      <p class="kicker">One way in to each</p>
+      <h2>Eight ways it shows up.</h2>
+    </div>
+    <a class="band-link" href="taxonomy/index.html">All eight, defined &rarr;</a>
+  </div>
   <div class="hubs">{''.join(tiles)}</div>
 </section>
 
-{''.join(fcards) and f"""<section class="section" style="padding-top:0">
+{''.join(fcards) and f"""<section class="section" style="padding-top:18px">
   <p class="kicker">Go deeper · the definitive bits</p>
   <div class="fdoors">{''.join(fcards)}</div>
 </section>"""}
-
-<section class="section" style="padding-top:0">
-  {ledger_strip}
-</section>
 
 <section class="section signal-sec">
   <form class="signal-form" action="https://formsubmit.co/iNNERdreamers@gmail.com" method="POST">
@@ -2309,9 +2556,9 @@ def front_copy_edition():
                                "carries its source, and the ones nobody has "
                                "opened say so. I do not remember you, and "
                                "nothing here pretends to."),
-                 "door_stories": (f"One a day, each one signed by a person. "
-                                  f"48 so far."),
-                 "door_encyclopedia": "248 entries, every claim cited."}
+                 "door_stories": ("One a day, each one signed by a person. "
+                                  "{total} so far."),
+                 "door_encyclopedia": "{nent} entries, every claim cited."}
     d = _j.loads(f.read_text(encoding="utf-8"))
     eds = d.get("editions") or []
     live = d.get("_live") or (eds[-1]["date"] if eds else None)
@@ -2370,14 +2617,17 @@ def top8_window(feat, today=None):
 
     The list itself is today's show, chosen through show_list() - the live
     lists take turns one per UTC day, anchored on the newest release - so the
-    front page and /top8/ cannot name different ones. Above eight eligible
+    front page and /top8/ cannot name different ones.     Above eight eligible
     moments in a list, the eight also rotate on a fixed cycle rather than by
     hash - a hash reshuffles all eight whenever the pool grows, which reads as
-    churn, and two consecutive days must never repeat the same page. That
-    inner branch is unreachable while every pool holds exactly eight, which is
-    the state both live lists are in; the daily change a reader sees comes
-    from show_list, and this window only adds to it once a pool grows past
-    eight.
+    churn, and two consecutive days must never repeat the same page. The cycle
+    advances once per SHOWING of that list, not once per calendar day: the
+    live lists take turns, so each one is on show every k-th day, and a stride
+    measured in calendar days returns to the same window every time that list's
+    day comes round - with two lists and sixteen moments, (day * 8) % 16 is
+    constant for each list, which would have looked exactly like rotation while
+    showing the same eight every time. Counting the showings is what makes the
+    pool grow mean something.
 
     `today` is an ISO date and overrides the UTC clock, so record_top8_day()
     can be exercised across days; production callers omit it.
@@ -2386,13 +2636,17 @@ def top8_window(feat, today=None):
     if not lists:
         return {"title": "", "kicker": "", "dek": "", "standfirst": "",
                 "entries": []}
+    # One date, read once: show_list and the window below must agree about
+    # which day it is, and two separate clock reads can straddle midnight.
+    iso = (str(today)[:10] if today else
+           datetime.datetime.now(datetime.timezone.utc).date().isoformat())
     # show_list hands back the list's own dict with every key intact - image,
     # law, slug and the rest are read by build_top8 as well as the window
     # below, and a refactor that rebuilt the dict field by field once dropped
     # them. That is how /top8/ lost its hero photograph and how .t8-hero-fig
     # img became an orphan rule; the only thing that noticed was the dead-CSS
     # check reporting a selector that matched nothing.
-    L = dict(show_list(feat, today))
+    L = dict(show_list(feat, iso))
     featured = [e for e in L["entries"]
                 if e.get("stage", "featured") == "featured"]
     # Rotation is a property of the whole list, so it is measured before the
@@ -2401,13 +2655,25 @@ def top8_window(feat, today=None):
     L["rotating"] = len(featured) > TOP8_SLOTS
     if L["rotating"]:
         n = len(featured)
-        # UTC, like show_list and cur_slot: a local date turns at a different
-        # moment in every timezone, and a window that moves on one machine's
-        # clock is a page nobody can reproduce.
-        d = (datetime.date.fromisoformat(today) if today else
-             datetime.datetime.now(datetime.timezone.utc).date())
-        day = d.toordinal()
-        start = (day * TOP8_SLOTS) % n
+        d = datetime.date.fromisoformat(iso)
+        # The count of times this list has been put on show since the newest
+        # release, not the calendar day. See the docstring: the lists take
+        # turns, so a per-day stride is constant for each list and the window
+        # would never move while looking exactly like a rotation. A file with
+        # one live list (or no anchor date) keeps the per-day stride, which is
+        # the same thing there - the list is on show every day.
+        anchor = pick_list(feat, iso).get("released") or ""
+        if len(live_lists(feat, iso)) < 2 or not anchor:
+            showing = d.toordinal()
+        else:
+            ordered = sorted(live_lists(feat, iso),
+                             key=lambda x: x.get("released") or "",
+                             reverse=True)
+            index = next(i for i, x in enumerate(ordered)
+                         if x.get("slug") == L.get("slug"))
+            steps = (d - datetime.date.fromisoformat(str(anchor)[:10])).days
+            showing = (steps - index) // len(ordered)
+        start = (showing * TOP8_SLOTS) % n
         # a window that wraps, so consecutive days overlap rather than
         # replacing themselves wholesale
         order = sorted(range(n), key=lambda i: (i - start) % n)
@@ -2432,8 +2698,11 @@ TOP8_HISTORY_NOTE = (
     "moments it carried, appended by build_cards.record_top8_day() and never "
     "rewritten. Do not regenerate this file and do not delete it to clean up "
     "- the sequence of what was on show is the thing it holds, and a rebuild "
-    "from scratch cannot reconstruct a day nobody was there for. Rendered as "
-    "the day record on /top8/ by build_cards.t8_record().")
+    "from scratch cannot reconstruct a day nobody was there for. A day that "
+    "tools/archive.py had to close after the fact carries `reconstructed: "
+    "true` with the date and input hash that made the recomputation provable, "
+    "and the record pages print it as rebuilt rather than observed. Rendered "
+    "as the day record on /top8/ by build_cards.t8_record().")
 
 
 def t8_eid(en):
@@ -2445,6 +2714,77 @@ def t8_eid(en):
     a history entry.
     """
     return en.get("id") or en.get("image") or en.get("show", "?")
+
+
+def t8_anchor(L, en):
+    """A stable fragment for one moment on /top8/.
+
+    Derived from the list slug and the moment's name, never from its window
+    position: the position changes with the daily window and a fragment that
+    moves is not an address. The list slug is part of it so the archive can
+    carry two lists with a same-named moment without a duplicate id.
+    """
+    base = (f"{L.get('slug') or 'top8'}-"
+            f"{en.get('name') or en.get('show') or 'moment'}")
+    slug = re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-")
+    return f"t8-{slug or 'moment'}"
+
+
+def t8_year_span(L):
+    """The years named by a list's `show` fields, as a range or one year.
+
+    Reads the list as released rather than the eight-entry window, so the
+    kicker describes the list and does not change shape as the window moves.
+    Returns "" when the data names no four-digit year, rather than guessing.
+    """
+    years = []
+    for en in L.get("entries") or []:
+        years.extend(int(y) for y in
+                     re.findall(r"(?<!\d)(\d{4})(?!\d)",
+                                str(en.get("show") or "")))
+    if not years:
+        return ""
+    lo, hi = min(years), max(years)
+    return str(lo) if lo == hi else f"{lo}&ndash;{hi}"
+
+
+def t8_hook(en, words=24, chars=118):
+    """One sentence from `what` that can stand as a card's hook.
+
+    `deck` keeps a first sentence whole even when it is twice the budget, which
+    is right for a story teaser and wrong for a card: the Sherlock entry ran to
+    46 words and became a paragraph. This prefers the first sentence when it
+    fits two lines at the card's measure, otherwise the shortest later sentence
+    that does, and falls back to a clause of the first before it is truncated
+    mid-phrase. It also balances a quote left open by a split at the question
+    mark inside it.
+    """
+    take = " ".join((en.get("what") or "").split())
+    if not take:
+        return ""
+    sentences = [s.strip() for s in
+                 re.split(r'(?<=[.!?][”"\'])\s+|(?<=[.!?])\s+', take)
+                 if s.strip()]
+    first = sentences[0] if sentences else ""
+    if len(first.split()) <= words and len(first) <= chars:
+        hook = first
+    else:
+        short = [s for s in sentences[1:]
+                 if 8 <= len(s.split()) <= words and len(s) <= chars]
+        if short:
+            hook = min(short, key=lambda s: len(s.split()))
+        else:
+            hook = first
+            cut = ""
+            for m in re.finditer(r":\s| - |;\s|,\s", first):
+                if m.start() > chars:
+                    break
+                cut = first[:m.start()].rstrip()
+            if len(cut.split()) >= 8:
+                hook = cut + "."
+    if hook.count("“") != hook.count("”"):
+        hook = hook.replace("“", "").replace("”", "")
+    return hook
 
 
 def record_top8_day(feat, today=None):
@@ -2509,12 +2849,14 @@ def t8_runs(days):
     runs = []
     for d in reversed(days):
         date = str(d.get("date") or "")
+        recon = bool(d.get("reconstructed"))
         key = (str(d.get("list") or ""), tuple(d.get("items") or []))
         if runs and runs[-1]["key"] == key and \
                 _t8_day_before(runs[-1]["lo"], date):
             runs[-1]["lo"] = date
+            runs[-1]["recon"] = runs[-1]["recon"] or recon
         else:
-            runs.append({"key": key, "lo": date, "hi": date})
+            runs.append({"key": key, "lo": date, "hi": date, "recon": recon})
     return runs
 
 
@@ -2571,6 +2913,8 @@ def t8_record(feat, today=None):
         head = [f'<span class="t8rec-date">{span}</span>', title]
         if L and L.get("kicker"):
             head.append(f'<span class="t8rec-cat">{esc(L["kicker"])}</span>')
+        if run.get("recon"):
+            head.append(rebuilt_run_tag(run))
         if slug == show and run["hi"] == today:
             head.append('<span class="t8rec-now">on show today</span>')
         names = [by_eid[v].get("name") for v in items
@@ -2586,30 +2930,16 @@ def t8_record(feat, today=None):
     return f'<ol class="t8rec">{"".join(rows)}</ol>'
 
 
-def t8_entry(en, i, laws, shelf, manifest, depth, one_law):
+def t8_entry(en, i, laws, manifest, depth, one_law, anchor=""):
     """One moment of a top-8 list, as markup. Shared by /top8/ and the archive.
 
     A former list renders exactly what it rendered the day it was on show -
-    the entry's own words, its law, its photograph or its plate, and its shelf
-    line when the list mixes laws - so archiving is a change of address rather
-    than an edit. The numeral is the position on the page, taken at render
-    time: a stored rank describes the pool it was written for, and a promoted
-    candidate carries none at all.
+    the entry's own words, its law, and its photograph when one is sourced -
+    so archiving is a change of address rather than an edit. The numeral is
+    the position on the page, taken at render time: a stored rank describes
+    the pool it was written for, and a promoted candidate carries none at all.
     """
     law = laws.get(en.get("law"), {})
-    sh = shelf.get(law.get("shelf")) if law.get("shelf") else None
-    cite = ""
-    if sh and one_law is None:
-        # The shelf item is the site's own work on the same law - a book, a
-        # video, an episode the author made about the same material - not a
-        # source the entry was built from. This box said SOURCE, which is
-        # exactly the false credit: an invented reference in the place a
-        # reader goes to check the entry. What is true is that it sits on the
-        # same shelf.
-        cite = (f'<div class="t8-cite"><p class="t8-cite-l">ON THE SHELF</p>'
-                f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
-                f'{esc(sh["title"])}</a>'
-                f'<p>{esc(sh["blurb"])}</p></div>')
     f = img_for(manifest, en.get("image"), depth)
     if f:
         im = (f'<figure class="t8-fig"><img src="{esc(f["path"])}" alt="" loading="lazy">'
@@ -2617,22 +2947,9 @@ def t8_entry(en, i, laws, shelf, manifest, depth, one_law):
               f'<a href="{esc(f["page"])}" target="_blank" rel="noopener nofollow">'
               f'{esc(f["credit"])}</a></figcaption></figure>')
     else:
-        # No freely-licensed photograph is a designed state, not a missing
-        # one. The plate used to carry "no free frame exists" underneath the
-        # show name - a note about this site's sourcing written on a reading
-        # surface - and now says only what it is, the show and the year, in
-        # the display face the entry titles use, so it reads as a deliberate
-        # slug rather than as a picture that failed to arrive.
-        bits = [b.strip() for b in en["show"].split(",")]
-        show_name = bits[0] if bits else en["show"]
-        show_year = bits[1] if len(bits) > 1 else ""
-        im = (f'<div class="t8-plate" style="--c:#ff5a1f">'
-              f'<span class="t8-plate-n">{esc(i)}</span>'
-              f'<span class="t8-plate-t">{esc(show_name)}</span>'
-              + (f'<span class="t8-plate-y">{esc(show_year)}</span>'
-                 if show_year else "")
-              + '</div>')
-    return f"""<li class="t8-item" data-rank="{i}">
+        im = ""
+    _id = f' id="{esc(anchor)}"' if anchor else ""
+    return f"""<li class="t8-item"{_id} data-rank="{i}">
   <div class="t8-head">
     <span class="t8-rank">{i}</span>
     {im}
@@ -2644,32 +2961,26 @@ def t8_entry(en, i, laws, shelf, manifest, depth, one_law):
   </div>
   <p class="t8-what"><b>What happens.</b> {esc(en['what'])}</p>
   <p class="t8-why"><b>Why it is on the list.</b> {esc(en['why'])}</p>
-  {cite}
 </li>"""
 
 
-def t8_shared_law(one_law, laws, shelf):
+def t8_shared_law(one_law, laws):
     """The list's one law, stated once, when the whole list shares it.
 
-    Rendering the same shelf item in a per-entry box eight times says nothing
-    eight times over, so a list whose entries are all instances of one law
-    states it once above the list - the law, and the author's own work on the
-    same material - and the per-entry box is dropped.
+    A list whose entries are all instances of one law says so once above the
+    list, rather than repeating the same label eight times.
     """
     if one_law is None:
         return ""
     l = laws.get(one_law, {})
-    sh = shelf.get(l.get("shelf")) if l.get("shelf") else None
-    src_line = (f'<a href="{esc(sh["href"])}" target="_blank" rel="noopener">'
-                f'{esc(sh["title"])}</a> &mdash; {esc(sh["blurb"])}') if sh else ""
     return (f'<p class="t8-sharedlaw"><span class="t8-sharedlaw-n">'
-            f'LAW {esc(one_law)}</span> All eight entries are instances of '
+            f'LAW {esc(one_law)}</span> Every entry here is an instance of '
             f'<b>{esc(l.get("title", ""))}</b>, which is the reason they are '
-            f'on one list. {src_line}</p>')
+            f'on one list.</p>')
 
 
-def t8_frame_note(L):
-    """The list's own note above the list, rendered from its data.
+def t8_frame_note(L, entries, manifest):
+    """The list's own note above the list, rendered from its data, counted.
 
     Optional per list, and it lives in the data rather than in the renderer:
     the previous version was hardcoded and claimed that every picture in a set
@@ -2677,10 +2988,24 @@ def t8_frame_note(L):
     opened to check it, and the sentence survived its own correction because
     the fix left it in the template. Part one carries one; Part two has no
     photographs at all, so a note about frames would be a note about nothing.
+
+    The note carries two tokens, {blank} and {total}, filled from `entries` -
+    the set the caller is actually rendering, which is the eight the window
+    put on /top8/ or the whole pool in the archive. They exist because the
+    first version typed the count ("Two of the eight have no photograph at
+    all") and the pool grew underneath it: a number inside a paragraph is not
+    obviously a claim, which is what makes it the dangerous kind. The test
+    for a blank is the same one t8_entry renders the plate from, so the
+    sentence and the plates cannot describe different sets.
     """
     body = (L.get("frame_note") or "").strip()
     if not body:
         return ""
+    if "{blank}" in body or "{total}" in body:
+        n_blank = sum(1 for en in entries
+                      if not img_for(manifest, en.get("image"), 1))
+        body = (body.replace("{blank}", str(n_blank))
+                    .replace("{total}", str(len(entries))))
     paras = "".join(f"<p>{emph(p)}</p>" for p in body.split("\n\n")
                     if p.strip())
     return ('<aside class="t8-frame">\n  <p class="kicker">Read this '
@@ -2700,19 +3025,20 @@ def build_top8(data, feat, manifest):
              '<a href="archive/index.html">archive</a>.'
              if len(live_lists(feat)) > 1 else "More top 8s to come.")
     laws = {l["n"]: l for l in data["laws"]}
-    shelf = {s["id"]: s for s in data["shelf"]}
 
     # When the whole list shares one law - which is the point of Part one
-    # rather than a tagging accident - the law is stated once above the list
-    # and the per-entry shelf box is dropped.
+    # rather than a tagging accident - the law is stated once above the list.
     shared = {en.get("law") for en in L["entries"]}
     one_law = next(iter(shared)) if len(shared) == 1 else None
-    items = "".join(t8_entry(en, i, laws, shelf, manifest, 1, one_law)
+    anchors = [t8_anchor(L, en) for en in L["entries"]]
+    if len(set(anchors)) != len(anchors):
+        raise SystemExit("REFUSING to build: two top-8 moments share an anchor")
+    items = "".join(t8_entry(en, i, laws, manifest, 1, one_law,
+                             anchor=t8_anchor(L, en))
                     for i, en in enumerate(L["entries"], 1))
 
-    stand = fig(manifest, L.get("image"), 1, cls="t8-hero-fig")   # depth 1, as above
-    shared_law = t8_shared_law(one_law, laws, shelf)
-    frame_note = t8_frame_note(L)
+    shared_law = t8_shared_law(one_law, laws)
+    frame_note = t8_frame_note(L, L["entries"], manifest)
     # The day record, under the list. Absent on a first build (nothing
     # recorded yet) and rendered from data/top8_history.json otherwise - see
     # t8_record for why the dates are stored rather than recomputed.
@@ -2725,7 +3051,8 @@ def build_top8(data, feat, manifest):
   <p class="sec-lede" style="max-width:62ch">The show is decided by the date rather
   than by hand: the newest list takes this page on its release day, and from there
   the live lists take turns, one per day. This is what was on show, recorded as it
-  happened.</p>
+  happened; the <a href="record/index.html">whole record</a> is one line per
+  day.</p>
   {record}
 </section>""" if record else ""
     return f"""<!DOCTYPE html>
@@ -2746,7 +3073,6 @@ def build_top8(data, feat, manifest):
   <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;
      letter-spacing:-.03em;line-height:1.02;margin:0 0 16px;max-width:22ch">{esc(L['title'])}</h1>
   <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">{esc(L['dek'])}</p>
-  {stand}
   <div class="note" style="margin-top:26px"><p>{esc(L['standfirst'])}</p></div>
   {frame_note}
   <p style="margin-top:30px;max-width:62ch"><a class="btn btn-solid" href="../quiz/index.html">Which of these are you?</a>
@@ -2782,7 +3108,6 @@ def build_top8_archive(data, feat, manifest):
     """
     r = root(2)
     laws = {l["n"]: l for l in data["laws"]}
-    shelf = {s["id"]: s for s in data["shelf"]}
     show = show_list(feat)
     former = sorted((L for L in live_lists(feat)
                      if L.get("slug") != show.get("slug")),
@@ -2797,18 +3122,20 @@ def build_top8_archive(data, feat, manifest):
                    if en.get("stage", "featured") == "featured"]
         shared = {en.get("law") for en in entries}
         one_law = next(iter(shared)) if len(shared) == 1 else None
-        items = "".join(t8_entry(en, i, laws, shelf, manifest, 2, one_law)
+        anchors = [t8_anchor(L, en) for en in entries]
+        if len(set(anchors)) != len(anchors):
+            raise SystemExit("REFUSING to build: two archive moments share an anchor")
+        items = "".join(t8_entry(en, i, laws, manifest, 2, one_law,
+                                 anchor=t8_anchor(L, en))
                         for i, en in enumerate(entries, 1))
-        stand = fig(manifest, L.get("image"), 2, cls="t8-hero-fig")
         chunks.append(f"""<section class="section" id="{esc(L['slug'])}">
   <p class="kicker">{esc(L['kicker'])} &middot; the top 8</p>
   <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;
      letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;max-width:24ch">{esc(L['title'])}</h2>
   <p class="sec-lede" style="max-width:62ch">{esc(L['dek'])}</p>
-  {stand}
   <div class="note" style="margin-top:24px"><p>{esc(L['standfirst'])}</p></div>
-  {t8_frame_note(L)}
-  {t8_shared_law(one_law, laws, shelf)}
+  {t8_frame_note(L, entries, manifest)}
+  {t8_shared_law(one_law, laws)}
   <ol class="t8">{items}</ol>
 </section>""")
 
@@ -2854,11 +3181,113 @@ def build_top8_archive(data, feat, manifest):
 </body></html>"""
 
 
+def build_top8_record(data, feat, manifest):
+    """The day-by-day record, at full length, as a page of its own.
+
+    /top8/ folds the record into runs under the list, because there the reader
+    wants the shape of what happened. This page is the other reading: one line
+    per recorded day, newest first, with the eight it carried - rendered from
+    data/top8_history.json exactly as record_top8_day() wrote it, so the page
+    and the list cannot describe different shows. Nothing is filled in for a
+    day with no record: the sequence is what happened, and a gap stays a gap.
+    Names resolve from the current data at render time, the same way /top8/
+    resolves them, and a list or a moment that is no longer in the file
+    degrades in place rather than printing a slug at a reader.
+    """
+    days = []
+    if TOP8_HISTORY.exists():
+        try:
+            days = (json.loads(TOP8_HISTORY.read_text(encoding="utf-8"))
+                    .get("days") or [])
+        except ValueError:
+            days = []
+    lists = feat.get("lists") or []
+    by_slug = {L.get("slug"): L for L in lists}
+    by_eid = {}
+    for L in lists:
+        for en in L.get("entries") or []:
+            for key in ("id", "image", "show"):
+                v = en.get(key)
+                if v and v not in by_eid:
+                    by_eid[v] = en
+    show = show_list(feat).get("slug")
+    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    rows = []
+    for d in reversed(days):
+        date = str(d.get("date") or "")
+        slug = str(d.get("list") or "")
+        L = by_slug.get(slug)
+        if L and L.get("title"):
+            href = ("../index.html#list" if slug == show
+                    else f'../archive/index.html#{esc(slug)}')
+            title = (f'<a class="t8rec-list" href="{href}">'
+                     f'{esc(L["title"])}</a>')
+        else:
+            title = ('<span class="t8rec-list">A list that is no longer in '
+                     'the file</span>')
+        head = [f'<span class="t8rec-date">{fmt_date(date)}</span>', title]
+        if L and L.get("kicker"):
+            head.append(f'<span class="t8rec-cat">{esc(L["kicker"])}</span>')
+        if slug and slug == show and date == today:
+            head.append('<span class="t8rec-now">on show today</span>')
+        if d.get("reconstructed"):
+            head.append(rebuilt_tag(d))
+        names = [by_eid[v].get("name") for v in (d.get("items") or [])
+                 if v in by_eid and by_eid[v].get("name")]
+        names_p = ('<p class="t8rec-names">'
+                   + " &middot; ".join(esc(n) for n in names) + '</p>'
+                   ) if names else ""
+        rows.append(f'<li class="t8rec-run">'
+                    f'<p class="t8rec-head">{" ".join(head)}</p>'
+                    f'{names_p}</li>')
+    if rows:
+        body = f'<ol class="t8rec">{"".join(rows)}</ol>'
+    else:
+        body = ('<p class="sec-lede" style="max-width:62ch">Nothing has been '
+                'recorded yet. The record begins the first day a list is on '
+                'show, and after that each day is appended as it happens '
+                'rather than reconstructed.</p>')
+    count = len(days)
+    day_count = f"{count} day" + ("" if count == 1 else "s")
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The top 8 record — Parasocialize</title>
+<meta name="description" content="Every day this site has chosen a top 8, one line per day, with the eight it carried.">
+{HEAD.format(site=SITE, path="/top8/record/", otype="website",
+             title="The top 8 record",
+             desc="Every day this site has chosen a top 8, one line per day.",
+             root=root(2))}
+</head>
+<body>
+<a class="skip" href="#record">Skip to the record</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=root(2), total=len(data['cards']), mk=wordmark("nav"))}
+<main id="record">
+<section class="section" style="padding-bottom:6px">
+  <p class="kicker">The top 8 &middot; record &middot; {day_count} recorded</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.02;margin:0 0 16px;max-width:22ch">Every day, one of the lists</h1>
+  <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">The show is decided
+  by the date rather than by hand: the newest list takes the page on its release
+  day, and from there the live lists take turns, one per UTC day. This is that
+  sequence, one line per day, with the eight it carried.</p>
+</section>
+<section class="section" style="padding-top:8px">
+  {body}
+  <p class="countline" style="margin-top:30px">A day with no line is a day with
+  no record rather than a day rebuilt after the fact.
+  <a href="../index.html">Today's list →</a></p>
+</section>
+</main>
+{FOOT.format(root=root(2), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
+</body></html>"""
+
+
 # ------------------------------------------------------------------ history
 def build_history(data, hist, manifest):
     r = root(1)
     laws = {l["n"]: l for l in data["laws"]}
-    shelf = {s["id"]: s for s in data["shelf"]}
 
     mod_bar = "".join(
         f'<a class="hlaw" href="#m{esc(m["n"])}"><b>{esc(m["n"])}</b>'
@@ -2873,12 +3302,9 @@ def build_history(data, hist, manifest):
               f'<a href="{esc(f["page"])}" target="_blank" rel="noopener">'
               f'{esc(f["credit"])}</a></figcaption></figure>') if f else ""
         body = "".join(f"<p>{esc(p)}</p>" for p in m["body"])
-        sh = shelf.get(laws.get(m.get("law"), {}).get("shelf"))
         cite = (f'<p class="h-cite">This module is law {esc(m.get("law"))} · '
                 f'<a href="#law-{esc(m.get("law"))}">{esc(laws.get(m.get("law"),{}).get("title",""))}</a>'
-                + (f' · which is a chapter of <a href="{r}shelf/index.html" target="_blank" rel="noopener">'
-                   f'{esc(sh["title"])}</a>' if sh else "")
-                + "</p>") if m.get("law") else ""
+                f'</p>') if m.get("law") else ""
         mods.append(f"""<article class="hmod" id="m{esc(m['n'])}">
   <header class="hmod-head">
     <span class="hmod-n">{esc(m['n'])}</span>
@@ -2894,13 +3320,9 @@ def build_history(data, hist, manifest):
 
     laws_html = []
     for l in hist["laws"]:
-        sh = shelf.get(l.get("shelf"))
-        cite = (f'<p class="h-cite">Also a chapter of '
-                f'<a href="{r}shelf/index.html" target="_blank" rel="noopener">{esc(sh["title"])}</a></p>'
-                if sh else "")
         laws_html.append(f"""<div class="hlaw-card" id="law-{esc(l['n'])}">
   <span class="hlaw-n">{esc(l['n'])}</span>
-  <div><h3>{esc(l['title'])}</h3><p>{esc(l['one'])}</p>{cite}</div>
+  <div><h3>{esc(l['title'])}</h3><p>{esc(l['one'])}</p></div>
 </div>""")
 
     return f"""<!DOCTYPE html>
@@ -3169,8 +3591,11 @@ REGISTER_HISTORY_NOTE = (
     "rewritten. Do not regenerate this file and do not delete it to clean up - "
     "the rotation is recomputable from the date and the register order, and "
     "that recomputability is exactly why the file exists: if either changes, "
-    "only this sequence shows what the page actually said. Rendered under the "
-    "register list by build_cards.register_record()."
+    "only this sequence shows what the page actually said. A day that "
+    "tools/archive.py had to close after the fact carries `reconstructed: "
+    "true` with the date and input hash that made the recomputation provable, "
+    "and the record pages print it as rebuilt rather than observed. Rendered "
+    "under the register list by build_cards.register_record()."
 )
 # The day the rotation shipped. The registers have no release dates to anchor
 # on the way the top-8 lists do, so the anchor is the day this went live;
@@ -3270,11 +3695,230 @@ def register_record(tax, today=None):
         now = (' <span class="tx-today-tag">today</span>'
                if str(d.get("date")) == iso else "")
         rows.append(f'<li><span class="tx-day-date">{esc(fmt_date(d.get("date")))}</span>'
-                    f'{label}{now}</li>')
+                    f'{label}{rebuilt_tag(d)}{now}</li>')
     return (f'<details class="tx-reg tx-dayrec" id="tx-reg-record">'
             f'<summary><b>The record</b>'
             f'<span class="tx-count">{len(days)}</span></summary>'
             f'<ul class="tx-days">{"".join(rows)}</ul></details>')
+
+
+# --------------------------------------------------- the parasocialite of the day
+# The front page's daily spotlight: one figure taking turns, one per UTC day,
+# chosen by date rather than stored. Same contract as the register rotation -
+# what is on show is computable, what is recorded is the day it happened on -
+# and the same epoch day, because both shipped together.
+PARASOCIALITE = ROOT / "data" / "parasocialite.json"
+PARASOCIALITE_HISTORY = ROOT / "data" / "parasocialite_history.json"
+PARASOCIALITE_HISTORY_NOTE = (
+    "STATEFUL. One record per UTC day: which parasocialite was put forward on "
+    "the front page, appended by build_cards.record_parasocialite_day() and "
+    "never rewritten. Do not regenerate this file and do not delete it to "
+    "clean up - the rotation is recomputable from the date and the roster "
+    "order, and that recomputability is exactly why the file exists: if either "
+    "changes, only this sequence shows what the page actually said. A day that "
+    "tools/archive.py had to close after the fact carries `reconstructed: "
+    "true` with the date and input hash that made the recomputation provable, "
+    "and the record pages print it as rebuilt rather than observed. Rendered "
+    "under the front-page block by build_cards.parasocialite_record()."
+)
+# The day the rotation shipped. The roster has no release dates to anchor on
+# the way the top-8 lists do, so the anchor is the day this went live; dates
+# before it cycle backward through the same order and are not claimed to have
+# shown anything.
+PARASOCIALITE_EPOCH = datetime.date(2026, 10, 19)
+
+
+def parasocialite_roster():
+    """The roster file, or an empty roster if it is missing or unreadable.
+
+    A missing roster degrades the front page to no block rather than a crash:
+    the block is a spotlight, not the site's spine, and a build that refused
+    over it would take every other page down with it.
+    """
+    try:
+        return json.loads(PARASOCIALITE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {"members": []}
+
+
+def parasocialite_of_day(roster, today=None):
+    """The parasocialite the front page puts forward on a given UTC day.
+
+    One figure per UTC day, taking turns in roster order, anchored on
+    PARASOCIALITE_EPOCH. Deterministic and stateless, like register_of_day:
+    the same date always gives the same figure, which is what lets the record
+    and the page be checked against each other. Python's modulo makes dates
+    before the epoch cycle backward rather than error.
+    """
+    members = (roster or {}).get("members") or []
+    if not members:
+        return None
+    iso = today or datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    try:
+        d = datetime.date.fromisoformat(str(iso)[:10])
+    except ValueError:
+        d = datetime.datetime.now(datetime.timezone.utc).date()
+    return members[(d - PARASOCIALITE_EPOCH).days % len(members)]
+
+
+def record_parasocialite_day(today=None):
+    """Append today's parasocialite to data/parasocialite_history.json.
+
+    Called from main() before the front page renders - the ledger's
+    snapshot-before-feed ordering, the same reason record_top8_day and
+    record_register_day run before their pages - so the record and the page
+    cannot describe different days.
+
+    One entry per date, {date, member} by id; names resolve at render time so
+    renaming a member does not rewrite history. A same-day rebuild is a
+    no-op; if the day's figure changes mid-day - the roster edited, or the
+    epoch moved - the day's entry is replaced rather than appended, because
+    one date with two figures is a record nobody can read.
+    Returns (changed, entry).
+    """
+    member = parasocialite_of_day(parasocialite_roster(), today)
+    if not member:
+        return False, {}
+    iso = str(today or
+              datetime.datetime.now(datetime.timezone.utc).date().isoformat())[:10]
+    entry = {"date": iso, "member": member.get("id", "")}
+    if PARASOCIALITE_HISTORY.exists():
+        hist = json.loads(PARASOCIALITE_HISTORY.read_text(encoding="utf-8"))
+    else:
+        hist = {"_note": PARASOCIALITE_HISTORY_NOTE, "days": []}
+    days = hist.setdefault("days", [])
+    if days and str(days[-1].get("date")) == iso:
+        if days[-1].get("member") == entry["member"]:
+            return False, days[-1]
+        days.pop()
+    days.append(entry)
+    hist.setdefault("_note", PARASOCIALITE_HISTORY_NOTE)
+    PARASOCIALITE_HISTORY.parent.mkdir(exist_ok=True)
+    PARASOCIALITE_HISTORY.write_text(
+        json.dumps(hist, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return True, entry
+
+
+def parasocialite_record(today=None):
+    """The day record under the front-page block, newest first.
+
+    A plain dated list rather than a run-collapsed shape: the rotation is a
+    cycle of eight, so no two consecutive days can share a figure and there
+    are no runs to collapse. A member no longer in the roster is shown as
+    such rather than dropped, because a day that happened is a fact even when
+    the thing it showed is gone. Degrades to nothing if the file is missing,
+    unreadable or empty.
+    """
+    if not PARASOCIALITE_HISTORY.exists():
+        return ""
+    try:
+        hist = json.loads(PARASOCIALITE_HISTORY.read_text(encoding="utf-8"))
+    except ValueError:
+        return ""
+    days = hist.get("days") or []
+    if not days:
+        return ""
+    names = {m.get("id"): m.get("name", m.get("id"))
+             for m in (parasocialite_roster().get("members") or [])}
+    iso = str(today or
+              datetime.datetime.now(datetime.timezone.utc).date().isoformat())[:10]
+    rows = []
+    for d in reversed(days):
+        name = names.get(d.get("member"))
+        label = (f'<b>{esc(name)}</b>' if name
+                 else '<b>A figure no longer in the roster</b>')
+        now = (' <span class="psotd-today">today</span>'
+               if str(d.get("date")) == iso else "")
+        rows.append(f'<li><span class="psotd-day-date">{esc(fmt_date(d.get("date")))}</span>'
+                    f'{label}{rebuilt_tag(d)}{now}</li>')
+    return (f'<details class="psotd-dayrec" id="psotd-record">'
+            f'<summary><b>The record</b>'
+            f'<span class="psotd-count">{len(days)}</span></summary>'
+            f'<ul class="psotd-days">{"".join(rows)}</ul></details>')
+
+
+def build_taxonomy_record(data):
+    """The register rotation's whole sequence, as a page of its own.
+
+    The spotlight on /taxonomy/ names today's register and the record under
+    the list holds the sequence in summary; this page is the same sequence at
+    full length, one line per recorded day, newest first, rendered from
+    data/register_history.json exactly as record_register_day() wrote it. The
+    rotation is recomputable from the date, and that recomputability is
+    exactly why the file exists: a rebuild can say what the page would show
+    today, not what it showed on a day nobody was there for - so nothing is
+    filled in for a day with no record, and a gap stays a gap. Names resolve
+    from the current taxonomy at render time, so a register that is no longer
+    defined is shown as such rather than dropped.
+    """
+    tax = json.loads((ROOT / "data" / "taxonomy.json")
+                     .read_text(encoding="utf-8"))
+    days = []
+    if REGISTER_HISTORY.exists():
+        try:
+            days = (json.loads(REGISTER_HISTORY.read_text(encoding="utf-8"))
+                    .get("days") or [])
+        except ValueError:
+            days = []
+    names = {g["id"]: g.get("name", g["id"]) for g in tax.get("register", [])}
+    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    rows = []
+    for d in reversed(days):
+        iso = str(d.get("date") or "")
+        rid = str(d.get("register") or "")
+        name = names.get(rid)
+        if name:
+            label = (f'<a href="../index.html#tx-{esc(rid)}">'
+                     f'<b>{esc(name)}</b></a>')
+        else:
+            label = '<b>A register no longer defined</b>'
+        now = (' <span class="tx-today-tag">today</span>'
+               if iso == today else "")
+        rows.append(f'<li><span class="tx-day-date">{fmt_date(iso)}</span>'
+                    f'{label}{rebuilt_tag(d)}{now}</li>')
+    if rows:
+        body = f'<ul class="tx-days">{"".join(rows)}</ul>'
+    else:
+        body = ('<p class="sec-lede" style="max-width:62ch">Nothing has been '
+                'recorded yet. The record begins the first day the rotation '
+                'runs, and after that each day is appended as it happens '
+                'rather than reconstructed.</p>')
+    count = len(days)
+    day_count = f"{count} day" + ("" if count == 1 else "s")
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The register record — Parasocialize</title>
+<meta name="description" content="Every day the eight registers have taken their turn, one line per day, as recorded.">
+{HEAD.format(site=SITE, path="/taxonomy/record/", otype="website",
+             title="The register record",
+             desc="Every day the eight registers have taken their turn, one line per day.",
+             root=root(2))}
+</head>
+<body>
+<a class="skip" href="#record">Skip to the record</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=root(2), total=len(data['cards']), mk=wordmark("nav"))}
+<main id="record">
+<section class="section" style="padding-bottom:6px">
+  <p class="kicker">The taxonomy &middot; register record &middot; {day_count} recorded</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.02;margin:0 0 16px;max-width:22ch">Every day, one of the eight</h1>
+  <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">The eight registers
+  take turns, one per UTC day, and the turn is decided by the date rather than
+  by hand. This is the sequence as it was recorded: one line per day, naming
+  the register that was put forward.</p>
+</section>
+<section class="section" style="padding-top:8px">
+  {body}
+  <p class="countline" style="margin-top:30px">A register that is no longer
+  defined is shown as such, and a day with no line is a day with no record
+  rather than a day reconstructed.
+  <a href="../index.html">Today's register →</a></p>
+</section>
+</main>
+{FOOT.format(root=root(2), sweep=MESSY, motto='ONE-SIDED.<br>NOTHING HAS CHANGED SINCE 600 BC.')}
+</body></html>"""
 
 
 def build_taxonomy(enc, data):
@@ -3383,6 +4027,7 @@ def build_taxonomy(enc, data):
   <p class="kicker">{esc(a['sign'])} · {n} entries · {sn} stories</p>
   <h2>{esc(a['blurb'])}</h2>
   <p class="tx-note-big">{esc(a['note'])}</p>
+  <p class="countline"><a href="{r}ways/{esc(a['id'])}/index.html">Read the stories and entries filed on this way →</a></p>
   {''.join(subs)}
 </section>""")
 
@@ -3423,7 +4068,8 @@ def build_taxonomy(enc, data):
       {anchor_span(day_reg.get('anchor'))}</p>
     <p class="tx-note">The eight registers take turns, one per UTC day. Today's is
     marked in the list below, opened on arrival, and the days behind it are
-    recorded under the list.</p>
+    recorded under the list. The <a href="record/index.html">whole record</a> is
+    one line per day.</p>
   </div>"""
     else:
         day_html = ""
@@ -3620,16 +4266,46 @@ def build_taxonomy(enc, data):
 </section>
 </main>
 <footer class="footer"><div class="foot-grid">
-  <div>
+  <div class="foot-brand">
     <p class="wordmark foot-mark"><img class="logo-img" src="{r}img/logo.svg" alt="" width="24" height="24">PARA<b>SOCIALIZE</b></p>
     <p class="foot-note">{MESSY}<br>Kept by Enan Joe Heneghan - video store clerk, M.A., teacher in Australia.</p>
+    <p class="foot-tag">ONE-SIDED.<br>NOTHING HAS CHANGED SINCE 600 BC.</p>
   </div>
   <nav class="foot-nav" aria-label="Footer">
-    <a href="{r}index.html">LATEST</a><a href="{r}sections/index.html">SECTIONS</a>
-    <a href="{r}taxonomy/index.html">TAXONOMY</a><a href="{r}encyclopedia/index.html">ENCYCLOPEDIA</a>
-    <a href="{r}citations/index.html">CITATIONS</a><a href="{r}credits/index.html">CREDITS</a>
+    <div class="foot-col">
+      <p class="foot-head">Read</p>
+      <a href="{r}index.html">Latest</a>
+      <a href="{r}sections/index.html">Stories</a>
+      <a href="{r}top8/index.html">Top 8</a>
+      <a href="{r}history/index.html">History</a>
+      <a href="{r}shelf/index.html">Works</a>
+      <a href="{r}moments/index.html">Moments</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">Look up</p>
+      <a href="{r}encyclopedia/index.html">Encyclopedia</a>
+      <a href="{r}atlas/index.html">Atlas</a>
+      <a href="{r}timeline/index.html">Timeline</a>
+      <a href="{r}taxonomy/index.html">Taxonomy</a>
+      <a href="{r}citations/index.html">Citations</a>
+      <a href="{r}quiz/index.html">Quiz</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">The project</p>
+      <a href="{r}credits/index.html">About</a>
+      <a href="{r}tip/index.html">Contact</a>
+      <a href="{r}top8/archive/index.html">Archive</a>
+      <a href="{r}ledger/index.html">Ledger</a>
+      <a href="{r}membership/index.html">Membership</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">Follow</p>
+      <a class="foot-support" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow">Support the archive</a>
+      <a href="{r}signal/latest.html">The Signal</a>
+      <a href="{r}radar.xml">RSS feed</a>
+      <a href="{r}brand/index.html">iYi</a>
+    </div>
   </nav>
-  <p class="foot-tag">ONE-SIDED.<br>NOTHING HAS CHANGED SINCE 600 BC.</p>
 </div></footer>
 <script>
 (function(){{
@@ -3945,14 +4621,21 @@ def entry_hero(ent, manifest, depth=1):
         src = esc(photo.get("path", ""))
         cap = next((i.get("caption") for i in manifest.get("items", [])
                     if i.get("slug") == slug and i.get("caption")), "")
-        credit = next((i.get("src") for i in manifest.get("items", [])
+        source = next((i.get("src") for i in manifest.get("items", [])
                        if i.get("slug") == slug), None)
         by = ""
-        if isinstance(credit, dict) and credit.get("author"):
-            by = (f'<span class="ent-by">{esc(credit.get("author", ""))}'
-                  + (f' · {esc(credit.get("licence", ""))}'
-                     if credit.get("licence") else "") + "</span>")
-        return (f'<figure class="ent-hero"><img src="{src}" alt="{esc(ent["title"])}" '
+        if isinstance(source, dict) and source.get("author"):
+            label = (f'{source.get("author", "")}'
+                     + (f' · {source.get("licence", "")}'
+                        if source.get("licence") else ""))
+            page = source.get("page", "#")
+            if page and page != "#":
+                by = (f'<span class="ent-by"><a href="{esc(page)}" target="_blank" '
+                      f'rel="noopener nofollow">{esc(label)}</a></span>')
+            else:
+                by = f'<span class="ent-by">{esc(label)}</span>'
+        alt = cap or ent["title"]
+        return (f'<figure class="ent-hero"><img src="{src}" alt="{esc(alt)}" '
                 f'loading="lazy" decoding="async">'
                 + (f'<figcaption>{esc(cap)} {by}</figcaption>' if cap else "")
                 + "</figure>")
@@ -4859,21 +5542,21 @@ def build_shelf(data):
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The shelf - Parasocialize</title>
-<meta name="description" content="The novels, poetry, albums, podcasts and videos the stories lean on.">
+<title>Works - Parasocialize</title>
+<meta name="description" content="The novels, poetry, essays, albums, podcasts and videos I make, collected here.">
 {HEAD.format(site=SITE, path="/shelf/", otype="website",
-             title="The shelf - Parasocialize",
+             title="Works - Parasocialize",
              desc="The work behind the argument.", root=r)}
 </head>
 <body>
-<a class="skip" href="#s">Skip to the shelf</a>
+<a class="skip" href="#s">Skip to the works</a>
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root=r, total=len(cards), mk=wordmark("nav"))}
 <main>
 <section class="section" id="s">
   <p class="kicker">{len(shelf)} works</p>
-  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:-.03em;margin:0 0 12px">The shelf</h1>
-  <p class="sec-lede" style="max-width:56ch">The novels, albums, podcasts and videos the stories lean on.
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:-.03em;margin:0 0 12px">Works</h1>
+  <p class="sec-lede" style="max-width:56ch">The novels, poetry, essays, albums, podcasts and videos I make, collected here rather than threaded through the stories.
   {cited} of {len(shelf)} are cited by something on the site right now. More than one way to buy each.</p>
   {''.join(groups)}
   <p class="countline" style="margin-top:36px">The novels are how a lot of people find this site, and this site is
@@ -5029,11 +5712,19 @@ def build_sitemap(data):
     # release (it carries a placeholder until a second list is dated), and a
     # page a reader can reach but a crawler cannot is only half published.
     urls.append((f"{SITE}/top8/archive/", "0.5", "monthly"))
+    # The two rotation records, day by day. Same argument as the archive
+    # above: a reader can reach them from their parent pages, and a curated
+    # list that leaves them out is a curated list that is wrong.
+    urls.append((f"{SITE}/top8/record/", "0.5", "weekly"))
+    urls.append((f"{SITE}/taxonomy/record/", "0.5", "weekly"))
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
     urls.append((f"{SITE}/citations/", "0.5", "weekly"))
     for a in data["sections"]:
         urls.append((f"{SITE}/section/{a['id']}/", "0.8", "daily"))
         urls.append((f"{SITE}/timeline/{a['id']}/", "0.7", "monthly"))
+    _tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+    for a in _tax["attachment"]:
+        urls.append((f"{SITE}/ways/{a['id']}/", "0.8", "weekly"))
     for p in ("/timeline/", "/encyclopedia/", "/brand/", "/top8/", "/history/",
               "/moments/", "/figures/", "/taxonomy/"):
         urls.append((f"{SITE}{p}", "0.9", "monthly"))
@@ -5166,6 +5857,12 @@ def main():
     (ROOT / "top8" / "archive").mkdir(exist_ok=True)
     (ROOT / "top8" / "archive" / "index.html").write_text(
         build_top8_archive(data, feat, manifest), encoding="utf-8")
+    # The day-by-day record at full length, beside the run-collapsed one under
+    # the list. Reads the same data/top8_history.json the record under /top8/
+    # does, so there is one sequence and two readings of it.
+    (ROOT / "top8" / "record").mkdir(exist_ok=True)
+    (ROOT / "top8" / "record" / "index.html").write_text(
+        build_top8_record(data, feat, manifest), encoding="utf-8")
     (ROOT / "history").mkdir(exist_ok=True)
     (ROOT / "history" / "index.html").write_text(build_history(data, hist, manifest), encoding="utf-8")
     (ROOT / "figures").mkdir(exist_ok=True)
@@ -5244,6 +5941,18 @@ def main():
     (ROOT / "taxonomy").mkdir(exist_ok=True)
     (ROOT / "taxonomy" / "index.html").write_text(
         build_taxonomy(enc, data), encoding="utf-8")
+    # The register rotation at full length, beside the record under the list.
+    (ROOT / "taxonomy" / "record").mkdir(exist_ok=True)
+    (ROOT / "taxonomy" / "record" / "index.html").write_text(
+        build_taxonomy_record(data), encoding="utf-8")
+
+    _tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
+    (ROOT / "ways").mkdir(exist_ok=True)
+    for a in _tax["attachment"]:
+        d = ROOT / "ways" / a["id"]
+        d.mkdir(exist_ok=True)
+        (d / "index.html").write_text(
+            build_way(a, _tax, enc, data, manifest), encoding="utf-8")
 
     edir = ROOT / "encyclopedia"
     edir.mkdir(exist_ok=True)
@@ -5270,6 +5979,11 @@ def main():
                     "kicker": l["kicker"]} for l in feat["lists"]],
          "figures": len(feat["figures"]), "moments": len(feat["moments"])},
         indent=2, ensure_ascii=False), encoding="utf-8")
+    # Record which parasocialite is on today's front page BEFORE it renders -
+    # the ledger's snapshot-before-feed ordering, the same reason the top-8
+    # day and the register are recorded before their pages - so the record
+    # under the block and the block itself cannot describe different figures.
+    record_parasocialite_day()
     # rebuild the front page with the features in
     (ROOT / "index.html").write_text(build_front(data, feat, manifest, hist), encoding="utf-8")
     # the section index gets the moments + top8 teasers too

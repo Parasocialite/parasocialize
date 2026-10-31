@@ -31,6 +31,15 @@ Editions are **appended, never rewritten** - the sequence of what the front page
 said is the record. The exception is `--set`, which edits one slot in one named
 edition and prints the before and after, because a release is going to want to
 change one sentence without re-typing the page.
+
+CONVENTIONS
+The door lines are the one slot where a count hides inside a sentence, so
+`door_stories` may carry `{total}` (stories) and `door_encyclopedia` may carry
+`{nent}` (encyclopedia entries) - build_cards.py substitutes them at render
+from the data. **Never type a count into a slot**: the 2026-10-18 edition read
+"248 entries, every claim cited." while the corpus held 255, and nothing would
+have said so. An edition from before the tokens existed keeps its literal
+number and is left alone; that is the record of what the page said.
 """
 import json
 import pathlib

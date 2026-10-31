@@ -3,6 +3,15 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Build/run logs are evidence on the machine, not repository content. Without
+# this, the daily job's `git add -A` commits its own stdout every run.
+*.log
+
+# The daily loop's own "did it run" record. The editorial archive is the three
+# history files; this is operational telemetry and would otherwise produce a
+# commit twice a day whether or not anything changed.
+data/daily.json
+
 dist/
 dist.zip
 

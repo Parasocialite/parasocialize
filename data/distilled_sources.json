@@ -1,0 +1,135 @@
+{
+ "_note": "Pinned Commons originals for the distilled image layer. Each source is a public-domain or CC0 work, named by its exact Commons title. The transform is deterministic: 16:9 crop around `focus`, 1600x900, grayscale, autocontrast, median filter, gamma, six-tone posterization, then three edge-clamped glitch bands. Never `exact`: the source record establishes identity and date, not the frame.",
+ "style": {
+  "crop": "16:9",
+  "width": 1600,
+  "height": 900,
+  "autocontrast": 1,
+  "median_filter": 3,
+  "tones": 6,
+  "palette": [
+   "#0e0804",
+   "#ff5a1f",
+   "#58362a",
+   "#815d4c",
+   "#bea68d",
+   "#f1e7d4"
+  ],
+  "thresholds": [
+   35,
+   75,
+   115,
+   160,
+   210
+  ],
+  "glitch_bands": 3,
+  "band_height": [
+   8,
+   34
+  ],
+  "band_shift": [
+   6,
+   26
+  ]
+ },
+ "sources": [
+  {
+   "slug": "clara-bow",
+   "for": "encyclopedia",
+   "title": "File:Clara Bow 1927.jpg",
+   "focus": [
+    0.5,
+    0.18
+   ],
+   "gamma": 1.1,
+   "seed": 11,
+   "caption": "A distilled profile portrait of Clara Bow, from a 1927 studio photograph.",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: Bow's profile fills the right half, with the ear, eye, nose and lips clear; the dark hair and pale wall hold the silhouette. The 1927 date and the identification as Bow come from the Commons record, not from the frame."
+  },
+  {
+   "slug": "gibson-girl",
+   "for": "encyclopedia",
+   "title": "File:Gibson Girl by Charles Dana Gibson.jpg",
+   "focus": [
+    0.5,
+    0.38
+   ],
+   "gamma": 1.0,
+   "seed": 12,
+   "caption": "A distilled close-up of the Gibson Girl, from Charles Dana Gibson's drawing.",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: both eyes, brows, nose and mouth are clear, and the pen strokes of the hair read across the top; the crown is cropped a little but the face is intact. The Gibson attribution and date come from the source record."
+  },
+  {
+   "slug": "mickey-mouse",
+   "for": "encyclopedia",
+   "title": "File:Mickey Mouse - Steamboat Willie (1928).jpg",
+   "focus": [
+    0.5,
+    0.1
+   ],
+   "gamma": 1.0,
+   "seed": 13,
+   "caption": "A distilled frame from Steamboat Willie, with Mickey Mouse at a ship's wheel.",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: Mickey's head, ears, muzzle, body and tail are clear against the deck; a ship's wheel sits at the left. The 1928 film and the character's identification come from the Commons record, not from the frame."
+  },
+  {
+   "slug": "the-deaf-beloved",
+   "for": "encyclopedia",
+   "title": "File:Plato, MC 571, Roman - Musei Capitolini - Rome, Italy - DSC05999.jpg",
+   "focus": [
+    0.5,
+    0.14
+   ],
+   "gamma": 1.04,
+   "seed": 14,
+   "caption": "A distilled photograph of the Plato bust, with the inscription behind it.",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: the bust's face, beard, curls and the inscribed stone behind it are clear; the eyes fall into shadow. The identification as Plato comes from the museum record, not from the frame."
+  },
+  {
+   "slug": "p",
+   "for": "encyclopedia",
+   "title": "File:Pygmalion and Galatea MET DT1969.jpg",
+   "focus": [
+    0.5,
+    0.16
+   ],
+   "gamma": 1.0,
+   "seed": 15,
+   "caption": "A distilled detail of Pygmalion and Galatea, with the sculptor, the statue and the cupid.",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: Galatea's back and turned head are central, Pygmalion stands at the left, and the cupid is at the right; the faces are partly shadowed. The title and attribution come from the Met record, not from the frame."
+  },
+  {
+   "slug": "sarah-bernhardt",
+   "for": "encyclopedia",
+   "title": "File:Sarah Bernhardt, par Nadar, 1864.jpg",
+   "focus": [
+    0.5,
+    0.16
+   ],
+   "gamma": 1.45,
+   "seed": 16,
+   "caption": "A distilled portrait of Sarah Bernhardt, from Nadar's 1864 photograph.",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: Bernhardt's profile, eye, nose, lips and hair are clear against the dark ground; the right shoulder and dress are cropped. The 1864 date and the identification come from Nadar's Commons record."
+  },
+  {
+   "slug": "nancy-drew",
+   "for": "encyclopedia",
+   "title": "File:The Hidden Staircase - Cover.png",
+   "focus": [
+    0.5,
+    0.14
+   ],
+   "gamma": 1.05,
+   "seed": 17,
+   "caption": "A distilled view of the 1930 cover of The Hidden Staircase, with the title lettering and a figure in the foreground.",
+   "looked": "2026-10-21",
+   "look_reason": "Looked at the generated 1600x900 file: 'THE HIDDEN STAIRCASE' is legible across the top, with the two figures and the stair shape below; the top of the title sits close to the crop. The 1930 cover identification comes from the Commons record."
+  }
+ ]
+}
