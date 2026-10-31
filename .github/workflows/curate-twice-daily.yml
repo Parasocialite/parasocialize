@@ -4,12 +4,14 @@ name: daily
 # date-seeded pages, reconcile the daily record, run the non-browser gates,
 # package dist/ and publish it as a workflow artifact.
 #
-# IT DOES NOT DEPLOY. Production is still a manual upload of dist/ to Cloudflare
-# Pages. What this job changes is that the artifact is guaranteed to be today's
-# tree and to have passed the gates, instead of a folder somebody packaged from
-# whatever day they last opened the repository.
+# IT DOES NOT DEPLOY BY DEFAULT. Production is still a manual upload of dist/
+# to Cloudflare Pages. If CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID are
+# set as repository secrets, the optional last step publishes dist/ directly;
+# without them it skips and the artifact is still there for a manual upload.
+# The project name comes from the CLOUDFLARE_PAGES_PROJECT variable, default
+# "parasocialize". The token needs Pages:Edit on that account.
 #
-# THIS FILE WAS DECORATION UNTIL 2026-10-31. `origin` points at
+# THIS FILE WAS DECORATION UNTIL 2026-10-31. `origin` pointed at
 # `YOUR-USER/parasocialize`, so no scheduled workflow had ever executed; the
 # three daily records stopped at 21 October and the sweeper at 29 September
 # while every check in the repo was green. A cron on a repository nobody
@@ -45,6 +47,10 @@ jobs:
   daily:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    env:
+      CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CF_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || 'parasocialize' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -86,3 +92,11 @@ jobs:
           # that had not received the rebuilt pages.
           git pull --rebase origin main
           git push
+
+      - name: Publish to Cloudflare Pages (optional)
+        if: env.CF_API_TOKEN != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ env.CF_API_TOKEN }}
+          accountId: ${{ env.CF_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ env.CF_PROJECT }} --branch=main

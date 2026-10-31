@@ -1856,6 +1856,12 @@ command to run before an upload. `python tools\build_deploy.py` is the
 packaging half on its own; `--no-build` is for `gates.py` and for the daily
 loop's final re-package, never for a deploy by hand.
 
+The daily GitHub job can publish `dist/` itself: set repository secrets
+`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, and optionally the variable
+`CLOUDFLARE_PAGES_PROJECT` (default `parasocialize`). Without them the publish
+step is skipped, the job still builds/commits/artifacts, and the upload stays
+manual. The token needs Pages:Edit on that account.
+
 13. **Asked to cull the extra-sensory references, the honest answer was that
    there are none — and the check that looked like it found thirty was wrong.**
    The instruction was to "cull all the extra-sensory, even seemingly one-sided
