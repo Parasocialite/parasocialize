@@ -31,8 +31,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: counter
-  cancel-in-progress: false   # never let two sweeps write the same ledger
+  # Shared with the daily build: both commit and push the same repository, so
+  # they must serialise rather than race. A 15-minute sweep overlapping a
+  # 2-minute daily build used to lose the second push silently.
+  group: repo-write
+  cancel-in-progress: false   # never let two writers race the same commit
 
 jobs:
   sweep:
@@ -74,6 +77,8 @@ jobs:
           git config user.email "counter@parasocialize.com"
           git add -A data radar radar.xml aisle shelf || true
           git diff --cached --quiet || git commit -m "sweep $(date -u +%FT%TZ)"
-          # A failed push must be loud. Silent failure is how the last sweeper
-          # ended up three weeks stale with nobody noticing.
-          git push || echo "::error::could not push - the site is stale until this succeeds"
+          # Rebase and fail the step on a push failure. `|| echo ::error::`
+          # exits 0, so the last shape could show a green job over a repository
+          # that never received the sweep.
+          git pull --rebase origin main
+          git push

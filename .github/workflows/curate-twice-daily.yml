@@ -34,8 +34,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: daily
-  cancel-in-progress: false   # never let two rebuilds race the same commit
+  # Shared with the hourly counter, because both jobs commit and push the same
+  # repository. Separate groups (the previous shape) let a 15-minute sweep and a
+  # 2-minute daily build overlap, and the second push lost the race while the
+  # job still reported success - the `|| echo` swallowed it.
+  group: repo-write
+  cancel-in-progress: false   # never let two writers race the same commit
 
 jobs:
   daily:
@@ -76,6 +80,9 @@ jobs:
           git config user.email "daily@parasocialize.com"
           git add -A
           git diff --cached --quiet || git commit -m "daily $(date -u +%FT%TZ)"
-          # A failed push must be loud. A push failure once left the counter
-          # three weeks stale while every job reported success.
-          git push || echo "::error::could not push - the rebuilt pages are not in the repository"
+          # Rebase onto a push that landed while this job was building, then
+          # fail the step if the push fails. The previous `git push || echo
+          # ::error::` exited 0, so GitHub showed a green job over a repository
+          # that had not received the rebuilt pages.
+          git pull --rebase origin main
+          git push
