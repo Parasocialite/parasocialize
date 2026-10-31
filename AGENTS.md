@@ -5051,6 +5051,10 @@ it gets resolved.
         and a 130-line rewrite of `data/front_copy.json` on Linux, which the
         daily job then committed. It now preserves the fixture's newline style
         and asserts the restored bytes exactly.
+      - The desk rendered the sweep age in minutes ("5m ago"), so every rebuild
+        produced a different page and the daily job committed a no-op. It now
+        reads by UTC day ("today", "yesterday", "Nd ago") with the exact
+        timestamp on the card's title attribute.
       - `requirements.txt` is a `.txt`, so `build_deploy` copied it into the
         deploy root beside `robots.txt`. Excluded by name.
     - **The counter's first live run found the last two.** Its commit step
@@ -5076,12 +5080,13 @@ it gets resolved.
     observed**; `archive.py --check` green; `gates.py --source`, `--post` and
     `--visual` all green; `plan_next.py --check` green; the GitHub `daily` run
     **41203448336** green in 2m00s with its artifact uploaded and **no new
-    commit**, and the `counter` run **41204273465** green after the commit-step
-    fix. Today's show is the
+    commit**, the `counter` run **41204273465** green after the commit-step
+    fix, and a final `daily` dispatch (**41204799164**) also produced **no
+    commit** - the loop now rebuilds to the same bytes. Today's show is the
     cartoons list, the register is **Encounter**, the parasocialite is **Queen
     for a Day**. `dist/` is 752 files, and `make_zip` wrote
     `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **752 files, 15.17 MB,
-    tree sha `c7c887c237758599`**, index at root, no nested `dist/`, integrity
+    tree sha `6eb8187b8ec3473f`**, index at root, no nested `dist/`, integrity
     ok. **Not uploaded.**
     - **The general form.** A green gate is a statement about the artefact it
       read, and none of these gates read the *calendar*. The date-seeded pages
