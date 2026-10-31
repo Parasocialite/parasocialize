@@ -170,7 +170,14 @@ print("  ok   live top 8 title, hook, eight anchored cards and the full-list CTA
 #    worked around: the test dates the probe explicitly.
 import datetime as _dt
 probe_date = (_dt.date.today() + _dt.timedelta(days=1)).isoformat()
-d0 = json.loads(DATA.read_text(encoding="utf-8"))
+orig_bytes = DATA.read_bytes()
+# Preserve the file's own newline convention. This test used to write CRLF
+# unconditionally, which was invisible on Windows and made every CI run rewrite
+# the committed file from CRLF to LF - one 130-line diff per day, committed by
+# the daily job, for a file whose bytes had not changed. The same defect the
+# restore assertion exists to catch, one layer down.
+nl = "\r\n" if b"\r\n" in orig_bytes[:400] else "\n"
+d0 = json.loads(orig_bytes.decode("utf-8"))
 
 # The teardown has to run whatever happens above, including on a failure. It
 # used to be a step AFTER the byte-comparison, so the assertion's sys.exit
@@ -183,7 +190,7 @@ try:
     d0["editions"].append({"date": probe_date, "note": "rotation probe",
                            "copy": dict(d0["editions"][-1]["copy"])})
     DATA.write_bytes(json.dumps(d0, ensure_ascii=False, indent=2)
-                     .replace("\n", "\r\n").encode("utf-8"))
+                     .replace("\n", nl).encode("utf-8"))
     run("--stamp", probe_date)
     run("--set", "line", "PROBE-MARKER-LINE", "--to", probe_date)
     run("--set", "clerk_line", "PROBE-MARKER-CLERK", "--to", probe_date)
@@ -199,7 +206,7 @@ finally:
     d2["editions"] = [e for e in d2["editions"] if e["date"] != probe_date]
     d2["_live"] = seed
     DATA.write_bytes(json.dumps(d2, ensure_ascii=False, indent=2)
-                     .replace("\n", "\r\n").encode("utf-8"))
+                     .replace("\n", nl).encode("utf-8"))
     build()
     d3 = json.loads(DATA.read_text(encoding="utf-8"))
     if [e for e in d3["editions"] if e.get("note") == "rotation probe"]:
@@ -208,6 +215,10 @@ finally:
         sys.exit(f"FAIL: _live is {d3['_live']!r}, expected {seed!r}")
     if set(d3) != {"_live", "_note", "editions"}:
         sys.exit(f"FAIL: top-level keys are {sorted(d3)}")
+    if DATA.read_bytes() != orig_bytes:
+        sys.exit("FAIL: the teardown did not restore data/front_copy.json "
+                 "byte for byte - a test that reformats its own fixture turns "
+                 "every daily run into a commit")
     kept = len(d3["editions"])
 
 if has("PROBE-MARKER") or PAGE.read_bytes() != orig:
