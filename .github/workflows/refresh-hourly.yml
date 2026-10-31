@@ -75,7 +75,12 @@ jobs:
         run: |
           git config user.name "counter"
           git config user.email "counter@parasocialize.com"
-          git add -A data radar radar.xml aisle shelf || true
+          # Stage the whole tree, not a hand-listed subset. The subset left the
+          # pages build_cards.py had just rewritten unstaged, so the rebase
+          # refused with "You have unstaged changes" and the job died before
+          # pushing anything. It also named `aisle`, a directory that no longer
+          # exists, and the `|| true` hid that pathspec error.
+          git add -A
           git diff --cached --quiet || git commit -m "sweep $(date -u +%FT%TZ)"
           # Rebase and fail the step on a push failure. `|| echo ::error::`
           # exits 0, so the last shape could show a green job over a repository
