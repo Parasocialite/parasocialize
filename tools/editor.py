@@ -513,8 +513,60 @@ def concrete(e) -> bool:
             and e.get("kind") not in ("term", "study"))
 
 
+def best_detail(s, limit: int = 240) -> str:
+    """A concrete sentence from an entry's significance, for the daily figure.
+
+    The summary is the block's two-sentence breakdown; this is the detail that
+    makes a reader want the entry - a year, a quote, a specific thing that
+    happened. It prefers a later sentence in the budget, because the first is
+    usually the thesis and the later one is the evidence.
+    """
+    text = plain(s)
+    parts = [p for p in re.split(r"(?<=[.!?])\s+", text) if p.strip()]
+    later = [p for p in parts[1:] if 70 <= len(p) <= limit]
+    if later:
+        return max(later, key=len)
+    anyp = [p for p in parts if 70 <= len(p) <= limit]
+    if anyp:
+        return max(anyp, key=len)
+    return clip_sentences(text, limit)
+
+
+GENERIC_NEWS = {
+    "social", "media", "public", "people", "online", "internet",
+    "relationship", "parasocial", "politics", "political", "story",
+    "stories", "world", "today", "comments", "comment", "content",
+    "celebrity", "famous", "culture", "cultural", "screen", "series",
+}
+
+
+def news_words(s) -> set:
+    return {w for w in re.findall(r"[a-z]{6,}", str(s or "").lower())
+            if w not in GENERIC_NEWS}
+
+
+def wire_matches(title, text: str, news: list[dict], limit: int = 2) -> list[dict]:
+    """Current wire items that share the pick's own title, not just its topic.
+
+    Body words alone matched "Our Lady of Guadalupe" to a Survivor AI story on
+    "others" and "recognize". A wire needs at least one distinctive word from
+    the pick's title and one more shared subject word; a title is the shortest
+    honest statement of what the pick is about.
+    """
+    tw_title = news_words(title)
+    tw_all = tw_title | news_words(text)
+    out = []
+    for n in news:
+        nw = news_words(n["title"])
+        if len(tw_title & nw) >= 1 and len(tw_all & nw) >= 2:
+            out.append(n)
+        if len(out) >= limit:
+            break
+    return out
+
+
 def choose_ways(tax, entries, cards, placements, story_places, news, theme,
-                days, today, figure=None, top8_ids=None):
+                days, today, figure=None, top8_ids=None, image_slugs=None):
     byid = {e["id"]: e for e in entries}
     byslug = {c["slug"]: c for c in cards}
     used = set()
@@ -543,10 +595,11 @@ def choose_ways(tax, entries, cards, placements, story_places, news, theme,
                         (theme.get("keywords") or [])) &
                     set(re.findall(r"[a-z]{4,}", text))) * 0.5
             # news overlap: entry text shares a distinctive word with a headline
+            ttl = news_words(e.get("title"))
+            tw = ttl | news_words(text)
             for n in news:
-                words = [w for w in re.findall(r"[a-z]{6,}", n["title"].lower())
-                         if w not in ("parasocial", "relationships", "relationship")]
-                if any(w in text for w in words):
+                nw = news_words(n["title"])
+                if len(ttl & nw) >= 1 and len(tw & nw) >= 2:
                     s += recency_weight(n) * 2
                     break
             why = str((placements.get(eid) or {}).get("why") or "")
@@ -572,10 +625,17 @@ def choose_ways(tax, entries, cards, placements, story_places, news, theme,
             s = len(set((theme.get("tags") or []) +
                         (theme.get("keywords") or [])) &
                     set(re.findall(r"[a-z]{4,}", text))) * 0.5
+            if image_slugs and slug in image_slugs:
+                # A real photograph is what makes a daily case look like a
+                # front page rather than a bibliography entry. The editorial
+                # reason still decides between photographed stories, but a
+                # photographed story outranks an imageless one at equal prose.
+                s += 4
+            ttl = news_words(c.get("headline"))
+            tw = ttl | news_words(text)
             for n in news:
-                words = [w for w in re.findall(r"[a-z]{6,}", n["title"].lower())
-                         if w not in ("parasocial", "relationships", "relationship")]
-                if any(w in text for w in words):
+                nw = news_words(n["title"])
+                if len(ttl & nw) >= 1 and len(tw & nw) >= 2:
                     s += recency_weight(n) * 2
                     break
             if slug in used:
@@ -606,6 +666,28 @@ def choose_ways(tax, entries, cards, placements, story_places, news, theme,
                     "href": f"radar/{rid}.html",
                     "meta": f"Story · {obj.get('section') or ''}".strip(" ·"),
                 }
+            text = " ".join(str(obj.get(k) or "") for k in
+                            ("title", "summary", "significance", "headline",
+                             "one_line", "take")).lower()
+            wires = wire_matches(picks[cid]["title"], text, news)
+            story_n = sum(1 for q in story_places.values()
+                          if q.get("cat") == cid)
+            entry_n = sum(1 for q in placements.values()
+                          if q.get("cat") == cid)
+            days_n = 1 + sum(1 for d in days
+                             if cid in (d.get("picks") or {}))
+            picks[cid].update({
+                "story_count": story_n,
+                "entry_count": entry_n,
+                "days_recorded": days_n,
+                "wire_count": len(wires),
+                "wires": [{"title": w["title"], "url": w["url"],
+                           "publisher": w.get("publisher", "")}
+                          for w in wires],
+                "track": (f"{story_n} stories · {entry_n} entries · "
+                          f"{days_n} daily case"
+                          + ("s" if days_n != 1 else "")),
+            })
             used.add(rid)
             break
     return picks
@@ -651,6 +733,9 @@ def build(today, refresh=False, dry=False):
     stories = load(DATA / "story_placements.json",
                    {"placements": {}})["placements"]
     shop = load(DATA / "shop.json", {"cards": []})
+    image_slugs = {i["slug"] for i in
+                   (load(DATA / "images.json", {"items": []}).get("items") or [])
+                   if i.get("local")}
     days = history_days(TOP8_HISTORY)
     pdays = history_days(PSOTD_HISTORY)
     wdays = history_days(WAYS_HISTORY)
@@ -669,6 +754,10 @@ def build(today, refresh=False, dry=False):
                                  if str(d.get("date")) != today.isoformat()]
     theme, theme_from_news = choose_theme(themes, news, before_today(days), today)
     figure = choose_figure(figures, news, theme, before_today(pdays), today)
+    byid = {e["id"]: e for e in enc["entries"]}
+    fe = byid.get(figure.get("entry") or "")
+    figure["tell"] = (best_detail((fe or {}).get("significance"), 240)
+                      or best_detail((fe or {}).get("summary"), 240))
     entries, enough = choose_entries(enc["entries"], theme, placements,
                                      before_today(days), today, 8)
     if len(entries) < 8:
@@ -686,7 +775,8 @@ def build(today, refresh=False, dry=False):
         "home_title": theme["home_title"],
         "home_hook": theme["home_hook"],
         "dek": theme["dek"],
-        "kicker": f"Daily edition · {fmt_date(today.isoformat())}",
+        "kicker": (f"Daily edition · {fmt_date(today.isoformat())}"
+                   + (f" · {theme['domain']}" if theme.get("domain") else "")),
         "image": None,
         "law": theme.get("law", 6),
         "standfirst": theme["standfirst"],
@@ -712,7 +802,8 @@ def build(today, refresh=False, dry=False):
     }
     ways = choose_ways(tax, enc["entries"], shop.get("cards") or [],
                        placements, stories, news, theme, before_today(wdays),
-                       today, figure, {e["id"] for e in entries})
+                       today, figure, {e["id"] for e in entries},
+                       image_slugs)
     if len(ways) != len(tax.get("attachment") or []):
         raise SystemExit(f"editor: ways produced {len(ways)} of "
                          f"{len(tax.get('attachment') or [])} categories")
@@ -731,6 +822,7 @@ def build(today, refresh=False, dry=False):
                   "at": n.get("at", "")} for n in news[:12]],
         "theme": {"id": theme["id"], "title": theme["title"],
                   "home_title": theme["home_title"],
+                  "domain": theme.get("domain", ""),
                   "from_news": theme_from_news},
         "figure": figure,
         "top8": {"slug": slug, "title": theme["title"],

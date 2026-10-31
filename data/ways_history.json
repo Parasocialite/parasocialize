@@ -5,44 +5,74 @@
    "date": "2026-10-31",
    "picks": {
     "persona": {
-     "kind": "entry",
-     "id": "boybands",
-     "title": "The boy band",
-     "why": "Assembled for a market, with fan clubs, fan voting and fan-financed releases. A manufactured persona is still a persona, and this is the case where the manufacturing is documented rather than inferred.",
-     "href": "encyclopedia/boybands.html",
-     "meta": "Games · 1997"
+     "kind": "story",
+     "id": "aoc-and-parasocial-politics",
+     "title": "AOC and the parasocial nature of politics",
+     "why": "A term coined for soap opera characters applied to a member of Congress, and the interesting part is that it works. Attachment to a person holding an office.",
+     "href": "radar/aoc-and-parasocial-politics.html",
+     "meta": "Story · crossover",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 1,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 1 daily case"
     },
     "character": {
-     "kind": "entry",
-     "id": "lugosi-burial",
-     "title": "He did not ask to be buried as Dracula",
-     "why": "A man interred in his character's costume, where the costume's owner chose nothing at all: his son and mother decided. played-role because the entry is entirely about where a role ends and a person starts.",
-     "href": "encyclopedia/lugosi-burial.html",
-     "meta": "Film · 1956"
+     "kind": "story",
+     "id": "darry-season-two",
+     "title": "A clown got a prequel and four million households signed up without signing anything",
+     "why": "A prequel with the same actor returning, four million households signing up without signing anything. The played role again, and the sequel is the proof the object survived the performer changing.",
+     "href": "radar/darry-season-two.html",
+     "meta": "Story · character",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 1,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 1 daily case"
     },
     "companion": {
-     "kind": "entry",
-     "id": "the-team-built-to-answer-a-rival",
-     "title": "A team built to answer a competitor",
-     "why": "A set of characters whose behaviour was specified against a measurement of the audience rather than invented and then found, which is the social-agent case - a far side calibrated to what the person on this side already wants.",
-     "href": "encyclopedia/the-team-built-to-answer-a-rival.html",
-     "meta": "Comics · 1961"
+     "kind": "story",
+     "id": "i-tried-replika",
+     "title": "A journalist spent a week with a Replika companion and came back unsettled",
+     "why": "A week with a companion app, reported as unsettlement by a reviewer who understood the appeal. The single most useful kind of story the site can hold, because it is neither enthusiast nor outrage.",
+     "href": "radar/i-tried-replika.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 1,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 1 daily case"
     },
     "divine": {
      "kind": "entry",
-     "id": "the-book-of-my-first-showings",
-     "title": "The Book of My First Showings",
-     "why": "Dictated by Margery Kempe describing her experiences of Christ's love, her suffering, and her certainty that she had been chosen. The oldest surviving parasocial document on the site, and the reason DIVINE had to be built.",
-     "href": "encyclopedia/the-book-of-my-first-showings.html",
-     "meta": "Theology / Literature · 1438"
+     "id": "gobekli-tepe",
+     "title": "Eleven thousand years of pillars",
+     "why": "Provisional, and deliberately so. The pillars are anthropomorphic and the UNESCO nomination reads them as 'ancestors, perhaps even incipient deities', but nobody has settled it and other readings make them protective or totemic figures.",
+     "href": "encyclopedia/gobekli-tepe.html",
+     "meta": "History · 9500 BC–8200 BC",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 1,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 1 daily case"
     },
     "institution": {
-     "kind": "entry",
-     "id": "transnational-fandom",
-     "title": "Transnational fandom",
-     "why": "Fans organising across national borders around media, with a shared calendar of releases and a shared language. A body that ignores the state, which is why it is institutional rather than a sub-culture.",
-     "href": "encyclopedia/transnational-fandom.html",
-     "meta": "Games · 2001"
+     "kind": "story",
+     "id": "taylor-swift-red-knows-it",
+     "title": "Taylor Swift's re-recordings are a parasocial business model",
+     "why": "Owning your back catalogue framed as a relationship with an audience rather than an artist decision. The rights holder is the institution, and the story is about the institution owning the bond.",
+     "href": "radar/taylor-swift-red-knows-it.html",
+     "meta": "Story · idol",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 1,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 1 daily case"
     },
     "cosmology": {
      "kind": "entry",
@@ -50,7 +80,13 @@
      "title": "The anime import boom",
      "why": "The subject is a body of work crossing a border and acquiring a fandom that then organises around it. The attachment is to a canon with no author present, which is what makes the transnational part matter.",
      "href": "encyclopedia/anime-import.html",
-     "meta": "Games · 1998"
+     "meta": "Scripted television / Comics · 1998",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 1,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 1 daily case"
     },
     "officer": {
      "kind": "entry",
@@ -58,15 +94,27 @@
      "title": "The local news anchor",
      "why": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset. Proximity, not charisma, and the clearest case of the attachment accruing from duration.",
      "href": "encyclopedia/the-local-anchor.html",
-     "meta": "Scripted television · 1950"
+     "meta": "Unscripted television · 1950",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 1,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 1 daily case"
     },
     "predator": {
-     "kind": "entry",
-     "id": "fandom-wars",
-     "title": "Fandom wars",
-     "why": "Organised conflict between fanbases with brigading, ratioing and coalition behaviour, conducted with the grammar of war. Two attachments turned on each other, which is the only new thing the contest register does.",
-     "href": "encyclopedia/fandom-wars.html",
-     "meta": "Games · 2012"
+     "kind": "story",
+     "id": "parasocial-problem-visibility",
+     "title": "A glimpse is not a full picture and the comments decided otherwise",
+     "why": "Love Island and the World Cup producing millions of viewers who went on to investigate strangers. A relationship with an edited construct becoming a licence to intervene, and the in-group is the mechanism.",
+     "href": "radar/parasocial-problem-visibility.html",
+     "meta": "Story · contest",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 1,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 1 daily case"
     }
    }
   }

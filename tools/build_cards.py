@@ -1634,16 +1634,67 @@ def build_way(a, tax, enc, data, manifest=None):
             return f'{r}radar/{esc(p.get("id"))}.html'
         return f'{r}encyclopedia/{esc(p.get("id"))}.html'
 
+    def pick_art(p):
+        """A real photograph for a story, or the entry's title plate.
+
+        The daily case has to look like a front page, not a bibliography. A
+        story with a sourced photograph uses it; an entry uses the plate that
+        already belongs to that entry. If neither exists the card gets a colour
+        panel with the way's name rather than an empty hole.
+        """
+        if p.get("kind") == "story":
+            c = next((x for x in data["cards"] if x["slug"] == p.get("id")), None)
+            if c:
+                f = (img_for(manifest, p.get("id"), 2)
+                     or img_aisle(manifest, c.get("section"), 2))
+                if f:
+                    return f["path"], f.get("caption", "")
+        eid = str(p.get("id") or "")
+        if (ROOT / "img" / "plate" / f"{eid}.svg").exists():
+            return f'{r}img/plate/{eid}.svg', "Title plate for the entry"
+        return "", ""
+
     today_html = ""
     if pick:
+        art, art_cap = pick_art(pick)
+        art_cls = " is-plate" if art.endswith(".svg") else ""
+        art_html = (f'<a class="way-today-art{art_cls}" href="{pick_href(pick)}" '
+                    f'tabindex="-1" aria-hidden="true"><img src="{esc(art)}" '
+                    f'alt="" loading="lazy"></a>' if art else
+                    f'<a class="way-today-art" style="display:flex;align-items:center;'
+                    f'justify-content:center;background:linear-gradient(150deg,#2a1a10,'
+                    f'#120d0a);color:var(--hot);font-family:var(--serif);font-weight:900;'
+                    f'font-size:2rem;text-align:center;padding:18px" '
+                    f'href="{pick_href(pick)}" tabindex="-1" aria-hidden="true">'
+                    f'<span>{esc(a["sign"])}</span></a>')
+        kind_label = "Today's story" if pick.get("kind") == "story" else "Today's entry"
         meta = str(pick.get("meta") or "")
-        meta_p = f'<p class="way-today-meta">{esc(meta)}</p>' if meta else ""
-        today_html = f"""<div class="way-today">
-  <p class="kicker">Today on this way &middot; {fmt_date(today_iso)}</p>
-  <h2><a href="{pick_href(pick)}">{esc(pick.get("title") or pick.get("id"))}</a></h2>
-  <p class="dek">{esc(pick.get("why") or "")}</p>
-  {meta_p}
-</div>"""
+        meta_p = f'<span class="way-today-meta">{esc(meta)}</span>' if meta else ""
+        track = str(pick.get("track") or "")
+        track_p = (f'<span class="way-today-track">{esc(track)}</span>'
+                   if track else "")
+        meta_sep = ('<span class="way-today-dot">&middot;</span>'
+                    if meta_p and track_p else "")
+        wires = pick.get("wires") or []
+        wire_p = ""
+        if wires:
+            wire_links = " &middot; ".join(
+                f'<a href="{esc(w.get("url"))}" target="_blank" rel="noopener">'
+                f'{esc(w.get("title"))}</a>'
+                + (f' <span>{esc(w.get("publisher"))}</span>' if w.get("publisher") else "")
+                for w in wires[:2])
+            wire_p = f'<p class="way-today-wires"><b>In the wires.</b> {wire_links}</p>'
+        today_html = f"""<article class="way-today">
+  {art_html}
+  <div class="way-today-txt">
+    <p class="kicker">Today on this way &middot; {fmt_date(today_iso)} &middot; {kind_label}</p>
+    <h2><a href="{pick_href(pick)}">{esc(pick.get("title") or pick.get("id"))}</a></h2>
+    <p class="way-today-dek">{esc(pick.get("why") or "")}</p>
+    <p class="way-today-meta-line">{meta_p}{meta_sep}{track_p}</p>
+    {wire_p}
+    <a class="btn btn-solid" href="{pick_href(pick)}">Read the case</a>
+  </div>
+</article>"""
     else:
         today_html = ('<p class="countline">Today&rsquo;s pick has not been '
                       'measured yet. The rest of the shelf is below.</p>')
@@ -1660,15 +1711,33 @@ def build_way(a, tax, enc, data, manifest=None):
         p = (d.get("picks") or {}).get(a["id"])
         if not p:
             continue
-        recent.append(f'<li><span class="way-day-date">{fmt_date(d.get("date"))}</span>'
-                      f'<a href="{pick_href(p)}">{esc(p.get("title") or p.get("id"))}</a></li>')
+        art, _ = pick_art(p)
+        art_cls = " is-plate" if art.endswith(".svg") else ""
+        thumb = (f'<span class="way-day-thumb{art_cls}"><img src="{esc(art)}" alt="" '
+                 f'loading="lazy"></span>' if art else
+                 '<span class="way-day-thumb way-day-noart"></span>')
+        recent.append(f'<li><a href="{pick_href(p)}">{thumb}'
+                      f'<span class="way-day-copy"><span class="way-day-date">'
+                      f'{fmt_date(d.get("date"))}</span>'
+                      f'<b>{esc(p.get("title") or p.get("id"))}</b></span></a></li>')
         if len(recent) >= 5:
             break
     if recent:
-        recent_html = (f'<details class="way-days"><summary>Recent days</summary>'
+        recent_html = (f'<details class="way-days"><summary>The last five days</summary>'
                        f'<ul>{"".join(recent)}</ul></details>')
+    elif pick:
+        art, _ = pick_art(pick)
+        art_cls = " is-plate" if art.endswith(".svg") else ""
+        thumb = (f'<span class="way-day-thumb{art_cls}"><img src="{esc(art)}" '
+                 f'alt="" loading="lazy"></span>' if art else
+                 '<span class="way-day-thumb way-day-noart"></span>')
+        recent_html = (f'<details class="way-days"><summary>The last five days</summary>'
+                       f'<ul><li><a href="{pick_href(pick)}">{thumb}'
+                       f'<span class="way-day-copy"><span class="way-day-date">Today</span>'
+                       f'<b>{esc(pick.get("title") or pick.get("id"))}</b></span>'
+                       f'</a></li></ul></details>')
     else:
-        recent_html = ('<details class="way-days"><summary>Recent days</summary>'
+        recent_html = ('<details class="way-days"><summary>The last five days</summary>'
                        '<ul><li><span class="way-day-date">Today</span>'
                        f'<a href="{r}taxonomy/index.html">The daily record '
                        'begins here &rarr;</a></li></ul></details>')
@@ -2436,16 +2505,30 @@ def build_front(data, feat=None, manifest=None, hist=None):
         if _psotd.get("why_today"):
             _pwhy = (f'<p class="psotd-why"><b>Why today.</b> '
                      f'{esc(_psotd["why_today"])}{_srcline}</p>')
+        _pplate = ""
+        if _pse and (ROOT / "img" / "plate" / f"{_pse['id']}.svg").exists():
+            _pplate = (f'<img class="psotd-plate" src="img/plate/'
+                       f'{esc(_pse["id"])}.svg" alt="" loading="lazy">')
+        _ptell = _psotd.get("tell") or _figure_detail(_pse)
+        _ptell_html = (f'<p class="psotd-tell"><b>The detail.</b> '
+                       f'{esc(_ptell)}</p>' if _ptell else "")
+        _plock = "psotd-lockup" + ("" if _pplate else " psotd-noart")
         psotd_block = f"""<section class="section psotd-sec" aria-labelledby="psotd-kick">
   <p class="kicker" id="psotd-kick">Parasocialite of the day
     <span class="psotd-kind">{esc(_pkind_label)}</span>
     <span class="psotd-val psotd-val-{_pval}">{_pval}</span></p>
   <div class="psotd-card">
-    <h2 class="psotd-name"><a href="{_phref}">{_plabel}</a></h2>
-    {_pmline}
-    <p class="psotd-break">{esc(_psotd.get("breakdown") or "")}</p>
-    {_pwhy}
-    <p class="psotd-more"><a href="{_phref}">The whole entry &rarr;</a></p>
+    <div class="{_plock}">
+      {_pplate}
+      <div class="psotd-copy">
+        <h2 class="psotd-name"><a href="{_phref}">{_plabel}</a></h2>
+        {_pmline}
+        <p class="psotd-break">{esc(_psotd.get("breakdown") or "")}</p>
+        {_pwhy}
+        {_ptell_html}
+        <p class="psotd-more"><a href="{_phref}">The whole entry &rarr;</a></p>
+      </div>
+    </div>
   </div>
   {parasocialite_record()}
 </section>"""
@@ -3835,6 +3918,21 @@ def parasocialite_roster():
         return json.loads(PARASOCIALITE.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         return {"members": []}
+
+
+def _figure_detail(e):
+    """A concrete sentence for the front page's 'The detail' line."""
+    if not e:
+        return ""
+    s = " ".join(str(e.get(k) or "") for k in ("significance", "summary"))
+    s = re.sub(r"<[^>]+>", " ", s).replace("**", "").replace("*", "").replace("`", "")
+    s = " ".join(s.split())
+    parts = [p for p in re.split(r"(?<=[.!?])\s+", s) if p.strip()]
+    later = [p for p in parts[1:] if 70 <= len(p) <= 240]
+    if later:
+        return max(later, key=len)
+    anyp = [p for p in parts if 70 <= len(p) <= 240]
+    return max(anyp, key=len) if anyp else parts[0] if parts else ""
 
 
 def _editorial_today():

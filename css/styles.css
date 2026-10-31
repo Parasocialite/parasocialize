@@ -1880,27 +1880,59 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
    is not a member list - a register is a definition - so what it links to is
    the definition below, the register's anchor when it has one, and the index
    search for every entry that mentions it. */
-.way-today{margin:30px 0 0;border:1px solid var(--line);
-  border-left:3px solid var(--hot);padding:18px 20px;
-  background:rgba(255,246,234,.025)}
-.way-today .kicker{margin:0}
-.way-today h2{margin:8px 0 0;font-family:var(--serif);
-  font-size:clamp(1.35rem,3vw,1.9rem);font-weight:900;line-height:1.12;
-  letter-spacing:-.02em;max-width:26ch}
+.way-today{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);
+  gap:24px;margin:30px 0 0;border:1px solid var(--line);
+  border-left:3px solid var(--hot);background:rgba(255,246,234,.025);
+  overflow:hidden}
+.way-today-art{display:block;position:relative;aspect-ratio:4/3;min-height:0;
+  background:#17100b;overflow:hidden}
+.way-today-art img{width:100%;height:100%;object-fit:cover;object-position:center 30%;
+  display:block}
+.way-today-art.is-plate img{object-fit:contain;padding:14px;
+  background:radial-gradient(circle at 40% 30%,#241810,#120d0a 70%)}
+.way-today-txt{padding:20px 22px 22px 0;min-width:0}
+.way-today .kicker{margin:0;color:var(--hot)}
+.way-today h2{margin:9px 0 0;font-family:var(--serif);
+  font-size:clamp(1.5rem,3.1vw,2.1rem);font-weight:900;line-height:1.08;
+  letter-spacing:-.025em;max-width:26ch}
 .way-today h2 a{color:var(--paper);text-decoration:none}
 .way-today h2 a:hover{color:var(--hot)}
-.way-today .dek{margin:8px 0 0;color:var(--dim);line-height:1.6;max-width:68ch}
-.way-today-meta{margin:10px 0 0;font-family:var(--label);font-size:.6rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--dimmer)}
+.way-today-dek{margin:10px 0 0;color:var(--dim);line-height:1.6;max-width:68ch}
+.way-today-meta-line{margin:10px 0 0;display:flex;flex-wrap:wrap;gap:6px 12px;
+  align-items:baseline}
+.way-today-meta,.way-today-track{font-family:var(--label);font-size:.58rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--dimmer);margin:0}
+.way-today-dot{color:var(--dimmer);font-size:.7rem;line-height:1}
+.way-today-wires{margin:10px 0 0;font-size:.88rem;line-height:1.5;color:var(--dim);
+  max-width:66ch}
+.way-today-wires b{font-family:var(--label);font-size:.56rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--mint);margin-right:4px}
+.way-today-wires a{color:var(--paper);border-bottom:1px solid var(--line)}
+.way-today-wires span{font-family:var(--label);font-size:.54rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--dimmer)}
+.way-today .btn{margin-top:15px}
 .way-days{margin:12px 0 0;border-top:1px solid var(--line2);padding-top:8px}
 .way-days summary{cursor:pointer;font-family:var(--label);font-size:.6rem;
   letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-.way-days ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
-.way-days li{display:flex;gap:10px;align-items:baseline;font-size:.9rem}
+.way-days ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:7px}
+.way-days li{font-size:.9rem}
+.way-days li a{display:flex;gap:11px;align-items:center;color:var(--dim);
+  text-decoration:none}
+.way-days li a:hover{color:var(--paper)}
+.way-day-thumb{width:66px;height:46px;flex:0 0 66px;overflow:hidden;
+  border:1px solid var(--line);background:#17100b}
+.way-day-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.way-day-thumb.is-plate img{object-fit:contain;padding:3px}
+.way-day-thumb.way-day-noart{background:linear-gradient(150deg,#2a1a10,#120d0a)}
+.way-day-copy{display:grid;gap:2px;min-width:0}
 .way-day-date{font-family:var(--label);font-size:.56rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--dimmer);min-width:78px}
-.way-days a{color:var(--dim)}
-.way-days a:hover{color:var(--paper)}
+  text-transform:uppercase;color:var(--dimmer)}
+.way-day-copy b{font-size:.9rem;line-height:1.25;color:var(--paper)}
+@media(max-width:760px){
+  .way-today{grid-template-columns:1fr}
+  .way-today-art{min-height:0;aspect-ratio:16/9}
+  .way-today-txt{padding:16px 18px 20px}
+}
 
 .tx-day{border:1px solid var(--line);border-left:3px solid var(--hot);
   border-radius:8px;background:var(--ink);padding:13px 16px;margin:0 0 14px}
@@ -1978,6 +2010,19 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   letter-spacing:.13em;text-transform:uppercase;color:var(--dimmer)}
 .psotd-break{margin:8px 0 0;font-size:1.02rem;line-height:1.62;
   color:var(--dim);max-width:72ch}
+.psotd-lockup{display:grid;grid-template-columns:180px minmax(0,1fr);
+  gap:22px;align-items:start}
+.psotd-lockup.psotd-noart{grid-template-columns:1fr}
+.psotd-plate{display:block;width:100%;height:auto;border:1px solid var(--line);
+  background:#17100b}
+.psotd-tell{margin:12px 0 0;padding-top:10px;border-top:1px solid var(--line2);
+  font-size:.95rem;line-height:1.55;color:var(--paper);max-width:64ch}
+.psotd-tell b{display:block;margin-bottom:3px;font-family:var(--label);
+  font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--warm)}
+@media(max-width:760px){
+  .psotd-lockup{grid-template-columns:1fr}
+  .psotd-plate{max-width:220px}
+}
 .psotd-kind{display:inline-block;font-family:var(--label);font-size:.56rem;
   letter-spacing:.12em;text-transform:uppercase;color:var(--dim);
   border:1px solid var(--line);border-radius:999px;padding:2px 8px;

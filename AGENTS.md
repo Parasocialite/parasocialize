@@ -5228,3 +5228,59 @@ it gets resolved.
     re-uploaded**; the live site is still the pre-editor build until the user
     uploads `dist/` again.
 
+
+96. **The daily features were correct and not a draw. The Top 8 got a headline, each way got a dated visual case file, and the figure got a detail worth coming back for.** The previous entry fixed *what* the three features select. This one fixes *why a reader would stop*. On 31 October the front page read **"Top 8: The Team"** - at once a sport list, a team list and a phrase that could mean anything - and a way page opened with an image-less paragraph headed "The boy band". The mechanism was working; the presentation was a filing cabinet.
+    - **The Top 8 is now a pulp headline, not a category label.** All 25
+      themes carry a hand-written `title`, `home_title`, `home_hook` and
+      `domain`. Sport is **"Top 8: The Team That Owns You"** with *"You did not
+      choose it. It chose the town you were born in."*; dead stars are **"The
+      Dead Star Still Working"**; AI companions are **"The Machine That Misses
+      You"**; fandom is **"The Crowd That Knows"**. The kicker carries the
+      domain (`Daily edition · 31 OCT 2026 · Sport`), so the headline can be
+      atmospheric without becoming ambiguous. The front page and `/top8/` use
+      the same title, hook and ranked cards.
+    - **Each way is a dated case file with a picture.** The daily block is now
+      a two-column card: a real photograph for a story pick (with the section
+      photograph as fallback) or the entry's title plate, then a large
+      headline, the placement reason as the analysis, a **track line** of
+      `N stories · N entries · N daily cases`, and only then the CTA. Entry
+      plates say "a title plate, not a photograph" on their face, so the image
+      never pretends to be evidence. The last five days are thumbnails beneath
+      it; the record is a sequence, not a sentence.
+    - **The wire match was the falsehood in the first visual draft.** `persona`'s
+      AOC case carried a "In the wires" line about BLACKPINK's Lisa, because
+      both mentioned *social media*. One shared word is not relevance; a
+      confident link is worse than no link. A wire now needs at least one
+      distinctive word from the **pick's own title** and one more shared
+      subject word, with a generic-word stoplist. The AOC card correctly has
+      no wire line; the current sports-betting wire on the figure block stays
+      because the theme and headline actually match it.
+    - **The figure is a daily discovery, not a directory entry.** The block
+      now carries the entry's title plate, a **"The detail."** sentence chosen
+      from the entry's significance (a year, a quote, a specific thing that
+      happened), the real/fictional chip, the valence, and the wire that set
+      the edition. The detail is the reason to come back tomorrow even when
+      the figure is historical.
+    - **Three medium corrections the new blocks exposed.** `boybands` was
+      filed `games`; it is `music`. `the-local-anchor` was `television_scripted`;
+      a local news anchor is `television_unscripted`. `anime-import` was
+      `games`; it is `television_scripted` and `comics`. Each was visible in
+      the generated meta line, which is the useful property of printing the
+      medium next to the headline. The entry count and top-level keys were
+      asserted unchanged.
+    - **Verification.** `python tools\daily.py` exit 0; source, post and visual
+      tiers green; `editor --check`, `test_editor_rotation`,
+      `test_parasocialite_rotation`, `check_css --orphans`, `md_leak`,
+      `internal_leaks` and `probe_hub_contrast` green. The front page, a story
+      way page at 1440 and 500, and a plate way page at 1440 were opened and
+      read: the AOC face is framed at `object-position:center 30%` (the first
+      4:3 crop cut her at the eyes), the plate card is contained rather than
+      cropped, and the phone card stacks image over text. `make_zip` wrote
+      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **752 files, 15.2 MB,
+      tree sha `f910ed1bca478e8e`**.
+    - **Publishing is now automatic.** The Cloudflare secrets were saved and
+      the `Publish to Cloudflare Pages (optional)` step ran green; the next
+      scheduled edition will appear without a manual upload. The current live
+      page is the previous build until the next run, which is why the workflow
+      is triggered after this commit.
+

@@ -10,14 +10,14 @@
    "days": 2.5
   },
   {
-   "medium": "comics",
+   "medium": "visual_art",
    "entries": 7,
    "days": 3.5
   },
   {
-   "medium": "visual_art",
-   "entries": 7,
-   "days": 3.5
+   "medium": "comics",
+   "entries": 8,
+   "days": 4.0
   },
   {
    "medium": "music",
@@ -41,8 +41,8 @@
   },
   {
    "medium": "television_unscripted",
-   "entries": 14,
-   "days": 7.0
+   "entries": 15,
+   "days": 7.5
   },
   {
    "medium": "television_scripted",
@@ -51,8 +51,8 @@
   },
   {
    "medium": "games",
-   "entries": 19,
-   "days": 9.5
+   "entries": 18,
+   "days": 9.0
   },
   {
    "medium": "ai",
@@ -164,7 +164,7 @@
   },
   {
    "slug": "top8-2026-10-31-sport-faith",
-   "title": "Top 8 parasocial applications in sport",
+   "title": "Top 8: The Team That Owns You",
    "pool": 8,
    "windows": 1
   }
@@ -192,17 +192,17 @@
    "rank": 3,
    "score": 86.5,
    "kind": "medium",
-   "target": "comics",
-   "why": "comics: 7 entries, 3.5 days at two entries per release.",
-   "command": "find and source the next comics entry; the atlas filter is already live for it"
-  },
-  {
-   "rank": 4,
-   "score": 86.5,
-   "kind": "medium",
    "target": "visual_art",
    "why": "visual_art: 7 entries, 3.5 days at two entries per release.",
    "command": "find and source the next visual_art entry; the atlas filter is already live for it"
+  },
+  {
+   "rank": 4,
+   "score": 86.0,
+   "kind": "medium",
+   "target": "comics",
+   "why": "comics: 8 entries, 4.0 days at two entries per release.",
+   "command": "find and source the next comics entry; the atlas filter is already live for it"
   },
   {
    "rank": 5,
