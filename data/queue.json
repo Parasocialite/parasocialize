@@ -571,25 +571,6 @@
     "decided": "2026-10-04"
   },
   {
-    "id": "raw-f23b7abd",
-    "state": "signed",
-    "headline": "Three grief experts on mourning someone you never met",
-    "one_line": "Stylist asked three counsellors about Liam Payne; the answer is permission, not pathology.",
-    "take": "I keep coming back to the one line in here that is diagnosis rather than reassurance. Dr King says we mourn unfulfilled potential - the music never made, the films never shot - which means celebrity grief is grief for a future, and a future cannot be buried, only carried. The practical advice is permission to look away for a while, and that may be the most honest sentence in this whole genre: nobody is grading your mourning.",
-    "section": "grief",
-    "law": 4,
-    "shelf": "athp",
-    "conf": 0.0,
-    "domain": "stylist.co.uk",
-    "feed": "Stylist",
-    "url": "https://www.stylist.co.uk/health/mental-health/mourning-death-of-celebrity-grief/931597?kuid=2ff4d4c7-156e-4df6-a37d-61f2e4182dbb-1788602491&kref=G1cISrlx49rK",
-    "at": "Mon, 21 Oc",
-    "why": "No model key set. Filed raw. Needs a human to point it at an section.",
-    "decision": "published",
-    "decision_why": "Signed off 2026-10-06 and moved into cards as stylist-grief-experts-permission (grief, law 4, shelf athp). Source read in full; take is grief-for-unlived-futures, distinct from celebrity-death-feels-like-loss.",
-    "decided": "2026-10-06"
-  },
-  {
     "id": "raw-04fdc81b",
     "state": "awaiting_lens",
     "headline": "Struggling with grief after Liam Payne’s death? Here's why",
@@ -1120,5 +1101,21 @@
     "decision": "source_for_existing_card",
     "decision_why": "Another outlet on the Dolly Parton / Liam Payne grief story the site already ran as celebrity-death-feels-like-loss. Worth adding as a source to that card - six outlets on one event is corroboration, not six stories.",
     "decided": "2026-10-04"
+  },
+  {
+    "id": "raw-578c06dd",
+    "state": "awaiting_lens",
+    "headline": "From season 4 finale airs tonight: what to know about TV’s most maddening mystery",
+    "one_line": "The hit horror series wraps its fourth season tonight on MGM+, and its obsessive fanbase is bracing for answers. Never seen it? Here’s a spo",
+    "take": "",
+    "section": null,
+    "law": null,
+    "shelf": null,
+    "conf": 0.0,
+    "domain": "msn.com",
+    "feed": "MSN",
+    "url": "https://www.msn.com/en-us/tv/news/from-season-4-finale-airs-tonight-what-to-know-about-tv-s-most-maddening-mystery/ar-AA26KBIA",
+    "at": "Sun, 28 Ju",
+    "why": "No model key set. Filed raw. Needs a human to point it at an section."
   }
 ]
