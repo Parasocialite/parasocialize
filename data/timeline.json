@@ -30,9 +30,9 @@
       "citations": [
         {
           "citation": "Ovid, Metamorphoses, trans. George Sandys and others (Internet Classics Archive).",
-          "url": "https://classics.mit.edu/Ovid/metam.html",
+          "url": "https://classics.mit.edu/Ovid/metam.3.third.html",
           "status": "retrievable",
-          "note": "Opened: the page returns the Metamorphoses text. The Narcissus and Echo sequence is in Book III."
+          "note": "Opened: the Book III page carries the Narcissus and Echo sequence."
         }
       ]
     },
@@ -84,7 +84,7 @@
       "domain": "Literature & Print",
       "era": "Early Mass Media",
       "summary": "Goethe's epistolary novel made a young man's unrequited love and suicide a European sensation, and readers copied both the feeling and the clothes.",
-      "parasocial_analysis": "Werther writes letters to a friend and to Lotte, and the reader is placed inside an intimacy that has only one correspondent. The novel's form is the mechanism: no omniscient narrator corrects him, so the reader lives at his level of certainty. When the book became a fashion, the blue coat and yellow waistcoat turned a private attachment into a public costume, and the reported copycat deaths gave the reception its later name, the Werther effect.\n\nThe important point is not that readers were foolish. It is that print can distribute a whole emotional grammar - what to feel, what to wear, how to die - and that the grammar arrives with the intimacy of a letter. The term 'Werther effect' was coined by later researchers, not by Goethe; the novel supplied the case, not the diagnosis.",
+      "parasocial_analysis": "Werther writes letters to a friend and to Lotte, and the reader is placed inside an intimacy that has only one correspondent. The novel's form is the mechanism: no omniscient narrator corrects him, so the reader lives at his level of certainty. When the book became a fashion, the clothing style described in it turned a private attachment into a public costume, and the reported copycat deaths gave the reception its later name, the Werther effect.\n\nThe important point is not that readers were foolish. It is that print can distribute a whole emotional grammar - what to feel, what to wear, how to die - and that the grammar arrives with the intimacy of a letter. The copycat reports are themselves disputed; Goethe's biographer Rüdiger Safranski called the Werther effect a persistent rumour, which is the right caution for a story the culture wanted to be true.",
       "primary_source_or_artifact": "Johann Wolfgang von Goethe, The Sorrows of Young Werther",
       "tags": ["emotional-contagion", "copycat", "fan-fashion", "epistolary", "unrequited-love"],
       "citations": [
@@ -98,7 +98,7 @@
           "citation": "Wikipedia, 'The Sorrows of Young Werther'.",
           "url": "https://en.wikipedia.org/wiki/The_Sorrows_of_Young_Werther",
           "status": "retrievable",
-          "note": "Opened: records the reception, the Werther costume and the copycat reports. The article is a summary, not a primary source."
+          "note": "Opened: records the Werther Fever, the clothing style and the disputed copycat reports."
         }
       ]
     },
@@ -181,10 +181,10 @@
       "tags": ["radio", "mass-panic", "auditory-trust", "hoax", "broadcast"],
       "citations": [
         {
-          "citation": "Wikipedia, 'The War of the Worlds (radio drama)'.",
-          "url": "https://en.wikipedia.org/wiki/The_War_of_the_Worlds_(radio_drama)",
+          "citation": "Wikipedia, 'The War of the Worlds (1938 radio drama)'.",
+          "url": "https://en.wikipedia.org/wiki/The_War_of_the_Worlds_(1938_radio_drama)",
           "status": "retrievable",
-          "note": "Opened: records the broadcast and the audience research, including the gap between the panic and the legend."
+          "note": "Opened: records the 1938 broadcast and the audience research, including the gap between the panic and the legend."
         }
       ]
     },
