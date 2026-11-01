@@ -112,6 +112,7 @@ BUILD_STEPS = (
 # only these get re-encoded. the mascot and the logo are vectors, already a few
 # hundred bytes, and re-rendering them would be a waste of a build.
 PHOTO_DIR = "img/editorial"
+ILLUSTRATION_DIRS = ("img/generated", "img/distilled")
 IMG_MAX_W = 1400
 IMG_Q = 76
 
@@ -325,6 +326,86 @@ def fingerprint_assets():
     return mapping
 
 
+def illustrations():
+    """PNGs that are page illustrations, not photographs.
+
+    `img/generated/` holds the atmosphere images drawn for timeline entries and
+    `img/distilled/` holds the trimmed originals. Both were shipping as PNG:
+    on 2026-11-01 the five largest were 810, 807, 764, 754 and 624 KB, on pages
+    whose entire HTML is 15 KB. A WebP of the same frame is roughly a tenth of
+    that, and these images are already content-addressed (the hash is in the
+    filename), so the name cannot go stale.
+    """
+    out = []
+    for d in ILLUSTRATION_DIRS:
+        p = ROOT / d
+        if p.is_dir():
+            out += sorted(f for f in p.iterdir()
+                          if f.is_file() and f.suffix.lower() == ".png")
+    return out
+
+
+def optimise_illustrations():
+    """Write WebP copies of the illustration PNGs into dist/.
+
+    Returns {relative png path: relative webp path}. A file whose WebP is not
+    smaller is left exactly as it was, because the point is bytes, not format.
+    """
+    from PIL import Image, features
+    if not features.check("webp"):
+        return {}
+    mapping, before, after, skipped = {}, 0, 0, 0
+    for src in illustrations():
+        rel = src.relative_to(ROOT).as_posix()
+        out = DIST / src.parent.relative_to(ROOT) / (src.stem + ".webp")
+        out.parent.mkdir(parents=True, exist_ok=True)
+        before += src.stat().st_size
+        try:
+            blob, _w, _h = reencode(src)
+        except Exception:
+            skipped += 1
+            continue
+        if len(blob) >= src.stat().st_size:
+            skipped += 1
+            continue
+        out.write_bytes(blob)
+        after += len(blob)
+        mapping[rel] = out.relative_to(DIST).as_posix()
+    if mapping:
+        print(f"  {len(mapping)} illustration(s) -> webp: "
+              f"{before/1024/1024:.1f} MB -> {after/1024/1024:.1f} MB"
+              + (f", {skipped} left alone" if skipped else ""))
+    return mapping
+
+
+def rewrite_illustrations(mapping):
+    """Point every reference at the illustration WebP, and drop the PNG copy."""
+    if not mapping:
+        return 0
+    n = 0
+    for f in DIST.rglob("*.html"):
+        t = f.read_text(encoding="utf-8", errors="replace")
+        orig = t
+        for old, new in mapping.items():
+            t = t.replace(old, new)
+        if t != orig:
+            f.write_text(t, encoding="utf-8")
+            n += 1
+    # Nothing in dist may still ask for a PNG that was replaced.
+    stale = []
+    for f in DIST.rglob("*.html"):
+        t = f.read_text(encoding="utf-8", errors="replace")
+        for old in mapping:
+            if old in t:
+                stale.append((f.relative_to(DIST).as_posix(), old))
+    if stale:
+        sys.exit(f"refusing to ship: {len(stale)} reference(s) still ask for an "
+                 f"illustration PNG. Unrewritten: "
+                 f"{sorted({s[1] for s in stale})[:4]}")
+    print(f"  repointed illustrations in {n} pages")
+    return n
+
+
 def rewrite_photos(mapping):
     """Point every reference at the optimised file.
 
@@ -353,9 +434,11 @@ def assemble(do_optimise=True):
     DIST.mkdir(parents=True)
     n = 0
     mapping = {}
+    ill_map = {}
     if do_optimise:
         DIST.mkdir(parents=True, exist_ok=True)
         mapping = optimise()
+        ill_map = optimise_illustrations()
     for p in ROOT.rglob("*"):
         if not p.is_file() or ".git" in p.parts:
             continue
@@ -365,6 +448,8 @@ def assemble(do_optimise=True):
         if do_optimise and mapping and p.parent == ROOT / PHOTO_DIR \
                 and p.name in mapping:
             continue                      # already written as webp
+        if do_optimise and rel.as_posix() in ill_map:
+            continue                      # already written as webp
         dst = DIST / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(p, dst)
@@ -373,6 +458,7 @@ def assemble(do_optimise=True):
         n += len(mapping) - sum(1 for p in (DIST / PHOTO_DIR).iterdir()
                                 if p.suffix.lower() != ".webp")
     rewrite_photos(mapping)
+    rewrite_illustrations(ill_map)
     fingerprint_assets()
     (DIST / "_headers").write_text(HEADERS, encoding="utf-8")
     n += 1
@@ -442,8 +528,12 @@ def assemble(do_optimise=True):
     lines.append("/signal/  /radar/  301")
     lines.append("/signal/*  /radar/  301")
     (DIST / "_redirects").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    n += 1
-    return n
+    # Count the tree, do not count the copies. The running total `n` is a
+    # bookkeeping estimate and it drifted from the folder the moment this
+    # function started writing files it did not copy (`optimise`'s WebPs,
+    # then the illustration WebPs): it reported 758 for a 765-file tree. The
+    # number is used against a hard platform limit, so it has to be the folder.
+    return sum(1 for p in DIST.rglob("*") if p.is_file())
 
 
 def verify():

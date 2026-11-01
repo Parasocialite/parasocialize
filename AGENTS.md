@@ -5755,3 +5755,8 @@ it gets resolved.
 
 109. **The sitemap listed four URLs twice.** `/top8/`, `/history/`, `/moments/` and `/figures/` were in the opening tuple and again in a later loop, so every sitemap carried four duplicate `<url>` entries with conflicting `changefreq` values (top 8 was `weekly` in one and `monthly` in the other). `check_sitemap.py` counts distinct URLs, which is how it surfaced: 357 `<loc>` lines, 353 pages. The later loop now carries only the three hubs not already listed, and the gate fails on a duplicate rather than silently collapsing it.
 
+
+110. **The illustration PNGs were 4.9 MB on pages whose HTML is 15 KB.** `img/generated/` and `img/distilled/` were never passed through the WebP step because `optimise()` only ever looked at `img/editorial/`. The five largest were 791, 788, 745, 735 and 624 KB at 1084x528. Seven of them came out under a tenth of the size at the same dimensions; mean per-channel difference against the PNG is about 2/255, which is not visible. Deploy went from 23.2 MB to 19.4 MB and the archive from 16.27 MB to 12.21 MB.
+    - **`optimise_illustrations()`** writes the WebP beside the PNG in `dist/` and `rewrite_illustrations()` repoints the nine pages that show one. A file whose WebP is not smaller is left as it was, and the rewrite asserts that no page still asks for a replaced PNG.
+    - **The deploy file count was wrong, and it guards a hard limit.** `assemble()` returned a running total of the copies it made plus an adjustment for photographs. Once the function started writing files it did not copy, the total drifted: it said 758 for a 765-file tree, and that number is what the 1,000-file direct-upload check uses. It now counts the folder.
+
