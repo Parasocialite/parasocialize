@@ -169,8 +169,8 @@
    "windows": 1
   },
   {
-   "slug": "top8-2026-11-01-dead-stars",
-   "title": "Top 8: The Dead Star Still Working",
+   "slug": "top8-2026-11-01-fandom",
+   "title": "Top 8: The Crowd That Knows Your Name",
    "pool": 8,
    "windows": 1
   }
@@ -230,7 +230,7 @@
    "rank": 7,
    "score": 84,
    "kind": "top8",
-   "target": "top8-2026-11-01-dead-stars",
+   "target": "top8-2026-11-01-fandom",
    "why": "8 moments produce only 1 distinct window(s) at a stride of 8; the page will repeat sooner than readers expect.",
    "command": "grow the pool with tools/t8_grow.py, checking the show string as well as the eid"
   },
