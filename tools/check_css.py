@@ -166,6 +166,14 @@ JS_ROOTS = js_root_classes()
 JS_BUILT = {
     ".yt-facade iframe": "main.js appends the <iframe> into the button on click",
 }
+# A rule can be live without a current page using it. The figure block emits a
+# <figcaption> only when the figure has a real photograph; today no figure does,
+# so the rule looks orphaned. It is not dead, and deleting it would leave the
+# next real photograph uncaptioned. The entry says what condition has to be true.
+CONDITIONAL = {
+    ".psotd-art figcaption": "emitted only when the figure has a real photograph",
+    ".psotd-art figcaption a": "the credit link inside that photograph caption",
+}
 
 
 def orphan_report():
@@ -183,7 +191,8 @@ def orphan_report():
                 continue
             for one in sel.split(","):
                 one = one.strip()
-                if not one or UNRESOLVABLE.search(one) or one in JS_BUILT:
+                if not one or UNRESOLVABLE.search(one) or one in JS_BUILT \
+                        or one in CONDITIONAL:
                     continue
                 parts = one.split()
                 if len(parts) < 2:
@@ -376,6 +385,8 @@ if "--orphans" in sys.argv:
         print(f"  note         {fn}: {sel}")
     for sel, why in sorted(JS_BUILT.items()):
         print(f"  js-built     {sel}  ({why})")
+    for sel, why in sorted(CONDITIONAL.items()):
+        print(f"  conditional  {sel}  ({why})")
 
     if "--ratchet" in sys.argv:
         # Lower the committed ceiling to the count just measured. This is the

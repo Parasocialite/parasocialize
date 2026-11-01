@@ -1909,8 +1909,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .way-today-wires a{color:var(--paper);border-bottom:1px solid var(--line)}
 .way-today-wires span{font-family:var(--label);font-size:.54rem;
   letter-spacing:.08em;text-transform:uppercase;color:var(--dimmer)}
-.way-today-artnote{margin:8px 0 0;font-size:.78rem;line-height:1.4;
-  color:var(--dimmer);max-width:66ch}
 .way-today .btn{margin-top:15px}
 .way-days{margin:12px 0 0;border-top:1px solid var(--line2);padding-top:8px}
 .way-days summary{cursor:pointer;font-family:var(--label);font-size:.6rem;
@@ -2178,3 +2176,14 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   .tlc-facts dd{margin-bottom:10px}
   .tlc-select{max-width:none;width:100%}
 }
+
+/* provenance and speculative badges on the timeline */
+.tlc-badge{display:inline-block;margin-left:5px;font-family:var(--label);
+  font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid currentColor;border-radius:99px;padding:1px 7px;
+  vertical-align:middle;font-weight:400}
+.tlc-badge-pdf{color:var(--sky)}
+.tlc-badge-spec{color:var(--hot2)}
+.tlc-future-note{margin:18px 0 0;max-width:72ch;font-size:.9rem;line-height:1.55;
+  color:var(--dim);border-left:3px solid var(--hot2);padding:10px 0 10px 14px}
+.tlc-future-note a{color:var(--hot)}

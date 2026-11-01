@@ -83,7 +83,7 @@ DIST = ROOT / "dist"
 
 INCLUDE_GLOBS = ["*.html", "*.css", "*.js", "*.txt", "*.xml", "*.svg", "*.jpg",
                  "*.png", "*.webp", "*.ico", "*.woff2"]
-INCLUDE_DIRS = ["css", "js", "img"]
+INCLUDE_DIRS = ["css", "js", "img", "assets"]
 # ".html" comes out of "*.html" by dropping the asterisk and nothing else.
 # lstrip("*.") also ate the dot and matched nothing, which put a dist/ with 116
 # files and no pages in it - see the page-count guard in main().

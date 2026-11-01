@@ -1640,7 +1640,7 @@ def build_way(a, tax, enc, data, manifest=None):
         The entry's title plate is deliberately not used here: a plate inside a
         card that already has a frame is a placecard inside a placecard. A
         photograph is the figure/entry itself; an affiliation mark is the
-        domain - baseball, microphone, reel - and says so on its face.
+        domain - baseball, microphone, reel.
         """
         if p.get("kind") == "story":
             c = next((x for x in data["cards"] if x["slug"] == p.get("id")), None)
@@ -1656,20 +1656,17 @@ def build_way(a, tax, enc, data, manifest=None):
             if f:
                 return f["path"], f.get("caption", ""), "photo"
             key = AFFIL_BY_WAY.get(a["id"]) or affil_key(e)
-            return (f'{r}img/affil/{key}.svg',
-                    f'Affiliation: {AFFIL_LABEL.get(key, key)}. No free photograph.',
-                    "affil")
+            return f'{r}img/affil/{key}.svg', "", "affil"
         if p.get("kind") == "story":
             c = next((x for x in data["cards"] if x["slug"] == p.get("id")), None)
             key = AFFIL_BY_WAY.get(a["id"]) or \
                 AFFIL_BY_SECTION.get((c or {}).get("section", ""), "default")
-            return (f'{r}img/affil/{key}.svg',
-                    'Affiliation: the domain. No free photograph.', "affil")
+            return f'{r}img/affil/{key}.svg', "", "affil"
         return "", "", ""
 
     today_html = ""
     if pick:
-        art, art_cap, art_kind = pick_art(pick)
+        art, _, art_kind = pick_art(pick)
         art_cls = " is-affil" if art_kind == "affil" else ""
         art_html = (f'<a class="way-today-art{art_cls}" href="{pick_href(pick)}" '
                     f'tabindex="-1" aria-hidden="true"><img src="{esc(art)}" '
@@ -1697,8 +1694,6 @@ def build_way(a, tax, enc, data, manifest=None):
                 + (f' <span>{esc(w.get("publisher"))}</span>' if w.get("publisher") else "")
                 for w in wires[:2])
             wire_p = f'<p class="way-today-wires"><b>In the wires.</b> {wire_links}</p>'
-        art_note = (f'<p class="way-today-artnote">{esc(art_cap)}</p>'
-                    if art_kind == "affil" and art_cap else "")
         today_html = f"""<article class="way-today">
   {art_html}
   <div class="way-today-txt">
@@ -1707,7 +1702,6 @@ def build_way(a, tax, enc, data, manifest=None):
     <p class="way-today-dek">{esc(pick.get("why") or "")}</p>
     <p class="way-today-meta-line">{meta_p}{meta_sep}{track_p}</p>
     {wire_p}
-    {art_note}
     <a class="btn btn-solid" href="{pick_href(pick)}">Read the case</a>
   </div>
 </article>"""
@@ -2531,14 +2525,13 @@ def build_front(data, feat=None, manifest=None, hist=None):
                 _pcap = (f'{esc(_pf.get("caption", ""))} &middot; '
                          f'<a href="{esc(_pf.get("page", "#"))}" target="_blank" '
                          f'rel="noopener nofollow">{esc(_pf.get("credit", ""))}</a>')
+                _part_html = (f'<figure class="psotd-art">{_part}'
+                              f'<figcaption>{_pcap}</figcaption></figure>')
             else:
                 _akey = affil_key(_pse, _psotd)
                 _part = (f'<img class="psotd-artimg" src="{affil_path(_akey)}" '
                          f'alt="" loading="lazy">')
-                _pcap = (f'Affiliation: {esc(AFFIL_LABEL.get(_akey, _akey))}. '
-                         f'No free photograph.')
-            _part_html = (f'<figure class="psotd-art">{_part}'
-                          f'<figcaption>{_pcap}</figcaption></figure>')
+                _part_html = f'<figure class="psotd-art">{_part}</figure>'
             _plock = "psotd-lockup"
         _ptell = _psotd.get("tell") or _figure_detail(_pse)
         _ptell_html = (f'<p class="psotd-tell"><b>The detail.</b> '
@@ -3976,16 +3969,6 @@ AFFIL_BY_WAY = {
     "divine": "religion", "institution": "history", "cosmology": "default",
     "officer": "officer", "predator": "predator",
 }
-AFFIL_LABEL = {
-    "sport": "sport", "music": "music", "film": "film",
-    "television": "television", "radio": "radio",
-    "literature": "literature", "comics": "comics", "games": "games",
-    "ai": "artificial intelligence", "religion": "religion",
-    "stage": "stage", "art": "visual art", "tech": "technology",
-    "history": "history", "brand": "brand", "default": "the record",
-    "persona": "persona", "companion": "companion",
-    "officer": "officer", "predator": "predator",
-}
 
 
 def affil_key(entry=None, member=None) -> str:
@@ -4938,8 +4921,9 @@ TLC_JS = r"""
       domBtns=[].slice.call(document.querySelectorAll('[data-domf]')),
       eraBtns=[].slice.call(document.querySelectorAll('[data-eraf]')),
       phaseBtns=[].slice.call(document.querySelectorAll('[data-phasef]')),
+      provBtns=[].slice.call(document.querySelectorAll('[data-provf]')),
       tagBtns=[].slice.call(document.querySelectorAll('[data-tagf]')),
-      dom=null, era=null, phase=null, tag=null,
+      dom=null, era=null, phase=null, prov=null, tag=null,
       eraNames={pre:'PRE-MODERN',modern:'19TH-20TH CENTURY',digital:'DIGITAL AGE'};
   function sync(btns, attr, val){
     btns.forEach(function(b){ b.classList.toggle('on', b.dataset[attr]===val); });
@@ -4954,9 +4938,10 @@ TLC_JS = r"""
       var okD=!dom || (dom==='__ai' ? el.dataset.ai==='1' : el.dataset.domain===dom),
           okE=!era || el.dataset.era===era,
           okP=!phase || el.dataset.phase===phase,
+          okR=!prov || el.dataset.prov===prov,
           okT=!tag || (' '+el.dataset.tags+' ').indexOf(' '+tag+' ')>-1,
           okQ=!t || el.dataset.hay.indexOf(t)>-1,
-          on=okD&&okE&&okP&&okT&&okQ;
+          on=okD&&okE&&okP&&okR&&okT&&okQ;
       el.style.display=on?'':'none';
       if(on)n++;
     });
@@ -4968,6 +4953,7 @@ TLC_JS = r"""
       +(dom?' · '+label('data-domf',dom):'')
       +(era?' · '+(eraNames[era]||era.toUpperCase()):'')
       +(phase?' · PHASE '+phase:'')
+      +(prov?' · '+prov.toUpperCase():'')
       +(tag?' · '+tag.toUpperCase():'')
       +(t?' · "'+q.value.toUpperCase()+'"':'');
   }
@@ -4983,6 +4969,10 @@ TLC_JS = r"""
     phase=(phase===b.dataset.phasef?null:b.dataset.phasef);
     sync(phaseBtns,'phasef',phase); run();
   }); });
+  provBtns.forEach(function(b){ b.addEventListener('click',function(){
+    prov=(prov===b.dataset.provf?null:b.dataset.provf);
+    sync(provBtns,'provf',prov); run();
+  }); });
   tagBtns.forEach(function(b){ b.addEventListener('click',function(){
     tag=(tag===b.dataset.tagf?null:b.dataset.tagf);
     if(sel) sel.value=tag||'';
@@ -4996,18 +4986,21 @@ TLC_JS = r"""
 """
 
 
-def build_timeline_curated(tl, data):
-    """The master /timeline/: every instance we can support, in six phases.
+def build_timeline_curated(tl, data, speculative=False):
+    """The master /timeline/, or the PDF's future layer at /timeline/future/.
 
-    Separate from build_timeline(), which renders the 255-entry encyclopedia
-    corpus and now lives at /timeline/corpus/. The corpus is what the database
-    holds; this is the master list. It groups by the six-part structure, not
-    by the coarse era filter, because the phases are the argument and the era
-    buckets are only a way to narrow it.
+    The master page carries the observed and sourced instances plus the
+    historical entries from the supplied PDF, each marked with its provenance.
+    The future page carries the PDF's 2027-2149 projections and says, on the
+    page, that they are not observed events. Keeping the two pages separate is
+    the only way to add 91 speculative entries without turning the master list
+    into a claim that 2149 already happened.
     """
-    r = root(1)
-    entries = tl["entries"]
-    phase_meta = {p["id"]: p for p in tl["phases"]}
+    r = root(2) if speculative else root(1)
+    all_entries = tl["entries"]
+    entries = [e for e in all_entries if bool(e.get("speculative")) == speculative]
+    used = {e["phase"] for e in entries}
+    phase_meta = {p["id"]: p for p in tl["phases"] if p["id"] in used}
     ui_era = {
         "Pre-Modern": "pre",
         "Early Mass Media": "modern",
@@ -5021,6 +5014,9 @@ def build_timeline_curated(tl, data):
     def is_ai(e):
         return (e["domain"] == "Digital & Synthetic"
                 and bool(ai_tags.intersection(e["tags"])))
+
+    def prov(e):
+        return str(e.get("provenance") or "sourced")
 
     domain_btns = "".join(
         f'<button class="chip" data-domf="{esc(d)}">{esc(label)}</button>'
@@ -5040,6 +5036,10 @@ def build_timeline_curated(tl, data):
     phase_btns = "".join(
         f'<button class="chip" data-phasef="{pid}">{pid} · {esc(phase_meta[pid]["name"])}</button>'
         for pid in sorted(phase_meta))
+    prov_btns = ('<button class="chip" data-provf="pdf">Supplied PDF</button>'
+                 if speculative else
+                 ('<button class="chip" data-provf="sourced">Sourced</button>'
+                  '<button class="chip" data-provf="pdf">Supplied PDF</button>'))
 
     tag_counts = Counter(t for e in entries for t in e["tags"])
     top_tags = [(t, n) for t, n in tag_counts.most_common() if n >= 2][:14]
@@ -5050,8 +5050,6 @@ def build_timeline_curated(tl, data):
         f'<option value="{esc(t)}">{esc(t.replace("-", " "))} ({n})</option>'
         for t, n in sorted(tag_counts.items()))
 
-    # Grouped by the six-part structure. The card still prints the precise
-    # era and the phase, so the grouping is a way in rather than a claim.
     groups: dict[int, list[dict]] = {pid: [] for pid in phase_meta}
     for e in entries:
         groups[e["phase"]].append(e)
@@ -5066,17 +5064,22 @@ def build_timeline_curated(tl, data):
             hay = " ".join([
                 str(e["year"]), e["title"], e["summary"], e["domain"], e["era"],
                 e["primary_source_or_artifact"], " ".join(e["tags"]),
-                str(e["phase"]), phase_meta[e["phase"]]["name"],
+                str(e["phase"]), phase_meta[e["phase"]]["name"], prov(e),
             ]).lower()
             tags = "".join(f'<span class="tlc-tag">{esc(t)}</span>' for t in e["tags"])
+            badges = ""
+            if prov(e) == "pdf":
+                badges += '<span class="tlc-badge tlc-badge-pdf">PDF</span>'
+            if e.get("speculative"):
+                badges += '<span class="tlc-badge tlc-badge-spec">Speculative</span>'
             items += f"""<a class="tlc-card" href="#tl-{esc(e['id'])}"
       data-domain="{esc(e['domain'])}" data-era="{ui_era[e['era']]}"
-      data-phase="{e['phase']}"
+      data-phase="{e['phase']}" data-prov="{prov(e)}"
       data-ai="{'1' if is_ai(e) else '0'}" data-tags="{esc(' '.join(e['tags']))}"
       data-hay="{esc(hay)}">
   <span class="tlc-year">{esc(e['year'])}</span>
   <span class="tlc-body">
-    <span class="tlc-title">{esc(e['title'])}</span>
+    <span class="tlc-title">{esc(e['title'])} {badges}</span>
     <span class="tlc-meta">{esc(e['domain'])} &middot; {esc(e['era'])} &middot; Phase {e['phase']}</span>
     <span class="tlc-sum">{emph(e['summary'])}</span>
     <span class="tlc-tagrow">{tags}</span>
@@ -5106,6 +5109,11 @@ def build_timeline_curated(tl, data):
         date_note = str(e.get("date_note") or "").strip()
         date_row = (f'\n      <dt>Date note</dt><dd>{esc(date_note)}</dd>'
                     if date_note else "")
+        source_row = (f'<dt>Source</dt><dd>Supplied PDF, unverified</dd>'
+                      if prov(e) == "pdf" else
+                      f'<dt>Source</dt><dd>Sourced entry</dd>')
+        spec_row = ('\n      <dt>Status</dt><dd>Speculative projection, not an observed event</dd>'
+                    if e.get("speculative") else "")
         panels += f"""<aside class="tlc-panel" id="tl-{esc(e['id'])}" role="dialog"
   aria-modal="true" aria-labelledby="tl-{esc(e['id'])}-h">
   <a class="tlc-scrim" href="#list" aria-label="Close the analysis"></a>
@@ -5120,6 +5128,7 @@ def build_timeline_curated(tl, data):
     <dl class="tlc-facts">
       <dt>Phase</dt><dd>{e['phase']} · {esc(phase_meta[e['phase']]['name'])}</dd>{date_row}
       <dt>Era</dt><dd>{esc(e['era'])}</dd>
+      {source_row}{spec_row}
       <dt>Primary source or artifact</dt><dd>{esc(e['primary_source_or_artifact'])}</dd>
       <dt>Tags</dt><dd class="tlc-tagrow">{tags}</dd>
     </dl>
@@ -5140,20 +5149,73 @@ def build_timeline_curated(tl, data):
     n_eras = len(set(e["era"] for e in entries))
     n_tags = len(tag_counts)
     n_cites = sum(len(e["citations"]) for e in entries)
+    n_pdf = sum(1 for e in entries if prov(e) == "pdf")
+    n_sourced = len(entries) - n_pdf
+    n_future = sum(1 for e in all_entries if e.get("speculative"))
     n_enc = len(json.loads((ROOT / "data" / "encyclopedia.json")
                            .read_text(encoding="utf-8"))["entries"])
-    tl_desc = (f"{len(entries)} instances of mediated intimacy, from a Neanderthal "
-               f"burial to a synthetic companion.")
+    pdf_url = f"{SITE}/assets/parasocial-timeline-1800-2149.pdf"
+
+    if speculative:
+        kicker = "The supplied PDF's future timeline"
+        h1 = "The speculative timeline"
+        lede = (f"{len(entries)} projections, 2027–2149, reproduced from the supplied PDF. "
+                f"These are not observed events and the PDF's claims are not independently "
+                f"verified. The sourced master list is "
+                f"<a href=\"{r}timeline/index.html\">here</a>; the PDF itself is "
+                f"<a href=\"{pdf_url}\" target=\"_blank\" rel=\"noopener\">here</a>.")
+        title = "The speculative timeline - Parasocialize"
+        path = "/timeline/future/"
+        stats = (f'<span class="tlc-stat"><b>{len(entries)}</b> projections</span>'
+                 f'<span class="tlc-stat"><b>{len(phase_meta)}</b> phase</span>'
+                 f'<span class="tlc-stat"><b>{n_domains}</b> domains</span>'
+                 f'<span class="tlc-stat"><b>{n_tags}</b> tags</span>'
+                 f'<span class="tlc-stat"><b>{n_cites}</b> citation records</span>')
+        tail = (f'<p class="tlc-future-note">Every entry on this page is marked '
+                f'<b>Speculative</b>. They are the PDF\'s projections, not a claim '
+                f'that these things happened. The observed and sourced record is '
+                f'<a href="{r}timeline/index.html">the master timeline</a>.</p>')
+        hint = ("These entries are projections from the supplied PDF. The phase is a "
+                "single speculative phase on purpose: the site does not mix a forecast "
+                "into the observed record.")
+    else:
+        kicker = "The long history of the one-sided bond"
+        h1 = "The parasocial timeline"
+        lede = (f"{len(entries)} instances, from a Neanderthal burial to a model that can "
+                f"generate the next line. {n_sourced} are sourced entries and {n_pdf} are "
+                f"the historical layer from the supplied PDF, marked <b>PDF</b>. The full "
+                f"{n_enc}-entry database is in <a href=\"{r}timeline/corpus/index.html\">the corpus</a>.")
+        title = "The parasocial timeline - Parasocialize"
+        path = "/timeline/"
+        stats = (f'<span class="tlc-stat"><b>{len(entries)}</b> instances</span>'
+                 f'<span class="tlc-stat"><b>{n_sourced}</b> sourced</span>'
+                 f'<span class="tlc-stat"><b>{n_pdf}</b> from the PDF</span>'
+                 f'<span class="tlc-stat"><b>{len(phase_meta)}</b> phases</span>'
+                 f'<span class="tlc-stat"><b>{n_domains}</b> domains</span>'
+                 f'<span class="tlc-stat"><b>{n_tags}</b> tags</span>'
+                 f'<span class="tlc-stat"><b>{n_cites}</b> citation records</span>')
+        future_link = (f'<p class="tlc-hint"><a href="{r}timeline/future/index.html">'
+                       f'The PDF\'s future timeline: {n_future} projections, 2027–2149 &rarr;</a></p>'
+                       if n_future else "")
+        tail = (f'<p class="countline" style="margin-top:18px">'
+                f'The master list is {len(entries)} entries across {len(phase_meta)} phases; '
+                f'{n_pdf} of them are the supplied PDF\'s historical layer. The PDF is '
+                f'<a href="{pdf_url}" target="_blank" rel="noopener">here</a>. '
+                f'The full database timeline is '
+                f'<a href="{r}timeline/corpus/index.html">here</a>.</p>'
+                f'{future_link}')
+        hint = ("The phases are the structure; the era buckets are a second way in. "
+                "<b>PDF</b> marks an entry reproduced from the supplied PDF and not "
+                "independently verified. A date that is widely repeated and wrong is "
+                "corrected in the entry and named there.")
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The parasocial timeline - Parasocialize</title>
-<meta name="description" content="{len(entries)} instances of mediated intimacy, from a Neanderthal burial to a synthetic companion, each with its mechanism and its sources.">
-{HEAD.format(site=SITE, path="/timeline/", otype="website",
-             title="The parasocial timeline - Parasocialize",
-             desc=tl_desc,
-             root=r)}
+<title>{esc(title)}</title>
+<meta name="description" content="{esc(lede)}">
+{HEAD.format(site=SITE, path=path, otype="website",
+             title=esc(title), desc=esc(lede), root=r)}
 </head>
 <body>
 <a class="skip" href="#list">Skip to the timeline</a>
@@ -5161,20 +5223,10 @@ def build_timeline_curated(tl, data):
 {NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
 <main>
 <section class="section tlc-head" id="tl">
-  <p class="kicker">The long history of the one-sided bond</p>
-  <h1 class="h-title">The parasocial timeline</h1>
-  <p class="sec-lede" style="max-width:70ch">{len(entries)} instances, from a Neanderthal
-  burial to a model that can generate the next line. Each entry names the mechanism, the
-  primary source and the evidence. The list is grouped in six phases; the full
-  {n_enc}-entry database is in <a href="{r}timeline/corpus/index.html">the corpus</a>.</p>
-  <div class="tlc-stats">
-    <span class="tlc-stat"><b>{len(entries)}</b> instances</span>
-    <span class="tlc-stat"><b>{len(phase_meta)}</b> phases</span>
-    <span class="tlc-stat"><b>{n_domains}</b> domains</span>
-    <span class="tlc-stat"><b>{n_eras}</b> eras</span>
-    <span class="tlc-stat"><b>{n_tags}</b> tags</span>
-    <span class="tlc-stat"><b>{n_cites}</b> citation records</span>
-  </div>
+  <p class="kicker">{esc(kicker)}</p>
+  <h1 class="h-title">{esc(h1)}</h1>
+  <p class="sec-lede" style="max-width:70ch">{lede}</p>
+  <div class="tlc-stats">{stats}</div>
 </section>
 <section class="section tlc-controls" style="padding-top:0">
   <div class="bar">
@@ -5200,24 +5252,21 @@ def build_timeline_curated(tl, data):
     <button class="chip on" data-eraf="">All</button>
     {era_btns}
   </div>
+  <p class="kicker" style="margin-top:14px">Source</p>
+  <div class="chips" id="tlc-prov">
+    <button class="chip on" data-provf="">All</button>
+    {prov_btns}
+  </div>
   <p class="kicker" style="margin-top:14px">Tags <span class="tlc-kicker-note">the ones used more than once; the menu has all {n_tags}</span></p>
   <div class="chips" id="tlc-tags">{tag_btns}</div>
   <p class="countline" id="tlc-count" aria-live="polite"></p>
-  <p class="tlc-hint">The six phases are the structure; the era buckets are a second way in.
-  Each card prints its own era, so Goethe (1774) sits under 19th-20th Century without being
-  dated to it. <b>AI</b> is a derived view of the digital entries whose mechanism is
-  algorithmic or synthetic. A date that is widely repeated and wrong is corrected in the
-  entry and named there, rather than repeated.</p>
+  <p class="tlc-hint">{hint}</p>
 </section>
 <section class="section" style="padding-top:0">
   <div class="tlc-list" id="list">{cards_html}</div>
+  {tail}
   <p class="kicker" style="margin-top:44px">Per-section timelines</p>
   <div class="chips">{others}</div>
-  <p class="countline" style="margin-top:18px">
-    The master list is {len(entries)} entries across {len(phase_meta)} phases. The full
-    database timeline, with every entry in the encyclopedia, is
-    <a href="{r}timeline/corpus/index.html">here</a>.
-  </p>
 </section>
 </main>
 {panels}
@@ -5272,8 +5321,7 @@ def entry_hero(ent, manifest, depth=1):
                 + "</figure>")
     plate = f"img/plate/{esc(slug)}.svg"
     return (f'<figure class="ent-hero plate"><img src="{root(depth)}{plate}" '
-            f'alt="A title plate for {esc(ent["title"])}: the name, the year and '
-            f'a mark drawn from the entry. It is not a photograph." '
+            f'alt="A title plate for {esc(ent["title"])}." '
             f'loading="lazy" decoding="async"></figure>')
 
 
@@ -6351,6 +6399,7 @@ def build_sitemap(data):
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
     urls.append((f"{SITE}/citations/", "0.5", "weekly"))
     urls.append((f"{SITE}/timeline/corpus/", "0.5", "monthly"))
+    urls.append((f"{SITE}/timeline/future/", "0.5", "monthly"))
     for a in data["sections"]:
         urls.append((f"{SITE}/section/{a['id']}/", "0.8", "daily"))
         urls.append((f"{SITE}/timeline/{a['id']}/", "0.7", "monthly"))
@@ -6599,6 +6648,9 @@ def main():
     tdir.mkdir(exist_ok=True)
     curated = json.loads((ROOT / "data" / "timeline.json").read_text(encoding="utf-8"))
     (tdir / "index.html").write_text(build_timeline_curated(curated, data), encoding="utf-8")
+    (tdir / "future").mkdir(exist_ok=True)
+    (tdir / "future" / "index.html").write_text(
+        build_timeline_curated(curated, data, speculative=True), encoding="utf-8")
     (tdir / "corpus").mkdir(exist_ok=True)
     (tdir / "corpus" / "index.html").write_text(
         build_timeline(enc, data, None, corpus=True), encoding="utf-8")

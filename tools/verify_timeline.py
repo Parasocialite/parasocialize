@@ -12,7 +12,7 @@ So the checks here are about the promises the fields make:
   * every entry has every required field, and the types are the types the
     builder renders;
   * domain and era are members of the lists the page filters on, and phase is
-    one of the six the page groups by;
+    one of the seven the page groups by;
   * sort_year agrees with the year string and is ordered inside its phase;
   * the user's seed list is still present - a master list that quietly drops a
     milestone is the failure this check exists to prevent;
@@ -59,6 +59,7 @@ PHASE_NAMES = {
     4: "Modern Media, Psychoanalysis & Pop Idols",
     5: "Web 1.0, Digital Fandom & Creator Economies",
     6: "Post-Human, Algorithmic & Synthetic Frontiers",
+    7: "Speculative Futures",
 }
 REQUIRED = [
     "id", "year", "sort_year", "title", "phase", "domain", "era", "summary",
@@ -129,8 +130,8 @@ def main() -> int:
         fail(errors, "eras list is not the five the schema defines")
 
     phases = doc["phases"]
-    if not isinstance(phases, list) or len(phases) != 6:
-        fail(errors, "phases is not the six-part list the page groups by")
+    if not isinstance(phases, list) or len(phases) != 7:
+        fail(errors, "phases is not the seven-part list the page groups by")
     else:
         seen_phases = set()
         for p in phases:
@@ -143,7 +144,7 @@ def main() -> int:
                 fail(errors, f"phase {p['id']} name is not the one the page expects")
             seen_phases.add(p.get("id"))
         if seen_phases != set(PHASE_NAMES):
-            fail(errors, f"phase ids are {sorted(seen_phases)}, not 1-6")
+            fail(errors, f"phase ids are {sorted(seen_phases)}, not 1-7")
 
     entries = doc["entries"]
     if not isinstance(entries, list) or not entries:
@@ -185,9 +186,16 @@ def main() -> int:
         if e["era"] not in ERAS:
             fail(errors, f"{where}: era {e['era']!r} is not in the list")
         if e["phase"] not in PHASE_NAMES:
-            fail(errors, f"{where}: phase {e['phase']!r} is not 1-6")
+            fail(errors, f"{where}: phase {e['phase']!r} is not 1-7")
             continue
         phase_counts[e["phase"]] = phase_counts.get(e["phase"], 0) + 1
+        prov = str(e.get("provenance") or "sourced")
+        if prov not in ("sourced", "pdf"):
+            fail(errors, f"{where}: provenance {prov!r} is not sourced or pdf")
+        if e["phase"] == 7 and not e.get("speculative"):
+            fail(errors, f"{where}: phase 7 entry is not marked speculative")
+        if e["phase"] != 7 and e.get("speculative"):
+            fail(errors, f"{where}: speculative entry is not in phase 7")
 
         try:
             sort = int(e["sort_year"])
@@ -211,7 +219,8 @@ def main() -> int:
                     fail(errors, f"{where}: sort_year {sort} is not in year "
                                  f"{e['year']!r}")
 
-        for field, low in (("summary", 80), ("parasocial_analysis", 300)):
+        for field, low in (("summary", 80),
+                           ("parasocial_analysis", 250 if prov == "pdf" else 300)):
             text = str(e[field]).strip()
             if len(text) < low:
                 fail(errors, f"{where}: {field} is {len(text)} chars, "
@@ -270,27 +279,42 @@ def main() -> int:
     # built from: every card must have a panel, and every panel must have a
     # card. A slide-over whose :target id is missing is a link to nowhere that
     # no link checker treats as broken, because the fragment is on the page.
+    master = [e for e in entries if not e.get("speculative")]
+    future = [e for e in entries if e.get("speculative")]
     page = ROOT / "timeline" / "index.html"
+    fpage = ROOT / "timeline" / "future" / "index.html"
     corpus = ROOT / "timeline" / "corpus" / "index.html"
-    if page.exists():
-        html = page.read_text(encoding="utf-8")
-        n_cards = html.count('class="tlc-card"')
-        n_panels = html.count('class="tlc-panel"')
-        if n_cards != len(entries):
-            fail(errors, f"rendered cards: {n_cards} for {len(entries)} entries")
-        if n_panels != len(entries):
-            fail(errors, f"rendered panels: {n_panels} for {len(entries)} entries")
-        for e in entries:
-            if f'id="tl-{e["id"]}"' not in html:
-                fail(errors, f"panel id missing from the page: tl-{e['id']}")
-            if f'href="#tl-{e["id"]}"' not in html:
-                fail(errors, f"card link missing from the page: tl-{e['id']}")
+    if page.exists() and fpage.exists():
+        mhtml = page.read_text(encoding="utf-8")
+        fhtml = fpage.read_text(encoding="utf-8")
+        n_cards = mhtml.count('class="tlc-card"')
+        n_panels = mhtml.count('class="tlc-panel"')
+        if n_cards != len(master):
+            fail(errors, f"rendered master cards: {n_cards} for {len(master)} entries")
+        if n_panels != len(master):
+            fail(errors, f"rendered master panels: {n_panels} for {len(master)} entries")
+        f_cards = fhtml.count('class="tlc-card"')
+        f_panels = fhtml.count('class="tlc-panel"')
+        if f_cards != len(future):
+            fail(errors, f"rendered future cards: {f_cards} for {len(future)} entries")
+        if f_panels != len(future):
+            fail(errors, f"rendered future panels: {f_panels} for {len(future)} entries")
+        for e in master:
+            if f'id="tl-{e["id"]}"' not in mhtml:
+                fail(errors, f"panel id missing from the master page: tl-{e['id']}")
+            if f'href="#tl-{e["id"]}"' not in mhtml:
+                fail(errors, f"card link missing from the master page: tl-{e['id']}")
+        for e in future:
+            if f'id="tl-{e["id"]}"' not in fhtml:
+                fail(errors, f"panel id missing from the future page: tl-{e['id']}")
+            if f'href="#tl-{e["id"]}"' not in fhtml:
+                fail(errors, f"card link missing from the future page: tl-{e['id']}")
         if not corpus.exists():
             fail(errors, "the corpus page is missing at timeline/corpus/")
         elif 'href="../index.html"' not in corpus.read_text(encoding="utf-8"):
             fail(errors, "the corpus page does not link back to the master page")
     else:
-        notes.append("timeline/index.html not built; artefact checks skipped")
+        notes.append("timeline pages not built; artefact checks skipped")
 
     if errors:
         print(f"timeline: {len(errors)} problem(s)")

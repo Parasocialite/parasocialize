@@ -766,24 +766,28 @@ ship a falsehood on this site and it was done once already.
   missing image with a plausible filename. The figure card uses a real
   photograph first, then the mark; a way page uses the way's own mark, so the
   eight pages keep one visual identity. Plates are not used as fallbacks.
-- `data/timeline.json` - **the master timeline.** 122 instances across six
+- `data/timeline.json` - **the master timeline.** 355 instances across seven
   phases, each with the required schema (`id`, `year`, `title`, `domain`, `era`,
   `summary`, `parasocial_analysis`, `primary_source_or_artifact`, `tags`) plus
-  `sort_year`, `phase`, `citations` and an optional `date_note`. `year` is a
+  `sort_year`, `phase`, `citations`, an optional `date_note`, `provenance`
+  (`sourced` or `pdf`) and `speculative` for phase 7. `year` is a
   display string (`c. 8 CE`, `1830s-1850s`) and `sort_year` is the integer the
-  page orders on. `phase` is 1-6 and the page groups by it. `date_note` is where
+  page orders on. `phase` is 1-7 and the page groups by it. `date_note` is where
   a widely repeated date is wrong and the entry says so. A citation carries
   `citation`, `url`, `status` and `note`; `retrievable` means this build opened
   the URL and found the work, not that the whole text was read. The six domains
   and five eras are the schema's own lists and the filters are built from them.
-  `/timeline/` is this page; the 255-entry database timeline moved to
-  `/timeline/corpus/`, and the per-section pages are unchanged.
+  `/timeline/` is the master page (264 observed/sourced entries); the PDF's
+  91 projections are at `/timeline/future/`; the 255-entry database timeline is
+  at `/timeline/corpus/`. The supplied PDF itself is deployed from
+  `assets/parasocial-timeline-1800-2149.pdf`.
 - `tools/verify_timeline.py` - **the timeline gate.** Checks every required
   field and type, the domain/era/phase membership, `sort_year` against the year
   string and inside its phase, the citation status/locator contract, the 78
-  mandated seed ids, and the rendered page: every card has a panel, every panel
-  has a card, and the corpus page links back. Wired into the source tier. It
-  cannot check that a date is true; that is what the citations are for.
+  mandated seed ids, `provenance`/`speculative`, and the rendered pages: the
+  master page carries every non-speculative entry, the future page carries every
+  speculative one, and the corpus page links back. Wired into the source tier.
+  It cannot check that a date is true; that is what the citations are for.
   `--check-urls` is a separate, explicit network pass.
 - `data/ledger_history.json` — **STATEFUL AND TRACKED IN GIT.** Appended by
   `record_snapshot()` only when a watched figure moves, one entry per day however
@@ -5516,7 +5520,7 @@ it gets resolved.
       nothing does not create a deployment.
 
 
-101. **The master list now integrates both supplied milestone lists: 122 entries in six phases, with the second list's Phase 6 added and the seed floor raised to 78.** The first pass had 88 entries in five phases. The two supplied lists added 34 unique entries (15 from the first, 19 from the second, with Howdy Doody, VTubers, OnlyFans and the existing Liszt/Valentino/Lennon/Twitter entries already present). The result is grouped in the six phases the second list names:
+101. **The master list integrated both supplied milestone lists: 122 entries in six phases, with the second list's Phase 6 added and the seed floor raised to 78.** **Superseded by item 102: the PDF layer brings the data to 355 entries and seven phases, with 264 on the master page and 91 on the future page.** The first pass had 88 entries in five phases. The two supplied lists added 34 unique entries (15 from the first, 19 from the second, with Howdy Doody, VTubers, OnlyFans and the existing Liszt/Valentino/Lennon/Twitter entries already present). The result is grouped in the six phases the second list names:
     ```
     1 Antiquity, Ancient Ritual & Sacred Proxies   22
     2 Literature, Early Mass Print & Stage Magic    18
@@ -5570,4 +5574,80 @@ it gets resolved.
       `internal_leaks` and the three rotation tests. `build_deploy` assembled
       773 files / 363 pages. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`,
       **773 files, 15.29 MB, tree sha `231f9101850d7d87`**.
+
+
+102. **The supplied PDF timeline is now integrated as a visible source layer, not silently mixed into the sourced record.** The PDF (`Parasocial Timline 1800-2149.pdf`, 72 pages) parsed to **282 entries**: 191 dated 1812–2026 and 91 dated 2027–2149. It contains a number of duplicates of the existing master list and some near-duplicates inside itself, so the integration is explicit about what was added, what was skipped and what is speculative.
+    - **The split.** The master page `/timeline/` now carries **264 entries**: the 122 sourced entries plus **142 historical PDF entries**. The PDF's **91 future projections** are on a separate page at **`/timeline/future/`**, every one marked **Speculative** and introduced as "not observed events". The data file holds all **355 entries** in seven phases; the master page renders phases 1–6, the future page phase 7. The pages are generated from the same file by `build_timeline_curated(..., speculative=False|True)`.
+    - **Counts.** Phase 1 22, phase 2 90, phase 3 30, phase 4 63, phase 5 45, phase 6 14, phase 7 91. The master page shows **122 sourced / 142 PDF**; the future page shows 91 projections. There are **426 citation records**: 159 `retrievable`, 267 `unverified` (all 233 PDF citations are unverified by design).
+    - **Deduplication.** The merge skipped **40 PDF entries** that matched an existing entry by year and shared title/summary terms, or by a curated keyword/year window (Dickens, Valentino, FDR, War of the Worlds, Horton, JFK/Nixon, Beatles, Elvis, Hinckley, Schaeffer, Diana, Blair Witch, Big Brother, YouTube, KUWTK, Twitch, TikTok, Character.AI, Neuro-sama, Taylor Swift, OpenAI, Fox sisters, Jack the Ripper, Yellow Kid, Uncle Tom, Rocky Horror, Tamagotchi, Michael Jackson, JenniCam, Animal Crossing, OnlyFans, Hatsune Miku, Kyoko Date, Replika, deepfake, Star Trek/Wars, Oprah, Madonna, Lennon, Manson, quiz shows, Candid Camera, Lord Haw-Haw, Howdy Doody, Disneyland, Babe Ruth, soap opera, Sinatra, Murrow, Superman, Bernhardt, Chaplin, Pickford, Sherlock, Byron, Liszt). A further **nine** near-duplicates were removed after review: ELIZA, Facebook, Twitter, Instagram, OnlyFans/Patreon, the YouTube-creator entry, Kizuna AI, TikTok and the MCU. **Forty-nine were skipped; 233 were added.**
+    - **The PDF is the citation, and it is deployed.** Every PDF-derived entry cites
+      the supplied artifact at
+      `https://www.parasocialize.com/assets/parasocial-timeline-1800-2149.pdf`
+      and carries `provenance: "pdf"` with status `unverified`. The page says
+      `Source: Supplied PDF, unverified` in the panel and prints a **PDF** badge
+      on the card. `build_deploy.INCLUDE_DIRS` gained `assets`; the deploy is
+      **775 files**, still under the 1,000 limit. The PDF is 1.22 MB.
+    - **The PDF's claims are not promoted.** The 142 historical entries use the
+      PDF's own significance as their analysis, with the first sentence as the
+      summary. No date or quotation was invented; the PDF is the record of what
+      it says. The known limitation is on the page: the historical PDF layer is
+      not independently verified, and the future page is explicitly speculative.
+    - **The master page has a Source filter.** `All / Sourced / Supplied PDF` lets
+      a reader see the 122 sourced entries without the PDF layer, or the 142 PDF
+      entries alone. The future page has its own phase, domain, era, tag and
+      search filters; its Source row only offers the PDF.
+    - **Measured in the browser.** Master: 264 initial, 122 sourced, 142 PDF,
+      phase 2 90, `Byron` 4, no-match 0. Future: 91 initial, 91 PDF, phase 7 91,
+      no-match 0. A PDF panel opens on
+      `#tl-the-caroline-lamb-obsession-and-glenarvon-1816` with one citation to
+      the hosted PDF; a future panel opens on the 2149 entry and prints
+      **Speculative projection, not an observed event**. No console errors.
+    - `gates.py --all` green across post, visual and source, including
+      `verify_timeline`, `link_audit`, `check_css --orphans`, `md_leak`,
+      `internal_leaks` and the narrow/nav/hub probes. Package:
+      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **775 files, 16.32 MB, tree sha `7cf07309332b7991`**.
+    - **Still owed, stated rather than hidden.** The PDF's domain strings are
+      freeform, so the six-domain mapping for the PDF layer is heuristic; a few
+      entries sit under the nearest domain rather than the perfect one. The
+      future entries are the PDF's projections, not forecasts this site
+      endorses. Both facts are visible on the pages.
+
+
+
+103. **The affiliation captions were explaining the same missing photograph under every image, so the visible explanation is gone.** The front page carried `Affiliation: film. No free photograph.` under the Hitchcock mark, and each way page carried `Affiliation: religion. No free photograph.` under its lead mark. The mark is already a clapperboard, an arch or a microphone; the caption repeated the mechanism in the most mechanical voice on the page. Removed from every figure and way card.
+    - **What was removed.** The `figcaption` branch for an affiliation mark in
+      `psotd_block`, and `art_note` / `.way-today-artnote` in the way card. The
+      photo branch keeps its caption and credit, because attribution is not
+      decorative. The `AFFIL_LABEL` dict and the `AFFIL_LABEL` import path are
+      gone, since nothing renders the label any more.
+    - **The mark is quieter too.** `tools/affil.py` no longer prints
+      `AFFILIATION · NOT A PORTRAIT` on the SVG face; it prints the domain
+      label (`FILM`, `RELIGION`, `SPORT`) and nothing else. The aria-label is
+      now `FILM mark`, not `FILM affiliation mark`. The card does not repeat
+      what the icon and the meta line already say.
+    - **Plate alt text shortened.** Entry plates used to carry
+      "A title plate for X: the name, the year and a mark drawn from the entry.
+      It is not a photograph." It is now "A title plate for X." The long
+      defensive sentence was not visible in normal rendering, but it was the
+      same unneeded text in the accessibility layer.
+    - **One CSS rule is conditional, not dead.** `.psotd-art figcaption` and its
+      credit link still style a real photograph's caption, and no current figure
+      has a photograph, so `check_css --orphans` called the rule dead. Rather
+      than ratchet the baseline or delete a live branch, `check_css.py` gained a
+      `CONDITIONAL` declaration: the figure block emits the figcaption only when
+      `img_for()` returns a real photograph. The gate prints it as
+      `conditional` with that reason.
+    - **Verified.** A scan of every deployed `.html` for `Affiliation:`,
+      `No free photograph`, `NOT A PORTRAIT`, `It is not a photograph` and
+      `affiliation mark` returns nothing. The front page and
+      `/ways/divine/` were opened: the film mark shows only `FILM`, the arch
+      only `RELIGION`, and no caption sits under either. `gates.py --all` green
+      across post, visual and source; `check_css --orphans` reports 29 colour/
+      type notes and **0 orphaned layout rules**. Package:
+      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **775 files, 16.32 MB,
+      tree sha `7cf07309332b7991`**.
+    - **Not removed.** "Why today.", "The detail.", "In the wires." and the
+      photo captions are editorial labels, not apologies for a missing image;
+      they stay. The request was the caption that explained the absence, not
+      every label on the page.
 

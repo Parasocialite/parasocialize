@@ -11,9 +11,9 @@ a film. It says "this is the kind of thing", not "this is the person".
 
 WHAT THESE ARE
 Author-drawn SVG marks, not photographs and not club logos. A generic baseball
-is safe to publish; the Yankees mark is a trademark. The card carries
-"AFFILIATION · NOT A PORTRAIT" on its face, so the stand-in never pretends to
-be evidence. The figure card adds a caption; the way card adds a note.
+is safe to publish; the Yankees mark is a trademark. The mark carries only the
+domain label, so the card does not repeat the same explanation under every
+image. The aria-label still says it is an affiliation mark, for a screen reader.
 
 USAGE
     python tools/affil.py            # write img/affil/*.svg
@@ -198,14 +198,13 @@ MARKS = {
 
 
 def svg(label: str, inner: str) -> str:
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="{label} affiliation mark">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="{label} mark">
   <rect width="640" height="480" fill="#17100b"/>
   <rect x="18" y="18" width="604" height="444" fill="none" stroke="#3a2a1e" stroke-width="2"/>
   <g fill="none" stroke="#ff5a1f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
 {inner}
   </g>
   <text x="40" y="414" fill="#fff6ea" font-family="'Courier New', monospace" font-size="28" letter-spacing="5">{label}</text>
-  <text x="40" y="444" fill="#9a8672" font-family="'Courier New', monospace" font-size="13" letter-spacing="2">AFFILIATION &#183; NOT A PORTRAIT</text>
 </svg>
 """
 
