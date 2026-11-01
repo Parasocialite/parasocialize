@@ -4743,9 +4743,11 @@ def _join(parts):
     return ", ".join(parts[:-1]) + f" and {parts[-1]}"
 
 
-def build_timeline(enc, data, section=None):
-    # /timeline/ is depth 1; /timeline/<section>/ is depth 2.
-    r = root(2) if section else root(1)
+def build_timeline(enc, data, section=None, corpus=False):
+    # /timeline/ is depth 1; /timeline/<section>/ and /timeline/corpus/ are
+    # depth 2. The curated page owns depth 1; this function's unsectioned
+    # output is the full database at /timeline/corpus/.
+    r = root(2) if (section or corpus) else root(1)
     a = None
     if section:
         a = next((x for x in data["sections"] if x["id"] == section), None)
@@ -4828,6 +4830,15 @@ def build_timeline(enc, data, section=None):
                 f'<h1 style="color:{esc(col)}">{esc(a["sign"])}</h1>'
                 f'<p class="sec-lede">{esc(a["blurb"])}</p>')
         title = f"{a['sign']} timeline - Parasocialize"
+    elif corpus:
+        head = ('<p class="kicker">The corpus · every entry, oldest first</p>'
+                '<h1 class="h-title">The full database timeline</h1>'
+                f'<p class="sec-lede" style="max-width:64ch">Every entry in the encyclopedia, in order. '
+                f'{len(pool)} of them, from a sculptor in antiquity to a policy update in 2023. '
+                f'Each one links to its own page, and most pages link to their neighbours. '
+                f'The curated argument is the <a href="../index.html">22-milestone timeline</a>; '
+                f'this is the record it is drawn from.</p>')
+        title = "The corpus timeline - Parasocialize"
     else:
         head = ('<p class="kicker">The whole thing, oldest first</p>'
                 '<h1 class="h-title">The parasocial timeline</h1>'
@@ -4846,7 +4857,7 @@ def build_timeline(enc, data, section=None):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{esc(title)}</title>
 <meta name="description" content="The parasocial timeline, {len(pool)} entries, oldest first.">
-{HEAD.format(site=SITE, path=f"/timeline/{section or ''}", otype="website",
+{HEAD.format(site=SITE, path=("/timeline/corpus/" if corpus else f"/timeline/{section or ''}"), otype="website",
              title=esc(title), desc="The parasocial timeline, oldest first.", root=r)}
 </head>
 <body>
@@ -4915,6 +4926,287 @@ def build_timeline(enc, data, section=None):
   q.addEventListener('input',run);run();
 }})();
 </script>
+</body></html>"""
+
+
+TLC_JS = r"""
+(function(){
+  var q=document.getElementById('tlc-q'),
+      sel=document.getElementById('tlc-tagsel'),
+      c=document.getElementById('tlc-count'),
+      cards=[].slice.call(document.querySelectorAll('.tlc-card')),
+      domBtns=[].slice.call(document.querySelectorAll('[data-domf]')),
+      eraBtns=[].slice.call(document.querySelectorAll('[data-eraf]')),
+      tagBtns=[].slice.call(document.querySelectorAll('[data-tagf]')),
+      dom=null, era=null, tag=null,
+      eraNames={pre:'PRE-MODERN',modern:'19TH-20TH CENTURY',digital:'DIGITAL AGE'};
+  function sync(btns, attr, val){
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset[attr]===val); });
+  }
+  function label(attr, val){
+    var b=document.querySelector('['+attr+'="'+val+'"]');
+    return b ? b.textContent.toUpperCase() : val.toUpperCase();
+  }
+  function run(){
+    var t=(q.value||'').trim().toLowerCase(), n=0;
+    cards.forEach(function(el){
+      var okD=!dom || (dom==='__ai' ? el.dataset.ai==='1' : el.dataset.domain===dom),
+          okE=!era || el.dataset.era===era,
+          okT=!tag || (' '+el.dataset.tags+' ').indexOf(' '+tag+' ')>-1,
+          okQ=!t || el.dataset.hay.indexOf(t)>-1,
+          on=okD&&okE&&okT&&okQ;
+      el.style.display=on?'':'none';
+      if(on)n++;
+    });
+    [].forEach.call(document.querySelectorAll('.tlc-era'),function(sec){
+      var any=[].some.call(sec.querySelectorAll('.tlc-card'),function(x){return x.style.display!=='none';});
+      sec.style.display=any?'':'none';
+    });
+    c.textContent=n+' / '+cards.length+' MILESTONES'
+      +(dom?' · '+label('data-domf',dom):'')
+      +(era?' · '+(eraNames[era]||era.toUpperCase()):'')
+      +(tag?' · '+tag.toUpperCase():'')
+      +(t?' · "'+q.value.toUpperCase()+'"':'');
+  }
+  domBtns.forEach(function(b){ b.addEventListener('click',function(){
+    dom=(dom===b.dataset.domf?null:b.dataset.domf);
+    sync(domBtns,'domf',dom); run();
+  }); });
+  eraBtns.forEach(function(b){ b.addEventListener('click',function(){
+    era=(era===b.dataset.eraf?null:b.dataset.eraf);
+    sync(eraBtns,'eraf',era); run();
+  }); });
+  tagBtns.forEach(function(b){ b.addEventListener('click',function(){
+    tag=(tag===b.dataset.tagf?null:b.dataset.tagf);
+    if(sel) sel.value=tag||'';
+    sync(tagBtns,'tagf',tag); run();
+  }); });
+  if(sel){ sel.addEventListener('change',function(){
+    tag=sel.value||null; sync(tagBtns,'tagf',tag); run();
+  }); }
+  q.addEventListener('input',run); run();
+})();
+"""
+
+
+def build_timeline_curated(tl, data):
+    """The curated /timeline/: 22 milestones, their mechanisms and sources.
+
+    Separate from build_timeline(), which renders the 255-entry encyclopedia
+    corpus and now lives at /timeline/corpus/. The two answer different
+    questions: the corpus is what the database holds, this is the argument.
+    Keeping them on one page would let a filter for 'Myth' return 40 entries
+    and one for 'AI' return two, which makes the shape of the history
+    unreadable exactly when a reader is trying to see it.
+    """
+    r = root(1)
+    entries = tl["entries"]
+    ui_era = {
+        "Pre-Modern": "pre",
+        "Early Mass Media": "modern",
+        "The Broadcast Age": "modern",
+        "Digital & Algorithmic": "digital",
+        "Synthetic Era": "digital",
+    }
+    ui_era_name = {
+        "pre": "Before mass media",
+        "modern": "Print, broadcast and the star",
+        "digital": "The feed, the stream and the model",
+    }
+    ui_era_note = {
+        "pre": "The mechanisms are named before the media that will industrialise them.",
+        "modern": "A face, a voice and a schedule arrive in the home.",
+        "digital": "The far end becomes a feed, a stream and finally a model.",
+    }
+    ai_tags = {"ai", "algorithm", "algorithmic-intimacy", "synthetic-intimacy",
+               "recommendation"}
+
+    def is_ai(e):
+        return (e["domain"] == "Digital & Synthetic"
+                and bool(ai_tags.intersection(e["tags"])))
+
+    domain_btns = "".join(
+        f'<button class="chip" data-domf="{esc(d)}">{esc(label)}</button>'
+        for d, label in [
+            ("__ai", "AI"),
+            ("Myth & Legend", "Myth"),
+            ("Literature & Print", "Literature"),
+            ("Broadcast & Film", "Broadcast"),
+            ("Politics & News", "Politics"),
+            ("Music & Fan Culture", "Music"),
+            ("Digital & Synthetic", "Digital"),
+        ])
+    era_btns = "".join(
+        f'<button class="chip" data-eraf="{k}">{esc(v)}</button>'
+        for k, v in [("pre", "Pre-Modern"), ("modern", "19th-20th Century"),
+                     ("digital", "Digital Age")])
+
+    tag_counts = Counter(t for e in entries for t in e["tags"])
+    top_tags = [(t, n) for t, n in tag_counts.most_common() if n >= 2][:14]
+    tag_btns = "".join(
+        f'<button class="chip" data-tagf="{esc(t)}">{esc(t.replace("-", " "))}</button>'
+        for t, _n in top_tags)
+    tag_options = "".join(
+        f'<option value="{esc(t)}">{esc(t.replace("-", " "))} ({n})</option>'
+        for t, n in sorted(tag_counts.items()))
+
+    # Cards grouped by the coarse era the *filter* uses, not by the five data
+    # eras. The card still prints the precise era, so the bucket is a way in
+    # rather than a claim.
+    groups: dict[str, list[dict]] = {"pre": [], "modern": [], "digital": []}
+    for e in entries:
+        groups[ui_era[e["era"]]].append(e)
+
+    cards_html = ""
+    for key in ("pre", "modern", "digital"):
+        group = groups[key]
+        if not group:
+            continue
+        items = ""
+        for e in group:
+            hay = " ".join([
+                str(e["year"]), e["title"], e["summary"], e["domain"], e["era"],
+                e["primary_source_or_artifact"], " ".join(e["tags"]),
+            ]).lower()
+            tags = "".join(f'<span class="tlc-tag">{esc(t)}</span>' for t in e["tags"])
+            items += f"""<a class="tlc-card" href="#tl-{esc(e['id'])}"
+      data-domain="{esc(e['domain'])}" data-era="{key}"
+      data-ai="{'1' if is_ai(e) else '0'}" data-tags="{esc(' '.join(e['tags']))}"
+      data-hay="{esc(hay)}">
+  <span class="tlc-year">{esc(e['year'])}</span>
+  <span class="tlc-body">
+    <span class="tlc-title">{esc(e['title'])}</span>
+    <span class="tlc-meta">{esc(e['domain'])} &middot; {esc(e['era'])}</span>
+    <span class="tlc-sum">{esc(e['summary'])}</span>
+    <span class="tlc-tagrow">{tags}</span>
+    <span class="tlc-open">Open the analysis &rarr;</span>
+  </span>
+</a>"""
+        cards_html += (f'<section class="tlc-era" id="era-{key}">'
+                       f'<h2 class="tlc-era-h">{esc(ui_era_name[key])}'
+                       f'<span>{len(group)}</span></h2>'
+                       f'<p class="tlc-era-note">{esc(ui_era_note[key])}</p>'
+                       f'<div class="tlc-grid">{items}</div></section>')
+
+    panels = ""
+    for e in entries:
+        paras = "".join(f"<p>{esc(p)}</p>" for p in
+                        str(e["parasocial_analysis"]).split("\n\n") if p.strip())
+        cites = ""
+        for c in e["citations"]:
+            status = str(c["status"])
+            cites += (f'<li><a href="{esc(c["url"])}" target="_blank" '
+                      f'rel="noopener nofollow">{esc(c["citation"])}</a>'
+                      f'<span class="tlc-status tlc-status-{esc(status)}">'
+                      f'{esc(status)}</span>'
+                      f'<span class="tlc-cite-note">{esc(c["note"])}</span></li>')
+        tags = "".join(f'<span class="tlc-tag">{esc(t)}</span>' for t in e["tags"])
+        panels += f"""<aside class="tlc-panel" id="tl-{esc(e['id'])}" role="dialog"
+  aria-modal="true" aria-labelledby="tl-{esc(e['id'])}-h">
+  <a class="tlc-scrim" href="#list" aria-label="Close the analysis"></a>
+  <div class="tlc-sheet">
+    <div class="tlc-sheet-top">
+      <p class="kicker" style="margin:0">{esc(e['year'])} &middot; {esc(e['domain'])}</p>
+      <a class="tlc-close" href="#list" aria-label="Close the analysis">Close &times;</a>
+    </div>
+    <h2 id="tl-{esc(e['id'])}-h" class="tlc-sheet-h">{esc(e['title'])}</h2>
+    <p class="tlc-sheet-sum">{esc(e['summary'])}</p>
+    <div class="tlc-analysis">{paras}</div>
+    <dl class="tlc-facts">
+      <dt>Era</dt><dd>{esc(e['era'])}</dd>
+      <dt>Primary source or artifact</dt><dd>{esc(e['primary_source_or_artifact'])}</dd>
+      <dt>Tags</dt><dd class="tlc-tagrow">{tags}</dd>
+    </dl>
+    <div class="tlc-cites">
+      <h3>Where this comes from</h3>
+      <ul>{cites}</ul>
+    </div>
+    <p class="tlc-back"><a href="#list">Back to the timeline</a></p>
+  </div>
+</aside>"""
+
+    others = "".join(
+        f'<a class="chip" style="--c:{esc(x.get("colour", "#ff5a1f"))}" '
+        f'href="{r}timeline/{esc(x["id"])}/index.html">{esc(x["sign"])}</a>'
+        for x in data["sections"])
+
+    n_domains = len(set(e["domain"] for e in entries))
+    n_eras = len(set(e["era"] for e in entries))
+    n_tags = len(tag_counts)
+    n_cites = sum(len(e["citations"]) for e in entries)
+    n_enc = len(json.loads((ROOT / "data" / "encyclopedia.json")
+                           .read_text(encoding="utf-8"))["entries"])
+
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The parasocial timeline - Parasocialize</title>
+<meta name="description" content="Twenty-two milestones in mediated intimacy, from Ovid's Echo to synthetic companions, each with its mechanism and its sources.">
+{HEAD.format(site=SITE, path="/timeline/", otype="website",
+             title="The parasocial timeline - Parasocialize",
+             desc="Twenty-two milestones in mediated intimacy, from Ovid's Echo to synthetic companions.",
+             root=r)}
+</head>
+<body>
+<a class="skip" href="#list">Skip to the timeline</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data['cards']), mk=wordmark("nav"))}
+<main>
+<section class="section tlc-head" id="tl">
+  <p class="kicker">The long history of the one-sided bond</p>
+  <h1 class="h-title">The parasocial timeline</h1>
+  <p class="sec-lede" style="max-width:70ch">Twenty-two milestones, from a nymph who can only
+  repeat the end of a sentence to a model that can generate the next one. Each entry names the
+  mechanism, the primary source and the evidence. This is the curated spine; the full
+  {n_enc}-entry
+  database is in <a href="{r}timeline/corpus/index.html">the corpus</a>.</p>
+  <div class="tlc-stats">
+    <span class="tlc-stat"><b>{len(entries)}</b> milestones</span>
+    <span class="tlc-stat"><b>{n_domains}</b> domains</span>
+    <span class="tlc-stat"><b>{n_eras}</b> eras</span>
+    <span class="tlc-stat"><b>{n_tags}</b> tags</span>
+    <span class="tlc-stat"><b>{n_cites}</b> citation records</span>
+  </div>
+</section>
+<section class="section tlc-controls" style="padding-top:0">
+  <div class="bar">
+    <input class="search" id="tlc-q" type="search"
+      placeholder="Search titles, summaries and tags..." aria-label="Search the timeline">
+    <select class="tlc-select" id="tlc-tagsel" aria-label="Filter by tag">
+      <option value="">All tags</option>
+      {tag_options}
+    </select>
+  </div>
+  <p class="kicker" style="margin-top:18px">Domain</p>
+  <div class="chips" id="tlc-domains">
+    <button class="chip on" data-domf="">All</button>
+    {domain_btns}
+  </div>
+  <p class="kicker" style="margin-top:14px">Era</p>
+  <div class="chips" id="tlc-eras">
+    <button class="chip on" data-eraf="">All</button>
+    {era_btns}
+  </div>
+  <p class="kicker" style="margin-top:14px">Tags <span class="tlc-kicker-note">the ones used more than once; the menu has all {n_tags}</span></p>
+  <div class="chips" id="tlc-tags">{tag_btns}</div>
+  <p class="countline" id="tlc-count" aria-live="polite"></p>
+  <p class="tlc-hint">Era buckets are for browsing. Each card prints the entry's own era, so
+  Goethe (1774) sits under 19th-20th Century without being dated to it. <b>AI</b> is a derived
+  view of the digital entries whose mechanism is algorithmic or synthetic.</p>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="tlc-list" id="list">{cards_html}</div>
+  <p class="kicker" style="margin-top:44px">Per-section timelines</p>
+  <div class="chips">{others}</div>
+  <p class="countline" style="margin-top:18px">
+    The curated spine is {len(entries)} entries. The full database timeline, with every entry
+    in the encyclopedia, is <a href="{r}timeline/corpus/index.html">here</a>.
+  </p>
+</section>
+</main>
+{panels}
+{FOOT.format(root=r, sweep=MESSY, motto='THE BOND IS OLD.<br>THE INTERFACE IS NEW.')}
+<script>{TLC_JS}</script>
 </body></html>"""
 
 
@@ -6042,6 +6334,7 @@ def build_sitemap(data):
     urls.append((f"{SITE}/taxonomy/record/", "0.5", "weekly"))
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
     urls.append((f"{SITE}/citations/", "0.5", "weekly"))
+    urls.append((f"{SITE}/timeline/corpus/", "0.5", "monthly"))
     for a in data["sections"]:
         urls.append((f"{SITE}/section/{a['id']}/", "0.8", "daily"))
         urls.append((f"{SITE}/timeline/{a['id']}/", "0.7", "monthly"))
@@ -6288,7 +6581,11 @@ def main():
     (edir / "index.html").write_text(build_encyclopedia(enc, data), encoding="utf-8")
     tdir = ROOT / "timeline"
     tdir.mkdir(exist_ok=True)
-    (tdir / "index.html").write_text(build_timeline(enc, data, None), encoding="utf-8")
+    curated = json.loads((ROOT / "data" / "timeline.json").read_text(encoding="utf-8"))
+    (tdir / "index.html").write_text(build_timeline_curated(curated, data), encoding="utf-8")
+    (tdir / "corpus").mkdir(exist_ok=True)
+    (tdir / "corpus" / "index.html").write_text(
+        build_timeline(enc, data, None, corpus=True), encoding="utf-8")
     for a in data["sections"]:
         t = build_timeline(enc, data, a["id"])
         if not t:

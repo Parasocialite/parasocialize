@@ -2058,3 +2058,123 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   text-transform:uppercase;color:var(--dimmer);white-space:nowrap}
 .psotd-today{font-family:var(--label);font-size:.6rem;letter-spacing:.12em;
   text-transform:uppercase;color:var(--hot)}
+
+
+/* ---------- THE CURATED TIMELINE (/timeline/) ----------
+   A data layer, not a prose page: 22 entries, three coarse era buckets, six
+   domains plus a derived AI view, and a :target slide-over. The card is a
+   grid so the year stays in its own column at every width; the panel is
+   fixed and scrolls independently. The list uses style.display from the
+   inline script, not [hidden], because an author display rule beats the UA
+   hidden rule and a filtered card would stay visible. */
+.tlc-head .h-title{max-width:18ch}
+.tlc-stats{display:flex;flex-wrap:wrap;gap:10px 26px;margin:22px 0 0;
+  padding-top:16px;border-top:1px solid var(--line2)}
+.tlc-stat{font-family:var(--label);font-size:.58rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dimmer)}
+.tlc-stat b{display:block;font-family:var(--serif);font-size:1.5rem;
+  font-weight:700;letter-spacing:-.02em;color:var(--paper);line-height:1.1}
+.tlc-select{max-width:260px;padding:11px 14px;border-radius:99px;
+  border:1px solid var(--line);background:var(--bg2);color:var(--paper);
+  font-family:var(--label);font-size:.66rem;letter-spacing:.04em}
+.tlc-select:focus{outline:none;border-color:var(--warm)}
+.tlc-kicker-note{font-family:var(--label);font-size:.52rem;letter-spacing:.06em;
+  text-transform:none;color:var(--dimmer);margin-left:4px}
+.tlc-hint{margin:14px 0 0;max-width:76ch;font-size:.82rem;line-height:1.5;
+  color:var(--dimmer)}
+.tlc-hint b{color:var(--dim)}
+.tlc-list{margin-top:8px}
+.tlc-era{margin:0 0 38px}
+.tlc-era-h{font-family:var(--serif);font-size:1.5rem;font-weight:700;
+  letter-spacing:-.02em;line-height:1.1;margin:0 0 4px;color:var(--warm-hot)}
+.tlc-era-h span{font-family:var(--label);font-size:.6rem;letter-spacing:.14em;
+  color:var(--dimmer);margin-left:10px;vertical-align:middle}
+.tlc-era-note{margin:0 0 14px;font-size:.9rem;line-height:1.45;color:var(--dim);
+  max-width:64ch}
+.tlc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tlc-card{display:grid;grid-template-columns:84px minmax(0,1fr);gap:16px;
+  padding:16px 18px;border:1px solid var(--line);border-radius:12px;
+  background:var(--bg2);color:inherit;text-decoration:none;
+  transition:border-color .18s,background .18s,transform .18s}
+.tlc-card:hover,.tlc-card:focus-visible{border-color:var(--hot);
+  background:var(--bg3);transform:translateY(-2px);outline:none}
+.tlc-year{font-family:var(--label);font-size:.68rem;letter-spacing:.08em;
+  line-height:1.5;color:var(--hot);padding-top:3px}
+.tlc-body{min-width:0}
+.tlc-title{display:block;font-family:var(--serif);font-size:1.14rem;
+  font-weight:700;line-height:1.2;letter-spacing:-.01em;color:var(--paper)}
+.tlc-meta{display:block;margin:5px 0 0;font-family:var(--label);font-size:.54rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--dimmer)}
+.tlc-sum{display:block;margin:8px 0 0;font-size:.9rem;line-height:1.5;
+  color:var(--dim)}
+.tlc-tagrow{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0 0}
+.tlc-tag{display:inline-block;font-family:var(--label);font-size:.5rem;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--dim);
+  border:1px solid var(--line2);border-radius:99px;padding:2px 8px}
+.tlc-open{display:block;margin:10px 0 0;font-family:var(--label);
+  font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hot)}
+/* the slide-over. :target is the whole state machine: no JS is needed to open,
+   close, or deep-link a single entry. */
+.tlc-panel{position:fixed;inset:0;z-index:90;display:none}
+.tlc-panel:target{display:block}
+.tlc-scrim{position:absolute;inset:0;background:rgba(8,5,3,.8);
+  backdrop-filter:blur(3px)}
+.tlc-sheet{position:absolute;top:0;right:0;bottom:0;width:min(720px,96vw);
+  overflow-y:auto;overscroll-behavior:contain;background:var(--bg);
+  border-left:1px solid var(--line);padding:30px 36px 70px;
+  box-shadow:-30px 0 80px rgba(0,0,0,.65)}
+.tlc-sheet-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;
+  justify-content:space-between;gap:18px;padding:0 0 12px;
+  background:var(--bg);border-bottom:1px solid var(--line2)}
+.tlc-close{font-family:var(--label);font-size:.58rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--hot);text-decoration:none;
+  border:1px solid var(--line);border-radius:99px;padding:7px 13px;
+  white-space:nowrap}
+.tlc-close:hover{border-color:var(--hot);color:var(--paper)}
+.tlc-sheet-h{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.5rem);
+  font-weight:700;letter-spacing:-.025em;line-height:1.06;margin:20px 0 12px;
+  max-width:20ch}
+.tlc-sheet-sum{font-size:1.08rem;line-height:1.6;color:var(--paper);
+  max-width:62ch;margin-bottom:20px}
+.tlc-analysis p{font-size:1rem;line-height:1.7;color:var(--dim);
+  max-width:66ch;margin-bottom:14px}
+.tlc-facts{display:grid;grid-template-columns:180px minmax(0,1fr);
+  gap:12px 20px;margin:26px 0 0;padding:20px 0;border-top:1px solid var(--line2);
+  border-bottom:1px solid var(--line2)}
+.tlc-facts dt{font-family:var(--label);font-size:.56rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dimmer);padding-top:3px}
+.tlc-facts dd{font-size:.95rem;line-height:1.55;color:var(--paper);min-width:0}
+.tlc-cites{margin-top:24px}
+.tlc-cites h3{font-family:var(--label);font-size:.6rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--warm);margin-bottom:10px}
+.tlc-cites ul{list-style:none}
+.tlc-cites li{padding:12px 0;border-top:1px solid var(--line2)}
+.tlc-cites li:first-child{border-top:0;padding-top:0}
+.tlc-cites a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--line);
+  font-size:.95rem;line-height:1.45}
+.tlc-cites a:hover{color:var(--hot);border-bottom-color:var(--hot)}
+.tlc-status{display:inline-block;margin-left:8px;font-family:var(--label);
+  font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid currentColor;border-radius:99px;padding:1px 7px;
+  vertical-align:middle}
+.tlc-status-retrievable{color:var(--mint)}
+.tlc-status-verified{color:var(--neon)}
+.tlc-status-unverified{color:var(--hot2)}
+.tlc-cite-note{display:block;margin-top:5px;font-size:.8rem;line-height:1.45;
+  color:var(--dimmer);max-width:62ch}
+.tlc-back{margin-top:26px;font-family:var(--label);font-size:.58rem;
+  letter-spacing:.12em;text-transform:uppercase}
+.tlc-back a{color:var(--hot);text-decoration:none}
+.tlc-back a:hover{color:var(--paper)}
+@media(max-width:980px){
+  .tlc-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .tlc-card{grid-template-columns:1fr;gap:7px;padding:15px 16px}
+  .tlc-year{padding-top:0}
+  .tlc-sheet{width:100%;padding:22px 20px 60px;border-left:0}
+  .tlc-sheet-h{font-size:1.7rem}
+  .tlc-facts{grid-template-columns:1fr;gap:5px}
+  .tlc-facts dd{margin-bottom:10px}
+  .tlc-select{max-width:none;width:100%}
+}

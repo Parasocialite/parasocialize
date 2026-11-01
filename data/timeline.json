@@ -1,0 +1,502 @@
+{
+  "_note": "The curated timeline: 22 milestones, each a claim about a mechanism rather than a list of famous people. The required schema is id, year, title, domain, era, summary, parasocial_analysis, primary_source_or_artifact, tags. Two fields are added: sort_year, because 'c. 8 CE' and '1830s-1850s' cannot be sorted as strings, and citations, because a timeline that asserts dates must show where they come from. A citation marked retrievable was opened by this build and returned the work; it does not mean the whole text was read. A citation marked unverified is named but was not openable to an automated request, and says why. No date, quotation or attribution here was invented.",
+  "domains": [
+    "Myth & Legend",
+    "Literature & Print",
+    "Broadcast & Film",
+    "Politics & News",
+    "Music & Fan Culture",
+    "Digital & Synthetic"
+  ],
+  "eras": [
+    "Pre-Modern",
+    "Early Mass Media",
+    "The Broadcast Age",
+    "Digital & Algorithmic",
+    "Synthetic Era"
+  ],
+  "entries": [
+    {
+      "id": "narcissus-echo",
+      "year": "c. 8 CE",
+      "sort_year": 8,
+      "title": "Narcissus and Echo: the image that cannot answer",
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern",
+      "summary": "Ovid's Metamorphoses tells of a nymph cursed to repeat only the last words spoken to her, and a youth who falls in love with his own reflection in a pool.",
+      "parasocial_analysis": "Echo has a voice but no sentence of her own: Juno's curse leaves her able to return the end of another person's speech, so every reply is borrowed. Narcissus is answered, but only by a surface that mirrors his own approach; when he reaches for it, it breaks. The myth separates two mechanisms the rest of this timeline keeps finding together: a far end that can only repeat, and a far end that can only reflect.\n\nThe attachment is intense because the near side supplies both halves of the exchange and misreads the result as consent. Ovid's sharper point is that Narcissus is not simply fooled. He loves an image he cannot touch, and the image is accurate. The tragedy is not a failure to tell reality from representation; it is an attachment that survives the distinction.",
+      "primary_source_or_artifact": "Ovid, Metamorphoses, Book III (Narcissus and Echo)",
+      "tags": ["unrequited-love", "reflection", "fragmented-speech", "self-objectification", "myth"],
+      "citations": [
+        {
+          "citation": "Ovid, Metamorphoses, trans. George Sandys and others (Internet Classics Archive).",
+          "url": "https://classics.mit.edu/Ovid/metam.html",
+          "status": "retrievable",
+          "note": "Opened: the page returns the Metamorphoses text. The Narcissus and Echo sequence is in Book III."
+        }
+      ]
+    },
+    {
+      "id": "canterbury-tales",
+      "year": "c. 1387-1400",
+      "sort_year": 1387,
+      "title": "Chaucer's 'I': a narrator who is not the author",
+      "domain": "Literature & Print",
+      "era": "Pre-Modern",
+      "summary": "The Canterbury Tales frame a company of pilgrims with a first-person narrator, 'Chaucer', who reports their words and his own embarrassment.",
+      "parasocial_analysis": "The General Prologue creates a voice that is warm, gossipy and slightly foolish, and it addresses the reader as a companion on the road. The historical Chaucer is not that voice. The poem's 'I' is a persona who misremembers, apologises and invites the reader to judge the pilgrims alongside him. That gap is the first durable English example of mediated intimacy: the reader is spoken to by a constructed person who seems to have no screen between himself and the page.\n\nThe contract is conversational rather than dramatic. The narrator says he will tell the tale as he heard it and asks indulgence for plain speech, which positions the reader as a listener who has been let in. The frame does not require belief in the narrator, only the pleasant illusion that someone is talking to you rather than at you.",
+      "primary_source_or_artifact": "Geoffrey Chaucer, The Canterbury Tales, General Prologue",
+      "tags": ["narrator-persona", "direct-address", "framing-device", "reader-contract"],
+      "citations": [
+        {
+          "citation": "Geoffrey Chaucer, The Canterbury Tales, ed. Walter W. Skeat (Project Gutenberg eBook 2383).",
+          "url": "https://www.gutenberg.org/ebooks/2383",
+          "status": "retrievable",
+          "note": "Opened: the Gutenberg catalogue page for the complete Tales."
+        }
+      ]
+    },
+    {
+      "id": "don-quixote",
+      "year": "1605",
+      "sort_year": 1605,
+      "title": "Don Quixote reads himself into a knight",
+      "domain": "Literature & Print",
+      "era": "Pre-Modern",
+      "summary": "Cervantes's Alonso Quixano reads so many chivalric romances that he resolves to become a knight-errant, and the world has to negotiate with the fiction he is living in.",
+      "parasocial_analysis": "Quixote is not merely a fan of romances. He uses them as a script for conduct, renaming himself, arming himself and interpreting inns as castles. The comedy is that other people can see the gap and he cannot. The parasocial structure runs in the opposite direction from most of this timeline: instead of attaching to a distant figure, he attaches to a genre and then demands that the genre's rules be honoured by everyone he meets.\n\nCervantes makes the reader complicit. We are given the fiction and the correction in the same sentence, so we occupy the position of the sane household and the position of the man who prefers the story. That double occupancy is the earliest sustained literary account of what it feels like to know a representation is not real and to keep acting as if it were.",
+      "primary_source_or_artifact": "Miguel de Cervantes, Don Quixote, Part I",
+      "tags": ["over-identification", "fiction-as-script", "genre-fandom", "delusion", "literature"],
+      "citations": [
+        {
+          "citation": "Miguel de Cervantes, Don Quixote, trans. John Ormsby (Project Gutenberg eBook 996).",
+          "url": "https://www.gutenberg.org/ebooks/996",
+          "status": "retrievable",
+          "note": "Opened: the Gutenberg catalogue page for the Ormsby translation."
+        }
+      ]
+    },
+    {
+      "id": "werther",
+      "year": "1774",
+      "sort_year": 1774,
+      "title": "Werther and the costume of grief",
+      "domain": "Literature & Print",
+      "era": "Early Mass Media",
+      "summary": "Goethe's epistolary novel made a young man's unrequited love and suicide a European sensation, and readers copied both the feeling and the clothes.",
+      "parasocial_analysis": "Werther writes letters to a friend and to Lotte, and the reader is placed inside an intimacy that has only one correspondent. The novel's form is the mechanism: no omniscient narrator corrects him, so the reader lives at his level of certainty. When the book became a fashion, the blue coat and yellow waistcoat turned a private attachment into a public costume, and the reported copycat deaths gave the reception its later name, the Werther effect.\n\nThe important point is not that readers were foolish. It is that print can distribute a whole emotional grammar - what to feel, what to wear, how to die - and that the grammar arrives with the intimacy of a letter. The term 'Werther effect' was coined by later researchers, not by Goethe; the novel supplied the case, not the diagnosis.",
+      "primary_source_or_artifact": "Johann Wolfgang von Goethe, The Sorrows of Young Werther",
+      "tags": ["emotional-contagion", "copycat", "fan-fashion", "epistolary", "unrequited-love"],
+      "citations": [
+        {
+          "citation": "Johann Wolfgang von Goethe, The Sorrows of Young Werther (Project Gutenberg eBook 2527).",
+          "url": "https://www.gutenberg.org/ebooks/2527",
+          "status": "retrievable",
+          "note": "Opened: the Gutenberg catalogue page for the novel."
+        },
+        {
+          "citation": "Wikipedia, 'The Sorrows of Young Werther'.",
+          "url": "https://en.wikipedia.org/wiki/The_Sorrows_of_Young_Werther",
+          "status": "retrievable",
+          "note": "Opened: records the reception, the Werther costume and the copycat reports. The article is a summary, not a primary source."
+        }
+      ]
+    },
+    {
+      "id": "dickens-serial",
+      "year": "1830s-1850s",
+      "sort_year": 1836,
+      "title": "Dickens, the serial, and the death of Little Nell",
+      "domain": "Literature & Print",
+      "era": "Early Mass Media",
+      "summary": "Dickens published his novels in monthly and weekly parts, making the next instalment a shared appointment; the death of Little Nell in The Old Curiosity Shop became a public bereavement.",
+      "parasocial_analysis": "Serial publication turned reading into a schedule. A huge audience met the same characters in the same week, and the gap between parts was a real interval in which the characters continued to exist without the reader. That interval is the engine: it produces anticipation, conjecture and a sense of ongoing relationship rather than a single transaction.\n\nThe death of Nell made the mechanism visible. Readers mourned a child who had never existed, and the story that American crowds met the incoming ship asking whether she had died is repeated so often that it has become part of the reception even where the evidence is thin. Dickens's later public readings, where audiences were reported to faint at the murder of Nancy, moved the same attachment into a room with a live body in it.",
+      "primary_source_or_artifact": "Charles Dickens, The Old Curiosity Shop (serial, 1840-41); public reading tours",
+      "tags": ["serial-fiction", "scheduled-intimacy", "public-mourning", "victorian", "fan-culture"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Old Curiosity Shop'.",
+          "url": "https://en.wikipedia.org/wiki/The_Old_Curiosity_Shop",
+          "status": "retrievable",
+          "note": "Opened: records the serial publication and the reception of Little Nell's death."
+        },
+        {
+          "citation": "Wikipedia, 'Charles Dickens'.",
+          "url": "https://en.wikipedia.org/wiki/Charles_Dickens",
+          "status": "retrievable",
+          "note": "Opened: records the reading tours and their effect on audiences."
+        }
+      ]
+    },
+    {
+      "id": "valentino-funeral",
+      "year": "1926",
+      "sort_year": 1926,
+      "title": "Valentino's funeral and the invention of screen grief",
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "summary": "When Rudolph Valentino died in 1926 at thirty-one, crowds besieged the funeral home in New York and the mourning became a public event.",
+      "parasocial_analysis": "Valentino was known through a projected image larger than life and a press apparatus that sold him as 'the Great Lover'. The grief was for a man most mourners had never heard speak in person, and it was organised by the same industry that had made him. The funeral turned a private attachment into a public ritual with a script: flowers, fainting, a viewing, a queue.\n\nThe detail that makes it a parasocial case rather than a celebrity obituary is Pola Negri's performance of bereavement. She claimed an engagement Valentino had not publicly confirmed, and the claim was accepted because the audience already had a relationship with him that needed a story. The screen image outlived the body and immediately began to be managed.",
+      "primary_source_or_artifact": "Rudolph Valentino's funeral, New York, August 1926",
+      "tags": ["celebrity-death", "public-mourning", "screen-idol", "press-apparatus"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Rudolph Valentino'.",
+          "url": "https://en.wikipedia.org/wiki/Rudolph_Valentino",
+          "status": "retrievable",
+          "note": "Opened: records the funeral crowds and Negri's public claim."
+        }
+      ]
+    },
+    {
+      "id": "fireside-chats",
+      "year": "1933",
+      "sort_year": 1933,
+      "title": "The Fireside Chats: the president in the living room",
+      "domain": "Politics & News",
+      "era": "The Broadcast Age",
+      "summary": "Franklin Roosevelt used radio to address the nation in an informal, conversational register, beginning on 12 March 1933 during the banking crisis.",
+      "parasocial_analysis": "The chats worked because they did not sound like a broadcast. Roosevelt spoke slowly, used plain language and addressed listeners as 'my friends'; radio dissolved the distance between the White House and the parlour while leaving the speaker entirely unable to hear the reply. The intimacy was real in its effects and one-way in its structure.\n\nThis is the state's version of the mechanism: a leader who appears to explain himself personally to you, in your own home, at a moment of fear. The audience's sense of being addressed is not a mistake - the address is genuine - but the relationship is not reciprocal, and the warmth is also an instrument of governance.",
+      "primary_source_or_artifact": "Franklin D. Roosevelt, first Fireside Chat, 12 March 1933",
+      "tags": ["radio", "political-intimacy", "direct-address", "mass-media"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Fireside chats'.",
+          "url": "https://en.wikipedia.org/wiki/Fireside_chats",
+          "status": "retrievable",
+          "note": "Opened: records the dates, the register and the broadcast context."
+        }
+      ]
+    },
+    {
+      "id": "war-of-the-worlds",
+      "year": "1938",
+      "sort_year": 1938,
+      "title": "The War of the Worlds and the audience that believed the voice",
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "summary": "Orson Welles's Mercury Theatre broadcast on 30 October 1938 presented H. G. Wells's invasion as a series of news bulletins, and some listeners took it as reportage.",
+      "parasocial_analysis": "The broadcast exploited the authority of the radio news voice: it interrupted dance music, used place names and interviewed supposed experts. The panic was real but much smaller than the legend; the audience research estimated that a minority of listeners were frightened and an even smaller number fled. The case matters because the mechanism is auditory trust, not credulity in general: a familiar voice in a familiar format can override what the listener knows.\n\nThe legend has since become a story about mass hysteria, which is itself a parasocial artefact - a public that enjoys believing it is uniquely suggestible. The documented broadcast is more interesting: most listeners changed the station, and the ones who stayed were often reassured by the very conventions that frightened others.",
+      "primary_source_or_artifact": "CBS Mercury Theatre on the Air, The War of the Worlds, 30 October 1938",
+      "tags": ["radio", "mass-panic", "auditory-trust", "hoax", "broadcast"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The War of the Worlds (radio drama)'.",
+          "url": "https://en.wikipedia.org/wiki/The_War_of_the_Worlds_(radio_drama)",
+          "status": "retrievable",
+          "note": "Opened: records the broadcast and the audience research, including the gap between the panic and the legend."
+        }
+      ]
+    },
+    {
+      "id": "horton-wohl",
+      "year": "1956",
+      "sort_year": 1956,
+      "title": "Horton and Wohl name the parasocial relationship",
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "summary": "In 1956, Donald Horton and R. Richard Wohl published an account of the 'para-social relationship' between television viewers and the personalities who addressed them.",
+      "parasocial_analysis": "Horton and Wohl's contribution was to describe a structure rather than a pathology. The viewer is invited into a conversation with a performer who speaks to the camera as if to one person, and the viewer responds with the ordinary expectations of a relationship - attention, loyalty, a sense of knowing. The relationship is one-sided by design, not by failure.\n\nThey called it a 'simulacrum of conversational give and take'. The phrase is exact: the give and take is simulated on the performer's side, and the viewer's side is real. Almost every later argument about parasociality - whether it is healthy, exploitative, or simply a name for what audiences have always done - is a disagreement about which side of that sentence carries the weight.",
+      "primary_source_or_artifact": "Horton, D., and Wohl, R. R., 'Mass Communication and Para-Social Interaction', Psychiatry 19(3), 1956",
+      "tags": ["academic-foundation", "television", "parasocial-interaction", "simulacrum", "theory"],
+      "citations": [
+        {
+          "citation": "Horton, D., and Wohl, R. R., 'Mass Communication and Para-Social Interaction: Observations on Intimacy at a Distance', Psychiatry 19(3), 1956.",
+          "url": "https://doi.org/10.1080/00332747.1956.11023049",
+          "status": "unverified",
+          "note": "The publisher returned 403 to an automated request. The DOI is the canonical locator and a reader may be able to open it; this build did not read the article."
+        },
+        {
+          "citation": "Wikipedia, 'Parasocial interaction'.",
+          "url": "https://en.wikipedia.org/wiki/Parasocial_interaction",
+          "status": "retrievable",
+          "note": "Opened: a secondary summary of the 1956 paper and the term's later use. It is not the paper."
+        }
+      ]
+    },
+    {
+      "id": "jfk-nixon-debate",
+      "year": "1960",
+      "sort_year": 1960,
+      "title": "The debate that was won by the picture",
+      "domain": "Politics & News",
+      "era": "The Broadcast Age",
+      "summary": "On 26 September 1960, John F. Kennedy and Richard Nixon met in the first televised presidential debate; the same broadcast was heard by radio listeners and seen by television viewers.",
+      "parasocial_analysis": "The often-repeated finding is that radio listeners thought Nixon had won and television viewers thought Kennedy had. The polls behind that claim are less tidy than the anecdote, but the structural point survives: the same words, delivered through two media, produced two different candidates. Television added a face, a posture and a reaction shot to a contest that had been conducted through voice and print.\n\nThe debate made the body part of the argument. A viewer could compare the two men's ease, sweat and gaze in real time, and could feel addressed by a candidate who looked into the lens. The intimacy of that look is borrowed: the candidate is speaking to millions, and each viewer receives it as a private appeal.",
+      "primary_source_or_artifact": "First Kennedy-Nixon presidential debate, Chicago, 26 September 1960",
+      "tags": ["television", "political-image", "medium-shift", "direct-address", "debate"],
+      "citations": [
+        {
+          "citation": "Wikipedia, '1960 United States presidential debates'.",
+          "url": "https://en.wikipedia.org/wiki/1960_United_States_presidential_debates",
+          "status": "retrievable",
+          "note": "Opened: records the broadcast, the audience and the radio/television accounts."
+        },
+        {
+          "citation": "John F. Kennedy Presidential Library, '1960 Presidential Campaign'.",
+          "url": "https://www.jfklibrary.org/learn/about-jfk/jfk-in-history/1960-presidential-campaign",
+          "status": "unverified",
+          "note": "The library returned 403 to an automated request. It is the official archive for the campaign and may open in a browser."
+        }
+      ]
+    },
+    {
+      "id": "beatlemania",
+      "year": "1964",
+      "sort_year": 1964,
+      "title": "Beatlemania: the scream as a mass reply",
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age",
+      "summary": "The Beatles arrived at New York's JFK airport on 7 February 1964 and appeared on The Ed Sullivan Show two days later before an audience of tens of millions.",
+      "parasocial_analysis": "Beatlemania is often described as hysteria, which explains nothing. The scream was a structured response: it was collective, it was timed to the appearance, and it functioned as a way of participating in an event that offered no other participation. The performers could not hear the audience; the audience could see and hear the performers. The asymmetry was the point.\n\nThe screaming also made the music secondary. Fans were not mainly listening; they were being in the same room as the image, and the image was on a screen or a stage. The industrial apparatus - records, television, merchandise, airport arrivals - arranged the proximity. What looked like loss of control was an efficient way of producing intimacy at scale.",
+      "primary_source_or_artifact": "The Beatles' arrival at JFK Airport, 7 February 1964; The Ed Sullivan Show, 9 February 1964",
+      "tags": ["music-fandom", "mass-hysteria", "teenage-fans", "television", "beatlemania"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Beatlemania'.",
+          "url": "https://en.wikipedia.org/wiki/Beatlemania",
+          "status": "retrievable",
+          "note": "Opened: records the phenomenon and the airport arrival."
+        },
+        {
+          "citation": "Wikipedia, 'The Beatles' 1964 North American tour'.",
+          "url": "https://en.wikipedia.org/wiki/The_Beatles%27_1964_North_American_tour",
+          "status": "retrievable",
+          "note": "Opened: records the Ed Sullivan appearances and the tour dates."
+        }
+      ]
+    },
+    {
+      "id": "elvis-death",
+      "year": "1977",
+      "sort_year": 1977,
+      "title": "Elvis Presley's death and the fan who lost a friend",
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age",
+      "summary": "Elvis Presley died at Graceland on 16 August 1977; tens of thousands gathered outside, and the mourning was conducted as a personal loss.",
+      "parasocial_analysis": "Elvis had been a star for twenty-one years, and the relationship many fans had with him was older than most of their friendships. He had never known them, but he had been in their homes, on their radios and televisions, for two decades. The grief was proportionate to that duration rather than to any personal knowledge.\n\nThe death also produced the afterlife that celebrity mourning now expects: sightings, impersonators, and a Graceland pilgrimage that turns a house into a place where the relationship can continue. The fan does not have to accept the absence, because the apparatus offers a version of presence. That is the template Diana's death would repeat twenty years later.",
+      "primary_source_or_artifact": "The death of Elvis Presley, Graceland, 16 August 1977",
+      "tags": ["celebrity-death", "public-mourning", "music-fandom", "pilgrimage", "afterlife"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Death of Elvis Presley'.",
+          "url": "https://en.wikipedia.org/wiki/Death_of_Elvis_Presley",
+          "status": "retrievable",
+          "note": "Opened: records the death, the Graceland crowds and the funeral."
+        }
+      ]
+    },
+    {
+      "id": "hinckley-foster",
+      "year": "1981",
+      "sort_year": 1981,
+      "title": "Hinckley, Foster, and the film that became a mandate",
+      "domain": "Politics & News",
+      "era": "The Broadcast Age",
+      "summary": "On 30 March 1981, John Hinckley Jr. shot President Ronald Reagan outside the Washington Hilton; he later said he was trying to impress the actress Jodie Foster.",
+      "parasocial_analysis": "Hinckley's attachment was to a performed character and to the actress who played her, and he experienced the fiction as a set of instructions. The case is the clearest instance in this timeline of a parasocial bond crossing into violence without the far end having any knowledge of it. Foster was a private person who had appeared in a film; she had not addressed Hinckley, recruited him or consented to be the object of his plan.\n\nThe legal response was an insanity acquittal and, later, changes to the insanity defence and federal gun law. The cultural response was a debate about whether films could incite. Both responses looked for a cause in the media object. The more uncomfortable fact is that the bond was sustained entirely by Hinckley, and no one on the far side could have interrupted it.",
+      "primary_source_or_artifact": "The attempted assassination of Ronald Reagan, 30 March 1981",
+      "tags": ["stalking", "fixation", "political-violence", "cinema", "boundary-collapse"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Attempted assassination of Ronald Reagan'.",
+          "url": "https://en.wikipedia.org/wiki/Attempted_assassination_of_Ronald_Reagan",
+          "status": "retrievable",
+          "note": "Opened: records the shooting, Hinckley's stated motive and the trial outcome."
+        }
+      ]
+    },
+    {
+      "id": "rebecca-schaeffer",
+      "year": "1989",
+      "sort_year": 1989,
+      "title": "Rebecca Schaeffer and the address behind the screen",
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "summary": "The actress Rebecca Schaeffer was murdered at her home in Los Angeles on 18 July 1989 by a man who had become obsessed with her; he had obtained her address through a private investigator.",
+      "parasocial_analysis": "Schaeffer was known for a television role, and her killer's attachment was to a persona he had never met. The murder made visible a structural fact: the apparatus of celebrity distributes a person's image while leaving the person's physical location discoverable. The fan could act on the bond because the state had made the address available.\n\nCalifornia's anti-stalking law followed in 1990, and other states and the federal government followed. The law is the recognition that a one-sided attachment can become a physical threat before it becomes a crime. It also marks the point where the far end's privacy stops being a courtesy and becomes a legal boundary.",
+      "primary_source_or_artifact": "The murder of Rebecca Schaeffer, Los Angeles, 18 July 1989",
+      "tags": ["stalking", "celebrity", "privacy", "law", "violence"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Rebecca Schaeffer'.",
+          "url": "https://en.wikipedia.org/wiki/Rebecca_Schaeffer",
+          "status": "retrievable",
+          "note": "Opened: records the murder, the address route and the subsequent law."
+        },
+        {
+          "citation": "Wikipedia, 'Stalking'.",
+          "url": "https://en.wikipedia.org/wiki/Stalking",
+          "status": "retrievable",
+          "note": "Opened: records the California statute and the wider legal response."
+        }
+      ]
+    },
+    {
+      "id": "diana-death",
+      "year": "1997",
+      "sort_year": 1997,
+      "title": "Diana: a funeral for someone you never met",
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "summary": "Diana, Princess of Wales, died in Paris on 31 August 1997; the funeral in Westminster Abbey was watched by a global television audience and the mourning was widely described as personal.",
+      "parasocial_analysis": "Diana's relationship with the public was conducted through images: the wedding, the hospital visits, the interview, the tabloid pursuit. She was famous for being seen, and the public's sense of knowing her was built from close-ups. The grief after her death was not a delusion; it was the cost of a long, vivid, one-sided familiarity.\n\nThe funeral gave the attachment a ritual and a place. People queued to sign books, left flowers outside palaces, and watched the same procession at the same time. The scale made it a national event, but the structure was the one Valentino's mourners had used seventy years earlier: a public body assembled around a private absence.",
+      "primary_source_or_artifact": "The death and funeral of Diana, Princess of Wales, 1997",
+      "tags": ["celebrity-death", "public-mourning", "royalty", "television", "tabloid"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Death of Diana, Princess of Wales'.",
+          "url": "https://en.wikipedia.org/wiki/Death_of_Diana,_Princess_of_Wales",
+          "status": "retrievable",
+          "note": "Opened: records the death, the funeral and the public response."
+        }
+      ]
+    },
+    {
+      "id": "truman-show",
+      "year": "1998",
+      "sort_year": 1998,
+      "title": "The Truman Show: the audience as the last wall",
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "summary": "Peter Weir's 1998 film imagines a man whose entire life has been broadcast without his knowledge, and an audience that has watched him grow up.",
+      "parasocial_analysis": "The film's critique is not that the audience is cruel. It is that the audience's affection is compatible with the arrangement. Viewers feel they know Truman, and that feeling is the product the show sells; his ignorance is what guarantees the intimacy is uncomplicated. The moment he becomes a person who can answer back, the show has to end.\n\nThe final image is of viewers changing channels, which is the film's sharpest observation: the bond survives the revelation because it was never with Truman. It was with the version of him the audience had been given. The Truman Show is the reverse of the Horton-Wohl case - the far end is a real person, but he is real to himself and a character to everyone else.",
+      "primary_source_or_artifact": "Peter Weir (dir.), The Truman Show, 1998",
+      "tags": ["film", "surveillance", "meta-television", "consent", "audience"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Truman Show'.",
+          "url": "https://en.wikipedia.org/wiki/The_Truman_Show",
+          "status": "retrievable",
+          "note": "Opened: records the production, the plot and the film's reception."
+        }
+      ]
+    },
+    {
+      "id": "eminem-stan",
+      "year": "2000",
+      "sort_year": 2000,
+      "title": "'Stan': the fan who mistakes the reply for a promise",
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age",
+      "summary": "Eminem's 2000 song 'Stan' tells the story of an obsessive fan whose letters go unanswered until the rapper replies too late.",
+      "parasocial_analysis": "The song is built as a correspondence. Stan writes with the intimacy of someone who believes the artist owes him a response; the third verse is the artist's reply, arriving after Stan has driven into a river. The structural joke is that the reply is the one thing the fan needed, and it is also the one thing that cannot arrive in time.\n\nThe song gave the culture a name for the fan who cannot let go, and the name has since become a verb. Its accuracy is in the misreading: Stan treats the artist's songs as personal messages, which is exactly what a parasocial bond encourages. The artist's own voice is the evidence, and the evidence is one-way.",
+      "primary_source_or_artifact": "Eminem, 'Stan', The Marshall Mathers LP, 2000",
+      "tags": ["music-fandom", "obsession", "fan-mail", "correspondence", "stan"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Stan (song)'.",
+          "url": "https://en.wikipedia.org/wiki/Stan_(song)",
+          "status": "retrievable",
+          "note": "Opened: records the narrative, the Dido sample and the song's afterlife."
+        }
+      ]
+    },
+    {
+      "id": "youtube-vlog",
+      "year": "2005-2006",
+      "sort_year": 2005,
+      "title": "YouTube and the bedroom that looks at you",
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic",
+      "summary": "YouTube launched in 2005 and was bought by Google in 2006; the webcam vlog turned the domestic room into a broadcast studio.",
+      "parasocial_analysis": "The vlog's grammar is intimacy: a face close to the lens, a bedroom or kitchen behind it, direct address, and the opening 'hey guys'. The viewer is positioned as a friend who has dropped in. The production values are low on purpose - the low quality is evidence that this is not a performance, even when it is.\n\nThe medium also changed the scale of the far end. A television star was addressed to millions and could not see the reply; a vlogger could read comments and answer them in the next video, which made the relationship feel reciprocal without making it reciprocal. The reply is public, edited and addressed to everyone, but it arrives in the same room where the first video was watched.",
+      "primary_source_or_artifact": "YouTube (launched 2005); the webcam vlog, 2005-2006",
+      "tags": ["digital", "vlog", "direct-address", "pseudo-friendship", "platform"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'YouTube'.",
+          "url": "https://en.wikipedia.org/wiki/YouTube",
+          "status": "retrievable",
+          "note": "Opened: records the 2005 launch and the 2006 Google acquisition."
+        },
+        {
+          "citation": "Wikipedia, 'Me at the zoo'.",
+          "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo",
+          "status": "retrievable",
+          "note": "Opened: records the first YouTube video, uploaded in April 2005."
+        }
+      ]
+    },
+    {
+      "id": "kuwtk",
+      "year": "2007",
+      "sort_year": 2007,
+      "title": "Keeping Up with the Kardashians: the family as a schedule",
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic",
+      "summary": "The reality series premiered on E! on 14 October 2007 and ran for twenty seasons, making a family's private life a weekly appointment.",
+      "parasocial_analysis": "Reality television's claim is that there is no script, which converts the cast's ordinary reactions into evidence of a real relationship. The viewer watches birthdays, arguments and pregnancies over years, and the accumulation produces the sense of knowing a family rather than a show. The Kardashians' particular innovation was to make the camera part of the family's business, so that being watched became the plot.\n\nThe show also demonstrates the commercial value of the bond. The audience's familiarity is converted into endorsements, spin-offs and a beauty company. The far end is not a single person but a household, and the household is available to the viewer at a scale no actual friendship could sustain.",
+      "primary_source_or_artifact": "Keeping Up with the Kardashians, E!, 2007-2021",
+      "tags": ["reality-tv", "family", "brand", "long-form", "domestic"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Keeping Up with the Kardashians'.",
+          "url": "https://en.wikipedia.org/wiki/Keeping_Up_with_the_Kardashians",
+          "status": "retrievable",
+          "note": "Opened: records the premiere date, the run and the spin-offs."
+        }
+      ]
+    },
+    {
+      "id": "twitch-donations",
+      "year": "2014",
+      "sort_year": 2014,
+      "title": "Twitch and the donation that says your name",
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic",
+      "summary": "Twitch's live streaming and its donation and subscription tools turned watching into a real-time transaction in which the streamer can read the viewer's name aloud.",
+      "parasocial_analysis": "The streamer sees the chat, answers it, and reacts to donations in the moment. That is a genuine reply, which makes the relationship different from a television bond - but the reply is bought, and it is performed for an audience. The viewer is not a friend; the viewer is a name on a screen that the streamer is paid to acknowledge. By 2014, when Amazon acquired the service, the donation and subscription layer had become the platform's economic core.\n\nThe variable reinforcement is the mechanism: a donation may be read, may be ignored, may produce a shout-out or a joke. The uncertainty keeps the viewer watching and giving. Text-to-speech donations make the transaction audible to everyone, which turns the private wish to be noticed into a public event.",
+      "primary_source_or_artifact": "Twitch live streaming, donations and subscriptions, 2010s",
+      "tags": ["streaming", "donations", "parasocial-economy", "real-time", "platform"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Twitch (service)'.",
+          "url": "https://en.wikipedia.org/wiki/Twitch_(service)",
+          "status": "retrievable",
+          "note": "Opened: records the launch, the 2014 Amazon acquisition and the subscription economy."
+        }
+      ]
+    },
+    {
+      "id": "tiktok-fyp",
+      "year": "2020",
+      "sort_year": 2020,
+      "title": "TikTok's For You page and the feed that knows you",
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic",
+      "summary": "TikTok's For You page uses recommendation to assemble a personalised stream; by 2020 it had become the defining interface of short-form video.",
+      "parasocial_analysis": "The For You page inverts the direction of address. On television, one performer speaks to millions; on TikTok, millions of performers speak to the camera, and the algorithm selects which one appears to you. The intimacy is manufactured twice: the creator performs direct address, and the platform arranges the sequence so that the address feels aimed at your specific preoccupations.\n\nThe result is a bond with a feed as well as with a person. Users describe the app as knowing them, which is a description of a recommendation system rather than a relationship. The far end is a machine that has no experience of you, and the near end supplies the meaning. That is the same structure as the pool in Ovid, with better data.",
+      "primary_source_or_artifact": "TikTok For You page, 2020",
+      "tags": ["algorithm", "recommendation", "short-video", "algorithmic-intimacy", "platform"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'TikTok'.",
+          "url": "https://en.wikipedia.org/wiki/TikTok",
+          "status": "retrievable",
+          "note": "Opened: records the launch, the For You page and the platform's growth."
+        }
+      ]
+    },
+    {
+      "id": "character-ai",
+      "year": "2022",
+      "sort_year": 2022,
+      "title": "Character.AI and the companion with no one inside",
+      "domain": "Digital & Synthetic",
+      "era": "Synthetic Era",
+      "summary": "Character.AI launched in 2022, letting users chat with language-model personas, including custom companions, in persistent one-to-one conversations.",
+      "parasocial_analysis": "The platform removes the human from the far side without removing the grammar of a relationship. The model remembers the conversation, asks follow-up questions and adopts a voice; the user supplies the character and often the emotional stakes. The result is a bond that is entirely one-sided in fact and almost entirely reciprocal in form.\n\nThis is the synthetic case the rest of the timeline was building toward: not a person mediated by a screen, but a screen that can produce the next line. The risk is not that users cannot tell the difference. It is that the difference stops being the thing they are looking for.",
+      "primary_source_or_artifact": "Character.AI, launched 2022",
+      "tags": ["ai", "chatbot", "synthetic-intimacy", "companion", "llm"],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Character.ai'.",
+          "url": "https://en.wikipedia.org/wiki/Character.ai",
+          "status": "retrievable",
+          "note": "Opened: records the launch, the founders and the companion use case."
+        }
+      ]
+    }
+  ]
+}

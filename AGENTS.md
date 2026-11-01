@@ -766,6 +766,22 @@ ship a falsehood on this site and it was done once already.
   missing image with a plausible filename. The figure card uses a real
   photograph first, then the mark; a way page uses the way's own mark, so the
   eight pages keep one visual identity. Plates are not used as fallbacks.
+- `data/timeline.json` — **the curated timeline.** Twenty-two milestones, each
+  with the required schema (`id`, `year`, `title`, `domain`, `era`, `summary`,
+  `parasocial_analysis`, `primary_source_or_artifact`, `tags`) plus
+  `sort_year` and `citations`. `year` is a display string (`c. 8 CE`,
+  `1830s-1850s`) and `sort_year` is the integer the page orders on. A citation
+  carries `citation`, `url`, `status` and `note`; `retrievable` means this build
+  opened the URL and found the work, not that the whole text was read. The six
+  domains and five eras are the schema's own lists and the filter is built from
+  them. `/timeline/` is this page; the 255-entry database timeline moved to
+  `/timeline/corpus/`, and the per-section pages are unchanged.
+- `tools/verify_timeline.py` — **the timeline gate.** Checks every required
+  field and type, the domain/era membership, `sort_year` against the year
+  string, the citation status/locator contract, and the rendered page: every
+  card has a panel, every panel has a card, and the corpus page links back.
+  Wired into the source tier. It cannot check that a date is true; that is what
+  the citations are for. `--check-urls` is a separate, explicit network pass.
 - `data/ledger_history.json` — **STATEFUL AND TRACKED IN GIT.** Appended by
   `record_snapshot()` only when a watched figure moves, one entry per day however
   many builds run. `/ledger/feed.xml` is generated from it, so the feed is the
@@ -5341,4 +5357,60 @@ it gets resolved.
     - **Package.** `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **772
       files, 15.19 MB, tree sha `87ec47fae5c42649`**. The Cloudflare publish
       step is configured and the workflow is triggered after this commit.
+
+
+98. **The timeline was 255 entries with no argument, so the curated spine became its own page and the database became the corpus.** The old `/timeline/` was `build_timeline()` over every encyclopedia entry: useful as a record, unreadable as a history, and impossible to filter by the six domains the subject actually has because the corpus classifies medium and attachment rather than era and domain. The page now has two layers. **`/timeline/` is the curated 22-milestone argument**; **`/timeline/corpus/` is the full 255-entry database**, linked from the curated page and listed in the sitemap. The ten `/timeline/<section>/` pages are unchanged, and the corpus still links to them.
+    - **The schema is enforced, not described.** `data/timeline.json` carries
+      `id`, `year`, `title`, `domain`, `era`, `summary`,
+      `parasocial_analysis`, `primary_source_or_artifact` and `tags`, plus
+      `sort_year` (because `c. 8 CE` and `1830s-1850s` do not sort as strings)
+      and `citations` (because a timeline that asserts dates must show where
+      they come from). `tools/verify_timeline.py` checks required fields and
+      types, domain and era membership, `sort_year` inside the year string,
+      citation status and locator, unique ids, slug-shaped tags, and the
+      rendered artefact: 22 cards, 22 panels, a matching `#tl-<id>` for every
+      entry, and a corpus page that links back. **Confirmed red** by renaming
+      one panel id in the built page - it named `panel id missing from the
+      page: tl-character-ai` - then green on rebuild.
+    - **The filters are the schema.** Domain chips cover Myth, Literature,
+      Broadcast, Politics, Music and Digital; the **AI** chip is a derived view
+      of the digital entries whose tags name an algorithmic or synthetic
+      mechanism (TikTok and Character.AI, 2 of 22), and the page says so under
+      the controls. Era chips are Pre-Modern, 19th-20th Century and Digital
+      Age. **The bucket is a way in, not a claim:** Goethe is 1774 and sits
+      under 19th-20th Century, while every card still prints its own era
+      (`Early Mass Media`) and year, so the page never redates him. The tag
+      menu carries all 89 tags; the chip row shows the ones used more than
+      once.
+    - **The slide-over is `:target`, so 22 entries cost one file.** The page is
+      104 KB and the deploy is 773 files against the 1,000 limit. Each card
+      links to `#tl-<id>`; the panel is `display:none` until it is the target,
+      and the scrim and close links return to `#list`. That means no JS is
+      needed to open, close or deep-link an analysis, and a reader can send
+      someone a single milestone.
+    - **Driven against the real page, not reasoned about.** In the browser:
+      initial 22, AI 2, Myth 1, `Dickens` 1, no-match 0, cleared 22,
+      `public-mourning` 4, Pre-Modern 3, Digital Age 5, and the panel opens on
+      `#tl-character-ai` with one citation and closes on `#list`. The 1440px
+      page and the 500px page were opened: two cards across at desktop, one at
+      phone width, the year in its own column, and the slide-over full width.
+    - **Sourcing.** 29 citation records across 22 entries: 27 `retrievable`,
+      opened by this build, and 2 `unverified` - the Horton and Wohl DOI
+      (Taylor & Francis returned 403) and the JFK Library campaign page (403).
+      Both say in the record that this build did not open them. No quotation,
+      date or attribution was invented; the Dickens ship anecdote is explicitly
+      marked as a story repeated so often that it is part of the reception even
+      where the evidence is thin.
+    - **One limitation stated on the page rather than hidden.** The three UI
+      era buckets collapse five data eras, so 1774 is filed under a label that
+      says 19th-20th Century. The card and the panel both print the precise
+      era; the bucket is a browsing aid. A future fourth bucket would fix the
+      wording, not the fact, and adding one to make the label tidy is the same
+      move as filling an empty taxonomy shelf.
+    - `gates.py --all` green after the change: post (plate, orphans, findable,
+      landmarks, ways, markdown, internal leaks, feeds, heads), visual (narrow,
+      nav, hub contrast) and source (archive, editor, affil, citation, cull,
+      taxonomy, **timeline**, card, image, the three rotation tests, link
+      audit). `build_deploy` assembled 773 files / 363 pages with every local
+      link resolving.
 

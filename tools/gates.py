@@ -54,6 +54,7 @@ SOURCE = [
     ("citation_audit", ["citation_audit.py"]),
     ("cull_audit", ["cull_audit.py"]),
     ("verify_taxonomy", ["verify_taxonomy.py"]),
+    ("verify_timeline", ["verify_timeline.py"]),
     ("card_audit", ["card_audit.py"]),
     ("image_audit", ["image_audit.py"]),
     ("test_front_copy", ["test_front_copy.py"]),
