@@ -107,11 +107,9 @@ POST_CHECK = [
     # Every deployed page must offer both feeds and the favicon in its head.
     # Eleven pages did not, because unify_heads.py only ever patched
     # build_cards.py - build_atlas.py, build_quiz.py and the 404's own
-    # template were never covered, and the eight hand-written pages
-    # (membership, tip, signal, audit, classroom, three cases) have no
-    # generator, so nothing regenerates or checks them. This reads dist/,
-    # so it also covers signal/latest.html, which is replaced by hand every
-    # Friday and can drop the block again without anyone rebuilding it.
+    # template were never covered, and the hand-written `tip/` page has no
+    # generator, so nothing regenerates or checks it. This reads dist/ for
+    # that reason: the deployed tree is what a reader actually gets.
     ("check_heads", ["check_heads.py"]),
 ]
 

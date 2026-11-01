@@ -150,9 +150,8 @@ def main():
     # deploy uses rather than on a second, more forgiving copy of it.
     INCLUDE_DIRS = {"img", "js", "css", "encyclopedia", "radar", "section",
                     "sections", "taxonomy", "top8", "history", "figures",
-                    "moments", "brand", "atlas", "quiz", "citations",
-                    "credits", "shelf", "membership", "desk", "timeline", "tip",
-                    "cases", "radar", "audit", "classroom", "desk"}
+                    "moments", "atlas", "quiz", "citations",
+                    "credits", "shelf", "desk", "timeline", "tip"}
     fetched = 0
     for html_file in ROOT.rglob("*.html"):
         if any(part in (".git", "node_modules", "dist") for part in html_file.parts):
@@ -228,9 +227,10 @@ def main():
         # Requiring a number-like token in the gap is what keeps this from
         # becoming another "seven pastors": "she reads to the child an hour
         # every evening" has a verb and an interval and is not a promise
-        # about the site. Measured across all 534 published pages, this adds
-        # exactly one flagged line - the membership claim - and no false
-        # positives.
+        # about the site. Measured across the published pages, the rule adds
+        # no false positives; its one historically true hit - the paid page's
+        # "a machine that reads a hundred sources an hour" - went with that
+        # page.
         r"(?:runs?|reads?|scans?|checks?|polls?|files|filing|updat\w+|"
         r"refresh\w+|pulls?|fetches?|collects?)\s+"
         r"(?:\d[\d,.]*|a\s+hundred|hundreds?|thousands?|scores?|millions?|"
@@ -366,21 +366,21 @@ def main():
 
     # ---- pages nothing links to -------------------------------------------
     # A page with no inbound internal link cannot be navigated to. Measured
-    # across the deployed tree this found FIVE: 404.html (correct - a 404
-    # handler should have no inbound link), three Case Files, and /classroom/.
-    # All four of the rest were **indexable** - no robots meta - and absent
-    # from sitemap.xml, so a crawler could index a page it had no way to reach.
-    # That is a page existing and not being offered, which is a decision being
-    # made by omission rather than a technical fault, and nothing else in this
-    # audit could see it: every other check here asks whether a LINK WORKS,
-    # never whether a page is REACHABLE.
+    # across the deployed tree this originally found FIVE: 404.html (correct -
+    # a 404 handler should have no inbound link), three Case Files, and
+    # /classroom/. The latter four were **indexable** - no robots meta - and
+    # absent from sitemap.xml, so a crawler could index a page it had no way to
+    # reach. That was a page existing and not being offered, a decision made by
+    # omission rather than a technical fault, and nothing else in this audit
+    # could see it: every other check here asks whether a LINK WORKS, never
+    # whether a page is REACHABLE. Those four pages have since been retired.
     #
     # NOTE THE TWO TREES. Every other check in this file reads the SOURCE tree;
     # this one reads dist/. That is deliberate - "reachability" is a property of
     # what is deployed - but it means the two disagree by exactly one build, and
     # it is why the first version of this check's red test passed: it removed
-    # the link from membership/index.html in the source while this block was
-    # reading dist/, so it saw nothing wrong. **A gate that reads a different
+    # an inbound link in the source while this block was reading dist/, so it
+    # saw nothing wrong. **A gate that reads a different
     # file from the thing you edited is not testing your edit.**
     # The scan is over dist/ ONLY. The first version walked the whole repo and
     # reported 275 orphans, because it counted every page twice - once in the

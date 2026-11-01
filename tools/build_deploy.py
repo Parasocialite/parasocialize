@@ -425,6 +425,16 @@ def assemble(do_optimise=True):
     # reader need. The mark lives on section and way pages, and the old URL
     # goes to the page that is actually about the site.
     lines.append("/brand/  /credits/  301")
+    lines.append("/membership/  /credits/  301")
+    lines.append("/membership  /credits/  301")
+    lines.append("/classroom/  /history/  301")
+    lines.append("/classroom  /history/  301")
+    lines.append("/audit/  /credits/  301")
+    lines.append("/audit  /credits/  301")
+    lines.append("/cases/  /sections/  301")
+    lines.append("/cases/*  /sections/  301")
+    lines.append("/signal/  /radar/  301")
+    lines.append("/signal/*  /radar/  301")
     (DIST / "_redirects").write_text("\n".join(lines) + "\n", encoding="utf-8")
     n += 1
     return n

@@ -72,9 +72,12 @@ if "ledger-band" in doc_html:
     sys.exit("FAIL: the open ledger band is back in the primary reader flow")
 if ">Coffee</a>" in doc_html or "Buy me a coffee" in doc_html:
     sys.exit("FAIL: the old Coffee invitation is still on the front page")
-if ('<a href="membership/index.html" class="cta-quiet">Membership</a>'
-        not in doc_html):
-    sys.exit("FAIL: the membership route is not labelled Membership")
+if 'href="membership/index.html"' in doc_html:
+    sys.exit("FAIL: the removed membership route is back on the front page")
+if 'href="signal/latest.html"' in doc_html:
+    sys.exit("FAIL: the removed Friday email route is back on the front page")
+if 'signal-form' in doc_html:
+    sys.exit("FAIL: the removed newsletter form is back on the front page")
 if ('<a class="cta" href="https://ko-fi.com/parasocialing" target="_blank" '
         'rel="noopener nofollow" aria-label="Support the archive on Ko-fi">'
         'Support</a>') not in doc_html:

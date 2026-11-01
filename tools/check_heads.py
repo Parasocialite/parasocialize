@@ -3,12 +3,12 @@
 Eleven pages shipped without the block. `unify_heads.py` gave every longhand
 head in `tools/build_cards.py` the same three links, but it only ever knew that
 one file: `build_atlas.py` and `build_quiz.py` are separate generators, the
-404 comes from `build_cards.build_404()`'s own template, and
-`membership/`, `tip/`, `signal/latest.html`, `audit/`, `classroom/` and the
-three `cases/*.html` have no generator at all - they are hand-written files
-that nothing rebuilds, which is exactly why nothing noticed. `signal/latest.html`
-had no `<head>` whatsoever; it is replaced by hand every Friday, so a future
-replacement can silently drop the block again.
+404 comes from `build_cards.build_404()`'s own template, and `tip/` has no
+generator at all - it is a hand-written file that nothing rebuilds, which is
+exactly why nothing noticed. (The other hand-written pages once named here -
+`membership/`, `signal/latest.html`, `audit/`, `classroom/` and the three
+`cases/*.html` - have been retired: they were paid, email or orphan surfaces
+with no reader-facing job.)
 
 So this reads the deployed tree, which is what a reader actually gets - the
 same reason `check_internal_leaks.py` and `md_leak.py` read `dist/` - and it
@@ -42,10 +42,9 @@ this file's own href scan - read it as present, while browsers had no
 stylesheet at all. Two rules catch that class: a parser sweep for an element
 carrying attributes named like tags (the fingerprint of an unclosed tag that
 swallowed its neighbour), and a requirement that a page either carries a real
-stylesheet link or styles itself inline. signal/latest.html is the one page
-allowed to declare no stylesheet - it is an HTML email, styled entirely with
-style attributes by necessity - and it is named here rather than detected,
-so a second page joining it is a decision, not an accident.
+stylesheet link or styles itself inline. `INLINE_ONLY` names the pages allowed
+to declare no stylesheet; it is empty now that the hand-styled email page has
+been retired, and an entry here is a decision, not an accident.
 """
 import pathlib
 import re
@@ -64,7 +63,7 @@ NEEDLES = {
     "favicon.svg": "favicon.svg",
 }
 
-INLINE_ONLY = {"signal/latest.html"}
+INLINE_ONLY = set()
 
 
 class Styled(HTMLParser):

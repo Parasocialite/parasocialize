@@ -160,14 +160,6 @@ img{max-width:100%;display:block}
 /* Support is the one outbound link a reader may act on, so it carries the
    primary button and the membership route steps back to a quiet outline.
    The old pairing had these inverted and labelled Support twice. */
-.nav .cta-quiet{
-  color:var(--warm-hot);border:1px solid rgba(255,90,31,.55);border-radius:99px;
-  padding:8px 12px;font-weight:500;
-}
-.nav .cta-quiet::after{display:none}
-.nav .cta-quiet:hover,.nav .cta-quiet:focus-visible{
-  background:rgba(255,90,31,.12);border-color:var(--warm);color:#fff6ea;
-}
 .onair{display:flex;align-items:center;gap:7px;font-family:var(--label);font-size:.6rem;letter-spacing:.14em;color:var(--dimmer);white-space:nowrap}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 9px var(--mint);flex:none}
 .dot.stale{background:var(--neon);box-shadow:0 0 9px var(--neon)}
@@ -507,25 +499,6 @@ A lead over 90 characters stays bold rather than becoming a heading: 27 of the
 .ent-toc li{margin:0 0 5px;color:var(--dim)}
 .ent-toc a{color:var(--dim);text-decoration:none}
 .ent-toc a:hover,.ent-toc a:focus-visible{color:var(--paper);text-decoration:underline}
-
-/* ---- /cases/ - the Case Files collection ---------------------------------
-Generated from cases/*.md frontmatter by build_cases(). It exists because three
-Case Files were indexable, absent from sitemap.xml and linked from nothing, so
-no reader and no crawler could reach them. The page is generated rather than
-written because a hand-made index drifts the moment a fourth .md is added. */
-.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:14px;margin-top:26px}
-.case-card{display:flex;flex-direction:column;gap:7px;padding:20px 22px 18px;
-  border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);
-  color:inherit;text-decoration:none}
-.case-card:hover{border-color:var(--hot);background:var(--bg3);transform:translateY(-2px)}
-.case-no{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:var(--hot)}
-.case-title{font-family:var(--serif);font-size:1.14rem;font-weight:700;
-  line-height:1.2;letter-spacing:-.02em;color:var(--paper)}
-.case-teaser{font-size:.88rem;line-height:1.5;color:var(--dim);flex:1}
-.case-foot{font-family:var(--label);font-size:.6rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--dimmer);margin-top:4px}
-.shelf-more{margin-top:38px;padding-top:22px;border-top:1px solid var(--line2)}
 
 /* ---- the same-shelf strip on an entry page -------------------------------
 Two related blocks sit here and they answer different questions, so they are
@@ -1076,18 +1049,6 @@ table.db a:hover{color:var(--hot)}
    The name `.clerk` belongs to the masthead card alone. If a second component
    ever needs it, give it its own name rather than sharing this one. */
 
-/* ---------- newsletter ---------- */
-.signal-sec{text-align:center;background:
-  radial-gradient(60% 70% at 50% 0%,rgba(255,90,31,.1),transparent 70%)}
-.signal-sec .sec-head h2{margin-inline:auto}
-.signal-form{display:flex;gap:11px;justify-content:center;margin:26px auto 14px;max-width:520px}
-.signal-form input[type=email]{flex:1;min-width:0;padding:14px 20px;border-radius:99px;
-  border:1px solid var(--line);background:var(--bg2);color:var(--paper);
-  font-family:var(--label);font-size:.76rem}
-.signal-form input[type=email]:focus{outline:none;border-color:var(--warm)}
-.fineprint{font-size:.6rem;letter-spacing:.16em;color:var(--dimmer);line-height:2}
-.fineprint a{color:var(--warm)}
-
 /* ---------- price / offer ---------- */
 .money{display:grid;grid-template-columns:repeat(auto-fit,minmax(256px,1fr));gap:18px}
 .price{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);
@@ -1096,9 +1057,6 @@ table.db a:hover{color:var(--hot)}
 .price.hot{border-color:var(--warm);background:linear-gradient(165deg,rgba(255,90,31,.1),var(--bg2))}
 .price h3{font-family:var(--serif);font-size:1.35rem;font-weight:700}
 .price .amt{font-family:var(--serif);font-size:2.1rem;font-weight:700;color:var(--warm);line-height:1}
-.price ul{list-style:none;color:var(--dim);font-size:.88rem;display:flex;flex-direction:column;gap:6px;margin:4px 0 12px;flex:1}
-.price ul li::before{content:"▸ ";color:var(--warm)}
-.price ul li b{color:var(--paper);font-weight:600}
 .price .flag{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--warm)}
 
 /* ---------- punch card ---------- */
@@ -1177,7 +1135,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   gap:16px 28px}
 .foot-mini .foot-note{line-height:1.8}
 .foot-mini .foot-nav{display:flex;flex-wrap:wrap;gap:18px;padding:0}
-.foot-mini .foot-tag{text-align:right;margin:0}
 @media (max-width:1040px){
   .foot-grid{grid-template-columns:1fr;gap:28px}
   .foot-brand{max-width:none}
@@ -1186,7 +1143,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 @media (max-width:760px){
   .foot-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 24px}
   .foot-col a.foot-support{letter-spacing:.09em}
-  .foot-mini .foot-tag{text-align:left}
 }
 
 /* ---------- utility ---------- */
@@ -1418,8 +1374,7 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   .nav-lab:first-child{padding-top:0}
   .nav a{font-size:.72rem;width:min(340px,84vw);text-align:center;padding:15px;border-radius:8px}
   .nav .cta{margin-top:12px}
-  .nav .cta-quiet{margin-top:8px;padding:14px}
-  body.nav-open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    body.nav-open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   body.nav-open .menu-btn span:nth-child(2){opacity:0}
   /* Was written twice, identically, in a copy-paste slip. */
   body.nav-open .menu-btn span:nth-child(3){transform:translateY(-7deg) rotate(-45deg)}

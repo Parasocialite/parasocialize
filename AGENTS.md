@@ -5728,3 +5728,14 @@ it gets resolved.
       `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **775 files, 16.31 MB,
       tree sha `eb6de27d75b019c7`**.
 
+
+106. **The paid and email surfaces are gone, because neither was real.** There was no membership, no Friday email, and no decision about a business model, so every page that described one was a promise the site could not keep: `membership/`, `signal/`, `classroom/`, `audit/` and three `cases/` pages. They are deleted, not hidden. The only route with money attached is the Ko-fi link that already existed, and it sells nothing.
+    - **Deleted:** `membership/index.html`, `classroom/index.html`, `audit/index.html`, `signal/latest.html`, `cases/` (index + three essays + three `.md` sources). The `build_cases()` generator and its `.md` reader are removed with them.
+    - **Removed from the chrome:** the `Membership` link is out of `NAV` and both footers; `The Signal` is out of both footers and the front page's newsletter section; `/history/` no longer points at "the classroom"; `/shelf/` no longer carries the Case Files block.
+    - **Removed from the sitemap and the head checks.** `membership/`, `signal/latest.html`, `classroom/` and `cases/` are no longer listed. `check_heads.INLINE_ONLY` is now empty, because the one page allowed to declare no stylesheet was the hand-styled email.
+    - **Every retired URL 301s.** `build_deploy.py` now writes `/membership/` → `/credits/`, `/classroom/` → `/history/`, `/audit/` → `/credits/`, `/cases/*` → `/sections/`, `/signal/*` → `/radar/`, both with and without the trailing slash.
+    - **Deleted CSS:** `.case-grid`, `.case-card`, `.case-no`, `.case-title`, `.case-teaser`, `.case-foot`, `.shelf-more`, `.signal-sec`, `.signal-form`, `.fineprint`, `.nav .cta-quiet`, `.price ul`, `.foot-mini .foot-tag`. `check_css --orphans` is back to 0 dead layout rules.
+    - **Tests now assert absence, not presence.** `test_front_copy` fails if `membership/index.html`, `signal/latest.html` or `signal-form` returns to the front page.
+    - **`/tip/` survives as Contact.** It is the one hand-written page with a reader-facing job: it opens a mail client with a pre-filled tip. Its copy no longer promises credit in a Friday email.
+    - **Checked.** `gates.py --all` green across post, visual and source. Deploy: **766 files / 356 pages**, every local link resolves. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **766 files, 16.27 MB, tree sha `09a1e75ea0b8a00f`**.
+
