@@ -88,6 +88,11 @@ POST_BUILD = [
 POST_CHECK = [
     ("plate --check", ["plate.py", "--check"]),
     ("check_css --orphans", ["check_css.py", "--orphans"]),
+    # Cloudflare Pages stops applying `_redirects` past a threshold that is much
+    # lower than its documentation suggests, and does it silently. On 2026-11-01
+    # 147 of 255 `/e/` end-card links were 404s live while every gate was green.
+    # This asks whether the rules would be APPLIED, not merely written.
+    ("check_redirects", ["check_redirects.py"]),
     ("verify_findable", ["verify_findable.py"]),
     ("verify_landmarks", ["verify_landmarks.py"]),
     ("verify_ways", ["verify_ways.py"]),

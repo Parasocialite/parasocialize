@@ -386,7 +386,14 @@ def assemble(do_optimise=True):
     #
     # Generated for every entry rather than only the three with episodes, so a
     # future episode needs no deploy change to get a working end card.
-    enc_path = ROOT / "data" / "encyclopedia.json"
+    #
+    # ONE DYNAMIC RULE, NOT 255 STATIC ONES. Cloudflare Pages silently stops
+    # applying `_redirects` after roughly a hundred static rules - measured on
+    # 2026-11-01: `/e/krapp-last-tape` (rule 101) returned 301 and
+    # `/e/marilyn-diptych` (rule 110) returned 404, with no error from the
+    # deploy and nothing in any gate looking at the live behaviour. Every rule
+    # past the cutoff was decoration. All 255 `/e/` entries map by the same
+    # pattern, so the whole set is one splat rule and the budget is never near.
     lines = [
         "# Single-page-ish: serve directory indexes the way the site is built.",
         "/index.html  /  301",
@@ -395,11 +402,10 @@ def assemble(do_optimise=True):
         "/aisle/       /sections/  301",
         "/aisle/*      /sections/:splat  301",
         "# Short path to an encyclopedia entry, for video end cards and citations.",
+        "# Dynamic, because a static rule per entry overran Cloudflare's budget",
+        "# and the overflow 404'd without failing the deploy.",
+        "/e/*  /encyclopedia/:splat.html  301",
     ]
-    if enc_path.is_file():
-        entries = json.loads(enc_path.read_text(encoding="utf-8"))["entries"]
-        for e in sorted(entries, key=lambda x: x["id"]):
-            lines.append(f"/e/{e['id']}  /encyclopedia/{e['id']}.html  301")
 
     # Renamed slugs.
     #

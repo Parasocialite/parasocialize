@@ -5739,3 +5739,9 @@ it gets resolved.
     - **`/tip/` survives as Contact.** It is the one hand-written page with a reader-facing job: it opens a mail client with a pre-filled tip. Its copy no longer promises credit in a Friday email.
     - **Checked.** `gates.py --all` green across post, visual and source. Deploy: **766 files / 356 pages**, every local link resolves. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **766 files, 16.27 MB, tree sha `09a1e75ea0b8a00f`**.
 
+
+107. **`_redirects` had 270 rules and Cloudflare was applying about 108 of them.** The `/e/<id>` short links printed on episode end cards were generated one static rule per encyclopedia entry. Past a threshold - measured at roughly rule 105, against a documented limit of 2,000 static redirects - Pages silently ignores the rest, so `/e/eliza` (rule 60) redirected and `/e/marilyn-diptych` (rule 110) returned 404. The deploy succeeded, every gate was green, and 147 end-card links were dead.
+    - **Collapsed to one dynamic rule.** Every `/e/<id>` maps to `/encyclopedia/<id>.html`, so the set became `/e/*  /encyclopedia/:splat.html  301`. `_redirects` is now 16 rules, 4 of them dynamic.
+    - **New gate: `tools/check_redirects.py`.** It fails when the file exceeds a conservative 100 total rules, and it fails when any `/e/` URL the encyclopedia prints, or any renamed radar slug, has no rule that can serve it. Added to the post tier of `gates.py`. It asks whether the rules would be APPLIED, which no previous check did.
+    - **The lesson is a class, not one file.** Every existing check verified that rules were *written*; none verified that they were *in force*. The same blind spot would have swallowed any silent platform limit.
+
