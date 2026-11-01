@@ -307,61 +307,35 @@ img{max-width:100%;display:block}
 
 .iyiw-hero{font-size:clamp(4.2rem,17vw,10.5rem);display:flex;justify-content:center}
 .iyiw-hero .iyiw-r{opacity:.7;transform:scale(.8)}
-/* ---- the masthead lockup: copy column, clerk column -------------------
-The mark used to be `display:flex;justify-content:center` in a full-width band,
-which `probe_front.py` measured as a 1192px box containing 150px of drawing:
-1042px of nothing either side of two disembodied eyes, sitting between the doors
-and the top 8 with no copy attached. The gate was green because nothing it
-checks is about a mark having a job.
-
-So the mascot is a column now, not a stamp: it shares a row with the line and
-the thesis, carries its own caption, and breaks the top edge of its card so it
-is layered into the composition rather than plopped on it. The doors are a full
-row of their own underneath, which is what closes the masthead - with the doors
-inside the left column the clerk card ran a hundred pixels past them and the
-empty space just moved to the bottom left. */
-.clerk{display:flex;flex-direction:column;position:relative;
-  border:1px solid var(--line2);border-radius:14px;
-  background:linear-gradient(180deg,var(--bg3),var(--bg2));
-  padding:4px 16px 10px;text-align:left}
-/* The mascot was 168px of eyes in a 330px card, breaking the top edge by 52px
-   behind a 30px orange glow - more than half the card's width, and the second
-   loudest thing on the page after the wordmark. It is a caption-bearing detail
-   on this page, not a second headline, so it is 88px now, overlapping by 30,
-   and the glow is pulled back to something that reads as depth rather than as
-   light.
-
-   The negative bottom margin is the other half: iYi's rig draws two eyes inside
-   a taller box, so a face sized to its element leaves roughly 35px of nothing
-   between the drawing and the first line of copy - which read as a gap in the
-   card rather than as air around a picture.
-
-   This card is the tallest of the masthead row's three, so its height is the
-   row's height - the two doors stretch to it - and every trim here moves all
-   three. Measured after the trim by tools/probe_cards.py, not guessed. */
-.clerk-face{display:flex;justify-content:center;margin:-30px 0 -26px}
-.clerk-face .mascot-hero{filter:drop-shadow(0 8px 16px rgba(255,90,31,.20))}
-.clerk-kick{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--warm);margin:5px 0 5px}
-.clerk-line{font-size:.9rem;line-height:1.42;color:var(--dim);margin:0 0 9px}
-.clerk-line b{color:var(--paper);font-weight:600}
-.clerk-more{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--hot)}
-.clerk-more:hover{color:var(--paper)}
-/* The three masthead modules - read, research, and the clerk - in one row.
-   `minmax(0,1.35fr)` on the clerk lets the copy column take what it needs and
-   the card take the rest, so the two doors keep equal width whatever the
-   clerk's caption does. These three were previously split across two grid
-   columns with the 1956/-70,000 pair between them, so the doors a reader was
-   just told about were not adjacent to the thing that introduced them. */
-.masthead-row{display:grid;grid-template-columns:1fr 1fr minmax(0,1.35fr);
+/* ---- the clerk's closing note ------------------------------------------
+The mascot used to be a third card in the masthead row, at 88px with a caption,
+which made a colophon compete with the two doors. It is now one quiet strip near
+the foot of the page: a 52px face, one sentence in the clerk's voice, and a link
+to the identity page. The mascot is a mark, not a headline. */
+.clerk-note-sec{padding-top:8px;padding-bottom:8px}
+.clerk-note{display:flex;align-items:center;gap:16px;max-width:var(--w);
+  margin:0 auto;padding:16px 20px;border-top:1px solid var(--line2);
+  border-bottom:1px solid var(--line2);background:var(--bg2)}
+.clerk-note-face{flex:none;width:52px;height:52px;display:flex;
+  align-items:center;justify-content:center}
+.clerk-note-copy{min-width:0;flex:1}
+.clerk-note-kick{font-family:var(--label);font-size:.56rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--warm);margin:0 0 3px}
+.clerk-note-line{font-size:.88rem;line-height:1.45;color:var(--dim);margin:0;
+  max-width:72ch}
+.clerk-note-line b{color:var(--paper);font-weight:600}
+.clerk-note-more{font-family:var(--label);font-size:.56rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--hot);white-space:nowrap}
+.clerk-note-more:hover{color:var(--paper)}
+/* The two masthead doors - read and research - in one row. The clerk used to
+   be a third card here; it is a closing note now, so the doors get the row. */
+.masthead-row{display:grid;grid-template-columns:1fr 1fr;
   gap:14px;margin-top:22px;align-items:stretch}
 .masthead-row .fdoor{padding:14px 16px;border-radius:var(--r);
   border-left-width:4px;flex-direction:column;align-items:flex-start;
   justify-content:center;gap:2px}
 .masthead-row .fdoor-body strong{font-size:1.18rem;letter-spacing:-.015em}
 .masthead-row .fdoor-body span{font-size:.83rem;line-height:1.42}
-.masthead-row .clerk{margin:0}
 /* ---- <code>: the author's machine keys, in the site's own label face -------
 The corpus marks classification values in backticks - `persona/idol`,
 `simulated`, `split_from` - and 468 of them, 412 on /taxonomy/, were reaching
@@ -378,23 +352,8 @@ code{font-family:var(--label);font-size:.88em;letter-spacing:0;
   border:1px solid rgba(255,90,31,.18);border-radius:3px;
   padding:.06em .32em;overflow-wrap:break-word;white-space:normal}
 @media (max-width:900px){
-  /* This was a two-column grid: a 104px mascot in column one spanning three
-     rows, the copy in column two. On a 390px phone that leaves the copy about
-     200px, so "I keep the record. Every claim here carries its source, and the
-     ones nobody has opened say so. I do not remember you, and nothing here
-     pretends to." wrapped to seven lines beside two eyes - and a card with a
-     104px picture in it is not a caption, it is a second hero on a phone.
-
-     Stacked instead: the mascot sits centred above the copy, which then gets
-     the full width and reads in four lines. Same direction as the desktop
-     column, so it stops being a different layout at a smaller size. */
-  .clerk{display:flex;flex-direction:column;align-items:center;
-    text-align:center;padding:10px 18px 14px}
-  .clerk-face{margin:-24px 0 -18px}
-  .clerk-face .mascot-hero{width:84px;height:84px}
-  .clerk-kick{margin:3px 0 5px}
-  .clerk-line{margin:0 0 8px}
-  .clerk-more{margin-top:0}
+  .clerk-note{align-items:flex-start;flex-wrap:wrap}
+  .clerk-note-more{margin-left:68px}
 }
 /* The wordmark is 7.5rem at desktop and the clamp bottoms out at 3rem, which at
    390px wraps "Parasocialize." onto three lines and leaves the period alone on
@@ -2187,3 +2146,32 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .tlc-future-note{margin:18px 0 0;max-width:72ch;font-size:.9rem;line-height:1.55;
   color:var(--dim);border-left:3px solid var(--hot2);padding:10px 0 10px 14px}
 .tlc-future-note a{color:var(--hot)}
+
+/* ---------- /brand/: the clerk, the mark, the rule ---------- */
+.brand-hero{padding-top:44px}
+.brand-hero-grid{display:grid;grid-template-columns:180px minmax(0,1fr);
+  gap:34px;align-items:center;max-width:980px}
+.brand-hero-mark{display:flex;justify-content:center;align-items:center}
+.brand-hero-mark .mascot-hero{filter:drop-shadow(0 16px 34px rgba(255,90,31,.22))}
+.brand-uses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;margin-top:22px}
+.brand-use{background:var(--bg2);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px}
+.brand-use b{display:block;font-family:var(--serif);font-size:1.12rem;
+  font-weight:700;letter-spacing:-.01em;margin-bottom:5px;color:var(--paper)}
+.brand-use span{font-size:.88rem;line-height:1.5;color:var(--dim)}
+.brand-files{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:10px;margin-top:20px}
+.brand-file{display:block;background:var(--bg2);border:1px solid var(--line);
+  border-radius:10px;padding:14px 16px;color:var(--paper);text-decoration:none;
+  font-family:var(--serif);font-size:1.02rem;font-weight:700;
+  transition:border-color .18s,background .18s}
+.brand-file:hover{border-color:var(--hot);background:var(--bg3)}
+.brand-file span{display:block;margin-top:3px;font-family:var(--label);
+  font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dimmer);font-weight:400}
+@media(max-width:760px){
+  .brand-hero-grid{grid-template-columns:1fr;gap:18px}
+  .brand-hero-mark{justify-content:flex-start}
+  .brand-uses{grid-template-columns:1fr}
+}

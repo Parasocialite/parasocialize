@@ -2576,12 +2576,9 @@ def build_front(data, feat=None, manifest=None, hist=None):
 
     <p class="line">{ed.get("line")}</p>
 
-    <!-- One row: the two doors the masthead promises, then the clerk. These
-         three used to be split across two grid columns with the 1956/-70,000
-         block between them, so the two doors were not adjacent to the thing
-         that introduced them and the clerk floated beside a pair of numerals
-         that had nothing to do with it. A reader is told the site has two modes
-         and then has to hunt for them. -->
+    <!-- Two doors, and only two. The clerk used to be a third card in this
+         row; it is now a single closing note near the foot of the page, because
+         the mascot is a colophon, not a second headline. -->
 
     <div class="fdoors masthead-row">
       <a class="fdoor" href="sections/index.html" style="--c:var(--hot)">
@@ -2591,13 +2588,6 @@ def build_front(data, feat=None, manifest=None, hist=None):
         <span class="fdoor-body"><b>To research</b>
         <strong>The encyclopedia</strong>
         <span>{ed.get("door_encyclopedia")}</span></span></a>
-
-      <aside class="clerk" aria-labelledby="clerk-kick">
-        <div class="clerk-face" role="img" aria-label="iYi, the Parasocialize mascot, behind the counter">{mascot(88, "mascot-hero", mood="clerk")}</div>
-        <p class="clerk-kick" id="clerk-kick">{ed.get("kicker")}</p>
-        <p class="clerk-line">{ed.get("clerk_line")}</p>
-        <a class="clerk-more" href="brand/index.html">What the mascot is for &rarr;</a>
-      </aside>
     </div>
   </div>
 </section>
@@ -2621,6 +2611,17 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <p class="kicker">Go deeper · the definitive bits</p>
   <div class="fdoors">{''.join(fcards)}</div>
 </section>"""}
+
+<section class="section clerk-note-sec">
+  <div class="clerk-note">
+    <div class="clerk-note-face" role="img" aria-label="iYi, the Parasocialize clerk">{mascot(52, "", mood="clerk")}</div>
+    <div class="clerk-note-copy">
+      <p class="clerk-note-kick">The clerk</p>
+      <p class="clerk-note-line">{ed.get("clerk_line")}</p>
+    </div>
+    <a class="clerk-note-more" href="brand/index.html">The mark and the rule &rarr;</a>
+  </div>
+</section>
 
 <section class="section signal-sec">
   <form class="signal-form" action="https://formsubmit.co/iNNERdreamers@gmail.com" method="POST">
@@ -3651,9 +3652,15 @@ def build_moments(data, feat, manifest):
 
 
 def build_brand(data, feat):
-    """The mascot page. A 30px mark in a masthead is not somewhere anybody
-    reviews a character, so here it is at size, with the expressions and the
-    lore."""
+    """The identity page: the mark, where it appears, and the rule it follows.
+
+    The old page was a mascot gallery. It explained the drawing and showed eight
+    expressions, which is a portfolio, not a page a reader needs. This one is a
+    short identity manual: what iYi is for, where it is allowed, which expression
+    each section carries, the vector files, and the rule about not pretending to
+    remember an individual viewer. The mascot belongs on section and way pages
+    and in one closing note; it is not a second headline on the front page.
+    """
     moods = [("watch", "The default. iYi looking back at you, which is the whole "
                        "premise: the eyes belong to the audience."),
              ("hollow", "Nobody home. The one-sided joke, and the thesis of the site "
@@ -3662,11 +3669,11 @@ def build_brand(data, feat):
              ("sad", "Grief. Used on the obituary cards and the grief section."),
              ("love", "The club. Heart eyes, for when somebody has told you which "
                       "section they are in."),
-              ("panic", "Wide eyes. Held back for the day the site has to admit "
-                        "something is wrong."),
-              ("clerk", "Behind the counter. iYi in the nametag."),
-              ("asleep", "Eyes shut, for the long stretches when there is nothing "
-                         "new. Which is most of them.")]
+             ("panic", "Wide eyes. Held back for the day the site has to admit "
+                       "something is wrong."),
+             ("clerk", "Behind the counter. iYi in the nametag."),
+             ("asleep", "Eyes shut, for the long stretches when there is nothing "
+                        "new. Which is most of them.")]
     cards = "".join(
         f'<figure class="mood"><div class="mood-art">{mascot(120, "", m)}</div>'
         f'<figcaption><b>{m}</b><span>{note}</span></figcaption></figure>'
@@ -3674,66 +3681,106 @@ def build_brand(data, feat):
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iYi - the mascot - Parasocialize</title>
-<meta name="description" content="iYi is an eight lying on its side, which is also infinity, which is also two eyes. The brand mark of Parasocialize.">
+<title>The clerk: iYi, the mark and the rule - Parasocialize</title>
+<meta name="description" content="iYi is an eight on its side: also infinity, also two eyes. Where the mark appears, which expression each page carries, and the rule it follows.">
 {HEAD.format(site=SITE, path="/brand/", otype="website",
-             title="iYi - the Parasocialize mascot",
-             desc="An eight on its side: also infinity, also two eyes.", root=root(1))}
+             title="The clerk: iYi, the mark and the rule",
+             desc="An eight on its side: also infinity, also two eyes. The mark, its uses, and the rule.", root=root(1))}
 </head>
 <body>
-<a class="skip" href="#moods">Skip to the expressions</a>
+<a class="skip" href="#uses">Skip to where the mark appears</a>
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root=root(1), total=len(data['cards']), mk=wordmark("nav"))}
 <main>
-<section class="section" style="text-align:center">
-  <div style="display:flex;justify-content:center;margin:10px 0 22px">{mascot(200, 'mascot-hero')}</div>
-  <h1 class="h-title" style="font-size:clamp(2.4rem,7vw,4.4rem);margin:0 auto 14px">iYi</h1>
-  <p class="sec-lede" style="margin:0 auto;max-width:54ch">An eight lying on its side.
-  Which is also infinity. Which is also two eyes. The lobes <em>are</em> the eyes —
-  there is no head and no face, the whole glyph is doing the work, which is why it
-  still reads at three centimetres on a shirt.</p>
+<section class="section brand-hero">
+  <div class="brand-hero-grid">
+    <div class="brand-hero-mark">{mascot(140, 'mascot-hero', 'clerk')}</div>
+    <div>
+      <p class="kicker">The clerk · identity and rule</p>
+      <h1 class="h-title">iYi</h1>
+      <p class="sec-lede">An eight lying on its side. Which is also infinity.
+      Which is also two eyes. The lobes <em>are</em> the eyes - there is no head
+      and no face, the whole glyph is doing the work. It is the clerk of the
+      record, not the host of the site.</p>
+      <p class="countline">On ten section fronts, eight way pages, and one
+      closing note. Never a masthead headline.</p>
+    </div>
+  </div>
 </section>
 
-<section class="section" style="padding-top:0">
-  <div class="note" style="max-width:64ch;margin:0 auto">
-    <p><b>The eyes are the audience.</b> iYi watches somebody who does not know iYi
-    is there, which is the entire premise, so the mascot is not a decoration — it is
-    the reader, caught in the act. The joke and the argument are the same thing.</p>
-    <p><b>The name is the drawing.</b> i-Y-i. Two lowercase i for the two
-    selves, the left one fully present and the right one smaller and dimmer,
-    with a Y between them for the fork where the two sides diverge. The dots on
-    the i's are the catchlights. It says iYi because it sounds like somebody you
-    know rather than something you are sold, which is the point, because a
-    parasocial relationship is with somebody who feels like a friend.</p>
+<section class="section" id="uses" style="padding-top:0">
+  <p class="kicker">Where it appears</p>
+  <div class="sec-head"><h2>One mark, four jobs.</h2>
+  <p class="sec-lede">The rule is simple: iYi appears where it can mean something
+  about the page, and nowhere it would only be decoration.</p></div>
+  <div class="brand-uses">
+    <div class="brand-use"><b>Section fronts</b><span>Ten pages, one expression
+    each. The idol page winks; grief is sad; contest and danger are panic; brand
+    is the clerk; the rest watch or go hollow. The expression is chosen from the
+    section's subject, not rotated.</span></div>
+    <div class="brand-use"><b>Way pages</b><span>Eight pages, same rule. Persona
+    winks; companion, divine and officer watch; character and cosmology go
+    hollow; institution is the clerk; predator is panic.</span></div>
+    <div class="brand-use"><b>The front page</b><span>One closing note near the
+    foot, with the clerk's sentence and a link back here. The masthead belongs to
+    the wordmark and the two doors.</span></div>
+    <div class="brand-use"><b>Entry pages</b><span>No mascot. The title plate is
+    that page's mark; adding a face would compete with the entry's own
+    subject.</span></div>
   </div>
 </section>
 
 <section class="section" id="moods" style="padding-top:0">
   <p class="kicker">Eight expressions</p>
   <div class="sec-head"><h2>One silhouette, so it reads as one character.</h2>
-  <p class="sec-lede">The two lobes are identical in every expression. That is the
-  constraint that makes it a character and not a set of stickers — you know it is
-  iYi at postage-stamp size because the shape never changes, only the face.</p></div>
+  <p class="sec-lede">The two lobes are identical in every expression. That is
+  the constraint that makes it a character and not a set of stickers - you know
+  it is iYi at postage-stamp size because the shape never changes, only the
+  face.</p></div>
   <div class="moods" style="margin-top:26px">{cards}</div>
 </section>
 
 <section class="section" style="padding-top:0">
-  <p class="kicker">The lore, if you want it</p>
-  <div class="note" style="max-width:64ch">
-    <p>iYi watched a character who was never real for thirty years. One day the
-    character was retired from the show. Nobody told iYi. iYi found out the way
-    everybody finds out.</p>
-    <p style="margin-top:14px">That is the origin, it is genuinely the thesis of
-    this site, and it leaves about forty years of adventures in it. It is also the
-    most useful thing about a mascot: it is not a decoration on the brand, it is
-    the brand's argument with a face on it.</p>
+  <p class="kicker">The files</p>
+  <div class="brand-files">
+    <a class="brand-file" href="{root(1)}img/mascot/sheet.svg">Expression sheet
+    <span>eight moods, one SVG</span></a>
+    <a class="brand-file" href="{root(1)}img/mascot/iyi-watch.svg">The default mark
+    <span>watch, vector</span></a>
+    <a class="brand-file" href="{root(1)}img/mascot/iyi-hollow-flat.svg">Flat mark
+    <span>one colour, for stamps</span></a>
+    <a class="brand-file" href="{root(1)}img/logo.svg">Wordmark
+    <span>the site mark, vector</span></a>
   </div>
-  <p class="countline" style="margin-top:22px">Merch files — every expression as
-  clean vector, plus single-colour flat versions for stamps and vinyl — are in
-  <b>img/mascot/</b>. Regenerate with <b>python tools/mascot.py --sheet</b>.</p>
+  <div class="note" style="max-width:66ch;margin-top:22px">
+    <p><b>Use the drawing as drawn.</b> The lobes are the eyes; do not add a
+    face, a mouth or a body. Do not recolour the two sides into different hues -
+    the dimmer right side is the second self, not a lighting effect. The mark
+    should have clear space around it equal to the width of one lobe.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <p class="kicker">The rule</p>
+  <div class="note" style="max-width:66ch">
+    <p><b>iYi never claims to remember you.</b> The character is the clerk, and
+    the clerk keeps a record; it does not know the reader. That is the line
+    between a mascot and a false friend, and it is not negotiable.</p>
+    <p style="margin-top:14px"><b>No synthetic depictions of real people.</b>
+    The eyes are a drawing, not a likeness. The site does not generate a real
+    person's face or voice to sell a bond, and the mascot is not used to soften
+    that rule.</p>
+    <p style="margin-top:14px"><b>The eyes are the audience.</b> iYi watches
+    somebody who does not know iYi is there. The joke and the argument are the
+    same thing, which is why the mark is allowed to be cute and is never allowed
+    to be sentimental.</p>
+  </div>
+  <p class="countline" style="margin-top:22px">The standard the mascot is
+  answerable to is <a href="{root(1)}ledger/index.html">the ledger</a>. The record it
+  keeps is <a href="{root(1)}timeline/index.html">the timeline</a>.</p>
 </section>
 </main>
-{FOOT.format(root=root(1), sweep=MESSY, motto='AN EIGHT ON ITS SIDE.<br>THAT IS THE WHOLE BRAND.')}
+{FOOT.format(root=root(1), sweep=MESSY, motto='AN EIGHT ON ITS SIDE.<br>THE CLERK, NOT THE HOST.')}
 </body></html>"""
 
 

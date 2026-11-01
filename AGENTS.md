@@ -5651,3 +5651,46 @@ it gets resolved.
       they stay. The request was the caption that explained the absence, not
       every label on the page.
 
+
+104. **The mascot was a third masthead card and /brand/ was a gallery, so the clerk became a closing note and the gallery became an identity page with a rule.** The front page gave iYi 88px, a bordered card and a caption in the same row as the two doors. It was the second loudest object in the masthead, ahead of the stories and the top 8, and the link out was "What the mascot is for" - a page whose only job was to show the mascot again. Both were backwards: the wordmark and the two doors are the front page; the mascot is a colophon.
+    - **Front page: two doors, no clerk card.** `.masthead-row` is now
+      `1fr 1fr`; the `<aside class="clerk">` is gone. The `clerk_line` copy
+      from `data/front_copy.json` is still used, in one strip near the foot of
+      the page (after the eight ways and the deeper cards, before the signal):
+      52px face, `The clerk`, the sentence, and `The mark and the rule →`.
+      It is a colophon, not a headline.
+    - **/brand/ is now a purpose page.** It opens with the mark and the line
+      "the clerk of the record, not the host of the site", then four sections:
+      **Where it appears** (section fronts, way pages, the front-page closing
+      note, entry pages where there is deliberately no mascot); **Eight
+      expressions** (the moods and what each is for); **The files** (expression
+      sheet, default mark, flat mark, wordmark - all direct SVG links); and
+      **The rule** (never claims to remember you; no synthetic depictions of
+      real people; the eyes are the audience). It ends at `/ledger/` and
+      `/timeline/`, so the page is answerable to something.
+    - **The old page was a portfolio.** It explained the drawing and showed
+      eight expressions, but a reader had no reason to be there. The new page
+      says where the mark is allowed and where it is not, which is what makes it
+      an identity page rather than a mascot shrine.
+    - **The front-page test changed with it.** `test_front_copy.py` used to
+      require `class="clerk"` inside the masthead row. It now requires exactly
+      two doors, **no** clerk card in the row, a `clerk-note` elsewhere, a face
+      in that note, and the note **after** `id="top8"` - a structural assertion
+      that the mascot is secondary, not a class-name check.
+    - **No new data slot.** `data/front_copy.json` still carries `clerk_line`;
+      only the template moved. `front_copy.py` needed no change, and an existing
+      edition still renders.
+    - **Checked visually.** The 1440px front page now opens on the wordmark, the
+      line, the two doors and the day's figure; the clerk is one thin strip at
+      the foot. `/brand/` at 1440px is a two-column identity page (mark left,
+      purpose right) with the four use cards and the mood grid. The 390px
+      `verify_narrow` and the nav probe are green.
+    - `gates.py --all` green across post, visual and source, including
+      `test_front_copy`, `check_css --orphans`, `link_audit`, `md_leak` and the
+      three rotation tests. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`,
+      **775 files, 16.32 MB, tree sha `b2c8896292128cce`**.
+    - **Still editorial, not a build's call.** The nav still labels the route
+      `iYi`; renaming it `The clerk` is a navigation decision and was not made
+      here to avoid moving the measured header breakpoint. The page title and
+      the route's content now carry the purpose.
+

@@ -100,17 +100,21 @@ doors = re.findall(r'<a class="fdoor" href="([^"]+)"', row)
 if len(doors) != 2:
     sys.exit(f"FAIL: the masthead row holds {len(doors)} doors, expected 2 "
              f"(read + research). Found: {doors}")
-if 'class="clerk"' not in row:
-    sys.exit("FAIL: the clerk card is not in the masthead row beside the doors")
-if '<div class="clerk-face"' not in row:
-    sys.exit("FAIL: the clerk card has no mascot in it")
+if 'class="clerk"' in row or 'clerk-face' in row:
+    sys.exit("FAIL: the clerk card is back in the masthead row")
+if 'class="clerk-note"' not in doc_html:
+    sys.exit("FAIL: the closing clerk note is missing")
+if '<div class="clerk-note-face"' not in doc_html:
+    sys.exit("FAIL: the clerk note has no mascot in it")
+if doc_html.find('class="clerk-note"') < doc_html.find('id="top8"'):
+    sys.exit("FAIL: the clerk note is ahead of the top 8, so it is not secondary")
 # the pair the masthead is removed - it should stay removed
 if 'thesis-num' in doc_html:
     sys.exit("FAIL: the 1956/-70,000 pair is back on the front page")
 if 'mood="clerk"' not in (ROOT / "tools" / "build_cards.py").read_text(
         encoding="utf-8"):
     sys.exit("FAIL: build_cards.py no longer asks for the clerk mood")
-print("  ok   two doors and the clerk in one row, with the clerk mood")
+print("  ok   two doors in the masthead, the clerk as a later closing note")
 
 # 1b. the top 8 band is the live list, and each card lands on its entry.
 #     The band is generated from `top8_window`, so the test uses the same
