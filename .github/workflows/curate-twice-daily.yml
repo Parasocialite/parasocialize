@@ -28,8 +28,11 @@ on:
   schedule:
     # 00:17 UTC writes the new day's record as soon as the UTC date turns.
     # 12:17 is a no-op on the records by design and exists so a morning build
-    # failure is retried inside the same day.
-    - cron: "17 0,12 * * *"
+    # failure is retried inside the same day. Two separate expressions rather
+    # than "0,12": the 1 November 00:17 slot produced no scheduled run, and
+    # splitting the entry removes the comma-list as a suspect.
+    - cron: "17 0 * * *"
+    - cron: "17 12 * * *"
   workflow_dispatch:
 
 permissions:
