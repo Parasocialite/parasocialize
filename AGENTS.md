@@ -5700,12 +5700,14 @@ it gets resolved.
       `NAV`, out of the footer's Follow column, and out of the seven
       hand-written pages that carried the same nav line (`audit/`, three
       `cases/`, `classroom/`, `membership/`, `tip/`).
-    - **The page and generator are deleted.** `brand/index.html` and
-      `build_brand()` are gone; `build_cards.py` no longer writes the page. The
-      deploy is 774 files / 363 pages, one page and one file fewer than before.
-    - **`/brand/` redirects to `/credits/`.** `build_deploy.py` appends
-      `/brand/  /credits/  301`, so an old bookmark does not become a 404. That
-      is the only remaining thing at the URL.
+    - **The generator is gone; the URL is a redirect stub.** `build_brand()` is
+      deleted and `build_cards.py` no longer writes the page. A static
+      `brand/index.html` remains only because Cloudflare had cached the old page
+      at `/brand/` with a seven-day `s-maxage`: the stub carries the standard
+      feed/favicon head, `noindex, follow`, a canonical to `/credits/` and a
+      meta refresh, so the cached URL moves a reader instead of showing a mascot
+      page. `build_deploy.py` also appends `/brand/  /credits/  301`. The deploy
+      is 775 files / 364 pages; the stub is one file and is not in the sitemap.
     - **The mark is still in the site, where it has a job.** Ten section fronts
       and eight way pages choose an expression from the subject; the front page
       has one closing note near the foot. Entry pages deliberately have no
@@ -5723,6 +5725,6 @@ it gets resolved.
       `gates.py --all` green across post, visual and source, including
       `link_audit`, `check_heads`, `verify_narrow` and `probe_nav`.
       `build_deploy` reports every local link resolves. Package:
-      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **774 files, 16.31 MB,
-      tree sha `91b8f48c98f0fa4d`**.
+      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **775 files, 16.31 MB,
+      tree sha `eb6de27d75b019c7`**.
 
