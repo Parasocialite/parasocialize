@@ -1,21 +1,26 @@
 #!/usr/bin/env python3
-"""verify_timeline.py - hold the curated timeline to its own schema.
+"""verify_timeline.py - hold the master timeline to its own schema.
 
 The timeline is the one page on this site that makes a claim about *when*
-something happened, across three thousand years. A typo in a sort year moves an
-entry to the wrong century and no link check can see it; a missing domain makes
-an entry unfilterable; a citation with no URL is the `retrievable` defect this
-repository has now met four times.
+something happened, across seventy thousand years. A typo in a sort year moves
+an entry to the wrong century and no link check can see it; a missing phase
+makes an entry fall out of the master list; a citation with no URL is the
+`retrievable` defect this repository has now met four times.
 
 So the checks here are about the promises the fields make:
 
   * every entry has every required field, and the types are the types the
     builder renders;
-  * domain and era are members of the lists the page filters on;
-  * sort_year agrees with the year string, and the file is in sort order;
+  * domain and era are members of the lists the page filters on, and phase is
+    one of the five the page groups by;
+  * sort_year agrees with the year string and is ordered inside its phase;
+  * the user's seed list is still present - a master list that quietly drops a
+    milestone is the failure this check exists to prevent;
   * every citation has a locator if it claims to be openable, and no citation
     is a note to self;
-  * ids are unique, tags are non-empty, and no tag is a sentence.
+  * ids are unique, tags are non-empty, and no tag is a sentence;
+  * the rendered page carries a card and a panel for every entry, and the
+    corpus page links back.
 
 It cannot check that a date is true. That is what the citations are for, and
 what `--check-urls` is for: a separate, explicit network pass, never part of
@@ -47,18 +52,39 @@ ERAS = [
     "Digital & Algorithmic",
     "Synthetic Era",
 ]
+PHASE_NAMES = {
+    1: "Myth, Antiquity & Pre-Print",
+    2: "The Print Revolution & Mass Reading",
+    3: "Early Broadcast, Radio & Cinema",
+    4: "Television, Politics & Late-Century Pathology",
+    5: "Reality TV, Platforms & the Algorithmic Era",
+}
 REQUIRED = [
-    "id", "year", "sort_year", "title", "domain", "era", "summary",
+    "id", "year", "sort_year", "title", "phase", "domain", "era", "summary",
     "parasocial_analysis", "primary_source_or_artifact", "tags", "citations",
 ]
 STATUSES = {"retrievable", "verified", "unverified"}
 PLACEHOLDERS = re.compile(r"\b(verify|todo|tbd|fixme|xxx|the entry as a whole)\b", re.I)
 ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-# CE only, deliberately. A hyphen in "1830s-1850s" is a range separator, not a
-# minus sign; treating it as one made 1836 fall outside its own year. If a BCE
-# entry is ever added, sort_year is still authoritative and this check has to
-# learn the sign rather than guess it from punctuation.
-YEAR_RE = re.compile(r"(?<!\d)(\d{1,4})(?!\d)")
+# Positive years only; BCE is handled by comparing the absolute sort_year.
+# A hyphen in "1830s-1850s" is a range separator, not a minus sign.
+YEAR_RE = re.compile(r"(?<!\d)(\d{1,6})(?!\d)")
+
+# The user's basic list, mapped to this file's ids. Every one must still be
+# here. Growth is expected; disappearance is a defect.
+CORE_IDS = {
+    "neanderthal-burial", "paleolithic-figures", "narcissus-echo",
+    "homeric-recitation", "roman-imagines", "the-priest", "the-icon",
+    "canterbury-tales", "margery-kempe", "our-lady-of-guadalupe",
+    "don-quixote", "pamela", "werther", "dickens-serial", "dickens-readings",
+    "miss-havisham", "sarah-bernhardt", "yellow-kid", "pearl-white",
+    "betty-crocker", "rin-tin-tin", "aimee-semple-mcpherson", "babe-ruth",
+    "soap-opera", "fireside-chats", "war-of-the-worlds", "superman-comic",
+    "sinatra-bobby-soxers", "murrow", "horton-wohl", "jfk-nixon-debate",
+    "beatlemania", "elvis-death", "hinckley-foster", "rebecca-schaeffer",
+    "diana-death", "truman-show", "eminem-stan", "facebook", "youtube-vlog",
+    "kuwtk", "twitch-donations", "tiktok-fyp", "character-ai",
+}
 
 
 def fail(errors, msg):
@@ -78,7 +104,7 @@ def main() -> int:
     errors: list[str] = []
     notes: list[str] = []
 
-    for key in ("_note", "domains", "eras", "entries"):
+    for key in ("_note", "phases", "domains", "eras", "entries"):
         if key not in doc:
             fail(errors, f"top-level key missing: {key}")
     if errors:
@@ -90,23 +116,42 @@ def main() -> int:
     if doc["eras"] != ERAS:
         fail(errors, "eras list is not the five the schema defines")
 
+    phases = doc["phases"]
+    if not isinstance(phases, list) or len(phases) != 5:
+        fail(errors, "phases is not the five-part list the page groups by")
+    else:
+        seen_phases = set()
+        for p in phases:
+            for key in ("id", "name", "range", "note"):
+                if key not in p:
+                    fail(errors, f"phase missing {key}: {p!r}")
+            if p.get("id") not in PHASE_NAMES:
+                fail(errors, f"unknown phase id: {p.get('id')!r}")
+            elif p.get("name") != PHASE_NAMES[p["id"]]:
+                fail(errors, f"phase {p['id']} name is not the one the page expects")
+            seen_phases.add(p.get("id"))
+        if seen_phases != set(PHASE_NAMES):
+            fail(errors, f"phase ids are {sorted(seen_phases)}, not 1-5")
+
     entries = doc["entries"]
     if not isinstance(entries, list) or not entries:
         fail(errors, "entries is not a non-empty list")
         print("\n".join(errors))
         return 1
-    if len(entries) != 22:
-        notes.append(f"{len(entries)} entries (the seed is 22; growth is allowed)")
+    if len(entries) < len(CORE_IDS):
+        fail(errors, f"{len(entries)} entries cannot hold the {len(CORE_IDS)} "
+                     f"seed milestones")
 
     seen_ids: set[str] = set()
     seen_titles: set[str] = set()
-    last_sort = None
+    last_by_phase: dict[int, int] = {}
+    phase_counts: dict[int, int] = {}
     for n, e in enumerate(entries, 1):
         where = f"entry {n} ({e.get('id', 'no id')})"
         for key in REQUIRED:
             if key not in e:
                 fail(errors, f"{where}: missing {key}")
-        if errors and any(x.startswith(where) for x in errors):
+        if any(x.startswith(where) for x in errors):
             continue
 
         eid = str(e["id"])
@@ -127,6 +172,10 @@ def main() -> int:
             fail(errors, f"{where}: domain {e['domain']!r} is not in the list")
         if e["era"] not in ERAS:
             fail(errors, f"{where}: era {e['era']!r} is not in the list")
+        if e["phase"] not in PHASE_NAMES:
+            fail(errors, f"{where}: phase {e['phase']!r} is not 1-5")
+            continue
+        phase_counts[e["phase"]] = phase_counts.get(e["phase"], 0) + 1
 
         try:
             sort = int(e["sort_year"])
@@ -134,24 +183,29 @@ def main() -> int:
             fail(errors, f"{where}: sort_year is not an integer")
             sort = None
         if sort is not None:
-            if last_sort is not None and sort < last_sort:
+            prev = last_by_phase.get(e["phase"])
+            if prev is not None and sort < prev:
                 fail(errors, f"{where}: sort_year {sort} runs backwards "
-                             f"after {last_sort}")
-            last_sort = sort
-            years = [int(y) for y in YEAR_RE.findall(str(e["year"]))]
+                             f"after {prev} inside phase {e['phase']}")
+            last_by_phase[e["phase"]] = sort
+            years = [int(y) for y in YEAR_RE.findall(str(e["year"]).replace(",", ""))]
             if not years:
                 fail(errors, f"{where}: year {e['year']!r} contains no year")
-            elif sort not in years and not (
-                len(years) > 1 and min(years) <= sort <= max(years)
-            ):
-                fail(errors, f"{where}: sort_year {sort} is not in year "
-                             f"{e['year']!r}")
+            else:
+                probe = abs(sort)
+                if probe not in years and not (
+                    len(years) > 1 and min(years) <= probe <= max(years)
+                ):
+                    fail(errors, f"{where}: sort_year {sort} is not in year "
+                                 f"{e['year']!r}")
 
         for field, low in (("summary", 80), ("parasocial_analysis", 300)):
             text = str(e[field]).strip()
             if len(text) < low:
                 fail(errors, f"{where}: {field} is {len(text)} chars, "
                              f"under the {low} minimum")
+        if "date_note" in e and len(str(e["date_note"]).strip()) < 20:
+            fail(errors, f"{where}: date_note is too short to explain anything")
 
         tags = e["tags"]
         if not isinstance(tags, list) or not tags:
@@ -188,24 +242,16 @@ def main() -> int:
                 if len(str(c.get("note", "")).strip()) < 8:
                     fail(errors, f"{where}: citation note is too short")
 
-    # The three UI era buckets must cover all five data eras. If a new era is
-    # added to the schema and not mapped, the entry exists and is invisible.
-    ui_era = {
-        "Pre-Modern": "pre",
-        "Early Mass Media": "modern",
-        "The Broadcast Age": "modern",
-        "Digital & Algorithmic": "digital",
-        "Synthetic Era": "digital",
-    }
-    for era in ERAS:
-        if era not in ui_era:
-            fail(errors, f"era {era!r} has no UI bucket")
-
-    if errors:
-        print(f"timeline: {len(errors)} problem(s)")
-        for x in errors:
-            print("  " + x)
-        return 1
+    missing_core = sorted(CORE_IDS - seen_ids)
+    if missing_core:
+        fail(errors, "seed milestones missing from the master list: "
+                     + ", ".join(missing_core))
+    for pid in PHASE_NAMES:
+        if not phase_counts.get(pid):
+            fail(errors, f"phase {pid} has no entries")
+    if not errors and set(phase_counts) != set(PHASE_NAMES):
+        notes.append("phase counts " + ", ".join(
+            f"{k}:{phase_counts.get(k, 0)}" for k in sorted(PHASE_NAMES)))
 
     # The data can be perfect while the page renders nothing. The source tier
     # runs after build_cards, so check the artefact as well as the file it was
@@ -230,7 +276,7 @@ def main() -> int:
         if not corpus.exists():
             fail(errors, "the corpus page is missing at timeline/corpus/")
         elif 'href="../index.html"' not in corpus.read_text(encoding="utf-8"):
-            fail(errors, "the corpus page does not link back to the curated page")
+            fail(errors, "the corpus page does not link back to the master page")
     else:
         notes.append("timeline/index.html not built; artefact checks skipped")
 
@@ -243,9 +289,11 @@ def main() -> int:
     print(f"timeline: {len(entries)} entries, "
           f"{len(seen_ids)} ids, "
           f"{sum(len(e['citations']) for e in entries)} citation records")
+    print(f"  phases:  {', '.join(f'{k}:{phase_counts.get(k, 0)}' for k in sorted(PHASE_NAMES))}")
     print(f"  domains: {len(set(e['domain'] for e in entries))} of {len(DOMAINS)}")
     print(f"  eras:    {len(set(e['era'] for e in entries))} of {len(ERAS)}")
     print(f"  tags:    {len(set(t for e in entries for t in e['tags']))} distinct")
+    print(f"  seed:    {len(CORE_IDS)} of {len(CORE_IDS)} present")
     for note in notes:
         print("  note: " + note)
 

@@ -766,22 +766,25 @@ ship a falsehood on this site and it was done once already.
   missing image with a plausible filename. The figure card uses a real
   photograph first, then the mark; a way page uses the way's own mark, so the
   eight pages keep one visual identity. Plates are not used as fallbacks.
-- `data/timeline.json` — **the curated timeline.** Twenty-two milestones, each
-  with the required schema (`id`, `year`, `title`, `domain`, `era`, `summary`,
-  `parasocial_analysis`, `primary_source_or_artifact`, `tags`) plus
-  `sort_year` and `citations`. `year` is a display string (`c. 8 CE`,
-  `1830s-1850s`) and `sort_year` is the integer the page orders on. A citation
-  carries `citation`, `url`, `status` and `note`; `retrievable` means this build
-  opened the URL and found the work, not that the whole text was read. The six
-  domains and five eras are the schema's own lists and the filter is built from
-  them. `/timeline/` is this page; the 255-entry database timeline moved to
+- `data/timeline.json` - **the master timeline.** 88 instances across five
+  phases, each with the required schema (`id`, `year`, `title`, `domain`, `era`,
+  `summary`, `parasocial_analysis`, `primary_source_or_artifact`, `tags`) plus
+  `sort_year`, `phase`, `citations` and an optional `date_note`. `year` is a
+  display string (`c. 8 CE`, `1830s-1850s`) and `sort_year` is the integer the
+  page orders on. `phase` is 1-5 and the page groups by it. `date_note` is where
+  a widely repeated date is wrong and the entry says so. A citation carries
+  `citation`, `url`, `status` and `note`; `retrievable` means this build opened
+  the URL and found the work, not that the whole text was read. The six domains
+  and five eras are the schema's own lists and the filters are built from them.
+  `/timeline/` is this page; the 255-entry database timeline moved to
   `/timeline/corpus/`, and the per-section pages are unchanged.
-- `tools/verify_timeline.py` — **the timeline gate.** Checks every required
-  field and type, the domain/era membership, `sort_year` against the year
-  string, the citation status/locator contract, and the rendered page: every
-  card has a panel, every panel has a card, and the corpus page links back.
-  Wired into the source tier. It cannot check that a date is true; that is what
-  the citations are for. `--check-urls` is a separate, explicit network pass.
+- `tools/verify_timeline.py` - **the timeline gate.** Checks every required
+  field and type, the domain/era/phase membership, `sort_year` against the year
+  string and inside its phase, the citation status/locator contract, the 44
+  mandated seed ids, and the rendered page: every card has a panel, every panel
+  has a card, and the corpus page links back. Wired into the source tier. It
+  cannot check that a date is true; that is what the citations are for.
+  `--check-urls` is a separate, explicit network pass.
 - `data/ledger_history.json` — **STATEFUL AND TRACKED IN GIT.** Appended by
   `record_snapshot()` only when a watched figure moves, one entry per day however
   many builds run. `/ledger/feed.xml` is generated from it, so the feed is the
@@ -5359,7 +5362,7 @@ it gets resolved.
       step is configured and the workflow is triggered after this commit.
 
 
-98. **The timeline was 255 entries with no argument, so the curated spine became its own page and the database became the corpus.** The old `/timeline/` was `build_timeline()` over every encyclopedia entry: useful as a record, unreadable as a history, and impossible to filter by the six domains the subject actually has because the corpus classifies medium and attachment rather than era and domain. The page now has two layers. **`/timeline/` is the curated 22-milestone argument**; **`/timeline/corpus/` is the full 255-entry database**, linked from the curated page and listed in the sitemap. The ten `/timeline/<section>/` pages are unchanged, and the corpus still links to them.
+98. **The timeline was 255 entries with no argument, so the curated spine became its own page and the database became the corpus.** **This item records the first build; item 99 replaces the 22-milestone spine with the 88-entry master list.** The old `/timeline/` was `build_timeline()` over every encyclopedia entry: useful as a record, unreadable as a history, and impossible to filter by the six domains the subject actually has because the corpus classifies medium and attachment rather than era and domain. The page now has two layers. **`/timeline/` is the master timeline**; **`/timeline/corpus/` is the full 255-entry database**, linked from the master page and listed in the sitemap. The ten `/timeline/<section>/` pages are unchanged, and the corpus still links to them.
     - **The schema is enforced, not described.** `data/timeline.json` carries
       `id`, `year`, `title`, `domain`, `era`, `summary`,
       `parasocial_analysis`, `primary_source_or_artifact` and `tags`, plus
@@ -5413,4 +5416,66 @@ it gets resolved.
       taxonomy, **timeline**, card, image, the three rotation tests, link
       audit). `build_deploy` assembled 773 files / 363 pages with every local
       link resolving.
+
+
+99. **The 22-entry spine was the wrong shape: the timeline is now an 88-entry master list in five phases, and the user's basic list is the non-negotiable floor.** The previous build answered "what is the argument" when the request was "what is the record". A curated spine of 22 made the page readable and made it incomplete. The master list keeps every seed milestone and extends it with the instances the site can source, grouped in the five phases the user named. `/timeline/` is now the master list; `/timeline/corpus/` remains the 255-entry encyclopedia database.
+    - **The counts.** 88 entries: phase 1 14, phase 2 12, phase 3 18,
+      phase 4 18, phase 5 26. Six domains, five eras, 247 tags and 140
+      citation records (112 `retrievable`, 28 `unverified`). The file is
+      397 KB; the page carries 88 cards and 88 panels, one file, no new
+      deploy pages.
+    - **The seed is a gate, not a checklist in a commit message.** The 44
+      milestones in the user's list map to ids in `CORE_IDS` in
+      `tools/verify_timeline.py`, and the gate fails if any is missing. It
+      also requires every phase to be populated, `sort_year` to be ordered
+      inside each phase, and every entry to carry `phase`, `date_note` when it
+      needs one, and a citation with a locator. **Confirmed red** by deleting
+      `facebook` from the data: it named `seed milestones missing from the
+      master list: facebook`, plus the 88-card/87-entry mismatch, then green
+      on restore.
+    - **Twenty-seven of the entries are the encyclopedia's own prose, carried
+      with their citation records.** That is why the list could reach 88
+      without inventing 88 new essays: `neanderthal-burial`,
+      `paleolithic-figures`, `gobekli-tepe`, `roman-imagines`, `the-priest`,
+      `the-icon`, `margery-kempe`, `our-lady-of-guadalupe`, `pamela`,
+      `miss-havisham`, `sarah-bernhardt`, `betty-crocker`, `rin-tin-tin`,
+      `aimee-semple-mcpherson`, `babe-ruth`, `soap-opera`, `superman-comic`,
+      `sinatra-bobby-soxers`, `murrow`, `charlie-chaplin`, `mary-pickford`,
+      `howdy-doody`, `vtuber`, `replika`, `deepfake-grief`,
+      `sasaeng-culture` and `podcast-intimacy`. The rest are written for the
+      timeline, with Wikipedia, Project Gutenberg and Perseus locators.
+    - **Nine dates in the seed list are wrong or too precise, and the page
+      says so in a `date_note` rather than silently repeating them.** Ovid is
+      c. 8 CE, not 8 BCE; Dickens's 1812 is his birth, while the serial
+      phenomenon begins with *Pickwick* in 1836; 1861 is one year inside the
+      1858-70 reading tours; Margery Kempe's 1373 is her birth, and the Book
+      was dictated in 1438; the Yellow Kid debuted in 1895, not 1897; *The
+      Perils of Pauline* is 1914, not 1912; the bobby-soxer peak is 1942-44,
+      not 1940; YouTube launched in 2005, with 2006 the acquisition and vlog
+      boom; Twitch launched in 2011, with the donation layer maturing by 2014.
+      The note is rendered in the panel under **Date note**, so a reader can
+      see the correction without reading the prose.
+    - **The page groups by phase and filters by phase, domain, era, tag and
+      search.** The phase chips are the primary navigation; the era buckets
+      are a second way in. Driven against the real page: initial 88, phase 1
+      14, phase 5 26, AI 5, `Dickens` 3, no-match 0, `public-mourning` 4,
+      phase 1 + Myth 9, phase 4 + Music 7, clear 88. The panel opens on
+      `#tl-character-ai` and closes on `#list`.
+    - **The page is still one file and still under the limit.** `:target`
+      slide-overs mean 88 full analyses cost no extra pages; the deploy is
+      773 files against 1,000. The 1440px and 500px renders were opened; the
+      phase heading, the year column and the one-column phone card all hold.
+    - **What is not claimed.** The list is the master list the site can
+      support with a date and a source, not a proof that nothing else
+      happened. The data note says it is built to grow, and the gate's seed
+      set is a floor rather than a ceiling. The 28 `unverified` citations are
+      visible on the page; they are not promoted to make the list look
+      stronger.
+    - `gates.py --all` green after the change: post (plate, orphans,
+      findable, landmarks, ways, markdown, internal leaks, feeds, heads),
+      visual (narrow, nav, hub contrast) and source (archive, editor, affil,
+      citation, cull, taxonomy, **timeline**, card, image, the three rotation
+      tests, link audit). `build_deploy` assembled 773 files / 363 pages with
+      every local link resolving. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`,
+      **773 files, 15.27 MB, tree sha `2753fcb786c0f89b`**.
 

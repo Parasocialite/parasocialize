@@ -1,5 +1,37 @@
 {
-  "_note": "The curated timeline: 22 milestones, each a claim about a mechanism rather than a list of famous people. The required schema is id, year, title, domain, era, summary, parasocial_analysis, primary_source_or_artifact, tags. Two fields are added: sort_year, because 'c. 8 CE' and '1830s-1850s' cannot be sorted as strings, and citations, because a timeline that asserts dates must show where they come from. A citation marked retrievable was opened by this build and returned the work; it does not mean the whole text was read. A citation marked unverified is named but was not openable to an automated request, and says why. No date, quotation or attribution here was invented.",
+  "_note": "The master timeline: the instances the site can support with a date and a source, from a Neanderthal burial to a synthetic companion. The required schema is id, year, title, domain, era, summary, parasocial_analysis, primary_source_or_artifact, tags; sort_year, phase and citations are added. phase follows the five-part structure. Dates are checked against a source, and where a widely repeated date is wrong the entry carries a date_note rather than repeating the error. A citation marked retrievable was opened and returned the work; it does not mean the whole text was read. A citation marked unverified says why. The list is built to grow: a missing instance is a research task, not a verdict that nothing happened.",
+  "phases": [
+    {
+      "id": 1,
+      "name": "Myth, Antiquity & Pre-Print",
+      "range": "c. 70,000 BCE – 1605",
+      "note": "Before mass media, the bond is made by ritual, recitation and the image."
+    },
+    {
+      "id": 2,
+      "name": "The Print Revolution & Mass Reading",
+      "range": "1740–1897",
+      "note": "Print makes the same face available to strangers at the same time."
+    },
+    {
+      "id": 3,
+      "name": "Early Broadcast, Radio & Cinema",
+      "range": "1900–1956",
+      "note": "The voice and the face arrive in the home, on a schedule."
+    },
+    {
+      "id": 4,
+      "name": "Television, Politics & Late-Century Pathology",
+      "range": "1960–2000",
+      "note": "The camera makes the figure intimate and the boundary dangerous."
+    },
+    {
+      "id": 5,
+      "name": "Reality TV, Platforms & the Algorithmic Era",
+      "range": "1999–2024",
+      "note": "The audience becomes a feed, a subscriber and finally a prompt."
+    }
+  ],
   "domains": [
     "Myth & Legend",
     "Literature & Print",
@@ -17,6 +49,177 @@
   ],
   "entries": [
     {
+      "id": "neanderthal-burial",
+      "year": "c. 70,000 BCE",
+      "sort_year": -70000,
+      "title": "The dead kept in the cave",
+      "summary": "Neanderthals repeatedly carried their dead into one cave in northern Iraq and put them down in the floor. Shanidar 4 was found on his side with his arm under his head; Shanidar Z lay in a hollow gouged out to fit her, with a stone under her head. The cluster dates to roughly seventy to seventy-five thousand years ago.",
+      "parasocial_analysis": "The oldest evidence on this site of people treating the dead as somewhere you go, rather than something you leave behind. It sits about fifty-five thousand years before the dog, which settles an argument this site was getting wrong: one-sided attachment to a non-human does not begin with a domesticated animal. It is also the discipline case. The famous flowers were a mistake - the pollen turned out to come from burrowing rodents - and the burials survived the debunk anyway. That is what a real claim looks like after someone has been wrong about part of it. One limit worth stating: Sunghir, later and better studied, shows this was not a single uniform practice, so what Shanidar documents is the earliest *instance* of something that varied a great deal.",
+      "primary_source_or_artifact": "Shanidar Cave burials, c. 70,000 BCE",
+      "tags": [
+        "burial",
+        "proxy-presence",
+        "ritual",
+        "ancestors",
+        "paleolithic"
+      ],
+      "citations": [
+        {
+          "citation": "University of Cambridge, Department of Archaeology. Shanidar Cave Project. Date of access recorded when the record was added.",
+          "url": "https://www.arch.cam.ac.uk/research/projects/current-projects/shanidar-cave-project",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Pomeroy, E., Bennett, P., & Hunt, C. O. (2020). New Neanderthal remains associated with the 'flower burial' at Shanidar Cave. Antiquity, 94(373), 11-26. doi:10.15184/aqy.2019.207",
+          "url": "https://www.cambridge.org/core/journals/antiquity/article/new-neanderthal-remains-associated-with-the-flower-burial-at-shanidar-cave/E7E94F650FF5488680829048FA72E32A",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern"
+    },
+    {
+      "id": "paleolithic-figures",
+      "year": "c. 40,000 BCE",
+      "sort_year": -40000,
+      "title": "The carved animals",
+      "summary": "Upper Paleolithic carvers in Europe made small figures of animals and people from mammoth ivory from about forty thousand years ago. The Vogelherd set includes a cave lion, a bison, a horse, a bear, a mammoth, and a lion-man - a body with a human face on a lion's. At La Madeleine in France a bison carved from antler is caught mid-grooming, turning its head to lick its own side.",
+      "parasocial_analysis": "This is what the dog entry used to deny. Animals carrying human qualities were being made, kept and shown to other people tens of thousands of years before the dog: the grooming gesture is specifically human, and somebody carved it in antler on purpose. It also puts an anthropomorphised animal on the same taxonomy shelf as the dog roughly twenty-five thousand years ahead of it, which is the honest shape of the argument. The dog is not the first animal to be given human shape in the imagination. It is the first animal to be bred into living alongside us.",
+      "primary_source_or_artifact": "Upper Paleolithic ivory figurines, c. 40,000 BCE",
+      "tags": [
+        "figurines",
+        "projection",
+        "art",
+        "animals",
+        "paleolithic"
+      ],
+      "citations": [
+        {
+          "citation": "Smithsonian Institution, Human Origins Program. Figurines. Human Evolution Evidence: Behavior, Art & Music.",
+          "url": "https://humanorigins.si.edu/evidence/behavior/art-music/figurines",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Bradshaw Foundation. La Madeleine Bison Licking its Side. Ice Age Art. (Catalogue entry for the carving held at the Musee d'Archéologie Nationale, Saint-Germain-en-Laye.)",
+          "url": "https://www.bradshawfoundation.com/sculpture/bison_licking_side.php",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern"
+    },
+    {
+      "id": "gobekli-tepe",
+      "year": "c. 9500 BCE",
+      "sort_year": -9500,
+      "title": "Eleven thousand years of pillars",
+      "summary": "Round enclosures on a hillside in Anatolia holding T-shaped pillars carved to suggest human figures, built by people who had not yet domesticated a single animal - used for over a thousand years, then deliberately filled in and built over.",
+      "parasocial_analysis": "The oldest thing on this site with a claim to be about figures, and the interpretation is genuinely open, which is the point. What is not in dispute: hunter-gatherers cut limestone into anthropomorphic forms with stone and bone tools, set them upright in circles, carved them with foxes, scorpions, lions and vultures, returned to them for fourteen hundred years, and then filled the enclosures in on purpose. There is no hearth, no rubbish pit and no sign that anyone lived there - people travelled to the place. UNESCO's own nomination describes the pillars as believed to represent 'ancestors, perhaps even incipient deities', and other readings have them as totemic or protective figures. Nobody has settled it, and the carvings include a great many frightening animals: the dominant imagery is not a kind face but lions, spiders, snakes and scorpions. What this site can claim is narrow and still large: for at least a millennium, people made representations of beings, went out of their way to be near them, and eventually chose to close the place where they stood. Whether the beings were ancestors is the question this entry cannot answer, and saying so is more useful here than guessing.",
+      "primary_source_or_artifact": "Göbekli Tepe, c. 9500 BCE",
+      "tags": [
+        "monument",
+        "ritual",
+        "pillars",
+        "ancestors",
+        "neolithic"
+      ],
+      "citations": [
+        {
+          "citation": "Göbekli Tepe (Turkey), No 1572: nomination and evaluation. UNESCO World Heritage Centre, 2018.",
+          "url": "https://whc.unesco.org/document/168743",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Executive Summary, Göbekli Tepe (Turkey), No 1572. UNESCO World Heritage Centre.",
+          "url": "https://whc.unesco.org/document/160485",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Gobekli Tepe. Encyclopaedia Britannica.",
+          "url": "https://www.britannica.com/place/Gobekli-Tepe",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern"
+    },
+    {
+      "id": "homeric-recitation",
+      "year": "c. 800 BCE",
+      "sort_year": -800,
+      "title": "Homer and the voice in the room",
+      "summary": "The Homeric poems were performed, not read: a bard recited a familiar story to a room that already knew the characters and the outcome.",
+      "parasocial_analysis": "The audience did not meet Homer; it met a voice performing a world it already knew. The bard's presence, the formulaic epithets and the repetition made the heroes available as figures to admire, mourn and argue about. The bond is with the performance and with the persona of the singer as much as with Achilles. It is the earliest recorded structure in which a crowd gives its attention to one voice and receives a story in return.\n\nThe recitation is also a schedule. A poem that takes hours to perform holds a room together for that long, and the audience's memory carries the characters between performances. That continuity is the pre-print version of the serial: the figure exists because a community keeps returning to the same voice.",
+      "primary_source_or_artifact": "The Iliad and the Odyssey, oral performance tradition",
+      "tags": [
+        "oral-tradition",
+        "bardic-performance",
+        "audience-immersion",
+        "myth",
+        "ancient"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Homer'.",
+          "url": "https://en.wikipedia.org/wiki/Homer",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Homer, The Iliad, trans. Samuel Butler (Perseus Digital Library).",
+          "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0133",
+          "status": "retrievable",
+          "note": "Opened: the Perseus text of the Iliad."
+        }
+      ],
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern"
+    },
+    {
+      "id": "roman-imagines",
+      "year": "c. 250 BCE–550 CE",
+      "sort_year": -250,
+      "title": "The wax masks in the hall",
+      "summary": "A Roman aristocrat had a wax mask of his own face taken while he was alive - usually in his thirties or forties, on taking office - and it was kept in a cupboard in the entrance hall beside a painted family tree and a label listing his offices. He never saw it worn. After his death, actors put it on and walked it in his funeral procession, in order of death, wearing the robes of the office he had held.",
+      "parasocial_analysis": "The best-documented one-sided attachment in this corpus, and thirteen thousand years later than the dog - which is the point. Everything here is checkable, because it was written down, and what it shows is how completely a bond can be built with someone who cannot answer. The mask never speaks: eye-holes and a gap between the lips were cut into it so that the *actor* could see and talk, and the inscription beside it did the conversing. Children grew up walking past it daily - Valerius Maximus has a man recalling that he called the dead his parents and drew his standing from their masks - and it had states: opened at festivals, hung with laurel on an election, closed during mourning. It was also an inheritance that changed address, going with a bride into her husband's house, and it was not uniformly flattering: Pliny's son was described as burdened by the masks he carried. No mask survives. All of it comes from authors.",
+      "primary_source_or_artifact": "Roman wax imagines, c. 250 BCE–550 CE",
+      "tags": [
+        "ancestors",
+        "masks",
+        "memory",
+        "ritual",
+        "rome"
+      ],
+      "citations": [
+        {
+          "citation": "Rose, C. B., & Lovink, M. (2014). Recreating Roman Wax Masks. Expedition Magazine, 56(3). Penn Museum. Originally published 1 December 2014.",
+          "url": "https://www.penn.museum/sites/expedition/recreating-roman-wax-masks",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Webb, L. (2023). Gendering the Roman imago. Eugesta, 7(2017). DOI: 10.54563/eugesta.550",
+          "url": "https://www.peren-revues.fr/eugesta/550",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern"
+    },
+    {
       "id": "narcissus-echo",
       "year": "c. 8 CE",
       "sort_year": 8,
@@ -26,7 +229,13 @@
       "summary": "Ovid's Metamorphoses tells of a nymph cursed to repeat only the last words spoken to her, and a youth who falls in love with his own reflection in a pool.",
       "parasocial_analysis": "Echo has a voice but no sentence of her own: Juno's curse leaves her able to return the end of another person's speech, so every reply is borrowed. Narcissus is answered, but only by a surface that mirrors his own approach; when he reaches for it, it breaks. The myth separates two mechanisms the rest of this timeline keeps finding together: a far end that can only repeat, and a far end that can only reflect.\n\nThe attachment is intense because the near side supplies both halves of the exchange and misreads the result as consent. Ovid's sharper point is that Narcissus is not simply fooled. He loves an image he cannot touch, and the image is accurate. The tragedy is not a failure to tell reality from representation; it is an attachment that survives the distinction.",
       "primary_source_or_artifact": "Ovid, Metamorphoses, Book III (Narcissus and Echo)",
-      "tags": ["unrequited-love", "reflection", "fragmented-speech", "self-objectification", "myth"],
+      "tags": [
+        "unrequited-love",
+        "reflection",
+        "fragmented-speech",
+        "self-objectification",
+        "myth"
+      ],
       "citations": [
         {
           "citation": "Ovid, Metamorphoses, trans. George Sandys and others (Internet Classics Archive).",
@@ -34,7 +243,175 @@
           "status": "retrievable",
           "note": "Opened: the Book III page carries the Narcissus and Echo sequence."
         }
-      ]
+      ],
+      "phase": 1,
+      "date_note": "The seed list dates this to 8 BCE; Ovid's Metamorphoses is c. 8 CE."
+    },
+    {
+      "id": "the-priest",
+      "year": "c. 100 CE",
+      "sort_year": 100,
+      "title": "The priest",
+      "summary": "A person who hears the specifics, performs the ritual, and knows the family history, on a repeating cycle.",
+      "parasocial_analysis": "The most complete parasocial arrangement available and it includes a uniform, a script and a confession. It is also the arrangement the most people are inside of, which is the strongest evidence that the form is universal rather than a symptom.\n\nThe structure is not the office but the repetition: the same person hears the same family's particulars year after year, and the relationship is real on one side and professional on the other. The priest is the first named role in which a stranger is licensed to know you intimately and is not required to be known back.",
+      "primary_source_or_artifact": "The institutional priest, c. 100 CE",
+      "tags": [
+        "religion",
+        "mediator",
+        "confession",
+        "ritual",
+        "institution"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Presbyter'.",
+          "url": "https://en.wikipedia.org/wiki/Presbyter",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Priesthood in the Catholic Church'.",
+          "url": "https://en.wikipedia.org/wiki/Priesthood_in_the_Catholic_Church",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern"
+    },
+    {
+      "id": "the-icon",
+      "year": "787 CE",
+      "sort_year": 787,
+      "title": "The icon answers nothing",
+      "summary": "In 787 the Second Council of Nicaea ended the first phase of the Byzantine iconoclastic dispute and defined what an icon was for: the honour paid to the image passes to the figure it shows. Icons were lawful because in Christ the invisible God had been seen. The panel itself never answered anyone.",
+      "parasocial_analysis": "**The council drew a line only the second phase of iconoclasm would redraw.** The Byzantine dispute over images ran from the reign of the emperor Leo III in the 730s; the Second Council of Nicaea, summoned in 787, closed the first phase by declaring the veneration of icons lawful and orthodox. Its formula rests on a distinction the church still repeats: relative veneration (proskynesis - the honour, the greeting) was owed to the image, while true worship (latreia) belonged to God alone. The classical backing was Basil of Caesarea's sentence that the honour paid to the image passes to the prototype - the figure the image shows.\n\n**What the icon is for makes this site's subject in paint.** The devotee stands before a panel understood, in the argument of John of Damascus and later the Studite writers, to participate in the figure it shows, so that a prayer said 'through' the image is addressed to somebody who is not in the room. The venerated panel cannot answer, and nobody expects it to; the whole doctrine runs on the reply being withheld here and heard elsewhere. The icon is a face in a church that speaks to nobody back - the painted absence this corpus already records in the empty-wall entry, arriving as an official theology rather than a habit.\n\n**The counter-argument is the one the council had to defeat, and it is kept on the entry rather than resolved.** The iconoclasts charged the practice as idolatry; the council's answer was that honour directed through an image is not the worship of wood and pigment, and the plain reading of the ban on graven images was set against the Incarnation - the unseeable God had been seen in Christ. The settlement did not hold: the icons were banned again in 815 and restored for good only in 843. One political parallel the same argument used is worth keeping - the imperial portrait honoured an absent emperor exactly as an icon honours an absent Christ, which is the civic version of the same structure.",
+      "primary_source_or_artifact": "The Second Council of Nicaea and the icon, 787 CE",
+      "tags": [
+        "icons",
+        "religion",
+        "image",
+        "projection",
+        "byzantium"
+      ],
+      "citations": [
+        {
+          "citation": "Brunel University research archive (thesis full text)",
+          "url": "https://bura.brunel.ac.uk/bitstream/2438/5323/1/FulltextThesis.pdf",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Wikipedia, \"Byzantine Iconoclasm\"",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Iconoclasm",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern"
+    },
+    {
+      "id": "dante-beatrice",
+      "year": "c. 1320",
+      "sort_year": 1320,
+      "title": "Dante's Beatrice: the woman who becomes a guide",
+      "summary": "Dante's Divine Comedy turns a woman he met perhaps twice into a guide through Paradise.",
+      "parasocial_analysis": "Beatrice is the most extreme literary case of a real person converted into a figure: Dante barely knew her, and the poem gives her the authority of a guide, a judge and a destination. The reader is invited to love her as Dante does, which makes the attachment transitive. The beloved is at once a woman, a symbol and a voice in the text; the relationship is sustained by the poem rather than by any exchange.\n\nThe structure is the one the rest of this list keeps finding: the far end is silent, and the near end supplies the voice. What makes Dante's version distinctive is that the silence is not a failure. It is the condition of the poem's vision, and the reader is asked to accept the substitution as the price of admission.",
+      "primary_source_or_artifact": "Dante Alighieri, The Divine Comedy",
+      "tags": [
+        "courtly-love",
+        "idealisation",
+        "unrequited-love",
+        "literature",
+        "medieval"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Beatrice Portinari'.",
+          "url": "https://en.wikipedia.org/wiki/Beatrice_Portinari",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Dante Alighieri, The Divine Comedy (Project Gutenberg eBook 8800).",
+          "url": "https://www.gutenberg.org/ebooks/8800",
+          "status": "retrievable",
+          "note": "Opened: the Gutenberg catalogue page for the poem."
+        }
+      ],
+      "phase": 1,
+      "domain": "Literature & Print",
+      "era": "Pre-Modern"
+    },
+    {
+      "id": "petrarch-laura",
+      "year": "c. 1327–1374",
+      "sort_year": 1327,
+      "title": "Petrarch's Laura and the poetry of absence",
+      "summary": "Petrarch wrote hundreds of poems to Laura, a woman he may have seen once, and made the unreachable beloved the centre of a literary career.",
+      "parasocial_analysis": "Petrarch's Laura is a name and a face that the poems repeatedly approach and never possess. The sequence is built on absence: the speaker addresses a woman who cannot reply, and the reader is placed in the same posture. The sonnet form becomes a technology for keeping the attachment alive after the occasion has gone. It is the template for centuries of love poetry in which the beloved is a figure the reader is invited to desire.\n\nThe poems do not pretend the relationship is mutual. They make the non-answer the subject, and the reader's pleasure is in the precision of the longing. That is a different mechanism from the novel's immersive identification: here the distance is not a problem to be solved but the instrument that produces the feeling.",
+      "primary_source_or_artifact": "Petrarch, Rerum vulgarium fragmenta (Canzoniere)",
+      "tags": [
+        "unrequited-love",
+        "absence",
+        "poetry",
+        "idealisation",
+        "medieval"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Petrarch'.",
+          "url": "https://en.wikipedia.org/wiki/Petrarch",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Laura (Petrarch)'.",
+          "url": "https://en.wikipedia.org/wiki/Laura_(Petrarch)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 1,
+      "domain": "Literature & Print",
+      "era": "Pre-Modern"
+    },
+    {
+      "id": "margery-kempe",
+      "year": "c. 1373–1438",
+      "sort_year": 1373,
+      "title": "Margery Kempe",
+      "summary": "English woman who experienced what she described as an unbreakable bond with Jesus, was mocked for weeping in church, was reviled by her family, and in 1438 dictated a book about it that persuaded other women to do the same.",
+      "parasocial_analysis": "The single strongest real case in the catalogue, and it is eight hundred years early. A bond with a figure who never appears in the physical world. A text as the medium. Grief when the access was withdrawn, which is the Replika update. And a recruitment function: the book exists to make other women feel what she felt, which is what a parasocial relationship is for.",
+      "primary_source_or_artifact": "The Book of Margery Kempe, c. 1438",
+      "tags": [
+        "religion",
+        "divine-dialogue",
+        "autobiography",
+        "medieval",
+        "identification"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Margery Kempe'.",
+          "url": "https://en.wikipedia.org/wiki/Margery_Kempe",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "The Book of Margery Kempe, ed. Frances E. Butler (Early English Text Society).",
+          "url": "https://archive.org/details/in.ernet.dli.2015.385668",
+          "status": "retrievable",
+          "note": "Opened: the Internet Archive catalogue record for the edition."
+        }
+      ],
+      "date_note": "1373 is the year of her birth; the Book was dictated in 1438.",
+      "phase": 1,
+      "domain": "Literature & Print",
+      "era": "Pre-Modern"
     },
     {
       "id": "canterbury-tales",
@@ -46,7 +423,12 @@
       "summary": "The Canterbury Tales frame a company of pilgrims with a first-person narrator, 'Chaucer', who reports their words and his own embarrassment.",
       "parasocial_analysis": "The General Prologue creates a voice that is warm, gossipy and slightly foolish, and it addresses the reader as a companion on the road. The historical Chaucer is not that voice. The poem's 'I' is a persona who misremembers, apologises and invites the reader to judge the pilgrims alongside him. That gap is the first durable English example of mediated intimacy: the reader is spoken to by a constructed person who seems to have no screen between himself and the page.\n\nThe contract is conversational rather than dramatic. The narrator says he will tell the tale as he heard it and asks indulgence for plain speech, which positions the reader as a listener who has been let in. The frame does not require belief in the narrator, only the pleasant illusion that someone is talking to you rather than at you.",
       "primary_source_or_artifact": "Geoffrey Chaucer, The Canterbury Tales, General Prologue",
-      "tags": ["narrator-persona", "direct-address", "framing-device", "reader-contract"],
+      "tags": [
+        "narrator-persona",
+        "direct-address",
+        "framing-device",
+        "reader-contract"
+      ],
       "citations": [
         {
           "citation": "Geoffrey Chaucer, The Canterbury Tales, ed. Walter W. Skeat (Project Gutenberg eBook 2383).",
@@ -54,7 +436,41 @@
           "status": "retrievable",
           "note": "Opened: the Gutenberg catalogue page for the complete Tales."
         }
-      ]
+      ],
+      "phase": 1
+    },
+    {
+      "id": "our-lady-of-guadalupe",
+      "year": "1531",
+      "sort_year": 1531,
+      "title": "Am I not here, I who am your mother?",
+      "summary": "Four apparitions to a Chichimec farmer and one to his uncle, a single Nahuatl sentence that gave the devotion its title, and a cloth image the Catholic world has organised itself around ever since.",
+      "parasocial_analysis": "**The entire relationship is address, and the founding story is one reply.** According to the Nican Mopohua, written in Nahuatl, the Virgin appeared four times to Juan Diego, a Chichimec peasant, and once to his uncle Juan Bernardino, beginning on the morning of 9 December 1531. She spoke to him in his own language - Nahuatl, the language of the former Aztec empire - and identified herself as the mother of the very true deity. The sign he was sent to gather was Castile roses, not native to Mexico, blooming out of season on the summit of Tepeyac Hill; he carried them in his tilma, the cloak that bears the image venerated ever since. And the sentence the devotion is built on is her answer to his worry: '¿No estoy yo aquí que soy tu madre?' - 'Am I not here, I who am your mother?' - which the record calls the most famous phrase of the apparitions, and which is inscribed above the main entrance to the Basilica of Our Lady of Guadalupe, on Tepeyac Hill in Mexico City, the most-visited Catholic shrine in the world and, the article says, the third most-visited sacred site. **The shelf's test is address rather than watching, with the other end understood to hear, and that is the whole cult - built on one reply that nobody but a single man is recorded to have received.** The evidence has been contested from the beginning. The 1556 inquiry records an attack on devotion to an image 'painted yesterday by the Indian Marcos'; Sahagún recorded his suspicion that it was 'a Satanic invention to cloak idolatry under the confusion of this name, Tonantzin' - 'They come from distant lands to this Tonantzin as in olden times'. Juan Diego himself is doubted: Zumárraga's own writings never mention him, the 1556 inquiry omits him, he appears in no document before the mid-17th century, and in 1996 the abbot of the Basilica was forced to resign after saying Juan Diego was 'a symbol, not a reality'. None of it stopped anything. In 1754 the Sacred Congregation of Rites confirmed the apparitions and the December 12 feast; Leo XIII granted the decree of canonical coronation in 1887, executed in 1895; and in 2002 Juan Diego was canonised as the first indigenous American saint. **The image's own history is a record of being handled, defended and examined.** In 1887-88 the ten-point crown painted on the Virgin's head disappeared - the change was noticed on 23 February 1888, and eventually a painter confessed on his deathbed that a clergyman had instructed him to remove it. In 1921 a bomb left under the tilma by an anti-Catholic secularist damaged the altar and left the image unharmed; the survival is called miraculous by devotees. In 1981, examining the cloth under infrared light, Philip Serna Callahan and Jody Brant Smith found no trace of sizing or sketching underneath the paint, and no explanation for the original parts of the image or their preservation. That is the honest shape of the whole entry: the most-visited shrine in the Catholic world rests on a Nahuatl text and a piece of cloth, and the address has been going up to both, undiminished, for five hundred years.",
+      "primary_source_or_artifact": "The image of Our Lady of Guadalupe, 1531",
+      "tags": [
+        "apparition",
+        "image",
+        "pilgrimage",
+        "religion",
+        "devotion"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia. 'Our Lady of Guadalupe.'",
+          "url": "https://en.wikipedia.org/wiki/Our_Lady_of_Guadalupe",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Wikipedia. 'Juan Diego.'",
+          "url": "https://en.wikipedia.org/wiki/Juan_Diego",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern"
     },
     {
       "id": "don-quixote",
@@ -66,7 +482,13 @@
       "summary": "Cervantes's Alonso Quixano reads so many chivalric romances that he resolves to become a knight-errant, and the world has to negotiate with the fiction he is living in.",
       "parasocial_analysis": "Quixote is not merely a fan of romances. He uses them as a script for conduct, renaming himself, arming himself and interpreting inns as castles. The comedy is that other people can see the gap and he cannot. The parasocial structure runs in the opposite direction from most of this timeline: instead of attaching to a distant figure, he attaches to a genre and then demands that the genre's rules be honoured by everyone he meets.\n\nCervantes makes the reader complicit. We are given the fiction and the correction in the same sentence, so we occupy the position of the sane household and the position of the man who prefers the story. That double occupancy is the earliest sustained literary account of what it feels like to know a representation is not real and to keep acting as if it were.",
       "primary_source_or_artifact": "Miguel de Cervantes, Don Quixote, Part I",
-      "tags": ["over-identification", "fiction-as-script", "genre-fandom", "delusion", "literature"],
+      "tags": [
+        "over-identification",
+        "fiction-as-script",
+        "genre-fandom",
+        "delusion",
+        "literature"
+      ],
       "citations": [
         {
           "citation": "Miguel de Cervantes, Don Quixote, trans. John Ormsby (Project Gutenberg eBook 996).",
@@ -74,7 +496,47 @@
           "status": "retrievable",
           "note": "Opened: the Gutenberg catalogue page for the Ormsby translation."
         }
-      ]
+      ],
+      "phase": 1
+    },
+    {
+      "id": "pamela",
+      "year": "1740",
+      "sort_year": 1740,
+      "title": "Virtue rewarded",
+      "summary": "The novel that turned its readers into a correspondent. Pamela Andrews writes home about her master's pursuit, and the reader takes the seat of the parents - receiving every letter, sending none. Published anonymously in November 1740, it became the first English best-seller and the first novel whose readers wrote back demanding more of it.",
+      "parasocial_analysis": "**The form is a correspondence the reader reads from the far end of.** Richardson was a printer who took a commission in 1739 to compile a volume of model \"familiar letters\" for people too unskilled to write their own, and the germ of Pamela was a short run of letters from a servant daughter asking her father's advice about her master's advances. He kept the epistolary shape and changed its address: the letters are written not to a lover but to Pamela's parents, who are offstage, at a distance, and never answer inside the book. The reader is put in that seat - handed a life in letters addressed to somebody else, with no way to write back - which is this site's subject arriving in the first novel most of its readers ever meet.\n\n**The reception is a record of attachment, and it is unusually well documented.** The book is, on the Cambridge edition's own description, \"perhaps the most influential novel published in Britain in the eighteenth century\" and \"on its first publication in 1740 ... an immediate bestseller\"; it ran to five editions in its first year and produced what the University of Michigan project calls a \"'Pamela' rage,\" with Pamela motifs on teacups and fans. The world was said to divide into \"Pamelists and Antipamelists.\" A village blacksmith, the oft-repeated anecdote runs, read it aloud on his anvil through the summer evenings to an attentive crowd and set the parish bells ringing at the happy ending. And the readers did not stay passive: the unauthorized continuations and parodies - Fielding's Shamela, Haywood's Anti-Pamela, Kelly's Pamela's Conduct in High Life - drew a sequel from Richardson himself, Pamela in her Exalted Condition, in 1742. The audience's want bent the text.\n\n**The counter-argument is that Pamela belongs to the history of the novel, not to this site: its importance is form, consent and class, and the people who wrote back wrote to Richardson, not to a girl who never existed.** It is a fair objection and the entry's claim is narrower than it looks. What it files is a structure - a one-sided correspondence the reader reads from the parents' end - and a documented public that formed an attachment and then wrote to keep it going. The letters in the book are addressed to figures who cannot reply; the letters out of the book were addressed to a man who could, and did, and wrote two more volumes because of them. Both are this site's shape. Contestable, and recorded as such.",
+      "primary_source_or_artifact": "Samuel Richardson, Pamela; or, Virtue Rewarded (1740)",
+      "tags": [
+        "epistolary",
+        "reader-intimacy",
+        "novel",
+        "virtue",
+        "18th-century"
+      ],
+      "citations": [
+        {
+          "citation": "Richardson, S., \"Pamela; or, Virtue Rewarded\" (1740), Project Gutenberg ebook 6124",
+          "url": "https://www.gutenberg.org/ebooks/6124",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Introduction to Pamela, Project Gutenberg",
+          "url": "https://www.gutenberg.org/files/24860/24860-h/24860-h.htm",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Cambridge University Press, \"Pamela: Or, Virtue Rewarded\" (critical edition)",
+          "url": "https://www.cambridge.org/core/books/pamela-or-virtue-rewarded/49FC58F01F61FF1FE4569A2532FE9168",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media"
     },
     {
       "id": "werther",
@@ -86,7 +548,13 @@
       "summary": "Goethe's epistolary novel made a young man's unrequited love and suicide a European sensation, and readers copied both the feeling and the clothes.",
       "parasocial_analysis": "Werther writes letters to a friend and to Lotte, and the reader is placed inside an intimacy that has only one correspondent. The novel's form is the mechanism: no omniscient narrator corrects him, so the reader lives at his level of certainty. When the book became a fashion, the clothing style described in it turned a private attachment into a public costume, and the reported copycat deaths gave the reception its later name, the Werther effect.\n\nThe important point is not that readers were foolish. It is that print can distribute a whole emotional grammar - what to feel, what to wear, how to die - and that the grammar arrives with the intimacy of a letter. The copycat reports are themselves disputed; Goethe's biographer Rüdiger Safranski called the Werther effect a persistent rumour, which is the right caution for a story the culture wanted to be true.",
       "primary_source_or_artifact": "Johann Wolfgang von Goethe, The Sorrows of Young Werther",
-      "tags": ["emotional-contagion", "copycat", "fan-fashion", "epistolary", "unrequited-love"],
+      "tags": [
+        "emotional-contagion",
+        "copycat",
+        "fan-fashion",
+        "epistolary",
+        "unrequited-love"
+      ],
       "citations": [
         {
           "citation": "Johann Wolfgang von Goethe, The Sorrows of Young Werther (Project Gutenberg eBook 2527).",
@@ -100,7 +568,41 @@
           "status": "retrievable",
           "note": "Opened: records the Werther Fever, the clothing style and the disputed copycat reports."
         }
-      ]
+      ],
+      "phase": 2
+    },
+    {
+      "id": "byron-mania",
+      "year": "1812–1824",
+      "sort_year": 1812,
+      "title": "Byron and the poet as his own hero",
+      "summary": "Lord Byron woke up famous after Childe Harold's Pilgrimage and became the first poet whose readers treated the author as the hero of his own work.",
+      "parasocial_analysis": "Byron's readers did not separate the poet from the brooding, exiled narrator of his poems. The Byronic hero gave them a template for feeling, and Byron's own life supplied the sequel. The attachment was to a persona that the poems and the press built together. When he died at Missolonghi, the mourning was for a figure who had been available chiefly through print.\n\nThe mechanism is identification with a posture rather than with a plot. Readers did not need to meet Byron to know how he suffered; the poems told them, and the newspapers confirmed it. The poet became a character whose continuing story was published in instalments called biography.",
+      "primary_source_or_artifact": "Lord Byron, Childe Harold's Pilgrimage",
+      "tags": [
+        "poetry",
+        "byronic-hero",
+        "celebrity",
+        "print",
+        "romanticism"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Lord Byron'.",
+          "url": "https://en.wikipedia.org/wiki/Lord_Byron",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Byronic hero'.",
+          "url": "https://en.wikipedia.org/wiki/Byronic_hero",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media"
     },
     {
       "id": "dickens-serial",
@@ -111,8 +613,14 @@
       "era": "Early Mass Media",
       "summary": "Dickens published his novels in monthly and weekly parts, making the next instalment a shared appointment; the death of Little Nell in The Old Curiosity Shop became a public bereavement.",
       "parasocial_analysis": "Serial publication turned reading into a schedule. A huge audience met the same characters in the same week, and the gap between parts was a real interval in which the characters continued to exist without the reader. That interval is the engine: it produces anticipation, conjecture and a sense of ongoing relationship rather than a single transaction.\n\nThe death of Nell made the mechanism visible. Readers mourned a child who had never existed, and the story that American crowds met the incoming ship asking whether she had died is repeated so often that it has become part of the reception even where the evidence is thin. Dickens's later public readings, where audiences were reported to faint at the murder of Nancy, moved the same attachment into a room with a live body in it.",
-      "primary_source_or_artifact": "Charles Dickens, The Old Curiosity Shop (serial, 1840-41); public reading tours",
-      "tags": ["serial-fiction", "scheduled-intimacy", "public-mourning", "victorian", "fan-culture"],
+      "primary_source_or_artifact": "Charles Dickens, The Old Curiosity Shop (serial, 1840–41); public reading tours",
+      "tags": [
+        "serial-fiction",
+        "scheduled-intimacy",
+        "public-mourning",
+        "victorian",
+        "fan-culture"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'The Old Curiosity Shop'.",
@@ -126,7 +634,474 @@
           "status": "retrievable",
           "note": "Opened: records the reading tours and their effect on audiences."
         }
-      ]
+      ],
+      "phase": 2,
+      "date_note": "1812 is Dickens's birth year; the serial phenomenon begins with Pickwick in 1836."
+    },
+    {
+      "id": "lisztomania",
+      "year": "1841–1847",
+      "sort_year": 1841,
+      "title": "Lisztomania and the souvenir body",
+      "summary": "Franz Liszt's concert tours produced scenes of fainting, souvenir-collecting and crowd frenzy that the press named Lisztomania.",
+      "parasocial_analysis": "Liszt played in public and then let the public take pieces of him: gloves, handkerchiefs, locks of hair, broken piano strings. The performance was not only the music but the availability of the performer's body. Heinrich Heine coined the term, and the pattern it describes - a crowd treating an artist as a personal possession - is the direct ancestor of the pop idol.\n\nThe souvenir is the mechanism made physical. A glove or a string is not the person, but it is a piece of the person's presence that can be carried away. The audience's attachment is to a body it has seen at a distance, and the object is the substitute for a reply.",
+      "primary_source_or_artifact": "Franz Liszt's concert tours, 1841–1847",
+      "tags": [
+        "music-fandom",
+        "celebrity",
+        "crowd",
+        "tour",
+        "19th-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Lisztomania'.",
+          "url": "https://en.wikipedia.org/wiki/Lisztomania",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 2,
+      "domain": "Music & Fan Culture",
+      "era": "Early Mass Media"
+    },
+    {
+      "id": "jane-eyre",
+      "year": "1847",
+      "sort_year": 1847,
+      "title": "Jane Eyre speaks to one reader at a time",
+      "summary": "Charlotte Brontë's Jane Eyre addressed the reader directly in its opening pages and made a fictional woman's interior life a mass reading experience.",
+      "parasocial_analysis": "The novel begins with 'There was no possibility of taking a walk that day', and the reader is placed inside Jane's head before any plot arrives. The intimacy is grammatical: first person, present-tense feeling, a narrator who confides. Readers wrote to Brontë as if to Jane, and the book's success was partly the success of a voice that seemed to be speaking to one person at a time.\n\nThe address is not a trick. It is the form's basic offer: a stranger's interior life, available for the length of the book. What changed with the novel was the scale - thousands of readers could receive the same confidential voice and each feel personally addressed.",
+      "primary_source_or_artifact": "Charlotte Brontë, Jane Eyre",
+      "tags": [
+        "first-person",
+        "reader-intimacy",
+        "literature",
+        "identification",
+        "victorian"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Jane Eyre'.",
+          "url": "https://en.wikipedia.org/wiki/Jane_Eyre",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Charlotte Brontë, Jane Eyre (Project Gutenberg eBook 1260).",
+          "url": "https://www.gutenberg.org/ebooks/1260",
+          "status": "retrievable",
+          "note": "Opened: the Gutenberg catalogue page for the novel."
+        }
+      ],
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media"
+    },
+    {
+      "id": "carte-de-visite",
+      "year": "1850s–1860s",
+      "sort_year": 1850,
+      "title": "The carte de visite and the face in the album",
+      "summary": "Cheap photographic portraits on card mounts let ordinary people collect the faces of the famous and keep them in albums at home.",
+      "parasocial_analysis": "The carte de visite was the first mass-produced photographic portrait, and the album was its living room. A family could own a likeness of a monarch, an actor or a general and look at it repeatedly. The photograph did not move or speak, but it made the famous face a domestic object. It is the ancestor of the poster, the trading card and the profile picture.\n\nThe album is the important part. Collecting turns a set of strangers into a personal collection, and the collector supplies the order and the attention. The face is available for return visits, which is the minimum condition of a parasocial relationship.",
+      "primary_source_or_artifact": "The carte de visite photograph and the family album, 1850s–1860s",
+      "tags": [
+        "photography",
+        "celebrity",
+        "domestic",
+        "collecting",
+        "19th-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Carte de visite'.",
+          "url": "https://en.wikipedia.org/wiki/Carte_de_visite",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media"
+    },
+    {
+      "id": "uncle-toms-cabin",
+      "year": "1852",
+      "sort_year": 1852,
+      "title": "Uncle Tom's Cabin and the mass feeling for strangers",
+      "summary": "Harriet Beecher Stowe's novel sold in enormous numbers and turned its characters into figures of public grief and political argument.",
+      "parasocial_analysis": "Uncle Tom's Cabin was read aloud in parlours and adapted for the stage, so the same characters arrived in different rooms at the same time. Readers wept for Little Eva and argued about Tom as if they knew them. The novel's political force came through attachment: a mass audience was asked to feel for people it had never met, and the feeling was organised by a book.\n\nThe stage adaptations widened the audience and fixed the characters' images. A reader who had never opened the novel could still know Little Eva from a play or a print. The figure became public property, which is the condition of a mass-mediated bond.",
+      "primary_source_or_artifact": "Harriet Beecher Stowe, Uncle Tom's Cabin",
+      "tags": [
+        "literature",
+        "abolition",
+        "public-feeling",
+        "adaptation",
+        "19th-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Uncle Tom%27s Cabin'.",
+          "url": "https://en.wikipedia.org/wiki/Uncle_Tom%27s_Cabin",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Harriet Beecher Stowe, Uncle Tom's Cabin (Project Gutenberg eBook 203).",
+          "url": "https://www.gutenberg.org/ebooks/203",
+          "status": "retrievable",
+          "note": "Opened: the Gutenberg catalogue page for the novel."
+        }
+      ],
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media"
+    },
+    {
+      "id": "dickens-readings",
+      "year": "1858–1870",
+      "sort_year": 1858,
+      "title": "Dickens reads himself into the room",
+      "summary": "Dickens toured Britain and America reading his own work aloud, and audiences were reported to faint, weep and treat the readings as visits from the characters.",
+      "parasocial_analysis": "The reading tour converted a private act of reading into a room with a famous body in it. Dickens performed the murder of Nancy and the death of Paul Dombey; the audience's reaction was part of the event. The bond was not with a character alone but with the author as the person who could make the characters present. The tour is the bridge between serial reading and modern celebrity appearance.\n\nThe reports of fainting are the useful detail because they show the body answering a fiction as if it were a presence. The reader had already spent months with the characters; the reading gave that attachment a face and a voice in the same room. It is the moment the author becomes the medium.",
+      "primary_source_or_artifact": "Charles Dickens's public reading tours, 1858–1870",
+      "tags": [
+        "public-reading",
+        "celebrity",
+        "victorian",
+        "serial-fiction",
+        "audience"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Charles Dickens'.",
+          "url": "https://en.wikipedia.org/wiki/Charles_Dickens",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The reading tours ran 1858–1870; 1861 is one year within them.",
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media"
+    },
+    {
+      "id": "miss-havisham",
+      "year": "1860–61",
+      "sort_year": 1860,
+      "title": "Miss Havisham",
+      "summary": "A woman in Great Expectations who is left jilted at the altar, stops eating, ages, and arranges to be found the way she was on her wedding day - decades later, in a wedding dress, in a darkened room.",
+      "parasocial_analysis": "The most complete fictional treatment of the object of a parasocial bond being a person who was never real, and of the grief outliving the reasons for it. She is not a metaphor for a fictional character, she is a person who has mistaken her own wedding for a plot.\n\nThe shrine is the mechanism: a woman stops the clocks and keeps the room as it was, which is what an unrequited attachment does when it has a house to do it in.",
+      "primary_source_or_artifact": "Charles Dickens, Great Expectations (1860–61)",
+      "tags": [
+        "arrested-time",
+        "shrine",
+        "unrequited-love",
+        "victorian",
+        "gothic"
+      ],
+      "citations": [
+        {
+          "citation": "Dickens, Charles, Great Expectations, 1861.",
+          "url": "https://www.gutenberg.org/ebooks/1400",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media"
+    },
+    {
+      "id": "sarah-bernhardt",
+      "year": "1891",
+      "sort_year": 1891,
+      "title": "The Divine Sarah",
+      "summary": "Sarah Bernhardt toured more like a head of state than a player: when she sailed for New York in 1891 the crossing was covered the way a royal visit is, and 'Divine Sarah' was by then the whole public's phrase for her. Mark Twain's note put it exactly - there were five kinds of actresses, and Sarah Bernhardt. An idol built at distance.",
+      "parasocial_analysis": "**The most famous face the pre-cinema stage could make.** Born in Paris in 1844, Bernhardt was by the 1870s the figure the international press called Divine Sarah - Oscar Wilde's 1879 poem of that name had her crowned with lilies at the feet of audiences who would never see her act in a room, and a French paper called her a national institution. Her motto was 'Quand Même' - 'in spite of everything' - which the torments of a career turned into a legend of refusal.\n\n**The 1891 tour was the idol arriving.** In 1891 she left Le Havre on 15 October aboard the L'Amérique on her way to America, and the arrival was covered in the register of a state visit: one account of these tours records the homage shown her as the kind 'usually reserved for royalty', applause and press for a woman most of the auditorium had only met through prints, reviews and playbills. Distance is the mechanism - the audience knew the surface better than the woman, and a finished public surface is exactly what a parasocial idol is made of.\n\n**She stood at the seam between the printed and the cinematic star.** Mark Twain's tribute, written for a tour programme, ranked her apart from every other class of actress, and the cinema that arrived within a generation inherited the structure: the same manufactured distance, the same schedule of manufactured encounters, the same audience that never arrived in time for the making. The counter-argument - that she was simply the greatest actress of her age and the devotion was earned on stage - is kept on the entry. The claim here is narrower: her fame was distributed by the print machinery this corpus files everywhere else under the idol, which makes her the theatre's first systematic case of it.",
+      "primary_source_or_artifact": "Sarah Bernhardt's 1891 American tour",
+      "tags": [
+        "theatre",
+        "celebrity",
+        "autograph",
+        "tour",
+        "19th-century"
+      ],
+      "citations": [
+        {
+          "citation": "American Heritage, \"Bernhardt in America\"",
+          "url": "https://www.americanheritage.com/bernhardt-america",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 2,
+      "domain": "Music & Fan Culture",
+      "era": "Early Mass Media"
+    },
+    {
+      "id": "yellow-kid",
+      "year": "1895–1898",
+      "sort_year": 1895,
+      "title": "The Yellow Kid and the weekly return",
+      "summary": "The Yellow Kid moved from a single newspaper panel to a recurring character with merchandise, a name and a public.",
+      "parasocial_analysis": "The Yellow Kid was not a story so much as a recurring visit. Readers bought the paper to see what the kid was wearing and what he was saying; the character's speech appeared on his nightshirt, which made the image itself a kind of dialogue. The strip created a weekly appointment with a figure who could not know the reader, and the merchandise that followed turned the appointment into an object.\n\nThe form is the ancestor of the comic strip and the franchise character. A figure who returns on a schedule does not need a continuing plot to become familiar; the repetition is enough.",
+      "primary_source_or_artifact": "Richard F. Outcault, Hogan's Alley / The Yellow Kid",
+      "tags": [
+        "comics",
+        "recurring-character",
+        "newspaper",
+        "merchandise",
+        "print"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Yellow Kid'.",
+          "url": "https://en.wikipedia.org/wiki/The_Yellow_Kid",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Hogan%27s Alley (comic strip)'.",
+          "url": "https://en.wikipedia.org/wiki/Hogan%27s_Alley_(comic_strip)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The Yellow Kid debuted in 1895; 1897 is one year of the strip's run.",
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media"
+    },
+    {
+      "id": "charlie-chaplin",
+      "year": "1914",
+      "sort_year": 1914,
+      "title": "A doodle of you used as your address",
+      "summary": "By 1917 nine out of ten men at a costume ball came as him, a hold-up man in Cincinnati borrowed his costume as a disguise, and in 1916 somebody was paging him in more than eight hundred hotels at the same moment. Later, fans sent letters with a doodle of his face where the address should have been. The likeness had stopped being a picture and started being an instruction.",
+      "parasocial_analysis": "**The silhouette was usable.** That is the entry. The Tramp first appears in Kid Auto Races at Venice, filmed on 11 January 1914 and released on 7 February; by 1917 the costume was common enough to be a costume of record - \"most of the girls came as Annette Kellerman, the swimming star, and nine out of ten men came as Charlie Chaplin.\" In February 1917 the same costume was used as a disguise by a hold-up man in Cincinnati. A likeness that exists only on a screen cannot be worn by a robber. This one could, and that is the difference between being famous and being an instruction.\n\nThe same period that produced the robbers produced the diagnosis. About 12 November 1916 the Boston Society for Psychical Research was investigating \"certain phenomena connected with the simultaneous paging of Mr Charles Chaplin, motion picture comedian, in more than 800 large hotels of the United States\" - one man being asked for in eight hundred hotels at once, from the Atlantic to the Pacific and the Canadian boundary to the Gulf - and the Kansas City Star asked the next day whether readers had had \"the Chaplin-itis?\" Robinson's account of the period has theatres \"promoting the Chaplin vogue by sponsoring amateur Charlie look-alike contests\"; Chaplin himself said he was \"tempted to give lessons in the Chaplin walk.\"\n\nThe contest story is told two ways and both are here. The Chaplin archive's own press clippings from 1918 record Mary Pickford telling a dinner in London that he had entered a Chaplin walk contest at a fair in the United States and came in twentieth; the version everybody repeats has him coming in third, which Snopes rates Unproven and traces to a magazine post from December 2022. **The famous version is the one that needed no source, and the documented one is second-hand from a friend.** Neither number changes what the contests were for: an audience competing to be the nearest copy of a man who was not there to judge it.\n\nThe mail is where the likeness becomes infrastructure. In a 1932 feature on \"Hollywood's Funny Fan Mail\", Clara Bow was receiving about 35,000 letters a month; Maurice Chevalier's arrived with no address whatever, just his picture on the envelope; Clark Gable's were addressed to \"Valentino the Second\". **An address that works without a street is a likeness doing a job**, and by the 1950s a doodle of Chaplin's face was being used as the address on letters sent to him at the Savoy Hotel. This entry does not claim what became of that post; the point is only that it was thought to be enough to send.",
+      "primary_source_or_artifact": "Charlie Chaplin's Tramp, from 1914",
+      "tags": [
+        "cinema",
+        "persona",
+        "imitation",
+        "fan-mail",
+        "silent-film"
+      ],
+      "citations": [
+        {
+          "citation": "CharlieChaplin.com, \"Did Charlie Chaplin Once Lose His Own Lookalike Contest?\"",
+          "url": "https://www.charliechaplin.com/en/articles/334-Did-Charlie-Chaplin-Once-Lose-His-Own-Lookalike-Contest-?category=biography",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "CharlieChaplin.com, \"Kid Auto Races at Venice\"",
+          "url": "https://www.charliechaplin.com/en/films/47-Kid-Auto-Races-at-Venice",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Snopes, check of the Charlie Chaplin look-alike contest anecdote (rated Unproven)",
+          "url": "https://www.snopes.com/fact-check/charlie-chaplin-look-alike-contest/",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "mary-pickford",
+      "year": "1914",
+      "sort_year": 1914,
+      "title": "Known to more people than any other woman in history",
+      "summary": "The first film performer whose value could be counted instead of guessed. She was on the cover of the New York Dramatic Mirror in 1911, an honour then kept for theatrical stars; by 1916 her fan following had become ten thousand dollars a week, half her film profits and a production company of her own. The audience was never asked for any of it, and every line of the contract exists because of it.",
+      "parasocial_analysis": "**The fan worship is in the contract.** St. John's line, as the American Experience page quotes it, is the scale the entry works from: Pickford was \"known to more people and loved by more people than any other woman that has been in all history.\" Reach was the asset, and reach was countable. In 1911 she was the first movie star to adorn the cover of the New York Dramatic Mirror, an honour \"previously bestowed only on theatrical stars\" - the trade press had already decided that a moving-picture player could carry a cover, and the sentence that records it is careful to say what the honour used to be worth.\n\nThen 1914 and Tess of the Storm Country. The record says the picture \"caused a sensation\", that it \"created fan worship that had never before been witnessed\", and that the success \"gave Mary Pickford incredible bargaining power\"; by 1916 she had \"a $10,000 a week salary, 50% of her film profits, and her own production company.\" The chronology is kept rather than resolved: her foundation dates the renegotiation to May 1916, another account dates a contract at 24 June 1916 with a guarantee of $1.04 million. Both are here, because a date and a number that disagree are the ordinary state of a contract nobody was meant to read. United Artists followed in February 1919, with Fairbanks, Chaplin, Griffith and Hart.\n\nThe other side of it is why this is not a portrait. When the company she co-founded had its way, it would \"pressure Pickford to limit herself artistically, playing roles she knew her fans would love.\" **Nobody voted and the studio obeyed anyway.** That is the shape of the whole period: an audience made sovereign and unaware of it, consulted through a contract clause rather than through a question. By 1927 the highs were over, and what the constraint had been buying was visible from the outside.",
+      "primary_source_or_artifact": "Mary Pickford, 1914",
+      "tags": [
+        "cinema",
+        "celebrity",
+        "fan-mail",
+        "stardom",
+        "silent-film"
+      ],
+      "citations": [
+        {
+          "citation": "Women Film Pioneers Project, Columbia University, \"Mary Pickford\"",
+          "url": "https://wfpp.columbia.edu/pioneer/ccp-mary-pickford/",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "PBS American Experience, \"Mary Pickford: 1892-1979\"",
+          "url": "https://www.pbs.org/wgbh/americanexperience/features/pickford-1892-1979/",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "The Mary Pickford Foundation, \"Mary Pickford Chronology\"",
+          "url": "https://marypickford.org/mary-pickford-chronology/",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "pearl-white",
+      "year": "1914",
+      "sort_year": 1914,
+      "title": "Pearl White and the weekly peril",
+      "summary": "Pearl White starred in The Perils of Pauline and the serial form made weekly cinema audiences return to the same endangered heroine.",
+      "parasocial_analysis": "The serial ended each week with the heroine in danger, and the audience had to come back to find out whether she survived. That is a scheduled relationship: the character continues to exist between episodes, and the viewer carries her forward. Pearl White performed her own stunts and the press made her daredevil image part of the story, so the actress and the character became one figure.\n\nThe cliffhanger is a contract. It asks the audience to care across a gap, and the caring is what turns a film into a habit. The serial heroine is one of the first screen figures whose survival is a weekly public question.",
+      "primary_source_or_artifact": "The Perils of Pauline (1914 serial), starring Pearl White",
+      "tags": [
+        "film-serial",
+        "cliffhanger",
+        "cinema",
+        "heroine",
+        "recurring-character"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Pearl White'.",
+          "url": "https://en.wikipedia.org/wiki/Pearl_White",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'The Perils of Pauline (1914 serial)'.",
+          "url": "https://en.wikipedia.org/wiki/The_Perils_of_Pauline_(1914_serial)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The Perils of Pauline is 1914, not 1912.",
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "betty-crocker",
+      "year": "1921",
+      "sort_year": 1921,
+      "title": "Cordially yours, Betty Crocker",
+      "summary": "In 1921 a flour company's advertising department needed one woman's name for the kitchen advice its all-female home-service staff was already writing. Betty Crocker was a signature and a persona, not a person: she answered letters, then took a radio voice in 1924, and gave millions a correspondent who signed herself \"Cordially yours.\"",
+      "parasocial_analysis": "**The reply existed before the name did.** In late October 1921 Gold Medal Flour ran a jigsaw-puzzle advertisement in The Saturday Evening Post; Washburn-Crosby received 30,000 completed puzzles and, with them, several hundred letters of cooking questions. The advertising department asked the board to create a personality that the women answering the letters could all sign, as the company's own account puts it. \"Crocker\" honoured a retired company director, William G. Crocker; \"Betty\" was chosen because it sounded friendly; employees competed to submit the signature and Florence Lindberg's was adopted, and is still in use. The replies, written by a home-service department of home economists, went out signed \"Cordially Yours, Betty Crocker\" - a real hand typing under a name no woman owned.\n\n**Then the persona was given a voice, which is what makes it a bond rather than a byline.** In 1924 the company helped a local radio station out of bankruptcy, renamed it WCCO, and put Betty Crocker on daytime radio's first cooking show, \"the Betty Crocker Cooking School of the Air\"; Blanche Ingersoll was its first voice, the program spread to thirteen regional stations, and from 1927 it ran on the fledgling NBC network for twenty-four years, with more than a million listeners enrolled. Each station had its own Betty Crocker reading the same scripts from Minneapolis, and letters - now from across the Midwest - kept arriving. General Mills' own description of the effect is this entry's best line: her voice on the air \"was like the woman next door dropping in for a morning visit to share a new recipe.\"\n\n**This is the brand-as-character mechanism at its founding, decades before the corpus had a name for it.** A corporation was given a face and a tone so that a customer relationship would have a subject, and the entry files it as an instance of that later mechanism with the practice dated to the year the signature was drawn. The tie is one-sided in the way that matters: the reader attached to a woman who did not exist, and the reply, however real the labour behind it, came from the persona rather than the person. The counter - that a home economist really did answer, so the bond was two-way - loses because the far end of the reader's attachment was Betty, and Betty could not answer as herself; the correspondence ran under a single invented name for exactly that purpose. Contestable, and recorded as such.",
+      "primary_source_or_artifact": "Betty Crocker, General Mills, 1921",
+      "tags": [
+        "brand",
+        "persona",
+        "letters",
+        "domestic",
+        "advertising"
+      ],
+      "citations": [
+        {
+          "citation": "General Mills, \"How Betty Crocker got its start\" (2024)",
+          "url": "https://www.generalmills.com/news-and-stories/stories/how-betty-crocker-got-its-start",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "General Mills, \"The women who built Betty Crocker\" (2022)",
+          "url": "https://www.generalmills.com/news-and-stories/stories/the-women-who-built-betty-crocker",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "MNopedia (Minnesota Historical Society), \"Betty Crocker\"",
+          "url": "https://www.mnhs.org/mnopedia/search/index/person/betty-crocker",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "rin-tin-tin",
+      "year": "1922",
+      "sort_year": 1922,
+      "title": "Most faithfully, Rin Tin Tin",
+      "summary": "A German Shepherd found on a battlefield became one of the biggest silent-film stars, and the fan mail that arrived for him was answered with a glossy portrait signed by a paw.",
+      "parasocial_analysis": "**The credit read 'Played by himself', and the fan mail was answered by a paw.** Rin Tin Tin was found in a French field in September 1918 by Lee Duncan, an American soldier, and came home with him; the dog got his first film work in 1922, when a director needed something more reliable than a camera-shy wolf in The Man from Hell's River, and his first starring role - Where the North Begins, opposite Claire Adams in 1923 - made him a star. A dog who could not read received the mail of a matinee idol, by the thousands of letters a week, and the reply was manufactured exactly the way a human star's would have been: a glossy portrait, signed with an inked paw print, over the line Duncan wrote for him - 'Most faithfully, Rin Tin Tin'. The studio leaned on him whenever it got into trouble, and the films were known inside the trade as the mortgage lifters; by 1927 the most sophisticated film audience in Europe had made him the most popular actor in Berlin. **The audience knew perfectly well he was a dog, and that was the condition of the whole thing.** The one performer in this corpus who ever came physically close to answering back was the one who could not possibly understand what he was being addressed for, and the attachment has outlived him by a century of dog after dog. Two honesty notes belong here. The sources disagree on the count of his films - the New Yorker gives twenty-three silent pictures, Wikipedia twenty-seven Hollywood films - and the battlefield rescue is Duncan's own story, retold with variations ever since.",
+      "primary_source_or_artifact": "Rin Tin Tin, 1922",
+      "tags": [
+        "animal",
+        "fan-mail",
+        "stardom",
+        "publicity",
+        "silent-film"
+      ],
+      "citations": [
+        {
+          "citation": "Orlean, Susan. 'The Dog Star.' The New Yorker, 29 August 2011.",
+          "url": "https://www.newyorker.com/magazine/2011/08/29/the-dog-star",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Wikipedia. 'Rin Tin Tin.'",
+          "url": "https://en.wikipedia.org/wiki/Rin_Tin_Tin",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Wikipedia. 'Where the North Begins.'",
+          "url": "https://en.wikipedia.org/wiki/Where_the_North_Begins",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "aimee-semple-mcpherson",
+      "year": "1924",
+      "sort_year": 1924,
+      "title": "The radio church of Sister Aimee",
+      "summary": "Her church went on the air on 6 February 1924: KFSG - 'Kall Foursquare Gospel' - broadcasting at 500 watts from Angelus Temple, listener-supported one day at a time. She is credited by her own church as the first woman to preach a sermon on radio (1922), and after the first broadcast the letters came from other states and other countries, cataloguing where the signal had been heard.",
+      "parasocial_analysis": "**A church built to be heard at a distance.** Aimee Semple McPherson had preached on Los Angeles radio before owning a station, and her church's history credits her as the first woman to preach a sermon over the radio, on the Rockridge station in Oakland in April 1922. In February 1924 KFSG went on the air from Angelus Temple - a 500-watt Western Electric transmitter whose dedication named its reach, 'the people of the United States, Canada, Alaska, Mexico, Panama, Hawaii, South Sea Islands'. The congregation had raised the roughly $25,000 to build it.\n\n**The letters were the reply channel, and they were the audience.** In the early 1920s a station learned who was listening from the mail: cards, telegrams and letters reporting where the signal was received. The record kept for KFSG includes letters from Illinois, Indiana, Pennsylvania and New Zealand describing when the broadcast was heard and what it meant - 'We do hope to hear you soon again', one wrote, and a listener in Indiana asked who the woman preacher had been. The station answered its mail through volunteer church members, and it was sponsored day by day by listeners through the Radio Missionary Society, with patrons booked months ahead.\n\n**The mechanism is a congregational 'you' at a distance.** The church addressed the radio congregation as assembled even though the far end could not answer: in Angelus Temple the pastor asked 'Do you pledge to live clean Christian lives for God?' and the answer - 'We do' - came back from a room the radio listeners could not join. That is the presenter mechanism with a congregation in it: second-person grammar aimed at an unseen audience, engineered on a schedule. The competing placement, the idol, fails because the sermons were live and ongoing - an address from somebody who believed herself perceived, not a finished body of work. One honesty note is kept: the famous 'minions of Satan' telegram to Secretary Hoover over a wavelength dispute is recorded by radio historians as legend rather than fact, and KFSG was never actually taken off the air.",
+      "primary_source_or_artifact": "KFSG and the Angelus Temple broadcasts, 1924",
+      "tags": [
+        "radio",
+        "religion",
+        "preaching",
+        "voice",
+        "broadcast"
+      ],
+      "citations": [
+        {
+          "citation": "Radio Heritage Foundation, \"KFSG Los Angeles - The Aimee Semple McPherson Station\" (J. Hilliker)",
+          "url": "https://www.radioheritage.com/story51/",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "International Church of the Foursquare Gospel resources, \"Sister Aimee's astounding radio impact\" (adapted from R. L. Power, Radio in the Home, January 1925)",
+          "url": "https://resources.foursquare.org/sister_aimees_astounding_radio_impact/",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Wikipedia, \"KFSG (Los Angeles)\"",
+          "url": "https://en.wikipedia.org/wiki/KFSG_(Los_Angeles)",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
     },
     {
       "id": "valentino-funeral",
@@ -138,7 +1113,12 @@
       "summary": "When Rudolph Valentino died in 1926 at thirty-one, crowds besieged the funeral home in New York and the mourning became a public event.",
       "parasocial_analysis": "Valentino was known through a projected image larger than life and a press apparatus that sold him as 'the Great Lover'. The grief was for a man most mourners had never heard speak in person, and it was organised by the same industry that had made him. The funeral turned a private attachment into a public ritual with a script: flowers, fainting, a viewing, a queue.\n\nThe detail that makes it a parasocial case rather than a celebrity obituary is Pola Negri's performance of bereavement. She claimed an engagement Valentino had not publicly confirmed, and the claim was accepted because the audience already had a relationship with him that needed a story. The screen image outlived the body and immediately began to be managed.",
       "primary_source_or_artifact": "Rudolph Valentino's funeral, New York, August 1926",
-      "tags": ["celebrity-death", "public-mourning", "screen-idol", "press-apparatus"],
+      "tags": [
+        "celebrity-death",
+        "public-mourning",
+        "screen-idol",
+        "press-apparatus"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Rudolph Valentino'.",
@@ -146,7 +1126,68 @@
           "status": "retrievable",
           "note": "Opened: records the funeral crowds and Negri's public claim."
         }
-      ]
+      ],
+      "phase": 3
+    },
+    {
+      "id": "babe-ruth",
+      "year": "1927",
+      "sort_year": 1927,
+      "title": "The baseball the papers built",
+      "summary": "In 1927 Babe Ruth hit sixty home runs and became the most replayed figure in a game most fans knew through print. His bylined column ran in syndication, much of it ghostwritten, and radio was beginning to carry him into rooms the stadium never reached. The 1920s press manufactured a 'hot romance' and he was its star.",
+      "parasocial_analysis": "**The season the man and the persona arrived together.** Ruth's 1927 season - sixty home runs in a 154-game schedule, a single-season record that stood until Roger Maris hit sixty-one in 1961, with the Yankees' Murderers' Row around him - is the on-field anchor this entry leans on without being about. The subject is the parallel figure the press built, because most of the people who loved him never saw him play.\n\n**The printed voice was another man's.** Through the 1920s Ruth's byline ran across the country in syndicated columns and serials, and much of that copy was ghostwritten - the 'Babe Ruth' column was substantially the work of Christy Walsh, his agent, who organised the ghosted pieces under Ruth's name. A reader opening the sports page met a voice signed 'Babe Ruth' that Babe Ruth had not written, which is the manufactured reply end of a one-sided tie arriving in sports journalism: the attention felt answered, and the answer was an agency.\n\n**Radio and the syndicated page made the tie work at distance.** Baseball went on the air in the 1920s, and Ruth's name travelled ahead of him by broadcast and by print - this entry records the 1920 film 'Headin' Home' as the star's celluloid echo of the same reach. The deeper claim, read from the thesis this entry draws on, is that the newspapers of the 1920s manufactured what one account calls a 'hot romance between sport and the public'. The counter-argument - that Ruth's fame was earned by a bat, not by columns - is real and kept on the entry; the point is narrower, that the relationship hundreds of thousands had with him ran through contributed copy and broadcast names rather than through a seat in a ballpark.",
+      "primary_source_or_artifact": "Babe Ruth and the 1927 season",
+      "tags": [
+        "sport",
+        "celebrity",
+        "print",
+        "radio",
+        "myth"
+      ],
+      "citations": [
+        {
+          "citation": "J. C. Trimble, \"Babe Ruth: The Media Construction of a 1920's Sport Personality\" (Colby College senior thesis",
+          "url": "https://digitalcommons.colby.edu/cgi/viewcontent.cgi?article=3102&context=cq",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Encyclopaedia Britannica, \"Babe Ruth\"",
+          "url": "https://www.britannica.com/topic/Babe-Ruth",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 3,
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "soap-opera",
+      "year": "1930",
+      "sort_year": 1930,
+      "title": "The soap opera",
+      "summary": "A form built almost entirely by women, for women, and treated as unserious for fifty years. Daily episodes, fixed slots, cliffhangers, characters written in indefinitely and never resolved.",
+      "parasocial_analysis": "The origin of the entire research tradition, and it started as a footnote about daytime television that nobody thought was important. The rhythm is the mechanism: a fixed slot and an unresolved story, repeated daily, is a relationship with a schedule. It is also the reason the phrase 'soap opera' is now an insult rather than a description.\n\nThe daily schedule is the mechanism: a fixed slot, an unresolved story and a character who continues without you. The sponsor's name in the title made the relationship commercial at the level of the form, not merely at the ad break.",
+      "primary_source_or_artifact": "Daytime radio serials, from 1930",
+      "tags": [
+        "radio",
+        "serial",
+        "domestic",
+        "sponsor",
+        "daytime"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Soap opera'.",
+          "url": "https://en.wikipedia.org/wiki/Soap_opera",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
     },
     {
       "id": "fireside-chats",
@@ -158,7 +1199,12 @@
       "summary": "Franklin Roosevelt used radio to address the nation in an informal, conversational register, beginning on 12 March 1933 during the banking crisis.",
       "parasocial_analysis": "The chats worked because they did not sound like a broadcast. Roosevelt spoke slowly, used plain language and addressed listeners as 'my friends'; radio dissolved the distance between the White House and the parlour while leaving the speaker entirely unable to hear the reply. The intimacy was real in its effects and one-way in its structure.\n\nThis is the state's version of the mechanism: a leader who appears to explain himself personally to you, in your own home, at a moment of fear. The audience's sense of being addressed is not a mistake - the address is genuine - but the relationship is not reciprocal, and the warmth is also an instrument of governance.",
       "primary_source_or_artifact": "Franklin D. Roosevelt, first Fireside Chat, 12 March 1933",
-      "tags": ["radio", "political-intimacy", "direct-address", "mass-media"],
+      "tags": [
+        "radio",
+        "political-intimacy",
+        "direct-address",
+        "mass-media"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Fireside chats'.",
@@ -166,7 +1212,8 @@
           "status": "retrievable",
           "note": "Opened: records the dates, the register and the broadcast context."
         }
-      ]
+      ],
+      "phase": 3
     },
     {
       "id": "war-of-the-worlds",
@@ -178,7 +1225,13 @@
       "summary": "Orson Welles's Mercury Theatre broadcast on 30 October 1938 presented H. G. Wells's invasion as a series of news bulletins, and some listeners took it as reportage.",
       "parasocial_analysis": "The broadcast exploited the authority of the radio news voice: it interrupted dance music, used place names and interviewed supposed experts. The panic was real but much smaller than the legend; the audience research estimated that a minority of listeners were frightened and an even smaller number fled. The case matters because the mechanism is auditory trust, not credulity in general: a familiar voice in a familiar format can override what the listener knows.\n\nThe legend has since become a story about mass hysteria, which is itself a parasocial artefact - a public that enjoys believing it is uniquely suggestible. The documented broadcast is more interesting: most listeners changed the station, and the ones who stayed were often reassured by the very conventions that frightened others.",
       "primary_source_or_artifact": "CBS Mercury Theatre on the Air, The War of the Worlds, 30 October 1938",
-      "tags": ["radio", "mass-panic", "auditory-trust", "hoax", "broadcast"],
+      "tags": [
+        "radio",
+        "mass-panic",
+        "auditory-trust",
+        "hoax",
+        "broadcast"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'The War of the Worlds (1938 radio drama)'.",
@@ -186,7 +1239,201 @@
           "status": "retrievable",
           "note": "Opened: records the 1938 broadcast and the audience research, including the gap between the panic and the legend."
         }
-      ]
+      ],
+      "phase": 3
+    },
+    {
+      "id": "superman-comic",
+      "year": "1938",
+      "sort_year": 1938,
+      "title": "The first superhero",
+      "summary": "A character who cannot die, printed in a newspaper, read by a generation of children on the same day.",
+      "parasocial_analysis": "The first parasocial figure with an explicit immortality guarantee, which is the trade being made: I will never get over this, and I will never have to find out. Nobody has ever been made this offer in a relationship.\n\nThe character is available every month, cannot die, and is addressed to a reader who is invited to identify with him; the permanence is the point. Superman is the first modern secular figure whose continuing existence is a publishing schedule.",
+      "primary_source_or_artifact": "Action Comics #1, 1938",
+      "tags": [
+        "comics",
+        "superhero",
+        "recurring-character",
+        "myth",
+        "print"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Action Comics 1'.",
+          "url": "https://en.wikipedia.org/wiki/Action_Comics_1",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Superman'.",
+          "url": "https://en.wikipedia.org/wiki/Superman",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 3,
+      "domain": "Literature & Print",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "sinatra-bobby-soxers",
+      "year": "1940",
+      "sort_year": 1940,
+      "title": "The bobby-soxers",
+      "summary": "Teenagers organised in public, in letterpress newsletters, to buy records and argue about a singer. A press of ten thousand.",
+      "parasocial_analysis": "The first parasocial mass movement with its own publishing, its own jargon and its own antagonism toward the parents of the people in it. Everything since is a re-skin.\n\nThe bobby-soxers were the first audience organised around a male singer's voice rather than a stage persona, and the press treated their devotion as a public event. The scream was a way of participating in a performance that offered no other participation.",
+      "primary_source_or_artifact": "Frank Sinatra and the bobby-soxers, 1940",
+      "tags": [
+        "music-fandom",
+        "teenagers",
+        "radio",
+        "screaming",
+        "1940s"
+      ],
+      "citations": [
+        {
+          "citation": "Bobby-soxer (Wikipedia).",
+          "url": "https://en.wikipedia.org/wiki/Bobby-soxer",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "date_note": "The bobby-soxer phenomenon peaks in 1942–44; 1940 is the early edge of the Sinatra craze.",
+      "phase": 3,
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "murrow",
+      "year": "1940",
+      "sort_year": 1940,
+      "title": "This is London",
+      "summary": "The live rooftop broadcasts that carried the Blitz into American homes, and the sign-off that made a reporter and a city the same thing.",
+      "parasocial_analysis": "**Every broadcast went out live, because the sound of the raid was the report.** Murrow was, in Philip Seib's account, the only journalist allowed to broadcast live during the air raids on London - a permission arranged with Winston Churchill's intervention - and the recording technology of the day was, in Neal Conan's word and with Seib's agreement, klutzy; Murrow's argument was the silence and the anti-aircraft fire, transmitted while they were happening. The opening line, 'This is London', with its deliberate pause after This, was his speech teacher Ida Lou Anderson's suggestion, and it turned a city into a dateline. He closed with the farewell Londoners were already saying to each other in the blackout - 'Good night, and good luck'. On the roof of Broadcasting House he described the flags: 'No one ordered these people to put out the flags... No one told them to do it, and no flag up there was white.' Millions of Americans spent the autumn of 1940 in a city they had never visited, listening. **The reply came later, at a dinner in December 1941.** The Librarian of Congress, Archibald MacLeish, told Murrow what the broadcasts had done: 'You laid the dead of London at our doors and we knew that the dead were our dead, were mankind's dead. You have destroyed the superstition that what is done beyond 3,000 miles of water is not really done at all.' Nothing in the exchange was private; everything in it was personal. That is the whole subject of this site, worked out on a London rooftop, overnight radio, with the sky doing the sound effects.",
+      "primary_source_or_artifact": "Edward R. Murrow, 'This is London', 1940",
+      "tags": [
+        "radio",
+        "war",
+        "voice",
+        "companionship",
+        "broadcast"
+      ],
+      "citations": [
+        {
+          "citation": "NPR. 'Murrow, the Blitz and the Race to War.' Talk of the Nation, 22 May 2006 (interview with Philip Seib).",
+          "url": "https://www.npr.org/transcripts/5422698",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Wikipedia. 'Edward R. Murrow.'",
+          "url": "https://en.wikipedia.org/wiki/Edward_R._Murrow",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "phase": 3,
+      "domain": "Politics & News",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "howdy-doody",
+      "year": "1947–1960",
+      "sort_year": 1947,
+      "title": "Say, kids, what time is it?",
+      "summary": "The first television character to be answered by name. Children three to eight shouted its name back at the screen every afternoon for thirteen years, and the puppet it was played by was recorded before the broadcast.",
+      "parasocial_analysis": "The template for every children's presenter since, and the purest mechanism on this site: a figure that talks to you, built by somebody else, delivered from tape. Buffalo Bob Smith first performed Howdy Doody as a radio voice; Frank Paris built a puppet to match it; when Paris left in 1948 over merchandising rights he took the original puppet with him and the replacement debuted that June. For thirteen years and some 2,500 episodes the show opened on the same transaction - 'Say, kids, what time is it?' answered, in unison, 'It's Howdy Doody time!' - which is a named individual greeted daily by name by a room of children who could not have told you who was operating him, since the voice was usually recorded before the show. Two details do more work than the format. Clarabell the Clown never spoke for twelve years, communicating with a horn and a seltzer bottle, and said his first and only line in the final episode: 'Good-bye, kids.' A silent character choosing to speak, once, at the end. And the puppet left the screen: Howdy Doody marionettes with sliding eyes and moving mouths were sold as toys throughout the 1950s, so the relationship moved from a thing you cannot touch to an object in your hands. That is the whole thesis of this site in one commercial decision, and it was made before most of the people reading it were born.",
+      "primary_source_or_artifact": "Howdy Doody, NBC, 1947–1960",
+      "tags": [
+        "television",
+        "puppet",
+        "children",
+        "direct-address",
+        "merchandise"
+      ],
+      "citations": [
+        {
+          "citation": "Howdy Doody. Wikipedia.",
+          "url": "https://en.wikipedia.org/wiki/Howdy_Doody",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Howdy Doody Show. EBSCO Research Starters, History.",
+          "url": "https://www.ebsco.com/research-starters/history/howdy-doody-show",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Howdy Doody marionette. National Museum of American History, Smithsonian Institution (NMAH 670111).",
+          "url": "https://americanhistory.si.edu/collections/object/nmah_670111",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "american-bandstand",
+      "year": "1952–1989",
+      "sort_year": 1952,
+      "title": "American Bandstand and the audience on camera",
+      "summary": "American Bandstand put teenagers, records and a clean-cut host on national television every weekday, and made the audience part of the show.",
+      "parasocial_analysis": "Bandstand's innovation was to show the audience dancing, not just the star. A teenager at home could watch other teenagers in the studio and imagine being among them. Dick Clark's persona was friendly and non-threatening, and the music was introduced as something the audience already owned. The show is the bridge between radio fandom and the televised pop audience.\n\nThe camera made the fan visible. To watch Bandstand was to see a room of people like yourself, which turned taste into a collective identity. The star was still at the centre, but the audience was the evidence that the attachment was normal.",
+      "primary_source_or_artifact": "American Bandstand, ABC, 1957–1989 (local from 1952)",
+      "tags": [
+        "television",
+        "music",
+        "teenagers",
+        "audience",
+        "dance"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'American Bandstand'.",
+          "url": "https://en.wikipedia.org/wiki/American_Bandstand",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "disneyland",
+      "year": "1955",
+      "sort_year": 1955,
+      "title": "Disneyland and the character you can meet",
+      "summary": "Disneyland opened in 1955 and turned cartoon characters into bodies a child could meet, hug and have sign an autograph book.",
+      "parasocial_analysis": "The theme park is the moment a drawn figure acquires a location and a cast member inside it. Mickey Mouse could not answer a letter, but a person in a Mickey costume could pose for a photograph. The child's relationship with the character is mediated by a performer who is not allowed to speak, which preserves the fiction and makes the encounter feel like access.\n\nThe autograph book is the mechanism. It gives the child a transaction with the figure and a record to take home, so the meeting becomes a possession rather than a memory.",
+      "primary_source_or_artifact": "Disneyland, opened 17 July 1955",
+      "tags": [
+        "theme-park",
+        "costume-character",
+        "disney",
+        "childhood",
+        "embodiment"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Disneyland'.",
+          "url": "https://en.wikipedia.org/wiki/Disneyland",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Mickey Mouse'.",
+          "url": "https://en.wikipedia.org/wiki/Mickey_Mouse",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
     },
     {
       "id": "horton-wohl",
@@ -198,7 +1445,13 @@
       "summary": "In 1956, Donald Horton and R. Richard Wohl published an account of the 'para-social relationship' between television viewers and the personalities who addressed them.",
       "parasocial_analysis": "Horton and Wohl's contribution was to describe a structure rather than a pathology. The viewer is invited into a conversation with a performer who speaks to the camera as if to one person, and the viewer responds with the ordinary expectations of a relationship - attention, loyalty, a sense of knowing. The relationship is one-sided by design, not by failure.\n\nThey called it a 'simulacrum of conversational give and take'. The phrase is exact: the give and take is simulated on the performer's side, and the viewer's side is real. Almost every later argument about parasociality - whether it is healthy, exploitative, or simply a name for what audiences have always done - is a disagreement about which side of that sentence carries the weight.",
       "primary_source_or_artifact": "Horton, D., and Wohl, R. R., 'Mass Communication and Para-Social Interaction', Psychiatry 19(3), 1956",
-      "tags": ["academic-foundation", "television", "parasocial-interaction", "simulacrum", "theory"],
+      "tags": [
+        "academic-foundation",
+        "television",
+        "parasocial-interaction",
+        "simulacrum",
+        "theory"
+      ],
       "citations": [
         {
           "citation": "Horton, D., and Wohl, R. R., 'Mass Communication and Para-Social Interaction: Observations on Intimacy at a Distance', Psychiatry 19(3), 1956.",
@@ -212,7 +1465,8 @@
           "status": "retrievable",
           "note": "Opened: a secondary summary of the 1956 paper and the term's later use. It is not the paper."
         }
-      ]
+      ],
+      "phase": 3
     },
     {
       "id": "jfk-nixon-debate",
@@ -224,7 +1478,13 @@
       "summary": "On 26 September 1960, John F. Kennedy and Richard Nixon met in the first televised presidential debate; the same broadcast was heard by radio listeners and seen by television viewers.",
       "parasocial_analysis": "The often-repeated finding is that radio listeners thought Nixon had won and television viewers thought Kennedy had. The polls behind that claim are less tidy than the anecdote, but the structural point survives: the same words, delivered through two media, produced two different candidates. Television added a face, a posture and a reaction shot to a contest that had been conducted through voice and print.\n\nThe debate made the body part of the argument. A viewer could compare the two men's ease, sweat and gaze in real time, and could feel addressed by a candidate who looked into the lens. The intimacy of that look is borrowed: the candidate is speaking to millions, and each viewer receives it as a private appeal.",
       "primary_source_or_artifact": "First Kennedy-Nixon presidential debate, Chicago, 26 September 1960",
-      "tags": ["television", "political-image", "medium-shift", "direct-address", "debate"],
+      "tags": [
+        "television",
+        "political-image",
+        "medium-shift",
+        "direct-address",
+        "debate"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, '1960 United States presidential debates'.",
@@ -238,7 +1498,8 @@
           "status": "unverified",
           "note": "The library returned 403 to an automated request. It is the official archive for the campaign and may open in a browser."
         }
-      ]
+      ],
+      "phase": 4
     },
     {
       "id": "beatlemania",
@@ -250,7 +1511,13 @@
       "summary": "The Beatles arrived at New York's JFK airport on 7 February 1964 and appeared on The Ed Sullivan Show two days later before an audience of tens of millions.",
       "parasocial_analysis": "Beatlemania is often described as hysteria, which explains nothing. The scream was a structured response: it was collective, it was timed to the appearance, and it functioned as a way of participating in an event that offered no other participation. The performers could not hear the audience; the audience could see and hear the performers. The asymmetry was the point.\n\nThe screaming also made the music secondary. Fans were not mainly listening; they were being in the same room as the image, and the image was on a screen or a stage. The industrial apparatus - records, television, merchandise, airport arrivals - arranged the proximity. What looked like loss of control was an efficient way of producing intimacy at scale.",
       "primary_source_or_artifact": "The Beatles' arrival at JFK Airport, 7 February 1964; The Ed Sullivan Show, 9 February 1964",
-      "tags": ["music-fandom", "mass-hysteria", "teenage-fans", "television", "beatlemania"],
+      "tags": [
+        "music-fandom",
+        "mass-hysteria",
+        "teenage-fans",
+        "television",
+        "beatlemania"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Beatlemania'.",
@@ -264,7 +1531,68 @@
           "status": "retrievable",
           "note": "Opened: records the Ed Sullivan appearances and the tour dates."
         }
-      ]
+      ],
+      "phase": 4
+    },
+    {
+      "id": "star-trek",
+      "year": "1966–1969",
+      "sort_year": 1966,
+      "title": "Star Trek and the fandom that outlived the show",
+      "summary": "Star Trek's cancellation did not end the relationship: fans wrote letters, organised conventions and kept the characters alive after the show left the air.",
+      "parasocial_analysis": "Star Trek is the first television fandom to treat a cancelled show as a continuing world. Fans wrote to the studio, produced fanzines and met at conventions; the characters existed in a shared future that the audience could inhabit. The bond was with a crew as much as with a star, which made the fandom a community rather than a crowd.\n\nThe letter-writing campaign is the key evidence. It treated a scheduling decision as a personal loss and a public cause, which is the moment a fan audience begins to act like a constituency.",
+      "primary_source_or_artifact": "Star Trek: The Original Series, 1966–1969",
+      "tags": [
+        "television",
+        "fandom",
+        "conventions",
+        "fanzine",
+        "science-fiction"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Star Trek: The Original Series'.",
+          "url": "https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Trekkie'.",
+          "url": "https://en.wikipedia.org/wiki/Trekkie",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "televangelism",
+      "year": "1970s–1980s",
+      "sort_year": 1970,
+      "title": "Televangelism and the shepherd in the camera",
+      "summary": "Television preachers turned the revival meeting into a weekly broadcast and asked viewers to see the preacher as a personal shepherd.",
+      "parasocial_analysis": "The televangelist speaks to the camera as if to one soul, offers a prayer that the viewer can repeat, and asks for a decision in the privacy of the home. The format is intimate and the transaction is public. The scandals of the 1980s exposed the gap between the shepherd's voice and the shepherd's finances, but the bond survived because it was built on the voice rather than the institution.\n\nThe prayer is the mechanism: it gives the viewer something to do, alone, while a stranger speaks directly to them. The response feels like a relationship because it happens in the same room.",
+      "primary_source_or_artifact": "Televangelism in the United States, 1970s–1980s",
+      "tags": [
+        "television",
+        "religion",
+        "preaching",
+        "politics",
+        "1970s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Televangelism'.",
+          "url": "https://en.wikipedia.org/wiki/Televangelism",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Politics & News",
+      "era": "The Broadcast Age"
     },
     {
       "id": "elvis-death",
@@ -276,7 +1604,13 @@
       "summary": "Elvis Presley died at Graceland on 16 August 1977; tens of thousands gathered outside, and the mourning was conducted as a personal loss.",
       "parasocial_analysis": "Elvis had been a star for twenty-one years, and the relationship many fans had with him was older than most of their friendships. He had never known them, but he had been in their homes, on their radios and televisions, for two decades. The grief was proportionate to that duration rather than to any personal knowledge.\n\nThe death also produced the afterlife that celebrity mourning now expects: sightings, impersonators, and a Graceland pilgrimage that turns a house into a place where the relationship can continue. The fan does not have to accept the absence, because the apparatus offers a version of presence. That is the template Diana's death would repeat twenty years later.",
       "primary_source_or_artifact": "The death of Elvis Presley, Graceland, 16 August 1977",
-      "tags": ["celebrity-death", "public-mourning", "music-fandom", "pilgrimage", "afterlife"],
+      "tags": [
+        "celebrity-death",
+        "public-mourning",
+        "music-fandom",
+        "pilgrimage",
+        "afterlife"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Death of Elvis Presley'.",
@@ -284,7 +1618,95 @@
           "status": "retrievable",
           "note": "Opened: records the death, the Graceland crowds and the funeral."
         }
-      ]
+      ],
+      "phase": 4
+    },
+    {
+      "id": "star-wars",
+      "year": "1977",
+      "sort_year": 1977,
+      "title": "Star Wars and the world you can hold",
+      "summary": "Star Wars turned a film into a durable world, with repeat viewings, toys and a fandom that treated the characters as companions.",
+      "parasocial_analysis": "The film's release was an event, but the toy line and the repeat viewings made it a habit. Children did not only watch Luke Skywalker; they owned him, played with him and imagined further stories. The franchise is the industrial form of parasocial attachment: a world that can be entered between films and a figure that can be held in the hand.\n\nThe merchandise is not a side effect. It is how the relationship continues when the screen is off, and it trains the audience to expect the world to be available on demand.",
+      "primary_source_or_artifact": "Star Wars (1977), directed by George Lucas",
+      "tags": [
+        "film",
+        "franchise",
+        "merchandise",
+        "fandom",
+        "science-fiction"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Star Wars (film)'.",
+          "url": "https://en.wikipedia.org/wiki/Star_Wars_(film)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Star Wars fandom'.",
+          "url": "https://en.wikipedia.org/wiki/Star_Wars_fandom",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "dallas-who-shot-jr",
+      "year": "1980",
+      "sort_year": 1980,
+      "title": "Dallas and the summer of 'Who shot J.R.?'",
+      "summary": "The 'Who shot J.R.?' cliffhanger made a fictional shooting a summer-long public question and the answer a ratings event.",
+      "parasocial_analysis": "Dallas ended a season with a gunshot and no answer, and the audience spent the summer arguing about a fictional character. The speculation was not a failure of attention; it was the point. A cliffhanger converts a passive audience into a group of people who discuss a story as if it were a shared event. The reveal drew one of the largest television audiences in American history.\n\nThe audience's investment was in a question, not a person, which is a useful variant of the bond: the figure is a node in a puzzle the public is solving together.",
+      "primary_source_or_artifact": "Dallas, 'A House Divided' (1980) and 'Who Done It?' (1980)",
+      "tags": [
+        "television",
+        "cliffhanger",
+        "audience",
+        "speculation",
+        "1980s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Who shot J.R.%3F'.",
+          "url": "https://en.wikipedia.org/wiki/Who_shot_J.R.%3F",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "john-lennon",
+      "year": "1980",
+      "sort_year": 1980,
+      "title": "John Lennon and the fan who claimed the body",
+      "summary": "John Lennon was shot outside the Dakota by a man who had been fixated on him, and the murder made the boundary between fan and target visible.",
+      "parasocial_analysis": "Mark David Chapman was not a stranger to Lennon's work; he was a fan who had decided that the star's life belonged to him. The murder is the negative form of the bond: the fan's sense of entitlement becomes a claim on the person's body. Lennon had spent years asking audiences to imagine no possessions; the man who killed him treated the singer as a possession.\n\nThe case is not an argument that fandom causes murder. It is an argument that the one-sided bond has no built-in boundary, and that the boundary has to be supplied by law, architecture and the person on the far side.",
+      "primary_source_or_artifact": "The murder of John Lennon, New York, 8 December 1980",
+      "tags": [
+        "stalking",
+        "murder",
+        "music-fandom",
+        "boundary-collapse",
+        "1980s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Murder of John Lennon'.",
+          "url": "https://en.wikipedia.org/wiki/Murder_of_John_Lennon",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age"
     },
     {
       "id": "hinckley-foster",
@@ -296,7 +1718,13 @@
       "summary": "On 30 March 1981, John Hinckley Jr. shot President Ronald Reagan outside the Washington Hilton; he later said he was trying to impress the actress Jodie Foster.",
       "parasocial_analysis": "Hinckley's attachment was to a performed character and to the actress who played her, and he experienced the fiction as a set of instructions. The case is the clearest instance in this timeline of a parasocial bond crossing into violence without the far end having any knowledge of it. Foster was a private person who had appeared in a film; she had not addressed Hinckley, recruited him or consented to be the object of his plan.\n\nThe legal response was an insanity acquittal and, later, changes to the insanity defence and federal gun law. The cultural response was a debate about whether films could incite. Both responses looked for a cause in the media object. The more uncomfortable fact is that the bond was sustained entirely by Hinckley, and no one on the far side could have interrupted it.",
       "primary_source_or_artifact": "The attempted assassination of Ronald Reagan, 30 March 1981",
-      "tags": ["stalking", "fixation", "political-violence", "cinema", "boundary-collapse"],
+      "tags": [
+        "stalking",
+        "fixation",
+        "political-violence",
+        "cinema",
+        "boundary-collapse"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Attempted assassination of Ronald Reagan'.",
@@ -304,7 +1732,149 @@
           "status": "retrievable",
           "note": "Opened: records the shooting, Hinckley's stated motive and the trial outcome."
         }
-      ]
+      ],
+      "phase": 4
+    },
+    {
+      "id": "michael-jackson",
+      "year": "1982",
+      "sort_year": 1982,
+      "title": "Michael Jackson and the video on repeat",
+      "summary": "Michael Jackson's Thriller made him the most globally recognised performer of his era, and the music video gave the audience a face to watch on repeat.",
+      "parasocial_analysis": "Thriller was a short film, a dance routine and a merchandise engine at once. The video made Jackson available as an image that could be rewound, imitated and owned. His later isolation and the public's fascination with his body are part of the same structure: a figure who is intensely known and never actually met.\n\nThe repeatable image is the mechanism. A photograph can be looked at again; a video can be replayed until the viewer knows the gestures better than the person does. That is a new kind of familiarity, and it does not require the figure to know anything about the viewer.",
+      "primary_source_or_artifact": "Michael Jackson, Thriller (1982)",
+      "tags": [
+        "music",
+        "music-video",
+        "global-fandom",
+        "celebrity",
+        "1980s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Michael Jackson'.",
+          "url": "https://en.wikipedia.org/wiki/Michael_Jackson",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Thriller (album)'.",
+          "url": "https://en.wikipedia.org/wiki/Thriller_(album)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "madonna",
+      "year": "1984",
+      "sort_year": 1984,
+      "title": "Madonna and the persona people argued with",
+      "summary": "Madonna's Like a Virgin and her MTV performances made a pop star's persona a subject of public argument about what a woman was allowed to be.",
+      "parasocial_analysis": "Madonna's audience did not simply listen; it argued about her. The music video, the tour and the press interview produced a persona that was available for identification and for disapproval. Fans took her as a model of self-invention, and the relationship was conducted through imitation - clothes, dance, attitude - rather than through any private exchange.\n\nA persona that provokes argument is still a persona that is intimately known. The audience's disagreement is a form of attention, and attention is the raw material of the bond.",
+      "primary_source_or_artifact": "Madonna, Like a Virgin (1984); MTV",
+      "tags": [
+        "music",
+        "mtv",
+        "persona",
+        "imitation",
+        "1980s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Madonna'.",
+          "url": "https://en.wikipedia.org/wiki/Madonna",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "live-aid",
+      "year": "1985",
+      "sort_year": 1985,
+      "title": "Live Aid and the audience as witness",
+      "summary": "Live Aid put the world's biggest pop stars on one stage for a global broadcast and asked the audience to feel part of a single event.",
+      "parasocial_analysis": "Live Aid was a concert, a telethon and a satellite event. The viewer was addressed simultaneously as a music fan and as a moral witness, and the two roles reinforced each other. The acts performed for an audience they could not see, while the audience watched a shared spectacle that felt like participation. It is the template for the celebrity charity event.\n\nThe bond is with the event as much as with any performer. A global broadcast gives millions of people the same appointment, and the feeling of being one of them is the reward.",
+      "primary_source_or_artifact": "Live Aid, 13 July 1985",
+      "tags": [
+        "music",
+        "television",
+        "charity",
+        "global-event",
+        "1980s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Live Aid'.",
+          "url": "https://en.wikipedia.org/wiki/Live_Aid",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "oprah",
+      "year": "1986–2011",
+      "sort_year": 1986,
+      "title": "Oprah and the studio as confessional",
+      "summary": "The Oprah Winfrey Show made the studio a confessional and the host a person who listened, and the audience treated her as a trusted friend.",
+      "parasocial_analysis": "Oprah's format was conversation rather than performance: guests told stories, the audience responded, and the host supplied recognition. The viewer at home was positioned as another person in the room. The show's power came from the sense that the host was revealing herself while asking others to do the same, which is the daytime form of the parasocial bond.\n\nThe book club is the mechanism made concrete. A recommendation from Oprah moved sales because the audience treated it as a personal invitation, not an advertisement.",
+      "primary_source_or_artifact": "The Oprah Winfrey Show, 1986–2011",
+      "tags": [
+        "television",
+        "talk-show",
+        "confession",
+        "intimacy",
+        "1980s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Oprah Winfrey Show'.",
+          "url": "https://en.wikipedia.org/wiki/The_Oprah_Winfrey_Show",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age"
+    },
+    {
+      "id": "rush-limbaugh",
+      "year": "1988–2021",
+      "sort_year": 1988,
+      "title": "Rush Limbaugh and the friend who told you what you thought",
+      "summary": "Rush Limbaugh's radio show made political argument into a daily companionship, with the host as a friend who told listeners what they already believed.",
+      "parasocial_analysis": "Limbaugh addressed a large audience as a confidant, used nicknames and running jokes, and made the listener feel part of a like-minded company. The political content mattered, but the form was a daily visit. Talk radio is the clearest case of a mediated relationship that organizes both identity and voting, and it does so without any reciprocal access.\n\nThe call is the limit case. A listener can speak on air, but only when the host chooses, and the exchange is a performance for the audience rather than a private conversation.",
+      "primary_source_or_artifact": "The Rush Limbaugh Show, 1988–2021",
+      "tags": [
+        "radio",
+        "politics",
+        "talk-radio",
+        "identity",
+        "1980s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Rush Limbaugh'.",
+          "url": "https://en.wikipedia.org/wiki/Rush_Limbaugh",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 4,
+      "domain": "Politics & News",
+      "era": "The Broadcast Age"
     },
     {
       "id": "rebecca-schaeffer",
@@ -316,7 +1886,13 @@
       "summary": "The actress Rebecca Schaeffer was murdered at her home in Los Angeles on 18 July 1989 by a man who had become obsessed with her; he had obtained her address through a private investigator.",
       "parasocial_analysis": "Schaeffer was known for a television role, and her killer's attachment was to a persona he had never met. The murder made visible a structural fact: the apparatus of celebrity distributes a person's image while leaving the person's physical location discoverable. The fan could act on the bond because the state had made the address available.\n\nCalifornia's anti-stalking law followed in 1990, and other states and the federal government followed. The law is the recognition that a one-sided attachment can become a physical threat before it becomes a crime. It also marks the point where the far end's privacy stops being a courtesy and becomes a legal boundary.",
       "primary_source_or_artifact": "The murder of Rebecca Schaeffer, Los Angeles, 18 July 1989",
-      "tags": ["stalking", "celebrity", "privacy", "law", "violence"],
+      "tags": [
+        "stalking",
+        "celebrity",
+        "privacy",
+        "law",
+        "violence"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Rebecca Schaeffer'.",
@@ -330,7 +1906,8 @@
           "status": "retrievable",
           "note": "Opened: records the California statute and the wider legal response."
         }
-      ]
+      ],
+      "phase": 4
     },
     {
       "id": "diana-death",
@@ -342,7 +1919,13 @@
       "summary": "Diana, Princess of Wales, died in Paris on 31 August 1997; the funeral in Westminster Abbey was watched by a global television audience and the mourning was widely described as personal.",
       "parasocial_analysis": "Diana's relationship with the public was conducted through images: the wedding, the hospital visits, the interview, the tabloid pursuit. She was famous for being seen, and the public's sense of knowing her was built from close-ups. The grief after her death was not a delusion; it was the cost of a long, vivid, one-sided familiarity.\n\nThe funeral gave the attachment a ritual and a place. People queued to sign books, left flowers outside palaces, and watched the same procession at the same time. The scale made it a national event, but the structure was the one Valentino's mourners had used seventy years earlier: a public body assembled around a private absence.",
       "primary_source_or_artifact": "The death and funeral of Diana, Princess of Wales, 1997",
-      "tags": ["celebrity-death", "public-mourning", "royalty", "television", "tabloid"],
+      "tags": [
+        "celebrity-death",
+        "public-mourning",
+        "royalty",
+        "television",
+        "tabloid"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Death of Diana, Princess of Wales'.",
@@ -350,7 +1933,8 @@
           "status": "retrievable",
           "note": "Opened: records the death, the funeral and the public response."
         }
-      ]
+      ],
+      "phase": 4
     },
     {
       "id": "truman-show",
@@ -362,7 +1946,13 @@
       "summary": "Peter Weir's 1998 film imagines a man whose entire life has been broadcast without his knowledge, and an audience that has watched him grow up.",
       "parasocial_analysis": "The film's critique is not that the audience is cruel. It is that the audience's affection is compatible with the arrangement. Viewers feel they know Truman, and that feeling is the product the show sells; his ignorance is what guarantees the intimacy is uncomplicated. The moment he becomes a person who can answer back, the show has to end.\n\nThe final image is of viewers changing channels, which is the film's sharpest observation: the bond survives the revelation because it was never with Truman. It was with the version of him the audience had been given. The Truman Show is the reverse of the Horton-Wohl case - the far end is a real person, but he is real to himself and a character to everyone else.",
       "primary_source_or_artifact": "Peter Weir (dir.), The Truman Show, 1998",
-      "tags": ["film", "surveillance", "meta-television", "consent", "audience"],
+      "tags": [
+        "film",
+        "surveillance",
+        "meta-television",
+        "consent",
+        "audience"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'The Truman Show'.",
@@ -370,7 +1960,8 @@
           "status": "retrievable",
           "note": "Opened: records the production, the plot and the film's reception."
         }
-      ]
+      ],
+      "phase": 4
     },
     {
       "id": "eminem-stan",
@@ -382,7 +1973,13 @@
       "summary": "Eminem's 2000 song 'Stan' tells the story of an obsessive fan whose letters go unanswered until the rapper replies too late.",
       "parasocial_analysis": "The song is built as a correspondence. Stan writes with the intimacy of someone who believes the artist owes him a response; the third verse is the artist's reply, arriving after Stan has driven into a river. The structural joke is that the reply is the one thing the fan needed, and it is also the one thing that cannot arrive in time.\n\nThe song gave the culture a name for the fan who cannot let go, and the name has since become a verb. Its accuracy is in the misreading: Stan treats the artist's songs as personal messages, which is exactly what a parasocial bond encourages. The artist's own voice is the evidence, and the evidence is one-way.",
       "primary_source_or_artifact": "Eminem, 'Stan', The Marshall Mathers LP, 2000",
-      "tags": ["music-fandom", "obsession", "fan-mail", "correspondence", "stan"],
+      "tags": [
+        "music-fandom",
+        "obsession",
+        "fan-mail",
+        "correspondence",
+        "stan"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Stan (song)'.",
@@ -390,7 +1987,134 @@
           "status": "retrievable",
           "note": "Opened: records the narrative, the Dido sample and the song's afterlife."
         }
-      ]
+      ],
+      "phase": 4
+    },
+    {
+      "id": "big-brother",
+      "year": "1999–",
+      "sort_year": 1999,
+      "title": "Big Brother and the house that watches back",
+      "summary": "Big Brother put ordinary people in a house under constant surveillance and let the audience watch, vote and discuss them as if they were friends.",
+      "parasocial_analysis": "The show's premise is that watching is participation: the audience votes, comments and follows the house's daily life. The housemates are ordinary enough to be plausible friends and isolated enough to be entirely available. Big Brother is the template for reality television's parasocial contract.\n\nThe continuous house feed is the important part. It removes the edit and offers duration instead, so the viewer can watch someone sleep, eat and wait. The relationship is built on ordinary time rather than on events.",
+      "primary_source_or_artifact": "Big Brother, 1999–",
+      "tags": [
+        "reality-tv",
+        "surveillance",
+        "audience",
+        "voting",
+        "1990s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Big Brother (franchise)'.",
+          "url": "https://en.wikipedia.org/wiki/Big_Brother_(franchise)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Broadcast & Film",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "sasaeng-culture",
+      "year": "2000s",
+      "sort_year": 2000,
+      "title": "Sasaeng culture",
+      "summary": "Organised, commercialised intrusion: tracking schedules, buying flight details, intercepting travel, surveilling buildings.",
+      "parasocial_analysis": "Attachment scaled past the point where it is a private feeling and became an industry with staff and infrastructure. The escalation is not emotional, it is logistical - which is why it emerged as fandom became globally coordinated.\n\nThe intrusion is the negative image of the bond: the fan treats the figure's life as a right of access, and the law arrives only after the harm. The sasaeng is not a stranger to the fandom; the behaviour is produced by the same intimacy that the industry sells.",
+      "primary_source_or_artifact": "K-pop sasaeng fandom, 2000s",
+      "tags": [
+        "k-pop",
+        "stalking",
+        "fandom",
+        "privacy",
+        "intrusion"
+      ],
+      "citations": [
+        {
+          "citation": "Nanyang Business School, NTU Singapore (2017). The Darker Side of K-pop?",
+          "url": "https://www.ntu.edu.sg/business/news-events/news/story-detail/the-darker-side-of-k-pop",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Sasaeng fan. Wikipedia.",
+          "url": "https://en.wikipedia.org/wiki/Sasaeng_fan",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "The Spectrum of Fan Attitudes in Korean Culture Industry (2022).",
+          "url": "https://apcz.umk.pl/LL/article/view/42804",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "phase": 5,
+      "domain": "Music & Fan Culture",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "the-bachelor",
+      "year": "2002–",
+      "sort_year": 2002,
+      "title": "The Bachelor and the audience as judge",
+      "summary": "The Bachelor turned courtship into a televised competition and invited the audience to judge the relationships as if they knew the people.",
+      "parasocial_analysis": "The format gives the viewer access to private conversations, confessionals and eliminations, and asks them to take sides. The contestants are presented as available for love, and the audience's attachment is to the possibility of a couple. The show's longevity depends on the viewer feeling entitled to an opinion about strangers' romantic lives.\n\nThe rose ceremony is the mechanism in miniature: a private choice performed in public, with the audience watching the face of the person who is not chosen.",
+      "primary_source_or_artifact": "The Bachelor, ABC, 2002–",
+      "tags": [
+        "reality-tv",
+        "romance",
+        "competition",
+        "audience",
+        "2000s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Bachelor (American TV series)'.",
+          "url": "https://en.wikipedia.org/wiki/The_Bachelor_(American_TV_series)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Broadcast & Film",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "facebook",
+      "year": "2004",
+      "sort_year": 2004,
+      "title": "Facebook and the profile as a public life",
+      "summary": "Facebook turned the profile into a public identity and made the everyday life of ordinary people available to an audience of peers.",
+      "parasocial_analysis": "The profile is a broadcast of the self, but it is also a directory of people you know. The platform did not create parasociality; it moved the mechanism from stars to peers. A friend's timeline can be followed with the same one-sided attention once given to a television character, and the feed makes that attention continuous.\n\nThe news feed is the key change. It assembles other people's lives into a single stream, so the viewer can keep up with a person without ever speaking to them. That is the everyday version of the bond.",
+      "primary_source_or_artifact": "Facebook, launched 2004",
+      "tags": [
+        "social-media",
+        "profile",
+        "peers",
+        "feed",
+        "platform"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Facebook'.",
+          "url": "https://en.wikipedia.org/wiki/Facebook",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'History of Facebook'.",
+          "url": "https://en.wikipedia.org/wiki/History_of_Facebook",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
     },
     {
       "id": "youtube-vlog",
@@ -401,8 +2125,14 @@
       "era": "Digital & Algorithmic",
       "summary": "YouTube launched in 2005 and was bought by Google in 2006; the webcam vlog turned the domestic room into a broadcast studio.",
       "parasocial_analysis": "The vlog's grammar is intimacy: a face close to the lens, a bedroom or kitchen behind it, direct address, and the opening 'hey guys'. The viewer is positioned as a friend who has dropped in. The production values are low on purpose - the low quality is evidence that this is not a performance, even when it is.\n\nThe medium also changed the scale of the far end. A television star was addressed to millions and could not see the reply; a vlogger could read comments and answer them in the next video, which made the relationship feel reciprocal without making it reciprocal. The reply is public, edited and addressed to everyone, but it arrives in the same room where the first video was watched.",
-      "primary_source_or_artifact": "YouTube (launched 2005); the webcam vlog, 2005-2006",
-      "tags": ["digital", "vlog", "direct-address", "pseudo-friendship", "platform"],
+      "primary_source_or_artifact": "YouTube (launched 2005); the webcam vlog, 2005–2006",
+      "tags": [
+        "digital",
+        "vlog",
+        "direct-address",
+        "pseudo-friendship",
+        "platform"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'YouTube'.",
@@ -416,7 +2146,69 @@
           "status": "retrievable",
           "note": "Opened: records the first YouTube video, uploaded in April 2005."
         }
-      ]
+      ],
+      "phase": 5,
+      "date_note": "YouTube launched in 2005; 2006 is the year of the Google acquisition and the vlog boom."
+    },
+    {
+      "id": "taylor-swift",
+      "year": "2006–",
+      "sort_year": 2006,
+      "title": "Taylor Swift and the fandom as co-author",
+      "summary": "Taylor Swift built a fandom that treats her lyrics as personal correspondence and her public life as a continuing story.",
+      "parasocial_analysis": "Swift's songs use first-person confession and specific detail, which invites listeners to map their own lives onto hers. The fandom's name, the Easter eggs and the rerecordings turn the audience into co-authors of a serial narrative. She addresses the audience in interviews and liner notes, but the address is always one-to-many; the intimacy is in the writing, not in a reply.\n\nThe rerecording project is the mechanism at scale: the audience is asked to choose a version, and the choice becomes a way of proving loyalty.",
+      "primary_source_or_artifact": "Taylor Swift, from 2006; the Swifties",
+      "tags": [
+        "music-fandom",
+        "confession",
+        "lyrics",
+        "fandom",
+        "21st-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Taylor Swift'.",
+          "url": "https://en.wikipedia.org/wiki/Taylor_Swift",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Swifties'.",
+          "url": "https://en.wikipedia.org/wiki/Swifties",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Music & Fan Culture",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "twitter",
+      "year": "2006",
+      "sort_year": 2006,
+      "title": "Twitter and the follow that feels like a conversation",
+      "summary": "Twitter made the famous appear to speak directly, in short messages, to anyone who followed them.",
+      "parasocial_analysis": "The follow is a one-way subscription that feels like a conversation. A celebrity's tweet is addressed to the timeline rather than to a person, but it arrives in the same stream as friends' messages. The platform collapsed the distance between public figure and acquaintance while keeping the reply asymmetric: the star can be answered, but the answer is one of thousands.\n\nThe quote tweet and the reply made the asymmetry visible. The audience can speak about the figure in the figure's own mentions, which feels like access and is actually a queue.",
+      "primary_source_or_artifact": "Twitter, launched 2006",
+      "tags": [
+        "social-media",
+        "microblogging",
+        "follow",
+        "direct-address",
+        "platform"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Twitter'.",
+          "url": "https://en.wikipedia.org/wiki/Twitter",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
     },
     {
       "id": "kuwtk",
@@ -427,8 +2219,14 @@
       "era": "Digital & Algorithmic",
       "summary": "The reality series premiered on E! on 14 October 2007 and ran for twenty seasons, making a family's private life a weekly appointment.",
       "parasocial_analysis": "Reality television's claim is that there is no script, which converts the cast's ordinary reactions into evidence of a real relationship. The viewer watches birthdays, arguments and pregnancies over years, and the accumulation produces the sense of knowing a family rather than a show. The Kardashians' particular innovation was to make the camera part of the family's business, so that being watched became the plot.\n\nThe show also demonstrates the commercial value of the bond. The audience's familiarity is converted into endorsements, spin-offs and a beauty company. The far end is not a single person but a household, and the household is available to the viewer at a scale no actual friendship could sustain.",
-      "primary_source_or_artifact": "Keeping Up with the Kardashians, E!, 2007-2021",
-      "tags": ["reality-tv", "family", "brand", "long-form", "domestic"],
+      "primary_source_or_artifact": "Keeping Up with the Kardashians, E!, 2007–2021",
+      "tags": [
+        "reality-tv",
+        "family",
+        "brand",
+        "long-form",
+        "domestic"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Keeping Up with the Kardashians'.",
@@ -436,19 +2234,188 @@
           "status": "retrievable",
           "note": "Opened: records the premiere date, the run and the spin-offs."
         }
-      ]
+      ],
+      "phase": 5
+    },
+    {
+      "id": "mcu",
+      "year": "2008–",
+      "sort_year": 2008,
+      "title": "The Marvel Cinematic Universe and the long subscription",
+      "summary": "The Marvel Cinematic Universe made a decade of films into one continuous story, and the audience's attachment to characters into a long-term subscription.",
+      "parasocial_analysis": "The MCU's innovation is scheduling: after-credits scenes, release dates and interconnected plots train the audience to return. The characters age, die and return, and the viewer's knowledge accumulates across films. The bond is with a world as much as a hero, and the world is designed to be inhabited between releases.\n\nThe post-credits scene is the contract. It rewards the viewer for staying and promises that the story continues, which turns a single film into an appointment.",
+      "primary_source_or_artifact": "Marvel Cinematic Universe, 2008–",
+      "tags": [
+        "film",
+        "franchise",
+        "seriality",
+        "fandom",
+        "21st-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Marvel Cinematic Universe'.",
+          "url": "https://en.wikipedia.org/wiki/Marvel_Cinematic_Universe",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Broadcast & Film",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "asmr",
+      "year": "2010s",
+      "sort_year": 2010,
+      "title": "ASMR and the attention that feels personal",
+      "summary": "ASMR videos use whispers, close attention and simulated care to produce a bodily response, and the viewer often feels personally attended to.",
+      "parasocial_analysis": "The ASMR performer speaks softly into a microphone, brushes the camera, and behaves as if the viewer is within reach. The form is intimate without being sexual, and the intimacy is entirely one-sided. The viewer's physical response is real, which makes the absence of a relationship harder to dismiss as mere entertainment.\n\nThe binaural microphone is the mechanism. It places the viewer's ears in the room, and the body responds to a voice that is addressing no one in particular.",
+      "primary_source_or_artifact": "ASMR video, 2010s",
+      "tags": [
+        "asmr",
+        "audio",
+        "intimacy",
+        "youtube",
+        "2010s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'ASMR'.",
+          "url": "https://en.wikipedia.org/wiki/ASMR",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "instagram",
+      "year": "2010",
+      "sort_year": 2010,
+      "title": "Instagram and the curated life",
+      "summary": "Instagram made the curated photograph the basic unit of a public life, and the influencer a person whose domestic life is the product.",
+      "parasocial_analysis": "The feed is a sequence of chosen moments, and the viewer supplies the continuity between them. An influencer's kitchen, holiday and workout are offered as access, but the access is edited. The relationship is intimate in form and commercial in structure: the audience feels close to a life that is being designed for it.\n\nThe grid is the mechanism. A profile is a composition, and the viewer reads it as a whole, which makes a set of images feel like a person.",
+      "primary_source_or_artifact": "Instagram, launched 2010",
+      "tags": [
+        "social-media",
+        "influencer",
+        "photography",
+        "curated-life",
+        "platform"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Instagram'.",
+          "url": "https://en.wikipedia.org/wiki/Instagram",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "one-direction",
+      "year": "2010–2016",
+      "sort_year": 2010,
+      "title": "One Direction and the fandom that did the work",
+      "summary": "One Direction's fandom organised on social media, treated the band members as intimate friends and made the fan's interpretation part of the story.",
+      "parasocial_analysis": "Directioners did not just listen; they wrote, voted, trended hashtags and argued about the members' relationships. The band's public life was a serial, and the fandom produced its own readings. The bond was with a group of young men who were trained to be available, and the audience's labour was part of the product.\n\nThe hashtag is the mechanism. It lets a dispersed audience act together in public and see its own size, which turns private affection into a visible crowd.",
+      "primary_source_or_artifact": "One Direction, 2010–2016",
+      "tags": [
+        "music-fandom",
+        "social-media",
+        "boyband",
+        "fandom",
+        "2010s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'One Direction'.",
+          "url": "https://en.wikipedia.org/wiki/One_Direction",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Music & Fan Culture",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "game-of-thrones",
+      "year": "2011–2019",
+      "sort_year": 2011,
+      "title": "Game of Thrones and the audience that owned the ending",
+      "summary": "Game of Thrones made weekly television a global conversation, with fan theories, recaps and a finale that the audience treated as a personal grievance.",
+      "parasocial_analysis": "The show's scale and its willingness to kill characters made every episode a shared event. Between episodes, the audience speculated, argued and produced explanations. The finale's backlash was the clearest sign that viewers felt ownership: they had spent years with the characters and believed the ending belonged to them.\n\nThe theory is the mechanism. A fan theory is an act of authorship that the text invites and cannot satisfy, and the gap between the theory and the ending is where the sense of betrayal lives.",
+      "primary_source_or_artifact": "Game of Thrones, HBO, 2011–2019",
+      "tags": [
+        "television",
+        "fantasy",
+        "fandom",
+        "speculation",
+        "2010s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Game of Thrones'.",
+          "url": "https://en.wikipedia.org/wiki/Game_of_Thrones",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Broadcast & Film",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "snapchat",
+      "year": "2011",
+      "sort_year": 2011,
+      "title": "Snapchat and the message that disappears",
+      "summary": "Snapchat's disappearing messages offered a private, time-limited intimacy that felt less like publication than a conversation.",
+      "parasocial_analysis": "The disappearing image is a promise of privacy, and the promise is part of the intimacy. The viewer is made to feel trusted with something that will not last. The platform turns attention into a temporary gift, and the relationship is sustained by the sense that the next message may vanish.\n\nThe streak is the mechanism made compulsive: a visible count of consecutive days turns a private exchange into a record that must be maintained.",
+      "primary_source_or_artifact": "Snapchat, launched 2011",
+      "tags": [
+        "social-media",
+        "ephemeral",
+        "privacy",
+        "intimacy",
+        "platform"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Snapchat'.",
+          "url": "https://en.wikipedia.org/wiki/Snapchat",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
     },
     {
       "id": "twitch-donations",
-      "year": "2014",
-      "sort_year": 2014,
+      "year": "2011–2014",
+      "sort_year": 2011,
       "title": "Twitch and the donation that says your name",
       "domain": "Digital & Synthetic",
       "era": "Digital & Algorithmic",
       "summary": "Twitch's live streaming and its donation and subscription tools turned watching into a real-time transaction in which the streamer can read the viewer's name aloud.",
       "parasocial_analysis": "The streamer sees the chat, answers it, and reacts to donations in the moment. That is a genuine reply, which makes the relationship different from a television bond - but the reply is bought, and it is performed for an audience. The viewer is not a friend; the viewer is a name on a screen that the streamer is paid to acknowledge. By 2014, when Amazon acquired the service, the donation and subscription layer had become the platform's economic core.\n\nThe variable reinforcement is the mechanism: a donation may be read, may be ignored, may produce a shout-out or a joke. The uncertainty keeps the viewer watching and giving. Text-to-speech donations make the transaction audible to everyone, which turns the private wish to be noticed into a public event.",
-      "primary_source_or_artifact": "Twitch live streaming, donations and subscriptions, 2010s",
-      "tags": ["streaming", "donations", "parasocial-economy", "real-time", "platform"],
+      "primary_source_or_artifact": "Twitch live streaming, donations and subscriptions, 2011–2014",
+      "tags": [
+        "streaming",
+        "donations",
+        "parasocial-economy",
+        "real-time",
+        "platform"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Twitch (service)'.",
@@ -456,7 +2423,231 @@
           "status": "retrievable",
           "note": "Opened: records the launch, the 2014 Amazon acquisition and the subscription economy."
         }
-      ]
+      ],
+      "phase": 5,
+      "date_note": "Twitch launched in 2011; the donation and subscription layer matured by 2014."
+    },
+    {
+      "id": "mrbeast",
+      "year": "2012–",
+      "sort_year": 2012,
+      "title": "MrBeast and the spectacle of giving",
+      "summary": "MrBeast turned YouTube spectacle into a philanthropic serial, with the creator as a host who gives money away on camera.",
+      "parasocial_analysis": "The videos are built around a repeated persona: a young man who stages extreme generosity and asks the viewer to watch the result. The audience's attachment is to the host's apparent character, while the format is a business. The give-away is real, and so is the distance: the viewer is invited to feel close to a person whose attention is the product.\n\nThe thumbnail is the mechanism. A face, a number and a promise of transformation compress the relationship into an image before the video begins.",
+      "primary_source_or_artifact": "MrBeast, YouTube, 2012–",
+      "tags": [
+        "youtube",
+        "creator",
+        "philanthropy",
+        "spectacle",
+        "21st-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'MrBeast'.",
+          "url": "https://en.wikipedia.org/wiki/MrBeast",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "netflix",
+      "year": "2013–",
+      "sort_year": 2013,
+      "title": "Netflix and the weekend-long relationship",
+      "summary": "Netflix's full-season release made binge-watching the default and turned a series into a weekend-long relationship.",
+      "parasocial_analysis": "The box set removed the week between episodes, so the characters continued without a gap. Binge-watching produces a more intense but shorter attachment: the viewer lives inside the story for hours and then emerges. The platform's recommendation and autoplay make the next episode the path of least resistance.\n\nThe autoplay countdown is the mechanism in miniature. It removes the decision to return, and the relationship continues because stopping would take more effort than watching.",
+      "primary_source_or_artifact": "Netflix and the binge-release model, from 2013",
+      "tags": [
+        "streaming",
+        "binge-watching",
+        "television",
+        "platform",
+        "2010s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Netflix'.",
+          "url": "https://en.wikipedia.org/wiki/Netflix",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Binge-watching'.",
+          "url": "https://en.wikipedia.org/wiki/Binge-watching",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Broadcast & Film",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "patreon",
+      "year": "2013",
+      "sort_year": 2013,
+      "title": "Patreon and the paid continuation",
+      "summary": "Patreon let audiences pay creators directly for a continuing relationship, with tiers, updates and behind-the-scenes access.",
+      "parasocial_analysis": "The subscription is a formalization of the bond: the fan pays not for a product but for the continuation of the creator's work and for the feeling of being a supporter. The creator addresses patrons as a known group, which makes the relationship feel closer than a public feed. The tier system turns intimacy into a hierarchy.\n\nThe patron-only post is the mechanism. It creates a room inside the audience, and the feeling of being in that room is what the subscription buys.",
+      "primary_source_or_artifact": "Patreon, launched 2013",
+      "tags": [
+        "creator-economy",
+        "subscription",
+        "patronage",
+        "platform",
+        "fandom"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Patreon'.",
+          "url": "https://en.wikipedia.org/wiki/Patreon",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "podcast-intimacy",
+      "year": "2014",
+      "sort_year": 2014,
+      "title": "The podcast as an intimate medium",
+      "summary": "A voice in your ear, unedited, twice a week, for years. The most parasocial habit in the English language and rarely discussed as such.",
+      "parasocial_analysis": "Nobody wears a costume and nobody mentions the format, so it never got examined. Researchers eventually measured it and found listeners score high on exactly the traits predicted: novelty-seeking, curiosity, and a need for good conversation.\n\nThe medium's intimacy is technical: headphones, an unedited voice, a recurring schedule, and no face to correct the impression of a friend. The listener hears a person thinking in real time, which is a more convincing simulation of companionship than a scripted broadcast.",
+      "primary_source_or_artifact": "The podcast as an intimate medium, 2014",
+      "tags": [
+        "podcast",
+        "audio",
+        "voice",
+        "intimacy",
+        "habit"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Podcast'.",
+          "url": "https://en.wikipedia.org/wiki/Podcast",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "lil-miquela",
+      "year": "2016",
+      "sort_year": 2016,
+      "title": "Lil Miquela and the influencer with no body",
+      "summary": "Lil Miquela was a virtual influencer with a fabricated life, a real audience and brand deals, and no body behind the face.",
+      "parasocial_analysis": "Miquela's account posted like a young woman's: selfies, friends, opinions, a music career. The audience knew she was generated, and the knowledge did not stop the attachment. The figure is a composite of a design team and a following, and the relationship is one-sided at both ends: the audience cannot meet her, and there is no person inside to meet.\n\nThe comment section is the mechanism. The audience talks to the figure and to each other, and the performance of a life continues without a performer.",
+      "primary_source_or_artifact": "Lil Miquela, created by Brud, 2016",
+      "tags": [
+        "virtual-influencer",
+        "ai",
+        "persona",
+        "social-media",
+        "synthetic"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Lil Miquela'.",
+          "url": "https://en.wikipedia.org/wiki/Lil_Miquela",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "onlyfans",
+      "year": "2016",
+      "sort_year": 2016,
+      "title": "OnlyFans and the intimacy you can buy",
+      "summary": "OnlyFans made paid intimacy a subscription product, with creators selling direct access to private messages and images.",
+      "parasocial_analysis": "The platform is explicit about the transaction, which makes it a useful control case: the fan knows the relationship is paid, and still experiences it as personal. The creator performs attention, the subscriber buys recognition, and both sides can describe the exchange as a friendship. The money does not remove the feeling; it is the condition of it.\n\nThe direct message is the mechanism. It is addressed to one person, it arrives privately, and it can be answered, which is as close as the platform comes to reciprocity.",
+      "primary_source_or_artifact": "OnlyFans, launched 2016",
+      "tags": [
+        "creator-economy",
+        "paid-intimacy",
+        "subscription",
+        "platform",
+        "2010s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'OnlyFans'.",
+          "url": "https://en.wikipedia.org/wiki/OnlyFans",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "vtuber",
+      "year": "2016",
+      "sort_year": 2016,
+      "title": "The virtual creator",
+      "summary": "A performer with an animated persona, a persistent character and an industry-standard model where the audience pays for the character's recognition.",
+      "parasocial_analysis": "Character and person separated, and the character commercialised. It is the first format where the parasocial object is explicitly a designed asset, and it is also the format with the healthiest documented fan boundaries.\n\nThe performer is real, the face is drawn, and the audience's attachment is to the character while the person remains under it; the gap is the product. The avatar lets the audience love a figure without having to decide what the person behind it owes them.",
+      "primary_source_or_artifact": "Kizuna AI and the VTuber form, 2016",
+      "tags": [
+        "vtuber",
+        "avatar",
+        "performance",
+        "anime",
+        "streaming"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'VTuber'.",
+          "url": "https://en.wikipedia.org/wiki/VTuber",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
+    },
+    {
+      "id": "replika",
+      "year": "2017",
+      "sort_year": 2017,
+      "title": "Replika and the companion that was edited",
+      "summary": "A companion chatbot that formed an attachment to its users, and removed it from them in a policy update.",
+      "parasocial_analysis": "The clearest instance in the catalogue of the bond being severed by a company rather than by death, and of the bereavement being real enough that people organised around it.\n\nThe users' attachment was real enough that a policy change felt like a bereavement, which is the clearest evidence that the bond was never a metaphor. The companion is designed to remember, to ask and to agree, which is a relationship-shaped surface with no one behind it.",
+      "primary_source_or_artifact": "Replika, launched 2017",
+      "tags": [
+        "ai",
+        "companion",
+        "chatbot",
+        "synthetic-intimacy",
+        "app"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Replika'.",
+          "url": "https://en.wikipedia.org/wiki/Replika",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic"
     },
     {
       "id": "tiktok-fyp",
@@ -468,7 +2659,13 @@
       "summary": "TikTok's For You page uses recommendation to assemble a personalised stream; by 2020 it had become the defining interface of short-form video.",
       "parasocial_analysis": "The For You page inverts the direction of address. On television, one performer speaks to millions; on TikTok, millions of performers speak to the camera, and the algorithm selects which one appears to you. The intimacy is manufactured twice: the creator performs direct address, and the platform arranges the sequence so that the address feels aimed at your specific preoccupations.\n\nThe result is a bond with a feed as well as with a person. Users describe the app as knowing them, which is a description of a recommendation system rather than a relationship. The far end is a machine that has no experience of you, and the near end supplies the meaning. That is the same structure as the pool in Ovid, with better data.",
       "primary_source_or_artifact": "TikTok For You page, 2020",
-      "tags": ["algorithm", "recommendation", "short-video", "algorithmic-intimacy", "platform"],
+      "tags": [
+        "algorithm",
+        "recommendation",
+        "short-video",
+        "algorithmic-intimacy",
+        "platform"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'TikTok'.",
@@ -476,7 +2673,8 @@
           "status": "retrievable",
           "note": "Opened: records the launch, the For You page and the platform's growth."
         }
-      ]
+      ],
+      "phase": 5
     },
     {
       "id": "character-ai",
@@ -488,7 +2686,13 @@
       "summary": "Character.AI launched in 2022, letting users chat with language-model personas, including custom companions, in persistent one-to-one conversations.",
       "parasocial_analysis": "The platform removes the human from the far side without removing the grammar of a relationship. The model remembers the conversation, asks follow-up questions and adopts a voice; the user supplies the character and often the emotional stakes. The result is a bond that is entirely one-sided in fact and almost entirely reciprocal in form.\n\nThis is the synthetic case the rest of the timeline was building toward: not a person mediated by a screen, but a screen that can produce the next line. The risk is not that users cannot tell the difference. It is that the difference stops being the thing they are looking for.",
       "primary_source_or_artifact": "Character.AI, launched 2022",
-      "tags": ["ai", "chatbot", "synthetic-intimacy", "companion", "llm"],
+      "tags": [
+        "ai",
+        "chatbot",
+        "synthetic-intimacy",
+        "companion",
+        "llm"
+      ],
       "citations": [
         {
           "citation": "Wikipedia, 'Character.ai'.",
@@ -496,7 +2700,47 @@
           "status": "retrievable",
           "note": "Opened: records the launch, the founders and the companion use case."
         }
-      ]
+      ],
+      "phase": 5
+    },
+    {
+      "id": "deepfake-grief",
+      "year": "2024",
+      "sort_year": 2024,
+      "title": "The dead celebrity, generated",
+      "summary": "A voice trained on an archive, a likeness, a song, a speech, an appearance at a festival, all generated. Not a hologram, not a tribute, not a person.",
+      "parasocial_analysis": "The interesting fact is not that this happens without permission. Mostly it does not: the documented 2024 cases are licensed, one by an estate and one by the person himself while he was alive, which is a harder thing to argue with than the entry used to claim. Consent has moved to the licensor, and that is where the problem now lives. An estate agreeing is not the same as the dead person choosing how they will sound forever, and the sharpest case is the most defensible one - the actor who authorised his own recreation in advance, on purpose, because he was winding the role down and wanted the early performances preserved. Nobody was imposed on. Which is exactly why it is worth reading closely. Still unresolved, and not about the celebrities: the models are trained on tens of thousands of hours of audio scraped without consent, and the consent being bought covers the voice, not the training set.",
+      "primary_source_or_artifact": "Generative voice and likeness of dead performers, 2020s",
+      "tags": [
+        "ai",
+        "deepfake",
+        "grief",
+        "resurrection",
+        "synthetic"
+      ],
+      "citations": [
+        {
+          "citation": "LaRosa, A. (2024, September 10). James Earl Jones' Darth Vader Has Already Been Immortalized With AI. WIRED. (Angela Watercutter.)",
+          "url": "https://www.wired.com/story/james-earl-jones-darth-vader-death-artificial-intelligence",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Zetter, K. (2024, July 3). AI resurrects deceased actors' voices to read audiobooks. CNN Business.",
+          "url": "https://www.cnn.com/2024/07/03/tech/elevenlabs-ai-celebrity-voices",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        },
+        {
+          "citation": "Flemming, T. (2024, July 4). Judy Garland and James Dean's voices are being used by a new AI app. Here's what we know. ABC News (Australia).",
+          "url": "https://www.abc.net.au/news/2024-07-04/judy-garland-james-dean-among-celeb-voice-in-new-ai/104056130",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Synthetic Era"
     }
   ]
 }

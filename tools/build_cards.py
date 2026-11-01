@@ -4937,8 +4937,9 @@ TLC_JS = r"""
       cards=[].slice.call(document.querySelectorAll('.tlc-card')),
       domBtns=[].slice.call(document.querySelectorAll('[data-domf]')),
       eraBtns=[].slice.call(document.querySelectorAll('[data-eraf]')),
+      phaseBtns=[].slice.call(document.querySelectorAll('[data-phasef]')),
       tagBtns=[].slice.call(document.querySelectorAll('[data-tagf]')),
-      dom=null, era=null, tag=null,
+      dom=null, era=null, phase=null, tag=null,
       eraNames={pre:'PRE-MODERN',modern:'19TH-20TH CENTURY',digital:'DIGITAL AGE'};
   function sync(btns, attr, val){
     btns.forEach(function(b){ b.classList.toggle('on', b.dataset[attr]===val); });
@@ -4952,9 +4953,10 @@ TLC_JS = r"""
     cards.forEach(function(el){
       var okD=!dom || (dom==='__ai' ? el.dataset.ai==='1' : el.dataset.domain===dom),
           okE=!era || el.dataset.era===era,
+          okP=!phase || el.dataset.phase===phase,
           okT=!tag || (' '+el.dataset.tags+' ').indexOf(' '+tag+' ')>-1,
           okQ=!t || el.dataset.hay.indexOf(t)>-1,
-          on=okD&&okE&&okT&&okQ;
+          on=okD&&okE&&okP&&okT&&okQ;
       el.style.display=on?'':'none';
       if(on)n++;
     });
@@ -4962,9 +4964,10 @@ TLC_JS = r"""
       var any=[].some.call(sec.querySelectorAll('.tlc-card'),function(x){return x.style.display!=='none';});
       sec.style.display=any?'':'none';
     });
-    c.textContent=n+' / '+cards.length+' MILESTONES'
+    c.textContent=n+' / '+cards.length+' INSTANCES'
       +(dom?' · '+label('data-domf',dom):'')
       +(era?' · '+(eraNames[era]||era.toUpperCase()):'')
+      +(phase?' · PHASE '+phase:'')
       +(tag?' · '+tag.toUpperCase():'')
       +(t?' · "'+q.value.toUpperCase()+'"':'');
   }
@@ -4975,6 +4978,10 @@ TLC_JS = r"""
   eraBtns.forEach(function(b){ b.addEventListener('click',function(){
     era=(era===b.dataset.eraf?null:b.dataset.eraf);
     sync(eraBtns,'eraf',era); run();
+  }); });
+  phaseBtns.forEach(function(b){ b.addEventListener('click',function(){
+    phase=(phase===b.dataset.phasef?null:b.dataset.phasef);
+    sync(phaseBtns,'phasef',phase); run();
   }); });
   tagBtns.forEach(function(b){ b.addEventListener('click',function(){
     tag=(tag===b.dataset.tagf?null:b.dataset.tagf);
@@ -4990,33 +4997,23 @@ TLC_JS = r"""
 
 
 def build_timeline_curated(tl, data):
-    """The curated /timeline/: 22 milestones, their mechanisms and sources.
+    """The master /timeline/: every instance we can support, in five phases.
 
     Separate from build_timeline(), which renders the 255-entry encyclopedia
-    corpus and now lives at /timeline/corpus/. The two answer different
-    questions: the corpus is what the database holds, this is the argument.
-    Keeping them on one page would let a filter for 'Myth' return 40 entries
-    and one for 'AI' return two, which makes the shape of the history
-    unreadable exactly when a reader is trying to see it.
+    corpus and now lives at /timeline/corpus/. The corpus is what the database
+    holds; this is the master list. It groups by the five-part structure, not
+    by the coarse era filter, because the phases are the argument and the era
+    buckets are only a way to narrow it.
     """
     r = root(1)
     entries = tl["entries"]
+    phase_meta = {p["id"]: p for p in tl["phases"]}
     ui_era = {
         "Pre-Modern": "pre",
         "Early Mass Media": "modern",
         "The Broadcast Age": "modern",
         "Digital & Algorithmic": "digital",
         "Synthetic Era": "digital",
-    }
-    ui_era_name = {
-        "pre": "Before mass media",
-        "modern": "Print, broadcast and the star",
-        "digital": "The feed, the stream and the model",
-    }
-    ui_era_note = {
-        "pre": "The mechanisms are named before the media that will industrialise them.",
-        "modern": "A face, a voice and a schedule arrive in the home.",
-        "digital": "The far end becomes a feed, a stream and finally a model.",
     }
     ai_tags = {"ai", "algorithm", "algorithmic-intimacy", "synthetic-intimacy",
                "recommendation"}
@@ -5040,6 +5037,9 @@ def build_timeline_curated(tl, data):
         f'<button class="chip" data-eraf="{k}">{esc(v)}</button>'
         for k, v in [("pre", "Pre-Modern"), ("modern", "19th-20th Century"),
                      ("digital", "Digital Age")])
+    phase_btns = "".join(
+        f'<button class="chip" data-phasef="{pid}">{pid} · {esc(phase_meta[pid]["name"])}</button>'
+        for pid in sorted(phase_meta))
 
     tag_counts = Counter(t for e in entries for t in e["tags"])
     top_tags = [(t, n) for t, n in tag_counts.most_common() if n >= 2][:14]
@@ -5050,16 +5050,15 @@ def build_timeline_curated(tl, data):
         f'<option value="{esc(t)}">{esc(t.replace("-", " "))} ({n})</option>'
         for t, n in sorted(tag_counts.items()))
 
-    # Cards grouped by the coarse era the *filter* uses, not by the five data
-    # eras. The card still prints the precise era, so the bucket is a way in
-    # rather than a claim.
-    groups: dict[str, list[dict]] = {"pre": [], "modern": [], "digital": []}
+    # Grouped by the five-part structure. The card still prints the precise
+    # era and the phase, so the grouping is a way in rather than a claim.
+    groups: dict[int, list[dict]] = {pid: [] for pid in phase_meta}
     for e in entries:
-        groups[ui_era[e["era"]]].append(e)
+        groups[e["phase"]].append(e)
 
     cards_html = ""
-    for key in ("pre", "modern", "digital"):
-        group = groups[key]
+    for pid in sorted(phase_meta):
+        group = groups[pid]
         if not group:
             continue
         items = ""
@@ -5067,30 +5066,33 @@ def build_timeline_curated(tl, data):
             hay = " ".join([
                 str(e["year"]), e["title"], e["summary"], e["domain"], e["era"],
                 e["primary_source_or_artifact"], " ".join(e["tags"]),
+                str(e["phase"]), phase_meta[e["phase"]]["name"],
             ]).lower()
             tags = "".join(f'<span class="tlc-tag">{esc(t)}</span>' for t in e["tags"])
             items += f"""<a class="tlc-card" href="#tl-{esc(e['id'])}"
-      data-domain="{esc(e['domain'])}" data-era="{key}"
+      data-domain="{esc(e['domain'])}" data-era="{ui_era[e['era']]}"
+      data-phase="{e['phase']}"
       data-ai="{'1' if is_ai(e) else '0'}" data-tags="{esc(' '.join(e['tags']))}"
       data-hay="{esc(hay)}">
   <span class="tlc-year">{esc(e['year'])}</span>
   <span class="tlc-body">
     <span class="tlc-title">{esc(e['title'])}</span>
-    <span class="tlc-meta">{esc(e['domain'])} &middot; {esc(e['era'])}</span>
-    <span class="tlc-sum">{esc(e['summary'])}</span>
+    <span class="tlc-meta">{esc(e['domain'])} &middot; {esc(e['era'])} &middot; Phase {e['phase']}</span>
+    <span class="tlc-sum">{emph(e['summary'])}</span>
     <span class="tlc-tagrow">{tags}</span>
     <span class="tlc-open">Open the analysis &rarr;</span>
   </span>
 </a>"""
-        cards_html += (f'<section class="tlc-era" id="era-{key}">'
-                       f'<h2 class="tlc-era-h">{esc(ui_era_name[key])}'
+        pm = phase_meta[pid]
+        cards_html += (f'<section class="tlc-era" id="phase-{pid}">'
+                       f'<h2 class="tlc-era-h">Phase {pid} · {esc(pm["name"])}'
                        f'<span>{len(group)}</span></h2>'
-                       f'<p class="tlc-era-note">{esc(ui_era_note[key])}</p>'
+                       f'<p class="tlc-era-note">{esc(pm["range"])} · {esc(pm["note"])}</p>'
                        f'<div class="tlc-grid">{items}</div></section>')
 
     panels = ""
     for e in entries:
-        paras = "".join(f"<p>{esc(p)}</p>" for p in
+        paras = "".join(f"<p>{emph(p)}</p>" for p in
                         str(e["parasocial_analysis"]).split("\n\n") if p.strip())
         cites = ""
         for c in e["citations"]:
@@ -5101,6 +5103,9 @@ def build_timeline_curated(tl, data):
                       f'{esc(status)}</span>'
                       f'<span class="tlc-cite-note">{esc(c["note"])}</span></li>')
         tags = "".join(f'<span class="tlc-tag">{esc(t)}</span>' for t in e["tags"])
+        date_note = str(e.get("date_note") or "").strip()
+        date_row = (f'\n      <dt>Date note</dt><dd>{esc(date_note)}</dd>'
+                    if date_note else "")
         panels += f"""<aside class="tlc-panel" id="tl-{esc(e['id'])}" role="dialog"
   aria-modal="true" aria-labelledby="tl-{esc(e['id'])}-h">
   <a class="tlc-scrim" href="#list" aria-label="Close the analysis"></a>
@@ -5110,9 +5115,10 @@ def build_timeline_curated(tl, data):
       <a class="tlc-close" href="#list" aria-label="Close the analysis">Close &times;</a>
     </div>
     <h2 id="tl-{esc(e['id'])}-h" class="tlc-sheet-h">{esc(e['title'])}</h2>
-    <p class="tlc-sheet-sum">{esc(e['summary'])}</p>
+    <p class="tlc-sheet-sum">{emph(e['summary'])}</p>
     <div class="tlc-analysis">{paras}</div>
     <dl class="tlc-facts">
+      <dt>Phase</dt><dd>{e['phase']} · {esc(phase_meta[e['phase']]['name'])}</dd>{date_row}
       <dt>Era</dt><dd>{esc(e['era'])}</dd>
       <dt>Primary source or artifact</dt><dd>{esc(e['primary_source_or_artifact'])}</dd>
       <dt>Tags</dt><dd class="tlc-tagrow">{tags}</dd>
@@ -5136,15 +5142,17 @@ def build_timeline_curated(tl, data):
     n_cites = sum(len(e["citations"]) for e in entries)
     n_enc = len(json.loads((ROOT / "data" / "encyclopedia.json")
                            .read_text(encoding="utf-8"))["entries"])
+    tl_desc = (f"{len(entries)} instances of mediated intimacy, from a Neanderthal "
+               f"burial to a synthetic companion.")
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The parasocial timeline - Parasocialize</title>
-<meta name="description" content="Twenty-two milestones in mediated intimacy, from Ovid's Echo to synthetic companions, each with its mechanism and its sources.">
+<meta name="description" content="{len(entries)} instances of mediated intimacy, from a Neanderthal burial to a synthetic companion, each with its mechanism and its sources.">
 {HEAD.format(site=SITE, path="/timeline/", otype="website",
              title="The parasocial timeline - Parasocialize",
-             desc="Twenty-two milestones in mediated intimacy, from Ovid's Echo to synthetic companions.",
+             desc=tl_desc,
              root=r)}
 </head>
 <body>
@@ -5155,13 +5163,13 @@ def build_timeline_curated(tl, data):
 <section class="section tlc-head" id="tl">
   <p class="kicker">The long history of the one-sided bond</p>
   <h1 class="h-title">The parasocial timeline</h1>
-  <p class="sec-lede" style="max-width:70ch">Twenty-two milestones, from a nymph who can only
-  repeat the end of a sentence to a model that can generate the next one. Each entry names the
-  mechanism, the primary source and the evidence. This is the curated spine; the full
-  {n_enc}-entry
-  database is in <a href="{r}timeline/corpus/index.html">the corpus</a>.</p>
+  <p class="sec-lede" style="max-width:70ch">{len(entries)} instances, from a Neanderthal
+  burial to a model that can generate the next line. Each entry names the mechanism, the
+  primary source and the evidence. The list is grouped in five phases; the full
+  {n_enc}-entry database is in <a href="{r}timeline/corpus/index.html">the corpus</a>.</p>
   <div class="tlc-stats">
-    <span class="tlc-stat"><b>{len(entries)}</b> milestones</span>
+    <span class="tlc-stat"><b>{len(entries)}</b> instances</span>
+    <span class="tlc-stat"><b>{len(phase_meta)}</b> phases</span>
     <span class="tlc-stat"><b>{n_domains}</b> domains</span>
     <span class="tlc-stat"><b>{n_eras}</b> eras</span>
     <span class="tlc-stat"><b>{n_tags}</b> tags</span>
@@ -5177,7 +5185,12 @@ def build_timeline_curated(tl, data):
       {tag_options}
     </select>
   </div>
-  <p class="kicker" style="margin-top:18px">Domain</p>
+  <p class="kicker" style="margin-top:18px">Phase</p>
+  <div class="chips" id="tlc-phases">
+    <button class="chip on" data-phasef="">All</button>
+    {phase_btns}
+  </div>
+  <p class="kicker" style="margin-top:14px">Domain</p>
   <div class="chips" id="tlc-domains">
     <button class="chip on" data-domf="">All</button>
     {domain_btns}
@@ -5190,17 +5203,20 @@ def build_timeline_curated(tl, data):
   <p class="kicker" style="margin-top:14px">Tags <span class="tlc-kicker-note">the ones used more than once; the menu has all {n_tags}</span></p>
   <div class="chips" id="tlc-tags">{tag_btns}</div>
   <p class="countline" id="tlc-count" aria-live="polite"></p>
-  <p class="tlc-hint">Era buckets are for browsing. Each card prints the entry's own era, so
-  Goethe (1774) sits under 19th-20th Century without being dated to it. <b>AI</b> is a derived
-  view of the digital entries whose mechanism is algorithmic or synthetic.</p>
+  <p class="tlc-hint">The five phases are the structure; the era buckets are a second way in.
+  Each card prints its own era, so Goethe (1774) sits under 19th-20th Century without being
+  dated to it. <b>AI</b> is a derived view of the digital entries whose mechanism is
+  algorithmic or synthetic. A date that is widely repeated and wrong is corrected in the
+  entry and named there, rather than repeated.</p>
 </section>
 <section class="section" style="padding-top:0">
   <div class="tlc-list" id="list">{cards_html}</div>
   <p class="kicker" style="margin-top:44px">Per-section timelines</p>
   <div class="chips">{others}</div>
   <p class="countline" style="margin-top:18px">
-    The curated spine is {len(entries)} entries. The full database timeline, with every entry
-    in the encyclopedia, is <a href="{r}timeline/corpus/index.html">here</a>.
+    The master list is {len(entries)} entries across {len(phase_meta)} phases. The full
+    database timeline, with every entry in the encyclopedia, is
+    <a href="{r}timeline/corpus/index.html">here</a>.
   </p>
 </section>
 </main>
