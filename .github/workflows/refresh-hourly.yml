@@ -63,7 +63,20 @@ jobs:
         run: python tools/counter.py || echo "::warning::sweep failed, keeping the previous ledger"
 
       - name: Redraw the counter
-        run: python tools/build_cards.py
+        run: |
+          # The 00:17 daily build is the intended writer of the new day's
+          # edition, but a scheduled run can be delayed or dropped. The first
+          # counter after midnight used to fail here, because build_cards.py
+          # refuses to show a former top 8. If the edition is missing, make it
+          # first; editor.py is idempotent for a date and the daily run will
+          # keep it. Then build.
+          if python -c "import datetime,json,sys,pathlib; f=json.loads(pathlib.Path('data/features.json').read_text(encoding='utf-8')); t=datetime.datetime.now(datetime.timezone.utc).date().isoformat(); sys.exit(0 if any(l.get('released')==t for l in f.get('lists',[])) else 1)"; then
+            echo "today's edition exists"
+          else
+            echo "::warning::no top-8 edition dated today; generating it before the build"
+            python tools/editor.py
+          fi
+          python tools/build_cards.py
 
       - name: Check internal links
         run: python tools/link_audit.py
