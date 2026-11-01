@@ -16,6 +16,10 @@ name: counter
 #
 # One secret: PARASOCIALIZE_KEY. Without it the sweeper still runs and files
 # candidates raw and unfiled, flagged "no lens" on the desk. Nothing is lost.
+#
+# The optional Cloudflare step publishes the rebuilt site when this run commits
+# a change. It does not put unsigned sweep items on the story shelf; those stay
+# on /desk/ as the queue.
 
 on:
   schedule:

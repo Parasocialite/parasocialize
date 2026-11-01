@@ -5479,3 +5479,39 @@ it gets resolved.
       every local link resolving. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`,
       **773 files, 15.27 MB, tree sha `2753fcb786c0f89b`**.
 
+
+100. **The hourly counter could fail before the daily edition existed, and it could keep the repository current without deploying it. Both are fixed.** The failure on 1 November was **`counter` run 41259006291 at 00:57 UTC**, not the daily publish. It stopped at:
+    ```
+    REFUSING to build: no top-8 list is dated 2026-11-01.
+    ```
+    The 00:17 daily schedule produced no run at all, so the first counter after midnight was building pages against a day that did not have an edition yet. The daily runs later that morning (03:08, 03:48, 04:36 UTC) were green and published; the failed counter stopped before committing, so nothing was corrupted.
+    - **The counter now self-heals the edition.** Before `build_cards.py`, it
+      checks `data/features.json` for a list whose `released` date is today.
+      If there is none, it runs `tools/editor.py` first, then builds.
+      `editor.py` is idempotent for a date, so the 12:17 daily run keeps the
+      edition rather than replacing it. The condition was tested both ways
+      locally: today's edition returns 0, a future date returns 1.
+    - **The daily cron is split.** `17 0,12 * * *` became two expressions,
+      `17 0 * * *` and `17 12 * * *`. The 1 November 00:17 slot produced no
+      scheduled run; splitting removes the comma list as a suspect. The
+      counter is the safety net either way.
+    - **The counter now packages and publishes.** It installs
+      `requirements.txt` (needed by `build_deploy.optimise()`), runs
+      `build_deploy.py --no-build` after `build_cards.py`, and has the same
+      optional Cloudflare step as the daily job. The step runs only when the
+      commit step made a commit (`changed=true`) and `CF_API_TOKEN` is set.
+      This is what makes the counter a real fallback rather than a job that
+      keeps the repository current while the live site stays on yesterday.
+    - **Verified.** Dispatched counter runs: `41277337537` green (edition
+      existed, build, link audit, archive, commit `651882b`) and
+      `41278053246` green in 56s: sweep, build, `build_deploy`, link audit,
+      archive, commit `ba9e47d`, **Cloudflare deployment complete**
+      (771 files, 1 uploaded, `63cc1dcb.parasocialize.pages.dev`). The live
+      `/timeline/` still returns 88 cards and 88 panels; the front page carries
+      the 1 November edition.
+    - **Residual risk stated.** If Cloudflare publishing fails, the commit is
+      already pushed and the next hourly run retries; if the Cloudflare token
+      is absent, the step skips exactly as the daily job's does. The counter
+      publishes only what it committed, so a scheduled run that changes
+      nothing does not create a deployment.
+
