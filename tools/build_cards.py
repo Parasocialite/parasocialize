@@ -108,7 +108,6 @@ NAV = """<header class="topbar"><div class="topbar-in">
     <a href="{root}timeline/index.html">Timeline</a>
     <a href="{root}citations/index.html">Citations</a>
     <a href="{root}quiz/index.html">Quiz</a>
-    <a class="nav-iyi" href="{root}brand/index.html">iYi</a>
     <a href="{root}membership/index.html" class="cta-quiet">Membership</a>
     <a class="cta" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow" aria-label="Support the archive on Ko-fi">Support</a>
   </nav>
@@ -153,7 +152,6 @@ FOOT = """<footer class="footer"><div class="foot-grid">
       <a class="foot-support" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow">Support the archive</a>
       <a href="{root}signal/latest.html">The Signal</a>
       <a href="{root}radar.xml">RSS feed</a>
-      <a href="{root}brand/index.html">iYi</a>
     </div>
   </nav>
 </div></footer>
@@ -2619,7 +2617,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
       <p class="clerk-note-kick">The clerk</p>
       <p class="clerk-note-line">{ed.get("clerk_line")}</p>
     </div>
-    <a class="clerk-note-more" href="brand/index.html">The mark and the rule &rarr;</a>
+    <a class="clerk-note-more" href="ledger/index.html">The standard &rarr;</a>
   </div>
 </section>
 
@@ -3651,139 +3649,6 @@ def build_moments(data, feat, manifest):
 </body></html>"""
 
 
-def build_brand(data, feat):
-    """The identity page: the mark, where it appears, and the rule it follows.
-
-    The old page was a mascot gallery. It explained the drawing and showed eight
-    expressions, which is a portfolio, not a page a reader needs. This one is a
-    short identity manual: what iYi is for, where it is allowed, which expression
-    each section carries, the vector files, and the rule about not pretending to
-    remember an individual viewer. The mascot belongs on section and way pages
-    and in one closing note; it is not a second headline on the front page.
-    """
-    moods = [("watch", "The default. iYi looking back at you, which is the whole "
-                       "premise: the eyes belong to the audience."),
-             ("hollow", "Nobody home. The one-sided joke, and the thesis of the site "
-                        "in one expression."),
-             ("wink", "For pull quotes and the Friday email."),
-             ("sad", "Grief. Used on the obituary cards and the grief section."),
-             ("love", "The club. Heart eyes, for when somebody has told you which "
-                      "section they are in."),
-             ("panic", "Wide eyes. Held back for the day the site has to admit "
-                       "something is wrong."),
-             ("clerk", "Behind the counter. iYi in the nametag."),
-             ("asleep", "Eyes shut, for the long stretches when there is nothing "
-                        "new. Which is most of them.")]
-    cards = "".join(
-        f'<figure class="mood"><div class="mood-art">{mascot(120, "", m)}</div>'
-        f'<figcaption><b>{m}</b><span>{note}</span></figcaption></figure>'
-        for m, note in moods)
-    return f"""<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The clerk: iYi, the mark and the rule - Parasocialize</title>
-<meta name="description" content="iYi is an eight on its side: also infinity, also two eyes. Where the mark appears, which expression each page carries, and the rule it follows.">
-{HEAD.format(site=SITE, path="/brand/", otype="website",
-             title="The clerk: iYi, the mark and the rule",
-             desc="An eight on its side: also infinity, also two eyes. The mark, its uses, and the rule.", root=root(1))}
-</head>
-<body>
-<a class="skip" href="#uses">Skip to where the mark appears</a>
-<div class="grain" aria-hidden="true"></div>
-{NAV.format(root=root(1), total=len(data['cards']), mk=wordmark("nav"))}
-<main>
-<section class="section brand-hero">
-  <div class="brand-hero-grid">
-    <div class="brand-hero-mark">{mascot(140, 'mascot-hero', 'clerk')}</div>
-    <div>
-      <p class="kicker">The clerk · identity and rule</p>
-      <h1 class="h-title">iYi</h1>
-      <p class="sec-lede">An eight lying on its side. Which is also infinity.
-      Which is also two eyes. The lobes <em>are</em> the eyes - there is no head
-      and no face, the whole glyph is doing the work. It is the clerk of the
-      record, not the host of the site.</p>
-      <p class="countline">On ten section fronts, eight way pages, and one
-      closing note. Never a masthead headline.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="uses" style="padding-top:0">
-  <p class="kicker">Where it appears</p>
-  <div class="sec-head"><h2>One mark, four jobs.</h2>
-  <p class="sec-lede">The rule is simple: iYi appears where it can mean something
-  about the page, and nowhere it would only be decoration.</p></div>
-  <div class="brand-uses">
-    <div class="brand-use"><b>Section fronts</b><span>Ten pages, one expression
-    each. The idol page winks; grief is sad; contest and danger are panic; brand
-    is the clerk; the rest watch or go hollow. The expression is chosen from the
-    section's subject, not rotated.</span></div>
-    <div class="brand-use"><b>Way pages</b><span>Eight pages, same rule. Persona
-    winks; companion, divine and officer watch; character and cosmology go
-    hollow; institution is the clerk; predator is panic.</span></div>
-    <div class="brand-use"><b>The front page</b><span>One closing note near the
-    foot, with the clerk's sentence and a link back here. The masthead belongs to
-    the wordmark and the two doors.</span></div>
-    <div class="brand-use"><b>Entry pages</b><span>No mascot. The title plate is
-    that page's mark; adding a face would compete with the entry's own
-    subject.</span></div>
-  </div>
-</section>
-
-<section class="section" id="moods" style="padding-top:0">
-  <p class="kicker">Eight expressions</p>
-  <div class="sec-head"><h2>One silhouette, so it reads as one character.</h2>
-  <p class="sec-lede">The two lobes are identical in every expression. That is
-  the constraint that makes it a character and not a set of stickers - you know
-  it is iYi at postage-stamp size because the shape never changes, only the
-  face.</p></div>
-  <div class="moods" style="margin-top:26px">{cards}</div>
-</section>
-
-<section class="section" style="padding-top:0">
-  <p class="kicker">The files</p>
-  <div class="brand-files">
-    <a class="brand-file" href="{root(1)}img/mascot/sheet.svg">Expression sheet
-    <span>eight moods, one SVG</span></a>
-    <a class="brand-file" href="{root(1)}img/mascot/iyi-watch.svg">The default mark
-    <span>watch, vector</span></a>
-    <a class="brand-file" href="{root(1)}img/mascot/iyi-hollow-flat.svg">Flat mark
-    <span>one colour, for stamps</span></a>
-    <a class="brand-file" href="{root(1)}img/logo.svg">Wordmark
-    <span>the site mark, vector</span></a>
-  </div>
-  <div class="note" style="max-width:66ch;margin-top:22px">
-    <p><b>Use the drawing as drawn.</b> The lobes are the eyes; do not add a
-    face, a mouth or a body. Do not recolour the two sides into different hues -
-    the dimmer right side is the second self, not a lighting effect. The mark
-    should have clear space around it equal to the width of one lobe.</p>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0">
-  <p class="kicker">The rule</p>
-  <div class="note" style="max-width:66ch">
-    <p><b>iYi never claims to remember you.</b> The character is the clerk, and
-    the clerk keeps a record; it does not know the reader. That is the line
-    between a mascot and a false friend, and it is not negotiable.</p>
-    <p style="margin-top:14px"><b>No synthetic depictions of real people.</b>
-    The eyes are a drawing, not a likeness. The site does not generate a real
-    person's face or voice to sell a bond, and the mascot is not used to soften
-    that rule.</p>
-    <p style="margin-top:14px"><b>The eyes are the audience.</b> iYi watches
-    somebody who does not know iYi is there. The joke and the argument are the
-    same thing, which is why the mark is allowed to be cute and is never allowed
-    to be sentimental.</p>
-  </div>
-  <p class="countline" style="margin-top:22px">The standard the mascot is
-  answerable to is <a href="{root(1)}ledger/index.html">the ledger</a>. The record it
-  keeps is <a href="{root(1)}timeline/index.html">the timeline</a>.</p>
-</section>
-</main>
-{FOOT.format(root=root(1), sweep=MESSY, motto='AN EIGHT ON ITS SIDE.<br>THE CLERK, NOT THE HOST.')}
-</body></html>"""
-
-
 # ------------------------------------------------------------------ encyclopedia
 # Undated is a real state in this catalogue, not a missing value: a support
 # culture or a practice like fanfic has no start date. `year: None` therefore
@@ -4656,7 +4521,6 @@ def build_taxonomy(enc, data):
       <a class="foot-support" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow">Support the archive</a>
       <a href="{r}signal/latest.html">The Signal</a>
       <a href="{r}radar.xml">RSS feed</a>
-      <a href="{r}brand/index.html">iYi</a>
     </div>
   </nav>
 </div></footer>
@@ -6453,7 +6317,7 @@ def build_sitemap(data):
     _tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
     for a in _tax["attachment"]:
         urls.append((f"{SITE}/ways/{a['id']}/", "0.8", "weekly"))
-    for p in ("/timeline/", "/encyclopedia/", "/brand/", "/top8/", "/history/",
+    for p in ("/timeline/", "/encyclopedia/", "/top8/", "/history/",
               "/moments/", "/figures/", "/taxonomy/"):
         urls.append((f"{SITE}{p}", "0.9", "monthly"))
     enc_urls = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
@@ -6597,7 +6461,6 @@ def main():
     (ROOT / "figures" / "index.html").write_text(build_figures(data, feat, manifest), encoding="utf-8")
     (ROOT / "moments").mkdir(exist_ok=True)
     (ROOT / "brand").mkdir(exist_ok=True)
-    (ROOT / "brand" / "index.html").write_text(build_brand(data, feat), encoding="utf-8")
 
     # /atlas/ - the era x medium grid, rebuilt from data/atlas.json, and
     # /quiz/ behind it, which is scored out of the atlas.

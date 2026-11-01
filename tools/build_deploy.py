@@ -421,6 +421,10 @@ def assemble(do_optimise=True):
             elif old and new:
                 print(f"  WARN retired slug {old!r} points at {new!r}, "
                       f"which is not a live card - the redirect would 404")
+    # /brand/ was a mascot gallery and then an identity page; neither was a
+    # reader need. The mark lives on section and way pages, and the old URL
+    # goes to the page that is actually about the site.
+    lines.append("/brand/  /credits/  301")
     (DIST / "_redirects").write_text("\n".join(lines) + "\n", encoding="utf-8")
     n += 1
     return n

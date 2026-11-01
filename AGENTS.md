@@ -5694,3 +5694,35 @@ it gets resolved.
       here to avoid moving the measured header breakpoint. The page title and
       the route's content now carry the purpose.
 
+
+105. **`/brand/` had no reader-facing job, so it is gone; the mascot now lives only where it does one.** The page had been a mascot gallery, then an identity-and-rule page. Neither was a reason for a reader to visit: the useful part was a usage note for a mark that already appears on ten section fronts and eight way pages, and the rest was self-description. A one-person publication does not need a brand portal.
+    - **Removed from the navigation and footer.** The `iYi` link is out of
+      `NAV`, out of the footer's Follow column, and out of the seven
+      hand-written pages that carried the same nav line (`audit/`, three
+      `cases/`, `classroom/`, `membership/`, `tip/`).
+    - **The page and generator are deleted.** `brand/index.html` and
+      `build_brand()` are gone; `build_cards.py` no longer writes the page. The
+      deploy is 774 files / 363 pages, one page and one file fewer than before.
+    - **`/brand/` redirects to `/credits/`.** `build_deploy.py` appends
+      `/brand/  /credits/  301`, so an old bookmark does not become a 404. That
+      is the only remaining thing at the URL.
+    - **The mark is still in the site, where it has a job.** Ten section fronts
+      and eight way pages choose an expression from the subject; the front page
+      has one closing note near the foot. Entry pages deliberately have no
+      mascot. The note's outbound link is now **The standard →** to `/ledger/`,
+      not a brand page.
+    - **`brand/fonts/` stays.** It is not site content: it is the Fraunces
+      static instances used by the episode renderer and `measure_type.py`.
+      Deleting the directory would break video typography, not the website.
+    - **What was removed from CSS.** `.moods`, `.mood`, `.mood-art`,
+      `.mood figcaption*`, `.mascot-hero` and the `.brand-*` block were only
+      used by the deleted page. `check_css --orphans` is green with 0 layout
+      orphans after the removal.
+    - **Checked.** `test_front_copy` still requires the clerk note after the Top
+      8; the note's link text changed but the structural assertion did not.
+      `gates.py --all` green across post, visual and source, including
+      `link_audit`, `check_heads`, `verify_narrow` and `probe_nav`.
+      `build_deploy` reports every local link resolves. Package:
+      `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **774 files, 16.31 MB,
+      tree sha `91b8f48c98f0fa4d`**.
+

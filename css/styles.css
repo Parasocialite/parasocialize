@@ -765,24 +765,6 @@ shape; sorted by year alone the block is just a list. */
 .moment-credit{font-family:var(--label);font-size:.6rem;letter-spacing:.1em;color:var(--dimmer);margin-top:10px}
 .moment-credit a{color:var(--dimmer);border-bottom:1px solid var(--line)}
 
-/* ---------- the mascot page ---------- */
-.mascot-hero{filter:drop-shadow(0 18px 40px rgba(255,90,31,.28))}
-.moods{display:grid;grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:18px}
-.mood{
-  margin:0;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);
-  padding:20px;text-align:center;transition:.22s;
-}
-.mood:hover{border-color:var(--hot);transform:translateY(-4px)}
-.mood-art{
-  display:flex;align-items:center;justify-content:center;
-  min-height:132px;margin-bottom:12px;
-}
-.mood figcaption b{
-  display:block;font-family:var(--label);font-size:.6rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--hot);margin-bottom:6px;
-}
-.mood figcaption span{font-size:.82rem;color:var(--dim);line-height:1.42;display:block}
-
 /* ---------- THE ENCYCLOPEDIA ---------- */
 /* Three across on desktop, one on a phone. repeat(3,1fr) cannot do that on its
    own: a bare 1fr track's automatic minimum is its min-content, so three cards
@@ -2147,31 +2129,3 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   color:var(--dim);border-left:3px solid var(--hot2);padding:10px 0 10px 14px}
 .tlc-future-note a{color:var(--hot)}
 
-/* ---------- /brand/: the clerk, the mark, the rule ---------- */
-.brand-hero{padding-top:44px}
-.brand-hero-grid{display:grid;grid-template-columns:180px minmax(0,1fr);
-  gap:34px;align-items:center;max-width:980px}
-.brand-hero-mark{display:flex;justify-content:center;align-items:center}
-.brand-hero-mark .mascot-hero{filter:drop-shadow(0 16px 34px rgba(255,90,31,.22))}
-.brand-uses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;margin-top:22px}
-.brand-use{background:var(--bg2);border:1px solid var(--line);border-radius:12px;
-  padding:16px 18px}
-.brand-use b{display:block;font-family:var(--serif);font-size:1.12rem;
-  font-weight:700;letter-spacing:-.01em;margin-bottom:5px;color:var(--paper)}
-.brand-use span{font-size:.88rem;line-height:1.5;color:var(--dim)}
-.brand-files{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:10px;margin-top:20px}
-.brand-file{display:block;background:var(--bg2);border:1px solid var(--line);
-  border-radius:10px;padding:14px 16px;color:var(--paper);text-decoration:none;
-  font-family:var(--serif);font-size:1.02rem;font-weight:700;
-  transition:border-color .18s,background .18s}
-.brand-file:hover{border-color:var(--hot);background:var(--bg3)}
-.brand-file span{display:block;margin-top:3px;font-family:var(--label);
-  font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--dimmer);font-weight:400}
-@media(max-width:760px){
-  .brand-hero-grid{grid-template-columns:1fr;gap:18px}
-  .brand-hero-mark{justify-content:flex-start}
-  .brand-uses{grid-template-columns:1fr}
-}
