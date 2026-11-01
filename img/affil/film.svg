@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="FILM affiliation mark">
+  <rect width="640" height="480" fill="#17100b"/>
+  <rect x="18" y="18" width="604" height="444" fill="none" stroke="#3a2a1e" stroke-width="2"/>
+  <g fill="none" stroke="#ff5a1f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+
+      <rect x="196" y="170" width="248" height="152" rx="10"/>
+      <path d="M196 170 L444 118 L444 170 Z"/>
+      <line x1="234" y1="158" x2="268" y2="146"/>
+      <line x1="286" y1="146" x2="320" y2="134"/>
+      <line x1="338" y1="134" x2="372" y2="122"/>
+      <line x1="390" y1="122" x2="424" y2="110"/>
+      <line x1="222" y1="206" x2="222" y2="294"/>
+      <line x1="418" y1="206" x2="418" y2="294"/>
+      <circle cx="320" cy="246" r="30"/>
+    
+  </g>
+  <text x="40" y="414" fill="#fff6ea" font-family="'Courier New', monospace" font-size="28" letter-spacing="5">FILM</text>
+  <text x="40" y="444" fill="#9a8672" font-family="'Courier New', monospace" font-size="13" letter-spacing="2">AFFILIATION &#183; NOT A PORTRAIT</text>
+</svg>

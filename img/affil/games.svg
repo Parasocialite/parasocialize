@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="GAMES affiliation mark">
+  <rect width="640" height="480" fill="#17100b"/>
+  <rect x="18" y="18" width="604" height="444" fill="none" stroke="#3a2a1e" stroke-width="2"/>
+  <g fill="none" stroke="#ff5a1f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+
+      <path d="M204 174 Q172 174 168 214 L150 302 Q146 336 184 336 Q206 336 220 316 L252 276 H388 L420 316 Q434 336 456 336 Q494 336 490 302 L472 214 Q468 174 436 174 Z"/>
+      <line x1="220" y1="226" x2="220" y2="286"/>
+      <line x1="190" y1="256" x2="250" y2="256"/>
+      <circle cx="408" cy="232" r="12"/>
+      <circle cx="438" cy="266" r="12"/>
+      <circle cx="378" cy="266" r="12"/>
+    
+  </g>
+  <text x="40" y="414" fill="#fff6ea" font-family="'Courier New', monospace" font-size="28" letter-spacing="5">GAMES</text>
+  <text x="40" y="444" fill="#9a8672" font-family="'Courier New', monospace" font-size="13" letter-spacing="2">AFFILIATION &#183; NOT A PORTRAIT</text>
+</svg>

@@ -117,6 +117,123 @@
      "track": "2 stories · 17 entries · 1 daily case"
     }
    }
+  },
+  {
+   "date": "2026-11-01",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "dolly-parton-lowest-point",
+     "title": "Fans called Dolly Parton's death the lowest point of 2026",
+     "why": "Fans calling a death the lowest point of the year, which is a category error the story is about. The object is the idol; the register is archive.",
+     "href": "radar/dolly-parton-lowest-point.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 2,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 2 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "pygmalion-sculptor-illusion",
+     "title": "Pygmalion: the Greek myth that predicted this whole thing",
+     "why": "The myth that named the whole subject two thousand years early. Filed under the figure it is about rather than under the psychology, because the figure is the point.",
+     "href": "radar/pygmalion-sculptor-illusion.html",
+     "meta": "Story · companion",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 2,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 2 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "character-ai-settlement",
+     "title": "Character.AI settled the teen-safety suits",
+     "why": "Four states, under-18s off open chat. The line the industry drew in public, and it was drawn by a court rather than by the company.",
+     "href": "radar/character-ai-settlement.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 2,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 2 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "grief",
+     "title": "Grieving a person you never met",
+     "why": "Grieving a person you never met. The nearest attachment target is the one who is gone and still addressed - the saint and the ancestor. The register is archive; the object is the departed.",
+     "href": "encyclopedia/grief.html",
+     "meta": "History · 1970",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 2,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 2 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "youtube-shorts-episodic",
+     "title": "YouTube is turning Shorts into episodic television",
+     "why": "Microdramas with arcs built for a phone, assembling in public. The platform as the thing producing the canon rather than merely carrying it.",
+     "href": "radar/youtube-shorts-episodic.html",
+     "meta": "Story · world",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 2,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 2 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "death-in-family",
+     "title": "Robin died by 72 votes",
+     "why": "Filed cosmology/canon, on the shelf's test: \"Would the attachment survive losing everybody in it?\" The world here is the DC franchise, which outlasts every participant: the poll decided not a plot point but the permanent standing of a character inside a canon that predates and outlives the voters.",
+     "href": "encyclopedia/death-in-family.html",
+     "meta": "Comics · 1988",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 2,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 2 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-neighbour",
+     "title": "The neighbour",
+     "why": "Someone whose kitchen light you can see, whose bin day you know, whose life you have tracked for years without ever having asked. Proximity without duty, which makes it the purest local case on the site.",
+     "href": "encyclopedia/the-neighbour.html",
+     "meta": "History · 1950",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 2,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 2 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "swatting",
+     "title": "Swatting",
+     "why": "A false emergency report sent to a real address to provoke an armed police response, because of a grievance about a streamer. Armed enforcement summoned by an attachment, which is the worst version of the register.",
+     "href": "encyclopedia/swatting.html",
+     "meta": "Games · 2013",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 2,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 2 daily cases"
+    }
+   }
   }
  ]
 }

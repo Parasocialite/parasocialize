@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="AI affiliation mark">
+  <rect width="640" height="480" fill="#17100b"/>
+  <rect x="18" y="18" width="604" height="444" fill="none" stroke="#3a2a1e" stroke-width="2"/>
+  <g fill="none" stroke="#ff5a1f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+
+      <rect x="238" y="128" width="164" height="164" rx="12"/>
+      <rect x="278" y="168" width="84" height="84" rx="8"/>
+      <line x1="238" y1="168" x2="198" y2="168"/>
+      <line x1="238" y1="212" x2="198" y2="212"/>
+      <line x1="238" y1="256" x2="198" y2="256"/>
+      <line x1="402" y1="168" x2="442" y2="168"/>
+      <line x1="402" y1="212" x2="442" y2="212"/>
+      <line x1="402" y1="256" x2="442" y2="256"/>
+      <line x1="286" y1="128" x2="286" y2="88"/>
+      <line x1="320" y1="128" x2="320" y2="88"/>
+      <line x1="354" y1="128" x2="354" y2="88"/>
+      <line x1="286" y1="292" x2="286" y2="332"/>
+      <line x1="320" y1="292" x2="320" y2="332"/>
+      <line x1="354" y1="292" x2="354" y2="332"/>
+    
+  </g>
+  <text x="40" y="414" fill="#fff6ea" font-family="'Courier New', monospace" font-size="28" letter-spacing="5">AI</text>
+  <text x="40" y="444" fill="#9a8672" font-family="'Courier New', monospace" font-size="13" letter-spacing="2">AFFILIATION &#183; NOT A PORTRAIT</text>
+</svg>

@@ -50,6 +50,7 @@ SOURCE = [
     ("check_css", ["check_css.py"]),
     ("archive", ["archive.py", "--check"]),
     ("editor", ["editor.py", "--check"]),
+    ("affil", ["affil.py", "--check"]),
     ("citation_audit", ["citation_audit.py"]),
     ("cull_audit", ["cull_audit.py"]),
     ("verify_taxonomy", ["verify_taxonomy.py"]),

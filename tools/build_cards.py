@@ -1635,12 +1635,12 @@ def build_way(a, tax, enc, data, manifest=None):
         return f'{r}encyclopedia/{esc(p.get("id"))}.html'
 
     def pick_art(p):
-        """A real photograph for a story, or the entry's title plate.
+        """A sourced photograph, or the domain's affiliation mark.
 
-        The daily case has to look like a front page, not a bibliography. A
-        story with a sourced photograph uses it; an entry uses the plate that
-        already belongs to that entry. If neither exists the card gets a colour
-        panel with the way's name rather than an empty hole.
+        The entry's title plate is deliberately not used here: a plate inside a
+        card that already has a frame is a placecard inside a placecard. A
+        photograph is the figure/entry itself; an affiliation mark is the
+        domain - baseball, microphone, reel - and says so on its face.
         """
         if p.get("kind") == "story":
             c = next((x for x in data["cards"] if x["slug"] == p.get("id")), None)
@@ -1648,16 +1648,29 @@ def build_way(a, tax, enc, data, manifest=None):
                 f = (img_for(manifest, p.get("id"), 2)
                      or img_aisle(manifest, c.get("section"), 2))
                 if f:
-                    return f["path"], f.get("caption", "")
+                    return f["path"], f.get("caption", ""), "photo"
         eid = str(p.get("id") or "")
-        if (ROOT / "img" / "plate" / f"{eid}.svg").exists():
-            return f'{r}img/plate/{eid}.svg', "Title plate for the entry"
-        return "", ""
+        e = byid.get(eid)
+        if e:
+            f = img_for(manifest, eid, 2)
+            if f:
+                return f["path"], f.get("caption", ""), "photo"
+            key = AFFIL_BY_WAY.get(a["id"]) or affil_key(e)
+            return (f'{r}img/affil/{key}.svg',
+                    f'Affiliation: {AFFIL_LABEL.get(key, key)}. No free photograph.',
+                    "affil")
+        if p.get("kind") == "story":
+            c = next((x for x in data["cards"] if x["slug"] == p.get("id")), None)
+            key = AFFIL_BY_WAY.get(a["id"]) or \
+                AFFIL_BY_SECTION.get((c or {}).get("section", ""), "default")
+            return (f'{r}img/affil/{key}.svg',
+                    'Affiliation: the domain. No free photograph.', "affil")
+        return "", "", ""
 
     today_html = ""
     if pick:
-        art, art_cap = pick_art(pick)
-        art_cls = " is-plate" if art.endswith(".svg") else ""
+        art, art_cap, art_kind = pick_art(pick)
+        art_cls = " is-affil" if art_kind == "affil" else ""
         art_html = (f'<a class="way-today-art{art_cls}" href="{pick_href(pick)}" '
                     f'tabindex="-1" aria-hidden="true"><img src="{esc(art)}" '
                     f'alt="" loading="lazy"></a>' if art else
@@ -1684,6 +1697,8 @@ def build_way(a, tax, enc, data, manifest=None):
                 + (f' <span>{esc(w.get("publisher"))}</span>' if w.get("publisher") else "")
                 for w in wires[:2])
             wire_p = f'<p class="way-today-wires"><b>In the wires.</b> {wire_links}</p>'
+        art_note = (f'<p class="way-today-artnote">{esc(art_cap)}</p>'
+                    if art_kind == "affil" and art_cap else "")
         today_html = f"""<article class="way-today">
   {art_html}
   <div class="way-today-txt">
@@ -1692,6 +1707,7 @@ def build_way(a, tax, enc, data, manifest=None):
     <p class="way-today-dek">{esc(pick.get("why") or "")}</p>
     <p class="way-today-meta-line">{meta_p}{meta_sep}{track_p}</p>
     {wire_p}
+    {art_note}
     <a class="btn btn-solid" href="{pick_href(pick)}">Read the case</a>
   </div>
 </article>"""
@@ -1711,8 +1727,8 @@ def build_way(a, tax, enc, data, manifest=None):
         p = (d.get("picks") or {}).get(a["id"])
         if not p:
             continue
-        art, _ = pick_art(p)
-        art_cls = " is-plate" if art.endswith(".svg") else ""
+        art, _, art_kind = pick_art(p)
+        art_cls = " is-affil" if art_kind == "affil" else ""
         thumb = (f'<span class="way-day-thumb{art_cls}"><img src="{esc(art)}" alt="" '
                  f'loading="lazy"></span>' if art else
                  '<span class="way-day-thumb way-day-noart"></span>')
@@ -1726,8 +1742,8 @@ def build_way(a, tax, enc, data, manifest=None):
         recent_html = (f'<details class="way-days"><summary>The last five days</summary>'
                        f'<ul>{"".join(recent)}</ul></details>')
     elif pick:
-        art, _ = pick_art(pick)
-        art_cls = " is-plate" if art.endswith(".svg") else ""
+        art, _, art_kind = pick_art(pick)
+        art_cls = " is-affil" if art_kind == "affil" else ""
         thumb = (f'<span class="way-day-thumb{art_cls}"><img src="{esc(art)}" '
                  f'alt="" loading="lazy"></span>' if art else
                  '<span class="way-day-thumb way-day-noart"></span>')
@@ -2505,21 +2521,35 @@ def build_front(data, feat=None, manifest=None, hist=None):
         if _psotd.get("why_today"):
             _pwhy = (f'<p class="psotd-why"><b>Why today.</b> '
                      f'{esc(_psotd["why_today"])}{_srcline}</p>')
-        _pplate = ""
-        if _pse and (ROOT / "img" / "plate" / f"{_pse['id']}.svg").exists():
-            _pplate = (f'<img class="psotd-plate" src="img/plate/'
-                       f'{esc(_pse["id"])}.svg" alt="" loading="lazy">')
+        _part_html = ""
+        _plock = "psotd-lockup psotd-noart"
+        if _pse:
+            _pf = img_for(manifest, _pse["id"], 0)
+            if _pf:
+                _part = (f'<img class="psotd-artimg" src="{esc(_pf["path"])}" '
+                         f'alt="" loading="lazy">')
+                _pcap = (f'{esc(_pf.get("caption", ""))} &middot; '
+                         f'<a href="{esc(_pf.get("page", "#"))}" target="_blank" '
+                         f'rel="noopener nofollow">{esc(_pf.get("credit", ""))}</a>')
+            else:
+                _akey = affil_key(_pse, _psotd)
+                _part = (f'<img class="psotd-artimg" src="{affil_path(_akey)}" '
+                         f'alt="" loading="lazy">')
+                _pcap = (f'Affiliation: {esc(AFFIL_LABEL.get(_akey, _akey))}. '
+                         f'No free photograph.')
+            _part_html = (f'<figure class="psotd-art">{_part}'
+                          f'<figcaption>{_pcap}</figcaption></figure>')
+            _plock = "psotd-lockup"
         _ptell = _psotd.get("tell") or _figure_detail(_pse)
         _ptell_html = (f'<p class="psotd-tell"><b>The detail.</b> '
                        f'{esc(_ptell)}</p>' if _ptell else "")
-        _plock = "psotd-lockup" + ("" if _pplate else " psotd-noart")
         psotd_block = f"""<section class="section psotd-sec" aria-labelledby="psotd-kick">
   <p class="kicker" id="psotd-kick">Parasocialite of the day
     <span class="psotd-kind">{esc(_pkind_label)}</span>
     <span class="psotd-val psotd-val-{_pval}">{_pval}</span></p>
   <div class="psotd-card">
     <div class="{_plock}">
-      {_pplate}
+      {_part_html}
       <div class="psotd-copy">
         <h2 class="psotd-name"><a href="{_phref}">{_plabel}</a></h2>
         {_pmline}
@@ -3918,6 +3948,63 @@ def parasocialite_roster():
         return json.loads(PARASOCIALITE.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         return {"members": []}
+
+
+AFFIL_BY_MEDIUM = {
+    "sport": "sport", "music": "music", "film": "film", "radio": "radio",
+    "television_scripted": "television",
+    "television_unscripted": "television",
+    "literature": "literature", "comics": "comics", "games": "games",
+    "ai": "ai", "theology": "religion", "stage": "stage",
+    "visual_art": "art", "technology": "tech", "history": "history",
+}
+AFFIL_BY_TAG = {
+    "sport": "sport", "music": "music", "film": "film",
+    "television": "television", "radio": "radio",
+    "literature": "literature", "comics": "comics", "games": "games",
+    "ai": "ai", "religion": "religion", "stage": "stage",
+    "visual art": "art", "brand": "brand", "animation": "film",
+}
+AFFIL_BY_SECTION = {
+    "idol": "music", "creator": "television", "character": "film",
+    "companion": "ai", "world": "history", "brand": "brand",
+    "crossover": "default", "contest": "default", "grief": "default",
+    "danger": "default",
+}
+AFFIL_BY_WAY = {
+    "persona": "persona", "character": "comics", "companion": "companion",
+    "divine": "religion", "institution": "history", "cosmology": "default",
+    "officer": "officer", "predator": "predator",
+}
+AFFIL_LABEL = {
+    "sport": "sport", "music": "music", "film": "film",
+    "television": "television", "radio": "radio",
+    "literature": "literature", "comics": "comics", "games": "games",
+    "ai": "artificial intelligence", "religion": "religion",
+    "stage": "stage", "art": "visual art", "tech": "technology",
+    "history": "history", "brand": "brand", "default": "the record",
+    "persona": "persona", "companion": "companion",
+    "officer": "officer", "predator": "predator",
+}
+
+
+def affil_key(entry=None, member=None) -> str:
+    """The domain mark for an entry or figure with no free photograph."""
+    if member:
+        for t in member.get("tags") or []:
+            k = AFFIL_BY_TAG.get(str(t).lower())
+            if k:
+                return k
+    if entry:
+        for m in entry.get("medium") or []:
+            k = AFFIL_BY_MEDIUM.get(str(m))
+            if k:
+                return k
+    return "default"
+
+
+def affil_path(key: str, prefix: str = "") -> str:
+    return f"{prefix}img/affil/{key}.svg"
 
 
 def _figure_detail(e):

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="OFFICER affiliation mark">
+  <rect width="640" height="480" fill="#17100b"/>
+  <rect x="18" y="18" width="604" height="444" fill="none" stroke="#3a2a1e" stroke-width="2"/>
+  <g fill="none" stroke="#ff5a1f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+
+      <path d="M320 104 L432 148 V248 Q432 332 320 376 Q208 332 208 248 V148 Z"/>
+      <path d="M320 174 L334 212 L374 212 L342 236 L354 274 L320 250 L286 274 L298 236 L266 212 L306 212 Z"/>
+    
+  </g>
+  <text x="40" y="414" fill="#fff6ea" font-family="'Courier New', monospace" font-size="28" letter-spacing="5">OFFICER</text>
+  <text x="40" y="444" fill="#9a8672" font-family="'Courier New', monospace" font-size="13" letter-spacing="2">AFFILIATION &#183; NOT A PORTRAIT</text>
+</svg>

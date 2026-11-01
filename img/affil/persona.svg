@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="PERSONA affiliation mark">
+  <rect width="640" height="480" fill="#17100b"/>
+  <rect x="18" y="18" width="604" height="444" fill="none" stroke="#3a2a1e" stroke-width="2"/>
+  <g fill="none" stroke="#ff5a1f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+
+      <path d="M210 132 L320 250 L430 132"/>
+      <ellipse cx="320" cy="258" rx="66" ry="76"/>
+      <circle cx="298" cy="246" r="9"/>
+      <circle cx="342" cy="246" r="9"/>
+      <path d="M298 286 Q320 302 342 286"/>
+      <line x1="254" y1="258" x2="218" y2="258"/>
+      <line x1="386" y1="258" x2="422" y2="258"/>
+    
+  </g>
+  <text x="40" y="414" fill="#fff6ea" font-family="'Courier New', monospace" font-size="28" letter-spacing="5">PERSONA</text>
+  <text x="40" y="444" fill="#9a8672" font-family="'Courier New', monospace" font-size="13" letter-spacing="2">AFFILIATION &#183; NOT A PORTRAIT</text>
+</svg>

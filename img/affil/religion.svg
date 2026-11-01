@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="RELIGION affiliation mark">
+  <rect width="640" height="480" fill="#17100b"/>
+  <rect x="18" y="18" width="604" height="444" fill="none" stroke="#3a2a1e" stroke-width="2"/>
+  <g fill="none" stroke="#ff5a1f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+
+      <path d="M236 334 V190 Q236 116 320 116 Q404 116 404 190 V334"/>
+      <path d="M268 334 V198 Q268 156 320 156 Q372 156 372 198 V334"/>
+      <line x1="320" y1="202" x2="320" y2="286"/>
+      <path d="M320 202 Q340 224 320 248 Q300 224 320 202 Z"/>
+      <line x1="286" y1="286" x2="354" y2="286"/>
+    
+  </g>
+  <text x="40" y="414" fill="#fff6ea" font-family="'Courier New', monospace" font-size="28" letter-spacing="5">RELIGION</text>
+  <text x="40" y="444" fill="#9a8672" font-family="'Courier New', monospace" font-size="13" letter-spacing="2">AFFILIATION &#183; NOT A PORTRAIT</text>
+</svg>
