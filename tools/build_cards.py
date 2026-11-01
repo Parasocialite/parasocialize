@@ -6198,8 +6198,13 @@ def build_sitemap(data):
     _tax = json.loads((ROOT / "data" / "taxonomy.json").read_text(encoding="utf-8"))
     for a in _tax["attachment"]:
         urls.append((f"{SITE}/ways/{a['id']}/", "0.8", "weekly"))
-    for p in ("/timeline/", "/encyclopedia/", "/top8/", "/history/",
-              "/moments/", "/figures/", "/taxonomy/"):
+    # Only the three hubs not already listed above. /top8/, /history/,
+    # /moments/ and /figures/ were in this tuple as well as the list at the top
+    # of the function, so each was emitted twice - four duplicate <url> entries
+    # in every sitemap, with conflicting changefreq values (top 8 was weekly in
+    # one and monthly in the other). check_sitemap.py counts unique URLs, which
+    # is how it surfaced: the file had 357 <loc> lines and 353 distinct pages.
+    for p in ("/timeline/", "/encyclopedia/", "/taxonomy/"):
         urls.append((f"{SITE}{p}", "0.9", "monthly"))
     enc_urls = json.loads((ROOT / "data" / "encyclopedia.json").read_text(encoding="utf-8"))
     for ent in enc_urls["entries"]:

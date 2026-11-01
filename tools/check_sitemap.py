@@ -67,7 +67,14 @@ def main() -> int:
         print("FAIL: dist/ is missing - build the deploy tree first")
         return 1
 
-    listed = {to_file(u) for u in LOC.findall(path.read_text(encoding="utf-8"))}
+    locs = [to_file(u) for u in LOC.findall(path.read_text(encoding="utf-8"))]
+    listed = set(locs)
+    seen = set()
+    duplicates = []
+    for u in locs:
+        if u in seen:
+            duplicates.append(u)
+        seen.add(u)
 
     deployed = {}
     for p in DIST.rglob("*.html"):
@@ -87,6 +94,10 @@ def main() -> int:
     ghost = sorted(u for u in listed if u not in deployed)
 
     problems = 0
+    if duplicates:
+        problems += len(duplicates)
+        print(f"FAIL: {len(duplicates)} duplicate sitemap entr(ies): "
+              f"{', '.join(sorted(set(duplicates))[:8])}")
     if missing:
         problems += len(missing)
         print(f"FAIL: {len(missing)} indexable deployed page(s) are not in the "

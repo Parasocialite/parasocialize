@@ -5752,3 +5752,6 @@ it gets resolved.
     - **`brand/index.html` deleted.** The stub existed only because the `/brand/` redirect was one of the rules Cloudflare was ignoring; now that the file is 16 rules instead of 270, the 301 comes first and the stub can never be served.
     - **Checked.** `gates.py --all` green across post, visual and source. Deploy: **765 files / 355 pages / 353 sitemap URLs**. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **765 files, 16.27 MB, tree sha `bad6cfa4260906f4`**.
 
+
+109. **The sitemap listed four URLs twice.** `/top8/`, `/history/`, `/moments/` and `/figures/` were in the opening tuple and again in a later loop, so every sitemap carried four duplicate `<url>` entries with conflicting `changefreq` values (top 8 was `weekly` in one and `monthly` in the other). `check_sitemap.py` counts distinct URLs, which is how it surfaced: 357 `<loc>` lines, 353 pages. The later loop now carries only the three hubs not already listed, and the gate fails on a duplicate rather than silently collapsing it.
+
