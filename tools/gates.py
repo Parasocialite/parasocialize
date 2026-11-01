@@ -93,6 +93,10 @@ POST_CHECK = [
     # 147 of 255 `/e/` end-card links were 404s live while every gate was green.
     # This asks whether the rules would be APPLIED, not merely written.
     ("check_redirects", ["check_redirects.py"]),
+    # Every indexable page the deploy holds must be in sitemap.xml, and every
+    # sitemap URL must exist. Two reader pages were missing and nothing noticed,
+    # because the sitemap is built from a hand-written list of remembered URLs.
+    ("check_sitemap", ["check_sitemap.py"]),
     ("verify_findable", ["verify_findable.py"]),
     ("verify_landmarks", ["verify_landmarks.py"]),
     ("verify_ways", ["verify_ways.py"]),

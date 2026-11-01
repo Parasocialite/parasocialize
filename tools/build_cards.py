@@ -6183,6 +6183,13 @@ def build_sitemap(data):
     urls.append((f"{SITE}/taxonomy/record/", "0.5", "weekly"))
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
     urls.append((f"{SITE}/citations/", "0.5", "weekly"))
+    # /exceptions/ and /ledger/ are ordinary reader pages - one is linked from
+    # /taxonomy/, the other from the footer of every page and publishes its own
+    # feed. Neither is noindex, and both were absent from the generated list
+    # until check_sitemap.py started asking. "A page a reader can reach but a
+    # crawler cannot is only half published" is this file's own rule.
+    urls.append((f"{SITE}/exceptions/", "0.5", "monthly"))
+    urls.append((f"{SITE}/ledger/", "0.5", "weekly"))
     urls.append((f"{SITE}/timeline/corpus/", "0.5", "monthly"))
     urls.append((f"{SITE}/timeline/future/", "0.5", "monthly"))
     for a in data["sections"]:

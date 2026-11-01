@@ -5745,3 +5745,10 @@ it gets resolved.
     - **New gate: `tools/check_redirects.py`.** It fails when the file exceeds a conservative 100 total rules, and it fails when any `/e/` URL the encyclopedia prints, or any renamed radar slug, has no rule that can serve it. Added to the post tier of `gates.py`. It asks whether the rules would be APPLIED, which no previous check did.
     - **The lesson is a class, not one file.** Every existing check verified that rules were *written*; none verified that they were *in force*. The same blind spot would have swallowed any silent platform limit.
 
+
+108. **The sitemap described 355 of 356 pages, and two of the missing ones were ordinary reader pages.** `/exceptions/` (linked from `/taxonomy/`) and `/ledger/` (linked from the footer of every page, and publishing its own feed) were indexable and offered to no crawler. `build_sitemap()` was a hand-written list of remembered URLs plus loops over the data files; the site's own stated rule - "a page a reader can reach but a crawler cannot is only half published" - was written down in that function and enforced by nothing.
+    - **Both added**, at priority 0.5.
+    - **New gate: `tools/check_sitemap.py`.** It reads `dist/`, skips `noindex` pages and `404.html`, and fails in both directions: an indexable deployed page missing from the sitemap, or a sitemap URL with no file behind it. Added to the post tier.
+    - **`brand/index.html` deleted.** The stub existed only because the `/brand/` redirect was one of the rules Cloudflare was ignoring; now that the file is 16 rules instead of 270, the 301 comes first and the stub can never be served.
+    - **Checked.** `gates.py --all` green across post, visual and source. Deploy: **765 files / 355 pages / 353 sitemap URLs**. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **765 files, 16.27 MB, tree sha `bad6cfa4260906f4`**.
+
