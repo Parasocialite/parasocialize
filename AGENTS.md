@@ -766,12 +766,12 @@ ship a falsehood on this site and it was done once already.
   missing image with a plausible filename. The figure card uses a real
   photograph first, then the mark; a way page uses the way's own mark, so the
   eight pages keep one visual identity. Plates are not used as fallbacks.
-- `data/timeline.json` - **the master timeline.** 88 instances across five
+- `data/timeline.json` - **the master timeline.** 122 instances across six
   phases, each with the required schema (`id`, `year`, `title`, `domain`, `era`,
   `summary`, `parasocial_analysis`, `primary_source_or_artifact`, `tags`) plus
   `sort_year`, `phase`, `citations` and an optional `date_note`. `year` is a
   display string (`c. 8 CE`, `1830s-1850s`) and `sort_year` is the integer the
-  page orders on. `phase` is 1-5 and the page groups by it. `date_note` is where
+  page orders on. `phase` is 1-6 and the page groups by it. `date_note` is where
   a widely repeated date is wrong and the entry says so. A citation carries
   `citation`, `url`, `status` and `note`; `retrievable` means this build opened
   the URL and found the work, not that the whole text was read. The six domains
@@ -780,7 +780,7 @@ ship a falsehood on this site and it was done once already.
   `/timeline/corpus/`, and the per-section pages are unchanged.
 - `tools/verify_timeline.py` - **the timeline gate.** Checks every required
   field and type, the domain/era/phase membership, `sort_year` against the year
-  string and inside its phase, the citation status/locator contract, the 44
+  string and inside its phase, the citation status/locator contract, the 78
   mandated seed ids, and the rendered page: every card has a panel, every panel
   has a card, and the corpus page links back. Wired into the source tier. It
   cannot check that a date is true; that is what the citations are for.
@@ -5418,7 +5418,7 @@ it gets resolved.
       link resolving.
 
 
-99. **The 22-entry spine was the wrong shape: the timeline is now an 88-entry master list in five phases, and the user's basic list is the non-negotiable floor.** The previous build answered "what is the argument" when the request was "what is the record". A curated spine of 22 made the page readable and made it incomplete. The master list keeps every seed milestone and extends it with the instances the site can source, grouped in the five phases the user named. `/timeline/` is now the master list; `/timeline/corpus/` remains the 255-entry encyclopedia database.
+99. **The 22-entry spine was the wrong shape: the timeline became an 88-entry master list in five phases, and the user's basic list is the non-negotiable floor.** **Superseded by item 101: the master list is now 122 entries in six phases.** The previous build answered "what is the argument" when the request was "what is the record". A curated spine of 22 made the page readable and made it incomplete. The master list keeps every seed milestone and extends it with the instances the site can source, grouped in the five phases the user named. `/timeline/` is now the master list; `/timeline/corpus/` remains the 255-entry encyclopedia database.
     - **The counts.** 88 entries: phase 1 14, phase 2 12, phase 3 18,
       phase 4 18, phase 5 26. Six domains, five eras, 247 tags and 140
       citation records (112 `retrievable`, 28 `unverified`). The file is
@@ -5514,4 +5514,60 @@ it gets resolved.
       is absent, the step skips exactly as the daily job's does. The counter
       publishes only what it committed, so a scheduled run that changes
       nothing does not create a deployment.
+
+
+101. **The master list now integrates both supplied milestone lists: 122 entries in six phases, with the second list's Phase 6 added and the seed floor raised to 78.** The first pass had 88 entries in five phases. The two supplied lists added 34 unique entries (15 from the first, 19 from the second, with Howdy Doody, VTubers, OnlyFans and the existing Liszt/Valentino/Lennon/Twitter entries already present). The result is grouped in the six phases the second list names:
+    ```
+    1 Antiquity, Ancient Ritual & Sacred Proxies   22
+    2 Literature, Early Mass Print & Stage Magic    18
+    3 Golden Age Radio, Early Cinema & Propaganda   25
+    4 Modern Media, Psychoanalysis & Pop Idols      23
+    5 Web 1.0, Digital Fandom & Creator Economies   28
+    6 Post-Human, Algorithmic & Synthetic Frontiers  6
+    ```
+    - **What phase 1 gained.** Ka statues and false doors, Thespis,
+      Akhenaten and the Aten, Asklepieion dream incubation, *The Imitation of
+      Christ*, the ikiryō and Noh possession, Lucian's puppet god Glycon, and
+      John Dee and Edward Kelley's Enochian conversations.
+    - **Phase 2.** *Clarissa*, the Fox sisters, Pepper's Ghost, Jack the
+      Ripper's "Dear Boss" letter, the Mona Lisa theft, and Conan Doyle's
+      *The Final Problem*.
+    - **Phase 3.** *The Goldbergs*, *Calling All Cars*, Lord Haw-Haw,
+      Edward VIII's abdication speech, *Candid Camera*, *Rear Window*, and
+      the quiz-show scandals.
+    - **Phase 4.** ELIZA, Manson and Helter Skelter, the *Rocky Horror*
+      midnight screenings, Tamagotchi, and *The Blair Witch Project*.
+    - **Phase 5.** Kyoko Date, JenniCam, Hatsune Miku, *Her*, and *Animal
+      Crossing: New Horizons*.
+    - **Phase 6 is new.** TikTok's For You page, Character.AI,
+      deepfake grief, OpenAI's Custom GPTs and Advanced Voice Mode,
+      Neuro-sama, and synthetic mourning/griefbots. Character.AI,
+      deepfake-grief and TikTok were moved out of phase 5 because they are
+      the synthetic/algorithmic frontier, not the Web 2.0 creator economy.
+    - **The corrections are in `date_note`, not in a silent edit.** Sherlock
+      Holmes dies in **1893**, not 1890. Lord Haw-Haw begins in **1939**,
+      not 1934. Tamagotchi is **1996**, not 1992. *Calling All Cars* is
+      **1933–39**, not 1983. ELIZA was written **1964–66** and published in
+      **1966**, not 1965. *The Rocky Horror Picture Show* opened in **1975**;
+      the midnight callback screenings are **1976**. The VTuber form is
+      **2016**, not 2014. Advanced Voice Mode is **2024**, not 2023. Liszt is
+      **1840–47** (Heine's coinage is 1844). Twitter is **2006–09**. The
+      ikiryō is Heian and medieval before the Noh formalisation. Akhenaten is
+      **c. 1353–1336 BCE**, and the Athenian Asklepieion is **c. 420 BCE**.
+      There are now 27 date notes in the file.
+    - **The seed floor is 78 ids.** `tools/verify_timeline.py`'s `CORE_IDS`
+      now contains all 44 original milestones and all 34 unique additions.
+      The phase check is six, not five, and `sort_year` is still checked
+      inside each phase. Confirmed red earlier by deleting `facebook`; the
+      same seed check catches any of the 78.
+    - **Measured page.** 539 KB, 122 cards, 122 panels, six phase groups, 338
+      tags, 193 citation records (159 `retrievable`, 34 `unverified`). Driven
+      in the browser: initial 122, phase 1 22, phase 6 6, AI 9, phase 6 + AI
+      6, `Sherlock` 1, `Tamagotchi` 1, no-match 0, `spiritualism` 1, panel
+      opens on `#tl-neuro-sama` and closes on `#list`. No console errors.
+    - `gates.py --all` green across post, visual and source, including
+      `verify_timeline`, `link_audit`, `check_css --orphans`, `md_leak`,
+      `internal_leaks` and the three rotation tests. `build_deploy` assembled
+      773 files / 363 pages. Package: `C:\Users\paras\Desktop\parasocialize-SITE.zip`,
+      **773 files, 15.29 MB, tree sha `231f9101850d7d87`**.
 

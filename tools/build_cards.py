@@ -4997,11 +4997,11 @@ TLC_JS = r"""
 
 
 def build_timeline_curated(tl, data):
-    """The master /timeline/: every instance we can support, in five phases.
+    """The master /timeline/: every instance we can support, in six phases.
 
     Separate from build_timeline(), which renders the 255-entry encyclopedia
     corpus and now lives at /timeline/corpus/. The corpus is what the database
-    holds; this is the master list. It groups by the five-part structure, not
+    holds; this is the master list. It groups by the six-part structure, not
     by the coarse era filter, because the phases are the argument and the era
     buckets are only a way to narrow it.
     """
@@ -5050,7 +5050,7 @@ def build_timeline_curated(tl, data):
         f'<option value="{esc(t)}">{esc(t.replace("-", " "))} ({n})</option>'
         for t, n in sorted(tag_counts.items()))
 
-    # Grouped by the five-part structure. The card still prints the precise
+    # Grouped by the six-part structure. The card still prints the precise
     # era and the phase, so the grouping is a way in rather than a claim.
     groups: dict[int, list[dict]] = {pid: [] for pid in phase_meta}
     for e in entries:
@@ -5165,7 +5165,7 @@ def build_timeline_curated(tl, data):
   <h1 class="h-title">The parasocial timeline</h1>
   <p class="sec-lede" style="max-width:70ch">{len(entries)} instances, from a Neanderthal
   burial to a model that can generate the next line. Each entry names the mechanism, the
-  primary source and the evidence. The list is grouped in five phases; the full
+  primary source and the evidence. The list is grouped in six phases; the full
   {n_enc}-entry database is in <a href="{r}timeline/corpus/index.html">the corpus</a>.</p>
   <div class="tlc-stats">
     <span class="tlc-stat"><b>{len(entries)}</b> instances</span>
@@ -5203,7 +5203,7 @@ def build_timeline_curated(tl, data):
   <p class="kicker" style="margin-top:14px">Tags <span class="tlc-kicker-note">the ones used more than once; the menu has all {n_tags}</span></p>
   <div class="chips" id="tlc-tags">{tag_btns}</div>
   <p class="countline" id="tlc-count" aria-live="polite"></p>
-  <p class="tlc-hint">The five phases are the structure; the era buckets are a second way in.
+  <p class="tlc-hint">The six phases are the structure; the era buckets are a second way in.
   Each card prints its own era, so Goethe (1774) sits under 19th-20th Century without being
   dated to it. <b>AI</b> is a derived view of the digital entries whose mechanism is
   algorithmic or synthetic. A date that is widely repeated and wrong is corrected in the

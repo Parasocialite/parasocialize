@@ -12,7 +12,7 @@ So the checks here are about the promises the fields make:
   * every entry has every required field, and the types are the types the
     builder renders;
   * domain and era are members of the lists the page filters on, and phase is
-    one of the five the page groups by;
+    one of the six the page groups by;
   * sort_year agrees with the year string and is ordered inside its phase;
   * the user's seed list is still present - a master list that quietly drops a
     milestone is the failure this check exists to prevent;
@@ -53,11 +53,12 @@ ERAS = [
     "Synthetic Era",
 ]
 PHASE_NAMES = {
-    1: "Myth, Antiquity & Pre-Print",
-    2: "The Print Revolution & Mass Reading",
-    3: "Early Broadcast, Radio & Cinema",
-    4: "Television, Politics & Late-Century Pathology",
-    5: "Reality TV, Platforms & the Algorithmic Era",
+    1: "Antiquity, Ancient Ritual & Sacred Proxies",
+    2: "Literature, Early Mass Print & Stage Magic",
+    3: "Golden Age Radio, Early Cinema & Propaganda",
+    4: "Modern Media, Psychoanalysis & Pop Idols",
+    5: "Web 1.0, Digital Fandom & Creator Economies",
+    6: "Post-Human, Algorithmic & Synthetic Frontiers",
 }
 REQUIRED = [
     "id", "year", "sort_year", "title", "phase", "domain", "era", "summary",
@@ -84,6 +85,17 @@ CORE_IDS = {
     "beatlemania", "elvis-death", "hinckley-foster", "rebecca-schaeffer",
     "diana-death", "truman-show", "eminem-stan", "facebook", "youtube-vlog",
     "kuwtk", "twitch-donations", "tiktok-fyp", "character-ai",
+    "akhenaten-aten", "asclepius-dream-cure", "imitation-of-christ",
+    "ikiryo-possession", "fox-sisters-spiritualism", "sherlock-final-problem",
+    "lord-haw-haw", "candid-camera", "quiz-show-scandals",
+    "manson-helter-skelter", "tamagotchi", "blair-witch", "her-film",
+    "animal-crossing-new-horizons", "openai-voice-mode",
+    "ka-statues", "thespis", "lucian-alexander", "john-dee-enochian",
+    "clarissa-harlowe", "peppers-ghost", "jack-the-ripper",
+    "mona-lisa-theft", "goldbergs", "edward-viii-abdication",
+    "rear-window", "eliza", "rocky-horror", "calling-all-cars",
+    "kyoko-date", "jennicam", "hatsune-miku", "neuro-sama",
+    "synthetic-mourning",
 }
 
 
@@ -117,8 +129,8 @@ def main() -> int:
         fail(errors, "eras list is not the five the schema defines")
 
     phases = doc["phases"]
-    if not isinstance(phases, list) or len(phases) != 5:
-        fail(errors, "phases is not the five-part list the page groups by")
+    if not isinstance(phases, list) or len(phases) != 6:
+        fail(errors, "phases is not the six-part list the page groups by")
     else:
         seen_phases = set()
         for p in phases:
@@ -131,7 +143,7 @@ def main() -> int:
                 fail(errors, f"phase {p['id']} name is not the one the page expects")
             seen_phases.add(p.get("id"))
         if seen_phases != set(PHASE_NAMES):
-            fail(errors, f"phase ids are {sorted(seen_phases)}, not 1-5")
+            fail(errors, f"phase ids are {sorted(seen_phases)}, not 1-6")
 
     entries = doc["entries"]
     if not isinstance(entries, list) or not entries:
@@ -173,7 +185,7 @@ def main() -> int:
         if e["era"] not in ERAS:
             fail(errors, f"{where}: era {e['era']!r} is not in the list")
         if e["phase"] not in PHASE_NAMES:
-            fail(errors, f"{where}: phase {e['phase']!r} is not 1-5")
+            fail(errors, f"{where}: phase {e['phase']!r} is not 1-6")
             continue
         phase_counts[e["phase"]] = phase_counts.get(e["phase"], 0) + 1
 

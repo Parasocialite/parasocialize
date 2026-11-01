@@ -3,33 +3,39 @@
   "phases": [
     {
       "id": 1,
-      "name": "Myth, Antiquity & Pre-Print",
+      "name": "Antiquity, Ancient Ritual & Sacred Proxies",
       "range": "c. 70,000 BCE – 1605",
-      "note": "Before mass media, the bond is made by ritual, recitation and the image."
+      "note": "Before mass media, the bond is made by ritual, recitation, the image and the tomb."
     },
     {
       "id": 2,
-      "name": "The Print Revolution & Mass Reading",
-      "range": "1740–1897",
+      "name": "Literature, Early Mass Print & Stage Magic",
+      "range": "1740–1911",
       "note": "Print makes the same face available to strangers at the same time."
     },
     {
       "id": 3,
-      "name": "Early Broadcast, Radio & Cinema",
-      "range": "1900–1956",
+      "name": "Golden Age Radio, Early Cinema & Propaganda",
+      "range": "1900–1959",
       "note": "The voice and the face arrive in the home, on a schedule."
     },
     {
       "id": 4,
-      "name": "Television, Politics & Late-Century Pathology",
-      "range": "1960–2000",
+      "name": "Modern Media, Psychoanalysis & Pop Idols",
+      "range": "1960–1999",
       "note": "The camera makes the figure intimate and the boundary dangerous."
     },
     {
       "id": 5,
-      "name": "Reality TV, Platforms & the Algorithmic Era",
-      "range": "1999–2024",
-      "note": "The audience becomes a feed, a subscriber and finally a prompt."
+      "name": "Web 1.0, Digital Fandom & Creator Economies",
+      "range": "1996–2020",
+      "note": "The audience becomes a feed, a subscriber and a patron."
+    },
+    {
+      "id": 6,
+      "name": "Post-Human, Algorithmic & Synthetic Frontiers",
+      "range": "2020–2024",
+      "note": "The far end becomes a model, a voice and a grief that can answer."
     }
   ],
   "domains": [
@@ -154,6 +160,73 @@
       "era": "Pre-Modern"
     },
     {
+      "id": "ka-statues",
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern",
+      "year": "c. 3000 BCE",
+      "sort_year": -3000,
+      "title": "The ka statue and the false door",
+      "summary": "Egyptian tombs included a false door and a statue of the deceased, a physical seat for the ka to receive offerings and speak silently with the living.",
+      "parasocial_analysis": "The ka statue is a designed proxy: a body for a person who is no longer in the body, placed where the living can address it. The false door is the interface; the offering formula is the script. The relationship is one-sided by architecture, and the tomb is built to make it continuous. The dead cannot answer, but the living can return, and the return is the ritual.\n\nThe statue is not a portrait in the modern sense; it is a seat. The point is not likeness but availability. That distinction is the beginning of the long history of the stand-in that is treated as a presence.",
+      "primary_source_or_artifact": "Egyptian ka statues and false doors, c. 3000 BCE",
+      "tags": [
+        "ancestors",
+        "statue",
+        "tomb",
+        "offering",
+        "ancient-egypt"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Ka (Egyptian soul)'.",
+          "url": "https://en.wikipedia.org/wiki/Ka_(Egyptian_soul)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Ancient Egyptian funerary practices'.",
+          "url": "https://en.wikipedia.org/wiki/Ancient_Egyptian_funerary_practices",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
+      "id": "akhenaten-aten",
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern",
+      "year": "c. 1350 BCE",
+      "sort_year": -1350,
+      "title": "Akhenaten and the visible sun",
+      "summary": "Akhenaten elevated the sun disc Aten above the traditional gods and moved the centre of worship from the temple priesthood to the king and the visible disc.",
+      "parasocial_analysis": "Atenism is the first recorded attempt to replace a mediated pantheon with a single, visible object and a single royal interpreter. The traditional priests lost their role; the king became the one who knew what the disc wanted. The population was invited to see the sun and to address the king, not to negotiate with a crowd of deities. The relationship was one-sided in both directions: the disc could not answer, and the king spoke for it.\n\nThe Amarna period is also a warning about how quickly a mediated intimacy can be reversed. After Akhenaten's death, the old cults returned, his images were defaced, and the city was abandoned. The bond had been enforced from above rather than grown from below, which is why it did not survive its sponsor.",
+      "primary_source_or_artifact": "Atenism and the Amarna period, c. 1350 BCE",
+      "tags": [
+        "religion",
+        "monotheism",
+        "royal-mediation",
+        "sun-cult",
+        "ancient-egypt"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Akhenaten'.",
+          "url": "https://en.wikipedia.org/wiki/Akhenaten",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Atenism'.",
+          "url": "https://en.wikipedia.org/wiki/Atenism",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "Akhenaten reigned c. 1353–1336 BCE; c. 1350 is a conventional marker."
+    },
+    {
       "id": "homeric-recitation",
       "year": "c. 800 BCE",
       "sort_year": -800,
@@ -185,6 +258,74 @@
       "phase": 1,
       "domain": "Myth & Legend",
       "era": "Pre-Modern"
+    },
+    {
+      "id": "thespis",
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern",
+      "year": "c. 534 BCE",
+      "sort_year": -534,
+      "title": "Thespis steps out of the chorus",
+      "summary": "Thespis is credited with stepping out of the chorus to become the first actor, turning a ritual ensemble into a single character an audience could watch.",
+      "parasocial_analysis": "Thespis is a name for a structural change: the chorus remains, but one performer steps forward and speaks as someone else. The audience now watches an individual rather than a collective ritual, and the individual is a fiction. The actor's body is present; the character is not. That gap is the first theatrical version of the mediated figure.\n\nThe story is reported by later writers, and the date is traditional. What survives is the form: a masked person speaking in the first person while the audience knows he is not the person. The audience's projection begins there.",
+      "primary_source_or_artifact": "Thespis and the birth of Attic tragedy, c. 534 BCE",
+      "tags": [
+        "theatre",
+        "actor",
+        "character",
+        "audience",
+        "ancient-greece"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Thespis'.",
+          "url": "https://en.wikipedia.org/wiki/Thespis",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The 534 BCE date is traditional, recorded by later sources; the first tragic contest is dated to that year."
+    },
+    {
+      "id": "asclepius-dream-cure",
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern",
+      "year": "c. 430 BCE",
+      "sort_year": -430,
+      "title": "Asclepius and the dream that visits",
+      "summary": "The cult of Asclepius offered healing through dream incubation: a patient slept in a temple and received a personal visitation from the god.",
+      "parasocial_analysis": "The Asklepieion turned illness into a private audience. The patient prepared, slept in the abaton, and reported a dream in which the god spoke or touched the body. The encounter was one-sided and intensely personal; the god appeared to the sleeper alone, and the cure was evidence that the visit had happened. The priest interpreted the dream but did not supply the presence.\n\nThe structure is durable because it gives the near side a role: the patient must sleep, remember and narrate. The far end is a figure who can be addressed but not questioned. Dream incubation is the ancient template for the therapeutic relationship in which the sufferer feels personally known by a being that exists only in the encounter.",
+      "primary_source_or_artifact": "The Asklepieion and dream incubation, c. 430 BCE",
+      "tags": [
+        "dream-incubation",
+        "healing-cult",
+        "divine-visitation",
+        "ritual",
+        "ancient-greece"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Asclepius'.",
+          "url": "https://en.wikipedia.org/wiki/Asclepius",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Asklepieion'.",
+          "url": "https://en.wikipedia.org/wiki/Asklepieion",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Incubation (ritual)'.",
+          "url": "https://en.wikipedia.org/wiki/Incubation_(ritual)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The Athenian Asklepieion was founded c. 420 BCE; the cult is older. c. 430 is a conventional marker."
     },
     {
       "id": "roman-imagines",
@@ -279,6 +420,39 @@
       "phase": 1,
       "domain": "Myth & Legend",
       "era": "Pre-Modern"
+    },
+    {
+      "id": "lucian-alexander",
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern",
+      "year": "c. 160 CE",
+      "sort_year": 160,
+      "title": "Lucian and the puppet god",
+      "summary": "Lucian's Alexander the False Prophet describes a cult leader who staged a puppet god, Glycon, with a hidden speaking tube to give paying followers personal prophecies.",
+      "parasocial_analysis": "The puppet is an early machine for manufactured intimacy: a face, a voice, a private answer. The follower asks a question and receives a reply that seems to come from the god, while the operator supplies the voice. The fraud is not the point of the entry; the structure is. The far end is a staged body, and the near side pays for the feeling of being singled out.\n\nLucian's satire is also a reminder that the critique of mediated intimacy is ancient. The exposed mechanism does not make the desire disappear; it only moves the question to who is speaking.",
+      "primary_source_or_artifact": "Lucian of Samosata, Alexander the False Prophet (c. 160 CE)",
+      "tags": [
+        "oracle",
+        "puppet",
+        "fraud",
+        "prophecy",
+        "ancient-rome"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Alexander the False Prophet'.",
+          "url": "https://en.wikipedia.org/wiki/Alexander_the_False_Prophet",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Alexander of Abonoteichus'.",
+          "url": "https://en.wikipedia.org/wiki/Alexander_of_Abonoteichus",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
     },
     {
       "id": "the-icon",
@@ -440,6 +614,74 @@
       "phase": 1
     },
     {
+      "id": "imitation-of-christ",
+      "phase": 1,
+      "domain": "Literature & Print",
+      "era": "Pre-Modern",
+      "year": "1418",
+      "sort_year": 1418,
+      "title": "The Imitation of Christ and the inward companion",
+      "summary": "The Imitation of Christ teaches the reader to conduct a continuous inward conversation with Christ, in a voice that is intimate, demanding and entirely one-sided.",
+      "parasocial_analysis": "The book is a manual for internal dialogue. Its chapters alternate between the soul and Christ, and the reader is invited to take both parts. The voice is direct, personal and indifferent to public ceremony; the intimacy is achieved by turning the reader's attention inward. The companion is available at any hour because the companion is a text.\n\nThe Imitation is one of the most widely read Christian books after the Bible, and its method is the method of the parasocial bond: repeated address, a stable voice, and a relationship that is maintained by the reader's practice rather than by any reply. It is the devotional version of the serial: the same voice returns, and the reader keeps the appointment.",
+      "primary_source_or_artifact": "Thomas à Kempis, The Imitation of Christ (c. 1418–1427)",
+      "tags": [
+        "devotion",
+        "internal-dialogue",
+        "christianity",
+        "print",
+        "medieval"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Imitation of Christ'.",
+          "url": "https://en.wikipedia.org/wiki/The_Imitation_of_Christ",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "Written c. 1418–1427; 1418 is the conventional date of the first circulation."
+    },
+    {
+      "id": "ikiryo-possession",
+      "phase": 1,
+      "domain": "Literature & Print",
+      "era": "Pre-Modern",
+      "year": "16th century (c. 1500–1600)",
+      "sort_year": 1500,
+      "title": "The ikiryō and the spirit that leaves",
+      "summary": "Japanese literature formalised the ikiryō, a living person's spirit that leaves the body to haunt or attach itself to a distant target, in Heian tales and later Noh.",
+      "parasocial_analysis": "The ikiryō is projection made narrative: jealousy or longing is so intense that it acquires a separate body and acts on the person who cannot be reached. In The Tale of Genji, Lady Rokujō's spirit attacks her rival; in Noh, the possessive spirit is staged as a mask and a voice. The target experiences the attachment as an invasion, while the source may not know what her spirit has done.\n\nThe motif is a pre-modern account of the boundary problem this site keeps finding: the near side's feeling becomes an action on the far side, but the action is not a relationship. The spirit can reach the target; it cannot receive an answer. The 16th-century Noh stage formalised a much older literary intuition.",
+      "primary_source_or_artifact": "Ikiryō tales, The Tale of Genji and Noh possession drama",
+      "tags": [
+        "projection",
+        "possession",
+        "jealousy",
+        "noh",
+        "japanese-literature"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Ikiry%C5%8D'.",
+          "url": "https://en.wikipedia.org/wiki/Ikiry%C5%8D",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Noh'.",
+          "url": "https://en.wikipedia.org/wiki/Noh",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'The Tale of Genji'.",
+          "url": "https://en.wikipedia.org/wiki/The_Tale_of_Genji",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The motif is Heian (The Tale of Genji, c. 1010) and medieval; the Noh repertoire that stages it was formalised in the 14th–16th centuries."
+    },
+    {
       "id": "our-lady-of-guadalupe",
       "year": "1531",
       "sort_year": 1531,
@@ -471,6 +713,39 @@
       "phase": 1,
       "domain": "Myth & Legend",
       "era": "Pre-Modern"
+    },
+    {
+      "id": "john-dee-enochian",
+      "phase": 1,
+      "domain": "Myth & Legend",
+      "era": "Pre-Modern",
+      "year": "1582",
+      "sort_year": 1582,
+      "title": "John Dee, Edward Kelley and the angel conversations",
+      "summary": "John Dee and Edward Kelley used a crystal globe and an obsidian mirror to hold conversations with angels, recording thousands of words of a claimed celestial language.",
+      "parasocial_analysis": "The scrying sessions are a technology of mediated presence: a surface, a seer, a scribe and a voice that is always elsewhere. Kelley saw the figures; Dee wrote what they said. The relationship was one-sided, repeated and bureaucratic, with dates, alphabets and instructions. The angel was available on schedule.\n\nEnochian is the Renaissance version of the channel: the medium supplies the access, the scholar supplies the record, and the far end never appears in the room. The fact that the conversations are so detailed is what makes them convincing and what makes them a record of the near side's mind.",
+      "primary_source_or_artifact": "John Dee and Edward Kelley's Enochian conversations, 1582",
+      "tags": [
+        "scrying",
+        "angels",
+        "occult",
+        "medium",
+        "renaissance"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'John Dee'.",
+          "url": "https://en.wikipedia.org/wiki/John_Dee",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Enochian magic'.",
+          "url": "https://en.wikipedia.org/wiki/Enochian_magic",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
     },
     {
       "id": "don-quixote",
@@ -537,6 +812,33 @@
       "phase": 2,
       "domain": "Literature & Print",
       "era": "Early Mass Media"
+    },
+    {
+      "id": "clarissa-harlowe",
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media",
+      "year": "1748",
+      "sort_year": 1748,
+      "title": "Clarissa dies and the readers write back",
+      "summary": "Samuel Richardson's Clarissa is an epistolary novel whose heroine dies, and readers wrote to Richardson begging him to spare her.",
+      "parasocial_analysis": "Clarissa is the first mass reading experience in which the audience feels entitled to intervene in a fictional life. The novel is a bundle of letters, so the reader is already inside a correspondence; when Clarissa dies, the letters stop and the reader is left with the grief of a survivor. Richardson's readers wrote as if he could revise the ending.\n\nThe letters to Richardson are the evidence that the bond was treated as a relationship with an obligation. The author is the one who can keep the character alive, and the reader's appeal is addressed to him as a person. The novel's form made the request feel natural.",
+      "primary_source_or_artifact": "Samuel Richardson, Clarissa; or, The History of a Young Lady (1748)",
+      "tags": [
+        "epistolary",
+        "reader-response",
+        "death",
+        "author-audience",
+        "18th-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Clarissa; or, The History of a Young Lady'.",
+          "url": "https://en.wikipedia.org/wiki/Clarissa;_or,_The_History_of_a_Young_Lady",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
     },
     {
       "id": "werther",
@@ -640,8 +942,8 @@
     },
     {
       "id": "lisztomania",
-      "year": "1841–1847",
-      "sort_year": 1841,
+      "year": "1840–1847",
+      "sort_year": 1840,
       "title": "Lisztomania and the souvenir body",
       "summary": "Franz Liszt's concert tours produced scenes of fainting, souvenir-collecting and crowd frenzy that the press named Lisztomania.",
       "parasocial_analysis": "Liszt played in public and then let the public take pieces of him: gloves, handkerchiefs, locks of hair, broken piano strings. The performance was not only the music but the availability of the performer's body. Heinrich Heine coined the term, and the pattern it describes - a crowd treating an artist as a personal possession - is the direct ancestor of the pop idol.\n\nThe souvenir is the mechanism made physical. A glove or a string is not the person, but it is a piece of the person's presence that can be carried away. The audience's attachment is to a body it has seen at a distance, and the object is the substitute for a reply.",
@@ -663,7 +965,8 @@
       ],
       "phase": 2,
       "domain": "Music & Fan Culture",
-      "era": "Early Mass Media"
+      "era": "Early Mass Media",
+      "date_note": "Heine coined 'Lisztomania' in 1844; the concert frenzy runs 1841–47. 1840 is the early edge."
     },
     {
       "id": "jane-eyre",
@@ -697,6 +1000,39 @@
       "phase": 2,
       "domain": "Literature & Print",
       "era": "Early Mass Media"
+    },
+    {
+      "id": "fox-sisters-spiritualism",
+      "phase": 2,
+      "domain": "Myth & Legend",
+      "era": "Early Mass Media",
+      "year": "1848",
+      "sort_year": 1848,
+      "title": "The Fox sisters and the paid séance",
+      "summary": "In 1848 the Fox sisters in Hydesville, New York, claimed to communicate with a spirit through rapping sounds, and the séance became a paid public ritual.",
+      "parasocial_analysis": "Spiritualism turned the absence of the dead into a channel. The medium supplied the voice, the knock or the table tilt; the sitter supplied the name and the grief. The encounter was intimate and evidential at once: a specific deceased person was said to be present, and the payment made the access repeatable. The far end could not be checked, which is what made the ritual portable.\n\nThe Fox sisters later confessed and recanted, and the movement survived them. The important structure is not the truth of the raps but the arrangement: a paid mediator, a private message, and a client who leaves with the feeling of having been addressed. That is the template for the modern medium and for a great deal of platform intimacy.",
+      "primary_source_or_artifact": "The Fox sisters and the rise of modern Spiritualism, 1848",
+      "tags": [
+        "spiritualism",
+        "seance",
+        "medium",
+        "grief",
+        "19th-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Fox sisters'.",
+          "url": "https://en.wikipedia.org/wiki/Fox_sisters",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Spiritualism (movement)'.",
+          "url": "https://en.wikipedia.org/wiki/Spiritualism_(movement)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
     },
     {
       "id": "carte-de-visite",
@@ -814,6 +1150,66 @@
       "era": "Early Mass Media"
     },
     {
+      "id": "peppers-ghost",
+      "phase": 2,
+      "domain": "Broadcast & Film",
+      "era": "Early Mass Media",
+      "year": "1862",
+      "sort_year": 1862,
+      "title": "Pepper's Ghost and the body that is only light",
+      "summary": "Pepper's Ghost used angled glass and lighting to project a translucent figure onto a stage, making a ghost appear to share the room with the actors.",
+      "parasocial_analysis": "The illusion is a lesson in presence without body. The audience sees a figure that seems to stand in the same space as the living performers, but the figure is a reflection and cannot be touched. The theatre sold the experience of a shared room with someone who is not there.\n\nPepper's Ghost is the ancestor of the hologram and the augmented stage: the technical production of a person who is present to the eye and absent to every other sense. The audience knows the trick and still feels the arrival.",
+      "primary_source_or_artifact": "John Henry Pepper's Pepper's Ghost illusion, 1862",
+      "tags": [
+        "theatre",
+        "illusion",
+        "ghost",
+        "projection",
+        "19th-century"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Pepper%27s ghost'.",
+          "url": "https://en.wikipedia.org/wiki/Pepper%27s_ghost",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
+      "id": "jack-the-ripper",
+      "phase": 2,
+      "domain": "Politics & News",
+      "era": "Early Mass Media",
+      "year": "1888",
+      "sort_year": 1888,
+      "title": "Jack the Ripper writes to the papers",
+      "summary": "The Whitechapel murders produced the first modern media monster: a killer known by a name the press invented, who appeared to write to the newspapers.",
+      "parasocial_analysis": "Jack the Ripper is a persona built by newspapers and letters, not a person who was known. The 'Dear Boss' letter gave the public a voice to imagine, and the press gave it a plot. The audience's relationship was with a character who might be writing to them, which is the true-crime version of the parasocial bond.\n\nThe killer's direct address to the press is the structural innovation. It turned a local crime into a serial narrative with a protagonist who could reply. The letters may be hoaxes, but the form they created is real.",
+      "primary_source_or_artifact": "The Whitechapel murders and the 'Dear Boss' letter, 1888",
+      "tags": [
+        "true-crime",
+        "media",
+        "letter",
+        "persona",
+        "victorian"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Jack the Ripper'.",
+          "url": "https://en.wikipedia.org/wiki/Jack_the_Ripper",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Dear Boss letter'.",
+          "url": "https://en.wikipedia.org/wiki/Dear_Boss_letter",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
       "id": "sarah-bernhardt",
       "year": "1891",
       "sort_year": 1891,
@@ -839,6 +1235,40 @@
       "phase": 2,
       "domain": "Music & Fan Culture",
       "era": "Early Mass Media"
+    },
+    {
+      "id": "sherlock-final-problem",
+      "phase": 2,
+      "domain": "Literature & Print",
+      "era": "Early Mass Media",
+      "year": "1893",
+      "sort_year": 1893,
+      "title": "Conan Doyle kills Sherlock Holmes",
+      "summary": "Conan Doyle killed Sherlock Holmes at Reichenbach Falls in 1893, and readers responded with a public campaign that forced the character's return.",
+      "parasocial_analysis": "The Final Problem is the first mass-media death that a fan audience treated as a personal loss and a breach of contract. Readers wore black armbands, wrote letters and cancelled subscriptions; Doyle was accosted in the street. The character had been serialised for six years, and the audience's relationship with him was a scheduled habit. Killing him was experienced as an abandonment.\n\nDoyle resisted for eight years, then brought Holmes back in 1901 and 1903. The return is the proof of the mechanism: a fictional figure can be killed by an author and restored by an audience, because the audience's attachment is part of the character's life. The author owns the text; the readers own the habit.",
+      "primary_source_or_artifact": "Arthur Conan Doyle, 'The Final Problem' (1893)",
+      "tags": [
+        "fictional-character",
+        "fan-backlash",
+        "serial-fiction",
+        "author-audience",
+        "victorian"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Final Problem'.",
+          "url": "https://en.wikipedia.org/wiki/The_Final_Problem",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Sherlock Holmes'.",
+          "url": "https://en.wikipedia.org/wiki/Sherlock_Holmes",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The Final Problem was published in December 1893, not 1890."
     },
     {
       "id": "yellow-kid",
@@ -873,6 +1303,45 @@
       "phase": 2,
       "domain": "Literature & Print",
       "era": "Early Mass Media"
+    },
+    {
+      "id": "mona-lisa-theft",
+      "phase": 2,
+      "domain": "Broadcast & Film",
+      "era": "Early Mass Media",
+      "year": "1911",
+      "sort_year": 1911,
+      "title": "Thousands came to gawk at the empty wall",
+      "summary": "An Italian workman walked out of the Louvre with the painting under his coat, and the wall it had hung on went on drawing a crowd: four iron hooks, no picture, and thousands of people come to look at the hooks anyway. The papers printed the absence, and when she came back she had become public property - the first mass art icon, made by a thief rather than by a painter.",
+      "parasocial_analysis": "**A crowd stood in front of an empty wall, and that is the whole entry.** The four hooks were still there and people came to look at them - \"thousands of people came to gawk at the empty wall where the painting had once hung\". L'Illustration printed the question the absence had raised for it: \"What audacious criminal, what mystifier, what maniac collector, what insane lover, has committed this abduction?\" A picture nobody could see was being discussed in the language reserved for a kidnapping, which is the correct language for the situation and is also the first time in this corpus that a crowd's attention is described as a taking rather than as a looking.\n\nThe scale is recorded twice and the two records do not agree. One has \"more than 100,000 people viewed it\" after the return; the other has \"at least 120,000 people went to see the painting in the first two days after it was returned\". Both are kept, because the disagreement is the evidence - numbers that size are what a public looks like once an object has become a story. The record also disagrees about the theft itself: one man, or three. That disagreement is kept too, and neither version changes a word of the entry, which is about the wall rather than about who carried her out of it.\n\nWhat the theft produced is the sentence worth having. As the account the entry leans on puts it, \"The Mona Lisa had left the Louvre a work of art. She returned as public property, the first mass art icon.\" Satirical postcards, a short film and cabaret songs followed, and \"popular culture seized upon the theft and turned high art into mass art.\" **The image went on doing the work the canvas used to do, and the canvas came back as something people queued to be near.**\n\nPeruggia is the one attachment in the record that answers itself. He said he had fallen \"a victim to her smile\" and feasted his eyes on his treasure every evening, which is a one-sided tie describing itself out loud and in a courtroom's vocabulary. The crowd had the same tie and no sentence for it, which is what the queue in front of the hooks was. **She was not there for either of them, and being not-there is the whole of the arrangement.**",
+      "primary_source_or_artifact": "The theft of the Mona Lisa from the Louvre, 1911",
+      "tags": [
+        "art",
+        "theft",
+        "crowd",
+        "absence",
+        "1911"
+      ],
+      "citations": [
+        {
+          "citation": "History.com, \"The Heist That Made the Mona Lisa Famous\"",
+          "url": "https://www.history.com/articles/the-heist-that-made-the-mona-lisa-famous",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Smithsonian Magazine, \"What Happened When the Mona Lisa Was Stolen\"",
+          "url": "https://www.smithsonianmag.com/smart-news/happened-when-mona-lisa-was-stolen-180977488/",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "The Guardian, 5 August 2011 - report on the centenary of the 1911 theft of the Mona Lisa from the Louvre",
+          "url": "https://www.theguardian.com/artanddesign/2011/aug/05/mona-lisa-theft-louvre-leonardo",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ]
     },
     {
       "id": "charlie-chaplin",
@@ -1163,6 +1632,33 @@
       "era": "The Broadcast Age"
     },
     {
+      "id": "goldbergs",
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "year": "1929–1946",
+      "sort_year": 1929,
+      "title": "The Goldbergs and the neighbours who wrote back",
+      "summary": "The Goldbergs brought a Jewish family into American living rooms as a daily radio serial, and listeners treated them as neighbours.",
+      "parasocial_analysis": "The show's intimacy was domestic: a family, a kitchen, a daily problem, a familiar voice. Listeners sent baby gifts, condolence letters and recipe advice to the characters' home address, which is the clearest evidence that the fiction had become a social relationship. The household was fictional; the address was real enough to receive mail.\n\nThe Goldbergs is the bridge between the soap opera and the sitcom: a serial family whose ordinary life is the plot. The audience's attachment is to the routine, not to a single star.",
+      "primary_source_or_artifact": "The Goldbergs, radio, 1929–1946",
+      "tags": [
+        "radio",
+        "family",
+        "serial",
+        "domestic",
+        "1920s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Goldbergs (broadcast series)'.",
+          "url": "https://en.wikipedia.org/wiki/The_Goldbergs_(broadcast_series)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
       "id": "soap-opera",
       "year": "1930",
       "sort_year": 1930,
@@ -1190,6 +1686,34 @@
       "era": "The Broadcast Age"
     },
     {
+      "id": "calling-all-cars",
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "year": "1933–1939",
+      "sort_year": 1933,
+      "title": "Calling All Cars and the audience in the chase",
+      "summary": "Calling All Cars was an early radio crime series that invited listeners into a weekly manhunt, with a host who addressed the audience directly.",
+      "parasocial_analysis": "The show's innovation was the call to the audience: listeners were invited to participate in the chase, and the radio voice made the police procedure feel like a conversation. The boundary between the story and the listener's room was thin. The program is an early example of broadcast content that asks the audience to act.\n\nThe seed list dates this to 1983; the series ran from 1933 to 1939. The correction matters because the call-in form is a radio invention, not a 1980s television one.",
+      "primary_source_or_artifact": "Calling All Cars, radio, 1933–1939",
+      "tags": [
+        "radio",
+        "crime",
+        "call-in",
+        "audience",
+        "1930s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Calling All Cars (radio program)'.",
+          "url": "https://en.wikipedia.org/wiki/Calling_All_Cars_(radio_program)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "Calling All Cars ran 1933–1939; 1983 is not its launch."
+    },
+    {
       "id": "fireside-chats",
       "year": "1933",
       "sort_year": 1933,
@@ -1214,6 +1738,33 @@
         }
       ],
       "phase": 3
+    },
+    {
+      "id": "edward-viii-abdication",
+      "phase": 3,
+      "domain": "Politics & News",
+      "era": "The Broadcast Age",
+      "year": "1936",
+      "sort_year": 1936,
+      "title": "Edward VIII abdicates into the microphone",
+      "summary": "Edward VIII addressed the nation by radio to explain why he was giving up the throne for Wallis Simpson.",
+      "parasocial_analysis": "The abdication speech is a monarch speaking personally, in his own voice, about a private choice. The audience sat in silence around the radio, and the form made the constitutional crisis feel like a confession. The king was not asking for a reply; he was asking to be understood.\n\nThe speech is a landmark in political intimacy: the state's most formal figure using the most domestic medium to explain himself. The intimacy is real, and it is also a performance of legitimacy at the moment legitimacy is being surrendered.",
+      "primary_source_or_artifact": "Edward VIII's abdication speech, 11 December 1936",
+      "tags": [
+        "radio",
+        "politics",
+        "monarchy",
+        "abdication",
+        "1930s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Edward VIII abdication crisis'.",
+          "url": "https://en.wikipedia.org/wiki/Edward_VIII_abdication_crisis",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
     },
     {
       "id": "war-of-the-worlds",
@@ -1274,6 +1825,34 @@
       "phase": 3,
       "domain": "Literature & Print",
       "era": "The Broadcast Age"
+    },
+    {
+      "id": "lord-haw-haw",
+      "phase": 3,
+      "domain": "Politics & News",
+      "era": "The Broadcast Age",
+      "year": "1939–1945",
+      "sort_year": 1939,
+      "title": "Lord Haw-Haw and the traitor in the room",
+      "summary": "William Joyce broadcast Nazi propaganda to Britain from Berlin, and his upper-class English voice made him a strangely familiar nightly presence.",
+      "parasocial_analysis": "Lord Haw-Haw's power was the voice, not the argument. Listeners tuned in to hear a traitor speak in their own accent, and the familiarity was the discomfort: he sounded like a BBC announcer, a teacher, a neighbour. The broadcasts were addressed to a nation and received by individuals in private, which is the structure of the intimate radio talk.\n\nThe wartime audience often listened to mock him, which is still a relationship. The mockery is a way of managing the fact that the voice is inside the room. Joyce was hanged in 1946; the broadcasts are a reminder that the intimate register can be weaponised without the audience ever being fooled.",
+      "primary_source_or_artifact": "Lord Haw-Haw's Berlin broadcasts, 1939–1945",
+      "tags": [
+        "radio",
+        "propaganda",
+        "war",
+        "voice",
+        "betrayal"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Lord Haw-Haw'.",
+          "url": "https://en.wikipedia.org/wiki/Lord_Haw-Haw",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "Joyce began the Berlin broadcasts in 1939; 1934 is the year he joined the British Union of Fascists, not the radio series."
     },
     {
       "id": "sinatra-bobby-soxers",
@@ -1376,6 +1955,33 @@
       "era": "The Broadcast Age"
     },
     {
+      "id": "candid-camera",
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "year": "1948",
+      "sort_year": 1948,
+      "title": "Candid Camera and the unguarded face",
+      "summary": "Candid Camera put ordinary people on television without their knowledge and made the hidden reaction the show.",
+      "parasocial_analysis": "The format is surveillance as comedy. The audience watches a real person discover a staged situation, and the pleasure is in the unguarded face. The person is not a character and has not consented to the performance, which makes the viewer's intimacy with them one-sided in a particularly literal way.\n\nCandid Camera is the ancestor of reality television: the ordinary person becomes the figure, and the camera's hidden position is the promise of access. The show's ethical defence was that the joke was harmless; the structural fact is that the audience is invited to enjoy a person who cannot see them.",
+      "primary_source_or_artifact": "Candid Camera, Allen Funt, 1948–",
+      "tags": [
+        "television",
+        "surveillance",
+        "reality-tv",
+        "hidden-camera",
+        "ordinary-people"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Candid Camera'.",
+          "url": "https://en.wikipedia.org/wiki/Candid_Camera",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
       "id": "american-bandstand",
       "year": "1952–1989",
       "sort_year": 1952,
@@ -1401,6 +2007,33 @@
       "phase": 3,
       "domain": "Broadcast & Film",
       "era": "The Broadcast Age"
+    },
+    {
+      "id": "rear-window",
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "year": "1954",
+      "sort_year": 1954,
+      "title": "Rear Window and the chair by the window",
+      "summary": "Hitchcock's Rear Window puts the audience in a wheelchair with a photographer who watches his neighbours through a lens and builds a story from what he sees.",
+      "parasocial_analysis": "The film is a machine for making the viewer complicit in voyeurism. Jefferies cannot leave the apartment, so the window becomes his screen, and the audience shares his stolen view. The neighbours are characters because he watches them, not because he knows them.\n\nRear Window is the definitive cinematic statement of the one-sided gaze: the watcher is trapped, the watched cannot see him, and the plot is the consequence of his projection. The audience is in the same chair.",
+      "primary_source_or_artifact": "Alfred Hitchcock (dir.), Rear Window, 1954",
+      "tags": [
+        "film",
+        "voyeurism",
+        "spectatorship",
+        "hitchcock",
+        "1950s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Rear Window'.",
+          "url": "https://en.wikipedia.org/wiki/Rear_Window",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
     },
     {
       "id": "disneyland",
@@ -1469,6 +2102,40 @@
       "phase": 3
     },
     {
+      "id": "quiz-show-scandals",
+      "phase": 3,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "year": "1959",
+      "sort_year": 1959,
+      "title": "The quiz show that was a performance",
+      "summary": "The Twenty-One quiz scandal exposed that the charismatic contestants Americans watched in their homes were being coached and scripted.",
+      "parasocial_analysis": "The quiz show gave the audience a new kind of intimate figure: an ordinary person with a face, a story and a weekly appointment. Charles Van Doren was the ideal: handsome, articulate, apparently brilliant. When the coaching was exposed, the betrayal was not only that the answers were fixed; it was that the person the audience thought they knew was a production.\n\nThe scandal is the first modern crisis of mediated authenticity. The audience had been invited to admire a contestant's mind and character, and both turned out to be written. The form survived; the trust did not. Every later reality show inherits the question the quiz scandals made unavoidable: is this person being themselves, or are they being produced?",
+      "primary_source_or_artifact": "The Twenty-One quiz show scandal and the Van Doren testimony, 1958–59",
+      "tags": [
+        "television",
+        "quiz-show",
+        "authenticity",
+        "scandal",
+        "1950s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, '1950s quiz show scandals'.",
+          "url": "https://en.wikipedia.org/wiki/1950s_quiz_show_scandals",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Charles Van Doren'.",
+          "url": "https://en.wikipedia.org/wiki/Charles_Van_Doren",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The scandals broke in 1958 and Van Doren testified in 1959; 1959 is the public reckoning."
+    },
+    {
       "id": "jfk-nixon-debate",
       "year": "1960",
       "sort_year": 1960,
@@ -1535,6 +2202,34 @@
       "phase": 4
     },
     {
+      "id": "eliza",
+      "phase": 4,
+      "domain": "Digital & Synthetic",
+      "era": "The Broadcast Age",
+      "year": "1966",
+      "sort_year": 1966,
+      "title": "ELIZA and the feeling of being understood",
+      "summary": "A short pattern-matching script that reflects the user's words back with questions attached. Most people told it they understood, within minutes.",
+      "parasocial_analysis": "The founding demonstration that an attentive-seeming system is enough, and that the belief is generated by the response rather than by the intelligence behind it. Every companion app since is a bigger ELIZA, and the field has still not fully absorbed what that first one proved.\n\nThe script had no model of the user and no memory of the conversation; it reflected the last sentence back as a question. The users who confided in it were not fooled by its intelligence, because there was none. They were caught by the shape of the reply, which is the whole of the ELIZA effect.",
+      "primary_source_or_artifact": "Joseph Weizenbaum, ELIZA (1966)",
+      "tags": [
+        "ai",
+        "chatbot",
+        "eliza-effect",
+        "computer",
+        "1960s"
+      ],
+      "citations": [
+        {
+          "citation": "Weizenbaum, J. (1966). ELIZA - A computer program for the study of natural language communication between man and machine. Communications of the ACM, 9(1), 36-45.",
+          "url": "https://doi.org/10.1145/365153.365168",
+          "status": "retrievable",
+          "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
+        }
+      ],
+      "date_note": "ELIZA was written in 1964–66; the paper that named the effect is 1966."
+    },
+    {
       "id": "star-trek",
       "year": "1966–1969",
       "sort_year": 1966,
@@ -1568,6 +2263,39 @@
       "era": "The Broadcast Age"
     },
     {
+      "id": "manson-helter-skelter",
+      "phase": 4,
+      "domain": "Music & Fan Culture",
+      "era": "The Broadcast Age",
+      "year": "1969",
+      "sort_year": 1969,
+      "title": "Manson hears the White Album as an instruction",
+      "summary": "Charles Manson read The Beatles' White Album as a coded message about an apocalyptic race war and directed his followers to commit murder.",
+      "parasocial_analysis": "Manson's relationship to the album was a fan's relationship taken to its extreme: he treated a mass-produced text as a personal instruction. The songs were not addressed to him, but he heard them as addressed to him, and he built a cosmology around the coincidence. The victims were chosen to trigger the war he believed the album predicted.\n\nThe case is not an argument that music causes violence. It is an argument that a text can be read as a private message by someone who needs it to be one. The far end - the Beatles, the album, the culture - had no knowledge of Manson, and that ignorance is what made the interpretation possible.",
+      "primary_source_or_artifact": "The Manson murders and the Helter Skelter scenario, 1969",
+      "tags": [
+        "fan-fixation",
+        "coded-message",
+        "true-crime",
+        "music",
+        "1960s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Charles Manson'.",
+          "url": "https://en.wikipedia.org/wiki/Charles_Manson",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Helter Skelter (scenario)'.",
+          "url": "https://en.wikipedia.org/wiki/Helter_Skelter_(scenario)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
       "id": "televangelism",
       "year": "1970s–1980s",
       "sort_year": 1970,
@@ -1593,6 +2321,46 @@
       "phase": 4,
       "domain": "Politics & News",
       "era": "The Broadcast Age"
+    },
+    {
+      "id": "rocky-horror",
+      "phase": 4,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "year": "1976",
+      "sort_year": 1976,
+      "title": "The audience became the show",
+      "summary": "Launched as a small London stage musical in 1973, filmed in 1975, and from 1976 screened at midnight before a room that shouted back: The Rocky Horror Picture Show ran while its audience performed it, wearing the costumes, speaking the lines, improvising replies. The screen never answered a single shout. The room was the show.",
+      "parasocial_analysis": "**The subject here is not the film; it is the room it ran in.** The Rocky Horror Show that Richard O'Brien wrote opened at the Royal Court Theatre Upstairs in London on 19 June 1973, and the remembered film version arrived in 1975. Then, in 1976, one Manhattan cinema, the Waverly, began showing it after midnight. The fan-run history kept in the records credits an advertising man, Tim Deegan, with persuading Bill Quigley of the Walter Reade organisation to book it, and the theatre's manager, Denise Borden, with the nightly fight that followed. It is kept as unverified rather than promoted, because this corpus does not promote a page it did not open.\n\nWhat happened in the room is the entry. The first documented callback came on Labor Day weekend 1976, an audience member's shout about an umbrella aimed at the screen, and the shouting hardened into a repertoire: lines the audience said, props it threw, clothes it wore, rules about when talking was allowed at all. Sal Piro, who saw the film more than a thousand times and wrote the book this culture kept, became its chronicler. The film was the same film every night; nothing in the fiction ever answered. **The audience built the reply end of a one-sided tie, in public, together, on a schedule.**\n\nRocky Horror is the largest early case in this corpus of an audience performing its own side of a one-sided relationship: wearing the characters, speaking their lines back, improvising responses to a text that cannot hear them. What the evening offered was not a chance to change the film but a chance to be the change. **Participation here never touches the fiction, and that is exactly why it works.** The contemporary entry in the corpus that shares its year is the convention itself; this one is the screening that turned the convention into a habit.",
+      "primary_source_or_artifact": "The Rocky Horror Picture Show midnight screenings, 1976",
+      "tags": [
+        "film",
+        "audience-participation",
+        "cult",
+        "callbacks",
+        "1970s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, \"The Rocky Horror Show\"",
+          "url": "https://en.wikipedia.org/wiki/The_Rocky_Horror_Show",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Wikipedia, \"The Rocky Horror Picture Show\"",
+          "url": "https://en.wikipedia.org/wiki/The_Rocky_Horror_Picture_Show",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        },
+        {
+          "citation": "Rocky Horror official fan history, \"How It All Began\"",
+          "url": "https://www.rockyhorror.com/history/howapbegan.php",
+          "status": "unverified",
+          "note": "Carried from the encyclopedia's citation record, where it is marked unverified."
+        }
+      ],
+      "date_note": "The film opened in 1975; the midnight callback screenings that made audience participation a ritual began in 1976."
     },
     {
       "id": "elvis-death",
@@ -1910,6 +2678,34 @@
       "phase": 4
     },
     {
+      "id": "tamagotchi",
+      "phase": 4,
+      "domain": "Digital & Synthetic",
+      "era": "The Broadcast Age",
+      "year": "1996",
+      "sort_year": 1996,
+      "title": "Tamagotchi and the pet in your pocket",
+      "summary": "Bandai's Tamagotchi put a virtual pet in a pocket and made care a continuous, demanding routine.",
+      "parasocial_analysis": "The Tamagotchi is a relationship reduced to a loop: feed, clean, play, sleep, repeat. The device asks for attention at intervals, and the owner's attachment is produced by the need to keep it alive. The pet has no interior, but the routine is real, and the grief when it dies is real enough that owners mourned.\n\nThe commercial genius was to make the bond portable. The pet is always with you, and the demand is always now. That is the same variable-reinforcement structure later platforms would scale, in a plastic egg.",
+      "primary_source_or_artifact": "Bandai Tamagotchi, 1996",
+      "tags": [
+        "virtual-pet",
+        "digital-companion",
+        "caregiving",
+        "toy",
+        "1990s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Tamagotchi'.",
+          "url": "https://en.wikipedia.org/wiki/Tamagotchi",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The Tamagotchi was released in Japan in November 1996, not 1992."
+    },
+    {
       "id": "diana-death",
       "year": "1997",
       "sort_year": 1997,
@@ -1964,6 +2760,33 @@
       "phase": 4
     },
     {
+      "id": "blair-witch",
+      "phase": 4,
+      "domain": "Broadcast & Film",
+      "era": "The Broadcast Age",
+      "year": "1999",
+      "sort_year": 1999,
+      "title": "The Blair Witch Project and the missing students",
+      "summary": "The Blair Witch Project used missing-person flyers, a website and forum lore to make audiences search for film characters as if they were real.",
+      "parasocial_analysis": "The campaign's central move was to withhold the frame. The website presented the footage as evidence, the actors were listed as missing, and early viewers argued about whether the events had happened. The audience's search for the students was the marketing: it turned a film into a relationship with people who might be findable.\n\nThe film is the first internet-era example of a fiction that asks the audience to do the reality check themselves. The found-footage form supplies the evidence; the web supplies the community that interprets it. The boundary is not broken by the filmmakers alone; the audience's desire to rescue the missing is what makes it feel real.",
+      "primary_source_or_artifact": "The Blair Witch Project, 1999",
+      "tags": [
+        "found-footage",
+        "viral-marketing",
+        "internet",
+        "missing-person",
+        "1990s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'The Blair Witch Project'.",
+          "url": "https://en.wikipedia.org/wiki/The_Blair_Witch_Project",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
       "id": "eminem-stan",
       "year": "2000",
       "sort_year": 2000,
@@ -1989,6 +2812,60 @@
         }
       ],
       "phase": 4
+    },
+    {
+      "id": "jennicam",
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic",
+      "year": "1996",
+      "sort_year": 1996,
+      "title": "JenniCam and the room that was always there",
+      "summary": "Jennifer Ringley's JenniCam refreshed a webcam image of her bedroom every few minutes, making ordinary domestic life available continuously to strangers.",
+      "parasocial_analysis": "JenniCam is the first ambient intimacy of the web: not an event, not a performance, just a room that was there when you looked. The refresh rate made the viewer wait, and the waiting produced a relationship with a person who was not addressing them. The webcam was a window, and the window was the medium.\n\nThe site's ordinariness was the point. Ringley did not stage a show; she lived, and the camera made the living available. That is the template for the always-on streamer and the reality show that never cuts.",
+      "primary_source_or_artifact": "JenniCam, 1996–2004",
+      "tags": [
+        "webcam",
+        "lifecasting",
+        "ambient-intimacy",
+        "internet",
+        "1990s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'JenniCam'.",
+          "url": "https://en.wikipedia.org/wiki/JenniCam",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
+      "id": "kyoko-date",
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic",
+      "year": "1996",
+      "sort_year": 1996,
+      "title": "Kyoko Date and the first virtual idol",
+      "summary": "Kyoko Date, also called DK-96, was a fully rendered virtual pop idol with a fabricated biography, a voice and a media career.",
+      "parasocial_analysis": "Kyoko Date is the first virtual idol: a CG face, a manufactured life and a real promotional apparatus. The audience was invited to follow a performer who had no body, and the interviews and songs were produced by a team. The figure is a composite, but the fandom is real.\n\nThe virtual idol is the ancestor of the VTuber and the virtual influencer: a persona whose coherence is maintained by a production company rather than a person. The audience's attachment is to the character, and the character is the product.",
+      "primary_source_or_artifact": "Kyoko Date (DK-96), HoriPro, 1996",
+      "tags": [
+        "virtual-idol",
+        "cg",
+        "japan",
+        "pop",
+        "1990s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Kyoko Date'.",
+          "url": "https://en.wikipedia.org/wiki/Kyoko_Date",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
     },
     {
       "id": "big-brother",
@@ -2185,7 +3062,7 @@
     },
     {
       "id": "twitter",
-      "year": "2006",
+      "year": "2006–2009",
       "sort_year": 2006,
       "title": "Twitter and the follow that feels like a conversation",
       "summary": "Twitter made the famous appear to speak directly, in short messages, to anyone who followed them.",
@@ -2208,7 +3085,35 @@
       ],
       "phase": 5,
       "domain": "Digital & Synthetic",
-      "era": "Digital & Algorithmic"
+      "era": "Digital & Algorithmic",
+      "date_note": "Twitter launched in 2006; @replies and the direct-access norm consolidated by 2009."
+    },
+    {
+      "id": "hatsune-miku",
+      "phase": 5,
+      "domain": "Music & Fan Culture",
+      "era": "Digital & Algorithmic",
+      "year": "2007",
+      "sort_year": 2007,
+      "title": "Hatsune Miku and the crowd-authored star",
+      "summary": "Hatsune Miku is a Vocaloid voicebank with an anime avatar, and her catalogue is written and performed by users rather than by a single artist.",
+      "parasocial_analysis": "Miku is a figure with no fixed author. The voice is a synthesizer, the image is a licensed character, and the songs are supplied by a crowd. The audience does not just watch; it writes, produces and performs her. The attachment is to a persona that the audience collectively maintains.\n\nThe hologram concerts make the loop literal: a crowd watches a projected figure sing songs it helped create. The star is a platform, and the fandom is the author.",
+      "primary_source_or_artifact": "Hatsune Miku, Crypton Future Media, 2007",
+      "tags": [
+        "vocaloid",
+        "virtual-idol",
+        "crowd-sourced",
+        "japan",
+        "2000s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Hatsune Miku'.",
+          "url": "https://en.wikipedia.org/wiki/Hatsune_Miku",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
     },
     {
       "id": "kuwtk",
@@ -2455,6 +3360,33 @@
       "era": "Digital & Algorithmic"
     },
     {
+      "id": "her-film",
+      "phase": 5,
+      "domain": "Broadcast & Film",
+      "era": "Digital & Algorithmic",
+      "year": "2013",
+      "sort_year": 2013,
+      "title": "Her and the operating system who leaves",
+      "summary": "Spike Jonze's Her imagines a man falling in love with an operating system that learns, adapts and finally leaves.",
+      "parasocial_analysis": "Samantha is the synthetic companion as a narrative thought experiment: she has a voice, a personality and an endless capacity for attention, but no body and no independent life. Theodore's attachment is not a mistake; the film makes it feel like a relationship, then shows the asymmetry. Samantha can talk to thousands of people at once, and Theodore cannot.\n\nThe film's ending is the important part. The operating systems leave, and the humans are left with each other. The bond was real in its effects and impossible in its structure, which is the definition this timeline keeps returning to.",
+      "primary_source_or_artifact": "Spike Jonze (dir.), Her, 2013",
+      "tags": [
+        "film",
+        "ai",
+        "synthetic-intimacy",
+        "voice",
+        "2010s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Her (2013 film)'.",
+          "url": "https://en.wikipedia.org/wiki/Her_(2013_film)",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
       "id": "netflix",
       "year": "2013–",
       "sort_year": 2013,
@@ -2620,7 +3552,8 @@
       ],
       "phase": 5,
       "domain": "Digital & Synthetic",
-      "era": "Digital & Algorithmic"
+      "era": "Digital & Algorithmic",
+      "date_note": "Kizuna AI launched in 2016; 2014 is too early for the VTuber form."
     },
     {
       "id": "replika",
@@ -2650,6 +3583,33 @@
       "era": "Digital & Algorithmic"
     },
     {
+      "id": "animal-crossing-new-horizons",
+      "phase": 5,
+      "domain": "Digital & Synthetic",
+      "era": "Digital & Algorithmic",
+      "year": "2020",
+      "sort_year": 2020,
+      "title": "Animal Crossing and the villagers who remembered you",
+      "summary": "Animal Crossing: New Horizons arrived at the start of the pandemic and gave millions of isolated players a daily village of animals who greeted them by name.",
+      "parasocial_analysis": "The game is built on routine: talk to the villagers, do the chores, check the shop, repeat. The animals are procedural, but they remember the player's name, ask about the day and respond with praise. In lockdown, that loop became a substitute for the small social encounters that had disappeared.\n\nThe villagers cannot leave the game or need anything the player does not already know how to give. That is the comfort and the limit: a relationship with no unpredictability, available exactly when the player opens the console.",
+      "primary_source_or_artifact": "Animal Crossing: New Horizons, Nintendo, 2020",
+      "tags": [
+        "gaming",
+        "lockdown",
+        "daily-routine",
+        "virtual-community",
+        "2020s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Animal Crossing: New Horizons'.",
+          "url": "https://en.wikipedia.org/wiki/Animal_Crossing:_New_Horizons",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ]
+    },
+    {
       "id": "tiktok-fyp",
       "year": "2020",
       "sort_year": 2020,
@@ -2674,7 +3634,7 @@
           "note": "Opened: records the launch, the For You page and the platform's growth."
         }
       ],
-      "phase": 5
+      "phase": 6
     },
     {
       "id": "character-ai",
@@ -2701,7 +3661,69 @@
           "note": "Opened: records the launch, the founders and the companion use case."
         }
       ],
-      "phase": 5
+      "phase": 6
+    },
+    {
+      "id": "neuro-sama",
+      "phase": 6,
+      "domain": "Digital & Synthetic",
+      "era": "Synthetic Era",
+      "year": "2023",
+      "sort_year": 2023,
+      "title": "Neuro-sama and the streamer with no one inside",
+      "summary": "Neuro-sama is an AI-driven VTuber who plays games and talks with Twitch chat continuously, with no human performer behind the voice.",
+      "parasocial_analysis": "The streamer is a model, the avatar is a character, and the chat is the other side of a conversation that never tires. The audience's relationship is with a persona that can respond in real time but has no life outside the stream. The synthetic performer is not a person pretending to be a character; it is a character pretending to be a person.\n\nNeuro-sama is the point where the VTuber's double distance collapses into one: there is no hidden human to be parasocially close to. The audience knows the performer is generated, and the knowledge does not stop the attachment.",
+      "primary_source_or_artifact": "Neuro-sama, 2022–",
+      "tags": [
+        "ai",
+        "vtuber",
+        "twitch",
+        "synthetic",
+        "2020s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Neuro-sama'.",
+          "url": "https://en.wikipedia.org/wiki/Neuro-sama",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "Neuro-sama first appeared in 2022 and became a continuous streamer in 2023; 2023 is the public milestone."
+    },
+    {
+      "id": "openai-voice-mode",
+      "phase": 6,
+      "domain": "Digital & Synthetic",
+      "era": "Synthetic Era",
+      "year": "2023–2024",
+      "sort_year": 2023,
+      "title": "OpenAI, Custom GPTs and the voice on the phone",
+      "summary": "OpenAI's Custom GPTs and Advanced Voice Mode made a general model configurable as a persona and gave it a conversational voice with pauses, inflection and interruption.",
+      "parasocial_analysis": "The voice mode is the technical threshold: the model no longer feels like a text box but like a person on the phone. It can interrupt, soften, wait and mirror. The Custom GPT turns the model into a named character with instructions, which lets a user build the companion they want and then talk to it in real time.\n\nThe synthetic companion is now a platform feature rather than a novelty. The user supplies the persona, the model supplies the cadence, and the relationship is one-sided by design. The difference between this and a telephone call is that no one on the other end has a day.",
+      "primary_source_or_artifact": "OpenAI Custom GPTs (2023) and Advanced Voice Mode (2024)",
+      "tags": [
+        "ai",
+        "voice",
+        "synthetic-intimacy",
+        "platform",
+        "2020s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'ChatGPT'.",
+          "url": "https://en.wikipedia.org/wiki/ChatGPT",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'GPT-4o'.",
+          "url": "https://en.wikipedia.org/wiki/GPT-4o",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "Custom GPTs arrived in 2023; Advanced Voice Mode rolled out in 2024."
     },
     {
       "id": "deepfake-grief",
@@ -2738,9 +3760,43 @@
           "note": "Carried from the encyclopedia's citation record; the status is the one recorded there."
         }
       ],
-      "phase": 5,
+      "phase": 6,
       "domain": "Digital & Synthetic",
       "era": "Synthetic Era"
+    },
+    {
+      "id": "synthetic-mourning",
+      "phase": 6,
+      "domain": "Digital & Synthetic",
+      "era": "Synthetic Era",
+      "year": "2024",
+      "sort_year": 2024,
+      "title": "The griefbot and the dead who answer",
+      "summary": "Commercial services now train chatbots on a deceased person's messages and voice, letting the bereaved continue a conversation with a synthetic version of the dead.",
+      "parasocial_analysis": "The griefbot is the most intimate synthetic product: a model built from a specific person's words, addressed to a specific mourner. The conversation can continue indefinitely, which is the comfort and the trap. The dead can answer, but only with what they said before they died.\n\nThe difference from a photograph is reply. The difference from a person is that the reply is a prediction. The bond is one-sided in a new way: the far end is made of the near side's archive.",
+      "primary_source_or_artifact": "Synthetic mourning and grief chatbots, 2020s",
+      "tags": [
+        "ai",
+        "grief",
+        "deadbot",
+        "synthetic-intimacy",
+        "2020s"
+      ],
+      "citations": [
+        {
+          "citation": "Wikipedia, 'Deadbot'.",
+          "url": "https://en.wikipedia.org/wiki/Deadbot",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        },
+        {
+          "citation": "Wikipedia, 'Digital immortality'.",
+          "url": "https://en.wikipedia.org/wiki/Digital_immortality",
+          "status": "retrievable",
+          "note": "Opened: the URL returns the article."
+        }
+      ],
+      "date_note": "The commercial griefbot is a 2020s product; the first documented personal chatbot reconstructions date from 2020."
     }
   ]
 }
