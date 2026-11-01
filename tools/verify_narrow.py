@@ -156,10 +156,10 @@ function run() {{
     // description meta; the open tag ate the stylesheet link that followed, so
     // the DOM had no stylesheet while the source text still contained one.
     // A substring test - and the first draft of this check - read the text and
-    // waved through an unstyled page. signal/latest.html is the one page that
-    // truly declares none (it is an HTML email, inline-styled by necessity),
-    // and it still has to prove it is styled: the background test below is
-    // what separates "styles itself inline" from "no styles arrived at all".
+    // waved through an unstyled page. A page that styles itself inline instead
+    // of linking a sheet still has to prove it is styled: the background test
+    // below is what separates "styles itself inline" from "no styles arrived
+    // at all".
     // Same-origin only: the page's own CSS is local and fingerprinted, and its
     // absence is what manufactures an unstyled pass; the Google Fonts sheet is
     // a third-party CDN that a cold profile can still be fetching at measure
