@@ -53,6 +53,7 @@ python tools\daily.py           # THE daily loop: reconcile, plan, build, gates,
                                 #   package; --check reports without writing
 python tools\editor.py --check  # today's figure, top 8 and eight ways are valid
 python tools\editor.py --refresh # rebuild today's edition in place
+python tools\affil.py --check   # every domain mark is current and parses as SVG
 python tools\test_editor_rotation.py  # tomorrow is structurally different
 python tools\archive.py --check # every day since the epoch has a record
 python tools\archive.py --reconcile  # close a provable gap, marked rebuilt
@@ -756,6 +757,15 @@ ship a falsehood on this site and it was done once already.
   A missed daily top 8 or parasocialite cannot be reconstructed from a later
   build because it depended on that day's wires; the archive declares the gap
   instead of inventing an edition, and the record page keeps the hole visible.
+- `tools/affil.py` — **the affiliation marks.** Twenty author-drawn SVG domain
+  marks (sport, music, film, television, radio, literature, comics, games, AI,
+  religion, stage, art, tech, history, brand, persona, companion, officer,
+  predator, default) for a figure or entry with no sourced photograph. They
+  say "AFFILIATION · NOT A PORTRAIT" on the face. `--check` parses every SVG
+  and refuses a missing or stale mark; a file that 200s but cannot render is a
+  missing image with a plausible filename. The figure card uses a real
+  photograph first, then the mark; a way page uses the way's own mark, so the
+  eight pages keep one visual identity. Plates are not used as fallbacks.
 - `data/ledger_history.json` — **STATEFUL AND TRACKED IN GIT.** Appended by
   `record_snapshot()` only when a watched figure moves, one entry per day however
   many builds run. `/ledger/feed.xml` is generated from it, so the feed is the
@@ -5283,4 +5293,52 @@ it gets resolved.
       scheduled edition will appear without a manual upload. The current live
       page is the previous build until the next run, which is why the workflow
       is triggered after this commit.
+
+
+97. **A title plate inside a card is a placecard inside a placecard. The fallback is now a domain mark, and the mark says it is not a portrait.** The Babe Ruth spotlight used the entry's generated title plate as its image. The plate is a title treatment for the entry page; dropped into the figure card it read as a small card inside a larger card, and it was neither a photograph of the figure nor an honest stand-in for one. The entry had no sourced photograph, so the correct answer was the one the user named: an affiliation image - a baseball for a ballplayer, a clapperboard for a film star.
+    - **`tools/affil.py` writes 20 author-drawn SVG marks**: sport,
+      music, film, television, radio, literature, comics, games, AI,
+      religion (an arch and candle), stage, visual art, technology, history,
+      brand, persona (spotlight and mask), companion (two rings and a heart),
+      officer (shield and star), predator (an eye), and the record/orbit
+      default. They share one dark card, one orange line, one label, and the
+      line **"AFFILIATION · NOT A PORTRAIT"** printed on the face.
+    - **The figure resolver checks for a real photograph first.** If
+      `data/images.json` has an item for the entry id, `img_for()` supplies it
+      with its caption and credit. Otherwise the mark is chosen from the
+      figure's `tags` (`sport` for Babe Ruth, `film` for Hitchcock and
+      Valentino, `music` for Dionne Warwick), then from the entry's medium.
+      The card caption reads **"Affiliation: film. No free photograph."** The
+      mark is never passed off as the person.
+    - **The ways pages use the way's own mark, not the entry's medium.**
+      `divine` gets the arch, `officer` the shield, `predator` the eye,
+      `cosmology` the orbit, `persona` the spotlight, `character` the speech
+      bubble, `companion` the rings, `institution` the columned building. This
+      is what gives the eight pages a consistent visual identity; an entry
+      filed on `officer` but carrying `history` as its medium no longer gets a
+      history icon, and a swatting entry in `predator` no longer gets a game
+      controller. Story picks still use their own sourced photograph; only
+      entries without one use a mark.
+    - **No club or team marks.** A generic baseball is publishable; the Yankees
+      logo is a trademark. The mark is the domain, not the franchise, and the
+      caption says so.
+    - **The first set of marks rendered nothing, and the filename looked
+      fine.** The SVG text line contained `&middot;`, which is an HTML entity
+      and not a defined XML entity; every `<img>` to those files was a valid
+      200 with no image. `affil.py --check` now parses every SVG with
+      `ElementTree` before it reports, and fails on a missing or stale file.
+      **Confirmed red** by appending `&bad;` to `sport.svg` - it named
+      `INVALID sport.svg: not well-formed` - and green after restoring it.
+      This is the same lesson as the plate that stopped describing its entry:
+      a file that exists is not a file that renders.
+    - **The 1 November edition is the first live test.** Theme `fandom`,
+      figure **Alfred Hitchcock (real)**, Top 8 **"The Crowd That Knows Your
+      Name"**, and eight way picks. The front page and the `officer` and
+      `divine` cards were opened: the film mark, the shield and the arch all
+      render, the caption states the affiliation, and there is no plate in the
+      figure or way cards. `daily.py --check` green; source, post and visual
+      tiers green, including `affil --check` and `check_css --orphans`.
+    - **Package.** `C:\Users\paras\Desktop\parasocialize-SITE.zip`, **772
+      files, 15.19 MB, tree sha `87ec47fae5c42649`**. The Cloudflare publish
+      step is configured and the workflow is triggered after this commit.
 

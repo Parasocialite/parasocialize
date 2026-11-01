@@ -231,18 +231,18 @@ def main() -> int:
     if missing:
         print(f"  MISSING {missing}")
         return 1
-    if check and made:
-        print("  STALE - run python tools/affil.py")
-        return 1
     # An <img> pointing at invalid XML renders as nothing at all, which is how
-    # the first set shipped. Parse every file; a mark that cannot render is a
-    # missing image with a plausible filename.
+    # the first set shipped. Parse every file before the staleness check; a
+    # mark that cannot render is a missing image with a plausible filename.
     for p in files:
         try:
             ET.parse(p)
         except ET.ParseError as exc:
             print(f"  INVALID {p.name}: {exc}")
             return 1
+    if check and made:
+        print("  STALE - run python tools/affil.py")
+        return 1
     return 0
 
 
