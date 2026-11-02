@@ -1,0 +1,4 @@
+{
+ "_note": "The Parasocial Clip of the Day queue. A clip is published only when `watched` carries the date a person actually watched it: the cued timestamp and the note are claims about what happens at that second, and neither can be checked from the URL. Empty is the correct state until somebody has watched one. Add with tools/clips.py --add; validate with tools/clips.py --check.",
+ "clips": []
+}

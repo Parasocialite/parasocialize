@@ -2200,6 +2200,130 @@ def deck(take, words=20):
     return s.rstrip(" ,;-—") + ("." if s else "")
 
 
+def clip_panel():
+    """The Parasocial Clip of the Day card that sits beside the header.
+
+    THE RULE THIS COMPONENT IS BUILT AROUND
+    A cued timestamp is a claim about what is on screen at that second, and a
+    URL does not prove it. Neither does an embed. So a clip is published only
+    when `data/clips.json` carries the date a person watched it - the same rule
+    that turned 73 unopened images from `exact` to `unchecked`, and the same
+    rule that caught 94 `retrievable` records with no URL.
+
+    With no published clip the card renders its empty state, which is a
+    deliberate slot that says what would fill it. An invented selection would
+    be worse than an empty one on a site whose whole claim is that it does not
+    do that.
+
+    EVERY SLIDE IS RENDERED HERE, NOT IN JAVASCRIPT. The cycling buttons only
+    toggle `hidden`, so the card cannot arrive empty behind a failed fetch and
+    there is one template for a clip rather than two that can drift. With
+    scripting off the first clip is the one that shows.
+    """
+    try:
+        from clips import embed_url
+    except ImportError:                      # running from another directory
+        sys.path.insert(0, str(ROOT / "tools"))
+        from clips import embed_url
+
+    PLAT = {"youtube": "YouTube", "vimeo": "Vimeo", "twitch": "Twitch",
+            "tiktok": "TikTok"}
+    ICON_PLAY = ('<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" '
+                 'fill="currentColor" stroke="none"><polygon points="6 3 20 12 '
+                 '6 21 6 3"/></svg>')
+    ICON_NEXT = ('<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" '
+                 'fill="none" stroke="currentColor" stroke-width="2" '
+                 'stroke-linecap="round" stroke-linejoin="round">'
+                 '<polygon points="5 4 15 12 5 20 5 4"/>'
+                 '<line x1="19" x2="19" y1="5" y2="19"/></svg>')
+    ICON_PREV = ('<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" '
+                 'fill="none" stroke="currentColor" stroke-width="2" '
+                 'stroke-linecap="round" stroke-linejoin="round">'
+                 '<polygon points="19 20 9 12 19 4 19 20"/>'
+                 '<line x1="5" x2="5" y1="19" y2="5"/></svg>')
+
+    try:
+        doc = json.loads((ROOT / "data" / "clips.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        doc = {"clips": []}
+    clips = [c for c in (doc.get("clips") or []) if c.get("watched")]
+    clips.sort(key=lambda c: (str(c.get("watched")), c.get("id") or ""),
+               reverse=True)
+    clips = clips[:8]
+
+    def stamp(sec: int) -> str:
+        return f"{sec // 60}:{sec % 60:02d}"
+
+    badge = "Agent culled // daily selection"
+
+    if not clips:
+        return f"""<aside class="hero-clip" aria-label="Parasocial clip of the day">
+  <div class="clip-card">
+    <div class="clip-head">
+      <span class="clip-badge"><i class="clip-dot" aria-hidden="true"></i>{badge}</span>
+    </div>
+    <div class="clip-frame is-empty">
+      <div class="clip-empty">
+        <b>No clip selected</b>
+        <span>This slot fills only after someone has watched the clip and set
+        the moment.</span>
+      </div>
+    </div>
+    <p class="clip-note">A cued timestamp is a claim about what is on screen at
+    that second, so the card waits for a person rather than guessing.</p>
+  </div>
+</aside>"""
+
+    slides = []
+    for i, c in enumerate(clips):
+        sec = int(c.get("start") or 0)
+        plat = PLAT.get(c.get("platform"), c.get("platform") or "")
+        title = c.get("title") or ""
+        note = c.get("note") or ""
+        t = stamp(sec)
+        src = embed_url(c)
+        if src:
+            play = (f'<button class="clip-play" type="button" data-clip-play '
+                    f'aria-label="Play {esc(title)}">{ICON_PLAY}'
+                    f'<span>Play at {esc(t)}</span></button>')
+            srcattr = f' data-clip-src="{esc(src)}"'
+        else:
+            play = (f'<a class="clip-play" href="{esc(c.get("url") or "#")}" '
+                    f'target="_blank" rel="noopener">{ICON_PLAY}'
+                    f'<span>Watch on {esc(plat)}</span></a>')
+            srcattr = ""
+        live = " is-active" if i == 0 else ""
+        hid = "" if i == 0 else " hidden"
+        slides.append(f"""<div class="clip-slide{live}" data-clip-slide{hid}{srcattr}>
+      <div class="clip-frame">{play}</div>
+      <div class="clip-meta">
+        <h2 class="clip-title">{esc(title)}</h2>
+        <p class="clip-src"><span>{esc(plat)}</span>
+          <span class="clip-sep" aria-hidden="true">&middot;</span>
+          <span>{esc(t)}</span></p>
+        <p class="clip-why">{esc(note)}</p>
+      </div>
+    </div>""")
+
+    n = len(slides)
+    return f"""<aside class="hero-clip" aria-label="Parasocial clip of the day">
+  <div class="clip-card">
+    <div class="clip-head">
+      <span class="clip-badge"><i class="clip-dot" aria-hidden="true"></i>{badge}</span>
+      <span class="clip-idx" data-clip-idx aria-live="polite">01 / {n:02d}</span>
+    </div>
+    <div class="clip-body" data-clip-body>{''.join(slides)}</div>
+    <div class="clip-controls">
+      <button class="clip-btn" type="button" data-clip-prev
+        aria-label="Previous moment"{"" if n > 1 else " disabled"}>{ICON_PREV}</button>
+      <button class="clip-btn clip-btn-next" type="button" data-clip-next
+        aria-label="Next moment"{"" if n > 1 else " disabled"}>Next moment
+        {ICON_NEXT}</button>
+    </div>
+  </div>
+</aside>"""
+
+
 def build_front(data, feat=None, manifest=None, hist=None):
     sections, laws, shelf, cards = data["sections"], data["laws"], data["shelf"], data["cards"]
     feat = feat or {"lists": [], "moments": [], "figures": []}
@@ -2537,7 +2661,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
         _ptell = _psotd.get("tell") or _figure_detail(_pse)
         _ptell_html = (f'<p class="psotd-tell"><b>The detail.</b> '
                        f'{esc(_ptell)}</p>' if _ptell else "")
-        psotd_block = f"""<div class="hero-figure" aria-labelledby="psotd-kick">
+        psotd_block = f"""<section class="section psotd-sec" aria-labelledby="psotd-kick">
   <p class="kicker" id="psotd-kick">Parasocialite of the day
     <span class="psotd-kind">{esc(_pkind_label)}</span>
     <span class="psotd-val psotd-val-{_pval}">{_pval}</span></p>
@@ -2554,11 +2678,8 @@ def build_front(data, feat=None, manifest=None, hist=None):
       </div>
     </div>
   </div>
-</div>"""
-        _record_html = parasocialite_record()
-        psotd_record_block = (
-            f'<section class="section psotd-record-sec">{_record_html}</section>'
-            if _record_html else "")
+  {parasocialite_record()}
+</section>"""
 
     # ---- the hero's panel, counted rather than typed -------------------
     # Every number on this page is read from the corpus at build time. A
@@ -2592,7 +2713,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
         <a href="top8/index.html">Today's top 8</a>
       </p>
     </div>
-    {psotd_block}
+    {clip_panel()}
   </div>
 </section>"""
 
@@ -2612,7 +2733,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
 <main>
 {hero_block}
 
-{psotd_record_block}
+{psotd_block}
 
 {t8_block}
 
@@ -2645,6 +2766,66 @@ def build_front(data, feat=None, manifest=None, hist=None):
 
 </main>
 {FOOT.format(root="", sweep=MESSY, motto='BE KIND. REWIND.<br>THERE IS NO RETURN PATH HERE.')}
+<script>
+/* The clip card's cycling and its click-to-load facade. Inline because this
+   page does not load main.js and a second global listener would double-bind
+   the menu. Every slide is already in the HTML, so this only toggles `hidden`
+   - there is no fetch that can fail and no second template to drift. */
+(function () {{
+  var slides = Array.prototype.slice.call(
+    document.querySelectorAll("[data-clip-slide]"));
+  if (!slides.length) return;
+  var idxEl = document.querySelector("[data-clip-idx]");
+  var prev = document.querySelector("[data-clip-prev]");
+  var next = document.querySelector("[data-clip-next]");
+  var i = 0;
+  function pad(n) {{ return (n < 10 ? "0" : "") + n; }}
+  function show(k) {{
+    i = (k + slides.length) % slides.length;
+    slides.forEach(function (s, j) {{ s.hidden = j !== i; }});
+    if (idxEl) idxEl.textContent = pad(i + 1) + " / " + pad(slides.length);
+  }}
+  if (slides.length > 1) {{
+    if (prev) prev.addEventListener("click", function () {{ show(i - 1); }});
+    if (next) next.addEventListener("click", function () {{ show(i + 1); }});
+  }}
+  document.addEventListener("click", function (ev) {{
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var play = t.closest("[data-clip-play]");
+    if (play) {{
+      var slide = play.closest("[data-clip-slide]");
+      var src = slide && slide.getAttribute("data-clip-src");
+      if (!src) return;
+      var frame = play.parentNode;
+      var f = document.createElement("iframe");
+      f.src = src;
+      f.title = play.getAttribute("aria-label") || "Clip";
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+      f.allowFullscreen = true;
+      play.hidden = true;
+      frame.appendChild(f);
+      var x = document.createElement("button");
+      x.type = "button";
+      x.className = "clip-close";
+      x.setAttribute("aria-label", "Close video");
+      x.setAttribute("data-clip-close", "");
+      x.innerHTML = '<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+      frame.appendChild(x);
+      return;
+    }}
+    var close = t.closest("[data-clip-close]");
+    if (close) {{
+      var fr = close.parentNode;
+      var iframe = fr.querySelector("iframe");
+      if (iframe) iframe.remove();
+      close.remove();
+      var b = fr.querySelector("[data-clip-play]");
+      if (b) b.hidden = false;
+    }}
+  }});
+}})();
+</script>
 </body></html>"""
 
 

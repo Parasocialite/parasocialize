@@ -61,6 +61,10 @@ SOURCE = [
     ("test_editor_rotation", ["test_editor_rotation.py"]),
     ("test_register_rotation", ["test_register_rotation.py"]),
     ("test_parasocialite_rotation", ["test_parasocialite_rotation.py"]),
+    # A front-page video slot promises that a clip has been chosen and that
+    # its timestamp is the moment. `watched` is what makes that true, and
+    # this fails on a clip that asserts a timestamp nobody has checked.
+    ("clips --check", ["clips.py", "--check"]),
     ("link_audit", ["link_audit.py"]),
 ]
 
