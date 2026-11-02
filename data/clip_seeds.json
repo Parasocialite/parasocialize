@@ -1,0 +1,4 @@
+{
+ "_note": "The evergreen fallback library. When no agent clip is published for the day, the front page falls back to the newest watched entry here, and when this is empty too the card is not rendered at all. Same rule as the queue: a seed is published only when `watched` carries the date a person watched it. A seed without a watch date is rejected by the gate, because a fallback that is never eligible is not a fallback. Add with tools/clips.py --add --seed.",
+ "clips": []
+}

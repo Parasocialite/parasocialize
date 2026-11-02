@@ -144,6 +144,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
       <a href="{root}tip/index.html">Contact</a>
       <a href="{root}top8/archive/index.html">Archive</a>
       <a href="{root}ledger/index.html">Ledger</a>
+      <a href="{root}clips/index.html">Clips</a>
     </div>
     <div class="foot-col">
       <p class="foot-head">Follow</p>
@@ -2589,6 +2590,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
         <a href="top8/index.html">Today's top 8</a>
       </p>
     </div>
+    {clip_card("")}
   </div>
 </section>"""
 
@@ -2641,66 +2643,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
 
 </main>
 {FOOT.format(root="", sweep=MESSY, motto='BE KIND. REWIND.<br>THERE IS NO RETURN PATH HERE.')}
-<script>
-/* The clip card's cycling and its click-to-load facade. Inline because this
-   page does not load main.js and a second global listener would double-bind
-   the menu. Every slide is already in the HTML, so this only toggles `hidden`
-   - there is no fetch that can fail and no second template to drift. */
-(function () {{
-  var slides = Array.prototype.slice.call(
-    document.querySelectorAll("[data-clip-slide]"));
-  if (!slides.length) return;
-  var idxEl = document.querySelector("[data-clip-idx]");
-  var prev = document.querySelector("[data-clip-prev]");
-  var next = document.querySelector("[data-clip-next]");
-  var i = 0;
-  function pad(n) {{ return (n < 10 ? "0" : "") + n; }}
-  function show(k) {{
-    i = (k + slides.length) % slides.length;
-    slides.forEach(function (s, j) {{ s.hidden = j !== i; }});
-    if (idxEl) idxEl.textContent = pad(i + 1) + " / " + pad(slides.length);
-  }}
-  if (slides.length > 1) {{
-    if (prev) prev.addEventListener("click", function () {{ show(i - 1); }});
-    if (next) next.addEventListener("click", function () {{ show(i + 1); }});
-  }}
-  document.addEventListener("click", function (ev) {{
-    var t = ev.target;
-    if (!t || !t.closest) return;
-    var play = t.closest("[data-clip-play]");
-    if (play) {{
-      var slide = play.closest("[data-clip-slide]");
-      var src = slide && slide.getAttribute("data-clip-src");
-      if (!src) return;
-      var frame = play.parentNode;
-      var f = document.createElement("iframe");
-      f.src = src;
-      f.title = play.getAttribute("aria-label") || "Clip";
-      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
-      f.allowFullscreen = true;
-      play.hidden = true;
-      frame.appendChild(f);
-      var x = document.createElement("button");
-      x.type = "button";
-      x.className = "clip-close";
-      x.setAttribute("aria-label", "Close video");
-      x.setAttribute("data-clip-close", "");
-      x.innerHTML = '<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
-      frame.appendChild(x);
-      return;
-    }}
-    var close = t.closest("[data-clip-close]");
-    if (close) {{
-      var fr = close.parentNode;
-      var iframe = fr.querySelector("iframe");
-      if (iframe) iframe.remove();
-      close.remove();
-      var b = fr.querySelector("[data-clip-play]");
-      if (b) b.hidden = false;
-    }}
-  }});
-}})();
-</script>
+<script>{CLIP_JS}</script>
 </body></html>"""
 
 
@@ -6280,6 +6223,7 @@ def build_sitemap(data):
     # crawler cannot is only half published" is this file's own rule.
     urls.append((f"{SITE}/exceptions/", "0.5", "monthly"))
     urls.append((f"{SITE}/ledger/", "0.5", "weekly"))
+    urls.append((f"{SITE}/clips/", "0.5", "weekly"))
     urls.append((f"{SITE}/timeline/corpus/", "0.5", "monthly"))
     urls.append((f"{SITE}/timeline/future/", "0.5", "monthly"))
     for a in data["sections"]:
@@ -6308,6 +6252,399 @@ def build_sitemap(data):
 
 
 # ------------------------------------------------------------------ run
+CLIP_JS = r"""
+/* The clip card's play facade and the nomination form. Inline because these
+   pages do not load main.js. The facade is click-to-load: no iframe, no
+   third-party request and no cookie until somebody presses play. The form has
+   no server - this is a static site - so it composes an email and says so. */
+(function () {
+  "use strict";
+  function parseTime(v) {
+    v = String(v || "").trim().toLowerCase();
+    if (!v) return 0;
+    if (/^\d+$/.test(v)) return parseInt(v, 10);
+    var m = v.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)$/);
+    if (m && (m[1] || m[2] || m[3])) {
+      return (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0);
+    }
+    m = v.match(/^(\d+):(\d{1,2})(?::(\d{1,2}))?$/);
+    if (m) {
+      return m[3] !== undefined
+        ? (+m[1]) * 3600 + (+m[2]) * 60 + (+m[3])
+        : (+m[1]) * 60 + (+m[2]);
+    }
+    return -1;
+  }
+  function parseUrl(u) {
+    var s = String(u || "").trim();
+    if (!s) return null;
+    var t = 0, m = s.match(/[?&#]t=([0-9hms:]+)/i);
+    if (m) t = parseTime(m[1]);
+    else { m = s.match(/[?&]start=(\d+)/i); if (m) t = parseInt(m[1], 10); }
+    if (/youtu\.be\//i.test(s)) {
+      m = s.match(/youtu\.be\/([\w-]{11})/);
+      return m ? { p: "YouTube", id: m[1], t: t } : null;
+    }
+    if (/youtube/i.test(s)) {
+      m = s.match(/(?:v=|\/embed\/|\/shorts\/)([\w-]{11})/);
+      return m ? { p: "YouTube", id: m[1], t: t } : null;
+    }
+    if (/vimeo\.com/i.test(s)) {
+      m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      return m ? { p: "Vimeo", id: m[1], t: t } : null;
+    }
+    if (/twitch\.tv/i.test(s)) {
+      m = s.match(/twitch\.tv\/videos\/(\d+)/);
+      return m ? { p: "Twitch", id: m[1], t: t } : null;
+    }
+    return null;
+  }
+  function srcFor(o, start) {
+    if (o.p === "YouTube") {
+      return "https://www.youtube-nocookie.com/embed/" + o.id +
+        "?start=" + start + "&rel=0";
+    }
+    if (o.p === "Vimeo") {
+      return "https://player.vimeo.com/video/" + o.id + "#t=" + start + "s";
+    }
+    if (o.p === "Twitch") {
+      return "https://player.twitch.tv/?video=" + o.id +
+        "&parent=www.parasocialize.com&time=" + start + "s";
+    }
+    return "";
+  }
+  function fmt(s) {
+    return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+  }
+
+  /* play facade */
+  document.addEventListener("click", function (ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var play = t.closest("[data-clip-play]");
+    if (play) {
+      var src = play.getAttribute("data-src");
+      if (!src) return;
+      var frame = play.parentNode;
+      var f = document.createElement("iframe");
+      f.src = src;
+      f.title = play.getAttribute("aria-label") || "Clip";
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+      f.allowFullscreen = true;
+      play.hidden = true;
+      frame.appendChild(f);
+      var x = document.createElement("button");
+      x.type = "button";
+      x.className = "clip-close";
+      x.setAttribute("aria-label", "Close video");
+      x.setAttribute("data-clip-close", "");
+      x.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+      frame.appendChild(x);
+      return;
+    }
+    var close = t.closest("[data-clip-close]");
+    if (close) {
+      var fr = close.parentNode;
+      var ifr = fr.querySelector("iframe");
+      if (ifr) ifr.remove();
+      close.remove();
+      var b = fr.querySelector("[data-clip-play]");
+      if (b) b.hidden = false;
+    }
+  });
+
+  /* nomination dialog + live preview */
+  var dlg = document.getElementById("nominate");
+  document.querySelectorAll("[data-open-nominate]").forEach(function (b) {
+    b.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (dlg && dlg.showModal) dlg.showModal();
+    });
+  });
+  document.querySelectorAll("[data-close-nominate]").forEach(function (b) {
+    b.addEventListener("click", function () { if (dlg) dlg.close(); });
+  });
+
+  var form = document.getElementById("nomForm");
+  if (!form) return;
+  var url = document.getElementById("nomUrl");
+  var start = document.getElementById("nomStart");
+  var reason = document.getElementById("nomReason");
+  var note = document.getElementById("nomNote");
+  var prev = document.getElementById("nomPreview");
+
+  function draw() {
+    var o = parseUrl(url.value);
+    if (!o) {
+      prev.innerHTML = '<p class="nom-empty">Paste a YouTube, Vimeo, Twitch or TikTok link to see it here.</p>';
+      return;
+    }
+    var st = start.value.trim() ? parseTime(start.value) : o.t;
+    if (st < 0) st = 0;
+    var src = srcFor(o, st);
+    if (!src) {
+      prev.innerHTML = '<p class="nom-empty">' + o.p +
+        " clips cannot be embedded. The link will be sent as-is.</p>";
+      return;
+    }
+    prev.innerHTML = "";
+    var f = document.createElement("iframe");
+    f.src = src;
+    f.title = "Preview at " + fmt(st);
+    f.allow = "autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen = true;
+    prev.appendChild(f);
+  }
+  url.addEventListener("input", draw);
+  start.addEventListener("input", draw);
+
+  function toast(msg) {
+    var el = document.createElement("div");
+    el.className = "toast";
+    el.setAttribute("role", "status");
+    el.textContent = msg;
+    document.body.appendChild(el);
+    requestAnimationFrame(function () { el.classList.add("in"); });
+    setTimeout(function () {
+      el.classList.remove("in");
+      setTimeout(function () { el.remove(); }, 400);
+    }, 5200);
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var o = parseUrl(url.value);
+    if (!o) {
+      note.textContent = "That does not look like a video link yet.";
+      url.focus();
+      return;
+    }
+    var st = start.value.trim() ? parseTime(start.value) : o.t;
+    if (st < 0) {
+      note.textContent = "The timestamp is not readable. Try 84, 1:24 or 1m24s.";
+      start.focus();
+      return;
+    }
+    if (reason.value.trim().length < 20) {
+      note.textContent = "One sentence, please - it is the part that gets read.";
+      reason.focus();
+      return;
+    }
+    var body = "URL: " + url.value.trim() +
+      "\nStart: " + st + "s (" + fmt(st) + ")" +
+      "\nPlatform: " + o.p +
+      "\n\nWhy it is parasocial:\n" + reason.value.trim();
+    location.href = "mailto:iNNERdreamers@gmail.com" +
+      "?subject=" + encodeURIComponent("CLIP NOMINATION") +
+      "&body=" + encodeURIComponent(body);
+    note.textContent = "";
+    toast("Nomination ready - send it from your mail app.");
+  });
+  draw();
+})();
+"""
+
+
+def clip_card(root="", controls=True):
+    """The clip card, or an empty string when there is nothing to show.
+
+    Returning "" is the third branch of the fallback: agent clip, then seed,
+    then no card at all. An empty glass frame beside the headline is a promise
+    with nothing behind it, so the slot simply does not exist until a clip does.
+    """
+    try:
+        import clips as clipmod
+    except ImportError:                      # running from another directory
+        sys.path.insert(0, str(ROOT / "tools"))
+        import clips as clipmod
+
+    c, route = clipmod.resolve()
+    if not c:
+        return ""
+
+    PLAY = ('<svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" '
+            'stroke="none" aria-hidden="true"><polygon points="6 3 20 12 6 21 '
+            '6 3"/></svg>')
+    plat = esc(c.get("platform") or "")
+    creator = esc(c.get("creatorName") or "")
+    start = int(c.get("start") or 0)
+    t = clipmod.stamp(start)
+    analysis = esc(c.get("contextualAnalysis") or "")
+    quote = str(c.get("quoteSnippet") or "").strip()
+    qsrc = str(c.get("quoteSource") or "").strip()
+    src = clipmod.embed_url(c)
+    badge = ("From the archive // daily selection" if route == "seed"
+             else "Agent culled // daily selection")
+
+    if src:
+        play = (f'<button class="clip-play" type="button" data-clip-play '
+                f'data-src="{esc(src)}" aria-label="Play {creator} at {t}">'
+                f'{PLAY}<span>Play at {t}</span></button>')
+    else:
+        play = (f'<a class="clip-play" href="{esc(c.get("sourceUrl") or "#")}" '
+                f'target="_blank" rel="noopener"><span>Watch on {plat}</span></a>')
+
+    if quote:
+        cite = ""
+        if qsrc.startswith("http"):
+            cite = (f' <a class="clip-quote-src" href="{esc(qsrc)}" '
+                    f'target="_blank" rel="noopener">source</a>')
+        head = (f'<blockquote class="clip-quote">&ldquo;{esc(quote)}&rdquo;'
+                f'{cite}</blockquote>')
+    else:
+        head = f'<h2 class="clip-title">{creator}</h2>'
+
+    controls_html = ""
+    if controls:
+        controls_html = (f'<div class="clip-controls">'
+                         f'<a class="clip-btn" href="{root}clips/index.html">'
+                         f'The archive</a>'
+                         f'<a class="clip-btn clip-btn-next" '
+                         f'href="{root}clips/index.html#nominate">'
+                         f'Submit a moment</a></div>')
+
+    return f"""<aside class="hero-clip" aria-label="Parasocial clip of the day">
+  <div class="clip-card">
+    <div class="clip-head">
+      <span class="clip-badge"><i class="clip-dot" aria-hidden="true"></i>{badge}</span>
+      <span class="clip-idx">{plat}</span>
+    </div>
+    <div class="clip-frame">
+      <div class="clip-scan" aria-hidden="true"></div>
+      {play}
+    </div>
+    <div class="clip-meta">
+      {head}
+      <p class="clip-src">{creator} &middot; {plat} &middot; {t}</p>
+      <p class="clip-why">{analysis}</p>
+    </div>
+    {controls_html}
+  </div>
+</aside>"""
+
+
+def build_clips_page(data):
+    """The clip's home: the current selection, the rule, and the nomination door.
+
+    This page exists because the queue has to be reachable from somewhere. A
+    submission widget with no page is a form nobody can find, and the front
+    page is not the place to ask a reader to do the site's sourcing - so the
+    invitation lives here, once, and the front page only ever shows a finished
+    clip.
+    """
+    try:
+        import clips as clipmod
+    except ImportError:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import clips as clipmod
+
+    r = root(1)
+    card = clip_card(r, controls=False)
+
+    try:
+        queued = [c for c in (json.loads(
+            (ROOT / "data" / "clips.json").read_text(encoding="utf-8"))
+            .get("clips") or []) if c.get("curationSource") == "Community Nomination"
+            and not c.get("watched")]
+    except (OSError, ValueError):
+        queued = []
+
+    if card:
+        current = card
+    else:
+        current = """<div class="clips-empty">
+      <b>No clip is selected.</b>
+      <span>Nothing is published here until somebody has watched a video and
+      set the second. A nomination is the first step.</span>
+    </div>"""
+
+    queue_line = ""
+    if queued:
+        n = len(queued)
+        queue_line = (f'<p class="clips-queue">{n} nomination'
+                      f'{"s" if n != 1 else ""} waiting to be watched.</p>')
+
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The clip - Parasocialize</title>
+<meta name="description" content="One parasocial moment at a time, cued to the second, with the reading beside it.">
+{HEAD.format(site=SITE, path="/clips/", otype="website",
+             title="The clip - Parasocialize",
+             desc="One parasocial moment at a time, cued to the second.",
+             root=r)}
+</head>
+<body>
+<a class="skip" href="#main">Skip to the clip</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
+<main id="main">
+<section class="section clips-page">
+  <p class="kicker">Parasocial clip of the day</p>
+  <h1 class="clips-h1">One moment, cued.</h1>
+  <p class="clips-lede">A clip appears here when a person has watched it and set
+  the second. The timestamp and the sentence beside it are claims about the
+  frame, so they are made by somebody who has seen it.</p>
+
+  <div class="clips-current">{current}</div>
+
+  <ol class="clips-rule">
+    <li><b>Agent selection.</b> A clip culled and watched by the editor, with
+      the moment set by hand.</li>
+    <li><b>Archive fallback.</b> When no new clip is ready, the newest watched
+      clip from the seed library stands in.</li>
+    <li><b>Nothing.</b> When neither exists, no card is shown. The slot does not
+      appear empty.</li>
+  </ol>
+  {queue_line}
+
+  <div class="clips-nominate" id="nominate">
+    <div>
+      <p class="kicker">Community nomination</p>
+      <h2>Seen one worth keeping?</h2>
+      <p class="clips-nom-lede">Send the link, the second, and one sentence on
+      why it is a parasocial moment. A nomination is read; it is not published
+      until somebody has watched it.</p>
+    </div>
+    <button class="btn btn-solid" type="button" data-open-nominate>
+      Submit parasocial moment</button>
+  </div>
+</section>
+</main>
+
+<dialog class="nominate" id="nominate" aria-labelledby="nom-title">
+  <form class="nom-form" id="nomForm" novalidate>
+    <button class="modal-close" type="button" data-close-nominate
+      aria-label="Close">&times;</button>
+    <p class="kicker">Community nomination</p>
+    <h2 id="nom-title">Parasocialize it.</h2>
+
+    <label for="nomUrl">Media URL</label>
+    <input id="nomUrl" type="url" inputmode="url" autocomplete="off"
+      placeholder="https://www.youtube.com/watch?v=..." required>
+
+    <label for="nomStart">Timestamp start</label>
+    <input id="nomStart" type="text" inputmode="numeric" autocomplete="off"
+      placeholder="1:24, 84 or 1m24s">
+
+    <div class="nom-preview" id="nomPreview" aria-live="polite"></div>
+
+    <label for="nomReason">Why it is a parasocial moment</label>
+    <textarea id="nomReason" rows="3" maxlength="300" required
+      placeholder="One sentence. What is one-sided about it?"></textarea>
+
+    <p class="nom-note" id="nomNote" role="status"></p>
+    <button class="btn btn-solid" type="submit">Send nomination</button>
+    <p class="nom-fine">This opens your mail app with the details filled in.
+    Nothing is sent until you press send.</p>
+  </form>
+</dialog>
+
+{FOOT.format(root=r, sweep=MESSY, motto='ONE MOMENT, CUED TO THE SECOND.')}
+<script>{CLIP_JS}</script>
+</body></html>"""
+
+
 def build_404(data):
     """The page a dead URL gets.
 
@@ -6465,6 +6802,13 @@ def main():
     (ROOT / "credits").mkdir(exist_ok=True)
     (ROOT / "credits" / "index.html").write_text(
         build_credits(data, manifest), encoding="utf-8")
+
+    # /clips/ - the clip's home. It exists whether or not a clip is published,
+    # because the nomination form needs a page it can live on and the rule
+    # needs somewhere it can be read.
+    (ROOT / "clips").mkdir(exist_ok=True)
+    (ROOT / "clips" / "index.html").write_text(
+        build_clips_page(data), encoding="utf-8")
 
     # /desk/ - the signoff queue, from queue.json + sweep.json. Was a
     # client-fetched page pointed at a data/ directory that is never deployed,

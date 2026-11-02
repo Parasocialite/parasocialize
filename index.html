@@ -68,6 +68,7 @@
         <a href="top8/index.html">Today's top 8</a>
       </p>
     </div>
+    
   </div>
 </section>
 
@@ -214,6 +215,7 @@
       <a href="tip/index.html">Contact</a>
       <a href="top8/archive/index.html">Archive</a>
       <a href="ledger/index.html">Ledger</a>
+      <a href="clips/index.html">Clips</a>
     </div>
     <div class="foot-col">
       <p class="foot-head">Follow</p>
@@ -240,35 +242,77 @@
 })();
 </script>
 <script>
-/* The clip card's cycling and its click-to-load facade. Inline because this
-   page does not load main.js and a second global listener would double-bind
-   the menu. Every slide is already in the HTML, so this only toggles `hidden`
-   - there is no fetch that can fail and no second template to drift. */
+/* The clip card's play facade and the nomination form. Inline because these
+   pages do not load main.js. The facade is click-to-load: no iframe, no
+   third-party request and no cookie until somebody presses play. The form has
+   no server - this is a static site - so it composes an email and says so. */
 (function () {
-  var slides = Array.prototype.slice.call(
-    document.querySelectorAll("[data-clip-slide]"));
-  if (!slides.length) return;
-  var idxEl = document.querySelector("[data-clip-idx]");
-  var prev = document.querySelector("[data-clip-prev]");
-  var next = document.querySelector("[data-clip-next]");
-  var i = 0;
-  function pad(n) { return (n < 10 ? "0" : "") + n; }
-  function show(k) {
-    i = (k + slides.length) % slides.length;
-    slides.forEach(function (s, j) { s.hidden = j !== i; });
-    if (idxEl) idxEl.textContent = pad(i + 1) + " / " + pad(slides.length);
+  "use strict";
+  function parseTime(v) {
+    v = String(v || "").trim().toLowerCase();
+    if (!v) return 0;
+    if (/^\d+$/.test(v)) return parseInt(v, 10);
+    var m = v.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)$/);
+    if (m && (m[1] || m[2] || m[3])) {
+      return (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0);
+    }
+    m = v.match(/^(\d+):(\d{1,2})(?::(\d{1,2}))?$/);
+    if (m) {
+      return m[3] !== undefined
+        ? (+m[1]) * 3600 + (+m[2]) * 60 + (+m[3])
+        : (+m[1]) * 60 + (+m[2]);
+    }
+    return -1;
   }
-  if (slides.length > 1) {
-    if (prev) prev.addEventListener("click", function () { show(i - 1); });
-    if (next) next.addEventListener("click", function () { show(i + 1); });
+  function parseUrl(u) {
+    var s = String(u || "").trim();
+    if (!s) return null;
+    var t = 0, m = s.match(/[?&#]t=([0-9hms:]+)/i);
+    if (m) t = parseTime(m[1]);
+    else { m = s.match(/[?&]start=(\d+)/i); if (m) t = parseInt(m[1], 10); }
+    if (/youtu\.be\//i.test(s)) {
+      m = s.match(/youtu\.be\/([\w-]{11})/);
+      return m ? { p: "YouTube", id: m[1], t: t } : null;
+    }
+    if (/youtube/i.test(s)) {
+      m = s.match(/(?:v=|\/embed\/|\/shorts\/)([\w-]{11})/);
+      return m ? { p: "YouTube", id: m[1], t: t } : null;
+    }
+    if (/vimeo\.com/i.test(s)) {
+      m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      return m ? { p: "Vimeo", id: m[1], t: t } : null;
+    }
+    if (/twitch\.tv/i.test(s)) {
+      m = s.match(/twitch\.tv\/videos\/(\d+)/);
+      return m ? { p: "Twitch", id: m[1], t: t } : null;
+    }
+    return null;
   }
+  function srcFor(o, start) {
+    if (o.p === "YouTube") {
+      return "https://www.youtube-nocookie.com/embed/" + o.id +
+        "?start=" + start + "&rel=0";
+    }
+    if (o.p === "Vimeo") {
+      return "https://player.vimeo.com/video/" + o.id + "#t=" + start + "s";
+    }
+    if (o.p === "Twitch") {
+      return "https://player.twitch.tv/?video=" + o.id +
+        "&parent=www.parasocialize.com&time=" + start + "s";
+    }
+    return "";
+  }
+  function fmt(s) {
+    return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+  }
+
+  /* play facade */
   document.addEventListener("click", function (ev) {
     var t = ev.target;
     if (!t || !t.closest) return;
     var play = t.closest("[data-clip-play]");
     if (play) {
-      var slide = play.closest("[data-clip-slide]");
-      var src = slide && slide.getAttribute("data-clip-src");
+      var src = play.getAttribute("data-src");
       if (!src) return;
       var frame = play.parentNode;
       var f = document.createElement("iframe");
@@ -283,20 +327,109 @@
       x.className = "clip-close";
       x.setAttribute("aria-label", "Close video");
       x.setAttribute("data-clip-close", "");
-      x.innerHTML = '<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+      x.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
       frame.appendChild(x);
       return;
     }
     var close = t.closest("[data-clip-close]");
     if (close) {
       var fr = close.parentNode;
-      var iframe = fr.querySelector("iframe");
-      if (iframe) iframe.remove();
+      var ifr = fr.querySelector("iframe");
+      if (ifr) ifr.remove();
       close.remove();
       var b = fr.querySelector("[data-clip-play]");
       if (b) b.hidden = false;
     }
   });
+
+  /* nomination dialog + live preview */
+  var dlg = document.getElementById("nominate");
+  document.querySelectorAll("[data-open-nominate]").forEach(function (b) {
+    b.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (dlg && dlg.showModal) dlg.showModal();
+    });
+  });
+  document.querySelectorAll("[data-close-nominate]").forEach(function (b) {
+    b.addEventListener("click", function () { if (dlg) dlg.close(); });
+  });
+
+  var form = document.getElementById("nomForm");
+  if (!form) return;
+  var url = document.getElementById("nomUrl");
+  var start = document.getElementById("nomStart");
+  var reason = document.getElementById("nomReason");
+  var note = document.getElementById("nomNote");
+  var prev = document.getElementById("nomPreview");
+
+  function draw() {
+    var o = parseUrl(url.value);
+    if (!o) {
+      prev.innerHTML = '<p class="nom-empty">Paste a YouTube, Vimeo, Twitch or TikTok link to see it here.</p>';
+      return;
+    }
+    var st = start.value.trim() ? parseTime(start.value) : o.t;
+    if (st < 0) st = 0;
+    var src = srcFor(o, st);
+    if (!src) {
+      prev.innerHTML = '<p class="nom-empty">' + o.p +
+        " clips cannot be embedded. The link will be sent as-is.</p>";
+      return;
+    }
+    prev.innerHTML = "";
+    var f = document.createElement("iframe");
+    f.src = src;
+    f.title = "Preview at " + fmt(st);
+    f.allow = "autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen = true;
+    prev.appendChild(f);
+  }
+  url.addEventListener("input", draw);
+  start.addEventListener("input", draw);
+
+  function toast(msg) {
+    var el = document.createElement("div");
+    el.className = "toast";
+    el.setAttribute("role", "status");
+    el.textContent = msg;
+    document.body.appendChild(el);
+    requestAnimationFrame(function () { el.classList.add("in"); });
+    setTimeout(function () {
+      el.classList.remove("in");
+      setTimeout(function () { el.remove(); }, 400);
+    }, 5200);
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var o = parseUrl(url.value);
+    if (!o) {
+      note.textContent = "That does not look like a video link yet.";
+      url.focus();
+      return;
+    }
+    var st = start.value.trim() ? parseTime(start.value) : o.t;
+    if (st < 0) {
+      note.textContent = "The timestamp is not readable. Try 84, 1:24 or 1m24s.";
+      start.focus();
+      return;
+    }
+    if (reason.value.trim().length < 20) {
+      note.textContent = "One sentence, please - it is the part that gets read.";
+      reason.focus();
+      return;
+    }
+    var body = "URL: " + url.value.trim() +
+      "\nStart: " + st + "s (" + fmt(st) + ")" +
+      "\nPlatform: " + o.p +
+      "\n\nWhy it is parasocial:\n" + reason.value.trim();
+    location.href = "mailto:iNNERdreamers@gmail.com" +
+      "?subject=" + encodeURIComponent("CLIP NOMINATION") +
+      "&body=" + encodeURIComponent(body);
+    note.textContent = "";
+    toast("Nomination ready - send it from your mail app.");
+  });
+  draw();
 })();
 </script>
 </body></html>

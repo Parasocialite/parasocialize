@@ -173,6 +173,9 @@ JS_BUILT = {
 CONDITIONAL = {
     ".psotd-art figcaption": "emitted only when the figure has a real photograph",
     ".psotd-art figcaption a": "the credit link inside that photograph caption",
+    ".clip-frame iframe": "appended by the inline script when play is pressed",
+    ".clip-play svg": "rendered only when a clip resolves and has an embed",
+    ".nom-preview iframe": "appended by the nomination form once a URL parses",
 }
 
 

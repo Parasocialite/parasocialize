@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The clip - Parasocialize</title>
+<meta name="description" content="One parasocial moment at a time, cued to the second, with the reading beside it.">
+<link rel="canonical" href="https://www.parasocialize.com/clips/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The clip - Parasocialize">
+<meta property="og:description" content="One parasocial moment at a time, cued to the second.">
+<meta property="og:image" content="https://www.parasocialize.com/img/podcasts/parasocialize.jpg">
+<link rel="alternate" type="application/rss+xml" title="Parasocialize" href="https://www.parasocialize.com/radar.xml">
+<!-- Two feeds, deliberately. radar.xml is content; ledger/feed.xml is the
+     archive's own figures changing. They serve different subscribers and a
+     reader who wants both should be offered both rather than made to pick in a
+     feed reader's settings. Titles differ so the two are distinguishable in a
+     subscription list, which is the only place anybody will see them. -->
+<link rel="alternate" type="application/rss+xml" title="Parasocialize — the open ledger" href="https://www.parasocialize.com/ledger/feed.xml">
+<link rel="icon" type="image/svg+xml" href="https://www.parasocialize.com/favicon.svg">
+<link rel="icon" type="image/x-icon" sizes="48x48" href="https://www.parasocialize.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="https://www.parasocialize.com/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="https://www.parasocialize.com/icon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.parasocialize.com/apple-touch-icon.png">
+<link rel="manifest" href="https://www.parasocialize.com/site.webmanifest">
+<meta name="theme-color" content="#0b0b0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600;1,9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/mascot.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the clip</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="topbar"><div class="topbar-in">
+  <a class="wordmark" href="../index.html"><b>PARASOCIALIZE</b></a>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  <nav id="nav" class="nav" aria-label="Main">
+    <span class="nav-lab">Read</span>
+    <a href="../sections/index.html">Stories</a>
+    <a href="../top8/index.html">Top 8</a>
+    <a href="../history/index.html">History</a>
+    <a href="../shelf/index.html">Works</a>
+    <span class="nav-lab">Look up</span>
+    <a href="../encyclopedia/index.html">Encyclopedia</a>
+    <a href="../atlas/index.html">Atlas</a>
+    <a href="../timeline/index.html">Timeline</a>
+    <a href="../citations/index.html">Citations</a>
+    <a href="../quiz/index.html">Quiz</a>
+    <a class="cta" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow" aria-label="Support the archive on Ko-fi">Support</a>
+  </nav>
+</div></header>
+<main id="main">
+<section class="section clips-page">
+  <p class="kicker">Parasocial clip of the day</p>
+  <h1 class="clips-h1">One moment, cued.</h1>
+  <p class="clips-lede">A clip appears here when a person has watched it and set
+  the second. The timestamp and the sentence beside it are claims about the
+  frame, so they are made by somebody who has seen it.</p>
+
+  <div class="clips-current"><div class="clips-empty">
+      <b>No clip is selected.</b>
+      <span>Nothing is published here until somebody has watched a video and
+      set the second. A nomination is the first step.</span>
+    </div></div>
+
+  <ol class="clips-rule">
+    <li><b>Agent selection.</b> A clip culled and watched by the editor, with
+      the moment set by hand.</li>
+    <li><b>Archive fallback.</b> When no new clip is ready, the newest watched
+      clip from the seed library stands in.</li>
+    <li><b>Nothing.</b> When neither exists, no card is shown. The slot does not
+      appear empty.</li>
+  </ol>
+  
+
+  <div class="clips-nominate" id="nominate">
+    <div>
+      <p class="kicker">Community nomination</p>
+      <h2>Seen one worth keeping?</h2>
+      <p class="clips-nom-lede">Send the link, the second, and one sentence on
+      why it is a parasocial moment. A nomination is read; it is not published
+      until somebody has watched it.</p>
+    </div>
+    <button class="btn btn-solid" type="button" data-open-nominate>
+      Submit parasocial moment</button>
+  </div>
+</section>
+</main>
+
+<dialog class="nominate" id="nominate" aria-labelledby="nom-title">
+  <form class="nom-form" id="nomForm" novalidate>
+    <button class="modal-close" type="button" data-close-nominate
+      aria-label="Close">&times;</button>
+    <p class="kicker">Community nomination</p>
+    <h2 id="nom-title">Parasocialize it.</h2>
+
+    <label for="nomUrl">Media URL</label>
+    <input id="nomUrl" type="url" inputmode="url" autocomplete="off"
+      placeholder="https://www.youtube.com/watch?v=..." required>
+
+    <label for="nomStart">Timestamp start</label>
+    <input id="nomStart" type="text" inputmode="numeric" autocomplete="off"
+      placeholder="1:24, 84 or 1m24s">
+
+    <div class="nom-preview" id="nomPreview" aria-live="polite"></div>
+
+    <label for="nomReason">Why it is a parasocial moment</label>
+    <textarea id="nomReason" rows="3" maxlength="300" required
+      placeholder="One sentence. What is one-sided about it?"></textarea>
+
+    <p class="nom-note" id="nomNote" role="status"></p>
+    <button class="btn btn-solid" type="submit">Send nomination</button>
+    <p class="nom-fine">This opens your mail app with the details filled in.
+    Nothing is sent until you press send.</p>
+  </form>
+</dialog>
+
+<footer class="footer"><div class="foot-grid">
+  <div class="foot-brand">
+    <p class="wordmark foot-mark"><img class="logo-img" src="../img/logo.svg" alt="" width="24" height="24">PARA<b>SOCIALIZE</b></p>
+    <p class="foot-note">No replies. The connection stays one-sided either way. Nobody here is going to tell you to log off.<br>Kept by Enan Joe Heneghan - video store clerk, M.A., teacher in Australia.<br>
+    Every card links to its sources. Every card is signed by a person.</p>
+    <p class="foot-tag">ONE MOMENT, CUED TO THE SECOND.</p>
+  </div>
+  <nav class="foot-nav" aria-label="Footer">
+    <div class="foot-col">
+      <p class="foot-head">Read</p>
+      <a href="../index.html">Latest</a>
+      <a href="../sections/index.html">Stories</a>
+      <a href="../top8/index.html">Top 8</a>
+      <a href="../history/index.html">History</a>
+      <a href="../shelf/index.html">Works</a>
+      <a href="../moments/index.html">Moments</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">Look up</p>
+      <a href="../encyclopedia/index.html">Encyclopedia</a>
+      <a href="../atlas/index.html">Atlas</a>
+      <a href="../timeline/index.html">Timeline</a>
+      <a href="../taxonomy/index.html">Taxonomy</a>
+      <a href="../citations/index.html">Citations</a>
+      <a href="../quiz/index.html">Quiz</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">The project</p>
+      <a href="../credits/index.html">About</a>
+      <a href="../tip/index.html">Contact</a>
+      <a href="../top8/archive/index.html">Archive</a>
+      <a href="../ledger/index.html">Ledger</a>
+      <a href="../clips/index.html">Clips</a>
+    </div>
+    <div class="foot-col">
+      <p class="foot-head">Follow</p>
+      <a class="foot-support" href="https://ko-fi.com/parasocialing" target="_blank" rel="noopener nofollow">Support the archive</a>
+      <a href="../radar.xml">RSS feed</a>
+    </div>
+  </nav>
+</div></footer>
+<script>
+(function(){
+  var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
+  if(b)b.addEventListener('click',function(){
+    var o=document.body.classList.toggle('nav-open');
+    b.setAttribute('aria-expanded',String(o));
+  });
+  var r=document.querySelectorAll('.reveal');
+  if(r.length){
+    if(!('IntersectionObserver' in window)){r.forEach(function(x){x.classList.add('in')})}
+    else{var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})});
+      r.forEach(function(x){io.observe(x)})}
+  }
+  var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+<script>
+/* The clip card's play facade and the nomination form. Inline because these
+   pages do not load main.js. The facade is click-to-load: no iframe, no
+   third-party request and no cookie until somebody presses play. The form has
+   no server - this is a static site - so it composes an email and says so. */
+(function () {
+  "use strict";
+  function parseTime(v) {
+    v = String(v || "").trim().toLowerCase();
+    if (!v) return 0;
+    if (/^\d+$/.test(v)) return parseInt(v, 10);
+    var m = v.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)$/);
+    if (m && (m[1] || m[2] || m[3])) {
+      return (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0);
+    }
+    m = v.match(/^(\d+):(\d{1,2})(?::(\d{1,2}))?$/);
+    if (m) {
+      return m[3] !== undefined
+        ? (+m[1]) * 3600 + (+m[2]) * 60 + (+m[3])
+        : (+m[1]) * 60 + (+m[2]);
+    }
+    return -1;
+  }
+  function parseUrl(u) {
+    var s = String(u || "").trim();
+    if (!s) return null;
+    var t = 0, m = s.match(/[?&#]t=([0-9hms:]+)/i);
+    if (m) t = parseTime(m[1]);
+    else { m = s.match(/[?&]start=(\d+)/i); if (m) t = parseInt(m[1], 10); }
+    if (/youtu\.be\//i.test(s)) {
+      m = s.match(/youtu\.be\/([\w-]{11})/);
+      return m ? { p: "YouTube", id: m[1], t: t } : null;
+    }
+    if (/youtube/i.test(s)) {
+      m = s.match(/(?:v=|\/embed\/|\/shorts\/)([\w-]{11})/);
+      return m ? { p: "YouTube", id: m[1], t: t } : null;
+    }
+    if (/vimeo\.com/i.test(s)) {
+      m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      return m ? { p: "Vimeo", id: m[1], t: t } : null;
+    }
+    if (/twitch\.tv/i.test(s)) {
+      m = s.match(/twitch\.tv\/videos\/(\d+)/);
+      return m ? { p: "Twitch", id: m[1], t: t } : null;
+    }
+    return null;
+  }
+  function srcFor(o, start) {
+    if (o.p === "YouTube") {
+      return "https://www.youtube-nocookie.com/embed/" + o.id +
+        "?start=" + start + "&rel=0";
+    }
+    if (o.p === "Vimeo") {
+      return "https://player.vimeo.com/video/" + o.id + "#t=" + start + "s";
+    }
+    if (o.p === "Twitch") {
+      return "https://player.twitch.tv/?video=" + o.id +
+        "&parent=www.parasocialize.com&time=" + start + "s";
+    }
+    return "";
+  }
+  function fmt(s) {
+    return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+  }
+
+  /* play facade */
+  document.addEventListener("click", function (ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+    var play = t.closest("[data-clip-play]");
+    if (play) {
+      var src = play.getAttribute("data-src");
+      if (!src) return;
+      var frame = play.parentNode;
+      var f = document.createElement("iframe");
+      f.src = src;
+      f.title = play.getAttribute("aria-label") || "Clip";
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+      f.allowFullscreen = true;
+      play.hidden = true;
+      frame.appendChild(f);
+      var x = document.createElement("button");
+      x.type = "button";
+      x.className = "clip-close";
+      x.setAttribute("aria-label", "Close video");
+      x.setAttribute("data-clip-close", "");
+      x.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+      frame.appendChild(x);
+      return;
+    }
+    var close = t.closest("[data-clip-close]");
+    if (close) {
+      var fr = close.parentNode;
+      var ifr = fr.querySelector("iframe");
+      if (ifr) ifr.remove();
+      close.remove();
+      var b = fr.querySelector("[data-clip-play]");
+      if (b) b.hidden = false;
+    }
+  });
+
+  /* nomination dialog + live preview */
+  var dlg = document.getElementById("nominate");
+  document.querySelectorAll("[data-open-nominate]").forEach(function (b) {
+    b.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (dlg && dlg.showModal) dlg.showModal();
+    });
+  });
+  document.querySelectorAll("[data-close-nominate]").forEach(function (b) {
+    b.addEventListener("click", function () { if (dlg) dlg.close(); });
+  });
+
+  var form = document.getElementById("nomForm");
+  if (!form) return;
+  var url = document.getElementById("nomUrl");
+  var start = document.getElementById("nomStart");
+  var reason = document.getElementById("nomReason");
+  var note = document.getElementById("nomNote");
+  var prev = document.getElementById("nomPreview");
+
+  function draw() {
+    var o = parseUrl(url.value);
+    if (!o) {
+      prev.innerHTML = '<p class="nom-empty">Paste a YouTube, Vimeo, Twitch or TikTok link to see it here.</p>';
+      return;
+    }
+    var st = start.value.trim() ? parseTime(start.value) : o.t;
+    if (st < 0) st = 0;
+    var src = srcFor(o, st);
+    if (!src) {
+      prev.innerHTML = '<p class="nom-empty">' + o.p +
+        " clips cannot be embedded. The link will be sent as-is.</p>";
+      return;
+    }
+    prev.innerHTML = "";
+    var f = document.createElement("iframe");
+    f.src = src;
+    f.title = "Preview at " + fmt(st);
+    f.allow = "autoplay; encrypted-media; picture-in-picture";
+    f.allowFullscreen = true;
+    prev.appendChild(f);
+  }
+  url.addEventListener("input", draw);
+  start.addEventListener("input", draw);
+
+  function toast(msg) {
+    var el = document.createElement("div");
+    el.className = "toast";
+    el.setAttribute("role", "status");
+    el.textContent = msg;
+    document.body.appendChild(el);
+    requestAnimationFrame(function () { el.classList.add("in"); });
+    setTimeout(function () {
+      el.classList.remove("in");
+      setTimeout(function () { el.remove(); }, 400);
+    }, 5200);
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var o = parseUrl(url.value);
+    if (!o) {
+      note.textContent = "That does not look like a video link yet.";
+      url.focus();
+      return;
+    }
+    var st = start.value.trim() ? parseTime(start.value) : o.t;
+    if (st < 0) {
+      note.textContent = "The timestamp is not readable. Try 84, 1:24 or 1m24s.";
+      start.focus();
+      return;
+    }
+    if (reason.value.trim().length < 20) {
+      note.textContent = "One sentence, please - it is the part that gets read.";
+      reason.focus();
+      return;
+    }
+    var body = "URL: " + url.value.trim() +
+      "\nStart: " + st + "s (" + fmt(st) + ")" +
+      "\nPlatform: " + o.p +
+      "\n\nWhy it is parasocial:\n" + reason.value.trim();
+    location.href = "mailto:iNNERdreamers@gmail.com" +
+      "?subject=" + encodeURIComponent("CLIP NOMINATION") +
+      "&body=" + encodeURIComponent(body);
+    note.textContent = "";
+    toast("Nomination ready - send it from your mail app.");
+  });
+  draw();
+})();
+</script>
+</body></html>

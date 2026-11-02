@@ -1,4 +1,4 @@
 {
- "_note": "The Parasocial Clip of the Day queue. A clip is published only when `watched` carries the date a person actually watched it: the cued timestamp and the note are claims about what happens at that second, and neither can be checked from the URL. Empty is the correct state until somebody has watched one. Add with tools/clips.py --add; validate with tools/clips.py --check.",
+ "_note": "The clip queue. A record is published only when `watched` carries the ISO date a person watched it: sourceUrl proves the video exists, and nothing but watching proves the timestamp, the quote or the frame. `parasocialScore` may be null, and must carry `scoreMethod` when it is not - a number with no stated method is a promise the build cannot keep. `quoteSnippet` may be null, and must carry `quoteSource` when it is not. Add with tools/clips.py --add; validate with --check; see what the front page would show with --resolve.",
  "clips": []
 }
