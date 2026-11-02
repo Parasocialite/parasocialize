@@ -4909,6 +4909,105 @@ TLC_JS = r"""
   }); }
   q.addEventListener('input',run); run();
 })();
+
+/* The reel and the stage. The stage is filled on the server, so this only
+   moves it: hovering or focusing a marker previews it, and Play walks the
+   sequence. Clicking a marker still follows its anchor to the analysis panel,
+   which is the deep dive and needs no script. */
+(function () {
+  var stage = document.getElementById("tlx-stage");
+  var list = document.getElementById("list");
+  if (!stage || !list) return;                 // future page: no reel
+  var cards = Array.prototype.slice.call(list.querySelectorAll(".tlc-card"));
+  if (!cards.length) return;
+
+  var el = {
+    meta: document.getElementById("tlx-meta"),
+    year: document.getElementById("tlx-year"),
+    title: document.getElementById("tlx-title"),
+    thesis: document.getElementById("tlx-thesis"),
+    open: document.getElementById("tlx-open"),
+    count: document.getElementById("tlx-count"),
+    phase: document.getElementById("tlx-hud-phase"),
+    domain: document.getElementById("tlx-hud-domain"),
+    era: document.getElementById("tlx-hud-era"),
+    ev: document.getElementById("tlx-hud-ev"),
+    cites: document.getElementById("tlx-hud-cites")
+  };
+  var play = document.getElementById("tlx-play");
+  var current = 0;
+  var timer = null;
+
+  function show(card, n) {
+    if (!card) return;
+    var d = card.dataset;
+    if (el.meta) el.meta.textContent = d.phaseName || "";
+    if (el.year) el.year.textContent = d.year || "";
+    if (el.title) el.title.textContent = d.title || "";
+    if (el.thesis) el.thesis.textContent = d.thesis || "";
+    if (el.open) el.open.setAttribute("href", card.getAttribute("href"));
+    if (el.phase) el.phase.textContent = d.phase || "";
+    if (el.domain) el.domain.textContent = d.domain || "";
+    if (el.era) el.era.textContent = d.era || "";
+    if (el.ev) el.ev.textContent = d.evidence || "";
+    if (el.cites) el.cites.textContent = d.cites || "0";
+    if (el.count) el.count.textContent = (n + 1) + " / " + cards.length;
+  }
+
+  list.addEventListener("mouseover", function (ev) {
+    var card = ev.target.closest && ev.target.closest(".tlc-card");
+    if (!card) return;
+    current = cards.indexOf(card);
+    show(card, current);
+  });
+  list.addEventListener("focusin", function (ev) {
+    var card = ev.target.closest && ev.target.closest(".tlc-card");
+    if (!card) return;
+    current = cards.indexOf(card);
+    show(card, current);
+  });
+
+  function visible(i) {
+    // a filtered-out card is display:none; skip it when stepping
+    for (var k = 0; k < cards.length; k++) {
+      var c = cards[(i + k) % cards.length];
+      if (c.offsetParent !== null) return { card: c, index: (i + k) % cards.length };
+    }
+    return null;
+  }
+
+  function step() {
+    var nxt = visible((current + 1) % cards.length);
+    if (!nxt) return;
+    current = nxt.index;
+    show(nxt.card, current);
+    nxt.card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }
+
+  function stop() {
+    if (timer) clearInterval(timer);
+    timer = null;
+    if (play) {
+      play.setAttribute("aria-pressed", "false");
+      play.textContent = "Play the sequence";
+    }
+  }
+
+  if (play) {
+    play.addEventListener("click", function () {
+      if (timer) { stop(); return; }
+      play.setAttribute("aria-pressed", "true");
+      play.textContent = "Pause";
+      step();
+      timer = setInterval(step, 1500);
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop();
+    });
+  }
+
+  show(cards[0], 0);
+})();
 """
 
 
@@ -4998,19 +5097,21 @@ def build_timeline_curated(tl, data, speculative=False):
                 badges += '<span class="tlc-badge tlc-badge-pdf">PDF</span>'
             if e.get("speculative"):
                 badges += '<span class="tlc-badge tlc-badge-spec">Speculative</span>'
+            _thesis = deck(e['summary'], 22)
             items += f"""<a class="tlc-card" href="#tl-{esc(e['id'])}"
       data-domain="{esc(e['domain'])}" data-era="{ui_era[e['era']]}"
       data-phase="{e['phase']}" data-prov="{prov(e)}"
       data-ai="{'1' if is_ai(e) else '0'}" data-tags="{esc(' '.join(e['tags']))}"
-      data-hay="{esc(hay)}">
+      data-hay="{esc(hay)}"
+      data-year="{esc(e['year'])}" data-title="{esc(e['title'])}"
+      data-meta="{esc(e['domain'])} · {esc(e['era'])}"
+      data-thesis="{esc(_thesis)}"
+      data-phase-name="Phase {e['phase']} · {esc(phase_meta[e['phase']]['name'])}"
+      data-evidence="{'Supplied PDF, unverified' if prov(e) == 'pdf' else 'Sourced entry'}"
+      data-cites="{len(e['citations'])}">
+  <span class="tlc-node" aria-hidden="true"></span>
   <span class="tlc-year">{esc(e['year'])}</span>
-  <span class="tlc-body">
-    <span class="tlc-title">{esc(e['title'])} {badges}</span>
-    <span class="tlc-meta">{esc(e['domain'])} &middot; {esc(e['era'])} &middot; Phase {e['phase']}</span>
-    <span class="tlc-sum">{emph(e['summary'])}</span>
-    <span class="tlc-tagrow">{tags}</span>
-    <span class="tlc-open">Open the analysis &rarr;</span>
-  </span>
+  <span class="tlc-title">{esc(e['title'])}{badges}</span>
 </a>"""
         pm = phase_meta[pid]
         cards_html += (f'<section class="tlc-era" id="phase-{pid}">'
@@ -5070,6 +5171,38 @@ def build_timeline_curated(tl, data, speculative=False):
         f'<a class="chip" style="--c:{esc(x.get("colour", "#ff5a1f"))}" '
         f'href="{r}timeline/{esc(x["id"])}/index.html">{esc(x["sign"])}</a>'
         for x in data["sections"])
+
+    # ---- the stage: one marker at a time, the way a reel is read ----------
+    # The list below is the reel; this is the enlarged frame. It is filled on
+    # the server with the first entry so the page has a subject before any
+    # script runs, and the reel only moves it. Everything it shows is a field
+    # the entry already carries.
+    _e0 = entries[0]
+    _e0_pdf = prov(_e0) == "pdf"
+    stage_html = f"""<section class="section tlx-stage-wrap" style="padding-top:0">
+  <div class="tlx-stage" id="tlx-stage">
+    <div class="tlx-copy">
+      <p class="kicker" id="tlx-meta">Phase {_e0['phase']} &middot; {esc(_e0['domain'])}</p>
+      <p class="tlx-year" id="tlx-year">{esc(_e0['year'])}</p>
+      <h2 class="tlx-title" id="tlx-title">{esc(_e0['title'])}</h2>
+      <p class="tlx-thesis" id="tlx-thesis">{esc(deck(_e0['summary'], 22))}</p>
+      <div class="tlx-actions">
+        <a class="btn btn-solid tlx-open" id="tlx-open"
+          href="#tl-{esc(_e0['id'])}">Open the case</a>
+        <button class="tlx-play" type="button" id="tlx-play"
+          aria-pressed="false">Play the sequence</button>
+        <span class="tlx-count" id="tlx-count" aria-live="polite">1 / {len(entries)}</span>
+      </div>
+    </div>
+    <dl class="tlx-hud">
+      <div><dt>Phase</dt><dd id="tlx-hud-phase">{_e0['phase']}</dd></div>
+      <div><dt>Domain</dt><dd id="tlx-hud-domain">{esc(_e0['domain'])}</dd></div>
+      <div><dt>Era</dt><dd id="tlx-hud-era">{esc(_e0['era'])}</dd></div>
+      <div><dt>Evidence</dt><dd id="tlx-hud-ev">{'Supplied PDF, unverified' if _e0_pdf else 'Sourced entry'}</dd></div>
+      <div><dt>Citations</dt><dd id="tlx-hud-cites">{len(_e0['citations'])}</dd></div>
+    </dl>
+  </div>
+</section>"""
 
     n_domains = len(set(e["domain"] for e in entries))
     n_eras = len(set(e["era"] for e in entries))
@@ -5154,6 +5287,7 @@ def build_timeline_curated(tl, data, speculative=False):
   <p class="sec-lede" style="max-width:70ch">{lede}</p>
   <div class="tlc-stats">{stats}</div>
 </section>
+{stage_html}
 <section class="section tlc-controls" style="padding-top:0">
   <div class="bar">
     <input class="search" id="tlc-q" type="search"
