@@ -203,8 +203,15 @@ try:
     run("--set", "line", "PROBE-MARKER-LINE", "--to", probe_date)
     run("--set", "clerk_line", "PROBE-MARKER-CLERK", "--to", probe_date)
     build()
-    if not (has("PROBE-MARKER-LINE") and has("PROBE-MARKER-CLERK")):
-        sys.exit("FAIL: edition copy did not reach the page")
+    if "PROBE-MARKER-CLERK" not in page():
+        sys.exit("FAIL: the edition's clerk line did not reach the page")
+    # The hero no longer prints the edition's `line` slot - it was the second
+    # paragraph under the tagline and it went with the rest of the masthead
+    # copy. The rotation now reaches the reader through the clerk's note, so
+    # this asserts the slot is still carried in the data and deliberately not
+    # rendered, which is the difference between "retired" and "forgotten".
+    if has("PROBE-MARKER-LINE"):
+        sys.exit("FAIL: the retired hero sub-line is rendering again")
     print("  ok   a new edition's copy reaches the page through build_cards")
 finally:
     # stamp back, drop the probe edition, rebuild - in that order, and assert

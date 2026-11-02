@@ -2461,11 +2461,11 @@ def build_front(data, feat=None, manifest=None, hist=None):
     # number and is left exactly as it is - the sequence of what the page
     # actually said is the record, and the substitution is a no-op there.
     # See tools/front_copy.py.
+    # Only `clerk_line` renders now. The edition still carries `line`, `kicker`
+    # and the two door slots, because the file is an append-only record of what
+    # the front page said; none of them is printed, so the {total}/{nent}
+    # substitution they needed is gone with them.
     ed = dict(front_copy_edition())
-    ed["door_stories"] = (ed.get("door_stories") or "").replace(
-        "{total}", str(total))
-    ed["door_encyclopedia"] = (ed.get("door_encyclopedia") or "").replace(
-        "{nent}", str(nent))
 
     # ---- the parasocialite of the day, above the fold: one figure taking
     # turns, one per UTC day, chosen by date from data/parasocialite.json -
@@ -2537,7 +2537,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
         _ptell = _psotd.get("tell") or _figure_detail(_pse)
         _ptell_html = (f'<p class="psotd-tell"><b>The detail.</b> '
                        f'{esc(_ptell)}</p>' if _ptell else "")
-        psotd_block = f"""<section class="section psotd-sec" aria-labelledby="psotd-kick">
+        psotd_block = f"""<div class="hero-figure" aria-labelledby="psotd-kick">
   <p class="kicker" id="psotd-kick">Parasocialite of the day
     <span class="psotd-kind">{esc(_pkind_label)}</span>
     <span class="psotd-val psotd-val-{_pval}">{_pval}</span></p>
@@ -2554,8 +2554,11 @@ def build_front(data, feat=None, manifest=None, hist=None):
       </div>
     </div>
   </div>
-  {parasocialite_record()}
-</section>"""
+</div>"""
+        _record_html = parasocialite_record()
+        psotd_record_block = (
+            f'<section class="section psotd-record-sec">{_record_html}</section>'
+            if _record_html else "")
 
     # ---- the hero's panel, counted rather than typed -------------------
     # Every number on this page is read from the corpus at build time. A
@@ -2575,10 +2578,8 @@ def build_front(data, feat=None, manifest=None, hist=None):
     hero_block = f"""<section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="hero-kick">{ed.get("kicker")}</p>
       <h1 class="hero-h1" id="hero-title">Parasocialize<span>.</span></h1>
       <p class="hero-tag">{TAGLINE}</p>
-      <p class="hero-sub">{ed.get("line")}</p>
       <div class="hero-actions">
         <a class="btn btn-solid hero-cta" href="sections/index.html">Start reading
           <span aria-hidden="true">&rarr;</span></a>
@@ -2591,7 +2592,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
         <a href="top8/index.html">Today's top 8</a>
       </p>
     </div>
-
+    {psotd_block}
   </div>
 </section>"""
 
@@ -2611,7 +2612,7 @@ def build_front(data, feat=None, manifest=None, hist=None):
 <main>
 {hero_block}
 
-{psotd_block}
+{psotd_record_block}
 
 {t8_block}
 
