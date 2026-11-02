@@ -2200,130 +2200,6 @@ def deck(take, words=20):
     return s.rstrip(" ,;-—") + ("." if s else "")
 
 
-def clip_panel():
-    """The Parasocial Clip of the Day card that sits beside the header.
-
-    THE RULE THIS COMPONENT IS BUILT AROUND
-    A cued timestamp is a claim about what is on screen at that second, and a
-    URL does not prove it. Neither does an embed. So a clip is published only
-    when `data/clips.json` carries the date a person watched it - the same rule
-    that turned 73 unopened images from `exact` to `unchecked`, and the same
-    rule that caught 94 `retrievable` records with no URL.
-
-    With no published clip the card renders its empty state, which is a
-    deliberate slot that says what would fill it. An invented selection would
-    be worse than an empty one on a site whose whole claim is that it does not
-    do that.
-
-    EVERY SLIDE IS RENDERED HERE, NOT IN JAVASCRIPT. The cycling buttons only
-    toggle `hidden`, so the card cannot arrive empty behind a failed fetch and
-    there is one template for a clip rather than two that can drift. With
-    scripting off the first clip is the one that shows.
-    """
-    try:
-        from clips import embed_url
-    except ImportError:                      # running from another directory
-        sys.path.insert(0, str(ROOT / "tools"))
-        from clips import embed_url
-
-    PLAT = {"youtube": "YouTube", "vimeo": "Vimeo", "twitch": "Twitch",
-            "tiktok": "TikTok"}
-    ICON_PLAY = ('<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" '
-                 'fill="currentColor" stroke="none"><polygon points="6 3 20 12 '
-                 '6 21 6 3"/></svg>')
-    ICON_NEXT = ('<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" '
-                 'fill="none" stroke="currentColor" stroke-width="2" '
-                 'stroke-linecap="round" stroke-linejoin="round">'
-                 '<polygon points="5 4 15 12 5 20 5 4"/>'
-                 '<line x1="19" x2="19" y1="5" y2="19"/></svg>')
-    ICON_PREV = ('<svg class="clip-ico" viewBox="0 0 24 24" aria-hidden="true" '
-                 'fill="none" stroke="currentColor" stroke-width="2" '
-                 'stroke-linecap="round" stroke-linejoin="round">'
-                 '<polygon points="19 20 9 12 19 4 19 20"/>'
-                 '<line x1="5" x2="5" y1="19" y2="5"/></svg>')
-
-    try:
-        doc = json.loads((ROOT / "data" / "clips.json").read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        doc = {"clips": []}
-    clips = [c for c in (doc.get("clips") or []) if c.get("watched")]
-    clips.sort(key=lambda c: (str(c.get("watched")), c.get("id") or ""),
-               reverse=True)
-    clips = clips[:8]
-
-    def stamp(sec: int) -> str:
-        return f"{sec // 60}:{sec % 60:02d}"
-
-    badge = "Agent culled // daily selection"
-
-    if not clips:
-        return f"""<aside class="hero-clip" aria-label="Parasocial clip of the day">
-  <div class="clip-card">
-    <div class="clip-head">
-      <span class="clip-badge"><i class="clip-dot" aria-hidden="true"></i>{badge}</span>
-    </div>
-    <div class="clip-frame is-empty">
-      <div class="clip-empty">
-        <b>No clip selected</b>
-        <span>This slot fills only after someone has watched the clip and set
-        the moment.</span>
-      </div>
-    </div>
-    <p class="clip-note">A cued timestamp is a claim about what is on screen at
-    that second, so the card waits for a person rather than guessing.</p>
-  </div>
-</aside>"""
-
-    slides = []
-    for i, c in enumerate(clips):
-        sec = int(c.get("start") or 0)
-        plat = PLAT.get(c.get("platform"), c.get("platform") or "")
-        title = c.get("title") or ""
-        note = c.get("note") or ""
-        t = stamp(sec)
-        src = embed_url(c)
-        if src:
-            play = (f'<button class="clip-play" type="button" data-clip-play '
-                    f'aria-label="Play {esc(title)}">{ICON_PLAY}'
-                    f'<span>Play at {esc(t)}</span></button>')
-            srcattr = f' data-clip-src="{esc(src)}"'
-        else:
-            play = (f'<a class="clip-play" href="{esc(c.get("url") or "#")}" '
-                    f'target="_blank" rel="noopener">{ICON_PLAY}'
-                    f'<span>Watch on {esc(plat)}</span></a>')
-            srcattr = ""
-        live = " is-active" if i == 0 else ""
-        hid = "" if i == 0 else " hidden"
-        slides.append(f"""<div class="clip-slide{live}" data-clip-slide{hid}{srcattr}>
-      <div class="clip-frame">{play}</div>
-      <div class="clip-meta">
-        <h2 class="clip-title">{esc(title)}</h2>
-        <p class="clip-src"><span>{esc(plat)}</span>
-          <span class="clip-sep" aria-hidden="true">&middot;</span>
-          <span>{esc(t)}</span></p>
-        <p class="clip-why">{esc(note)}</p>
-      </div>
-    </div>""")
-
-    n = len(slides)
-    return f"""<aside class="hero-clip" aria-label="Parasocial clip of the day">
-  <div class="clip-card">
-    <div class="clip-head">
-      <span class="clip-badge"><i class="clip-dot" aria-hidden="true"></i>{badge}</span>
-      <span class="clip-idx" data-clip-idx aria-live="polite">01 / {n:02d}</span>
-    </div>
-    <div class="clip-body" data-clip-body>{''.join(slides)}</div>
-    <div class="clip-controls">
-      <button class="clip-btn" type="button" data-clip-prev
-        aria-label="Previous moment"{"" if n > 1 else " disabled"}>{ICON_PREV}</button>
-      <button class="clip-btn clip-btn-next" type="button" data-clip-next
-        aria-label="Next moment"{"" if n > 1 else " disabled"}>Next moment
-        {ICON_NEXT}</button>
-    </div>
-  </div>
-</aside>"""
-
-
 def build_front(data, feat=None, manifest=None, hist=None):
     sections, laws, shelf, cards = data["sections"], data["laws"], data["shelf"], data["cards"]
     feat = feat or {"lists": [], "moments": [], "figures": []}
@@ -2713,7 +2589,6 @@ def build_front(data, feat=None, manifest=None, hist=None):
         <a href="top8/index.html">Today's top 8</a>
       </p>
     </div>
-    {clip_panel()}
   </div>
 </section>"""
 

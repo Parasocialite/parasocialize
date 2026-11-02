@@ -173,10 +173,6 @@ JS_BUILT = {
 CONDITIONAL = {
     ".psotd-art figcaption": "emitted only when the figure has a real photograph",
     ".psotd-art figcaption a": "the credit link inside that photograph caption",
-    ".clip-frame iframe": "the front page's inline script appends it on play",
-    ".clip-play .clip-ico": "the facet only exists when a published clip has an embed",
-    ".clip-close .clip-ico": "the close button only exists while a clip is playing",
-    ".clip-btn .clip-ico": "the cycling buttons render an icon only with 1+ clip",
 }
 
 
