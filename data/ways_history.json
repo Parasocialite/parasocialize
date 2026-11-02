@@ -234,6 +234,123 @@
      "track": "2 stories · 17 entries · 2 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-02",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "agei-imaginary-friends",
+     "title": "An economics think tank argues parasocial relationships are just imaginary friends for adults",
+     "why": "An economics think tank calling parasocial relationships imaginary friendship, using Farrah Fawcett posters. The object is a celebrity and the framing is the hostile one the entry says is the most useful.",
+     "href": "radar/agei-imaginary-friends.html",
+     "meta": "Story · idol",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 3 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "sculptor-fell-in-love",
+     "title": "The sculptor who fell in love with an illusion, in 2026",
+     "why": "The same myth retold in 2026, and the site calls this one the more useful of the two. The figure recurs, which is the whole argument of the myth sub-category.",
+     "href": "radar/sculptor-fell-in-love.html",
+     "meta": "Story · companion",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 3 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "companion-safety-controls",
+     "title": "Safety experts say companion apps need better guardrails than they have",
+     "why": "Safety experts on Replika and isolation, where the concern is not the chatbot but what replaces it. The object is the companion and the risk is the substitution.",
+     "href": "radar/companion-safety-controls.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 3 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "margery-kempe",
+     "title": "Margery Kempe",
+     "why": "Described an unbreakable bond with Jesus, was mocked for it, was reviled by her family, and in 1438 dictated a book that persuaded other women to do the same. She is the founding document of the site and she fits nowhere in a taxonomy built around performers, which is why DIVINE exists.",
+     "href": "encyclopedia/margery-kempe.html",
+     "meta": "Theology / Literature · 1373–1448",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 3 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "idol-economy-four-dollars",
+     "title": "The idol economy: about four dollars a month per artist",
+     "why": "Paid message apps, anniversary counters, and a chat window shaped exactly like the one holding your best friend, at about four dollars a month.",
+     "href": "radar/idol-economy-four-dollars.html",
+     "meta": "Story · idol",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 3 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "edwin-drood",
+     "title": "Vote for the murderer",
+     "why": "Filed cosmology/canon, on the shelf's test: \"Would the attachment survive losing everybody in it?\" Drood is the rare case where the answer is on the poster: the story's end is not carried by a fixed text but is created nightly by the audience's vote.",
+     "href": "encyclopedia/edwin-drood.html",
+     "meta": "Stage · 1985",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 3 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-deaf-beloved",
+     "title": "Shag-eared and deaf",
+     "why": "The shelf this entry opened. The erastes holds no office and runs no institution: his authority is personal, age-based and wholly unaccountable, which is why the tie is unprotected. Filed under officer/teacher it would have looked tidier and been false, because a teacher has duties and he has none.",
+     "href": "encyclopedia/the-deaf-beloved.html",
+     "meta": "Literature · 370 BC",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 3 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "stalker-law",
+     "title": "The stalker statute",
+     "why": "Anti-stalking legislation in several jurisdictions, defining unwanted repeated contact as a criminal offence. The category's boundary written into statute, and the fact that it took legislation says what the rest of the site argues.",
+     "href": "encyclopedia/stalker-law.html",
+     "meta": "History · 1990",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 3 daily cases"
+    }
+   }
   }
  ]
 }

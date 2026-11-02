@@ -170,6 +170,12 @@ FOOT = """<footer class="footer"><div class="foot-grid">
 }})();
 </script>"""
 
+# The tagline is fixed on purpose. The front-page prose rotates through
+# data/front_copy.json, but a tagline that changes every release is not a
+# tagline - it is a headline. This one is the site's whole claim in three
+# words, so it lives here and not in the rotation.
+TAGLINE = "One-Way Connected."
+
 MESSY = ("No replies. The connection stays one-sided either way. "
          "Nobody here is going to tell you to log off.")
 
@@ -2551,6 +2557,44 @@ def build_front(data, feat=None, manifest=None, hist=None):
   {parasocialite_record()}
 </section>"""
 
+    # ---- the hero's panel, counted rather than typed -------------------
+    # Every number on this page is read from the corpus at build time. A
+    # typed count is the defect this file has recorded four times, and a hero
+    # is the worst place for one: it is the first sentence a reader sees.
+    _cites = [s for e in _enc["entries"] for s in (e.get("sources") or [])]
+    _cstat = Counter(s.get("status") for s in _cites)
+    _ncites = len(_cites)
+    _openable = _cstat.get("retrievable", 0)
+    _unverified = _cstat.get("unverified", 0)
+    _needsrc = _cstat.get("needs-source", 0)
+    _tl_all = json.loads((ROOT / "data" / "timeline.json")
+                         .read_text(encoding="utf-8"))["entries"]
+    _tl_master = sum(1 for e in _tl_all if not e.get("speculative"))
+    _tl_future = len(_tl_all) - _tl_master
+
+    hero_block = f"""<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kick">{ed.get("kicker")}</p>
+      <h1 class="hero-h1" id="hero-title">Parasocialize<span>.</span></h1>
+      <p class="hero-tag">{TAGLINE}</p>
+      <p class="hero-sub">{ed.get("line")}</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid hero-cta" href="sections/index.html">Start reading
+          <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <p class="hero-doors">
+        <a href="encyclopedia/index.html">The encyclopedia</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="timeline/index.html">The timeline</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="top8/index.html">Today's top 8</a>
+      </p>
+    </div>
+
+  </div>
+</section>"""
+
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2560,32 +2604,12 @@ def build_front(data, feat=None, manifest=None, hist=None):
              desc="News, argument, research and the definitive history. Free.", root="")}
 </head>
 <body>
-<a class="skip" href="#hub">Skip to the eight ways</a>
+<a class="skip" href="#top8">Skip to the record</a>
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root="", total=total, mk=wordmark("nav"))}
 
 <main>
-<section class="masthead">
-  <div class="wrap">
-    <h1>Parasocialize.</h1>
-
-    <p class="line">{ed.get("line")}</p>
-
-    <!-- Two doors, and only two. The clerk used to be a third card in this
-         row; it is now a single closing note near the foot of the page, because
-         the mascot is a colophon, not a second headline. -->
-
-    <div class="fdoors masthead-row">
-      <a class="fdoor" href="sections/index.html" style="--c:var(--hot)">
-        <span class="fdoor-body"><b>To read</b><strong>The stories</strong>
-        <span>{ed.get("door_stories")}</span></span></a>
-      <a class="fdoor" href="encyclopedia/index.html" style="--c:var(--mint)">
-        <span class="fdoor-body"><b>To research</b>
-        <strong>The encyclopedia</strong>
-        <span>{ed.get("door_encyclopedia")}</span></span></a>
-    </div>
-  </div>
-</section>
+{hero_block}
 
 {psotd_block}
 
@@ -2895,6 +2919,15 @@ def t8_anchor(L, en):
     """
     base = (f"{L.get('slug') or 'top8'}-"
             f"{en.get('name') or en.get('show') or 'moment'}")
+    # The year goes in when the moment states one. Two records can share a
+    # title - the corpus holds a launch entry and a later entry for the same
+    # product - and a fragment derived from the name alone collides. The year
+    # is deterministic per entry, so this does not make the anchor depend on
+    # which other moments happen to be in the list, which is the property the
+    # docstring above is about.
+    _yr = re.search(r"(1[0-9]{3}|20[0-9]{2})", str(en.get("show") or ""))
+    if _yr:
+        base += f"-{_yr.group(1)}"
     slug = re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-")
     return f"t8-{slug or 'moment'}"
 

@@ -80,6 +80,10 @@
   {
    "date": "2026-11-01",
    "register": "harm"
+  },
+  {
+   "date": "2026-11-02",
+   "register": "reciprocal-edge"
   }
  ]
 }

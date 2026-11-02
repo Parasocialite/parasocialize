@@ -214,44 +214,6 @@ img{max-width:100%;display:block}
   .fu{grid-template-columns:1fr}
 }
 
-.masthead{padding:62px 0 8px;position:relative;overflow:hidden}
-
-/* ---- the thesis, as a pair rather than a paragraph --------------------
-   This was three prose blocks - 144 words, 778 characters - under the h1, and
-   it read as a wall rather than an opening. The whole argument is a contrast
-   between a date and an age, so it is now set as one: two figures, side by
-   side, each with one line under it. Twenty-two words instead of a hundred and
-   forty-four, and the shape of the claim carries the claim. */
-/* The two figures are links to the entries they are taken from, so a number on
-   the front page has somewhere to go rather than being decoration. `.masthead a`
-   would otherwise colour both hot - the specificity has to beat it, or the
-   contrast the block is built on disappears. */
-/* The two figures are 1956 and -70,000 and a reader arriving cold has no way
-   to know they belong together, or why either is on a site about one-sided
-   attachment. Asking each door to carry its own justification made one of them
-   twice the length of the other - 4 lines against 8, with 120px of dead space
-   under the short one, because the two are forced into equal columns.
-
-   So the shared reason is stated once, below the pair, and each door is left
-   to be a plain fact. It spans both columns and sits on the block's own
-   baseline rule, so it reads as a caption on the pair rather than a third
-   thing competing with them. */
-@media (max-width:760px){
-}
-.masthead h1{
-  font-family:var(--serif);font-size:clamp(3rem,10vw,7.5rem);font-weight:900;
-  letter-spacing:-.05em;line-height:.86;margin:0 0 20px;
-  background:linear-gradient(96deg,var(--hot) 0%,var(--neon) 42%,var(--violet) 78%,var(--mint) 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  -webkit-text-fill-color:transparent;
-}
-/* The standfirst is the sentence that says what the site IS, so it gets a real
-   measure and a step up in size. At 62ch and 1.1rem it sat at the same visual
-   weight as every other paragraph on the page and read as a caption on the
-   wordmark rather than as the argument. */
-.masthead .line{max-width:54ch;font-size:1.2rem;line-height:1.55;color:var(--dim)}
-.masthead .line b,.masthead .line strong{color:var(--paper);font-weight:600}
-.masthead a{color:var(--hot)}
 
 /* the mascot in the masthead: a flex item, not an image, so it scales with
    the wordmark and never needs a second asset */
@@ -319,15 +281,6 @@ to the identity page. The mascot is a mark, not a headline. */
 .clerk-note-more{font-family:var(--label);font-size:.56rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--hot);white-space:nowrap}
 .clerk-note-more:hover{color:var(--paper)}
-/* The two masthead doors - read and research - in one row. The clerk used to
-   be a third card here; it is a closing note now, so the doors get the row. */
-.masthead-row{display:grid;grid-template-columns:1fr 1fr;
-  gap:14px;margin-top:22px;align-items:stretch}
-.masthead-row .fdoor{padding:14px 16px;border-radius:var(--r);
-  border-left-width:4px;flex-direction:column;align-items:flex-start;
-  justify-content:center;gap:2px}
-.masthead-row .fdoor-body strong{font-size:1.18rem;letter-spacing:-.015em}
-.masthead-row .fdoor-body span{font-size:.83rem;line-height:1.42}
 /* ---- <code>: the author's machine keys, in the site's own label face -------
 The corpus marks classification values in backticks - `persona/idol`,
 `simulated`, `split_from` - and 468 of them, 412 on /taxonomy/, were reaching
@@ -347,16 +300,6 @@ code{font-family:var(--label);font-size:.88em;letter-spacing:0;
   .clerk-note{align-items:flex-start;flex-wrap:wrap}
   .clerk-note-more{margin-left:68px}
 }
-/* The wordmark is 7.5rem at desktop and the clamp bottoms out at 3rem, which at
-   390px wraps "Parasocialize." onto three lines and leaves the period alone on
-   the last one - measured, not guessed: the h1 box was 107px tall for a 48px
-   font at .86 line-height, i.e. 2.6 lines. 10.5vw keeps it on one at 320px. */
-@media (max-width:900px){
-  .masthead h1{font-size:clamp(2.2rem,10.5vw,4.6rem)}
-}
-
-.masthead-mark{margin:26px 0 6px;display:flex;justify-content:center}
-
 /* the wordmark strip: iYi, then the publication name as a quiet subtitle */
 .wordmark{display:inline-flex;align-items:center;gap:9px;text-decoration:none}
 .wordmark b{
@@ -2083,3 +2026,74 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
 .tlc-future-note{margin:18px 0 0;max-width:72ch;font-size:.9rem;line-height:1.55;
   color:var(--dim);border-left:3px solid var(--hot2);padding:10px 0 10px 14px}
 .tlc-future-note a{color:var(--hot)}
+
+/* ============================================================================
+   HERO + FRAMEWORKS  (2026-11-02)
+
+   The front page used to open on a wordmark, one sentence, two doors and the
+   day's figure. It was readable and it had no single action. This block adds
+   the three things it was missing: a tagline that states the claim, one
+   primary button, and a panel of real numbers a reader can open without
+   leaving the fold.
+
+   Everything here is additive. The rules below are the last in the file on
+   purpose: they are the page's opening and should win over the older masthead
+   rules without editing them, so a rollback is one block, not a hunt.
+
+   No new dependency. Glass is `backdrop-filter`, the tabs and the dialogs are
+   `<button>` + `<dialog>`, and every one of them works with JavaScript off:
+   the first tab is the visible one, and the dialogs are plain links-free
+   detail panels that simply never open.
+   ========================================================================== */
+
+.hero{padding:clamp(44px,6.4vw,88px) 0 clamp(20px,3vw,34px);position:relative}
+.hero::before{content:"";position:absolute;inset:-30% 30% auto -30%;height:560px;
+  background:radial-gradient(closest-side,rgba(255,90,31,.16),transparent 72%);
+  pointer-events:none;z-index:-1}
+.hero-grid{display:block}
+.hero-copy{max-width:760px}
+
+.hero-kick{font-family:var(--label);font-size:.6rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--dimmer);margin:0 0 18px}
+
+.hero-h1{font-family:var(--serif);font-weight:900;letter-spacing:-.05em;
+  font-size:clamp(2.5rem,6vw,4.5rem);line-height:.9;margin:0;color:var(--paper)}
+.hero-h1 span{color:var(--hot)}
+
+.hero-tag{font-family:var(--serif);font-weight:600;font-style:italic;
+  font-size:clamp(1.55rem,3.5vw,2.5rem);line-height:1.06;letter-spacing:-.02em;
+  margin:16px 0 0;color:var(--paper);
+  background:linear-gradient(92deg,var(--paper) 30%,var(--hot2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+.hero-sub{max-width:48ch;font-size:1.02rem;line-height:1.6;color:var(--dim);
+  margin:18px 0 0}
+
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  margin:30px 0 0}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;border-radius:999px;font-size:.9rem;letter-spacing:.01em}
+.hero-cta span{transition:transform .22s ease}
+.hero-cta:hover span,.hero-cta:focus-visible span{transform:translateX(4px)}
+
+.hero-doors{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin:22px 0 0;font-family:var(--label);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dimmer)}
+.hero-doors a{color:var(--dim);border-bottom:1px solid transparent;
+  padding-bottom:1px;transition:color .18s,border-color .18s}
+.hero-doors a:hover,.hero-doors a:focus-visible{color:var(--paper);
+  border-bottom-color:var(--hot)}
+
+/* ---- responsive --------------------------------------------------------- */
+@media (max-width:980px){
+  .hero-sub{max-width:none}
+}
+@media (max-width:620px){
+  .hero{padding-top:34px}
+  .hero-h1{font-size:clamp(2.2rem,11vw,3rem)}
+  .hero-tag{font-size:clamp(1.45rem,7vw,2rem)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-cta span{transition:none}
+}

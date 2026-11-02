@@ -38,6 +38,12 @@ import tempfile, threading, html
 import numpy as np
 from PIL import Image
 
+# The capture has to be taller than the page down to the last hub tile. The
+# front page grew two sections on 2026-11-02 (hero and frameworks), and the old
+# 3200 put the last four tiles outside the image - which this probe refuses to
+# report on, correctly, rather than reporting 1.00 for a tile it never saw.
+CAPTURE_H = 4600
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 if not pathlib.Path(CHROME).exists():
@@ -82,7 +88,7 @@ document.body.appendChild(pre);
 HIDE = "<style>.hub-name,.hub h3,.hub p,.hub-go{visibility:hidden !important}</style>"
 
 
-def render(extra_head, script, shot, w=1440, h=3200):
+def render(extra_head, script, shot, w=1440, h=CAPTURE_H):
     (ROOT / "__hubshot.html").write_text(
         f"<!DOCTYPE html><html><head><meta charset='utf-8'>"
         f"<style>html,body{{margin:0;background:#0b0b0d;overflow:hidden}}"
@@ -140,7 +146,8 @@ r = subprocess.run(
     [CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
      "--disable-application-cache", "--disk-cache-size=1", "--incognito",
      f"--user-data-dir={_profile}",
-     "--dump-dom", "--virtual-time-budget=9000", "--window-size=1440,3200",
+     "--dump-dom", "--virtual-time-budget=9000",
+     f"--window-size=1440,{CAPTURE_H}",
      BASE + "index.html"], capture_output=True, text=True, encoding="utf-8", errors="replace")
 shutil.rmtree(_profile, ignore_errors=True)
 page.write_text(src, encoding="utf-8")
@@ -155,7 +162,6 @@ if len(boxes) != 8:
 # A tile below the capture is not a low-contrast tile; it is no pixels at all,
 # which is how this probe reported 1.00 and nan on the last two after the
 # front page grew. Refuse to report rather than turn absence into a ratio.
-CAPTURE_H = 3200
 outside = [b for b in boxes if int(b[3]) + int(b[5]) > CAPTURE_H]
 if outside:
     sys.exit(f"refusing: {len(outside)} hub tile(s) fall below the {CAPTURE_H}px "

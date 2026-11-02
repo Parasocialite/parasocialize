@@ -94,17 +94,18 @@ for needle, label in (
         sys.exit(f"FAIL: the footer has no {label} link")
 if doc_html.count('<div class="foot-col">') != 4:
     sys.exit("FAIL: the footer is not the four-column grid")
-row = re.search(r'<div class="fdoors masthead-row">(.*?)\n    </div>', doc_html,
-                re.S)
-if not row:
-    sys.exit("FAIL: the generated page has no masthead row")
-row = row.group(1)
-doors = re.findall(r'<a class="fdoor" href="([^"]+)"', row)
-if len(doors) != 2:
-    sys.exit(f"FAIL: the masthead row holds {len(doors)} doors, expected 2 "
-             f"(read + research). Found: {doors}")
-if 'class="clerk"' in row or 'clerk-face' in row:
-    sys.exit("FAIL: the clerk card is back in the masthead row")
+if '<p class="hero-tag">One-Way Connected.</p>' not in doc_html:
+    sys.exit("FAIL: the hero tagline is not exactly 'One-Way Connected.'")
+if 'class="btn btn-solid hero-cta" href="sections/index.html"' not in doc_html:
+    sys.exit("FAIL: the hero has no single primary CTA")
+if 'id="frameworks"' in doc_html or 'class="agent"' in doc_html:
+    sys.exit("FAIL: the generation-modules section is back on the front page")
+if '<dialog class="modal"' in doc_html:
+    sys.exit("FAIL: the framework detail dialogs are back on the front page")
+if 'class="fdoors masthead-row"' in doc_html:
+    sys.exit("FAIL: the old two-door masthead row is back")
+if 'class="clerk"' in doc_html or 'clerk-face' in doc_html:
+    sys.exit("FAIL: the clerk card is back above the fold")
 if 'class="clerk-note"' not in doc_html:
     sys.exit("FAIL: the closing clerk note is missing")
 if '<div class="clerk-note-face"' not in doc_html:
@@ -117,7 +118,7 @@ if 'thesis-num' in doc_html:
 if 'mood="clerk"' not in (ROOT / "tools" / "build_cards.py").read_text(
         encoding="utf-8"):
     sys.exit("FAIL: build_cards.py no longer asks for the clerk mood")
-print("  ok   two doors in the masthead, the clerk as a later closing note")
+print("  ok   hero tagline, one CTA, no method section, the clerk as a later note")
 
 # 1b. the top 8 band is the live list, and each card lands on its entry.
 #     The band is generated from `top8_window`, so the test uses the same

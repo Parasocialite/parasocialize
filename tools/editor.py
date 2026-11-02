@@ -414,24 +414,57 @@ def choose_figure(figures, news, theme, days, today):
             best = (score, m, direct, source)
     _, m, direct, source = best
 
+    # Does the figure belong to the theme at all? `theme_hits` was already
+    # computed for the score and then never used to decide what the page says,
+    # so the sentence below claimed "this figure is the record's case for it"
+    # for every figure on every day. On 2026-11-02 the front page paired Miguel
+    # de Cervantes with an edition about AI companions and told the reader he
+    # was its case. He is a fine figure and he has nothing to do with it.
+    _theme_hits = (len(set(m.get("tags") or []) &
+                       set((theme.get("tags") or []) +
+                           (theme.get("keywords") or []))) if theme else 0)
+
+    # One shared word is not relevance. The first wire match here fired on
+    # "fans" in a sports headline for an AI-companion theme, which is the same
+    # defect recorded against the way cards: a confident link is worse than no
+    # link. A wire has to share a word that actually distinguishes the theme.
+    GENERIC = {"fan", "fans", "fandom", "celebrity", "celebrities", "star",
+               "stars", "social", "media", "show", "shows", "online",
+               "internet", "viral", "news", "people", "world", "new", "today",
+               "year", "years", "life", "love", "death", "culture", "public",
+               "digital", "content", "creator", "creators", "audience"}
+
     fig = dict(m)
     if direct and source:
         fig["why_today"] = (f"Named in today's news: “{clip_sentences(source['title'], 150)}”.")
         fig["source"] = source
     elif theme:
+        _keys = {str(k).lower() for k in
+                 (theme.get("keywords") or []) + (theme.get("tags") or [])}
+        _meaningful = {k for k in _keys if k not in GENERIC and len(k) > 3}
         wire = next((n for n in news
-                     if any(k.lower() in n["title"].lower()
-                            for k in (theme.get("keywords") or []) +
-                            (theme.get("tags") or []))), None)
-        if wire:
+                     if any(k in n["title"].lower() for k in _meaningful)), None)
+        if wire and _theme_hits:
             fig["why_today"] = (
                 f"Today's edition: {theme['home_title']}, set by "
                 f"“{clip_sentences(wire['title'], 130)}”. This figure is the "
                 f"record's case for it.")
             fig["source"] = wire
-        else:
+        elif wire:
+            # The edition has its story; the figure is the day's other turn and
+            # the page says so rather than borrowing the theme's authority.
+            fig["why_today"] = (
+                f"Today's edition: {theme['home_title']}, set by "
+                f"“{clip_sentences(wire['title'], 130)}”. The figure is the "
+                f"day's separate turn.")
+            fig["source"] = wire
+        elif _theme_hits:
             fig["why_today"] = (f"Today's edition: {theme['home_title']}. "
                                 f"This figure is the record's case for it.")
+            fig["source"] = None
+        else:
+            fig["why_today"] = (f"Today's edition: {theme['home_title']}. "
+                                f"The figure is the day's separate turn.")
             fig["source"] = None
     else:
         fig["why_today"] = "No headline today set the edition; the record's turn."
@@ -460,23 +493,29 @@ def choose_entries(entries, theme, placements, days, today, n=8):
     used_candidates.sort(key=lambda x: -x[0])
     all_entries.sort(key=lambda x: -x[0])
 
-    picked = [e for _, e in candidates[:n]]
-    for _, e in used_candidates:
-        if len(picked) >= n:
-            break
-        if e not in picked:
-            picked.append(e)
-    for _, e in all_entries:
-        if len(picked) >= n:
-            break
-        if e not in picked:
-            picked.append(e)
-    if len(picked) < n:
-        for e in [x for x in entries if concrete(x)]:
-            if e not in picked:
-                picked.append(e)
+    # One entry per display name. Two records can share a title - the corpus
+    # holds two Replika entries, one for the launch and one for the users who
+    # lost them - and a front page carrying the same card title twice reads as
+    # a duplication bug even when both are correct. It also used to collide in
+    # `t8_anchor`, which derives the fragment from the name and refused the
+    # build. Distinct names is the rule; the second record is still reachable
+    # from the first entry's own page.
+    def _add(rows, picked, names):
+        for _, e in rows:
             if len(picked) >= n:
-                break
+                return
+            key = str(e.get("title") or e["id"]).strip().lower()
+            if key in names or e in picked:
+                continue
+            picked.append(e)
+            names.add(key)
+
+    picked, names = [], set()
+    _add(candidates, picked, names)
+    _add(used_candidates, picked, names)
+    _add(all_entries, picked, names)
+    if len(picked) < n:
+        _add([(0.0, e) for e in entries if concrete(e)], picked, names)
     return picked[:n], bool(candidates)
 
 
