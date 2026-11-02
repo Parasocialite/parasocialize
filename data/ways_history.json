@@ -234,6 +234,123 @@
      "track": "2 stories · 17 entries · 2 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-02",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "zubeen-garg-public-grief",
+     "title": "One death in Assam became a country thinking out loud",
+     "why": "A death in Assam where the public grief is still doing work a year on. A large public mourning that outlived the news cycle, which is the archive register at its most durable.",
+     "href": "radar/zubeen-garg-public-grief.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 3 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "characters-we-keep",
+     "title": "Why fiction sticks when nothing else does",
+     "why": "Shipping, kinning, comfort watches, and the safest place on earth to find out what you actually feel. The entry is about fiction as a rehearsal room, which is the fictional-protagonist case in its clearest form.",
+     "href": "radar/characters-we-keep.html",
+     "meta": "Story · character",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 3 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "character-ai-settlement",
+     "title": "Character.AI settled the teen-safety suits",
+     "why": "Four states, under-18s off open chat. The line the industry drew in public, and it was drawn by a court rather than by the company.",
+     "href": "radar/character-ai-settlement.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 3 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "sunghir",
+     "title": "Beads, and one bull",
+     "why": "Same shelf as neanderthal-burial, deliberately, and the pair is the argument: a pit you keep coming back to is one thing, and a site where the rich burials and the plain ones sit side by side for thirty thousand years is a different claim.",
+     "href": "encyclopedia/sunghir.html",
+     "meta": "History · 34000 BC",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 3 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "idol-economy-four-dollars",
+     "title": "The idol economy: about four dollars a month per artist",
+     "why": "Paid message apps, anniversary counters, and a chat window shaped exactly like the one holding your best friend, at about four dollars a month.",
+     "href": "radar/idol-economy-four-dollars.html",
+     "meta": "Story · idol",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 3 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "death-in-family",
+     "title": "Robin died by 72 votes",
+     "why": "Filed cosmology/canon, on the shelf's test: \"Would the attachment survive losing everybody in it?\" The world here is the DC franchise, which outlasts every participant: the poll decided not a plot point but the permanent standing of a character inside a canon that predates and outlives the voters.",
+     "href": "encyclopedia/death-in-family.html",
+     "meta": "Comics · 1988",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 3 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-deaf-beloved",
+     "title": "Shag-eared and deaf",
+     "why": "The shelf this entry opened. The erastes holds no office and runs no institution: his authority is personal, age-based and wholly unaccountable, which is why the tie is unprotected. Filed under officer/teacher it would have looked tidier and been false, because a teacher has duties and he has none.",
+     "href": "encyclopedia/the-deaf-beloved.html",
+     "meta": "Literature · 370 BC",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 3 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "stalker-law",
+     "title": "The stalker statute",
+     "why": "Anti-stalking legislation in several jurisdictions, defining unwanted repeated contact as a criminal offence. The category's boundary written into statute, and the fact that it took legislation says what the rest of the site argues.",
+     "href": "encyclopedia/stalker-law.html",
+     "meta": "History · 1990",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 3,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 3 daily cases"
+    }
+   }
   }
  ]
 }
