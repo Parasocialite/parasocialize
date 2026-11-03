@@ -2440,3 +2440,20 @@ dialog.nominate::backdrop{background:rgba(8,5,4,.76);
   .t8d-rank{font-size:1.3rem}
   .t8cal-grid{grid-template-columns:repeat(auto-fill,minmax(78px,1fr))}
 }
+
+/* ---------- the series band ---------- */
+.series-band .band-head{align-items:flex-end;margin-bottom:16px}
+.sstrip{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;
+  scroll-snap-type:x proximity;scrollbar-width:thin}
+.sstrip::-webkit-scrollbar{height:6px}
+.sstrip::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.splate{flex:0 0 auto;width:clamp(210px,24vw,290px);scroll-snap-align:start;
+  display:block;border:1px solid var(--line);border-radius:10px;
+  overflow:hidden;background:var(--bg2);text-decoration:none;
+  transition:border-color .18s,transform .18s}
+.splate:hover{border-color:var(--hot);transform:translateY(-2px)}
+.splate img{display:block;width:100%;height:auto;aspect-ratio:1408/768;object-fit:cover}
+.splate span{display:block;padding:8px 11px;font-family:var(--label);
+  font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.splate:hover span{color:var(--paper)}
+

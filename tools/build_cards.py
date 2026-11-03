@@ -2627,6 +2627,8 @@ def build_front(data, feat=None, manifest=None, hist=None):
   <div class="hubs">{''.join(tiles)}</div>
 </section>
 
+{series_band()}
+
 {''.join(fcards) and f"""<section class="section" style="padding-top:18px">
   <p class="kicker">Go deeper · the definitive bits</p>
   <div class="fdoors">{''.join(fcards)}</div>
@@ -3431,6 +3433,41 @@ def build_top8_archive(data, feat, manifest):
 {FOOT.format(root=root(2), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
 <script>{T8CAL_JS}</script>
 </body></html>"""
+
+
+def series_band():
+    """Six plates on the front page, and a door to the rest.
+
+    The gallery alone was a footer link, which is the same as not shipping the
+    work. This band is the front page's only image surface that is not a story
+    photograph, so it carries the author's own artwork where a reader will
+    actually meet it.
+    """
+    try:
+        doc = json.loads((ROOT / "data" / "series.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return ""
+    have = {i["slug"]: i for i in doc.get("items") or []}
+    order = ["motifs", "divine", "broadcast-intimacy", "digital",
+             "silver-screen", "tech"]
+    picks = [have[s] for s in order if s in have][:6]
+    if not picks:
+        picks = (doc.get("items") or [])[:6]
+    tiles = "".join(
+        f'<a class="splate" href="series/index.html">'
+        f'<img src="img/series/{esc(i["file"])}" alt="" loading="lazy" '
+        f'width="{i["w"]}" height="{i["h"]}">'
+        f'<span>{esc(i["title"])}</span></a>' for i in picks)
+    return f"""<section class="section series-band">
+  <div class="band-head">
+    <div>
+      <p class="kicker">Series plates</p>
+      <h2>The series.</h2>
+    </div>
+    <a class="band-link" href="series/index.html">All {len(doc.get("items") or [])} plates &rarr;</a>
+  </div>
+  <div class="sstrip">{tiles}</div>
+</section>"""
 
 
 def build_series(data):
