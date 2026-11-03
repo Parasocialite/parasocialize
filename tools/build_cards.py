@@ -145,6 +145,7 @@ FOOT = """<footer class="footer"><div class="foot-grid">
       <a href="{root}top8/archive/index.html">Archive</a>
       <a href="{root}ledger/index.html">Ledger</a>
       <a href="{root}clips/index.html">Clips</a>
+      <a href="{root}series/index.html">Series</a>
     </div>
     <div class="foot-col">
       <p class="foot-head">Follow</p>
@@ -3432,6 +3433,79 @@ def build_top8_archive(data, feat, manifest):
 </body></html>"""
 
 
+def build_series(data):
+    """The author's series plates, one gallery.
+
+    These are 1408x768 posters with the wordmark and a series subtitle set into
+    the artwork. That makes them plates rather than surfaces: they cannot be
+    used as a section backdrop or a card background, because the type printed
+    inside them would sit under the page's own. A gallery is the one surface
+    they are drawn for.
+
+    The images are author-owned. They are recorded in data/series.json with
+    their dimensions, converted to WebP at build time from the originals, and
+    the originals are not deployed.
+    """
+    try:
+        doc = json.loads((ROOT / "data" / "series.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        doc = {"items": []}
+    items = [i for i in doc.get("items") or [] if (ROOT / "img" / "series" / i["file"]).exists()]
+
+    tiles = []
+    for i in items:
+        tiles.append(
+            f'<a class="series-plate" href="../img/series/{esc(i["file"])}" '
+            f'data-full="../img/series/{esc(i["file"])}">'
+            f'<img src="../img/series/{esc(i["file"])}" alt="" loading="lazy" '
+            f'width="{i["w"]}" height="{i["h"]}">'
+            f'<span class="series-cap">{esc(i["title"])}</span></a>')
+
+    r = root(1)
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The series - Parasocialize</title>
+<meta name="description" content="The author's series plates: {len(items)} posters for the psychological motifs the site keeps returning to.">
+{HEAD.format(site=SITE, path="/series/", otype="website",
+             title="The series - Parasocialize",
+             desc="The author's series plates, in one place.",
+             root=r)}
+<style>
+.series-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:12px;margin-top:22px}}
+.series-plate{{display:block;border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;background:var(--bg2);text-decoration:none;
+  transition:border-color .2s,transform .2s}}
+.series-plate:hover{{border-color:var(--hot);transform:translateY(-2px)}}
+.series-plate img{{display:block;width:100%;height:auto;aspect-ratio:1408/768;
+  object-fit:cover}}
+.series-cap{{display:block;padding:10px 12px;font-family:var(--label);
+  font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--dim)}}
+.series-plate:hover .series-cap{{color:var(--paper)}}
+@media (max-width:560px){{.series-grid{{grid-template-columns:1fr}}}}
+</style>
+</head>
+<body>
+<a class="skip" href="#plates">Skip to the plates</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=r, total=len(data["cards"]), mk=wordmark("nav"))}
+<main>
+<section class="section" id="plates">
+  <p class="kicker">Series plates</p>
+  <h1 class="h-title">The series.</h1>
+  <p class="sec-lede" style="max-width:64ch">The posters made for the motifs this
+  site keeps returning to. Each is a plate, not a backdrop: the title is set
+  into the artwork, so it is shown whole rather than cropped behind text.
+  Open one for the full frame.</p>
+  <div class="series-grid">{''.join(tiles)}</div>
+</section>
+</main>
+{FOOT.format(root=r, sweep=MESSY, motto='THE MOTIF, AT SIZE.')}
+</body></html>"""
+
+
 def build_top8_day_pages(data, manifest):
     """One frozen page per recorded day, at /top8/archive/<date>/.
 
@@ -6571,6 +6645,7 @@ def build_sitemap(data):
     urls.append((f"{SITE}/exceptions/", "0.5", "monthly"))
     urls.append((f"{SITE}/ledger/", "0.5", "weekly"))
     urls.append((f"{SITE}/clips/", "0.5", "weekly"))
+    urls.append((f"{SITE}/series/", "0.5", "monthly"))
     urls.append((f"{SITE}/timeline/corpus/", "0.5", "monthly"))
     urls.append((f"{SITE}/timeline/future/", "0.5", "monthly"))
     for a in data["sections"]:
@@ -7176,6 +7251,9 @@ def main():
     (ROOT / "clips").mkdir(exist_ok=True)
     (ROOT / "clips" / "index.html").write_text(
         build_clips_page(data), encoding="utf-8")
+    (ROOT / "series").mkdir(exist_ok=True)
+    (ROOT / "series" / "index.html").write_text(
+        build_series(data), encoding="utf-8")
 
     # /desk/ - the signoff queue, from queue.json + sweep.json. Was a
     # client-fetched page pointed at a data/ directory that is never deployed,
