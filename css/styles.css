@@ -2359,3 +2359,84 @@ dialog.nominate::backdrop{background:rgba(8,5,4,.76);
   .tlc-card{transition:none}
   .tlc-card:hover{transform:none}
 }
+/* ============================================================================
+   DATED TOP-8 ARCHIVE  (2026-11-03)
+
+   One frozen page per recorded day, and a calendar of those days on the
+   archive index. The snapshot is generated from data/top8_history.json, so a
+   day that was never recorded has no page - the archive cannot invent one.
+   ========================================================================== */
+
+.t8d-head{padding-top:38px;padding-bottom:8px}
+.t8d-h1{font-family:var(--serif);font-size:clamp(1.8rem,4.4vw,3rem);
+  font-weight:900;letter-spacing:-.04em;line-height:1.04;margin:0 0 12px}
+.t8d-lede{max-width:62ch;color:var(--dim);font-size:.95rem;line-height:1.6;margin:0}
+.t8d-navrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.t8d-nav{font-family:var(--label);font-size:.55rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--dim);border:1px solid var(--line);
+  border-radius:999px;padding:7px 12px;text-decoration:none;
+  transition:color .18s,border-color .18s}
+.t8d-nav:hover{color:var(--paper);border-color:var(--hot)}
+
+.t8d-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;
+  counter-reset:none}
+.t8d-item{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;
+  padding:16px 18px;border:1px solid var(--line);border-radius:12px;
+  background:var(--bg2)}
+.t8d-rank{font-family:var(--serif);font-size:1.6rem;font-weight:900;
+  color:var(--hot);line-height:1;letter-spacing:-.04em}
+.t8d-kicker{display:flex;align-items:center;gap:10px;margin:0 0 4px;
+  font-family:var(--label);font-size:.5rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dimmer)}
+.t8d-cat{color:var(--hot);border-bottom:1px dotted rgba(255,90,31,.5);
+  text-decoration:none;cursor:help}
+.t8d-cat:hover{color:var(--hot2);border-bottom-style:solid}
+.t8d-title{font-family:var(--serif);font-size:1.08rem;font-weight:700;
+  letter-spacing:-.015em;line-height:1.25;margin:0 0 5px}
+.t8d-title a{color:var(--paper)}
+.t8d-title a:hover{color:var(--hot)}
+.t8d-why{font-size:.84rem;line-height:1.5;color:var(--dim);margin:0}
+.t8d-missing{font-size:.84rem;color:var(--dimmer);margin:0}
+
+.t8d-cite{margin-top:26px;padding:18px;border:1px solid var(--line);
+  border-radius:12px;background:rgba(255,90,31,.04)}
+.t8d-cite h2{font-family:var(--serif);font-size:1.05rem;font-weight:700;
+  margin:0 0 10px}
+.t8d-cite-url{margin:0 0 10px;font-family:var(--label);font-size:.6rem;
+  color:var(--dim);overflow-wrap:anywhere}
+.t8d-cite-text{width:100%;padding:10px 12px;border-radius:8px;
+  border:1px solid var(--line);background:var(--bg);color:var(--paper);
+  font-family:var(--body);font-size:.82rem;line-height:1.5;resize:vertical}
+.t8d-cite-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.t8d-btn{font-family:var(--label);font-size:.54rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--dim);border:1px solid var(--line);
+  border-radius:999px;padding:8px 13px;cursor:pointer;
+  transition:color .18s,border-color .18s,background .18s}
+.t8d-btn:hover{color:var(--paper);border-color:var(--hot);
+  background:rgba(255,90,31,.1)}
+.t8d-copy-note{font-family:var(--label);font-size:.54rem;color:var(--mint);
+  margin:8px 0 0;min-height:1em}
+
+/* ---- the calendar on /top8/archive/ ------------------------------------ */
+.t8cal{padding-top:8px}
+.t8cal .band-head{margin-bottom:14px}
+.t8cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));
+  gap:7px}
+.t8cal-day{display:flex;flex-direction:column;gap:1px;padding:9px 10px;
+  border:1px solid var(--line);border-radius:9px;background:var(--bg2);
+  text-decoration:none;transition:border-color .18s,background .18s}
+.t8cal-day:hover{border-color:var(--hot);background:var(--bg3)}
+.t8cal-day[hidden]{display:none}
+.t8cal-d{font-family:var(--serif);font-size:1.15rem;font-weight:900;
+  color:var(--paper);line-height:1}
+.t8cal-m{font-family:var(--label);font-size:.46rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dimmer)}
+.t8cal-t{font-family:var(--label);font-size:.44rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--hot);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+
+@media (max-width:560px){
+  .t8d-item{grid-template-columns:40px minmax(0,1fr);gap:10px;padding:13px}
+  .t8d-rank{font-size:1.3rem}
+  .t8cal-grid{grid-template-columns:repeat(auto-fill,minmax(78px,1fr))}
+}

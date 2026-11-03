@@ -168,8 +168,8 @@ if missing:
     sys.exit(f"FAIL: {len(missing)} front-page anchors are not on /top8/: {missing}")
 if len(ids) != 8:
     sys.exit(f"FAIL: /top8/ carries {len(ids)} anchored entries, expected 8")
-if f"Eight of {len(raw.get('entries') or shown['entries'])} from this list" not in doc_html:
-    sys.exit("FAIL: the top 8 count note does not match the list")
+if "Eight of " in doc_html:
+    sys.exit("FAIL: the ambiguous top-8 counter is back on the front page")
 print("  ok   live top 8 title, hook, eight anchored cards and the full-list CTA")
 
 # 2. a new edition's copy reaches it.

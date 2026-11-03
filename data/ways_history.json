@@ -351,6 +351,123 @@
      "track": "2 stories · 17 entries · 3 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-03",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "celebrity-death-feels-like-loss",
+     "title": "When a famous person dies it can feel like losing someone you loved",
+     "why": "The Guardian running it in the exact week three people died, where the timing proves the story rather than being the story. The object is the celebrity; the grief is the register.",
+     "href": "radar/celebrity-death-feels-like-loss.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 4,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 4 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "characters-we-keep",
+     "title": "Why fiction sticks when nothing else does",
+     "why": "Shipping, kinning, comfort watches, and the safest place on earth to find out what you actually feel. The entry is about fiction as a rehearsal room, which is the fictional-protagonist case in its clearest form.",
+     "href": "radar/characters-we-keep.html",
+     "meta": "Story · character",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 4,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 4 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "character-ai-settlement",
+     "title": "Character.AI settled the teen-safety suits",
+     "why": "Four states, under-18s off open chat. The line the industry drew in public, and it was drawn by a court rather than by the company.",
+     "href": "radar/character-ai-settlement.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 4,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 4 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "grief",
+     "title": "Grieving a person you never met",
+     "why": "Grieving a person you never met. The nearest attachment target is the one who is gone and still addressed - the saint and the ancestor. The register is archive; the object is the departed.",
+     "href": "encyclopedia/grief.html",
+     "meta": "History · 1970",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 4,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 4 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "youtubetv-living-room",
+     "title": "The living room is now a comment section",
+     "why": "Creator posts and remote comments built for the TV, so the sofa is a forum. The reciprocal edge arriving on the largest screen in the house.",
+     "href": "radar/youtubetv-living-room.html",
+     "meta": "Story · brand",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 4,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 4 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "death-in-family",
+     "title": "Robin died by 72 votes",
+     "why": "Filed cosmology/canon, on the shelf's test: \"Would the attachment survive losing everybody in it?\" The world here is the DC franchise, which outlasts every participant: the poll decided not a plot point but the permanent standing of a character inside a canon that predates and outlives the voters.",
+     "href": "encyclopedia/death-in-family.html",
+     "meta": "Comics · 1988",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 4,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 4 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-landlord",
+     "title": "The landlord",
+     "why": "A named individual with access to your home, your deposits and your address, met in person, repeatedly, under stress. A duty, a door, and no room in the role for reciprocity.",
+     "href": "encyclopedia/the-landlord.html",
+     "meta": "History · 1900",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 4,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 4 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "fan-injury",
+     "title": "The crowd injury",
+     "why": "Fans injured or killed attempting to get closer to a performer, in volume, repeatedly, for years. Not one person harming one other: a crowd, and the attachment as the mechanism.",
+     "href": "encyclopedia/fan-injury.html",
+     "meta": "Music · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 4,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 4 daily cases"
+    }
+   }
   }
  ]
 }

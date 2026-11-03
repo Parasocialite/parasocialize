@@ -827,6 +827,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-03-dead-stars",
+   "title": "Top 8: The Dead Star Still Working",
+   "home_title": "The Dead Star Still Working",
+   "home_hook": "They buried the person. The relationship kept going.",
+   "dek": "The death is the moment the one-sided bond becomes public property. Ranked by how completely the record shows the mechanism.",
+   "kicker": "Daily edition · 03 NOV 2026 · Obituary",
+   "image": null,
+   "law": 4,
+   "standfirst": "Nobody is buried alone any more. The eight below are the ways a dead figure keeps working: the funeral that belonged to the audience, the estate that licenses the voice, the grave that becomes a destination. None of them requires the dead person to have agreed to any of it.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "They were not his, and they had never been",
+     "show": "Film · 1921",
+     "what": "A screen persona called the Latin Lover, and a death at thirty-one that produced public mourning on a scale nothing before it had managed - including a woman claiming an engagement he had never mentioned to anyone.",
+     "why": "The template for every celebrity death since, and the first case where the bereavement was demonstrably about the relationship rather than the work.",
+     "law": 4,
+     "entry": "rudolph-valentino",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "Grief as a product surface",
+     "show": "Artificial intelligence · 2020",
+     "what": "The feature requests of a dead person, the licensing, the posthumous releases, the reunion tour built from a member who cannot appear, and the deepfake resurrection that follows within a year of every death.",
+     "why": "There was a widely held assumption that you cannot monetise grief because the bereaved will not tolerate it. That assumption was wrong, and the gap between what the industry expected and what happened is one of the more reliable findings in this whole file.",
+     "law": 4,
+     "entry": "grief-extraction",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "He did not ask to be buried as Dracula",
+     "show": "Film · 1956",
+     "what": "The most reproduced image in the horror canon - a man interred in his character's cape - is true, and the story that he chose it is false. His mother chose it.",
+     "why": "A small correction with a large afterlife, and the reason this entry exists: the most famous single image in horror fandom is a document about the gap between an audience's picture of somebody and the person.",
+     "law": 4,
+     "entry": "lugosi-burial",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The wax masks in the hall",
+     "show": "History · 250 BC–550",
+     "what": "A Roman aristocrat had a wax mask of his own face taken while he was alive - usually in his thirties or forties, on taking office - and it was kept in a cupboard in the entrance hall beside a painted family tree and a label listing his offi.",
+     "why": "The best-documented one-sided attachment in this corpus, and thirteen thousand years later than the dog - which is the point. Everything here is checkable, because it was written down, and what it shows is how completely a bond can be built with someone who cannot answer.",
+     "law": 4,
+     "entry": "roman-imagines",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The ensemble farewell",
+     "show": "Film · 2019",
+     "what": "A film that functioned as a funeral for eleven characters and was marketed as a collective event.",
+     "why": "Grief as a product with a marketing budget. The eleventh film in a series was sold on the deaths it contained, and the audience bought tickets to be sad in a cinema with other people, which is the whole apparatus working as designed.",
+     "law": 4,
+     "entry": "avengers-endgame",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "Michael Jackson",
+     "show": "Music · 2004",
+     "what": "Public mourning in a way that produced its own genre of documentary and speculation.",
+     "why": "The moment grief for a parasocial figure became a media product, with outlets monetising speculation about the death itself. The line between honouring the dead and selling the death is drawn here, and it is not respected here.",
+     "law": 4,
+     "entry": "michael-jackson",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "The character death",
+     "show": "Games · 1994",
+     "what": "Killing a popular character for narrative effect, and the organised reaction that follows.",
+     "why": "The most reliable audience manipulation in fiction, because it is the only one the audience cannot avoid. Grief engineered as a plot device is the writer's oldest trick and the fandom's most reliable grievance.",
+     "law": 4,
+     "entry": "killing-off",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "Beads, and one bull",
+     "show": "History · 34000 BC",
+     "what": "At Sunghir on the Russian plain, thirty-four thousand years ago, three burials were lavish with beads and ochre and one was not treated that way at all.",
+     "why": "This entry exists to disagree with another one on this site. Shanidar is the earliest evidence of people returning to the dead; Sunghir is the evidence that this was not one practice with one belief behind it.",
+     "law": 4,
+     "entry": "sunghir",
+     "stage": "featured"
+    }
+   ],
+   "theme": "dead-stars",
+   "released": "2026-11-03",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Matthew Wright, executive producer of The Ellen DeGeneres Show, has died aged 52 in an ‘unfathomable tragedy’",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQeDJfd1oxT1hLT0ZpalJ0RVJtSDJMYjZjcDFPdFY0TnlHUGhjT1RvYWJNY3M4RmxuWXNFbHc4Z3lrTUdQZ3dvdnFjUmpFWU1fbFk1dUdId2lJMEdLSEhXNHhFcktRYWZiRmhQQnNTZUl6ZUI0UDdCWUhtN2Z1QUNtQk5WclBoWHowU00zaENCTG9zdkVvSkhWQg?oc=5",
+     "publisher": "UNILAD",
+     "at": "2026-11-03T02:00:43+00:00"
+    },
+    {
+     "title": "Influencer Liam Fitzgerald’s Girlfriend Reveals More About Aftermath of His Death: ‘Horrible Dream’",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQYlBfdGdGT25mOHZzb3BfcXdqRmo0MUdlYjE3bm53V3ZXdzlMdlV1NEhRU29yb0hCOEE5NHRyUzlhZ2lUd3hYMGNCUlhOaTZyc1ZJS3ZnS0M4YW5yN0twYXRLT2h1QTFhc0JVZU1aNE1WZXBRMEdzbmFSUms4ZlBzOW5RZFc2OEh4MzJiWVRENHFPN0RoSEFsSWp1eXpNUDl4a3lkUHNB?oc=5",
+     "publisher": "Us Weekly",
+     "at": "2026-11-03T01:50:56+00:00"
+    },
+    {
+     "title": "Ellen DeGeneres Donates $5K to Producer Matthew Wright's Family After Death at 52",
+     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZGhoQkZsSGdfQUgwWktjVFVpNXdMeTNhUHVtS3U3WWlkQUR1cDJCYm5vdGxnM3lfSVdET0d6aWRkbWRCLUdkTFp0eXhNT1dJOTdETW1NRUdZak51S0xiNGgta3JnWVE4dzR1T19hajMwQkxpdmlMUElFWTJfZHA5SmdOQ2NDWnJTVlJial9sd0pRNFUxV1lySkM3bHAtM3J3WXFfQUhTWVk3d05jdE1fSg?oc=5",
+     "publisher": "TMZ",
+     "at": "2026-11-02T23:52:27+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [

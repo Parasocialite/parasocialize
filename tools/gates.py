@@ -65,6 +65,9 @@ SOURCE = [
     # its timestamp is the moment. `watched` is what makes that true, and
     # this fails on a clip that asserts a timestamp nobody has checked.
     ("clips --check", ["clips.py", "--check"]),
+    # The daily engine: same date, same eight; one per category;
+    # and the 30-day rule where the pool can supply it.
+    ("top8_engine --check", ["top8_engine.py", "--check"]),
     ("link_audit", ["link_audit.py"]),
 ]
 
@@ -101,6 +104,9 @@ POST_CHECK = [
     # sitemap URL must exist. Two reader pages were missing and nothing noticed,
     # because the sitemap is built from a hand-written list of remembered URLs.
     ("check_sitemap", ["check_sitemap.py"]),
+    # Every recorded day must have a dated page, eight items, a
+    # canonical URL and a link from the calendar.
+    ("check_top8_archive", ["check_top8_archive.py"]),
     ("verify_findable", ["verify_findable.py"]),
     ("verify_landmarks", ["verify_landmarks.py"]),
     ("verify_ways", ["verify_ways.py"]),

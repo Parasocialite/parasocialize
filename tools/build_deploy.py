@@ -517,6 +517,12 @@ def assemble(do_optimise=True):
     # reader need. The mark lives on section and way pages, and the old URL
     # goes to the page that is actually about the site.
     lines.append("/brand/  /credits/  301")
+    # The brief that introduced the dated archive addressed it as
+    # /top-8/...; the site has always been /top8/. Both work rather than
+    # splitting the namespace, and the hyphenated form is the one that
+    # gets linked from outside.
+    lines.append("/top-8/  /top8/  301")
+    lines.append("/top-8/*  /top8/:splat  301")
     lines.append("/membership/  /credits/  301")
     lines.append("/membership  /credits/  301")
     lines.append("/classroom/  /history/  301")

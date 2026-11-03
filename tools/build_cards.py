@@ -1610,6 +1610,8 @@ def build_way(a, tax, enc, data, manifest=None):
     pla = json.loads((ROOT / "data" / "taxonomy_placements.json")
                      .read_text(encoding="utf-8"))["assignments"]
     spl = story_placements()
+    enc = json.loads((ROOT / "data" / "encyclopedia.json")
+                     .read_text(encoding="utf-8"))
     byid = {e["id"]: e for e in enc["entries"]}
 
     mine = sorted(cards_on_way(data["cards"], a["id"], spl),
@@ -2366,7 +2368,6 @@ def build_front(data, feat=None, manifest=None, hist=None):
     <a class="btn btn-solid t8front-cta" href="top8/index.html">View Full Top 8 Analysis &amp; Archive History &rarr;</a>
     {_ghost}
   </div>
-  <p class="t8front-note">Eight of {_raw_n} from this list, chosen for today. The full list and the day record are on the Top 8 page.</p>
 </section>"""
     else:
         t8_block = ""
@@ -3366,6 +3367,36 @@ def build_top8_archive(data, feat, manifest):
   here.</p>
 </section>""")
 
+    # ---- by date: every recorded day, as a calendar --------------------
+    try:
+        _hist = json.loads((ROOT / "data" / "top8_history.json")
+                           .read_text(encoding="utf-8")).get("days") or []
+    except (OSError, ValueError):
+        _hist = []
+    _hist = sorted([d for d in _hist if d.get("items")],
+                   key=lambda d: str(d.get("date")), reverse=True)
+    _tiles = []
+    for _d in _hist:
+        _iso = str(_d["date"])[:10]
+        try:
+            _dt = datetime.date.fromisoformat(_iso)
+        except ValueError:
+            continue
+        _k = (f"{_iso} {_dt.strftime('%B %Y')} {_d.get('theme') or ''}").lower()
+        _tiles.append(
+            f'<a class="t8cal-day" href="{_iso}/index.html" data-k="{esc(_k)}">'
+            f'<span class="t8cal-d">{_dt.day:02d}</span>'
+            f'<span class="t8cal-m">{_dt.strftime("%b")} {_dt.year}</span>'
+            f'<span class="t8cal-t">{esc(str(_d.get("theme") or "").replace("-", " "))}</span>'
+            f'</a>')
+    cal = (f'<section class="section t8cal" id="by-date">'
+           f'<div class="band-head"><div><p class="kicker">By date</p>'
+           f'<h2>Every day, as it ran.</h2></div>'
+           f'<input class="search" id="t8calQ" type="search" '
+           f'placeholder="Filter by month or theme" aria-label="Filter the by-date archive">'
+           f'</div><div class="t8cal-grid" id="t8calGrid">{"".join(_tiles)}</div>'
+           f'</section>')
+
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3395,9 +3426,181 @@ def build_top8_archive(data, feat, manifest):
   <p class="countline">The lists here are kept exactly as they shipped.
   <a href="{r}index.html">Back to the ten sections →</a></p>
 </section>
-</main>
+{cal}</main>
 {FOOT.format(root=root(2), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
+<script>{T8CAL_JS}</script>
 </body></html>"""
+
+
+def build_top8_day_pages(data, manifest):
+    """One frozen page per recorded day, at /top8/archive/<date>/.
+
+    WHY THIS EXISTS
+    The archive used to be a list of *lists*: two themed collections, each shown
+    in full. A reader who wants "what was on the eighth of November" had to read
+    a sequence and count. A date is the only address that survives the theme
+    changing, and a snapshot has to be frozen rather than recomputed: the
+    rotation depends on that day's wires, so a later build cannot know what the
+    page would have shown.
+
+    These pages are generated from `data/top8_history.json`, the same file the
+    record reads, so a day that was never recorded cannot be invented here.
+    """
+    try:
+        hist = json.loads((ROOT / "data" / "top8_history.json")
+                          .read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return 0
+    try:
+        place = json.loads((ROOT / "data" / "taxonomy_placements.json")
+                           .read_text(encoding="utf-8")).get("assignments") or {}
+    except (OSError, ValueError):
+        place = {}
+    try:
+        tax = json.loads((ROOT / "data" / "taxonomy.json")
+                         .read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        tax = {"attachment": []}
+    sub_def = {}
+    for cat in tax.get("attachment", []):
+        for sub in cat.get("sub", []):
+            sub_def[sub["id"]] = sub.get("def", "")
+
+    enc = json.loads((ROOT / "data" / "encyclopedia.json")
+                     .read_text(encoding="utf-8"))
+    byid = {e["id"]: e for e in enc["entries"]}
+    days = [d for d in (hist.get("days") or []) if d.get("items")]
+    days.sort(key=lambda d: str(d.get("date")))
+    written, urls = 0, []
+
+    for i, rec in enumerate(days):
+        iso = str(rec["date"])[:10]
+        try:
+            dt = datetime.date.fromisoformat(iso)
+        except ValueError:
+            continue
+        pretty = dt.strftime("%B %-d, %Y") if hasattr(datetime, "_strptime") \
+            else dt.strftime("%B %d, %Y").replace(" 0", " ")
+        if "%" in pretty:
+            pretty = dt.strftime("%B %d, %Y")
+        canon = f"{SITE}/top8/archive/{iso}/"
+        title = f"Parasocialize Top 8 \u2014 {pretty}"
+        prev_day = str(days[i - 1]["date"])[:10] if i > 0 else None
+        next_day = str(days[i + 1]["date"])[:10] if i + 1 < len(days) else None
+
+        rows = []
+        for rank, eid in enumerate(rec["items"], 1):
+            e = byid.get(eid)
+            if not e:
+                rows.append(
+                    f'<li class="t8d-item"><span class="t8d-rank">{rank:02d}</span>'
+                    f'<p class="t8d-missing">An entry no longer in the corpus: '
+                    f'{esc(eid)}</p></li>')
+                continue
+            plat = (place.get(eid) or {})
+            cat = plat.get("cat") or ""
+            why = esc(deck(e.get("summary") or "", 26))
+            tip = esc(sub_def.get((plat.get("sub") or ""), ""))[:180]
+            chip = ""
+            if cat:
+                chip = (f'<a class="t8d-cat" href="../../../ways/{esc(cat)}/index.html" '
+                        f'title="{tip}" data-cat="{esc(cat)}">{esc(cat.title())}</a>')
+            rows.append(f"""<li class="t8d-item" data-cat="{esc(cat)}">
+  <span class="t8d-rank">{rank:02d}</span>
+  <div class="t8d-body">
+    <p class="t8d-kicker">{chip}
+      <span class="t8d-show">{esc(e.get('year') or '')}</span></p>
+    <h2 class="t8d-title"><a href="../../../encyclopedia/{esc(eid)}.html">{esc(e['title'])}</a></h2>
+    <p class="t8d-why">{why}</p>
+  </div>
+</li>""")
+
+        cite_text = (f"{title}. Parasocialize, {pretty}. {canon}")
+        nav = []
+        if prev_day:
+            nav.append(f'<a class="t8d-nav" href="../{prev_day}/index.html">&larr; '
+                       f'{esc(prev_day)}</a>')
+        if next_day:
+            nav.append(f'<a class="t8d-nav" href="../{next_day}/index.html">'
+                       f'{esc(next_day)} &rarr;</a>')
+
+        page = f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(title)}</title>
+<meta name="description" content="The eight that ran on {esc(pretty)}, frozen as published.">
+<link rel="canonical" href="{canon}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{esc(title)}">
+<meta property="og:description" content="The eight that ran on {esc(pretty)}, frozen as published.">
+<meta property="og:url" content="{canon}">
+<meta property="og:site_name" content="Parasocialize">
+<meta name="twitter:card" content="summary">
+{HEAD.format(site=SITE, path=f"/top8/archive/{iso}/", otype="article",
+             title=esc(title), desc=esc("The eight that ran on " + pretty),
+             root="../../../")}
+</head>
+<body>
+<a class="skip" href="#list">Skip to the eight</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root="../../../", total=len(data["cards"]), mk=wordmark("nav"))}
+<main>
+<section class="section t8d-head">
+  <p class="kicker">Top 8 archive &middot; {esc(rec.get('theme') or 'daily edition')}</p>
+  <h1 class="t8d-h1">{esc(title)}</h1>
+  <p class="t8d-lede">The eight that ran that day, frozen as published. Later
+  builds do not revise a day.</p>
+  <div class="t8d-navrow">{''.join(nav)}
+    <a class="t8d-nav" href="../../index.html">Every day &rarr;</a></div>
+</section>
+<section class="section" style="padding-top:0">
+  <ol class="t8d-list" id="list">{''.join(rows)}</ol>
+  <div class="t8d-cite">
+    <h2>Share / cite this list</h2>
+    <p class="t8d-cite-url"><code>{canon}</code></p>
+    <textarea class="t8d-cite-text" id="citeText" readonly rows="2">{esc(cite_text)}</textarea>
+    <div class="t8d-cite-actions">
+      <button class="t8d-btn" type="button" data-copy="#citeText">Copy the citation</button>
+      <button class="t8d-btn" type="button" data-copy-url="{canon}">Copy the link</button>
+    </div>
+    <p class="t8d-copy-note" id="copyNote" role="status"></p>
+  </div>
+</section>
+</main>
+{FOOT.format(root="../../../", sweep=MESSY, motto='THE DAY, AS IT RAN.')}
+<script>
+(function () {{
+  var note = document.getElementById('copyNote');
+  function say(m) {{ if (!note) return; note.textContent = m;
+    setTimeout(function () {{ note.textContent = ''; }}, 2200); }}
+  document.querySelectorAll('[data-copy]').forEach(function (b) {{
+    b.addEventListener('click', function () {{
+      var t = document.querySelector(b.getAttribute('data-copy'));
+      if (!t) return;
+      t.select(); t.setSelectionRange(0, 99999);
+      try {{ document.execCommand('copy'); say('Copied.'); }}
+      catch (e) {{ say('Select the text and copy it.'); }}
+    }});
+  }});
+  document.querySelectorAll('[data-copy-url]').forEach(function (b) {{
+    b.addEventListener('click', function () {{
+      var u = b.getAttribute('data-copy-url');
+      if (navigator.clipboard) {{
+        navigator.clipboard.writeText(u).then(function () {{ say('Link copied.'); }});
+      }} else {{ say(u); }}
+    }});
+  }});
+}})();
+</script>
+</body></html>"""
+
+        out = ROOT / "top8" / "archive" / iso
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "index.html").write_text(page, encoding="utf-8")
+        urls.append((canon, "0.4", "yearly"))
+        written += 1
+
+    return written, urls
 
 
 def build_top8_record(data, feat, manifest):
@@ -6347,6 +6550,16 @@ def build_sitemap(data):
     # above: a reader can reach them from their parent pages, and a curated
     # list that leaves them out is a curated list that is wrong.
     urls.append((f"{SITE}/top8/record/", "0.5", "weekly"))
+    # One page per recorded day. A frozen snapshot is only "half published" if
+    # a crawler cannot reach it, which is this file's own rule.
+    try:
+        _h = json.loads((ROOT / "data" / "top8_history.json")
+                        .read_text(encoding="utf-8"))
+        for _d in _h.get("days") or []:
+            urls.append((f"{SITE}/top8/archive/{str(_d['date'])[:10]}/",
+                         "0.4", "yearly"))
+    except (OSError, ValueError):
+        pass
     urls.append((f"{SITE}/taxonomy/record/", "0.5", "weekly"))
     urls.append((f"{SITE}/credits/", "0.4", "monthly"))
     urls.append((f"{SITE}/citations/", "0.5", "weekly"))
@@ -6386,6 +6599,23 @@ def build_sitemap(data):
 
 
 # ------------------------------------------------------------------ run
+T8CAL_JS = r"""
+/* Filter the by-date grid. The grid is built at build time; this only hides
+   tiles, so with scripting off every day is still listed and linked. */
+(function () {
+  var q = document.getElementById('t8calQ');
+  var grid = document.getElementById('t8calGrid');
+  if (!q || !grid) return;
+  var tiles = Array.prototype.slice.call(grid.querySelectorAll('.t8cal-day'));
+  q.addEventListener('input', function () {
+    var v = q.value.trim().toLowerCase();
+    tiles.forEach(function (a) {
+      a.hidden = v && (a.getAttribute('data-k') || '').indexOf(v) === -1;
+    });
+  });
+})();
+"""
+
 CLIP_JS = r"""
 /* The clip card's play facade and the nomination form. Inline because these
    pages do not load main.js. The facade is click-to-load: no iframe, no
@@ -6881,6 +7111,9 @@ def main():
     (ROOT / "top8" / "archive").mkdir(exist_ok=True)
     (ROOT / "top8" / "archive" / "index.html").write_text(
         build_top8_archive(data, feat, manifest), encoding="utf-8")
+    # one frozen page per recorded day, at /top8/archive/<date>/
+    _days_written, _ = build_top8_day_pages(data, manifest)
+    print(f"  {_days_written} dated top-8 archive pages")
     # The day-by-day record at full length, beside the run-collapsed one under
     # the list. Reads the same data/top8_history.json the record under /top8/
     # does, so there is one sequence and two readings of it.
