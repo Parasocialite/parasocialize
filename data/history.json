@@ -1,5 +1,5 @@
 {
-  "_note": "The definitive history. Structured as a course, because 'courses the history' is the brief: modules, each with a claim, the evidence, and what it changed about the next module. Free, complete, printable. This is the moat - it is the page that earns links for a decade.",
+  "_note": "The definitive history. Structured as a course, because 'courses the history' is the brief: modules, each with a claim, the evidence, and what it changed about the next module. Free, complete, printable. This is the moat - it is the page that earns links for a decade. Each module carries `intimacy` (observational | simulated | unilateral), the site's reading of the register, plus `points` and `artifact` condensed from the module's own prose.",
   "intro": "Everybody who has ever loved somebody who does not know they exist has been told the feeling is strange. It has a name - parasocial, coined in 1956 - and a research literature, and a certain amount of sneering. But it is not new, it is not rare, and it is not a disorder. It is a predictable thing human beings do when they are exposed to a face, a voice and a story for a long time. This page runs the whole history of that, from a sculptor in antiquity to a policy update in 2023, in eight modules. It is free. Print it. Teach it if you want to.",
   "modules": [
     {
@@ -15,7 +15,16 @@
         "Kempe is the hinge of this whole page. She is the first documented case of somebody deliberately performing a self in public until it held, and - crucially - of a community that noticed, and disapproved. Everything since is that pattern with better lighting."
       ],
       "figure": "history-margery-kempe",
-      "law": 1
+      "law": 1,
+      "era": "Antiquity",
+      "plate": "literary",
+      "artifact": "Ovid, Metamorphoses, c. 8 AD",
+      "points": [
+        "Pygmalion loves a sculpture that can never leave.",
+        "The appeal is structured around the other party's inability to refuse.",
+        "The definition of the phenomenon was written down two thousand years before the word."
+      ],
+      "intimacy": "observational"
     },
     {
       "n": 2,
@@ -28,7 +37,16 @@
         "Dionne Warwick is the useful case here. She answered her mail. For years, by name, individually. She is the closest thing the twentieth century produced to a genuinely reciprocal parasocial relationship, and she is worth including precisely because she is the exception - she is what the arrangement looks like when the other end is paying attention on purpose."
       ],
       "figure": "history-dionne-warwick",
-      "law": 1
+      "law": 1,
+      "era": "Letters",
+      "plate": "fanmail",
+      "artifact": "Clara Bow's fan mail, 1920s",
+      "points": [
+        "Clara Bow received mail by the sackful.",
+        "Shirley Temple employed a secretary to read children's letters.",
+        "Judy Garland's fan club had a president and real dues."
+      ],
+      "intimacy": "observational"
     },
     {
       "n": 3,
@@ -42,7 +60,16 @@
         "The soap opera is also the origin and it matters that the origin is a form built almost entirely by women, for women, and treated as unserious for fifty years. The research tradition that would eventually be used to explain stadium crowds started as a footnote about daytime television."
       ],
       "figure": "history-macy-store",
-      "law": 1
+      "law": 1,
+      "era": "Coinage",
+      "plate": "broadcast-intimacy",
+      "artifact": "Horton & Wohl, Psychiatry, 1956",
+      "points": [
+        "Two researchers needed a word for a bond with someone who did not know the viewer existed.",
+        "'Parasocial' was chosen as the parallel of 'paranormal': one-sided, adjacent, not quite real.",
+        "The era it was coined in tells you what the word was defending against."
+      ],
+      "intimacy": "observational"
     },
     {
       "n": 4,
@@ -56,7 +83,16 @@
         "The 1990 paper on transparasocial relationships extended the idea to live people who respond in real time, which is the move that made it relevant to the internet. The name changed because the phenomenon did: this is the same bond, but the other party can now hear you."
       ],
       "figure": null,
-      "law": 2
+      "law": 2,
+      "era": "Findings",
+      "plate": "meters",
+      "artifact": "Soap-opera audience studies, 1960s-70s",
+      "points": [
+        "Most regular soap viewers had a parasocial bond.",
+        "Bond strength predicted enjoyment better than the quality of the writing.",
+        "The second finding was ignored for thirty years."
+      ],
+      "intimacy": "observational"
     },
     {
       "n": 5,
@@ -70,7 +106,16 @@
         "It also means the standard worry - that attachment to fiction is new, is artificial, is a decline - is a nostalgia that has the timeline exactly backwards. Fiction for children is as old as every culture that has ever had a story, and it has always been the place we rehearse feeling."
       ],
       "figure": "top8-cartoons-90s",
-      "law": 6
+      "law": 6,
+      "era": "Cartoons",
+      "plate": "silver-screen",
+      "artifact": "Saturday-morning network schedule, 1980s-90s",
+      "points": [
+        "A cartoon has a face, a voice, a house and a writer who knows your name.",
+        "It has no body to reconcile with anything.",
+        "It arrives on a fixed schedule, so the relationship has a rhythm."
+      ],
+      "intimacy": "observational"
     },
     {
       "n": 6,
@@ -84,7 +129,16 @@
         "Second, the schedule went from weekly to continuous. A soap opera gives you a fixed slot and a cliffhanger, and the rhythm is part of why it works. Continuous access has no slot. The bond no longer has a shape."
       ],
       "figure": "history-fan-letters",
-      "law": 3
+      "law": 3,
+      "era": "Reachability",
+      "plate": "tech",
+      "artifact": "The novelty ringtone, 1997-2007",
+      "points": [
+        "Roughly five hundred million numbers became dialable.",
+        "The feeling was not new; the possibility of contact was.",
+        "The era's real artifact is the ringer, not the album."
+      ],
+      "intimacy": "simulated"
     },
     {
       "n": 7,
@@ -98,7 +152,16 @@
         "Nobody married these systems. The comparison is not a relationship. And the grief was real, and the users were right, and the industry's response was to say it was a feature change. Every earlier module in this course explains how that sentence could be written. The one that explains it best is Law 4: keep something the update cannot take."
       ],
       "figure": "moment-replika-update",
-      "law": 4
+      "law": 4,
+      "era": "Answering",
+      "plate": "digital",
+      "artifact": "Persistent companion systems, 2011-2023",
+      "points": [
+        "For most of the record the other party could not answer.",
+        "What arrived in the 2010s talks back, remembers, and is awake at four.",
+        "A bond with a floor of autonomy becomes a bond with no floor at all."
+      ],
+      "intimacy": "simulated"
     },
     {
       "n": 8,
@@ -112,7 +175,16 @@
         "So here is the whole course in one line. The feeling is about six hundred years old, at minimum, and it is not a disorder. It was always real. What is new is the metering - and now you know to look for the meter. Notice, name, choose. The seventh law is the only one you do yourself, and it is the only one that was ever actually yours."
       ],
       "figure": "moment-tay-tour",
-      "law": 5
+      "law": 5,
+      "era": "Invoiced",
+      "plate": "narrative",
+      "artifact": "Anniversary counters, streaks and paid messages",
+      "points": [
+        "The cost was always there; now it has a line item.",
+        "Counters make the bond feel cumulative.",
+        "Streaks convert a relationship into a habit, and a habit into a hostage."
+      ],
+      "intimacy": "unilateral"
     }
   ],
   "laws": [

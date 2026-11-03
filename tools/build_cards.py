@@ -3819,36 +3819,85 @@ def build_top8_record(data, feat, manifest):
 
 # ------------------------------------------------------------------ history
 def build_history(data, hist, manifest):
+    """The course, rebuilt as an archival rail.
+
+    The old page stacked eight long prose blocks down the screen, so the course
+    arrived as a wall before it arrived as a history. Each module is now a
+    station: years, a claim, three points, the primary artifact, and a reading
+    of the register - with the full prose kept, collapsed, under "The full
+    record". Nothing was deleted; the long form is one click down.
+
+    The register (`intimacy`) is the site's reading of a module, not a
+    measurement: observational, simulated or unilateral. It is a claim about
+    the period's shape, and the page says so where the meter is explained.
+    """
     r = root(1)
     laws = {l["n"]: l for l in data["laws"]}
+    BANDS = [("observational", "Observational", "Blue"),
+             ("simulated", "Simulated reciprocity", "Amber"),
+             ("unilateral", "Unilateral fusion", "Crimson")]
+    band_label = {k: f"{name} · {colour}" for k, name, colour in BANDS}
 
-    mod_bar = "".join(
-        f'<a class="hlaw" href="#m{esc(m["n"])}"><b>{esc(m["n"])}</b>'
-        f'<span>{esc(m["title"])}<i class="hlaw-y">{esc(m["years"])}</i></span></a>'
+    rail = "".join(
+        f'<a class="hh-stop" href="#m{esc(m["n"])}" data-band="{esc(m.get("intimacy", "observational"))}">'
+        f'<i aria-hidden="true"></i><b>{esc(m["n"])}</b>'
+        f'<span>{esc(m["years"])}</span></a>'
         for m in hist["modules"])
 
     mods = []
     for m in hist["modules"]:
+        band = str(m.get("intimacy") or "observational")
         f = img_for(manifest, m.get("figure"), 1)
-        im = (f'<figure class="fig h-fig"><img src="{esc(f["path"])}" alt="{esc(f["caption"])}" loading="lazy">'
-              f'<figcaption>{esc(f["caption"])} · '
-              f'<a href="{esc(f["page"])}" target="_blank" rel="noopener">'
-              f'{esc(f["credit"])}</a></figcaption></figure>') if f else ""
-        body = "".join(f"<p>{esc(p)}</p>" for p in m["body"])
+        plate = ""
+        try:
+            series = json.loads((ROOT / "data" / "series.json").read_text(encoding="utf-8"))
+            slug = m.get("plate")
+            file = next((i["file"] for i in series["items"] if i["slug"] == slug), None)
+            if file and (ROOT / "img" / "series" / file).exists():
+                plate = (f'<figure class="hh-plate"><img src="../img/series/{esc(file)}" '
+                         f'alt="" loading="lazy" width="1408" height="768">'
+                         f'<span class="hh-stamp">ACC. {esc(str(m["n"]).zfill(3))}</span>'
+                         f'</figure>')
+        except (OSError, ValueError, KeyError):
+            plate = ""
+
+        points = "".join(f"<li>{esc(pt)}</li>" for pt in (m.get("points") or []))
+        body = "".join(f"<p>{esc(pp)}</p>" for pp in m["body"])
+        art = (f'<p class="hh-artifact"><span>Primary artifact</span> '
+               f'{esc(m["artifact"])}</p>') if m.get("artifact") else ""
+        fig = ""
+        if f:
+            fig = (f'<figure class="fig h-fig"><img src="{esc(f["path"])}" '
+                   f'alt="{esc(f["caption"])}" loading="lazy">'
+                   f'<figcaption>{esc(f["caption"])} · '
+                   f'<a href="{esc(f["page"])}" target="_blank" rel="noopener">'
+                   f'{esc(f["credit"])}</a></figcaption></figure>')
         cite = (f'<p class="h-cite">This module is law {esc(m.get("law"))} · '
-                f'<a href="#law-{esc(m.get("law"))}">{esc(laws.get(m.get("law"),{}).get("title",""))}</a>'
-                f'</p>') if m.get("law") else ""
-        mods.append(f"""<article class="hmod" id="m{esc(m['n'])}">
-  <header class="hmod-head">
-    <span class="hmod-n">{esc(m['n'])}</span>
-    <div class="hmod-titles">
-      <p class="hmod-years">{esc(m['years'])}</p>
-      <h2>{esc(m['title'])}</h2>
-      <p class="hmod-claim">{esc(m['claim'])}</p>
+                f'<a href="#law-{esc(m.get("law"))}">'
+                f'{esc(laws.get(m.get("law"), {}).get("title", ""))}</a></p>'
+                ) if m.get("law") else ""
+        segs = "".join(
+            f'<i class="hh-seg{" on" if k == band else ""}" data-k="{k}" '
+            f'aria-hidden="true"></i>' for k, _n, _c in BANDS)
+
+        mods.append(f"""<article class="hh-mod" id="m{esc(m['n'])}" data-band="{esc(band)}">
+  {plate}
+  <div class="hh-copy">
+    <p class="hh-years">{esc(m['years'])}<span class="hh-era">{esc(m.get('era',''))}</span></p>
+    <h2>{esc(m['title'])}</h2>
+    <p class="hh-claim">{esc(m['claim'])}</p>
+    <ul class="hh-points">{points}</ul>
+    {art}
+    <div class="hh-meter" title="The site's reading of this period's register">
+      <span class="hh-track">{segs}</span>
+      <em>{esc(band_label.get(band, ''))}</em>
     </div>
-  </header>
-  {f'<div class="hmod-prose">{body}{cite}</div>'}
-  {im}
+    <details class="hh-more">
+      <summary>The full record</summary>
+      <div class="hmod-prose">{body}{cite}</div>
+      {fig}
+    </details>
+  </div>
 </article>""")
 
     laws_html = []
@@ -3861,11 +3910,11 @@ def build_history(data, hist, manifest):
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The history of parasocial relationships — a course — Parasocialize</title>
-<meta name="description" content="Eight modules, from Pygmalion to a 2023 policy update. The complete history of one-sided attachment, free to read and free to print.">
+<title>The History of Unreciprocated Connection in all Domains - Parasocialize</title>
+<meta name="description" content="Eight modules, from Pygmalion to the invoiced bond. The history of one-sided attachment across media, free to read and free to print.">
 {HEAD.format(site=SITE, path="/history/", otype="website",
-             title="The history of parasocial relationships - a course",
-             desc="Eight modules, from Pygmalion to a 2023 policy update. Free and complete.",
+             title="The History of Unreciprocated Connection in all Domains",
+             desc="Eight modules, from Pygmalion to the invoiced bond.",
              root=root(1))}
 </head>
 <body>
@@ -3873,31 +3922,33 @@ def build_history(data, hist, manifest):
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root=root(1), total=len(data['cards']), mk=wordmark("nav"))}
 <main>
-<section class="section" style="padding-bottom:24px">
-  <p class="kicker">A course in eight modules · free · printable</p>
-  <h1 class="h-title">The history of feeling things at people who can't feel it back</h1>
-  <p class="sec-lede" style="font-size:1.12rem;max-width:64ch">{esc(hist['intro'])}</p>
-  <p class="countline">Ctrl/Cmd+P to print the whole thing. It is a course, not a blog post — modules, claims, evidence.</p>
-  <div class="h-outline">{mod_bar}</div>
+<section class="section hh-head">
+  <p class="kicker">A course in eight modules &middot; free &middot; printable</p>
+  <h1 class="h-title">The History of Unreciprocated Connection in all Domains</h1>
+  <p class="sec-lede" style="font-size:1.08rem;max-width:66ch">{esc(hist['intro'])}</p>
+  <div class="hh-rail" aria-label="The eight modules">{rail}</div>
+  <p class="hh-legend">The register is this site's reading of a period, not a
+  measurement: <b>Observational Blue</b> for a bond held at distance,
+  <b>Simulated Reciprocity Amber</b> for a system that appears to answer,
+  <b>Unilateral Fusion Crimson</b> for a bond that replaces the room.</p>
 </section>
 
-<section class="section" id="course" style="padding-top:0">
+<section class="section hh-course" id="course">
   {''.join(mods)}
 </section>
 
 <section class="section" style="padding-top:0">
   <p class="kicker">The seven laws, which is what all of this adds up to</p>
-  <div class="sec-head"><h2>Eight modules, seven patterns, one method.</h2>
-  <p class="sec-lede">The history tells you where the feeling came from. The laws tell you what to do about it
-  now, which is a different job and the more useful one. Notice, name, choose.</p></div>
+  <h2 style="font-family:var(--serif);font-size:clamp(1.5rem,3vw,2rem);font-weight:900;letter-spacing:-.03em;margin:0 0 8px">Eight modules, seven patterns, one method.</h2>
+  <p class="sec-lede" style="max-width:62ch">The history tells you where the feeling came from. The laws tell you what to do about it now, which is a different job and the more useful one. Notice, name, choose.</p>
   <div class="h-laws">{''.join(laws_html)}</div>
 </section>
 </main>
-{FOOT.format(root=root(1), sweep=MESSY, motto='SIX HUNDRED YEARS, EIGHT MODULES,<br>ONE UNCOMFORTABLE QUESTION.')}
+{FOOT.format(root=root(1), sweep=MESSY, motto='THE BOND IS OLD.<br>THE INTERFACE IS NEW.')}
 </body></html>"""
 
 
-# ------------------------------------------------------------------ figures + moments
+
 def build_figures(data, feat, manifest):
     r = root(1)
     figs = []
