@@ -468,6 +468,123 @@
      "track": "2 stories · 17 entries · 4 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-04",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "podcast-listeners-study",
+     "title": "Podcast listeners score suspiciously high on parasocial attachment",
+     "why": "Podcast listeners scoring high on parasocial attachment - and so do people who like novelty and good conversation, which undercuts the exotic reading. The measurement that makes the creator category ordinary.",
+     "href": "radar/podcast-listeners-study.html",
+     "meta": "Story · creator",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 5 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "lugosi-burial",
+     "title": "He did not ask to be buried as Dracula",
+     "why": "A man interred in his character's costume, where the costume's owner chose nothing at all: his son and mother decided. played-role because the entry is entirely about where a role ends and a person starts.",
+     "href": "encyclopedia/lugosi-burial.html",
+     "meta": "Film · 1956",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 5 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "harvey",
+     "title": "Nobody in that room argues with him",
+     "why": "Believed present and unverifiable, which is the haunted test exactly - and the film's own mechanism is that nobody who could check declines to. Filed social-agent because he is addressed, not used.",
+     "href": "encyclopedia/harvey.html",
+     "meta": "Film · 1950",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 5 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "roman-imagines",
+     "title": "The wax masks in the hall",
+     "why": "A wax likeness of a specific dead relative, kept in the house and never able to answer. Same shelf as neanderthal-burial, and that is deliberate: burying a relative you intend to keep within reach and casting one are the same act at 70,000 years' remove.",
+     "href": "encyclopedia/roman-imagines.html",
+     "meta": "History · 250 BC–550",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 5 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "youtube-launch",
+     "title": "YouTube launches",
+     "why": "Uploads become trivially cheap and the audience begins to attach to individuals rather than channels. The moment the object changed shape, and it is the platform that did it.",
+     "href": "encyclopedia/youtube-launch.html",
+     "meta": "Unscripted television · 2005",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 5 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "war-of-the-worlds",
+     "title": "Nine to twelve million heard it",
+     "why": "Filed cosmology/scheduling - \"a repeated slot that becomes a container for the tie\" - because what this entry argues is a property of the hour rather than of the script.",
+     "href": "encyclopedia/war-of-the-worlds.html",
+     "meta": "Radio · 1938",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 5 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-coach",
+     "title": "The coach",
+     "why": "An adult with authority over a child for years, remembered partly by how they made them feel at nine. The compulsory version of the same attachment as the teacher, and the entry that shows the category is about asymmetry of power rather than about proximity.",
+     "href": "encyclopedia/the-coach.html",
+     "meta": "Sport · 1900",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 5 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "doxxing",
+     "title": "Doxxing the person, not the character",
+     "why": "The jump from disliking a fictional portrayal to publishing a real person's address. The word had to be invented for a grievance that used to be settled by writing a letter, which is the shift in register the entry documents.",
+     "href": "encyclopedia/doxxing.html",
+     "meta": "Technology · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 5 daily cases"
+    }
+   }
   }
  ]
 }
