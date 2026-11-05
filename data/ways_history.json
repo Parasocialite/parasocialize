@@ -585,6 +585,135 @@
      "track": "2 stories · 17 entries · 5 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-05",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "fearne-cotton-free-tv",
+     "title": "A wellness podcast just became a television channel",
+     "why": "A podcast becoming a television channel, so the host finally has the thing the listeners already had. The daily creator moving toward the presenter, and the gap between them is the story.",
+     "href": "radar/fearne-cotton-free-tv.html",
+     "meta": "Story · creator",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 6 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "vtuber",
+     "title": "The virtual creator",
+     "why": "A performer with an animated persona, a persistent character, and an industry model where the audience pays for the character's recognition. The played role again, but the persistent-character half is what makes it distinct from Pee-wee.",
+     "href": "encyclopedia/vtuber.html",
+     "meta": "Unscripted television · 2016",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 6 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "neuro-sama-tops-twitch",
+     "title": "An AI is Twitch's most subscribed channel and nobody blinked",
+     "why": "296k subscribers for an AI streamer who plays osu!, sings and thanks her creator on stream, and nobody blinked. The social agent case: a persistent identity with an audience that gathered under a name.",
+     "href": "radar/neuro-sama-tops-twitch.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 6 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "sunghir",
+     "title": "Beads, and one bull",
+     "why": "Same shelf as neanderthal-burial, deliberately, and the pair is the argument: a pit you keep coming back to is one thing, and a site where the rich burials and the plain ones sit side by side for thirty thousand years is a different claim.",
+     "href": "encyclopedia/sunghir.html",
+     "meta": "History · 34000 BC",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 6 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "twitch-ceo-and-the-creator-on-one-stage",
+     "title": "A platform CEO and a 35-million-subscriber creator share one stage",
+     "why": "A creator conference putting platform executives and working creators on one stage and turning away the audience that makes both possible. The institution and the people it is built from, separated by a rope.",
+     "href": "radar/twitch-ceo-and-the-creator-on-one-stage.html",
+     "meta": "Story · creator",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 6,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "YouTube Brings Creator Posts, Remote Comments to TVs",
+       "url": "https://www.parasocialmagazine.com/news/youtube-brings-creator-posts-remote-comments-to-tvs/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=youtube-brings-creator-posts-remote-comments-to-tvs",
+       "publisher": "parasocialmagazine.com"
+      }
+     ],
+     "track": "10 stories · 49 entries · 6 daily cases"
+    },
+    "cosmology": {
+     "kind": "story",
+     "id": "neighbours-grief-study",
+     "title": "Researchers studied Neighbours fans and found the same grief markers as a breakup",
+     "why": "Researchers finding the same grief markers in Neighbours fans as in a breakup. The measurement the archive register rests on, and it is a study of a schedule rather than of a character.",
+     "href": "radar/neighbours-grief-study.html",
+     "meta": "Story · grief",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 6,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "Neighbours fans experienced similar grief traits to a relationship ending after the finale, new study finds",
+       "url": "https://www.abc.net.au/news/2024-06-13/neighbours-fans-grieved-series-end-study-finds/103973952",
+       "publisher": "abc.net.au"
+      }
+     ],
+     "track": "2 stories · 20 entries · 6 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-teacher",
+     "title": "The teacher",
+     "why": "An authority figure seen daily for years who knows your name, your mood and your home situation. The densest single setting for involuntary one-sided attachment, and the least discussed anywhere.",
+     "href": "encyclopedia/the-teacher.html",
+     "meta": "History · 1900",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 6 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "contest",
+     "title": "Fighting about a stranger in a reply section",
+     "why": "Fighting about a stranger in a reply section, in good faith. The object is a non-person who cannot be fought with, and the mechanism is the in-group. This is the cleanest instance of the register-as-category confusion the old taxonomy suffered from.",
+     "href": "encyclopedia/contest.html",
+     "meta": "Technology · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 6 daily cases"
+    }
+   }
   }
  ]
 }

@@ -1065,6 +1065,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-05-streaming",
+   "title": "Top 8: The Reply That Feels Real",
+   "home_title": "The Reply That Feels Real",
+   "home_hook": "A host says your name. The wall looks like a window.",
+   "dek": "The first medium where the reply is fast enough to feel reciprocal. Ranked by how much of the warmth was a product decision.",
+   "kicker": "Daily edition · 05 NOV 2026 · Streaming",
+   "image": null,
+   "law": 5,
+   "standfirst": "A streamer can answer a message in seconds, which is more than most television ever managed. The eight below are the record of what that speed does: the subscription, the shout-out, the moderation queue, the parasocial bond sold as a monthly tier.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "The platform executive and the creator, same stage",
+     "show": "Technology · 2026",
+     "what": "VidSummit 2026 bills Dan Clancy, chief executive of Twitch, and SSSniperWolf - thirty-five million subscribers - on the same programme.",
+     "why": "The executive who sets the terms and the person who lives under them, speaking at the same trade fair, to the same room. Neither of them is there with the people watching.",
+     "law": 5,
+     "entry": "twitch-500m",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "Live chat, two-way",
+     "show": "Technology · 2015",
+     "what": "A live stream with a visible comment feed, where the creator can read the room while the room watches itself. The first mass parasocial environment where the one-sided bond visibly, continuously, acknowledges you.",
+     "why": "It solved a problem nobody had been able to solve: making the one-sided bond feel reciprocal without the labour of a real relationship. A creator glancing at your comment costs them nothing and lands like recognition. It is also the exact mechanism monetised two years later by the gifting economy.",
+     "law": 5,
+     "entry": "live-commentary",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "Justin.tv becomes Twitch",
+     "show": "Unscripted television · 2011",
+     "what": "Streaming gets a category, a vocabulary, a schedule, and a professional class of people who stream full time.",
+     "why": "The first platform to treat a live one-sided relationship as a category worth designing for deliberately rather than tolerating incidentally.",
+     "law": 5,
+     "entry": "twitch-launch",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "Webcasting",
+     "show": "Unscripted television · 1997",
+     "what": "Streaming video over a network, at first unbroadcast and unproduced, from a bedroom or a desk.",
+     "why": "The medium that removed the gatekeeper before it removed the schedule. Everything a creator economy is today existed in this form first, badly, and was not interesting to anybody.",
+     "law": 5,
+     "entry": "webcasting",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The talent agency that is not an agency",
+     "show": "Unscripted television · 2022",
+     "what": "A high-profile streaming collective, featuring several women who had left other setups, collapses publicly and in litigation.",
+     "why": "The most significant parasocial litigation of the streaming era, and it turned on precisely this site's question: who holds the relationship, and what are the terms. The answer turned out to be documented and not what the audience assumed.",
+     "law": 5,
+     "entry": "vshojo",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "The creator joins the living room",
+     "show": "Unscripted television · 2026",
+     "what": "Creator posts and viewer comments are built for the television set, putting a two-way channel on the biggest screen in the house.",
+     "why": "The living room becomes a comment section. Nothing was added except a comment box, and everything changed, because the comment box is the whole architecture of a parasocial relationship and it is now on the main screen.",
+     "law": 5,
+     "entry": "creator-on-tv",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "YouTube launches",
+     "show": "Unscripted television · 2005",
+     "what": "Uploads become trivially cheap and the audience begins to attach to individuals rather than channels.",
+     "why": "Attachment shifts from institutions to people at exactly the point the distribution cost goes to zero. The broadcaster's ten-year relationship with a channel becomes a viewer's ten-year relationship with a face.",
+     "law": 5,
+     "entry": "youtube-launch",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The subscription tier",
+     "show": "Technology · 2015",
+     "what": "A monthly payment that buys recognition, and a chat in which the size of that payment is the mechanism for being noticed. Gifting, tiers, emotes, raids.",
+     "why": "It solved the problem nobody had been able to solve: making a one-sided bond feel reciprocal without the labour of an actual relationship. A glance at your comment costs the creator nothing and lands like recognition. It also means the amount of money is now the amount of personhood, which is a strange thing to be true about somebody's evening.",
+     "law": 5,
+     "entry": "twitch-subs",
+     "stage": "featured"
+    }
+   ],
+   "theme": "streaming",
+   "released": "2026-11-05",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Who is YourRAGE? Inside the life of the FaZe streamer who says his best friend of 25 years stole up to $100,000 as fans say, 'Loyalty is dead'",
+     "url": "https://www.msn.com/en-in/entertainment/hollywood/who-is-yourrage-inside-the-life-of-the-faze-streamer-who-says-his-best-friend-of-25-years-stole-up-to-100-000-as-fans-say-loyalty-is-dead/ar-AA26U0Wo",
+     "publisher": "msn.com",
+     "at": ""
+    },
+    {
+     "title": "The EU Kids Act Would Ban Companion Chatbots From Hooking Minors",
+     "url": "https://startupfortune.com/the-eu-kids-act-would-ban-companion-chatbots-from-hooking-minors/",
+     "publisher": "startupfortune.com",
+     "at": ""
+    },
+    {
+     "title": "Replika users fell in love with their AI chatbot companions. Then they lost them",
+     "url": "https://www.abc.net.au/news/science/2023-03-01/replika-users-fell-in-love-with-their-ai-chatbot-companion/102028196",
+     "publisher": "abc.net.au",
+     "at": ""
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
