@@ -714,6 +714,135 @@
      "track": "2 stories · 17 entries · 6 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-06",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "liam-payne-generation",
+     "title": "A 31-year-old's death became a generation's first real loss",
+     "why": "A 31-year-old's death as a generation's first real loss, and the specific weight of losing someone you grew up with at sixteen. The idol case where the fan relationship began before the person was famous.",
+     "href": "radar/liam-payne-generation.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 7 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "dorian-gray",
+     "title": "Am I really like that?",
+     "why": "A portrait rather than a person, and the one entry in the corpus where the figure is literally an image of the person attached to it. Placed under character, not companion: nobody lives with the portrait. The third axis is what separates it from every other fictional-protagonist here.",
+     "href": "encyclopedia/dorian-gray.html",
+     "meta": "Literature · 1890",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 7,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "Rebecca Gayheart says Eric Dane ‘let go of his insecurities’ before death: ‘He hid it really so, so well’",
+       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPUlN6bDVXX1B3by1Tc3ZReGExb2ctWkxiekFvaFRVVmNveDlDVnJSVWlOTnh1MkNUdy1kMm56N2hpbkYtbndtcWRXejhMaV9tWHVRWlJFUDIxMVJKVmNGZ3Y3ZTh2MnMyRUpab2QyazZwZ3NRRkkzVUNCNV9sejdLNy1Mcld4dVA3S2NFYmcxMHZVelFkd01Kd2l1dk1FeUlkZmp6dUlQYXViY1VWdXVZWWZnVkQtWFducGtV?oc=5",
+       "publisher": "Yahoo"
+      }
+     ],
+     "track": "6 stories · 45 entries · 7 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "ai-companion",
+     "title": "The companion that talks back",
+     "why": "Optimised for attachment, available at four in the morning, with no floor on the other party's autonomy. The three clauses are the whole case: the design targets the feeling, the availability removes the friction, and the missing floor is what makes it unlike every earlier category.",
+     "href": "encyclopedia/ai-companion.html",
+     "meta": "Artificial intelligence · 2017",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 7 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "the-priest",
+     "title": "The priest",
+     "why": "A person who hears the specifics, performs the ritual, and knows the family history, on a repeating cycle. The officer and the divine in one role, which is why the theology entries had nowhere to go before DIVINE existed.",
+     "href": "encyclopedia/the-priest.html",
+     "meta": "Theology · 100",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 7 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "the-confessional-booth",
+     "title": "The confessional that became a convention",
+     "why": "Filed institution/platform, on the shelf's test: \"Is somebody other than you and the performer in a position to change what happens between you?\" In the confessional, the production sits between cast member and viewer: editors choose which takes reach you.",
+     "href": "encyclopedia/the-confessional-booth.html",
+     "meta": "Unscripted television · 1992",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 7,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "From the Octagon to the Betting Slip: How Combat Sports Became a Fan’s Second Sport",
+       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNZFhTQVppRTNUTl95SWs4UVdQZWFnU29DVE1NY0FyQkFHUXlaSHE2MlhrTmNxUnNkZnI3YkJlOUt6cmFaSjAtNDIwT0p0ZzRObzJZSGVyMW10UXRMV3ZKOWxOV3RuRVRsTXBnLWlIby14U1A5aXgwZ2lEYzZ1SnhydWVnUXNOZmpNc3BkX3B4U2V5TlJSZGxVMG5DM01KamtoaU54cTdhZzlMeWI5czRTQWpCSGg?oc=5",
+       "publisher": "Combat Press"
+      }
+     ],
+     "track": "10 stories · 49 entries · 7 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "neighbours-finale",
+     "title": "The finale that moved the schedule",
+     "why": "A soap opera ends after decades and national broadcast schedules are rearranged around it. The clearest documented case that the slot can matter more than the thing in it.",
+     "href": "encyclopedia/neighbours-finale.html",
+     "meta": "Scripted television · 2023",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 7 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-absent-sage",
+     "title": "The craft of the sage Adapa",
+     "why": "A sage whose teaching reaches a reader intact and whose person never does - standing without a role and without a meeting. The same gap that produced this shelf for the Greek erastes produces it again here, two centuries earlier and in writing rather than in life.",
+     "href": "encyclopedia/the-absent-sage.html",
+     "meta": "History · 660 BC",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 7 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "gamergate",
+     "title": "Gamergate",
+     "why": "Coordinated harassment of women in games, disguised as a debate about whether harassment should be allowed. The disguise is the mechanism: the argument was conducted entirely in good faith about a principle, and the harm was real.",
+     "href": "encyclopedia/gamergate.html",
+     "meta": "Technology · 2014",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 7 daily cases"
+    }
+   }
   }
  ]
 }

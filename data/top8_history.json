@@ -282,6 +282,21 @@
     "youtube-launch",
     "twitch-subs"
    ]
+  },
+  {
+   "date": "2026-11-06",
+   "list": "top8-2026-11-06-games",
+   "theme": "games",
+   "items": [
+    "second-life",
+    "pokemon-go-incident",
+    "siri",
+    "stadium-residency",
+    "the-device-with-a-pet",
+    "swatting",
+    "transnational-fandom",
+    "con-culture"
+   ]
   }
  ]
 }

@@ -1007,6 +1007,18 @@
       "title": "Cambridge Dictionary’s 2025 Word of the Year: ‘Parasocial’ - an ‘unhealthy’ modern phenomenon",
       "domain": "yahoo.com",
       "out": null
+    },
+    "e54bf1fef7097d9d": {
+      "t": "2026-11-06T01:28:43.624477+00:00",
+      "title": "Character.ai Bankruptcy Exposes the High Cost of AI Companionship",
+      "domain": "pymnts.com",
+      "out": null
+    },
+    "5fc685a91cb75f6f": {
+      "t": "2026-11-06T01:28:43.624477+00:00",
+      "title": "AnyMind and Meta Link Live Ads to Live Commerce",
+      "domain": "parasocialmagazine.com",
+      "out": true
     }
   }
 }
