@@ -1303,6 +1303,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-07-reality-tv",
+   "title": "Top 8: The Person You Watched Into Being",
+   "home_title": "The Person You Watched",
+   "home_hook": "They agreed to be seen. The edit did the rest.",
+   "dek": "The genre that sells a person as a story and then asks them to live in it. Ranked by how much of the self was produced for the camera.",
+   "kicker": "Daily edition · 07 NOV 2026 · Reality TV",
+   "image": null,
+   "law": 3,
+   "standfirst": "Reality television is the industrial form of the parasocial bond: cast, edit, broadcast, then let the audience decide who the person is. The eight below are the record of what happens to the people who are chosen, and what the choosing does to the ones who watch.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "The forum that scored the edit",
+     "show": "Unscripted television · 2002",
+     "what": "Edgic - editing plus logic - is the practice of grading every contestant's screen presence week by week: a category (invisible, under the radar, middle of the road, complex personality, over the top), a tone and a visibility score.",
+     "why": "The instrument was written by forum users, in season four, and it has never been official.",
+     "law": 3,
+     "entry": "edgic",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "The confessional that became a convention",
+     "show": "Unscripted television · 1992",
+     "what": "In 1992 MTV's The Real World gave reality television its least-questioned convention: a person alone in a room, speaking to a camera about what everyone just saw.",
+     "why": "A soap opera that could not afford writers invented a confidante instead. The Real World began as MTV's attempt at a scripted show for a younger audience; without a writers' budget, the plan became gathering seven strangers in one house and editing the resulting footage.",
+     "law": 3,
+     "entry": "the-confessional-booth",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "Say, kids, what time is it?",
+     "show": "Unscripted television · 1947–1960",
+     "what": "The first television character to be answered by name. Children three to eight shouted its name back at the screen every afternoon for thirteen years, and the puppet it was played by was recorded before the broadcast.",
+     "why": "The template for every children's presenter since, and the purest mechanism on this site: a figure that talks to you, built by somebody else, delivered from tape.",
+     "law": 3,
+     "entry": "howdy-doody",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The figure you buy",
+     "show": "Literature / Unscripted television · 1971",
+     "what": "A fictional figure whose NAME is the product: the bond is with a person who was invented so that the relationship can never fail.",
+     "why": "The inverse of the-brand-as-character, and the sharper version of it. There the company came first and was given a personality; here the personality came first and the company took the name.",
+     "law": 3,
+     "entry": "the-figure-you-buy",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "A glimpse mistaken for access",
+     "show": "Unscripted television · 2026",
+     "what": "A season of a reality format and a global sporting event produce millions of viewers who then investigate the participants' personal lives. A relationship with an edited construct becomes a licence to intervene in a real life.",
+     "why": "The whole mechanism in one summer: visibility mistaken for access, and access mistaken for entitlement. What the audience actually had was an eight-week window onto a version of a person that producers cut down to a confessional and got paid for. The gap between the two is invisible from inside the eight weeks.",
+     "law": 3,
+     "entry": "parasocial-problem",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "The local news anchor",
+     "show": "Unscripted television · 1950",
+     "what": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset.",
+     "why": "Rubin's longitudinal work is on exactly this bond. When a local anchor retires the grief is measurable and there is no word for it, because a parasocial relationship with a local figure is assumed to be about the news rather than about the person.",
+     "law": 3,
+     "entry": "the-local-anchor",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Will you help me?",
+     "show": "Scripted television · 1996",
+     "what": "Blue's Clues premiered in 1996 and built its method out of a pause: the host looks into the camera, asks the child a question, waits through a silence written into the script, and then behaves as though an answer arrived.",
+     "why": "The pause is the product, and the research of the period says so in its own terms.",
+     "law": 3,
+     "entry": "blues-clues",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "Am I not here, I who am your mother?",
+     "show": "Visual art / Theology · 1531",
+     "what": "Four apparitions to a Chichimec farmer and one to his uncle, a single Nahuatl sentence that gave the devotion its title, and a cloth image the Catholic world has organised itself around ever since.",
+     "why": "The entire relationship is address, and the founding story is one reply. According to the Nican Mopohua, written in Nahuatl, the Virgin appeared four times to Juan Diego, a Chichimec peasant, and once to his uncle Juan Bernardino, beginning on the morning of 9 December 1531.",
+     "law": 3,
+     "entry": "our-lady-of-guadalupe",
+     "stage": "featured"
+    }
+   ],
+   "theme": "reality-tv",
+   "released": "2026-11-07",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "‘Ellen DeGeneres Show’ Producer Matthew Wright’s Cause of Death Revealed",
+     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQZUZQdFd1TkM2TTd5enUzNlhZWF9iWUstV2Zad2V1bkdLcnVua1NqMTFjbVBxMDZyUDZlMDRsbDk2VjZTcmVuNDVaOUozajVXd1UySTJRRDQ0Z1lqMzlINWRoc1EzcEI1RlBKM2VoanVFZnFKX1AwTTZiTTBRQ3RCQ2NfYWR1dzlURkxoMXZfTE9SaE1aU204S3AwajZnU0tHbUtWQ0RIWm5NT3VoLTlOdEcycmthRGY2Q0ctNnhlZ2dZMDA?oc=5",
+     "publisher": "Yahoo",
+     "at": "2026-11-07T02:04:19+00:00"
+    },
+    {
+     "title": "‘Ellen DeGeneres Show’ Producer Matthew Wright’s Cause of Death at 52 Revealed",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNNVdLYnpqdmotVDFyaGZvRkcyUnJiY2F0SlZEcGREMjFVVVlhLWRMbEkyUXBQdWlRdGRxcURVY294TW9tcXp1WHpnUHl2TUpXWkFadXN4WjB6RWIwR3laUWh2ZmJRZ3BWc29FUjFJOUxBbDlDemJUbVhGRG02TW42bi1zeDRBbmhzalZEU1hkakxYNVdpZUxmUXhOUzE5dDBDVVVZbQ?oc=5",
+     "publisher": "Us Weekly",
+     "at": "2026-11-07T02:03:05+00:00"
+    },
+    {
+     "title": "‘Ellen DeGeneres Show’ EP Matthew Wright’s Cause Of Death Revealed",
+     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdW1VbkJfSC1WZmVnZDl6OXdpc3ZkaU4yY1lXblQ3V3hka2hGdGcxakFRdjEzQmFrNFVDM3R3NWpuUXBZX0JKUUwybElMdUxGaGhKUnNGV09Wbi05ak9Wa2pOVU1fYVpnSFl3WnVBUUoxOTNQdGVRdERaYUVwb0VDQ3dTSjhpSW9WeUdkNjB4OXpveFZJa0ZHNFoyWUdoNjhkaGdxdXB5VkZnMVhXYWFCall4UFpOM2tPQlQw?oc=5",
+     "publisher": "Yahoo",
+     "at": "2026-11-07T01:51:00+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [

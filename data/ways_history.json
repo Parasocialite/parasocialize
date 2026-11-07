@@ -843,6 +843,129 @@
      "track": "2 stories · 17 entries · 7 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-07",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "gloria-steinem-and-dolly",
+     "title": "Two women died in the same month and the discourse is about whether you are allowed to be sad",
+     "why": "Two deaths in a month and a discourse about whether you are allowed to be sad. Grief treated them identically and accused of not knowing the difference - the archive register doing its usual work on two idols.",
+     "href": "radar/gloria-steinem-and-dolly.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 8 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "saturday-cartoons-top8",
+     "title": "The NEST letter",
+     "why": "A child writes to a magazine about a fictional brand of baby food. The brand never appears, the letter is never answered, and the episode ends - an attachment to a mascot held by a five-year-old with no reciprocity available at all.",
+     "href": "encyclopedia/saturday-cartoons-top8.html",
+     "meta": "Scripted television · 1991",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 8 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "casper",
+     "title": "Not all ghosts are bad",
+     "why": "A ghost, and the reason the haunted member exists: belief in presence with nothing to verify it. Filed social-agent rather than object because he is addressed, not used.",
+     "href": "encyclopedia/casper.html",
+     "meta": "Comics · 1945",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 8 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "the-icon",
+     "title": "The icon answers nothing",
+     "why": "Filed divine/christ, on the shelf's own test: \"Is the relationship expressed by being addressed rather than by being watched, and is the other end understood to hear?\" The icon is not watched; it is venerated, kissed, carried in procession and censed.",
+     "href": "encyclopedia/the-icon.html",
+     "meta": "Visual art / Theology · 787",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 8 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "transnational-fandom",
+     "title": "Transnational fandom",
+     "why": "Fans organising across national borders around media, with a shared calendar of releases and a shared language. A body that ignores the state, which is why it is institutional rather than a sub-culture.",
+     "href": "encyclopedia/transnational-fandom.html",
+     "meta": "Games · 2001",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 8,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "Knicks release statement backing Taylor Swift after players decried her fandom as 'performative'",
+       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPcGJqVHNfTmhKUXhEeV9wWnp5dEljNGx5SU5kYTR2UjFmWmJpUFVSNGRTc00ya2E2SXNiOXE4QnBHMnJKNEQyRW9YQ2J6T2o1UTBmQnZPLV9rMlFxcEhUMnlpcnA2bHRtekNNNmpCWEM5eEdiR2FncEZ1ekNWUkhVVS1TaXV3TmN4aFFuLW9vY2xaeDRadHh6QkxET2ZJQdIBngFBVV95cUxPcGJqVHNfTmhKUXhEeV9wWnp5dEljNGx5SU5kYTR2UjFmWmJpUFVSNGRTc00ya2E2SXNiOXE4QnBHMnJKNEQyRW9YQ2J6T2o1UTBmQnZPLV9rMlFxcEhUMnlpcnA2bHRtekNNNmpCWEM5eEdiR2FncEZ1ekNWUkhVVS1TaXV3TmN4aFFuLW9vY2xaeDRadHh6QkxET2ZJQQ?oc=5",
+       "publisher": "The Mirror US"
+      }
+     ],
+     "track": "10 stories · 49 entries · 8 daily cases"
+    },
+    "cosmology": {
+     "kind": "story",
+     "id": "neighbours-kids-and-finale",
+     "title": "The Neighbours finale broke something in the schedule",
+     "why": "Not just grief: the shape of a whole country's week rearranged around a soap ending. The clearest documented case that the slot can matter more than the thing in it.",
+     "href": "radar/neighbours-kids-and-finale.html",
+     "meta": "Story · world",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 8 daily cases"
+    },
+    "officer": {
+     "kind": "story",
+     "id": "hugh-jackman-divorce",
+     "title": "A 27-year marriage ends and the coverage is about what the public felt",
+     "why": "A 27-year marriage ends and the coverage is about what the public felt, with readers asked to be honest about it. A person known as a neighbour rather than as a performer, which is why this is the local officer case and not the idol one.",
+     "href": "radar/hugh-jackman-divorce.html",
+     "meta": "Story · crossover",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 8 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "swatting",
+     "title": "Swatting",
+     "why": "A false emergency report sent to a real address to provoke an armed police response, because of a grievance about a streamer. Armed enforcement summoned by an attachment, which is the worst version of the register.",
+     "href": "encyclopedia/swatting.html",
+     "meta": "Games · 2013",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 8 daily cases"
+    }
+   }
   }
  ]
 }
