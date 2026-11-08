@@ -2527,3 +2527,18 @@ dialog.nominate::backdrop{background:rgba(8,5,4,.76);
   .hh-mod{grid-template-columns:1fr;padding:14px}
   .hh-plate{order:-1}
 }
+
+/* ---------- /top8/archive/: the menu ---------- */
+.t8menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:12px;margin-top:4px}
+.t8menu-card{display:flex;flex-direction:column;gap:6px;padding:18px;
+  border:1px solid var(--line);border-radius:12px;background:var(--bg2);
+  text-decoration:none;transition:border-color .18s,transform .18s}
+.t8menu-card:hover{border-color:var(--hot);transform:translateY(-2px)}
+.t8menu-card .kicker{margin:0;color:var(--hot)}
+.t8menu-card h2{font-family:var(--serif);font-size:1.2rem;font-weight:800;
+  letter-spacing:-.02em;line-height:1.2;margin:0}
+.t8menu-card p{margin:0}
+.t8menu-card p:not(.kicker){font-size:.85rem;line-height:1.5;color:var(--dim)}
+.t8menu-card span{font-family:var(--label);font-size:.5rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dimmer);margin-top:auto;padding-top:6px}

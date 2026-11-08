@@ -946,6 +946,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-08-ancient-bonds",
+   "title": "Top 8: The First Person We Kept",
+   "home_title": "The First Person We Kept",
+   "home_hook": "Before writing, somebody carried a body into a cave.",
+   "dek": "The oldest evidence that a relationship can be one-sided. Ranked by how much of it survives in the ground.",
+   "kicker": "Daily edition · 08 NOV 2026 · Deep time",
+   "image": null,
+   "law": 4,
+   "standfirst": "The site's argument is not modern. The eight below are the archaeological and early textual record: a body carried into a cave, a face carved in ivory, a mask walked through a funeral, a beloved who never learned the terms. The bond is older than the vocabulary.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "The dead kept in the cave",
+     "show": "History · 70000 BC",
+     "what": "Neanderthals repeatedly carried their dead into one cave in northern Iraq and put them down in the floor.",
+     "why": "The oldest evidence on this site of people treating the dead as somewhere you go, rather than something you leave behind. It sits about fifty-five thousand years before the dog, which settles an argument this site was getting wrong: one-sided attachment to a non-human does not begin with a domesticated animal. It is also the discipline case.",
+     "law": 4,
+     "entry": "neanderthal-burial",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "Eleven thousand years of pillars",
+     "show": "History · 9500 BC–8200 BC",
+     "what": "Round enclosures on a hillside in Anatolia holding T-shaped pillars carved to suggest human figures, built by people who had not yet domesticated a single animal - used for over a thousand years, then deliberately filled in and built over.",
+     "why": "The oldest thing on this site with a claim to be about figures, and the interpretation is genuinely open, which is the point.",
+     "law": 4,
+     "entry": "gobekli-tepe",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "The carved animals",
+     "show": "History · 40000 BC",
+     "what": "Upper Paleolithic carvers in Europe made small figures of animals and people from mammoth ivory from about forty thousand years ago.",
+     "why": "This is what the dog entry used to deny. Animals carrying human qualities were being made, kept and shown to other people tens of thousands of years before the dog: the grooming gesture is specifically human, and somebody carved it in antler on purpose.",
+     "law": 4,
+     "entry": "paleolithic-figures",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The craft of the sage Adapa",
+     "show": "History · 660 BC",
+     "what": "A tablet from Nineveh written in the voice of Ashurbanipal, listing what he had been taught and by whom - a named sage he never met - and then what he did with it.",
+     "why": "A named individual, dead or legendary, reached entirely through writing, and a resume of the arrangement.",
+     "law": 4,
+     "entry": "the-absent-sage",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "Pygmalion",
+     "show": "History · 8",
+     "what": "The sculptor who fell in love with his own work. The statue was never going to be able to leave, and the story treats that as part of the appeal rather than a tragedy to be corrected.",
+     "why": "Not the origin - the archaeology in this file runs tens of thousands of years further back, and Roman wax imagines predate Ovid by two and a half centuries. What this is: the first time the structure was written down deliberately, by a Roman, as a story worth telling about a man who loved something that could not leave.",
+     "law": 4,
+     "entry": "p",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "The story told again",
+     "show": "History · 800 BC",
+     "what": "Myths are not stories people tell once. They are stories with a fixed shape that get told to the same audience on a schedule.",
+     "why": "The oldest parasocial structure there is: fixed, repeatable, known in advance, and useless for anything except the purpose it was made for. Everything after is a variant.",
+     "law": 4,
+     "entry": "myth-and-ritual",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Eight thousand faces, all facing outward",
+     "show": "History · 210 BC",
+     "what": "Eight thousand life-size soldiers, each with a face and ears no other has, buried in battle order facing the enemy with the emperor behind them - made from the likenesses of real men so the substitute army would stand where the real one cou.",
+     "why": "This site's structure with the arrow turned round. Everywhere else here, one person attaches to another who cannot answer. Here eight thousand specific likenesses were manufactured so that a single man would never be without an army, and every figure faces away from him.",
+     "law": 4,
+     "entry": "the-clay-army",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "Shag-eared and deaf",
+     "show": "Literature · 370 BC",
+     "what": "Plato describes an older man in love with a boy who is compared, in the text, to a hunting animal that is deaf. The animal's ears are the point: the love is addressed to someone who cannot hear it, and the whole scene turns on that.",
+     "why": "The earliest surviving description of this site's subject written down by someone who was inside the institution rather than looking at it from outside, and it is startling how modern the anatomy is.",
+     "law": 4,
+     "entry": "the-deaf-beloved",
+     "stage": "featured"
+    }
+   ],
+   "theme": "ancient-bonds",
+   "released": "2026-11-08",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Attorney who defended Tupac’s convicted killer found dead in Vegas",
+     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1TWUhRbGRnajI3Rm53bFB4Z2FEU2VYbzhzQzJ2LTl6RU9LalBXakVzQ1d4UnU1U3VKRWplMVpFVERTRU5zM1pZRFdGZ2U0VWJyQTJ2aDZXTHdNUzgtTlNQeU4tcV9JZ01jWEUxV3hITTNwOFJCaHprZENKOXU?oc=5",
+     "publisher": "Entertainment Weekly",
+     "at": "2026-11-07T17:52:53+00:00"
+    },
+    {
+     "title": "Patriots fans targeting this position at the trade deadline",
+     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPQUVWWEdPeDdfOFFTQ0VPUHh3eVltZGR4MWRKRFVhZ1pMQlo0bTU1dXUxRWQ2MldNWjBYb01FbHBRcnktR1NrOEdob0hTVTRsYXZ0aWZzMXFQR1RyM0h5ZFhxd1dpekFtX1hsbS1FZk45VkRQNlJBQ3lvU24ydzJER2NmbjJ0aVJzZFQ3c3JqYUI?oc=5",
+     "publisher": "Yahoo Sports",
+     "at": "2026-11-07T17:00:00+00:00"
+    },
+    {
+     "title": "Oscar award-winning director Sebastián Lelio found dead aged 52 by partner",
+     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNOGNvemN3NGlGWk9mQTdfQ2IzYldyRFBKSUdBbEJfTk9RRHFaSzlMdmF6ZXBJZHJQZnVIekhFX1JQaENURHUxVktrY2tEN1ZrRFI3eEhuUHc2RDlheXpkMGdKUG1ic3lxMjd3elExQmMyR3NGaENNUVJUMExaMkZ5elBlaWtNWjYxYW1Mei04akJEd2pDVVRpeHM1U2lXV0Jt0gGmAUFVX3lxTFBXT25vMUZFdTNPYzhNQnhXVjZUNDc4YV9YZnFjVkVPeVYtM2Q1SmZMOXJqYmdrYzNnQUR1cENqam9kSmt1TjVYS3N4WWc1NHlCWm5iMEpiUGRraXR5RDZzMWllVU90Y25EWGE4VjJ5RlhEejh2WXo5dS1Id3A3WXRFWFRZU0ZXYzh5Y1hYMmRUQURoTUN2eV9zRVVLTEdicFR0X3p4bUE?oc=5",
+     "publisher": "The Mirror US",
+     "at": "2026-11-07T16:38:00+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [

@@ -1,4 +1,19 @@
 {
  "_note": "Declared, unrecoverable days in the three daily records. The daily top 8 and the parasocialite are selected from that day's wires and theme, so a later build cannot know what the page would have shown. tools/archive.py --reconcile writes one of these instead of inventing a day; --check accepts the day as a visible gap. Do not delete a declaration to make a report look clean.",
- "gaps": []
+ "gaps": [
+  {
+   "history": "parasocialite",
+   "from": "2026-11-04",
+   "to": "2026-11-07",
+   "reason": "No daily edition was generated on this day. The top 8 and the parasocialite are selected from that day's wires and theme, so a later build cannot know what the page would have shown.",
+   "declared": "2026-11-08"
+  },
+  {
+   "history": "top8",
+   "from": "2026-11-04",
+   "to": "2026-11-07",
+   "reason": "No daily edition was generated on this day. The top 8 and the parasocialite are selected from that day's wires and theme, so a later build cannot know what the page would have shown.",
+   "declared": "2026-11-08"
+  }
+ ]
 }

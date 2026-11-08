@@ -3112,7 +3112,7 @@ def t8_record(feat, today=None):
                 else f'{fmt_date(run["lo"])} &rarr; {fmt_date(run["hi"])}')
         if L and L.get("title"):
             href = "#list" if slug == show else \
-                f'archive/index.html#{esc(slug)}'
+                f'archive/{esc(slug)}/index.html'
             title = (f'<a class="t8rec-list" href="{href}">'
                      f'{esc(L["title"])}</a>')
         else:
@@ -3316,31 +3316,27 @@ def build_top8(data, feat, manifest):
 
 
 def build_top8_archive(data, feat, manifest):
-    """Every top-8 list that is not today's show, rendered in full, newest first.
+    """The archive is a menu now, not the whole shelf.
 
-    The show is today's pick in the daily rotation (show_list), so a list
-    lands on this page by the calendar rather than by an edit: it is still in
-    data/features.json exactly as it shipped, and this page renders it with
-    the same entry renderer the show page uses. An archive that prints a
+    It used to render every former list in full, one under another, so the page
+    that was supposed to help you find a list was the longest page on the site.
+    Each former list now has its own page at /top8/archive/<slug>/, rendered
+    with the same entry renderer the show page uses - an archive that prints a
     different version of the thing than the one that ran is a second,
-    conflicting record of it, so there is deliberately no trimmed or
-    summarised mode here.
+    conflicting record of it - and this index is the door to them.
 
-    A list dated in the future is neither the show nor archived - it is not
-    live yet, so it is not anywhere on the site.
+    Order on the index: by date first (that is the address people arrive with),
+    then by list. A list dated in the future is neither the show nor archived;
+    it is not live yet, so it is not here.
     """
-    r = root(2)
     laws = {l["n"]: l for l in data["laws"]}
     show = show_list(feat)
     former = sorted((L for L in live_lists(feat)
                      if L.get("slug") != show.get("slug")),
                     key=lambda L: L.get("released") or "", reverse=True)
 
-    chunks = []
+    menu = []
     for L in former:
-        # Only `featured` entries are ever rendered: `candidate` is the stage
-        # that keeps a moment off the page until its list ships, and the
-        # archive is a page.
         entries = [en for en in L["entries"]
                    if en.get("stage", "featured") == "featured"]
         shared = {en.get("law") for en in entries}
@@ -3348,29 +3344,51 @@ def build_top8_archive(data, feat, manifest):
         anchors = [t8_anchor(L, en) for en in entries]
         if len(set(anchors)) != len(anchors):
             raise SystemExit("REFUSING to build: two archive moments share an anchor")
-        items = "".join(t8_entry(en, i, laws, manifest, 2, one_law,
+
+        items = "".join(t8_entry(en, i, laws, manifest, 3, one_law,
                                  anchor=t8_anchor(L, en))
                         for i, en in enumerate(entries, 1))
-        chunks.append(f"""<section class="section" id="{esc(L['slug'])}">
+        section = f"""<section class="section" id="list">
   <p class="kicker">{esc(L['kicker'])} &middot; the top 8</p>
-  <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;
-     letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;max-width:24ch">{esc(L['title'])}</h2>
+  <h1 style="font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;
+     letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;max-width:24ch">{esc(L['title'])}</h1>
   <p class="sec-lede" style="max-width:62ch">{esc(L['dek'])}</p>
   <div class="note" style="margin-top:24px"><p>{esc(L['standfirst'])}</p></div>
   {t8_frame_note(L, entries, manifest)}
   {t8_shared_law(one_law, laws)}
   <ol class="t8">{items}</ol>
-</section>""")
+  <p class="countline" style="margin-top:24px"><a href="../index.html">Every list &rarr;</a></p>
+</section>"""
+        page = f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(L['title'])} - Top 8 archive - Parasocialize</title>
+<meta name="description" content="{esc(L['dek'])}">
+<link rel="canonical" href="{SITE}/top8/archive/{esc(L['slug'])}/">
+{HEAD.format(site=SITE, path=f"/top8/archive/{L['slug']}/", otype="article",
+             title=esc(L['title']), desc=esc(L['dek']), root=root(3))}
+</head>
+<body>
+<a class="skip" href="#list">Skip to the list</a>
+<div class="grain" aria-hidden="true"></div>
+{NAV.format(root=root(3), total=len(data['cards']), mk=wordmark("nav"))}
+<main>
+{section}
+</main>
+{FOOT.format(root=root(3), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
+</body></html>"""
+        out = ROOT / "top8" / "archive" / str(L["slug"])
+        out.mkdir(parents=True, exist_ok=True)
+        (out / "index.html").write_text(page, encoding="utf-8")
 
-    if not chunks:
-        chunks.append("""<section class="section">
-  <p class="sec-lede" style="max-width:62ch">Nothing is put aside yet - one list
-  is live, so it is also the one always on show, and this page fills in when a
-  second list is dated. From then on the lists not on show that day sit
-  here.</p>
-</section>""")
+        menu.append(f"""<a class="t8menu-card" href="{esc(L['slug'])}/index.html">
+  <p class="kicker">{esc(L['kicker'])}</p>
+  <h2>{esc(L['title'])}</h2>
+  <p>{esc(L['dek'])}</p>
+  <span>{len(entries)} moments &middot; released {esc(str(L.get('released') or ''))}</span>
+</a>""")
 
-    # ---- by date: every recorded day, as a calendar --------------------
+    # ---- by date --------------------------------------------------------
     try:
         _hist = json.loads((ROOT / "data" / "top8_history.json")
                            .read_text(encoding="utf-8")).get("days") or []
@@ -3400,39 +3418,47 @@ def build_top8_archive(data, feat, manifest):
            f'</div><div class="t8cal-grid" id="t8calGrid">{"".join(_tiles)}</div>'
            f'</section>')
 
+    if menu:
+        by_list = (f'<section class="section" id="by-list"><div class="band-head">'
+                   f'<div><p class="kicker">By list</p>'
+                   f'<h2>Every list, as it shipped.</h2></div></div>'
+                   f'<div class="t8menu">{"".join(menu)}</div></section>')
+    else:
+        by_list = ("""<section class="section"><p class="sec-lede"
+          style="max-width:62ch">Nothing is put aside yet - one list is live, so
+          it is also the one always on show, and this section fills in when a
+          second list is dated.</p></section>""")
+
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Top 8 archive — Parasocialize</title>
-<meta name="description" content="Every top 8 this site has run, in full, newest first.">
+<title>Top 8 archive - Parasocialize</title>
+<meta name="description" content="Every top 8 this site has run. Browse by date or by list.">
 {HEAD.format(site=SITE, path="/top8/archive/", otype="website",
              title="Top 8 archive",
-             desc="Every top 8 this site has run, in full, newest first.",
+             desc="Every top 8 this site has run. Browse by date or by list.",
              root=root(2))}
 </head>
 <body>
-<a class="skip" href="#lists">Skip to the lists</a>
+<a class="skip" href="#by-date">Skip to the archive</a>
 <div class="grain" aria-hidden="true"></div>
 {NAV.format(root=root(2), total=len(data['cards']), mk=wordmark("nav"))}
-<main id="lists">
+<main>
 <section class="section" style="padding-bottom:6px">
   <p class="kicker">The top 8 &middot; archive</p>
   <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;
      letter-spacing:-.03em;line-height:1.02;margin:0 0 16px;max-width:22ch">Every top 8 this site has run</h1>
-  <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">A list that is not
-  up today is not trimmed or summarised here - it is the list exactly as it was
-  on show. The one on show now is at <a href="../index.html" style="color:var(--hot)">the
-  top 8</a>.</p>
+  <p class="sec-lede" style="max-width:62ch;font-size:1.05rem">Two ways in: pick a
+  date the list ran, or open a list and read it as it shipped. The one on show
+  today is at <a href="../index.html" style="color:var(--hot)">the top 8</a>.</p>
 </section>
-{''.join(chunks)}
-<section class="section" style="padding-top:8px">
-  <p class="countline">The lists here are kept exactly as they shipped.
-  <a href="{r}index.html">Back to the ten sections →</a></p>
-</section>
-{cal}</main>
+{cal}
+{by_list}
+</main>
 {FOOT.format(root=root(2), sweep=MESSY, motto='TEN TO CALL IT A LIST.<br>ONE TO MAKE THE CASE.')}
 <script>{T8CAL_JS}</script>
 </body></html>"""
+
 
 
 def series_band():
@@ -3752,7 +3778,7 @@ def build_top8_record(data, feat, manifest):
         L = by_slug.get(slug)
         if L and L.get("title"):
             href = ("../index.html#list" if slug == show
-                    else f'../archive/index.html#{esc(slug)}')
+                    else f'../archive/{esc(slug)}/index.html')
             title = (f'<a class="t8rec-list" href="{href}">'
                      f'{esc(L["title"])}</a>')
         else:
@@ -6712,6 +6738,17 @@ def build_sitemap(data):
     # above: a reader can reach them from their parent pages, and a curated
     # list that leaves them out is a curated list that is wrong.
     urls.append((f"{SITE}/top8/record/", "0.5", "weekly"))
+    try:
+        _feat = json.loads((ROOT / "data" / "features.json")
+                           .read_text(encoding="utf-8"))
+        _show = (show_list(_feat) or {}).get("slug")
+        for _L in _feat.get("lists") or []:
+            _slug = _L.get("slug")
+            # the list on show today has no archive page - it is the front door
+            if _slug and _slug != _show:
+                urls.append((f"{SITE}/top8/archive/{_slug}/", "0.4", "yearly"))
+    except (OSError, ValueError):
+        pass
     # One page per recorded day. A frozen snapshot is only "half published" if
     # a crawler cannot reach it, which is this file's own rule.
     try:

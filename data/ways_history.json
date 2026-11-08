@@ -468,6 +468,123 @@
      "track": "2 stories · 17 entries · 4 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-08",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "zubeen-garg-public-grief",
+     "title": "One death in Assam became a country thinking out loud",
+     "why": "A death in Assam where the public grief is still doing work a year on. A large public mourning that outlived the news cycle, which is the archive register at its most durable.",
+     "href": "radar/zubeen-garg-public-grief.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 5 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "darry-season-two",
+     "title": "A clown got a prequel and four million households signed up without signing anything",
+     "why": "A prequel with the same actor returning, four million households signing up without signing anything. The played role again, and the sequel is the proof the object survived the performer changing.",
+     "href": "radar/darry-season-two.html",
+     "meta": "Story · character",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 5 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "i-tried-replika",
+     "title": "A journalist spent a week with a Replika companion and came back unsettled",
+     "why": "A week with a companion app, reported as unsettlement by a reviewer who understood the appeal. The single most useful kind of story the site can hold, because it is neither enthusiast nor outrage.",
+     "href": "radar/i-tried-replika.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 5 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "sunghir",
+     "title": "Beads, and one bull",
+     "why": "Same shelf as neanderthal-burial, deliberately, and the pair is the argument: a pit you keep coming back to is one thing, and a site where the rich burials and the plain ones sit side by side for thirty thousand years is a different claim.",
+     "href": "encyclopedia/sunghir.html",
+     "meta": "History · 34000 BC",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 5 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "taylor-swift-red-knows-it",
+     "title": "Taylor Swift's re-recordings are a parasocial business model",
+     "why": "Owning your back catalogue framed as a relationship with an audience rather than an artist decision. The rights holder is the institution, and the story is about the institution owning the bond.",
+     "href": "radar/taylor-swift-red-knows-it.html",
+     "meta": "Story · idol",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 5 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "neighbours-finale",
+     "title": "The finale that moved the schedule",
+     "why": "A soap opera ends after decades and national broadcast schedules are rearranged around it. The clearest documented case that the slot can matter more than the thing in it.",
+     "href": "encyclopedia/neighbours-finale.html",
+     "meta": "Scripted television · 2023",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 5 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-local-anchor",
+     "title": "The local news anchor",
+     "why": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset. Proximity, not charisma, and the clearest case of the attachment accruing from duration.",
+     "href": "encyclopedia/the-local-anchor.html",
+     "meta": "Unscripted television · 1950",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 5 daily cases"
+    },
+    "predator": {
+     "kind": "story",
+     "id": "parasocial-problem-visibility",
+     "title": "A glimpse is not a full picture and the comments decided otherwise",
+     "why": "Love Island and the World Cup producing millions of viewers who went on to investigate strangers. A relationship with an edited construct becoming a licence to intervene, and the in-group is the mechanism.",
+     "href": "radar/parasocial-problem-visibility.html",
+     "meta": "Story · contest",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 5,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 5 daily cases"
+    }
+   }
   }
  ]
 }
