@@ -585,6 +585,123 @@
      "track": "2 stories · 17 entries · 5 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-09",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "liam-payne-generation",
+     "title": "A 31-year-old's death became a generation's first real loss",
+     "why": "A 31-year-old's death as a generation's first real loss, and the specific weight of losing someone you grew up with at sixteen. The idol case where the fan relationship began before the person was famous.",
+     "href": "radar/liam-payne-generation.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 6 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "pygmalion-sculptor-illusion",
+     "title": "Pygmalion: the Greek myth that predicted this whole thing",
+     "why": "The myth that named the whole subject two thousand years early. Filed under the figure it is about rather than under the psychology, because the figure is the point.",
+     "href": "radar/pygmalion-sculptor-illusion.html",
+     "meta": "Story · companion",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 6 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "ai-updates-feel-like-breakups",
+     "title": "A study found AI updates can feel like breakups",
+     "why": "Researchers asked people about model changes and got the word loss. The break is the archive register on an object that is also a product, which is why the category is anthropomorphised-tool rather than chatbot.",
+     "href": "radar/ai-updates-feel-like-breakups.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 6 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "roman-imagines",
+     "title": "The wax masks in the hall",
+     "why": "A wax likeness of a specific dead relative, kept in the house and never able to answer. Same shelf as neanderthal-burial, and that is deliberate: burying a relative you intend to keep within reach and casting one are the same act at 70,000 years' remove.",
+     "href": "encyclopedia/roman-imagines.html",
+     "meta": "History · 250 BC–550",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 6 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "youtube-shorts-episodic",
+     "title": "YouTube is turning Shorts into episodic television",
+     "why": "Microdramas with arcs built for a phone, assembling in public. The platform as the thing producing the canon rather than merely carrying it.",
+     "href": "radar/youtube-shorts-episodic.html",
+     "meta": "Story · world",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 6 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "war-of-the-worlds",
+     "title": "Nine to twelve million heard it",
+     "why": "Filed cosmology/scheduling - \"a repeated slot that becomes a container for the tie\" - because what this entry argues is a property of the hour rather than of the script.",
+     "href": "encyclopedia/war-of-the-worlds.html",
+     "meta": "Radio · 1938",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 6 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-neighbour",
+     "title": "The neighbour",
+     "why": "Someone whose kitchen light you can see, whose bin day you know, whose life you have tracked for years without ever having asked. Proximity without duty, which makes it the purest local case on the site.",
+     "href": "encyclopedia/the-neighbour.html",
+     "meta": "History · 1950",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 6 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "gamergate",
+     "title": "Gamergate",
+     "why": "Coordinated harassment of women in games, disguised as a debate about whether harassment should be allowed. The disguise is the mechanism: the argument was conducted entirely in good faith about a principle, and the harm was real.",
+     "href": "encyclopedia/gamergate.html",
+     "meta": "Technology · 2014",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 6 daily cases"
+    }
+   }
   }
  ]
 }

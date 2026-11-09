@@ -120,6 +120,10 @@
   {
    "date": "2026-11-08",
    "register": "encounter"
+  },
+  {
+   "date": "2026-11-09",
+   "register": "harm"
   }
  ]
 }

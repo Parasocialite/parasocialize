@@ -1065,6 +1065,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-09-games",
+   "title": "Top 8: The World That Waits for You",
+   "home_title": "The World That Waits",
+   "home_hook": "It remembers what you did. That is not the same as caring.",
+   "dek": "The game is the first medium that answers back on a schedule. Ranked by how much of the answer was a parser, a script or a person.",
+   "kicker": "Daily edition · 09 NOV 2026 · Games",
+   "image": null,
+   "law": 6,
+   "standfirst": "A game can remember what you did, greet you when you return and punish you for leaving. That is more continuity than most real friendships manage. The eight below are the record of what the machine was actually doing when it seemed to care.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "Second Life",
+     "show": "Technology / Games · 2003",
+     "what": "A persistent virtual world with avatars, economies, and relationships between people who never met.",
+     "why": "Parasocial attachment with a body and a social graph, and the first virtual environment where the loneliness was addressed directly rather than incidentally. It also produced the first convention-attendance problem in a space with no physical convention.",
+     "law": 6,
+     "entry": "second-life",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "The stadium",
+     "show": "Games · 2016",
+     "what": "A game event causes a physical stampede at a real stadium because players arrived to capture it in person.",
+     "why": "A parasocial bond with software producing a crowd in a physical space, and the first time the parasocial frame had to explain a mass-casualty event rather than a feeling. Everyone in that stadium was a genuine participant, which is the difficulty.",
+     "law": 6,
+     "entry": "pokemon-go-incident",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "The assistant arrives",
+     "show": "Technology / Games · 2011",
+     "what": "A voice assistant on every phone, addressing the user by name, knowing the user's calendar, and present in the home.",
+     "why": "The crossover entry point. The assistant is not a celebrity and is not a friend, but it is a presence that knows you, and the relationship forms anyway and is categorised as neither friendship nor tool use.",
+     "law": 6,
+     "entry": "siri",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "Swatting",
+     "show": "Games · 2013",
+     "what": "Sending a false emergency report to a real address to provoke an armed police response, because of a grievance about a streamer.",
+     "why": "The final boundary. A parasocial grievance aimed at a public figure lands on an innocent third party with a weapon, and no amount of the bond being sincere changes the outcome for the person who is shot.",
+     "law": 6,
+     "entry": "swatting",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The first convention",
+     "show": "Games · 1971",
+     "what": "Fans gather, in costume, in a hotel ballroom, to be in the same room with people who feel the same way about a show.",
+     "why": "The first mass physical assembly of parasocial people, and the proof that the bond had become a social fact requiring infrastructure. Everything after is logistics.",
+     "law": 6,
+     "entry": "star-trek-con",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "The residency",
+     "show": "Games · 2023",
+     "what": "A single artist booking a stadium for many consecutive nights, generating a physical economy around one very large parasocial bond.",
+     "why": "Concentration. Every other configuration in this file has a large number of small bonds; this is one enormous one, and its entire economy is downstream of it.",
+     "law": 6,
+     "entry": "stadium-residency",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Fandom wars",
+     "show": "Games · 2012",
+     "what": "Organised conflict between fanbases, with brigading, ratioing and coalition behaviour, conducted with the grammar of war.",
+     "why": "Fan organisations developed the same apparatus as states: recruitment, propaganda, alliance, denial. And the participants believe they are defending art.",
+     "law": 6,
+     "entry": "fandom-wars",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "Shipping",
+     "show": "Games · 1990",
+     "what": "Fans insisting two characters should be together, and treating the show as withholding rather than as finished.",
+     "why": "The clearest example of a parasocial bond that runs in the opposite direction to the intended one. The audience is not consuming the story, it is running a parallel production about two people who do not exist and are not allowed to.",
+     "law": 6,
+     "entry": "shipping",
+     "stage": "featured"
+    }
+   ],
+   "theme": "games",
+   "released": "2026-11-09",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Fans brawl outside 49ers-Raiders game in horrific scene leaving multiple people unconscious",
+     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQMjVnMkpnWlhGZUtZRkJ0QmFPWXZiYXFBbzZRMVJTenI0dkx4WWdTZUVpSVlhUU9pMnlJd1BISkZIRy1uMExrOFFwV2t4a2g5a0NTTzNzSWJuU1RDVzFRUS1ocGJfUEY2aTRuZGgyc0Y1WjBzQnpZeWVFaUVpRjNFOTNpN0VMRVNfUzgxdjg4WHBFbUxfQWoxcF8yR0xMamp6SzBGbW1wOWRnVlRRcE02WXd2T3ZrRm90dFJDeVhrWTFKazNPMTJISg?oc=5",
+     "publisher": "New York Post",
+     "at": "2026-11-09T01:45:00+00:00"
+    },
+    {
+     "title": "Realistic Backgrounds Heighten Uncanny Reactions to Virtual Influencers",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQa0sySlRkcmVrQi14X19KU1MtbWpLeVlfSEtnM2JnY1Bab3d4cmNsbWtCUHRXbDhYdU1iejIzaW5qdkpIZG5HS2QxSjJiNURXVWxvWW1wajlVUGhNcGZaUEd0bzdsdkphU0pIMDcyX210cmRGd1FMckFjeFNGSkVZelAwOXNBVkJnQzVfQlBFMUs5b0JmaGFHR3g1MXU?oc=5",
+     "publisher": "Bioengineer.org",
+     "at": "2026-11-08T23:20:30+00:00"
+    },
+    {
+     "title": "Fans Applaud ESPN's 'College GameDay' For Heading To Boise State",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOWjlhNzdCVUlCTXFUbGxaU29sRmJUY2ZSQ3ZzU2RxZUkydURoa01KSG9SV2h0Q283SzVQR2VoTXV6U0Z1bXFwbFBoZUN3Ujc4R05ZQTRCVHhXazVmUTdweVVTLUEtT0VXWmJQRnI4a1M3WnlZVWJPQU5UMHpvZkFKQVktb0hXVnlTazdj?oc=5",
+     "publisher": "Yahoo Sports",
+     "at": "2026-11-08T21:20:57+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
