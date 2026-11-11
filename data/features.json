@@ -1303,6 +1303,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-11-stage",
+   "title": "Top 8: The Fourth Wall Is a Lie",
+   "home_title": "The Fourth Wall Is a Lie",
+   "home_hook": "They can see you. You still cannot answer.",
+   "dek": "The theatre is where the audience is most present and least able to reply. Ranked by how deliberately the performance used that.",
+   "kicker": "Daily edition · 11 NOV 2026 · Stage",
+   "image": null,
+   "law": 1,
+   "standfirst": "On stage the actor can see the audience and the audience can see the actor, which makes the one-sidedness stranger rather than smaller. The eight below are the record of what happens when the person who cannot answer is standing ten feet away.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "The tape could not answer",
+     "show": "Stage · 1958",
+     "what": "A man on his sixty-ninth birthday plays a recording he made at thirty-nine, and has the conversation the tape cannot have back.",
+     "why": "The far end is the near side. Everywhere else on this site the other end of the tie is somebody else, and the entire argument of the site is that the other person cannot answer. This inverts it. Krapp records a tape reviewing the year gone on every birthday of his life; on his sixty-ninth he puts on the one he made at thirty-nine, and talks to it.",
+     "law": 1,
+     "entry": "krapp-last-tape",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "The Divine Sarah",
+     "show": "Stage / Film · 1891",
+     "what": "Sarah Bernhardt toured more like a head of state than a player: when she sailed for New York in 1891 the crossing was covered the way a royal visit is, and 'Divine Sarah' was by then the whole public's phrase for her.",
+     "why": "The most famous face the pre-cinema stage could make. Born in Paris in 1844, Bernhardt was by the 1870s the figure the international press called Divine Sarah - Oscar Wilde's 1879 poem of that name had her crowned with lilies at the feet of audiences who would never see her act in a room, and a French paper called her a national institution.",
+     "law": 1,
+     "entry": "sarah-bernhardt",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "If you believe, clap your hands",
+     "show": "Stage · 1904",
+     "what": "The play that asks the whole audience to save a dying fairy by clapping - and has received the same answer, in the same room, for more than a century.",
+     "why": "The audience is asked to save a life, out loud, and every night it does. Peter Pan premiered at the Duke of York's Theatre on 27 December 1904, produced by Charles Frohman, with Gerald du Maurier doubling as Captain Hook and Mr. Darling and Nina Boucicault in the title role - a woman as the boy, which then became the tradition.",
+     "law": 1,
+     "entry": "peter-pan",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "Vote for the murderer",
+     "show": "Stage · 1985",
+     "what": "A musical of Dickens' unfinished novel that stops where the novel stops and turns the cliffhanger over to the seats: the audience votes who murdered Edwin Drood, who the disguised Dick Datchery is and which two characters end up together.",
+     "why": "A show sells the feeling of authorship and the feeling is the product. The Mystery of Edwin Drood is the musical Rupert Holmes built out of the novel Charles Dickens left unfinished at his death in 1870. It premiered at the Delacorte Theater in Central Park on 21 August 1985, moved to Broadway in December, and won five Tonys including Best Musical.",
+     "law": 1,
+     "entry": "edwin-drood",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The audience became the show",
+     "show": "Stage / Film · 1976",
+     "what": "Launched as a small London stage musical in 1973, filmed in 1975, and from 1976 screened at midnight before a room that shouted back: The Rocky Horror Picture Show ran while its audience performed it, wearing the costumes.",
+     "why": "The subject here is not the film; it is the room it ran in. The Rocky Horror Show that Richard O'Brien wrote opened at the Royal Court Theatre Upstairs in London on 19 June 1973, and the remembered film version arrived in 1975. Then, in 1976, one Manhattan cinema, the Waverly, began showing it after midnight.",
+     "law": 1,
+     "entry": "rocky-horror",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "A slightly more awkward version of himself",
+     "show": "Scripted television / Unscripted television · 2013",
+     "what": "A comedian who stages real situations for people who have not read the script, and performs a slightly more awkward version of himself inside them - the manufacturing is the show, and the audience has been told so from the beginning.",
+     "why": "The figure the audience attaches to is a written character performed by its author, and the show says so in its own premise. Nathan for You (2013-2017) is the show in which he \"portrays a slightly more awkward version of himself, who offers advice to struggling businesses\", built on him \"playing a persona loosely based on himself\" for local small businesses.",
+     "law": 1,
+     "entry": "nathan-fielder",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "The wall exists to keep you out",
+     "show": "Film / Literature · 1758",
+     "what": "Diderot invented the wall in 1758 for the purpose of stopping the audience noticing. Every breach since - a wink, a clap, a lecture - is that convention failing on purpose, and it is the only time the far side admits you are there.",
+     "why": "The convention is an engineering specification for invisibility, and this entire site is about what happens on the far side of it. Diderot put it exactly where it belongs in 1758: actors and writers should \"imagine a huge wall across the front of the stage, separating you from the audience, and behave exactly as if the curtain had never risen\".",
+     "law": 1,
+     "entry": "the-fourth-wall",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "Nobody in that room argues with him",
+     "show": "Film · 1950",
+     "what": "A man nobody else can see kept drinking with him for years, and it worked because nobody in his life would say the sentence that ended it. It stops when two doctors who cannot see the rabbit go looking for him in it.",
+     "why": "The purest haunted case in film, and the clearest demonstration of the thing the whole film is actually about, which is not the rabbit. Elwood P. Dowd has an invisible companion six foot three and a half inches tall, and takes him drinking and introduces him to almost everyone he meets. The mechanism that keeps this intact is not the animal.",
+     "law": 1,
+     "entry": "harvey",
+     "stage": "featured"
+    }
+   ],
+   "theme": "stage",
+   "released": "2026-11-11",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Stacy Keach, ‘Bourne Legacy’ Star and Renowned Stage Actor, Dies at 85",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5FaUlZX1hrUWdNZVVpLXBZanlJYW5GY1QwSHNuLWxpRWdtMkM5RVltMWtsT3FfSkkzdGppbFM4ZzdSTld2cFBtV2k5aVNuMVRvSHp2a0E3bw?oc=5",
+     "publisher": "People.com",
+     "at": "2026-11-11T01:22:30+00:00"
+    },
+    {
+     "title": "Stacy Keach, actor known for Mike Hammer and Shakespeare alike, dies at 85",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1veHMzYzlncURadF9RUGJlZmZuSlI4cndRcXFJdnBaVzg2bS1HXzRQRWZrZzJaSnUyanJFMzd1UXE2Z20xOVg1eU4yZnhHVF9WRFlrSi1Dc244azlFWFViZDNhUWE5UHBSalQydkFMalRQSlo3TUZUSW55cjE3Zw?oc=5",
+     "publisher": "Entertainment Weekly",
+     "at": "2026-11-11T00:53:31+00:00"
+    },
+    {
+     "title": "JoBe Cerny, Pillsbury Doughboy Voice Actor, Dead at 78 Following Battle With Alzheimer’s Disease",
+     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQR1g0b0MydTBHbVZ3dVU5UFloV1JYNUdRVnlVbGJBdjJpb0dHX1JHTS1lZ1JVUDBEWFNpUzhCZ003ZmxhRWdHOURUNFFpN25Oak5HQnFyVDdIZkdrMkxJUEpqMFN3ejRsQnpmVGozR1c4S0pBekVrU0ExbTkzekZfTE9ZWU9vZ1BONnRDcVk1NFpGR1B4ZGRBanNERndGcHc2dU1aOTVzQW9ZN1FuNEZvSlo3djdVYk5KMWIxY2V4LUU?oc=5",
+     "publisher": "Yahoo",
+     "at": "2026-11-10T21:10:09+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
