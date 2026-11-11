@@ -6,14 +6,14 @@
    "from": "2026-11-04",
    "to": "2026-11-07",
    "reason": "No daily edition was generated on this day. The top 8 and the parasocialite are selected from that day's wires and theme, so a later build cannot know what the page would have shown.",
-   "declared": "2026-11-10"
+   "declared": "2026-11-11"
   },
   {
    "history": "top8",
    "from": "2026-11-04",
    "to": "2026-11-07",
    "reason": "No daily edition was generated on this day. The top 8 and the parasocialite are selected from that day's wires and theme, so a later build cannot know what the page would have shown.",
-   "declared": "2026-11-10"
+   "declared": "2026-11-11"
   }
  ]
 }
