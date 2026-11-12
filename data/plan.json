@@ -193,26 +193,8 @@
    "windows": 1
   },
   {
-   "slug": "top8-2026-11-09-games",
-   "title": "Top 8: The World That Waits for You",
-   "pool": 8,
-   "windows": 1
-  },
-  {
-   "slug": "top8-2026-11-10-music-idols",
-   "title": "Top 8: The Voice in Your Head",
-   "pool": 8,
-   "windows": 1
-  },
-  {
-   "slug": "top8-2026-11-11-stage",
+   "slug": "top8-2026-11-12-stage",
    "title": "Top 8: The Fourth Wall Is a Lie",
-   "pool": 8,
-   "windows": 1
-  },
-  {
-   "slug": "top8-2026-11-12-reality-tv",
-   "title": "Top 8: The Person You Watched Into Being",
    "pool": 8,
    "windows": 1
   }
@@ -304,36 +286,12 @@
    "rank": 11,
    "score": 84,
    "kind": "top8",
-   "target": "top8-2026-11-09-games",
+   "target": "top8-2026-11-12-stage",
    "why": "8 moments produce only 1 distinct window(s) at a stride of 8; the page will repeat sooner than readers expect.",
    "command": "grow the pool with tools/t8_grow.py, checking the show string as well as the eid"
   },
   {
    "rank": 12,
-   "score": 84,
-   "kind": "top8",
-   "target": "top8-2026-11-10-music-idols",
-   "why": "8 moments produce only 1 distinct window(s) at a stride of 8; the page will repeat sooner than readers expect.",
-   "command": "grow the pool with tools/t8_grow.py, checking the show string as well as the eid"
-  },
-  {
-   "rank": 13,
-   "score": 84,
-   "kind": "top8",
-   "target": "top8-2026-11-11-stage",
-   "why": "8 moments produce only 1 distinct window(s) at a stride of 8; the page will repeat sooner than readers expect.",
-   "command": "grow the pool with tools/t8_grow.py, checking the show string as well as the eid"
-  },
-  {
-   "rank": 14,
-   "score": 84,
-   "kind": "top8",
-   "target": "top8-2026-11-12-reality-tv",
-   "why": "8 moments produce only 1 distinct window(s) at a stride of 8; the page will repeat sooner than readers expect.",
-   "command": "grow the pool with tools/t8_grow.py, checking the show string as well as the eid"
-  },
-  {
-   "rank": 15,
    "score": 72,
    "kind": "axis",
    "target": "history + technology",
@@ -341,7 +299,7 @@
    "command": "re-file an entry only where its own medium is stated; do not move one to make the distribution look even"
   },
   {
-   "rank": 16,
+   "rank": 13,
    "score": 63,
    "kind": "decade",
    "target": "1150s",
@@ -349,7 +307,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 17,
+   "rank": 14,
    "score": 63,
    "kind": "decade",
    "target": "1350s",
@@ -357,7 +315,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 18,
+   "rank": 15,
    "score": 63,
    "kind": "decade",
    "target": "1370s",
@@ -365,7 +323,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 19,
+   "rank": 16,
    "score": 63,
    "kind": "decade",
    "target": "1530s",
@@ -373,7 +331,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 20,
+   "rank": 17,
    "score": 63,
    "kind": "decade",
    "target": "1540s",
@@ -381,7 +339,7 @@
    "command": "source one dated entry for this decade, or record it as a gap"
   },
   {
-   "rank": 21,
+   "rank": 18,
    "score": 50,
    "kind": "queue",
    "target": "3 drafts awaiting signoff",
