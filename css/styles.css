@@ -574,28 +574,22 @@ shape; sorted by year alone the block is just a list. */
   padding:24px 26px;position:relative;overflow:hidden;scroll-margin-top:90px;
 }
 .t8-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--hot)}
-.t8-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:16px}
+.t8-item{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
 .t8-rank{
   font-family:var(--serif);font-weight:900;font-size:3rem;line-height:.8;
   color:var(--hot);flex:none;min-width:52px;
 }
 .t8-art{width:92px;height:92px;flex:none;border-radius:6px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,.5)}
-/* .t8-art-none was a no-image plate designed for this list and never wired to
-   anything - it is one of the orphans `check_css --orphans` reported. The
-   front page top 8 and photo-less /top8/ entries are text-only, so the third
-   version of the same idea is removed rather than left to drift again. */
-.t8-titles{min-width:0;flex:1}
-.t8-titles h3{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:700;line-height:1.1;letter-spacing:-.02em}
-.t8-show{font-family:var(--label);font-size:.6rem;letter-spacing:.16em;color:var(--hot);margin:5px 0 8px}
-.t8-law{font-family:var(--label);font-size:.6rem;letter-spacing:.14em;color:var(--dimmer)}
-.t8-law:hover{color:var(--hot)}
-.t8-what{font-size:1rem;color:var(--dim);line-height:1.55;margin-bottom:12px}
-.t8-what b{color:var(--paper)}
-.t8-why{font-family:var(--serif);font-size:1.06rem;line-height:1.55;color:var(--paper)}
-.t8-why b{color:var(--warm-hot);font-family:var(--label);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:6px}
-.t8-read{margin:10px 0 0;font-family:var(--label);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase}
-.t8-read a{color:var(--hot);border-bottom:1px solid var(--line)}
-.t8-read a:hover{color:var(--paper);border-bottom-color:var(--hot)}
+.t8-body{flex:1 1 340px;min-width:0}
+.t8-body h3{font-family:var(--serif);font-size:clamp(1.15rem,2vw,1.5rem);
+  font-weight:700;line-height:1.12;letter-spacing:-.02em;margin:0}
+.t8-show{font-family:var(--label);font-size:.58rem;letter-spacing:.15em;
+  color:var(--hot);margin:4px 0 0}
+.t8-what{font-size:.95rem;color:var(--dim);line-height:1.5;margin:8px 0 0}
+.t8-read{display:inline-block;margin-top:10px;color:var(--hot);
+  font-family:var(--label);font-size:.56rem;letter-spacing:.13em;
+  text-transform:uppercase;border-bottom:1px solid var(--line)}
+.t8-read:hover{color:var(--paper);border-bottom-color:var(--hot)}
 .t8-wires{margin:24px 0 0;border-left:2px solid var(--mint);padding-left:14px;max-width:62ch}
 .t8-wires .kicker{margin:0 0 6px;color:var(--mint)}
 .t8-wires ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
@@ -1414,8 +1408,6 @@ a.log-row:hover{background:rgba(255,90,31,.06)}
   border-radius:12px;background:
   linear-gradient(150deg,rgba(255,90,26,.07),transparent 58%),
   rgba(255,246,234,.022);max-width:74ch}
-.t8-frame .kicker{margin:0 0 10px;color:var(--hot)}
-.t8-frame p{margin:0 0 11px;font-size:1.02rem;line-height:1.6}
 .t8-frame p:last-child{margin:0}
 .t8-frame strong{color:#fff6ea}
 .t8-frame-s{font-family:var(--label);font-size:.6rem;letter-spacing:.11em;

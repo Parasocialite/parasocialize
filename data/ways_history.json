@@ -585,6 +585,129 @@
      "track": "2 stories · 17 entries · 5 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-12",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "celebrity-death-feels-like-loss",
+     "title": "When a famous person dies it can feel like losing someone you loved",
+     "why": "The Guardian running it in the exact week three people died, where the timing proves the story rather than being the story. The object is the celebrity; the grief is the register.",
+     "href": "radar/celebrity-death-feels-like-loss.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 6 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "sculptor-fell-in-love",
+     "title": "The sculptor who fell in love with an illusion, in 2026",
+     "why": "The same myth retold in 2026, and the site calls this one the more useful of the two. The figure recurs, which is the whole argument of the myth sub-category.",
+     "href": "radar/sculptor-fell-in-love.html",
+     "meta": "Story · companion",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 6 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "companion-safety-controls",
+     "title": "Safety experts say companion apps need better guardrails than they have",
+     "why": "Safety experts on Replika and isolation, where the concern is not the chatbot but what replaces it. The object is the companion and the risk is the substitution.",
+     "href": "radar/companion-safety-controls.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 6,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "AI Chatbot Liability Lawsuits: Tracker of Youth-Harm and Companion-Chatbot Cases",
+       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE10RlJOajZGbzR5SzBTaFlLa0FQMzUyOGF6OGoxTFp3a0FfS3NJYTgyMGsxdDhCN3VnT1B6ZXpkR1lQeTNJV2pvNE0wY21SZmNvT0hZSWdnWm9lZVc2RlJIeTFn?oc=5",
+       "publisher": "FourWeekMBA"
+      }
+     ],
+     "track": "7 stories · 35 entries · 6 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "binding-is-public",
+     "title": "Binding",
+     "why": "Kempe again. The mechanism is described FROM her case, so it belongs with the addressed divine rather than as a general mechanism about performance.",
+     "href": "encyclopedia/binding-is-public.html",
+     "meta": "Theology / Literature · 1438",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 6 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "youtubetv-living-room",
+     "title": "The living room is now a comment section",
+     "why": "Creator posts and remote comments built for the TV, so the sofa is a forum. The reciprocal edge arriving on the largest screen in the house.",
+     "href": "radar/youtubetv-living-room.html",
+     "meta": "Story · brand",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 6 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "war-of-the-worlds",
+     "title": "Nine to twelve million heard it",
+     "why": "Filed cosmology/scheduling - \"a repeated slot that becomes a container for the tie\" - because what this entry argues is a property of the hour rather than of the script.",
+     "href": "encyclopedia/war-of-the-worlds.html",
+     "meta": "Radio · 1938",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 6 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-teacher",
+     "title": "The teacher",
+     "why": "An authority figure seen daily for years who knows your name, your mood and your home situation. The densest single setting for involuntary one-sided attachment, and the least discussed anywhere.",
+     "href": "encyclopedia/the-teacher.html",
+     "meta": "History · 1900",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 6 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "doxxing",
+     "title": "Doxxing the person, not the character",
+     "why": "The jump from disliking a fictional portrayal to publishing a real person's address. The word had to be invented for a grievance that used to be settled by writing a letter, which is the shift in register the entry documents.",
+     "href": "encyclopedia/doxxing.html",
+     "meta": "Technology · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 6,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 6 daily cases"
+    }
+   }
   }
  ]
 }

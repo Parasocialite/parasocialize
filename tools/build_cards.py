@@ -3141,13 +3141,15 @@ def t8_record(feat, today=None):
 def t8_entry(en, i, laws, manifest, depth, one_law, anchor=""):
     """One moment of a top-8 list, as markup. Shared by /top8/ and the archive.
 
-    A former list renders exactly what it rendered the day it was on show -
-    the entry's own words, its law, and its photograph when one is sourced -
-    so archiving is a change of address rather than an edit. The numeral is
-    the position on the page, taken at render time: a stored rank describes
-    the pool it was written for, and a promoted candidate carries none at all.
+    A former list renders exactly what it rendered the day it was on show, so
+    archiving is a change of address rather than an edit. The numeral is the
+    position on the page, taken at render time.
+
+    The card used to carry three paragraphs: what happened, why it was on the
+    list, and a law citation. A reader scanning eight of them read twenty-four
+    paragraphs, and the second and third mostly restated the first. It is now a
+    rank, a name, where it is from, one sentence, and the door to the entry.
     """
-    law = laws.get(en.get("law"), {})
     f = img_for(manifest, en.get("image"), depth)
     if f:
         im = (f'<figure class="t8-fig"><img src="{esc(f["path"])}" alt="" loading="lazy">'
@@ -3157,24 +3159,19 @@ def t8_entry(en, i, laws, manifest, depth, one_law, anchor=""):
     else:
         im = ""
     _id = f' id="{esc(anchor)}"' if anchor else ""
-    _entry = (f'<p class="t8-read"><a href="{root(depth)}encyclopedia/'
-              f'{esc(en["entry"])}.html">Read the entry &rarr;</a></p>'
+    _entry = (f'<a class="t8-read" href="{root(depth)}encyclopedia/'
+              f'{esc(en["entry"])}.html">Read the entry &rarr;</a>'
               if en.get("entry") else "")
     return f"""<li class="t8-item"{_id} data-rank="{i}">
-  <div class="t8-head">
-    <span class="t8-rank">{i}</span>
-    {im}
-    <div class="t8-titles">
-      <h3>{esc(en['name'])}</h3>
-      <p class="t8-show">{esc(en['show'])}</p>
-      <a class="t8-law" href="{root(depth)}history/index.html#law-{esc(en.get('law',1))}">LAW {esc(en.get('law',1))} &middot; {esc(law.get('title',''))}</a>
-    </div>
+  <span class="t8-rank">{i}</span>
+  {im}
+  <div class="t8-body">
+    <h3>{esc(en['name'])}</h3>
+    <p class="t8-show">{esc(en['show'])}</p>
+    <p class="t8-what">{esc(en['what'])}</p>
+    {_entry}
   </div>
-  <p class="t8-what"><b>What happens.</b> {esc(en['what'])}</p>
-  <p class="t8-why"><b>Why it is on the list.</b> {esc(en['why'])}</p>
-  {_entry}
 </li>"""
-
 
 def t8_shared_law(one_law, laws):
     """The list's one law, stated once, when the whole list shares it.
@@ -3296,7 +3293,6 @@ def build_top8(data, feat, manifest):
      letter-spacing:-.03em;line-height:1.02;margin:0 0 16px;max-width:22ch">{esc(L['title'])}</h1>
   <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">{esc(L['dek'])}</p>
   <div class="note" style="margin-top:26px"><p>{esc(L['standfirst'])}</p></div>
-  {frame_note}
   {news_html}
   <p style="margin-top:30px;max-width:62ch"><a class="btn btn-solid" href="../quiz/index.html">Which of these are you?</a>
   <span style="font-size:.92rem;color:var(--dim)">&nbsp;Eight questions, and the answers are people in the
@@ -3304,7 +3300,6 @@ def build_top8(data, feat, manifest):
 </section>
 
 <section class="section" id="list" style="padding-top:8px">
-  {shared_law}
   <ol class="t8">{''.join(items)}</ol>
   <p class="countline" style="margin-top:30px">{outro}
   <a href="{r}index.html">Back to the ten sections →</a></p>
@@ -3354,8 +3349,6 @@ def build_top8_archive(data, feat, manifest):
      letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;max-width:24ch">{esc(L['title'])}</h1>
   <p class="sec-lede" style="max-width:62ch">{esc(L['dek'])}</p>
   <div class="note" style="margin-top:24px"><p>{esc(L['standfirst'])}</p></div>
-  {t8_frame_note(L, entries, manifest)}
-  {t8_shared_law(one_law, laws)}
   <ol class="t8">{items}</ol>
   <p class="countline" style="margin-top:24px"><a href="../index.html">Every list &rarr;</a></p>
 </section>"""

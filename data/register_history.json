@@ -120,6 +120,31 @@
   {
    "date": "2026-11-08",
    "register": "encounter"
+  },
+  {
+   "date": "2026-11-09",
+   "register": "harm",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-12",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-10",
+   "register": "reciprocal-edge",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-12",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-11",
+   "register": "undemanded",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-12",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-12",
+   "register": "archive"
   }
  ]
 }
