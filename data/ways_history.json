@@ -936,6 +936,123 @@
      "track": "2 stories · 17 entries · 8 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-12",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "celebrity-death-feels-like-loss",
+     "title": "When a famous person dies it can feel like losing someone you loved",
+     "why": "The Guardian running it in the exact week three people died, where the timing proves the story rather than being the story. The object is the celebrity; the grief is the register.",
+     "href": "radar/celebrity-death-feels-like-loss.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 9 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "house-of-the-dragon-backlash",
+     "title": "House of the Dragon ended and the fans are furious at the show, not the characters",
+     "why": "A fight about storytelling in which everyone is using the wrong words. The contest register, and the objects are characters who do not exist and cannot be defended.",
+     "href": "radar/house-of-the-dragon-backlash.html",
+     "meta": "Story · contest",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 9 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "casper",
+     "title": "Not all ghosts are bad",
+     "why": "A ghost, and the reason the haunted member exists: belief in presence with nothing to verify it. Filed social-agent rather than object because he is addressed, not used.",
+     "href": "encyclopedia/casper.html",
+     "meta": "Comics · 1945",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 9 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "our-lady-of-guadalupe",
+     "title": "Am I not here, I who am your mother?",
+     "why": "Addressed, never met: nobody in the record meets her, and the other end is understood to hear - the founding sentence of the devotion is her answer to a worried man.",
+     "href": "encyclopedia/our-lady-of-guadalupe.html",
+     "meta": "Visual art / Theology · 1531",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 9 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "amos-n-andy",
+     "title": "The audience organised against the show",
+     "why": "Filed institution/fandom-body, on the shelf's test: \"Does the group have rules that are not the platform's, and can it act on somebody who is not a member?\" The audience that loved the show built its own machinery - a six-month newspaper campaign.",
+     "href": "encyclopedia/amos-n-andy.html",
+     "meta": "Radio · 1928",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 9 daily cases"
+    },
+    "cosmology": {
+     "kind": "story",
+     "id": "neighbours-kids-and-finale",
+     "title": "The Neighbours finale broke something in the schedule",
+     "why": "Not just grief: the shape of a whole country's week rearranged around a soap ending. The clearest documented case that the slot can matter more than the thing in it.",
+     "href": "radar/neighbours-kids-and-finale.html",
+     "meta": "Story · world",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 9 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-absent-sage",
+     "title": "The craft of the sage Adapa",
+     "why": "A sage whose teaching reaches a reader intact and whose person never does - standing without a role and without a meeting. The same gap that produced this shelf for the Greek erastes produces it again here, two centuries earlier and in writing rather than in life.",
+     "href": "encyclopedia/the-absent-sage.html",
+     "meta": "History · 660 BC",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 9 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "contest",
+     "title": "Fighting about a stranger in a reply section",
+     "why": "Fighting about a stranger in a reply section, in good faith. The object is a non-person who cannot be fought with, and the mechanism is the in-group. This is the cleanest instance of the register-as-category confusion the old taxonomy suffered from.",
+     "href": "encyclopedia/contest.html",
+     "meta": "Technology · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 9 daily cases"
+    }
+   }
   }
  ]
 }

@@ -1422,6 +1422,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-12-reality-tv",
+   "title": "Top 8: The Person You Watched Into Being",
+   "home_title": "The Person You Watched",
+   "home_hook": "They agreed to be seen. The edit did the rest.",
+   "dek": "The genre that sells a person as a story and then asks them to live in it. Ranked by how much of the self was produced for the camera.",
+   "kicker": "Daily edition · 12 NOV 2026 · Reality TV",
+   "image": null,
+   "law": 3,
+   "standfirst": "Reality television is the industrial form of the parasocial bond: cast, edit, broadcast, then let the audience decide who the person is. The eight below are the record of what happens to the people who are chosen, and what the choosing does to the ones who watch.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "The forum that scored the edit",
+     "show": "Unscripted television · 2002",
+     "what": "Edgic - editing plus logic - is the practice of grading every contestant's screen presence week by week: a category (invisible, under the radar, middle of the road, complex personality, over the top), a tone and a visibility score.",
+     "why": "The instrument was written by forum users, in season four, and it has never been official.",
+     "law": 3,
+     "entry": "edgic",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "The confessional that became a convention",
+     "show": "Unscripted television · 1992",
+     "what": "In 1992 MTV's The Real World gave reality television its least-questioned convention: a person alone in a room, speaking to a camera about what everyone just saw.",
+     "why": "A soap opera that could not afford writers invented a confidante instead. The Real World began as MTV's attempt at a scripted show for a younger audience; without a writers' budget, the plan became gathering seven strangers in one house and editing the resulting footage.",
+     "law": 3,
+     "entry": "the-confessional-booth",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "Say, kids, what time is it?",
+     "show": "Unscripted television · 1947–1960",
+     "what": "The first television character to be answered by name. Children three to eight shouted its name back at the screen every afternoon for thirteen years, and the puppet it was played by was recorded before the broadcast.",
+     "why": "The template for every children's presenter since, and the purest mechanism on this site: a figure that talks to you, built by somebody else, delivered from tape.",
+     "law": 3,
+     "entry": "howdy-doody",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "A glimpse mistaken for access",
+     "show": "Unscripted television · 2026",
+     "what": "A season of a reality format and a global sporting event produce millions of viewers who then investigate the participants' personal lives. A relationship with an edited construct becomes a licence to intervene in a real life.",
+     "why": "The whole mechanism in one summer: visibility mistaken for access, and access mistaken for entitlement. What the audience actually had was an eight-week window onto a version of a person that producers cut down to a confessional and got paid for. The gap between the two is invisible from inside the eight weeks.",
+     "law": 3,
+     "entry": "parasocial-problem",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The figure you buy",
+     "show": "Literature / Unscripted television · 1971",
+     "what": "A fictional figure whose NAME is the product: the bond is with a person who was invented so that the relationship can never fail.",
+     "why": "The inverse of the-brand-as-character, and the sharper version of it. There the company came first and was given a personality; here the personality came first and the company took the name.",
+     "law": 3,
+     "entry": "the-figure-you-buy",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "Webcasting",
+     "show": "Unscripted television · 1997",
+     "what": "Streaming video over a network, at first unbroadcast and unproduced, from a bedroom or a desk.",
+     "why": "The medium that removed the gatekeeper before it removed the schedule. Everything a creator economy is today existed in this form first, badly, and was not interesting to anybody.",
+     "law": 3,
+     "entry": "webcasting",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "YouTube launches",
+     "show": "Unscripted television · 2005",
+     "what": "Uploads become trivially cheap and the audience begins to attach to individuals rather than channels.",
+     "why": "Attachment shifts from institutions to people at exactly the point the distribution cost goes to zero. The broadcaster's ten-year relationship with a channel becomes a viewer's ten-year relationship with a face.",
+     "law": 3,
+     "entry": "youtube-launch",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The local news anchor",
+     "show": "Unscripted television · 1950",
+     "what": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset.",
+     "why": "Rubin's longitudinal work is on exactly this bond. When a local anchor retires the grief is measurable and there is no word for it, because a parasocial relationship with a local figure is assumed to be about the news rather than about the person.",
+     "law": 3,
+     "entry": "the-local-anchor",
+     "stage": "featured"
+    }
+   ],
+   "theme": "reality-tv",
+   "released": "2026-11-12",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Reality star arrested after brawl leaves teen dead",
+     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPQ0lLYlNiX2J3dnR5RVRBSjJYbGNlTWloWkZQOWlWRm9sTkpMNGtBYm9aNWZXYjdnVjNVYzVvZF8zN0dXbEdoZFpRQTZBZEo0eEV2OWM2c2RIUFc3NzF6M1hULWItdWZta2JNaE12b3BOZ1hTNFM0TGQ3VW9zMWU1YkdjS2hyM3RybDc4LUU1WmtCWlhYR0w1TWNsOUxhbWhOdXEtSFlzOA?oc=5",
+     "publisher": "Yahoo",
+     "at": "2026-11-11T22:08:02+00:00"
+    },
+    {
+     "title": "\"Fans angry over romance distort reality\"… \"Choi Seung-hyun.com,\" which had unfollowed T.O.P after the \"Nana boyfriend\" rumors, reverses decision within a month [Star Issue]",
+     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBudkFzbmE3WGlJb1ZMZ0pSaXlEdUpKTkROX2hNUWdTRTRreUJnU2lOY1MtRE8zdExsd1Y4VHJQMmNkUE1peHFwS1gyMGZHNzJjeUtfTjdXektZNS1QUXJnR00zNlNVa25zcm9sQ19iWHZxQUQ0eVhZ?oc=5",
+     "publisher": "스타뉴스",
+     "at": "2026-11-11T21:00:00+00:00"
+    },
+    {
+     "title": "Philo compares reality TV to sports in female-led \"Film Study\" campaign",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNUEwzM0VCOXZkTjZfNGlNZTR6UFR0Z2N2ZW95T3FDS2ZZN0JXaEg5LWZWNG5hTHdoUmxHMklZMHhBdTNMakQzZk9tMkpMVHRBb2NPakhVQzU2QUN6NmRVU09SaExDdnNwcUstMGdCc1VJUlhuSlhLblNlWWktWGx0VUZoWHJ0VEdDWXl5emtiSW13RXFUQktyTjFPamExTXM?oc=5",
+     "publisher": "TheDesk.net",
+     "at": "2026-11-11T19:50:51+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
