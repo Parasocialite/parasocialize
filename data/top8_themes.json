@@ -1,5 +1,5 @@
 {
- "_note": "Themes for the daily top 8. The editor picks one theme from today's wires when a headline matches, otherwise the least recently used. A theme supplies the framing, the law and a selector; the eight entries themselves are always existing encyclopedia entries, so every claim on the list is already sourced on its own page. `media`, `cats`, `sections`, `keywords` and the year range are OR-ed: an entry is a candidate if it matches any one of them, and the editor ranks the candidates by keyword overlap before taking eight. `retired` themes are never selected; the old list stays in the archive.",
+ "_note": "Themes for the daily top 8. The editor picks one theme from today's wires when a headline matches, otherwise the least recently used. A theme supplies the framing, the law and a selector; the eight entries themselves are always existing encyclopedia entries, so every claim on the list is already sourced on its own page. `media`, `cats`, `sections`, `keywords` and the year range are OR-ed: an entry is a candidate if it matches any one of them, and the editor ranks the candidates by keyword overlap before taking eight. `retired` themes are never selected; the old list stays in the archive. `plain` is the one-paragraph explanation printed above the list: the headline is a hook, and a reader should not have to infer the premise from it.",
  "themes": [
   {
    "id": "dead-stars",
@@ -34,7 +34,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Obituary"
+   "domain": "Obituary",
+   "plain": "When a famous person dies, people who never met them grieve in public. This list is about what that grief is for, and who it belongs to."
   },
   {
    "id": "fan-mail",
@@ -65,7 +66,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Fan mail"
+   "domain": "Fan mail",
+   "plain": "Before email, fans wrote letters and sometimes got one back. These are the arrangements built to answer them: secretaries, clubs, and a name that was not a person."
   },
   {
    "id": "ai-companions",
@@ -98,7 +100,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "AI"
+   "domain": "AI",
+   "plain": "Chatbots that remember you and never get tired. These are the products built to feel like a relationship, and what that costs."
   },
   {
    "id": "screen-characters",
@@ -132,7 +135,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Screen"
+   "domain": "Screen",
+   "plain": "A character cannot leave, age or sue. This list is about the safest possible person to love, and why safe is not the same as harmless."
   },
   {
    "id": "brand-mascots",
@@ -164,7 +168,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Brands"
+   "domain": "Brands",
+   "plain": "A logo with a voice is a friend designed by a committee. These are the brands that became characters, and the characters that became shops."
   },
   {
    "id": "music-idols",
@@ -196,7 +201,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Music"
+   "domain": "Music",
+   "plain": "Pop stardom is the oldest machine for making a stranger feel close. These are the moments the machine showed its working."
   },
   {
    "id": "sport-faith",
@@ -227,7 +233,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Sport"
+   "domain": "Sport",
+   "plain": "You do not choose a team; it is chosen by where you were born. This list is about loyalty that outlives the players and the owners."
   },
   {
    "id": "games",
@@ -258,7 +265,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Games"
+   "domain": "Games",
+   "plain": "A game answers back on a schedule you control. These are the first relationships where the other side was designed to respond."
   },
   {
    "id": "radio-voices",
@@ -289,7 +297,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Radio"
+   "domain": "Radio",
+   "plain": "Radio put a stranger in your room every night and made that feel normal. These are the voices that invented daily intimacy at a distance."
   },
   {
    "id": "comics",
@@ -320,7 +329,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Comics"
+   "domain": "Comics",
+   "plain": "A comic is a person you can hold, cut out and collect. This list is about the figure that became an object you could own."
   },
   {
    "id": "stage",
@@ -351,7 +361,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Stage"
+   "domain": "Stage",
+   "plain": "The fourth wall is the invisible line between a stage and its audience. This list is about the moment a performer steps through it, and what that does to a room that cannot answer back."
   },
   {
    "id": "visual-art",
@@ -382,7 +393,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Art"
+   "domain": "Art",
+   "plain": "A portrait is a face made to be looked at, and it never looks away. These are the pictures that turned looking into a relationship."
   },
   {
    "id": "ancient-bonds",
@@ -412,7 +424,8 @@
    "year_min": null,
    "year_max": 999,
    "retired": false,
-   "domain": "Deep time"
+   "domain": "Deep time",
+   "plain": "Before media, people still kept the dead close and spoke to figures who could not reply. This list is about the oldest evidence of a one-sided bond."
   },
   {
    "id": "religion",
@@ -444,7 +457,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Religion"
+   "domain": "Religion",
+   "plain": "A god is the one relationship where the far end is real to you and unverifiable to everyone else. These are the practices built around that."
   },
   {
    "id": "fandom",
@@ -474,7 +488,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Fandom"
+   "domain": "Fandom",
+   "plain": "Fandom is a relationship with other fans as much as with the star. These are the moments the crowd itself became the point."
   },
   {
    "id": "streaming",
@@ -507,7 +522,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Streaming"
+   "domain": "Streaming",
+   "plain": "Live streaming is the first medium where a reply arrives fast enough to feel like a conversation. These are the moments that feeling was manufactured."
   },
   {
    "id": "reality-tv",
@@ -538,7 +554,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Reality TV"
+   "domain": "Reality TV",
+   "plain": "Reality TV sells a real person as a story, then asks them to live inside it. These are the moments the format and the person collide."
   },
   {
    "id": "literature",
@@ -570,7 +587,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Books"
+   "domain": "Books",
+   "plain": "A book is the slowest reply and the longest relationship. These are the moments reading became correspondence."
   },
   {
    "id": "letters-to-nobody",
@@ -599,7 +617,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Letters"
+   "domain": "Letters",
+   "plain": "Some ties ask for nothing and are answered by nobody. These are the ones kept anyway."
   },
   {
    "id": "the-reply",
@@ -628,7 +647,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Replies"
+   "domain": "Replies",
+   "plain": "Every other list here is about silence. This one is about the exceptions: the letter that came back, the voice that said your name."
   },
   {
    "id": "audience-inside",
@@ -656,7 +676,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Fourth wall"
+   "domain": "Fourth wall",
+   "plain": "The fourth wall is a rule about being invisible. These eight are the moments a character looked straight at you and broke it."
   },
   {
    "id": "childhood",
@@ -686,7 +707,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Childhood"
+   "domain": "Childhood",
+   "plain": "Children form these bonds before they can consent to them. This list is about the toys and shows sold to that fact."
   },
   {
    "id": "merchandise",
@@ -716,7 +738,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Objects"
+   "domain": "Objects",
+   "plain": "Merchandise is the relationship made into an object you can hold. These are the moments the bond became a purchase."
   },
   {
    "id": "grief-archive",
@@ -746,7 +769,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Archive"
+   "domain": "Archive",
+   "plain": "When the person stops, the archive keeps answering. These are the relationships that continued after the far end ended."
   },
   {
    "id": "politics",
@@ -776,7 +800,8 @@
    "year_min": null,
    "year_max": null,
    "retired": false,
-   "domain": "Power"
+   "domain": "Power",
+   "plain": "A leader is a figure with an office and an audience, and the two are easy to confuse. These are the moments the confusion was used."
   }
  ]
 }

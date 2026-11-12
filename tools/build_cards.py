@@ -3138,6 +3138,29 @@ def t8_record(feat, today=None):
     return f'<ol class="t8rec">{"".join(rows)}</ol>'
 
 
+def t8_plain(L):
+    """The plain explanation for a list's headline.
+
+    A list record in data/features.json is a snapshot taken the day it was
+    generated, so a field added to the theme afterwards is not in it. The
+    theme file is the live copy, and the list's `theme` is the key back to it;
+    falling back to `dek` means an old list still says something true rather
+    than printing an empty paragraph.
+    """
+    own = str(L.get("plain") or "").strip()
+    if own:
+        return own
+    try:
+        themes = json.loads((ROOT / "data" / "top8_themes.json")
+                            .read_text(encoding="utf-8")).get("themes") or []
+        for th in themes:
+            if th.get("id") == L.get("theme") and th.get("plain"):
+                return th["plain"]
+    except (OSError, ValueError):
+        pass
+    return str(L.get("dek") or "")
+
+
 def t8_entry(en, i, laws, manifest, depth, one_law, anchor=""):
     """One moment of a top-8 list, as markup. Shared by /top8/ and the archive.
 
@@ -3291,7 +3314,11 @@ def build_top8(data, feat, manifest):
   <p class="kicker">{esc(L['kicker'])} · the top 8</p>
   <h1 style="font-family:var(--serif);font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;
      letter-spacing:-.03em;line-height:1.02;margin:0 0 16px;max-width:22ch">{esc(L['title'])}</h1>
-  <p class="sec-lede" style="max-width:62ch;font-size:1.1rem">{esc(L['dek'])}</p>
+  <p class="t8-plain">{esc(t8_plain(L))}</p>
+  <p class="t8-dek">{esc(L['dek'])}</p>
+  <p class="t8-how"><b>How this list works.</b> Eight moments from the record,
+  one list a day. The number is today's rank, not a score, and every title
+  links to the entry it came from.</p>
   <div class="note" style="margin-top:26px"><p>{esc(L['standfirst'])}</p></div>
   {news_html}
   <p style="margin-top:30px;max-width:62ch"><a class="btn btn-solid" href="../quiz/index.html">Which of these are you?</a>
@@ -3347,7 +3374,8 @@ def build_top8_archive(data, feat, manifest):
   <p class="kicker">{esc(L['kicker'])} &middot; the top 8</p>
   <h1 style="font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;
      letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;max-width:24ch">{esc(L['title'])}</h1>
-  <p class="sec-lede" style="max-width:62ch">{esc(L['dek'])}</p>
+  <p class="t8-plain">{esc(t8_plain(L))}</p>
+  <p class="t8-dek">{esc(L['dek'])}</p>
   <div class="note" style="margin-top:24px"><p>{esc(L['standfirst'])}</p></div>
   <ol class="t8">{items}</ol>
   <p class="countline" style="margin-top:24px"><a href="../index.html">Every list &rarr;</a></p>
