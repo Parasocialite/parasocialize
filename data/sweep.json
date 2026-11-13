@@ -1,12 +1,12 @@
 {
-  "last_run": "2026-11-13T15:17:16.652530+00:00",
-  "duration_s": 6.0,
+  "last_run": "2026-11-13T21:54:22.209843+00:00",
+  "duration_s": 7.9,
   "feeds_total": 15,
   "feeds_ok": 12,
-  "candidates": 24,
-  "fresh": 0,
+  "candidates": 23,
+  "fresh": 1,
   "drafted": 0,
-  "filed_raw": 0,
+  "filed_raw": 1,
   "rejected": 0,
   "awaiting_signoff": 60,
   "model": "none (raw filing only)",
@@ -14,85 +14,85 @@
     {
       "feed": "bing:general",
       "ok": true,
-      "items": 10,
-      "ms": 223,
+      "items": 9,
+      "ms": 297,
       "query": "parasocial relationships"
     },
     {
       "feed": "bing:idol",
       "ok": true,
-      "items": 2,
-      "ms": 179,
+      "items": 1,
+      "ms": 248,
       "query": "celebrity fans parasocial relationship attachment"
     },
     {
       "feed": "bing:creator",
       "ok": true,
       "items": 0,
-      "ms": 182,
+      "ms": 233,
       "query": "streamer creator fans emotional attachment"
     },
     {
       "feed": "bing:character",
       "ok": true,
       "items": 0,
-      "ms": 175,
+      "ms": 220,
       "query": "TV series finale fans grief character fandom"
     },
     {
       "feed": "bing:companion",
       "ok": true,
-      "items": 5,
-      "ms": 216,
+      "items": 3,
+      "ms": 298,
       "query": "AI companion app Replika Character.AI users attachment"
     },
     {
       "feed": "bing:world",
       "ok": true,
-      "items": 0,
-      "ms": 251,
+      "items": 1,
+      "ms": 229,
       "query": "sports team fans emotional attachment community"
     },
     {
       "feed": "bing:brand",
       "ok": true,
       "items": 2,
-      "ms": 174,
+      "ms": 245,
       "query": "brand loyalty program fans obsession customers"
     },
     {
       "feed": "bing:crossover",
       "ok": true,
       "items": 0,
-      "ms": 209,
+      "ms": 273,
       "query": "teacher students parasocial attachment school"
     },
     {
       "feed": "bing:contest",
       "ok": true,
       "items": 0,
-      "ms": 142,
+      "ms": 230,
       "query": "fandom backlash pile on creator online"
     },
     {
       "feed": "bing:grief",
       "ok": true,
       "items": 0,
-      "ms": 183,
+      "ms": 218,
       "query": "celebrity death fans grief mourning public"
     },
     {
       "feed": "bing:danger",
       "ok": true,
       "items": 0,
-      "ms": 318,
+      "ms": 278,
       "query": "sasaeng stalking idol fan arrested doxxing"
     },
     {
       "feed": "parasocial-mag",
       "ok": true,
       "items": 9,
-      "ms": 203
+      "ms": 1568
     },
     {
       "feed": "vitaminek",
