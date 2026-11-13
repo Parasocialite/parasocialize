@@ -1,6 +1,6 @@
 {
-  "last_run": "2026-11-13T00:06:42.114281+00:00",
-  "duration_s": 5.6,
+  "last_run": "2026-11-13T06:30:41.260607+00:00",
+  "duration_s": 5.8,
   "feeds_total": 15,
   "feeds_ok": 12,
   "candidates": 23,
@@ -15,84 +15,84 @@
       "feed": "bing:general",
       "ok": true,
       "items": 9,
-      "ms": 287,
+      "ms": 232,
       "query": "parasocial relationships"
     },
     {
       "feed": "bing:idol",
       "ok": true,
       "items": 2,
-      "ms": 186,
+      "ms": 221,
       "query": "celebrity fans parasocial relationship attachment"
     },
     {
       "feed": "bing:creator",
       "ok": true,
       "items": 0,
-      "ms": 138,
+      "ms": 187,
       "query": "streamer creator fans emotional attachment"
     },
     {
       "feed": "bing:character",
       "ok": true,
       "items": 0,
-      "ms": 206,
+      "ms": 161,
       "query": "TV series finale fans grief character fandom"
     },
     {
       "feed": "bing:companion",
       "ok": true,
       "items": 5,
-      "ms": 220,
+      "ms": 232,
       "query": "AI companion app Replika Character.AI users attachment"
     },
     {
       "feed": "bing:world",
       "ok": true,
       "items": 0,
-      "ms": 143,
+      "ms": 175,
       "query": "sports team fans emotional attachment community"
     },
     {
       "feed": "bing:brand",
       "ok": true,
       "items": 2,
-      "ms": 152,
+      "ms": 197,
       "query": "brand loyalty program fans obsession customers"
     },
     {
       "feed": "bing:crossover",
       "ok": true,
       "items": 0,
-      "ms": 116,
+      "ms": 150,
       "query": "teacher students parasocial attachment school"
     },
     {
       "feed": "bing:contest",
       "ok": true,
       "items": 0,
-      "ms": 255,
+      "ms": 157,
       "query": "fandom backlash pile on creator online"
     },
     {
       "feed": "bing:grief",
       "ok": true,
       "items": 0,
-      "ms": 183,
+      "ms": 276,
       "query": "celebrity death fans grief mourning public"
     },
     {
       "feed": "bing:danger",
       "ok": true,
       "items": 0,
-      "ms": 131,
+      "ms": 144,
       "query": "sasaeng stalking idol fan arrested doxxing"
     },
     {
       "feed": "parasocial-mag",
       "ok": true,
       "items": 9,
-      "ms": 138
+      "ms": 188
     },
     {
       "feed": "vitaminek",
