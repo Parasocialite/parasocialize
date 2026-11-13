@@ -1184,6 +1184,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-13-streaming",
+   "title": "Top 8: The Reply That Feels Real",
+   "home_title": "The Reply That Feels Real",
+   "home_hook": "A host says your name. The wall looks like a window.",
+   "dek": "The first medium where the reply is fast enough to feel reciprocal. Ranked by how much of the warmth was a product decision.",
+   "kicker": "Daily edition · 13 NOV 2026 · Streaming",
+   "image": null,
+   "law": 5,
+   "standfirst": "A streamer can answer a message in seconds, which is more than most television ever managed. The eight below are the record of what that speed does: the subscription, the shout-out, the moderation queue, the parasocial bond sold as a monthly tier.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "The platform executive and the creator, same stage",
+     "show": "Technology · 2026",
+     "what": "VidSummit 2026 bills Dan Clancy, chief executive of Twitch, and SSSniperWolf - thirty-five million subscribers - on the same programme.",
+     "why": "The executive who sets the terms and the person who lives under them, speaking at the same trade fair, to the same room. Neither of them is there with the people watching.",
+     "law": 5,
+     "entry": "twitch-500m",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "Live chat, two-way",
+     "show": "Technology · 2015",
+     "what": "A live stream with a visible comment feed, where the creator can read the room while the room watches itself. The first mass parasocial environment where the one-sided bond visibly, continuously, acknowledges you.",
+     "why": "It solved a problem nobody had been able to solve: making the one-sided bond feel reciprocal without the labour of a real relationship. A creator glancing at your comment costs them nothing and lands like recognition. It is also the exact mechanism monetised two years later by the gifting economy.",
+     "law": 5,
+     "entry": "live-commentary",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "Webcasting",
+     "show": "Unscripted television · 1997",
+     "what": "Streaming video over a network, at first unbroadcast and unproduced, from a bedroom or a desk.",
+     "why": "The medium that removed the gatekeeper before it removed the schedule. Everything a creator economy is today existed in this form first, badly, and was not interesting to anybody.",
+     "law": 5,
+     "entry": "webcasting",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "Justin.tv becomes Twitch",
+     "show": "Unscripted television · 2011",
+     "what": "Streaming gets a category, a vocabulary, a schedule, and a professional class of people who stream full time.",
+     "why": "The first platform to treat a live one-sided relationship as a category worth designing for deliberately rather than tolerating incidentally.",
+     "law": 5,
+     "entry": "twitch-launch",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The confessional that became a convention",
+     "show": "Unscripted television · 1992",
+     "what": "In 1992 MTV's The Real World gave reality television its least-questioned convention: a person alone in a room, speaking to a camera about what everyone just saw.",
+     "why": "A soap opera that could not afford writers invented a confidante instead. The Real World began as MTV's attempt at a scripted show for a younger audience; without a writers' budget, the plan became gathering seven strangers in one house and editing the resulting footage.",
+     "law": 5,
+     "entry": "the-confessional-booth",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "The creator joins the living room",
+     "show": "Unscripted television · 2026",
+     "what": "Creator posts and viewer comments are built for the television set, putting a two-way channel on the biggest screen in the house.",
+     "why": "The living room becomes a comment section. Nothing was added except a comment box, and everything changed, because the comment box is the whole architecture of a parasocial relationship and it is now on the main screen.",
+     "law": 5,
+     "entry": "creator-on-tv",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "The talent agency that is not an agency",
+     "show": "Unscripted television · 2022",
+     "what": "A high-profile streaming collective, featuring several women who had left other setups, collapses publicly and in litigation.",
+     "why": "The most significant parasocial litigation of the streaming era, and it turned on precisely this site's question: who holds the relationship, and what are the terms. The answer turned out to be documented and not what the audience assumed.",
+     "law": 5,
+     "entry": "vshojo",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The subscription tier",
+     "show": "Technology · 2015",
+     "what": "A monthly payment that buys recognition, and a chat in which the size of that payment is the mechanism for being noticed. Gifting, tiers, emotes, raids.",
+     "why": "It solved the problem nobody had been able to solve: making a one-sided bond feel reciprocal without the labour of an actual relationship. A glance at your comment costs the creator nothing and lands like recognition. It also means the amount of money is now the amount of personhood, which is a strange thing to be true about somebody's evening.",
+     "law": 5,
+     "entry": "twitch-subs",
+     "stage": "featured"
+    }
+   ],
+   "theme": "streaming",
+   "released": "2026-11-13",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "!![ＴＶ-@ＮＯＷ] Pegula v Nosková LIVE: Ｓｔｒｅａｍｉｎｇ Ｄｅｔａｉｌｓ for Sports Fans",
+     "url": "https://news.google.com/rss/articles/CBMijgNBVV95cUxOQllKa0tIaTFDY3ZlTFAtOGFyclJQaGwzVEFad1hRbmtMZG1pUUt6TTZITzkwdDJPMk9fNnF4SGJPRmR2N3hqRzJmcm5sMlk5eUp5UUE0Z1NKNHpFVGppTVlLSkRwZ3ZhLVJUT2gtYWx4YUlGV1VOX21zOW96clN2SjlEX1lRRnVRUHhkOHk5Tngza0plWGdDbWZOR3NUTnZNdWFTWk1XYUFDS1o3ellxZDM3SjF3ZzktYUN0M1NjNmRtTjBsSmJ3S2tPTk44QnJnVU4xY3JWdWxjOHViUU42Mzd4eFNURURnd283Y1ZRaFNsa0tpU2dOQS1iTHpoNmxLcHhZVTlrLThHelhEZWY5Snl2N0lNeFVWTXdvTjhaaHg4RVVhdk5ZUnkteEJrQW1FNHpNZE9sTzQtX205RzFXQXdDYmF3MzJKSXdMU1FnbmNia1ktVFF5bGNXQkRNM1NUZHdKVkdPU2psQktBX1YwbzZ6SjE5UU41SGI3cU5Od2sxUDQ3R01jcUIzY0pEQQ?oc=5",
+     "publisher": "日本取引所グループ",
+     "at": "2026-11-12T21:36:38+00:00"
+    },
+    {
+     "title": "Craig Melvin tears up announcing Dan Hicks’ death live on ‘Today’",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPeHNHQVlvU082NTRURlpkckUwdzhCWVdaWjl6V1VUbXYxVnR6ZjBxNkp3S3VxX0RsYnAzN1RGX1NySVNnaHJDSTlLRXZOY3VsY1pOeHBVVmQwNGM2NzBvejNPNk5admg4bUpNSHBWT1lFZXBzeFVyT05yMEtvUlE1czl0X1JSUzlaUDdJQlM4Yw?oc=5",
+     "publisher": "Entertainment Weekly",
+     "at": "2026-11-12T19:39:20+00:00"
+    },
+    {
+     "title": "Finding romance with AI: Study explores benefits, limits of chatbot intimacy",
+     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9RSTRRRi10Z1lmcTNxYXRsNGxwa1lUeU5yUzZDRlJobFRMa0ppZGlYQWQ2aUE4UU1HZzJtQ3IxVWhoT2kxOVJ1MFZoczM5T0NxR1hBR3BYcWd4RXhLam50dS0wQ1kxYThGNWxIZU9jNkRvMUhNdWlSX1FR?oc=5",
+     "publisher": "Phys.org",
+     "at": "2026-11-12T17:00:23+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [

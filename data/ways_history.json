@@ -708,6 +708,129 @@
      "track": "2 stories · 17 entries · 6 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-13",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "fearne-cotton-free-tv",
+     "title": "A wellness podcast just became a television channel",
+     "why": "A podcast becoming a television channel, so the host finally has the thing the listeners already had. The daily creator moving toward the presenter, and the gap between them is the story.",
+     "href": "radar/fearne-cotton-free-tv.html",
+     "meta": "Story · creator",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 7 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "characters-we-keep",
+     "title": "Why fiction sticks when nothing else does",
+     "why": "Shipping, kinning, comfort watches, and the safest place on earth to find out what you actually feel. The entry is about fiction as a rehearsal room, which is the fictional-protagonist case in its clearest form.",
+     "href": "radar/characters-we-keep.html",
+     "meta": "Story · character",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 7 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "character-ai-settlement",
+     "title": "Character.AI settled the teen-safety suits",
+     "why": "Four states, under-18s off open chat. The line the industry drew in public, and it was drawn by a court rather than by the company.",
+     "href": "radar/character-ai-settlement.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 7 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "gobekli-tepe",
+     "title": "Eleven thousand years of pillars",
+     "why": "Provisional, and deliberately so. The pillars are anthropomorphic and the UNESCO nomination reads them as 'ancestors, perhaps even incipient deities', but nobody has settled it and other readings make them protective or totemic figures.",
+     "href": "encyclopedia/gobekli-tepe.html",
+     "meta": "History · 9500 BC–8200 BC",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 7 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "idol-economy-four-dollars",
+     "title": "The idol economy: about four dollars a month per artist",
+     "why": "Paid message apps, anniversary counters, and a chat window shaped exactly like the one holding your best friend, at about four dollars a month.",
+     "href": "radar/idol-economy-four-dollars.html",
+     "meta": "Story · idol",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 7 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "rocky-horror",
+     "title": "The audience became the show",
+     "why": "Filed cosmology/myth-system, on the shelf's own test: \"Is the story collective, and is it retold rather than read?",
+     "href": "encyclopedia/rocky-horror.html",
+     "meta": "Stage / Film · 1976",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 7,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "Grab the wigs – we’re going to the theatre! We meet the audience superfans going crazy for cosplay",
+       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQQVQ2X1pvLVpwXzdOcW92aWxmZ19SUEtUckZ5b1ppdGw2UVJuLXo5Vjg0aGlMaUtUWktUTDJ6NXVmcl91RmowRzFNc1NDQ1VtYWQ0c3pEMFZnN1E5TTE2UDExckgxMGhpbFBCMnpkME9oSTFBS1FMT1hZR1JmRUF3N3RwLWFBSGhrb19qVFdibFFsUWxaZURyOWkwT0NwREVQdUd0aWNmNS0?oc=5",
+       "publisher": "The Guardian"
+      }
+     ],
+     "track": "2 stories · 20 entries · 7 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-neighbour",
+     "title": "The neighbour",
+     "why": "Someone whose kitchen light you can see, whose bin day you know, whose life you have tracked for years without ever having asked. Proximity without duty, which makes it the purest local case on the site.",
+     "href": "encyclopedia/the-neighbour.html",
+     "meta": "History · 1950",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 7 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "gamergate",
+     "title": "Gamergate",
+     "why": "Coordinated harassment of women in games, disguised as a debate about whether harassment should be allowed. The disguise is the mechanism: the argument was conducted entirely in good faith about a principle, and the harm was real.",
+     "href": "encyclopedia/gamergate.html",
+     "meta": "Technology · 2014",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 7,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 7 daily cases"
+    }
+   }
   }
  ]
 }
