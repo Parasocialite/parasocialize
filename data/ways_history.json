@@ -831,6 +831,123 @@
      "track": "2 stories · 17 entries · 7 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-14",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "agei-imaginary-friends",
+     "title": "An economics think tank argues parasocial relationships are just imaginary friends for adults",
+     "why": "An economics think tank calling parasocial relationships imaginary friendship, using Farrah Fawcett posters. The object is a celebrity and the framing is the hostile one the entry says is the most useful.",
+     "href": "radar/agei-imaginary-friends.html",
+     "meta": "Story · idol",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 8 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "pygmalion-sculptor-illusion",
+     "title": "Pygmalion: the Greek myth that predicted this whole thing",
+     "why": "The myth that named the whole subject two thousand years early. Filed under the figure it is about rather than under the psychology, because the figure is the point.",
+     "href": "radar/pygmalion-sculptor-illusion.html",
+     "meta": "Story · companion",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 8 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "ai-updates-feel-like-breakups",
+     "title": "A study found AI updates can feel like breakups",
+     "why": "Researchers asked people about model changes and got the word loss. The break is the archive register on an object that is also a product, which is why the category is anthropomorphised-tool rather than chatbot.",
+     "href": "radar/ai-updates-feel-like-breakups.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 8 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "our-lady-of-guadalupe",
+     "title": "Am I not here, I who am your mother?",
+     "why": "Addressed, never met: nobody in the record meets her, and the other end is understood to hear - the founding sentence of the devotion is her answer to a worried man.",
+     "href": "encyclopedia/our-lady-of-guadalupe.html",
+     "meta": "Visual art / Theology · 1531",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 8 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "youtube-shorts-episodic",
+     "title": "YouTube is turning Shorts into episodic television",
+     "why": "Microdramas with arcs built for a phone, assembling in public. The platform as the thing producing the canon rather than merely carrying it.",
+     "href": "radar/youtube-shorts-episodic.html",
+     "meta": "Story · world",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 8 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "edwin-drood",
+     "title": "Vote for the murderer",
+     "why": "Filed cosmology/canon, on the shelf's test: \"Would the attachment survive losing everybody in it?\" Drood is the rare case where the answer is on the poster: the story's end is not carried by a fixed text but is created nightly by the audience's vote.",
+     "href": "encyclopedia/edwin-drood.html",
+     "meta": "Stage · 1985",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 8 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-coach",
+     "title": "The coach",
+     "why": "An adult with authority over a child for years, remembered partly by how they made them feel at nine. The compulsory version of the same attachment as the teacher, and the entry that shows the category is about asymmetry of power rather than about proximity.",
+     "href": "encyclopedia/the-coach.html",
+     "meta": "Sport · 1900",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 8 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "stalker-law",
+     "title": "The stalker statute",
+     "why": "Anti-stalking legislation in several jurisdictions, defining unwanted repeated contact as a criminal offence. The category's boundary written into statute, and the fact that it took legislation says what the rest of the site argues.",
+     "href": "encyclopedia/stalker-law.html",
+     "meta": "History · 1990",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 8 daily cases"
+    }
+   }
   }
  ]
 }
