@@ -948,6 +948,129 @@
      "track": "2 stories · 17 entries · 8 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-15",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "liam-payne-generation",
+     "title": "A 31-year-old's death became a generation's first real loss",
+     "why": "A 31-year-old's death as a generation's first real loss, and the specific weight of losing someone you grew up with at sixteen. The idol case where the fan relationship began before the person was famous.",
+     "href": "radar/liam-payne-generation.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 9 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "american-gothic",
+     "title": "Your face is too well known",
+     "why": "Filed character/historic-as-character - \"a real person who has been flattened into a type\" - and the placement is contestable, so it is recorded as contestable.",
+     "href": "encyclopedia/american-gothic.html",
+     "meta": "Visual art · 1930",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 9 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "ai-companion",
+     "title": "The companion that talks back",
+     "why": "Optimised for attachment, available at four in the morning, with no floor on the other party's autonomy. The three clauses are the whole case: the design targets the feeling, the availability removes the friction, and the missing floor is what makes it unlike every earlier category.",
+     "href": "encyclopedia/ai-companion.html",
+     "meta": "Artificial intelligence · 2017",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 9,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "Health System News AI Companion Shows Promise in Reducing Loneliness for Older Adults",
+       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZGx6SkdBelcwUlJtTEtGa1ZXVDhuMHh3cUlKWjd0cUV0NmJHSGNHYWdSaHItN1QzSld5MkNTcldSeF9sYmhySXJwTVZBQ2ZqdEE3bkRtNWpva0pFMmM1eVZmQ1VWNGRlNmNtbk1hWlcwYjl1ZWhoXzQyM29wQUlZQzhoYURYTm0wUWRMOVE2WVF3QW1aZ0E?oc=5",
+       "publisher": "Ontario Hospital Association"
+      }
+     ],
+     "track": "7 stories · 35 entries · 9 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "roman-imagines",
+     "title": "The wax masks in the hall",
+     "why": "A wax likeness of a specific dead relative, kept in the house and never able to answer. Same shelf as neanderthal-burial, and that is deliberate: burying a relative you intend to keep within reach and casting one are the same act at 70,000 years' remove.",
+     "href": "encyclopedia/roman-imagines.html",
+     "meta": "History · 250 BC–550",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 9 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "edgic",
+     "title": "The forum that scored the edit",
+     "why": "Filed institution/fandom-body, on the shelf's test: \"Does the group have rules that are not the platform's, and can it act on somebody who is not a member?\" Edgic answers both halves from the entry: the rating key - invisible, under the radar, middle of the road, complex personality, over the top.",
+     "href": "encyclopedia/edgic.html",
+     "meta": "Unscripted television · 2002",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 9 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "saturday-mornings",
+     "title": "Saturday morning cartoons",
+     "why": "A scheduled block, a fixed slot, a face, a voice, a house, a family, and a writer who knows your name, running on a rhythm. The slot is the technology and the block is the institution, which is why this is the entry the whole Top 8 list hangs from.",
+     "href": "encyclopedia/saturday-mornings.html",
+     "meta": "Scripted television · 1993",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 9 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "guru-disciple",
+     "title": "Think of nothing but the guru",
+     "why": "Filed officer/senior, on the shelf's test: \"Do they hold a role, or do they hold standing?\" and its second half, \"If they hold only standing, the relationship runs on age, seniority or reputation.",
+     "href": "encyclopedia/guru-disciple.html",
+     "meta": "Theology · 1650",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 9 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "contest",
+     "title": "Fighting about a stranger in a reply section",
+     "why": "Fighting about a stranger in a reply section, in good faith. The object is a non-person who cannot be fought with, and the mechanism is the in-group. This is the cleanest instance of the register-as-category confusion the old taxonomy suffered from.",
+     "href": "encyclopedia/contest.html",
+     "meta": "Technology · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 9 daily cases"
+    }
+   }
   }
  ]
 }
