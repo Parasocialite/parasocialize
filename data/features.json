@@ -1541,6 +1541,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-16-reality-tv",
+   "title": "Top 8: The Person You Watched Into Being",
+   "home_title": "The Person You Watched",
+   "home_hook": "They agreed to be seen. The edit did the rest.",
+   "dek": "The genre that sells a person as a story and then asks them to live in it. Ranked by how much of the self was produced for the camera.",
+   "kicker": "Daily edition · 16 NOV 2026 · Reality TV",
+   "image": null,
+   "law": 3,
+   "standfirst": "Reality television is the industrial form of the parasocial bond: cast, edit, broadcast, then let the audience decide who the person is. The eight below are the record of what happens to the people who are chosen, and what the choosing does to the ones who watch.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "The forum that scored the edit",
+     "show": "Unscripted television · 2002",
+     "what": "Edgic - editing plus logic - is the practice of grading every contestant's screen presence week by week: a category (invisible, under the radar, middle of the road, complex personality, over the top), a tone and a visibility score.",
+     "why": "The instrument was written by forum users, in season four, and it has never been official.",
+     "law": 3,
+     "entry": "edgic",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "Say, kids, what time is it?",
+     "show": "Unscripted television · 1947–1960",
+     "what": "The first television character to be answered by name. Children three to eight shouted its name back at the screen every afternoon for thirteen years, and the puppet it was played by was recorded before the broadcast.",
+     "why": "The template for every children's presenter since, and the purest mechanism on this site: a figure that talks to you, built by somebody else, delivered from tape.",
+     "law": 3,
+     "entry": "howdy-doody",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "The figure you buy",
+     "show": "Literature / Unscripted television · 1971",
+     "what": "A fictional figure whose NAME is the product: the bond is with a person who was invented so that the relationship can never fail.",
+     "why": "The inverse of the-brand-as-character, and the sharper version of it. There the company came first and was given a personality; here the personality came first and the company took the name.",
+     "law": 3,
+     "entry": "the-figure-you-buy",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "A glimpse mistaken for access",
+     "show": "Unscripted television · 2026",
+     "what": "A season of a reality format and a global sporting event produce millions of viewers who then investigate the participants' personal lives. A relationship with an edited construct becomes a licence to intervene in a real life.",
+     "why": "The whole mechanism in one summer: visibility mistaken for access, and access mistaken for entitlement. What the audience actually had was an eight-week window onto a version of a person that producers cut down to a confessional and got paid for. The gap between the two is invisible from inside the eight weeks.",
+     "law": 3,
+     "entry": "parasocial-problem",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The local news anchor",
+     "show": "Unscripted television · 1950",
+     "what": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset.",
+     "why": "Rubin's longitudinal work is on exactly this bond. When a local anchor retires the grief is measurable and there is no word for it, because a parasocial relationship with a local figure is assumed to be about the news rather than about the person.",
+     "law": 3,
+     "entry": "the-local-anchor",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "YouTube launches",
+     "show": "Unscripted television · 2005",
+     "what": "Uploads become trivially cheap and the audience begins to attach to individuals rather than channels.",
+     "why": "Attachment shifts from institutions to people at exactly the point the distribution cost goes to zero. The broadcaster's ten-year relationship with a channel becomes a viewer's ten-year relationship with a face.",
+     "law": 3,
+     "entry": "youtube-launch",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Registered by the applause meter",
+     "show": "Radio · 1945",
+     "what": "A woman's misfortune told aloud, a crowd's reaction converted into a number, and the number chose her.",
+     "why": "A machine returned the verdict on somebody's life. The format that actually broadcast is not the one most people remember.",
+     "law": 3,
+     "entry": "queen-for-a-day",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "Am I not here, I who am your mother?",
+     "show": "Visual art / Theology · 1531",
+     "what": "Four apparitions to a Chichimec farmer and one to his uncle, a single Nahuatl sentence that gave the devotion its title, and a cloth image the Catholic world has organised itself around ever since.",
+     "why": "The entire relationship is address, and the founding story is one reply. According to the Nican Mopohua, written in Nahuatl, the Virgin appeared four times to Juan Diego, a Chichimec peasant, and once to his uncle Juan Bernardino, beginning on the morning of 9 December 1531.",
+     "law": 3,
+     "entry": "our-lady-of-guadalupe",
+     "stage": "featured"
+    }
+   ],
+   "theme": "reality-tv",
+   "released": "2026-11-16",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "FAN-TASTIC: Fandomania is coming to Newcastle",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1LZ0tmSER3ZzlHWjJnYlkwVDJPY2xuX0Q1RDgzU0pmLTlsdjBrSTN6Vld0eTJhWVozQ29icnVtaHNpN3RDMmJleUhNOEVrSkhsdFo5cFRqRUhQTFNoLXdWcVVoQWZTR0ttY3IybHZwRFhoMEd2YXVISUYzNGZrZlk?oc=5",
+     "publisher": "Newcastle Live",
+     "at": "2026-11-15T23:00:00+00:00"
+    },
+    {
+     "title": "10 TV Shows To Watch If You Like The Traitors",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1MVWR2cGR0Zmp3RVNsWnhiWGtwVXZERTh4V2lXcWZiXzBVejVQR3hVMVkyLUZlTTVEbFljREVMSWJ3VnlPcHdUNkRfeGQzR0x0MlRDMWJmU2Jld01jRXlaNUlrNjBQcENxOXc?oc=5",
+     "publisher": "TVLine",
+     "at": "2026-11-15T18:02:00+00:00"
+    },
+    {
+     "title": "12 Classic Sitcom Roles That Were Recast Later In The Series",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPdXJWS3B0WDcxbUpKQnFXWnJ4LXlVTXE5MzJDR0tIMGVSb19jMHVoOFNzVF94Tl90N0xnaXhiSjVTYjg1OWlITVZRQUNYOGNxUDBFZUl0ME9JUEM5OVlScXFMcEJRSjlRbGdKVGN2TUtnMHRpeU9zaXBPYm9iTjJyWEJ3cS1BaWszYnVNREtXOA?oc=5",
+     "publisher": "The List",
+     "at": "2026-11-15T17:15:00+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
