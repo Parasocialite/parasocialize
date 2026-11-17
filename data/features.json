@@ -1660,6 +1660,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-17-politics",
+   "title": "Top 8: The Leader Who Knows Your Name",
+   "home_title": "The Leader Who Knows",
+   "home_hook": "A face on a screen asks for your trust and your vote.",
+   "dek": "The leader is a figure with an office and an audience. Ranked by how much of the relationship is the office talking.",
+   "kicker": "Daily edition · 17 NOV 2026 · Power",
+   "image": null,
+   "law": 1,
+   "standfirst": "Political attachment is the parasocial bond with a budget and a police force. The eight below are the record of what happens when the figure who addresses you from a screen also has the power to change the room you are watching from.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "Your face is too well known",
+     "show": "Visual art · 1930",
+     "what": "A dentist and a painter's sister were made into a national type on purpose, and one of them denied it for five years.",
+     "why": "The model denied it for five years, and the denial is what the press covered when it ended. Dr Byron McKeeby, a Cedar Rapids dentist, \"didn't want to be famous. He shied away from artist Grant Wood's initial offer\" to be the male model. He eventually posed in overalls holding a theatre prop pitchfork, painted in Wood's dental office, at 62.",
+     "law": 1,
+     "entry": "american-gothic",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "The fan club",
+     "show": "Literature · 1950",
+     "what": "A formal organisation with membership, dues, an elected president, a newsletter and rules. Not a spontaneous thing that happened to fans - a structure somebody built for them and that fans then ran themselves.",
+     "why": "The first institutional form, and the origin of nearly everything downstream including the paid tiers. The important part is that fans built a lot of it themselves, which is the strongest evidence that the impulse is real and the structure is optional.",
+     "law": 1,
+     "entry": "fan-club",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "The political parasocial",
+     "show": "History · 1960",
+     "what": "Support for a politician structured as a personal bond rather than a policy preference, in a way that transfers poorly across candidates.",
+     "why": "The oldest public parasocial bond is the sovereign, and it is the one the field has consistently declined to study. A stadium and a parliament are the same room with different seating plans.",
+     "law": 1,
+     "entry": "the-politician",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The icon answers nothing",
+     "show": "Visual art / Theology · 787",
+     "what": "In 787 the Second Council of Nicaea ended the first phase of the Byzantine iconoclastic dispute and defined what an icon was for: the honour paid to the image passes to the figure it shows.",
+     "why": "The council drew a line only the second phase of iconoclasm would redraw. The Byzantine dispute over images ran from the reign of the emperor Leo III in the 730s; the Second Council of Nicaea, summoned in 787, closed the first phase by declaring the veneration of icons lawful and orthodox.",
+     "law": 1,
+     "entry": "the-icon",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The face he painted for the army was his own",
+     "show": "Visual art · 1917",
+     "what": "James Montgomery Flagg drew the most famous recruiting poster in the world and modelled the figure from a mirror - so the finger points at you with the artist's own face.",
+     "why": "The mechanism is the address: three words, second person, no name. 'I Want YOU for U.S. Army.' The image began as the cover of Leslie's Weekly on 6 July 1916, titled 'What Are You Doing for Preparedness?', while America argued about the war in Europe.",
+     "law": 1,
+     "entry": "i-want-you",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "As if he had joined them in their living rooms",
+     "show": "Radio · 1933",
+     "what": "Franklin Roosevelt talked to the radio as if the listener were already in the room, and he did it often enough between March 1933 and June 1944 that the habit became a form - one he did not name.",
+     "why": "The informality was written into the text, which is the thing to keep. Roosevelt did not happen to sound relaxed; the speeches were built so that he would.",
+     "law": 1,
+     "entry": "fireside-chats",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Think of nothing but the guru",
+     "show": "Theology · 1650",
+     "what": "Guru devotion asks a disciple to hold one teacher in mind without pause - moving, walking, sleeping, sitting, happy or miserable - and the Tibetan tradition makes it indispensable to the path rather than optional.",
+     "why": "The oldest instruction in this corpus to attend to one person continuously, and it has a library behind it. Capper records the tradition's own formula in full: \"Moving, walking, sleeping, sitting, happy or miserable, continuously think of nothing but the guru!\" - the sentence this entry's title takes its words from.",
+     "law": 1,
+     "entry": "guru-disciple",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The narrator is Tyler Durden, and he is not told",
+     "show": "Film · 1999",
+     "what": "Two hours of a man telling you about his best friend. The friend does not exist, the man telling you does not know it, and you are being addressed by somebody who is also being lied to.",
+     "why": "The sharper version of the mirrored case, and sharper than Dorian Gray because the split is not between an image and a man but inside a single voice.",
+     "law": 1,
+     "entry": "fight-club",
+     "stage": "featured"
+    }
+   ],
+   "theme": "politics",
+   "released": "2026-11-17",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Bickley: Kenny Dillingham’s leadership in ASU’s weekend win returned pride to fans",
+     "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOOUhkS05hemwwTzFuUFlnVnpPQm5ZU1ZrcW1LUElFME8xdjdFbVRIak5yTzhRVzhJX3p0VEo5SHA5dHVURVJhZm1CTktXcExIVzR0Tnl2em1rLXhEbHphMDhMVGQ0RlJXblVHQ3BnVDJZX01Fby00UEtzQjUxM18zQlBLU0htYWxNbS16WmxrczllS0cxeXlNMzAyYVVqSFVsSGdtX0J1aEVxaWxaS25YUk9DU0RPVVRVYVJOTFFYdE1JUWYtOFVaZFA2UmFXOVN4b1E?oc=5",
+     "publisher": "Arizona Sports",
+     "at": "2026-11-16T23:32:16+00:00"
+    },
+    {
+     "title": "Go Kyung-pyo Fans Outraged by Bizarre Statement 'Invoking the President': 'Don't Exploit the Fans' Name'",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNRXFmSzhCSng4REZWY3gtZ1ZJZnk4X1VINENIYVB1ZjR6dkJDYXNLRjBIWjJ2Z0Z1VG9YcGhOT2FONDlfdzNwTkg5MHYwZzVZYl9Id3B3SUY0WDNOeThoUWtNNE5GLUNTaGtnQi1jTm56M2NibGhFNFpkTWN6QzRjNUVESQ?oc=5",
+     "publisher": "스포츠조선",
+     "at": "2026-11-16T21:04:11+00:00"
+    },
+    {
+     "title": "Nick Blaemire on the Power of Small Theatre and the Big Lessons of A FEW GOOD MEN",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOWVlTSmxWVUlJTmlJZlgtT0lDUTJseWxIQlNtMTkyQWV0M3p4Qy0zSjNpVGpvV3dYSG52c3pCSVJnaFJacDd3TVdGY1VMMEpQclhuUVVlX0hJZFMxODVCbEw0RkRrLUQwRm1CdUV3N1FmTmwyN1BNcHpEeUNIYWZ0WEJ1aW93LVJ4TWpEY0FodFlvbkMwZUxRdERWclFDRnN2a0NKMXpkbU9oZFVsc1dmUlN6WEFYU2o0NDQtNFNEUGU5YkpEWjY0?oc=5",
+     "publisher": "BroadwayWorld",
+     "at": "2026-11-16T20:39:04+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [

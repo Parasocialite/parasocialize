@@ -1188,6 +1188,123 @@
      "track": "2 stories · 17 entries · 10 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-17",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "aoc-and-parasocial-politics",
+     "title": "AOC and the parasocial nature of politics",
+     "why": "A term coined for soap opera characters applied to a member of Congress, and the interesting part is that it works. Attachment to a person holding an office.",
+     "href": "radar/aoc-and-parasocial-politics.html",
+     "meta": "Story · crossover",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 11 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "power-rangers-handover",
+     "title": "The Power Rangers handover",
+     "why": "A costume is put on by a new actor and the audience transfers its entire attachment to whoever is now inside it, five days a week, in front of millions of children, with nobody pretending otherwise. The cleanest proof that the object was never the person.",
+     "href": "encyclopedia/power-rangers-handover.html",
+     "meta": "Scripted television · 1993",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 11 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "the-shadow",
+     "title": "A magazine that did not exist",
+     "why": "A voice with a name attached, assembled by a publisher and an advertising agency. made rather than mirrored because the listener did not supply the figure; this is the same structure as howdy-doody, which is why they are related.",
+     "href": "encyclopedia/the-shadow.html",
+     "meta": "Radio · 1930",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 11 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "the-priest",
+     "title": "The priest",
+     "why": "A person who hears the specifics, performs the ritual, and knows the family history, on a repeating cycle. The officer and the divine in one role, which is why the theology entries had nowhere to go before DIVINE existed.",
+     "href": "encyclopedia/the-priest.html",
+     "meta": "Theology · 100",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 11 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "congregation",
+     "title": "The congregation",
+     "why": "A regular assembled audience for a figure who addresses them, in a building, on a schedule, for years. Horton and Wohl's structure in its original religious form, before television.",
+     "href": "encyclopedia/congregation.html",
+     "meta": "Theology · 200 BC",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 11 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "the-league-that-closed",
+     "title": "The table that carried a club nobody came to",
+     "why": "The arrangement is the object, not any participant: the division, its table and its calendar are what the entry is about, and a club that barely filled its ground survived inside it.",
+     "href": "encyclopedia/the-league-that-closed.html",
+     "meta": "Sport · 1992",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 11 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-absent-sage",
+     "title": "The craft of the sage Adapa",
+     "why": "A sage whose teaching reaches a reader intact and whose person never does - standing without a role and without a meeting. The same gap that produced this shelf for the Greek erastes produces it again here, two centuries earlier and in writing rather than in life.",
+     "href": "encyclopedia/the-absent-sage.html",
+     "meta": "History · 660 BC",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 11 daily cases"
+    },
+    "predator": {
+     "kind": "story",
+     "id": "sasaeng-jungkook-conviction",
+     "title": "A fan was convicted of stalking Jungkook. Twenty-two visits. One hundred and thirty-three doorbell rings",
+     "why": "Twenty-two visits and a hundred and thirty-three doorbell rings, ending in a conviction. The line between the anniversary counter and this doorbell, and it is not blurry for the person on the other side of it.",
+     "href": "radar/sasaeng-jungkook-conviction.html",
+     "meta": "Story · danger",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 11 daily cases"
+    }
+   }
   }
  ]
 }
