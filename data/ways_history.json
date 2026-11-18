@@ -1305,6 +1305,123 @@
      "track": "2 stories · 17 entries · 11 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-18",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "peak-parasocial-vogue",
+     "title": "Have we hit peak parasocial? An actual magazine asked",
+     "why": "A magazine asking whether the pendulum has swung, and the answer being that there is no pendulum. A framing story about the idol category as a whole, filed on the object it is about.",
+     "href": "radar/peak-parasocial-vogue.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 12,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 12 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "meg-mason-writes-about-us",
+     "title": "A famous author was saved by a fictional family and then wrote a novel about it",
+     "why": "A famous author saved by a fictional family who then wrote a novel about it. The strangest thing to happen to the field in a year, and it is a real person crediting a fictional family.",
+     "href": "radar/meg-mason-writes-about-us.html",
+     "meta": "Story · grief",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 12,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 12 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "krapp-last-tape",
+     "title": "The tape could not answer",
+     "why": "Filed companion/anthropomorphised-tool: \"a tool that accumulates a name, a history and a tone, and becomes addressed as a person long before anybody designed it to be\", whose test ends \"persistence after the purpose has gone is the test\". A tape recorder fits both halves.",
+     "href": "encyclopedia/krapp-last-tape.html",
+     "meta": "Stage · 1958",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 12,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 12 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "grief",
+     "title": "Grieving a person you never met",
+     "why": "Grieving a person you never met. The nearest attachment target is the one who is gone and still addressed - the saint and the ancestor. The register is archive; the object is the departed.",
+     "href": "encyclopedia/grief.html",
+     "meta": "History · 1970",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 12,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 12 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "the-closure-gift",
+     "title": "The goodwill gesture",
+     "why": "When a service ends or changes, the company sends an apology, sometimes with credit, addressed personally. A corporate body performing the grammar of a relationship it is ending, which is the closure-gift case the site's own theory has to survive.",
+     "href": "encyclopedia/the-closure-gift.html",
+     "meta": "Technology · 2005",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 12,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 12 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "neighbours-finale",
+     "title": "The finale that moved the schedule",
+     "why": "A soap opera ends after decades and national broadcast schedules are rearranged around it. The clearest documented case that the slot can matter more than the thing in it.",
+     "href": "encyclopedia/neighbours-finale.html",
+     "meta": "Scripted television · 2023",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 12,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 12 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-local-anchor",
+     "title": "The local news anchor",
+     "why": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset. Proximity, not charisma, and the clearest case of the attachment accruing from duration.",
+     "href": "encyclopedia/the-local-anchor.html",
+     "meta": "Unscripted television · 1950",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 12,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 12 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "swatting",
+     "title": "Swatting",
+     "why": "A false emergency report sent to a real address to provoke an armed police response, because of a grievance about a streamer. Armed enforcement summoned by an attachment, which is the worst version of the register.",
+     "href": "encyclopedia/swatting.html",
+     "meta": "Games · 2013",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 12,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 12 daily cases"
+    }
+   }
   }
  ]
 }

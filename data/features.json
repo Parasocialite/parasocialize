@@ -1779,6 +1779,119 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-18-grief-archive",
+   "title": "Top 8: The Dead Who Keep Answering",
+   "home_title": "The Dead Who Keep Answering",
+   "home_hook": "The person is gone. The record keeps replying.",
+   "dek": "The archive is the relationship after the far end has stopped. Ranked by how much of the dead person is still being maintained by the living.",
+   "kicker": "Daily edition · 18 NOV 2026 · Archive",
+   "image": null,
+   "law": 4,
+   "standfirst": "A mask in a cupboard, a diary in print, a voice rebuilt from samples, a grave with a fan club. The eight below are the ways a bond survives its object, and the cost of keeping it in the room.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "I hope the feeling is mutual",
+     "show": "Literature · 1942–1947",
+     "what": "Two years of letters to a listener who could not answer, written by a thirteen-year-old who said out loud that she hoped the feeling was mutual.",
+     "why": "The purest instance of an undemanded tie on this site, and the only place in the corpus where somebody living inside a parasocial relationship states its definition. Anne Frank wrote to Kitty - \"Dear Kitty... I like writing to you most, you know that don't you, and I hope the feeling is mutual\" - and there was no circumstance in which it could be returned.",
+     "law": 4,
+     "entry": "dear-kitty",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "Somebody always wrote back",
+     "show": "Literature · 1930–1984",
+     "what": "Fifty-four years of letters to a fictional detective, answered by an office that had chosen not to have a face.",
+     "why": "The archive is the evidence here, not a metaphor.",
+     "law": 4,
+     "entry": "nancy-drew",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "Nine to twelve million heard it",
+     "show": "Radio · 1938",
+     "what": "Orson Welles presented a novel as a news bulletin on 30 October 1938, and CBS identified it as a dramatic performance four times during the hour.",
+     "why": "The technique is on the record because Welles explained it himself: \"The Mercury Theatre's own radio version of dressing up in a sheet and jumping out of a bush and saying Boo!\" The hour was built to be believed - a performance interrupted by periodic news bulletins.",
+     "law": 4,
+     "entry": "war-of-the-worlds",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The dead celebrity, generated",
+     "show": "Artificial intelligence · 2024",
+     "what": "A voice trained on an archive, a likeness, a song, a speech, an appearance at a festival, all generated. Not a hologram, not a tribute, not a person.",
+     "why": "The interesting fact is not that this happens without permission. Mostly it does not: the documented 2024 cases are licensed, one by an estate and one by the person himself while he was alive, which is a harder thing to argue with than the entry used to claim. Consent has moved to the licensor, and that is where the problem now lives.",
+     "law": 4,
+     "entry": "deepfake-grief",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "A doodle of you used as your address",
+     "show": "Film · 1914",
+     "what": "By 1917 nine out of ten men at a costume ball came as him, a hold-up man in Cincinnati borrowed his costume as a disguise, and in 1916 somebody was paging him in more than eight hundred hotels at the same moment.",
+     "why": "The silhouette was usable. That is the entry.",
+     "law": 4,
+     "entry": "charlie-chaplin",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "He did not ask to be buried as Dracula",
+     "show": "Film · 1956",
+     "what": "The most reproduced image in the horror canon - a man interred in his character's cape - is true, and the story that he chose it is false. His mother chose it.",
+     "why": "A small correction with a large afterlife, and the reason this entry exists: the most famous single image in horror fandom is a document about the gap between an audience's picture of somebody and the person.",
+     "law": 4,
+     "entry": "lugosi-burial",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Won't you be my neighbor?",
+     "show": "Scripted television · 1968",
+     "what": "Fred Rogers went national on public television on 19 February 1968 and spent thirty-three years talking, slowly, into the camera at children aged two to five.",
+     "why": "The address was deliberate, slow and aimed at the youngest viewer, and the show's own research treats the screen as a face. Rogers spoke directly into the lens and, as the show's article records, made a point of behaving \"naturally on camera rather than acting out a character\": \"One of the greatest gifts you can give anybody is the gift of your honest self.",
+     "law": 4,
+     "entry": "mister-rogers",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The stamp card",
+     "show": "History · 1990",
+     "what": "Buy nine, get the tenth. A card, a punch, a visible record of loyalty, in the customer's hand.",
+     "why": "The most parasocial object in the world and nobody has ever said so. It is a small, portable, accumulating record that a person chooses to carry around, which is functionally an anniversary counter for a café.",
+     "law": 4,
+     "entry": "coffee-card",
+     "stage": "featured"
+    }
+   ],
+   "theme": "grief-archive",
+   "released": "2026-11-18",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "How AI Companion Apps Handle Persistent Memory, Voice Latency, and Token Pricing in 2026",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxON1RCb0pCVjZTY1lDN0JNUWN5UFdQSGx2RkJ4ZVJwZkNLVExtNkRIdUM1WnRpMzRfRnpvaEc3R3g5M01Mc2UyMkVUbDdOYkhtR2RYaXVhLWh1R1c0cWJQSnEtWmt4cW5RZVN4Ykd0U3RQc3dWbm9NQkh5bW13d3NORk1XS2dSNWtQVFd1ZmZDdkhQOUxwb1haNVA4d3RtUmpQWWNiNzZRUU9zcFhDS1lhSThB?oc=5",
+     "publisher": "OpenTools",
+     "at": "2026-11-17T19:48:29+00:00"
+    },
+    {
+     "title": "How Consumer AI Companions Handle Context Windows, Persistent Memory, and Voice Latency",
+     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcE9vbVNlcUxoQm5UM2syWUFPeFUyeURCZU9RLWJfZ3JYX0p3OThJU0NJMVdmZUtfbURWbkltMzY4VDdpQm50NjlQd1Fyd0tCSGhnOURiZ0tLOXJ1bFlXcHM4ekRXNEJYZ1ByMjFzVWx1ZjJLUE1zVGZLRG9IVndDdUR6TFM?oc=5",
+     "publisher": "SitePoint",
+     "at": "2026-11-17T19:09:29+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
