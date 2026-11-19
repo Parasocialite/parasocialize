@@ -1422,6 +1422,123 @@
      "track": "2 stories · 17 entries · 12 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-19",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "gloria-steinem-and-dolly",
+     "title": "Two women died in the same month and the discourse is about whether you are allowed to be sad",
+     "why": "Two deaths in a month and a discourse about whether you are allowed to be sad. Grief treated them identically and accused of not knowing the difference - the archive register doing its usual work on two idols.",
+     "href": "radar/gloria-steinem-and-dolly.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 13 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "marvel-club",
+     "title": "Entitled to the adulation of all lesser mortals",
+     "why": "Filed character/fictional-protagonist - \"somebody described in a book and therefore available to an unlimited number of people at once\" - which is where nancy-drew also sits, and the pairing is deliberate: one written character reached by letter for fifty-four years, one reached by club membership.",
+     "href": "encyclopedia/marvel-club.html",
+     "meta": "Comics · 1940",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 13 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "dear-kitty",
+     "title": "I hope the feeling is mutual",
+     "why": "Filed companion/social-agent because the shelf it belongs on was opened by the-imaginary-friend, and this is that entry's oldest named instance rather than a variant of it. other: imagined is the clean case on that axis rather than a debatable one: Anne invented Kitty, and knew she had.",
+     "href": "encyclopedia/dear-kitty.html",
+     "meta": "Literature · 1942–1947",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 13 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "the-generation-you-belong-to",
+     "title": "A cohort nobody in it has met",
+     "why": "The object is an absence met by negation - a cohort held by what its members are not - rather than a figure who can be petitioned, which separates it cleanly from myth-deity.",
+     "href": "encyclopedia/the-generation-you-belong-to.html",
+     "meta": "History · 1965",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 13 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "the-fan-magazine",
+     "title": "Thousands of letters, and a handful printed",
+     "why": "Filed institution/platform - \"the intermediary that is also the relationship\" - on the test the shelf states: \"Is somebody other than you and the performer in a position to change what happens between you?\" The magazine held the address, the rationing and the printing.",
+     "href": "encyclopedia/the-fan-magazine.html",
+     "meta": "Film · 1911",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 13 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "cliffhanger",
+     "title": "The cliffhanger",
+     "why": "End before the answer, fix the slot, leave the question open. The mechanism is the schedule, and the schedule is the thing the bond is actually made of - which is the claim continuity below then dismantles.",
+     "href": "encyclopedia/cliffhanger.html",
+     "meta": "Scripted television · 1930",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 13 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-deaf-beloved",
+     "title": "Shag-eared and deaf",
+     "why": "The shelf this entry opened. The erastes holds no office and runs no institution: his authority is personal, age-based and wholly unaccountable, which is why the tie is unprotected. Filed under officer/teacher it would have looked tidier and been false, because a teacher has duties and he has none.",
+     "href": "encyclopedia/the-deaf-beloved.html",
+     "meta": "Literature · 370 BC",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 13 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "fan-injury",
+     "title": "The crowd injury",
+     "why": "Fans injured or killed attempting to get closer to a performer, in volume, repeatedly, for years. Not one person harming one other: a crowd, and the attachment as the mechanism.",
+     "href": "encyclopedia/fan-injury.html",
+     "meta": "Music · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 13 daily cases"
+    }
+   }
   }
  ]
 }

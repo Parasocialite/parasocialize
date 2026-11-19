@@ -1892,6 +1892,119 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-19-literature",
+   "title": "Top 8: The Voice That Waits in the Book",
+   "home_title": "The Voice That Waits",
+   "home_hook": "It has been waiting for you since before you were born.",
+   "dek": "The book is the slowest reply and the longest relationship. Ranked by how completely the reader supplied the other end.",
+   "kicker": "Daily edition · 19 NOV 2026 · Books",
+   "image": null,
+   "law": 6,
+   "standfirst": "A novel can be put down and picked up for years, and the figure inside it never changes while the reader does. The eight below are the record of what that does: the character who becomes a companion, the author who becomes a face, the diary addressed to somebody who cannot write back.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "Virtue rewarded",
+     "show": "Literature · 1740",
+     "what": "The novel that turned its readers into a correspondent. Pamela Andrews writes home about her master's pursuit, and the reader takes the seat of the parents - receiving every letter, sending none.",
+     "why": "The form is a correspondence the reader reads from the far end of. Richardson was a printer who took a commission in 1739 to compile a volume of model \"familiar letters\" for people too unskilled to write their own, and the germ of Pamela was a short run of letters from a servant daughter asking her father's advice about her master's advances.",
+     "law": 6,
+     "entry": "pamela",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "Johann Wolfgang von Goethe",
+     "show": "Literature · 1749–1832",
+     "what": "Author of Werther, and of the observation that people keep making the same mistakes, which is arguably the first great novel to describe a reader being changed by a book.",
+     "why": "Wrote the most influential suicide in European literature and then spent his life doing the opposite of his character.",
+     "law": 6,
+     "entry": "goethe",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "Werther",
+     "show": "Literature · 1774",
+     "what": "The young man of Goethe's novel who reads too much, loves a woman who does not love him back, and kills himself, in a book that made that behaviour fashionable across Europe for a decade.",
+     "why": "The prototype of the reader who goes looking for a character in order to feel something, and then brings the feeling home. Published in 1774; within two years the resulting condition had a name, Wertherfieber, and ministers of religion were issuing warnings about it.",
+     "law": 6,
+     "entry": "werther",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "Miguel de Cervantes",
+     "show": "Literature · 1547–1616",
+     "what": "Author of Don Quixote, and of a narrator who keeps having to explain away the reality of what his character is doing.",
+     "why": "Wrote the book in which the gap between a fictional world and a real one is argued out loud, by the person best placed to know.",
+     "law": 6,
+     "entry": "cervantes",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "Cordially yours, Betty Crocker",
+     "show": "Literature / Radio · 1921",
+     "what": "In 1921 a flour company's advertising department needed one woman's name for the kitchen advice its all-female home-service staff was already writing.",
+     "why": "The reply existed before the name did. In late October 1921 Gold Medal Flour ran a jigsaw-puzzle advertisement in The Saturday Evening Post; Washburn-Crosby received 30,000 completed puzzles and, with them, several hundred letters of cooking questions.",
+     "law": 6,
+     "entry": "betty-crocker",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "Am I really like that?",
+     "show": "Literature · 1890",
+     "what": "The painter stands in front of the figure he made and asks whether the man is really like it. He is. And it will never alter, which is the only thing about it anybody wanted.",
+     "why": "The purest statement of the mirrored case ever written, and it is four lines of dialogue rather than an argument.",
+     "law": 6,
+     "entry": "dorian-gray",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Don Quixote",
+     "show": "Literature · 1605",
+     "what": "An old man who reads so many books about chivalry that he goes out to live as a knight, against all evidence.",
+     "why": "The founding case of a reader who mistakes a book for a world and then lives in it anyway. The whole book's plot is the argument that a person can be entirely sincere about a bond with something that is not there, and the reader is not asked to think less of him for it.",
+     "law": 6,
+     "entry": "don-quixote",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The reply that was printed",
+     "show": "Comics · 1962",
+     "what": "From 1962 Stan Lee ran fan mail in the back of The Fantastic Four and answered it in print in his own voice, so a reader could see their name answered on a page.",
+     "why": "The corpus keeps the datum that a reply used to be the exception. This is the same object with the exception removed. From the early issues of The Fantastic Four, cover-dated 1962, Stan Lee printed readers' letters and answered them on the page.",
+     "law": 6,
+     "entry": "marvel-letters-page",
+     "stage": "featured"
+    }
+   ],
+   "theme": "literature",
+   "released": "2026-11-19",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "ESPN’s Jimmy Pitaro on the New Playbook for Sports Fans",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1GVDZyQ2w1engyY2lxR3JyZVEyUm1nUkNROHJRNTNzVFpkbWlGZGQ0UG1fY3FramFzVHlNcWJHamR0R1ktNUNzSk1JMTdtYjI1TjVYRkZYWDVGNUpFTlBSNXNzRlZDTXlHTHBWTXRvbw?oc=5",
+     "publisher": "Goldman Sachs",
+     "at": "2026-11-18T19:01:10+00:00"
+    },
+    {
+     "title": "Airbnb Where Hayden Panettiere Died Is Taking Bookings Again Three Months Later",
+     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZDFkTE9mVzdHXzZYYlNsSmpUSTVWZ0JxTHd6VmNFdzNuRWJ1WjF4cnZVdDNyY3RPZkRoQnQybloxR2gyUTAzT2xnTTlSWmlFOU1XcHhsbUFuakkycmRheENEMkwwRkpqTzZEYkFDUEFyTFdQRExhb0VIaFVGc3gtaGRxeGxXOEdmYUJwM2RseEg4RkczTExvNkNPbmh0a2JOYUdXX1VZa1dZVndMVUQ5RHkwclYzNW1rVkJnYlRINFM?oc=5",
+     "publisher": "Yahoo",
+     "at": "2026-11-18T17:00:04+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
