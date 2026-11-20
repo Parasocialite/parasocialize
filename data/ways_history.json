@@ -1539,6 +1539,123 @@
      "track": "2 stories · 17 entries · 13 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-20",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "celebrity-death-feels-like-loss",
+     "title": "When a famous person dies it can feel like losing someone you loved",
+     "why": "The Guardian running it in the exact week three people died, where the timing proves the story rather than being the story. The object is the celebrity; the grief is the register.",
+     "href": "radar/celebrity-death-feels-like-loss.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 14 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "sculptor-fell-in-love",
+     "title": "The sculptor who fell in love with an illusion, in 2026",
+     "why": "The same myth retold in 2026, and the site calls this one the more useful of the two. The figure recurs, which is the whole argument of the myth sub-category.",
+     "href": "radar/sculptor-fell-in-love.html",
+     "meta": "Story · companion",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 14 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "companion-safety-controls",
+     "title": "Safety experts say companion apps need better guardrails than they have",
+     "why": "Safety experts on Replika and isolation, where the concern is not the chatbot but what replaces it. The object is the companion and the risk is the substitution.",
+     "href": "radar/companion-safety-controls.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 14 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "neanderthal-burial",
+     "title": "The dead kept in the cave",
+     "why": "The dead treated as somewhere you go rather than something you leave. Placed under the ancestor shelf rather than the myth shelf because nobody wrote the myth down: there is a pit, a scoop, stones, and a repeated return - the address is in the archaeology.",
+     "href": "encyclopedia/neanderthal-burial.html",
+     "meta": "History · 70000 BC",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 14 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "youtubetv-living-room",
+     "title": "The living room is now a comment section",
+     "why": "Creator posts and remote comments built for the TV, so the sofa is a forum. The reciprocal edge arriving on the largest screen in the house.",
+     "href": "radar/youtubetv-living-room.html",
+     "meta": "Story · brand",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 14 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "death-in-family",
+     "title": "Robin died by 72 votes",
+     "why": "Filed cosmology/canon, on the shelf's test: \"Would the attachment survive losing everybody in it?\" The world here is the DC franchise, which outlasts every participant: the poll decided not a plot point but the permanent standing of a character inside a canon that predates and outlives the voters.",
+     "href": "encyclopedia/death-in-family.html",
+     "meta": "Comics · 1988",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 14 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-landlord",
+     "title": "The landlord",
+     "why": "A named individual with access to your home, your deposits and your address, met in person, repeatedly, under stress. A duty, a door, and no room in the role for reciprocity.",
+     "href": "encyclopedia/the-landlord.html",
+     "meta": "History · 1900",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 14 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "fandom-wars",
+     "title": "Fandom wars",
+     "why": "Organised conflict between fanbases with brigading, ratioing and coalition behaviour, conducted with the grammar of war. Two attachments turned on each other, which is the only new thing the contest register does.",
+     "href": "encyclopedia/fandom-wars.html",
+     "meta": "Games · 2012",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 14 daily cases"
+    }
+   }
   }
  ]
 }
