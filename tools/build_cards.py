@@ -4359,17 +4359,24 @@ def parasocialite_of_day(roster=None, today=None):
     """The figure the front page puts forward on a given UTC day.
 
     Today's edition comes from data/editorial_today.json, written by
-    tools/editor.py: a real person or a fictional character, chosen against
-    the day's wires when one names them and against the day's theme when none
-    does. The bank in data/parasocialite.json is the fallback for a date with
-    no edition - a test, a backfill, or a build that ran before the editor -
-    and even the fallback only considers `selectable` members, so a show or a
-    format can never reach the front page.
+    tools/editor.py. The bank in data/parasocialite.json is the fallback for a
+    date with no edition, and the fallback only considers `selectable`
+    members, so a show or a format never reaches the front page.
 
-    Deterministic for a fixed date and history: the fallback walks the
-    selectable bank by ordinal and skips figures used in the last ten days.
-    The edition itself is deterministic too, because it is a stored selection
-    rather than a clock read.
+    THE ROTATION USED TO REPEAT TOO EARLY, for two reasons:
+
+      * it filtered the bank down to "not used in the last ten records" and
+        then indexed THAT pool by the date ordinal. The pool's length changes
+        whenever history changes, so the date-to-figure mapping moved, and a
+        figure could return long before the bank had cycled.
+      * the window was ten records, not thirty days, so a member could come
+        back after eleven days while the bank held forty-eight.
+
+    Now the index comes from the full selectable bank, and the recent window
+    is thirty days measured by date. If the figure the bank lands on was used
+    inside that window - which can happen when the bank shrinks - the walk
+    advances to the next unused member. With 48 selectable members and a
+    30-day window the window can never exhaust the bank.
     """
     iso = str(today or
               datetime.datetime.now(datetime.timezone.utc).date().isoformat())[:10]
@@ -4379,8 +4386,7 @@ def parasocialite_of_day(roster=None, today=None):
 
     bank = (roster or parasocialite_roster()).get("members") or []
     # A day already in the record names its figure. A rebuild must no-op, not
-    # rotate away from the day the page actually showed - the same rule the
-    # history's same-day replacement enforces from the other side.
+    # rotate away from the day the page actually showed.
     try:
         for d in json.loads(PARASOCIALITE_HISTORY.read_text(encoding="utf-8")).get("days", []):
             if str(d.get("date"))[:10] == iso:
@@ -4394,19 +4400,32 @@ def parasocialite_of_day(roster=None, today=None):
     members = [m for m in bank if m.get("selectable", True)]
     if not members:
         return None
-    try:
-        recent = {str(d.get("member")) for d in
-                  json.loads(PARASOCIALITE_HISTORY.read_text(encoding="utf-8"))
-                  .get("days", [])[-10:]}
-    except (OSError, ValueError):
-        recent = set()
-    pool = [m for m in members if m.get("id") not in recent] or members
+
     try:
         d = datetime.date.fromisoformat(iso)
     except ValueError:
         d = datetime.datetime.now(datetime.timezone.utc).date()
-    return pool[d.toordinal() % len(pool)]
 
+    # the last 30 DAYS, by date, not the last 10 records
+    recent = set()
+    try:
+        for rec in json.loads(PARASOCIALITE_HISTORY.read_text(encoding="utf-8")).get("days", []):
+            try:
+                when = datetime.date.fromisoformat(str(rec.get("date"))[:10])
+            except ValueError:
+                continue
+            if 0 < (d - when).days <= 30:
+                recent.add(str(rec.get("member")))
+    except (OSError, ValueError):
+        recent = set()
+
+    n = len(members)
+    start_i = d.toordinal() % n
+    for k in range(n):
+        candidate = members[(start_i + k) % n]
+        if str(candidate.get("id")) not in recent:
+            return candidate
+    return members[start_i]
 
 def record_parasocialite_day(today=None):
     """Append today's parasocialite to data/parasocialite_history.json.

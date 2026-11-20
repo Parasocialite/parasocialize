@@ -379,7 +379,7 @@ def choose_figure(figures, news, theme, days, today):
     psotd = [m for m in figures if m.get("selectable")]
     used = {str(d.get("member")) for d in days
             if d.get("date") and
-            (today - datetime.date.fromisoformat(str(d["date"])[:10])).days < 10}
+            (today - datetime.date.fromisoformat(str(d["date"])[:10])).days <= 30}
     yesterday = ""
     for d in reversed(days):
         if str(d.get("date"))[:10] == (today - datetime.timedelta(days=1)).isoformat():
