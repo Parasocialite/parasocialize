@@ -1303,6 +1303,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-21-sport-faith",
+   "title": "Top 8: The Team That Owns You",
+   "home_title": "The Team That Owns You",
+   "home_hook": "You did not choose it. It chose the town you were born in.",
+   "dek": "The bond that survives a transfer, a defeat and a change of owner. Ranked by how completely the club replaced the person.",
+   "kicker": "Daily edition · 21 NOV 2026 · Sport",
+   "image": null,
+   "law": 1,
+   "standfirst": "Sport is the one fandom where the object is supposed to change every season and the attachment is supposed to stay. The eight below are the mechanism at work: the chant, the shirt, the stadium, the player who is loved as a position rather than a man.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "Identification with a team",
+     "show": "Sport · 1880",
+     "what": "Supporting a club as a condition of belonging to a place, a class, a family, or a city.",
+     "why": "A parasocial bond with an address. The team is the only large-scale attachment in modern life that arrives with geography attached, which is why a relegation is felt as a personal event by people who have never met the players.",
+     "law": 1,
+     "entry": "sports-identification",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "The baseball the papers built",
+     "show": "Sport · 1927",
+     "what": "In 1927 Babe Ruth hit sixty home runs and became the most replayed figure in a game most fans knew through print.",
+     "why": "The season the man and the persona arrived together. Ruth's 1927 season - sixty home runs in a 154-game schedule, a single-season record that stood until Roger Maris hit sixty-one in 1961, with the Yankees' Murderers' Row around him - is the on-field anchor this entry leans on without being about.",
+     "law": 1,
+     "entry": "babe-ruth",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "The transfer",
+     "show": "Sport · 1900",
+     "what": "A player who has been attached to for years leaves, and the grievance is felt as betrayal by the entire locality.",
+     "why": "The standard parasocial grievance story, and the one nobody frames as parasocial. The word for the feeling is betrayal, which is a relationship word, applied to a person who never signed anything.",
+     "law": 1,
+     "entry": "the-transfer",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The athlete and the city",
+     "show": "Sport · 1920",
+     "what": "Support for a team or an athlete as a bond with a person, a place and a lineage, frequently inherited from a parent.",
+     "why": "The most durable parasocial bond in the world and the one least discussed as parasocial, because it is assumed to be about sport. The transfer window is the standard betrayal story, which is a parasocial grievance wearing a football shirt.",
+     "law": 1,
+     "entry": "the-atletefan-bond",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "Kobe Bryant",
+     "show": "Sport · 2020",
+     "what": "Public mourning for an athlete that drew on the athlete's own stated bond with a young fan.",
+     "why": "The clearest documented case of a parasocial bond being reciprocated deliberately for decades and then cashed in publicly after death. The fans were not being had; they were being shown the receipt.",
+     "law": 1,
+     "entry": "kobe",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "The table that carried a club nobody came to",
+     "show": "Sport · 1992",
+     "what": "Twenty-two clubs left the Football League in one move to found a closed competition, and in its first season the twelfth-placed club was the one with the smallest crowds in the division.",
+     "why": "This is the league-world shelf in its purest documented form: the object is the arrangement, not anyone in it. Wimbledon played a Premier League fixture on 26 January 1993 before a crowd of just over 3,000 - still the lowest attendance recorded in the competition - and finished twelfth, clear of the relegation battle.",
+     "law": 1,
+     "entry": "the-league-that-closed",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "The coach",
+     "show": "Sport · 1900",
+     "what": "An adult with authority over a child for years, who is remembered partly by how they made them feel at nine.",
+     "why": "A bond that shapes adult attachment patterns decades later, entirely outside anything the parasocial literature studies. Most people's template for one-sided attachment is a coach and they have never been asked about it.",
+     "law": 1,
+     "entry": "the-coach",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "After Diego",
+     "show": "Sport · 1998",
+     "what": "A church founded in Rosario on Maradona's thirty-eighth birthday, with a calendar counted from him and a baptism performed with a football - the fan bond that wrote itself a liturgy while its god was still alive.",
+     "why": "They built a church out of a football player, and they date everything from him. The Iglesia Maradoniana describes itself as a parody religion centred on Diego Maradona, and it was founded in Rosario, Argentina, on 30 October 1998 - his thirty-eighth birthday - by Héctor Campomar, Alejandro Verón and Hernán Amez. Its years are counted from his name: d.",
+     "law": 1,
+     "entry": "iglesia-maradoniana",
+     "stage": "featured"
+    }
+   ],
+   "theme": "sport-faith",
+   "released": "2026-11-21",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "How AI Will Power the Next Generation of Sports Fans",
+     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNemc0WDhRVDdvbU03aVUwM1ZzclVVbFhsbGlvVTAtUTdhU3pIR05lWVE4RUZmcjdRNnhzOGNnaDlaQlAzc3VuQnFDa3Z6QV83cVRtaEZ0OW1mbVpscXE5N0NMWnN5YzB6OVIzbFdGVEI1Vk5xZUpZVGFjVnN6azBGTjIwRno?oc=5",
+     "publisher": "Yahoo Sports",
+     "at": "2026-11-20T22:32:03+00:00"
+    },
+    {
+     "title": "DC sports fans eye championship soccer and primetime football",
+     "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNSVdnclRGMGlGWGU5dzczQlNibDRPd19KX3pNZUlEYlNLTmk0TGJieW85bjlWZnB5dFVfLW1QQlk5SDcwUVNRMmdnRElrRExEN3o5MVFBTlQ0eDlsNVB1QWkxeE5hN3gwOGcyS1R1aVdvTUtmRzlNekdfN1FiVHM3U1Jhc2luZ0lSSmxuSGVUMWJLS2plQTNSb1c2bnFnNkE0SjFFclBzYmNYRzllMGMzNEtZdXByWkl0eEFnblNKTm1PMWM0Ti1admp0cThfemFXOVYzOENMaWZ4UGM?oc=5",
+     "publisher": "WUSA9",
+     "at": "2026-11-20T21:52:00+00:00"
+    },
+    {
+     "title": "EXCLUSIVE INTERVIEW: AND2BLE Talk Concerts, Fandom, & Their First Daesang!",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNC14U0c5N2tDMHBDbFdibzJGZGgtc2kxa3VJd3ZWS29SSHhVRTBjS1ZSd2kxakZUY0swNlhFeWdONWZfSlhRSDVQSlVsc25DY2NMWFM1WVA3Q0d5eTRUazVQbHBKN0dPdzBUSzhHSjAzNnRLZElkamhBdjluLXEzOHpPeG01VUk2LTdBSURmSjlTUHpmZWRPWHBtYXlocFk?oc=5",
+     "publisher": "The Honey POP",
+     "at": "2026-11-20T20:58:00+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [

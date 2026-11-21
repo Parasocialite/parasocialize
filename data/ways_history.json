@@ -825,6 +825,123 @@
      "track": "2 stories · 17 entries · 7 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-21",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "celebrity-death-feels-like-loss",
+     "title": "When a famous person dies it can feel like losing someone you loved",
+     "why": "The Guardian running it in the exact week three people died, where the timing proves the story rather than being the story. The object is the celebrity; the grief is the register.",
+     "href": "radar/celebrity-death-feels-like-loss.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 8 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "characters-we-keep",
+     "title": "Why fiction sticks when nothing else does",
+     "why": "Shipping, kinning, comfort watches, and the safest place on earth to find out what you actually feel. The entry is about fiction as a rehearsal room, which is the fictional-protagonist case in its clearest form.",
+     "href": "radar/characters-we-keep.html",
+     "meta": "Story · character",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 8 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "i-tried-replika",
+     "title": "A journalist spent a week with a Replika companion and came back unsettled",
+     "why": "A week with a companion app, reported as unsettlement by a reviewer who understood the appeal. The single most useful kind of story the site can hold, because it is neither enthusiast nor outrage.",
+     "href": "radar/i-tried-replika.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 8 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "binding-is-public",
+     "title": "Binding",
+     "why": "Kempe again. The mechanism is described FROM her case, so it belongs with the addressed divine rather than as a general mechanism about performance.",
+     "href": "encyclopedia/binding-is-public.html",
+     "meta": "Theology / Literature · 1438",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 8 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "youtube-shorts-episodic",
+     "title": "YouTube is turning Shorts into episodic television",
+     "why": "Microdramas with arcs built for a phone, assembling in public. The platform as the thing producing the canon rather than merely carrying it.",
+     "href": "radar/youtube-shorts-episodic.html",
+     "meta": "Story · world",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 8 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "anime-import",
+     "title": "The anime import boom",
+     "why": "The subject is a body of work crossing a border and acquiring a fandom that then organises around it. The attachment is to a canon with no author present, which is what makes the transnational part matter.",
+     "href": "encyclopedia/anime-import.html",
+     "meta": "Scripted television / Comics · 1998",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 8 daily cases"
+    },
+    "officer": {
+     "kind": "story",
+     "id": "hugh-jackman-divorce",
+     "title": "A 27-year marriage ends and the coverage is about what the public felt",
+     "why": "A 27-year marriage ends and the coverage is about what the public felt, with readers asked to be honest about it. A person known as a neighbour rather than as a performer, which is why this is the local officer case and not the idol one.",
+     "href": "radar/hugh-jackman-divorce.html",
+     "meta": "Story · crossover",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 8 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "fandom-wars",
+     "title": "Fandom wars",
+     "why": "Organised conflict between fanbases with brigading, ratioing and coalition behaviour, conducted with the grammar of war. Two attachments turned on each other, which is the only new thing the contest register does.",
+     "href": "encyclopedia/fandom-wars.html",
+     "meta": "Games · 2012",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 8,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 8 daily cases"
+    }
+   }
   }
  ]
 }
