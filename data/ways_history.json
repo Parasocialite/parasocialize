@@ -942,6 +942,123 @@
      "track": "2 stories · 17 entries · 8 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-22",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "fearne-cotton-free-tv",
+     "title": "A wellness podcast just became a television channel",
+     "why": "A podcast becoming a television channel, so the host finally has the thing the listeners already had. The daily creator moving toward the presenter, and the gap between them is the story.",
+     "href": "radar/fearne-cotton-free-tv.html",
+     "meta": "Story · creator",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 9 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "darry-season-two",
+     "title": "A clown got a prequel and four million households signed up without signing anything",
+     "why": "A prequel with the same actor returning, four million households signing up without signing anything. The played role again, and the sequel is the proof the object survived the performer changing.",
+     "href": "radar/darry-season-two.html",
+     "meta": "Story · character",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 9 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "ai-updates-feel-like-breakups",
+     "title": "A study found AI updates can feel like breakups",
+     "why": "Researchers asked people about model changes and got the word loss. The break is the archive register on an object that is also a product, which is why the category is anthropomorphised-tool rather than chatbot.",
+     "href": "radar/ai-updates-feel-like-breakups.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 9 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "the-generation-you-belong-to",
+     "title": "A cohort nobody in it has met",
+     "why": "The object is an absence met by negation - a cohort held by what its members are not - rather than a figure who can be petitioned, which separates it cleanly from myth-deity.",
+     "href": "encyclopedia/the-generation-you-belong-to.html",
+     "meta": "History · 1965",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 9 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "taylor-swift-red-knows-it",
+     "title": "Taylor Swift's re-recordings are a parasocial business model",
+     "why": "Owning your back catalogue framed as a relationship with an audience rather than an artist decision. The rights holder is the institution, and the story is about the institution owning the bond.",
+     "href": "radar/taylor-swift-red-knows-it.html",
+     "meta": "Story · idol",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 9 daily cases"
+    },
+    "cosmology": {
+     "kind": "story",
+     "id": "neighbours-grief-study",
+     "title": "Researchers studied Neighbours fans and found the same grief markers as a breakup",
+     "why": "Researchers finding the same grief markers in Neighbours fans as in a breakup. The measurement the archive register rests on, and it is a study of a schedule rather than of a character.",
+     "href": "radar/neighbours-grief-study.html",
+     "meta": "Story · grief",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 9 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-local-anchor",
+     "title": "The local news anchor",
+     "why": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset. Proximity, not charisma, and the clearest case of the attachment accruing from duration.",
+     "href": "encyclopedia/the-local-anchor.html",
+     "meta": "Unscripted television · 1950",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 9 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "doxxing",
+     "title": "Doxxing the person, not the character",
+     "why": "The jump from disliking a fictional portrayal to publishing a real person's address. The word had to be invented for a grievance that used to be settled by writing a letter, which is the shift in register the entry documents.",
+     "href": "encyclopedia/doxxing.html",
+     "meta": "Technology · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 9,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 9 daily cases"
+    }
+   }
   }
  ]
 }
