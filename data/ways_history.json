@@ -1059,6 +1059,123 @@
      "track": "2 stories · 17 entries · 9 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-23",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "dolly-parton-lowest-point",
+     "title": "Fans called Dolly Parton's death the lowest point of 2026",
+     "why": "Fans calling a death the lowest point of the year, which is a category error the story is about. The object is the idol; the register is archive.",
+     "href": "radar/dolly-parton-lowest-point.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 10,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 10 daily cases"
+    },
+    "character": {
+     "kind": "story",
+     "id": "pygmalion-sculptor-illusion",
+     "title": "Pygmalion: the Greek myth that predicted this whole thing",
+     "why": "The myth that named the whole subject two thousand years early. Filed under the figure it is about rather than under the psychology, because the figure is the point.",
+     "href": "radar/pygmalion-sculptor-illusion.html",
+     "meta": "Story · companion",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 10,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 10 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "character-ai-settlement",
+     "title": "Character.AI settled the teen-safety suits",
+     "why": "Four states, under-18s off open chat. The line the industry drew in public, and it was drawn by a court rather than by the company.",
+     "href": "radar/character-ai-settlement.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 10,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 10 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "margery-kempe",
+     "title": "Margery Kempe",
+     "why": "Described an unbreakable bond with Jesus, was mocked for it, was reviled by her family, and in 1438 dictated a book that persuaded other women to do the same. She is the founding document of the site and she fits nowhere in a taxonomy built around performers, which is why DIVINE exists.",
+     "href": "encyclopedia/margery-kempe.html",
+     "meta": "Theology / Literature · 1373–1448",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 10,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 10 daily cases"
+    },
+    "institution": {
+     "kind": "story",
+     "id": "youtubetv-living-room",
+     "title": "The living room is now a comment section",
+     "why": "Creator posts and remote comments built for the TV, so the sofa is a forum. The reciprocal edge arriving on the largest screen in the house.",
+     "href": "radar/youtubetv-living-room.html",
+     "meta": "Story · brand",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 10,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 10 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "continuity",
+     "title": "Nobody answered",
+     "why": "Weekly to continuous, and the bond loses its shape. This is the negative case for the whole sub-category: the slot and the gap are load-bearing, and an always-on feed removes both.",
+     "href": "encyclopedia/continuity.html",
+     "meta": "Games · 2011",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 10,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 10 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-coach",
+     "title": "The coach",
+     "why": "An adult with authority over a child for years, remembered partly by how they made them feel at nine. The compulsory version of the same attachment as the teacher, and the entry that shows the category is about asymmetry of power rather than about proximity.",
+     "href": "encyclopedia/the-coach.html",
+     "meta": "Sport · 1900",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 10,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 10 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "fan-injury",
+     "title": "The crowd injury",
+     "why": "Fans injured or killed attempting to get closer to a performer, in volume, repeatedly, for years. Not one person harming one other: a crowd, and the attachment as the mechanism.",
+     "href": "encyclopedia/fan-injury.html",
+     "meta": "Music · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 10,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 10 daily cases"
+    }
+   }
   }
  ]
 }
