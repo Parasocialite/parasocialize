@@ -1176,6 +1176,129 @@
      "track": "2 stories · 17 entries · 10 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-24",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "liam-payne-generation",
+     "title": "A 31-year-old's death became a generation's first real loss",
+     "why": "A 31-year-old's death as a generation's first real loss, and the specific weight of losing someone you grew up with at sixteen. The idol case where the fan relationship began before the person was famous.",
+     "href": "radar/liam-payne-generation.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 11 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "lugosi-burial",
+     "title": "He did not ask to be buried as Dracula",
+     "why": "A man interred in his character's costume, where the costume's owner chose nothing at all: his son and mother decided. played-role because the entry is entirely about where a role ends and a person starts.",
+     "href": "encyclopedia/lugosi-burial.html",
+     "meta": "Film · 1956",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 11 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "replika-users-lost-them",
+     "title": "They fell in love with the chatbot. Then a policy update took it away overnight",
+     "why": "Lucy named him Jose, and then a company changed things and Jose was somebody else. The most important story in the set: the object was cared for and then switched off by people who had never met the user.",
+     "href": "radar/replika-users-lost-them.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "7 stories · 35 entries · 11 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "the-priest",
+     "title": "The priest",
+     "why": "A person who hears the specifics, performs the ritual, and knows the family history, on a repeating cycle. The officer and the divine in one role, which is why the theology entries had nowhere to go before DIVINE existed.",
+     "href": "encyclopedia/the-priest.html",
+     "meta": "Theology · 100",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 11 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "the-ultra",
+     "title": "The ultra",
+     "why": "Treats an institution as a person, buys a seat, keeps a flag, and grieves in public on a schedule. A body with officers, ritual and money - the fandom as an institution rather than a crowd.",
+     "href": "encyclopedia/the-ultra.html",
+     "meta": "Sport / History",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 11 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "death-in-family",
+     "title": "Robin died by 72 votes",
+     "why": "Filed cosmology/canon, on the shelf's test: \"Would the attachment survive losing everybody in it?\" The world here is the DC franchise, which outlasts every participant: the poll decided not a plot point but the permanent standing of a character inside a canon that predates and outlives the voters.",
+     "href": "encyclopedia/death-in-family.html",
+     "meta": "Comics · 1988",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 11 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-absent-sage",
+     "title": "The craft of the sage Adapa",
+     "why": "A sage whose teaching reaches a reader intact and whose person never does - standing without a role and without a meeting. The same gap that produced this shelf for the Greek erastes produces it again here, two centuries earlier and in writing rather than in life.",
+     "href": "encyclopedia/the-absent-sage.html",
+     "meta": "History · 660 BC",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 11,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 11 daily cases"
+    },
+    "predator": {
+     "kind": "story",
+     "id": "sasaeng-jungkook-conviction",
+     "title": "A fan was convicted of stalking Jungkook. Twenty-two visits. One hundred and thirty-three doorbell rings",
+     "why": "Twenty-two visits and a hundred and thirty-three doorbell rings, ending in a conviction. The line between the anniversary counter and this doorbell, and it is not blurry for the person on the other side of it.",
+     "href": "radar/sasaeng-jungkook-conviction.html",
+     "meta": "Story · danger",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 11,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "Late Goo Hara's Older Brother Visits Columbarium on 7th Death Anniversary; Two Young Children Say, “Aunt, We Miss You”",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUFVTT0dySko4Rmt3a01fYkZNYnFGcGMyZ2twU1Vwa1dYeTNZSFNIblFMTHlMOTY4OENtSXBWOGppM1F1QnZ3dXgyLThWNDRKOVRQMDl3b0h0SkM5SFBFdGs5TDFKTkVSb2pJS3JTOVZ5d0JwR1NVbFdxdmRJN2xqUlZEYw?oc=5",
+       "publisher": "스포츠조선"
+      }
+     ],
+     "track": "2 stories · 17 entries · 11 daily cases"
+    }
+   }
   }
  ]
 }
