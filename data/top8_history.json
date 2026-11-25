@@ -357,6 +357,21 @@
     "the-mourning-merch",
     "sunghir"
    ]
+  },
+  {
+   "date": "2026-11-25",
+   "list": "top8-2026-11-25-streaming",
+   "theme": "streaming",
+   "items": [
+    "live-commentary",
+    "twitch-500m",
+    "twitch-launch",
+    "webcasting",
+    "vtuber",
+    "twitch-subs",
+    "youtube-launch",
+    "creator-on-tv"
+   ]
   }
  ]
 }

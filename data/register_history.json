@@ -214,6 +214,10 @@
   {
    "date": "2026-11-24",
    "register": "encounter"
+  },
+  {
+   "date": "2026-11-25",
+   "register": "harm"
   }
  ]
 }
