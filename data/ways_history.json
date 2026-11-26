@@ -1422,6 +1422,129 @@
      "track": "2 stories · 17 entries · 12 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-26",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "peak-parasocial-vogue",
+     "title": "Have we hit peak parasocial? An actual magazine asked",
+     "why": "A magazine asking whether the pendulum has swung, and the answer being that there is no pendulum. A framing story about the idol category as a whole, filed on the object it is about.",
+     "href": "radar/peak-parasocial-vogue.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 13 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "marvel-club",
+     "title": "Entitled to the adulation of all lesser mortals",
+     "why": "Filed character/fictional-protagonist - \"somebody described in a book and therefore available to an unlimited number of people at once\" - which is where nancy-drew also sits, and the pairing is deliberate: one written character reached by letter for fifty-four years, one reached by club membership.",
+     "href": "encyclopedia/marvel-club.html",
+     "meta": "Comics · 1940",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 13 daily cases"
+    },
+    "companion": {
+     "kind": "story",
+     "id": "eu-kids-act-companion-chatbots",
+     "title": "The EU is about to rewrite what a companion app is allowed to do to a child",
+     "why": "Rules that would bar AI companions from building emotional attachment with minors, at 6% of global revenue. The only story in the set that is a rule rather than a report, and it is a rule about the attachment specifically.",
+     "href": "radar/eu-kids-act-companion-chatbots.html",
+     "meta": "Story · companion",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 13,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "AI chatbot companion app Talkie pulled from Apple App Store after investigation",
+       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQMk85Q1VGNUdKRVBEX0NTMzVCei1kVEpjMG1wTmxaTHc1Skk5NE92VVUzOW5rU2hUVG8tRkk5M1EyU0VXX1duS2Z5c0diN1ZMd0tfOE5sdDg0MWlKMldIOElZakpELWUyUDgwSzI5V3p2R1MwUndnRzZCRE53Yk1taXAwRkxHaW5XZ2JOV3BnbXAzdEpHT1pQOWR5QllnZjVBZlVhYlJ2SzFQOXd6NDVaLUhJSEEyT3VXV3JlcUpuTQ?oc=5",
+       "publisher": "AppleInsider"
+      }
+     ],
+     "track": "7 stories · 35 entries · 13 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "sunghir",
+     "title": "Beads, and one bull",
+     "why": "Same shelf as neanderthal-burial, deliberately, and the pair is the argument: a pit you keep coming back to is one thing, and a site where the rich burials and the plain ones sit side by side for thirty thousand years is a different claim.",
+     "href": "encyclopedia/sunghir.html",
+     "meta": "History · 34000 BC",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 13 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "the-mourning-merch",
+     "title": "Grief merchandise",
+     "why": "Apparel, prints and objects released after a death, quickly, at a profit. Grief as a product surface, and the same institution that filed grief-extraction.",
+     "href": "encyclopedia/the-mourning-merch.html",
+     "meta": "Technology · 2010",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 13 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "rocky-horror",
+     "title": "The audience became the show",
+     "why": "Filed cosmology/myth-system, on the shelf's own test: \"Is the story collective, and is it retold rather than read?",
+     "href": "encyclopedia/rocky-horror.html",
+     "meta": "Stage / Film · 1976",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 13 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "guru-disciple",
+     "title": "Think of nothing but the guru",
+     "why": "Filed officer/senior, on the shelf's test: \"Do they hold a role, or do they hold standing?\" and its second half, \"If they hold only standing, the relationship runs on age, seniority or reputation.",
+     "href": "encyclopedia/guru-disciple.html",
+     "meta": "Theology · 1650",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 13 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "stalker-law",
+     "title": "The stalker statute",
+     "why": "Anti-stalking legislation in several jurisdictions, defining unwanted repeated contact as a criminal offence. The category's boundary written into statute, and the fact that it took legislation says what the rest of the site argues.",
+     "href": "encyclopedia/stalker-law.html",
+     "meta": "History · 1990",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 13,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 13 daily cases"
+    }
+   }
   }
  ]
 }

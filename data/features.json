@@ -1892,6 +1892,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-26-childhood",
+   "title": "Top 8: The Friend Your Parents Bought",
+   "home_title": "The Friend Your Parents Bought",
+   "home_hook": "A figure built to be trusted by somebody who cannot read the terms.",
+   "dek": "The audience that cannot consent, and the industry that knows it. Ranked by how much of the relationship was engineered before the child could read.",
+   "kicker": "Daily edition · 26 NOV 2026 · Childhood",
+   "image": null,
+   "law": 6,
+   "standfirst": "Every mechanism on this site looks different when the person on the near side is six years old. The eight below are the record of what childhood fandom built: the puppet, the mascot, the club, the letter, the toy that moved the bond into the child's own hands.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "Say, kids, what time is it?",
+     "show": "Unscripted television · 1947–1960",
+     "what": "The first television character to be answered by name. Children three to eight shouted its name back at the screen every afternoon for thirteen years, and the puppet it was played by was recorded before the broadcast.",
+     "why": "The template for every children's presenter since, and the purest mechanism on this site: a figure that talks to you, built by somebody else, delivered from tape.",
+     "law": 6,
+     "entry": "howdy-doody",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "But the beaver resists",
+     "show": "Film · 2011",
+     "what": "A depressed man finds a beaver hand puppet in the trash and can speak to his family only as the beaver; the arrangement repairs the family, survives the discovery that it was built on a lie, and removing it costs him an arm.",
+     "why": "The other end of the family's bond is a puppet with no interior, and the film never pretends otherwise.",
+     "law": 6,
+     "entry": "the-beaver",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "Sixty-five percent by seven",
+     "show": "History · 1934",
+     "what": "A named, described character with an air of reality, kept going by being referred to. Two-thirds of children have one, most of them invisible, and a quarter of those are unknown to their parents.",
+     "why": "The largest single hole in this corpus until it was counted, and the purest instance of the phenomenon the site is about: a specific person who cannot answer, held in place by nothing but consistent attention.",
+     "law": 6,
+     "entry": "the-imaginary-friend",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "Won't you be my neighbor?",
+     "show": "Scripted television · 1968",
+     "what": "Fred Rogers went national on public television on 19 February 1968 and spent thirty-three years talking, slowly, into the camera at children aged two to five.",
+     "why": "The address was deliberate, slow and aimed at the youngest viewer, and the show's own research treats the screen as a face. Rogers spoke directly into the lens and, as the show's article records, made a point of behaving \"naturally on camera rather than acting out a character\": \"One of the greatest gifts you can give anybody is the gift of your honest self.",
+     "law": 6,
+     "entry": "mister-rogers",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "Will you help me?",
+     "show": "Scripted television · 1996",
+     "what": "Blue's Clues premiered in 1996 and built its method out of a pause: the host looks into the camera, asks the child a question, waits through a silence written into the script, and then behaves as though an answer arrived.",
+     "why": "The pause is the product, and the research of the period says so in its own terms.",
+     "law": 6,
+     "entry": "blues-clues",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "The Power Rangers handover",
+     "show": "Scripted television · 1993",
+     "what": "A costume is put on by a new actor and the audience transfers its entire attachment to whoever is now inside it. Running five days a week, in front of millions of children, with nobody pretending otherwise.",
+     "why": "The most complete parasocial handover ever broadcast, and the closest thing television has to a controlled experiment. The audience knew the person had changed. They transferred the feeling anyway, instantly, and enjoyed knowing they were doing it.",
+     "law": 6,
+     "entry": "power-rangers-handover",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "The confessional that became a convention",
+     "show": "Unscripted television · 1992",
+     "what": "In 1992 MTV's The Real World gave reality television its least-questioned convention: a person alone in a room, speaking to a camera about what everyone just saw.",
+     "why": "A soap opera that could not afford writers invented a confidante instead. The Real World began as MTV's attempt at a scripted show for a younger audience; without a writers' budget, the plan became gathering seven strangers in one house and editing the resulting footage.",
+     "law": 6,
+     "entry": "the-confessional-booth",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The first superhero",
+     "show": "History · 1938",
+     "what": "A character who cannot die, printed in a newspaper, read by a generation of children on the same day.",
+     "why": "The first parasocial figure with an explicit immortality guarantee, which is the trade being made: I will never get over this, and I will never have to find out. Nobody has ever been made this offer in a relationship.",
+     "law": 6,
+     "entry": "superman-comic",
+     "stage": "featured"
+    }
+   ],
+   "theme": "childhood",
+   "released": "2026-11-26",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "New York is banning AI chatbot toys for kids. Here's what the law covers.",
+     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPOGNEa1h2cVM2OTBwMWJOdGNmZ1NVOTZhMmJGTEl3WjFMYjUxd0hIZmpxZWNmTUhhZTRGMlZ5eHlVa0ZWZ0lDaGFuczFZYlRyb19ST29iVUFySkE2X0xzNDVsLVJqbTRCY2FBZVA4bDRMcWt5UnlRSGczcXEzSDNiWlYzV0NEUGo4SEs3bG9mWlJ0NlJLSFV3dmhkc09TejhRYjRodGdGOVYtZw?oc=5",
+     "publisher": "Mashable SEA",
+     "at": "2026-11-26T02:41:25+00:00"
+    },
+    {
+     "title": "Apple pulls popular Chinese AI chatbot from the App Store amid child safety concerns",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdFNIdXhUZmFoc2ZYZmU3cElFZnJLRVAtTzdsQlpCdmExWGFWNFdZOGN4QVMwMW9wT19OV0lZVWZOOW5CckRFanlBQmk2UEk4V1pUMFJETWEyOTUyUXFiVDJxeU4xcVlZbF9nN3pMZVc1eE1oc0ZYUUNJR1EzcXl5Ukt3LXVFa3VoRVpSTDh5MGRYbFp0Smk3TjRoZGxTeWlDRWNLVWx4d3Y2NzFRckVnZzRmZXZXcDQ?oc=5",
+     "publisher": "9to5Mac",
+     "at": "2026-11-26T02:12:00+00:00"
+    },
+    {
+     "title": "Amazon And eBay Face Growing Pressure To Remove AI-Powered Children’s Toys",
+     "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObnpNdVRTYVA0UmZPLW5jMVFVVzI0UkdXcEhCa3hxMHF0M0lTNzMzbWNybzY4Qm9XRVE5M2xWLTRqbkdkVW1GN3o0X0lDeUtnVlFjM0xNUk1HRDE5WWxMTHNEVnRhWnNpSjhkbzJJU0RFR0tRUGszUzlfT19CS1ZTZnhhbDhNQUNYbU9LWW1qVXFIUEpEZExHV1pTSk5VbWhOZXBJck0yWms?oc=5",
+     "publisher": "ChannelNews.com.au",
+     "at": "2026-11-26T00:55:03+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
