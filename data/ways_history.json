@@ -1545,6 +1545,129 @@
      "track": "2 stories · 17 entries · 13 daily cases"
     }
    }
+  },
+  {
+   "date": "2026-11-27",
+   "picks": {
+    "persona": {
+     "kind": "story",
+     "id": "zubeen-garg-public-grief",
+     "title": "One death in Assam became a country thinking out loud",
+     "why": "A death in Assam where the public grief is still doing work a year on. A large public mourning that outlived the news cycle, which is the archive register at its most durable.",
+     "href": "radar/zubeen-garg-public-grief.html",
+     "meta": "Story · grief",
+     "story_count": 20,
+     "entry_count": 57,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "20 stories · 57 entries · 14 daily cases"
+    },
+    "character": {
+     "kind": "entry",
+     "id": "pamela",
+     "title": "Virtue rewarded",
+     "why": "Filed character/fictional-protagonist, on the shelf's test: \"Is the figure available in more than one place at the same time, to people who have never met?\" - and the second half of that test is what settles it, \"if no author can override what the audience says they feel\".",
+     "href": "encyclopedia/pamela.html",
+     "meta": "Literature · 1740",
+     "story_count": 6,
+     "entry_count": 45,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "6 stories · 45 entries · 14 daily cases"
+    },
+    "companion": {
+     "kind": "entry",
+     "id": "ai-companion",
+     "title": "The companion that talks back",
+     "why": "Optimised for attachment, available at four in the morning, with no floor on the other party's autonomy. The three clauses are the whole case: the design targets the feeling, the availability removes the friction, and the missing floor is what makes it unlike every earlier category.",
+     "href": "encyclopedia/ai-companion.html",
+     "meta": "Artificial intelligence · 2017",
+     "story_count": 7,
+     "entry_count": 35,
+     "days_recorded": 14,
+     "wire_count": 1,
+     "wires": [
+      {
+       "title": "Talkie blocks web users in Australia and UK after Apple removes AI companion app",
+       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPWFV1RXJUQ2NvUnp2dnczTGs3OHBkb2lYbkVqQjFDRnA1a1ozV0NMTU1sdkNGNUhPS0RUMDFFSGNpQ3FDeEZuWmNXanp5TllaWmRITms0cUZOdEFNMlpJY2Y4dldjZ3VXQ2xDQV9TTjRBd2FZVWlkLVZSLXVFSUhDTmd2NWVWNUpuNndMN1FPcTF2QzZYcHM2VEp5ellSWWpVME1qUWE5VkFkR1l4ODhTd0p0WkZPT0ZqM2RPX3RqQk0?oc=5",
+       "publisher": "Business Upturn"
+      }
+     ],
+     "track": "7 stories · 35 entries · 14 daily cases"
+    },
+    "divine": {
+     "kind": "entry",
+     "id": "the-icon",
+     "title": "The icon answers nothing",
+     "why": "Filed divine/christ, on the shelf's own test: \"Is the relationship expressed by being addressed rather than by being watched, and is the other end understood to hear?\" The icon is not watched; it is venerated, kissed, carried in procession and censed.",
+     "href": "encyclopedia/the-icon.html",
+     "meta": "Visual art / Theology · 787",
+     "story_count": 0,
+     "entry_count": 15,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "0 stories · 15 entries · 14 daily cases"
+    },
+    "institution": {
+     "kind": "entry",
+     "id": "forum-culture",
+     "title": "Forum culture",
+     "why": "Persistent text spaces with per-topic cultures and norms enforced by social pressure and volume. A body that governs itself, which is why it is institutional rather than a sub-culture.",
+     "href": "encyclopedia/forum-culture.html",
+     "meta": "Technology · 1999",
+     "story_count": 10,
+     "entry_count": 49,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "10 stories · 49 entries · 14 daily cases"
+    },
+    "cosmology": {
+     "kind": "entry",
+     "id": "cliffhanger",
+     "title": "The cliffhanger",
+     "why": "End before the answer, fix the slot, leave the question open. The mechanism is the schedule, and the schedule is the thing the bond is actually made of - which is the claim continuity below then dismantles.",
+     "href": "encyclopedia/cliffhanger.html",
+     "meta": "Scripted television · 1930",
+     "story_count": 2,
+     "entry_count": 20,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 20 entries · 14 daily cases"
+    },
+    "officer": {
+     "kind": "entry",
+     "id": "the-neighbour",
+     "title": "The neighbour",
+     "why": "Someone whose kitchen light you can see, whose bin day you know, whose life you have tracked for years without ever having asked. Proximity without duty, which makes it the purest local case on the site.",
+     "href": "encyclopedia/the-neighbour.html",
+     "meta": "History · 1950",
+     "story_count": 1,
+     "entry_count": 17,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "1 stories · 17 entries · 14 daily cases"
+    },
+    "predator": {
+     "kind": "entry",
+     "id": "contest",
+     "title": "Fighting about a stranger in a reply section",
+     "why": "Fighting about a stranger in a reply section, in good faith. The object is a non-person who cannot be fought with, and the mechanism is the in-group. This is the cleanest instance of the register-as-category confusion the old taxonomy suffered from.",
+     "href": "encyclopedia/contest.html",
+     "meta": "Technology · 2005",
+     "story_count": 2,
+     "entry_count": 17,
+     "days_recorded": 14,
+     "wire_count": 0,
+     "wires": [],
+     "track": "2 stories · 17 entries · 14 daily cases"
+    }
+   }
   }
  ]
 }

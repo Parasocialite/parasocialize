@@ -2011,6 +2011,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-27-fan-mail",
+   "title": "Top 8: Somebody Wrote Back",
+   "home_title": "Somebody Wrote Back",
+   "home_hook": "A letter went out. An office answered.",
+   "dek": "Letters, sacks of mail, a correspondence department and a house pseudonym. Ranked by how much of the answer was manufactured on the near side.",
+   "kicker": "Daily edition · 27 NOV 2026 · Fan mail",
+   "image": null,
+   "law": 2,
+   "standfirst": "The letter is the oldest technology of one-sided intimacy: it travels one way, it waits, and it can be answered by an office rather than a person. The eight below run from a child's diary to a studio mailroom, and the question each one asks is the same - who was on the other end of the reply?",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "Somebody always wrote back",
+     "show": "Literature · 1930–1984",
+     "what": "Fifty-four years of letters to a fictional detective, answered by an office that had chosen not to have a face.",
+     "why": "The archive is the evidence here, not a metaphor.",
+     "law": 2,
+     "entry": "nancy-drew",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "The girl the studio built",
+     "show": "Film · 1927",
+     "what": "Paramount signed Clara Bow in 1926 and released six of her pictures in 1927, one of which - It - put a novelist's definition of 'It' onto a face and left the language with the phrase 'It Girl'.",
+     "why": "A novelist defined the quality, and the studio cast a woman to hold it.",
+     "law": 2,
+     "entry": "clara-bow",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "Most faithfully, Rin Tin Tin",
+     "show": "Film · 1922",
+     "what": "A German Shepherd found on a battlefield became one of the biggest silent-film stars, and the fan mail that arrived for him was answered with a glossy portrait signed by a paw.",
+     "why": "The credit read 'Played by himself', and the fan mail was answered by a paw.",
+     "law": 2,
+     "entry": "rin-tin-tin",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The radio church of Sister Aimee",
+     "show": "Radio / Theology · 1924",
+     "what": "Her church went on the air on 6 February 1924: KFSG - 'Kall Foursquare Gospel' - broadcasting at 500 watts from Angelus Temple, listener-supported one day at a time.",
+     "why": "A church built to be heard at a distance. Aimee Semple McPherson had preached on Los Angeles radio before owning a station, and her church's history credits her as the first woman to preach a sermon over the radio, on the Rockridge station in Oakland in April 1922.",
+     "law": 2,
+     "entry": "aimee-semple-mcpherson",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The reply that was printed",
+     "show": "Comics · 1962",
+     "what": "From 1962 Stan Lee ran fan mail in the back of The Fantastic Four and answered it in print in his own voice, so a reader could see their name answered on a page.",
+     "why": "The corpus keeps the datum that a reply used to be the exception. This is the same object with the exception removed. From the early issues of The Fantastic Four, cover-dated 1962, Stan Lee printed readers' letters and answered them on the page.",
+     "law": 2,
+     "entry": "marvel-letters-page",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "Cordially yours, Betty Crocker",
+     "show": "Literature / Radio · 1921",
+     "what": "In 1921 a flour company's advertising department needed one woman's name for the kitchen advice its all-female home-service staff was already writing.",
+     "why": "The reply existed before the name did. In late October 1921 Gold Medal Flour ran a jigsaw-puzzle advertisement in The Saturday Evening Post; Washburn-Crosby received 30,000 completed puzzles and, with them, several hundred letters of cooking questions.",
+     "law": 2,
+     "entry": "betty-crocker",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "Thousands of letters, and a handful printed",
+     "show": "Film · 1911",
+     "what": "The first movie fan magazine appeared in February 1911, because by 1910 the letters were arriving faster than the studios could absorb them.",
+     "why": "The valve is the product. Readers wrote to the magazines because a face on a screen had no other address, and the magazines gave them one that deliberately was not the studio's.",
+     "law": 2,
+     "entry": "the-fan-magazine",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "I hope the feeling is mutual",
+     "show": "Literature · 1942–1947",
+     "what": "Two years of letters to a listener who could not answer, written by a thirteen-year-old who said out loud that she hoped the feeling was mutual.",
+     "why": "The purest instance of an undemanded tie on this site, and the only place in the corpus where somebody living inside a parasocial relationship states its definition. Anne Frank wrote to Kitty - \"Dear Kitty... I like writing to you most, you know that don't you, and I hope the feeling is mutual\" - and there was no circumstance in which it could be returned.",
+     "law": 2,
+     "entry": "dear-kitty",
+     "stage": "featured"
+    }
+   ],
+   "theme": "fan-mail",
+   "released": "2026-11-27",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Lee Dong-yeon Denies Discarding Fan Letters, Unopened Envelope Found",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOUk5JUEhDTTVHNENzQ1dJcFMwZGxQRHlxSTdUdkVJdFNFZ21DdERzZTNPTEZGX0kzdWUxZy1JdFFQTmRuM3oyekRIbnp5SkFUc2J1OUxKSGtYVWJhcGpCUndfMl96aUZLMWRFRFFEVTMxUUM0S3U3WHZSdmxPSDh5T1FsaF9lTHN0UW9ka1VR?oc=5",
+     "publisher": "조선일보",
+     "at": "2026-11-27T05:05:01+00:00"
+    },
+    {
+     "title": "“You Opened the Snacks but Not the Letters”... Musical Actor Lee Dong-yeon Apologizes at Lightning Speed Over “Recycling” Fan Letters, but Fans Turn Away",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPZWZIdDJmeExpWmpQTERqdkM1NzF2VENVbnNrNTJYcDg0cUFPSUw3RTViMFFIX1I3aTZfMUR5TG5JaVZ5YWNLdjBOeE96QnExQWpIS05vMkplR2R1bGg2NVViSWdJZjRoUkQ1eWlXcTJtWWRtM2pQUnBPakZObXluS2FaTQ?oc=5",
+     "publisher": "스포츠조선",
+     "at": "2026-11-27T04:24:25+00:00"
+    },
+    {
+     "title": "Lee Dong-yeon Denies Discarding Fan Letters, Apologizes",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNZ1JiN1RNazk0NlUyYmtjbkFRUWwzSzhfQzI5QzhfS3Y0cTJkVjBPLTROdmRmNWE0OWd2LVdnMW0xaGszSWE2SndhVGR4RjMzc0wtQk9tYlRBMmZhalZpUXVnNTlLNnVSTUdsVlM0V29ocTk0QUxYVWpPclV0allfNldvd1lrOFNqN1RxZmx3?oc=5",
+     "publisher": "조선일보",
+     "at": "2026-11-27T03:22:16+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
