@@ -198,6 +198,59 @@
   {
    "date": "2026-11-20",
    "register": "archive"
+  },
+  {
+   "date": "2026-11-21",
+   "register": "bond",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-28",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-22",
+   "register": "cog",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-28",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-23",
+   "register": "contest",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-28",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-24",
+   "register": "encounter",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-28",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-25",
+   "register": "harm",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-28",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-26",
+   "register": "reciprocal-edge",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-28",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-27",
+   "register": "undemanded",
+   "reconstructed": true,
+   "reconstructed_on": "2026-11-28",
+   "inputs_sha256": "2fad4881fdfd"
+  },
+  {
+   "date": "2026-11-28",
+   "register": "archive"
   }
  ]
 }

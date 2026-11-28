@@ -249,6 +249,9 @@ def main() -> int:
 
     before = sum(len(history_days(p)) for p in HISTORIES.values())
     run("archive", ["archive.py", "--reconcile"])
+    # A missed day leaves no figure record. The fallback is deterministic, so
+    # any gap since the first record is reopened here, marked reconstructed.
+    run("fill parasocialite", ["fill_parasocialite.py"])
     after = sum(len(history_days(p)) for p in HISTORIES.values())
     closed = after - before
 

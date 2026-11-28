@@ -1,105 +1,256 @@
 {
- "_note": "STATEFUL. One record per UTC day: which parasocialite was put forward on the front page, appended by build_cards.record_parasocialite_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the rotation is recomputable from the date and the roster order, and that recomputability is exactly why the file exists: if either changes, only this sequence shows what the page actually said. A day that tools/archive.py had to close after the fact carries `reconstructed: true` with the date and input hash that made the recomputation provable, and the record pages print it as rebuilt rather than observed. Rendered under the front-page block by build_cards.parasocialite_record().",
- "days": [
-  {
-   "date": "2026-10-19",
-   "member": "nathan-fielder"
-  },
-  {
-   "date": "2026-10-20",
-   "member": "dionne-warwick"
-  },
-  {
-   "date": "2026-10-21",
-   "member": "the-beaver"
-  },
-  {
-   "date": "2026-10-22",
-   "member": "howdy-doody",
-   "reconstructed": true,
-   "reconstructed_on": "2026-10-31",
-   "inputs_sha256": "7463ce90e7b1"
-  },
-  {
-   "date": "2026-10-23",
-   "member": "queen-for-a-day",
-   "reconstructed": true,
-   "reconstructed_on": "2026-10-31",
-   "inputs_sha256": "7463ce90e7b1"
-  },
-  {
-   "date": "2026-10-24",
-   "member": "nancy-drew",
-   "reconstructed": true,
-   "reconstructed_on": "2026-10-31",
-   "inputs_sha256": "7463ce90e7b1"
-  },
-  {
-   "date": "2026-10-25",
-   "member": "the-shadow"
-  },
-  {
-   "date": "2026-10-26",
-   "member": "mickey-mouse",
-   "reconstructed": true,
-   "reconstructed_on": "2026-10-31",
-   "inputs_sha256": "7463ce90e7b1"
-  },
-  {
-   "date": "2026-10-27",
-   "member": "nathan-fielder",
-   "reconstructed": true,
-   "reconstructed_on": "2026-10-31",
-   "inputs_sha256": "7463ce90e7b1"
-  },
-  {
-   "date": "2026-10-28",
-   "member": "dionne-warwick",
-   "reconstructed": true,
-   "reconstructed_on": "2026-10-31",
-   "inputs_sha256": "7463ce90e7b1"
-  },
-  {
-   "date": "2026-10-29",
-   "member": "the-beaver",
-   "reconstructed": true,
-   "reconstructed_on": "2026-10-31",
-   "inputs_sha256": "7463ce90e7b1"
-  },
-  {
-   "date": "2026-10-30",
-   "member": "howdy-doody",
-   "reconstructed": true,
-   "reconstructed_on": "2026-10-31",
-   "inputs_sha256": "7463ce90e7b1"
-  },
-  {
-   "date": "2026-10-31",
-   "member": "babe-ruth"
-  },
-  {
-   "date": "2026-11-01",
-   "member": "hitchcock"
-  },
-  {
-   "date": "2026-11-02",
-   "member": "cervantes"
-  },
-  {
-   "date": "2026-11-03",
-   "member": "nick-drake"
-  },
-  {
-   "date": "2026-11-08",
-   "member": "rudolph-valentino"
-  },
-  {
-   "date": "2026-11-12",
-   "member": "sarah-bernhardt"
-  },
-  {
-   "date": "2026-11-20",
-   "member": "prince"
-  }
- ]
+  "_note": "STATEFUL. One record per UTC day: which parasocialite was put forward on the front page, appended by build_cards.record_parasocialite_day() and never rewritten. Do not regenerate this file and do not delete it to clean up - the rotation is recomputable from the date and the roster order, and that recomputability is exactly why the file exists: if either changes, only this sequence shows what the page actually said. A day that tools/archive.py had to close after the fact carries `reconstructed: true` with the date and input hash that made the recomputation provable, and the record pages print it as rebuilt rather than observed. Rendered under the front-page block by build_cards.parasocialite_record(). Days marked `reconstructed` had no build; the figure is what the date-seeded rule would have put forward, not an observed editorial choice.",
+  "days": [
+    {
+      "date": "2026-10-19",
+      "member": "nathan-fielder"
+    },
+    {
+      "date": "2026-10-20",
+      "member": "dionne-warwick"
+    },
+    {
+      "date": "2026-10-21",
+      "member": "the-beaver"
+    },
+    {
+      "date": "2026-10-22",
+      "member": "howdy-doody",
+      "reconstructed": true,
+      "reconstructed_on": "2026-10-31",
+      "inputs_sha256": "7463ce90e7b1"
+    },
+    {
+      "date": "2026-10-23",
+      "member": "queen-for-a-day",
+      "reconstructed": true,
+      "reconstructed_on": "2026-10-31",
+      "inputs_sha256": "7463ce90e7b1"
+    },
+    {
+      "date": "2026-10-24",
+      "member": "nancy-drew",
+      "reconstructed": true,
+      "reconstructed_on": "2026-10-31",
+      "inputs_sha256": "7463ce90e7b1"
+    },
+    {
+      "date": "2026-10-25",
+      "member": "the-shadow"
+    },
+    {
+      "date": "2026-10-26",
+      "member": "mickey-mouse",
+      "reconstructed": true,
+      "reconstructed_on": "2026-10-31",
+      "inputs_sha256": "7463ce90e7b1"
+    },
+    {
+      "date": "2026-10-27",
+      "member": "nathan-fielder",
+      "reconstructed": true,
+      "reconstructed_on": "2026-10-31",
+      "inputs_sha256": "7463ce90e7b1"
+    },
+    {
+      "date": "2026-10-28",
+      "member": "dionne-warwick",
+      "reconstructed": true,
+      "reconstructed_on": "2026-10-31",
+      "inputs_sha256": "7463ce90e7b1"
+    },
+    {
+      "date": "2026-10-29",
+      "member": "the-beaver",
+      "reconstructed": true,
+      "reconstructed_on": "2026-10-31",
+      "inputs_sha256": "7463ce90e7b1"
+    },
+    {
+      "date": "2026-10-30",
+      "member": "howdy-doody",
+      "reconstructed": true,
+      "reconstructed_on": "2026-10-31",
+      "inputs_sha256": "7463ce90e7b1"
+    },
+    {
+      "date": "2026-10-31",
+      "member": "babe-ruth"
+    },
+    {
+      "date": "2026-11-01",
+      "member": "hitchcock"
+    },
+    {
+      "date": "2026-11-02",
+      "member": "cervantes"
+    },
+    {
+      "date": "2026-11-03",
+      "member": "nick-drake"
+    },
+    {
+      "date": "2026-11-04",
+      "member": "aimee-semple-mcpherson",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-05",
+      "member": "charlie-chaplin",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-06",
+      "member": "clara-bow",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-07",
+      "member": "dickens",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-08",
+      "member": "rudolph-valentino"
+    },
+    {
+      "date": "2026-11-09",
+      "member": "elvis",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-10",
+      "member": "greta-garbo",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-11",
+      "member": "margery-kempe",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-12",
+      "member": "sarah-bernhardt"
+    },
+    {
+      "date": "2026-11-13",
+      "member": "mary-pickford",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-14",
+      "member": "florence-lawrence",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-15",
+      "member": "murrow",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-16",
+      "member": "will-rogers",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-17",
+      "member": "glenn-miller",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-18",
+      "member": "theda-bara",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-19",
+      "member": "vera-lynn",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-20",
+      "member": "prince"
+    },
+    {
+      "date": "2026-11-21",
+      "member": "rin-tin-tin",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-22",
+      "member": "betty-crocker",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-23",
+      "member": "michael-jackson",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-24",
+      "member": "kurt-cobain",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-25",
+      "member": "bela-lugosi",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-26",
+      "member": "harvey",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-27",
+      "member": "casper",
+      "reconstructed": true,
+      "reconstructed_on": "2026-11-28",
+      "inputs_sha256": "889d2c25841e2cf0467f55e34b4b27a5291c38ad043deb1450d03b24900c00e6"
+    },
+    {
+      "date": "2026-11-28",
+      "member": "pamela"
+    }
+  ]
 }
