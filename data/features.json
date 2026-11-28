@@ -2130,6 +2130,125 @@
    ],
    "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
    "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
+  },
+  {
+   "slug": "top8-2026-11-28-reality-tv",
+   "title": "Top 8: The Person You Watched Into Being",
+   "home_title": "The Person You Watched",
+   "home_hook": "They agreed to be seen. The edit did the rest.",
+   "dek": "The genre that sells a person as a story and then asks them to live in it. Ranked by how much of the self was produced for the camera.",
+   "kicker": "Daily edition · 28 NOV 2026 · Reality TV",
+   "image": null,
+   "law": 3,
+   "standfirst": "Reality television is the industrial form of the parasocial bond: cast, edit, broadcast, then let the audience decide who the person is. The eight below are the record of what happens to the people who are chosen, and what the choosing does to the ones who watch.",
+   "frame_note": "The eight are drawn from entries already in the record; each links to its own page and that page's sources. {blank} of the {total} have no photograph, so their entries carry text only. The absence is part of the record.",
+   "entries": [
+    {
+     "rank": 1,
+     "name": "The forum that scored the edit",
+     "show": "Unscripted television · 2002",
+     "what": "Edgic - editing plus logic - is the practice of grading every contestant's screen presence week by week: a category (invisible, under the radar, middle of the road, complex personality, over the top), a tone and a visibility score.",
+     "why": "The instrument was written by forum users, in season four, and it has never been official.",
+     "law": 3,
+     "entry": "edgic",
+     "stage": "featured"
+    },
+    {
+     "rank": 2,
+     "name": "A slightly more awkward version of himself",
+     "show": "Scripted television / Unscripted television · 2013",
+     "what": "A comedian who stages real situations for people who have not read the script, and performs a slightly more awkward version of himself inside them - the manufacturing is the show, and the audience has been told so from the beginning.",
+     "why": "The figure the audience attaches to is a written character performed by its author, and the show says so in its own premise. Nathan for You (2013-2017) is the show in which he \"portrays a slightly more awkward version of himself, who offers advice to struggling businesses\", built on him \"playing a persona loosely based on himself\" for local small businesses.",
+     "law": 3,
+     "entry": "nathan-fielder",
+     "stage": "featured"
+    },
+    {
+     "rank": 3,
+     "name": "A glimpse mistaken for access",
+     "show": "Unscripted television · 2026",
+     "what": "A season of a reality format and a global sporting event produce millions of viewers who then investigate the participants' personal lives. A relationship with an edited construct becomes a licence to intervene in a real life.",
+     "why": "The whole mechanism in one summer: visibility mistaken for access, and access mistaken for entitlement. What the audience actually had was an eight-week window onto a version of a person that producers cut down to a confessional and got paid for. The gap between the two is invisible from inside the eight weeks.",
+     "law": 3,
+     "entry": "parasocial-problem",
+     "stage": "featured"
+    },
+    {
+     "rank": 4,
+     "name": "The figure you buy",
+     "show": "Literature / Unscripted television · 1971",
+     "what": "A fictional figure whose NAME is the product: the bond is with a person who was invented so that the relationship can never fail.",
+     "why": "The inverse of the-brand-as-character, and the sharper version of it. There the company came first and was given a personality; here the personality came first and the company took the name.",
+     "law": 3,
+     "entry": "the-figure-you-buy",
+     "stage": "featured"
+    },
+    {
+     "rank": 5,
+     "name": "The local news anchor",
+     "show": "Unscripted television · 1950",
+     "what": "One person on your own television, in your own town, for twenty years, who is leaving and everybody is upset.",
+     "why": "Rubin's longitudinal work is on exactly this bond. When a local anchor retires the grief is measurable and there is no word for it, because a parasocial relationship with a local figure is assumed to be about the news rather than about the person.",
+     "law": 3,
+     "entry": "the-local-anchor",
+     "stage": "featured"
+    },
+    {
+     "rank": 6,
+     "name": "Am I not here, I who am your mother?",
+     "show": "Visual art / Theology · 1531",
+     "what": "Four apparitions to a Chichimec farmer and one to his uncle, a single Nahuatl sentence that gave the devotion its title, and a cloth image the Catholic world has organised itself around ever since.",
+     "why": "The entire relationship is address, and the founding story is one reply. According to the Nican Mopohua, written in Nahuatl, the Virgin appeared four times to Juan Diego, a Chichimec peasant, and once to his uncle Juan Bernardino, beginning on the morning of 9 December 1531.",
+     "law": 3,
+     "entry": "our-lady-of-guadalupe",
+     "stage": "featured"
+    },
+    {
+     "rank": 7,
+     "name": "The talent agency that is not an agency",
+     "show": "Unscripted television · 2022",
+     "what": "A high-profile streaming collective, featuring several women who had left other setups, collapses publicly and in litigation.",
+     "why": "The most significant parasocial litigation of the streaming era, and it turned on precisely this site's question: who holds the relationship, and what are the terms. The answer turned out to be documented and not what the audience assumed.",
+     "law": 3,
+     "entry": "vshojo",
+     "stage": "featured"
+    },
+    {
+     "rank": 8,
+     "name": "The Bieber effect",
+     "show": "Unscripted television · 2009",
+     "what": "A performer with no media infrastructure becomes a global star through a video-sharing platform alone.",
+     "why": "The first and clearest demonstration that a parasocial bond could be formed and monetised with no gatekeeper whatsoever. The platform was fourteen years old and the attachment was five.",
+     "law": 3,
+     "entry": "bieber-effect",
+     "stage": "featured"
+    }
+   ],
+   "theme": "reality-tv",
+   "released": "2026-11-28",
+   "generated_by": "tools/editor.py",
+   "news": [
+    {
+     "title": "Bills fans react to abridged Goo Goo Dolls halftime show",
+     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPSVdQWTdwNHNPa0hBemRTTHdEMTd3bDcyQlNIT1Z0dFQ4dmlQcC1vSVBQdW9DNV9uR2w0VjJGa3Y3VHBZb0NwQWdGZm9xRGpjRTQwcFZ6c0lGeTQ2aWZwTENGSzRmWEc5UkVrUk5pZU5ZLTlHSWM0cHdJblpaSVVrNnF3bzBSTUYybXc?oc=5",
+     "publisher": "Yahoo Sports",
+     "at": "2026-11-27T23:10:37+00:00"
+    },
+    {
+     "title": "Steelers Fans Show Up To Black Friday Game vs. Broncos With Absolutely Savage Signs Mocking Mike McCarthy [VIDEO]",
+     "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNZ0MzSG5nSHA5SE9NYnZYS2YwalhTcjJNU2VYYXN5a0VaYVNZSzRIcE5mcUhtOHRqdFFRVnBqS0VULW1IUjhqMEdTelcyalJGb21feUNiaUlHZ3FpaV9uT2IxaUI5Snh2ajd1MmxkN1A5YkRQLVQ1ckdJVW9LdTVaM25Qd1hzT3N5WG55VENjYWktRklVUG5CbUktTnhlZGNXbGRYWTd4clhQYTA3LWZ3NzgyVkdBR1h6dEVEclM4MGhWZlNvdUxCU0NQVTFlUEtCUThNdUlLZGZzLU5ZVElGVzA1VDcwa3Y4ZVRtZDdkU05JMXNiSHN6ME9tZEhTREtudTFxcVRERGM?oc=5",
+     "publisher": "NewsBreak: Local News & Alerts",
+     "at": "2026-11-27T22:02:30+00:00"
+    },
+    {
+     "title": "I'm A Celebrity fans wonder if another show tradition will be missing after emotional phone calls from home",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNZ3paLU1rZVh5OTFCaFBzaU10UFNRU2hoLWppeDNtbDJvTklURHh6ZEFkVUNOYVhjRktINzY5TXJzUnZrNmpsTnY5bk51a0x2OEo0UE9CZU5YU1VmQS03azFuMGUyamRIUUJPN0JfdTJGQUxYVFpHcmVsS3dxd2JUUi01anE4X0ZXZGg4WHprXzBQeW_SAZgBQVVfeXFMTXlkRlJ0ZnMwM2hoWnFweDZBZUFmM2ZPRkNSSkpsX2FveV8yR3RCLXljaVhPWXJxNU9zby1nMVlmRHd0NXlvMVJnal9ndnZkSVpzTXQzcF9yQTZyUmszNlZHbzJZR1Z3OV93MzJCZnB6dGprblQ2Q0h3VXM0MWx0RHVBeTNleWt0QVU1LWtTc1ZkcVVBdVFCNVY?oc=5",
+     "publisher": "Manchester Evening News",
+     "at": "2026-11-27T21:38:00+00:00"
+    }
+   ],
+   "stage_doc": "A list is released whole, one per UTC day. The list dated today is the show; every earlier list is archived at /top8/archive/ and is never shown again.",
+   "pool_note": "Generated from the encyclopedia by tools/editor.py. The eight are ranked by relevance to the theme and the day, then by a stable tie-break; the numeral on the page is the position in this list."
   }
  ],
  "figures": [
