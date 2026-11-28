@@ -31,8 +31,11 @@ on:
     # failure is retried inside the same day. Two separate expressions rather
     # than "0,12": the 1 November 00:17 slot produced no scheduled run, and
     # splitting the entry removes the comma-list as a suspect.
-    - cron: "17 0 * * *"
-    - cron: "17 12 * * *"
+    # Eight chances a day, not two. The build is idempotent for a date - a
+    # second run the same day rewrites the same pages - so the only cost of
+    # frequency is runner minutes, and the only benefit is that a dropped
+    # slot stops being a dropped day.
+    - cron: "17 */3 * * *"
   workflow_dispatch:
 
 permissions:

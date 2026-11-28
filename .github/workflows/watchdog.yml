@@ -1,0 +1,56 @@
+name: watchdog
+
+# THE SCHEDULE IS NOT A GUARANTEE
+# GitHub drops or delays scheduled runs under load, and a dropped 00:17 is a
+# day with no build. On 2026-11-04..19 that produced a fortnight of missing
+# records while every check in the repository was green, because nothing asked
+# whether the repository had moved recently.
+#
+# This job asks exactly that, on a different schedule from the builder. If the
+# last commit to main is older than 30 hours, it dispatches `daily`. It does not
+# build anything itself - one builder, one shape - it only makes sure the
+# builder runs.
+#
+# The 30-hour threshold is deliberate: the daily cron fires every three hours,
+# so a healthy repository commits far more often than that. Thirty hours means
+# two whole edition days could have passed without a commit, which is a real
+# outage rather than a slow runner.
+
+on:
+  schedule:
+    - cron: "43 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: watchdog
+  cancel-in-progress: false
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Has main moved in the last 30 hours?
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          last=$(git log -1 --format=%ct)
+          now=$(date -u +%s)
+          age=$(( (now - last) / 3600 ))
+          echo "last commit to main: $(date -u -d @"$last" +%FT%TZ) (${age}h ago)"
+          if [ "$age" -lt 30 ]; then
+            echo "fresh enough; nothing to do"
+            exit 0
+          fi
+          echo "::warning::main has not moved in ${age}h; dispatching the daily build"
+          gh workflow run "daily" --ref main
+          echo "dispatched"
